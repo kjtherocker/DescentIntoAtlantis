@@ -41,10 +41,28 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\DesentIntoAtlantisGameModeBase.h">
       <Filter>Source\DesentIntoAtlantis</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\ECardinalDirections.cpp">
+      <Filter>Source\DesentIntoAtlantis</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\ECardinalDirections.h">
+      <Filter>Source\DesentIntoAtlantis</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\FloorBase.cpp">
       <Filter>Source\DesentIntoAtlantis</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\FloorBase.h">
+      <Filter>Source\DesentIntoAtlantis</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\FloorManager.cpp">
+      <Filter>Source\DesentIntoAtlantis</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\FloorManager.h">
+      <Filter>Source\DesentIntoAtlantis</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\FloorNode.cpp">
+      <Filter>Source\DesentIntoAtlantis</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\FloorNode.h">
       <Filter>Source\DesentIntoAtlantis</Filter>
     </ClInclude>
   </ItemGroup>

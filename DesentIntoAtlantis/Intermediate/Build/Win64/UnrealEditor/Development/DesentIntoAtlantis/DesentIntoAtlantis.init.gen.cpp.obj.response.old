@@ -1,12 +1,12 @@
 C:\Users\kylej\Documents\PortfolioSSd\DescentIntoAtlantis\DesentIntoAtlantis\Intermediate\Build\Win64\UnrealEditor\Inc\DesentIntoAtlantis\DesentIntoAtlantis.init.gen.cpp
 /I .
-/I C:\Users\kylej\Documents\PortfolioSSd\DescentIntoAtlantis\DesentIntoAtlantis\Intermediate\Build\Win64\UnrealEditor\Inc\DesentIntoAtlantis
-/I C:\Users\kylej\Documents\PortfolioSSd\DescentIntoAtlantis\DesentIntoAtlantis\Source
+/I ..\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject
 /I Runtime
+/I Runtime\CoreUObject\Public
 /I Runtime\TraceLog\Public
 /I Runtime\Core\Public
-/I ..\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject
-/I Runtime\CoreUObject\Public
+/I C:\Users\kylej\Documents\PortfolioSSd\DescentIntoAtlantis\DesentIntoAtlantis\Intermediate\Build\Win64\UnrealEditor\Inc\DesentIntoAtlantis
+/I C:\Users\kylej\Documents\PortfolioSSd\DescentIntoAtlantis\DesentIntoAtlantis\Source
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\Engine
 /I ..\Shaders\Shared
 /I Runtime\Engine\Classes
