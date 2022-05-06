@@ -99,6 +99,11 @@ void AFloorNode::SetWalkableDirections(short aWalkabledirections)
 
 void AFloorNode::SetLevelNode(TArray<ECardinalNodeDirections> aWalkableDirections)
 {
+	if(nodeWalls.Num() <= 0)
+	{
+		return;
+	}
+	
 	for(int i = 1 ; i < nodeWalls.Num();i++)
 	{
 		nodeWalls[i]->SetVisibility(true);
@@ -120,6 +125,11 @@ void AFloorNode::SetPositionInGrid(FVector2D aPosition)
 
 bool AFloorNode::IsDirectionWalkable(ECardinalNodeDirections aDirection)
 {
+	if(walkableDirections.Num() == 0)
+	{
+		return false;
+	}
+	
 	for (int i = 0; i < walkableDirections.Num(); i++)
 	{
 		if (walkableDirections[i] == aDirection)
@@ -136,10 +146,5 @@ void AFloorNode::BeginPlay()
 {
 	Super::BeginPlay();
 
-
 	GetComponents<UStaticMeshComponent>(nodeWalls);
-	//NodeWalls[4]->SetVisibility(false);
-
-	SetWalkableDirections(0);
-	
 }

@@ -3,6 +3,8 @@
 
 #include "FloorManager.h"
 
+#include "EFloorIdentifier.h"
+
 
 // Sets default values
 AFloorManager::AFloorManager()
@@ -20,7 +22,7 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 	{
 		for (int y = 0; y < tempfloor->GridDimensionY; y++)
 		{
-			int LevelIndex = m_Floors[0]->GetIndex(x, y);
+			int LevelIndex = aFloor->GetIndex(x, y);
 			//If there is no node then continue
 			if (tempfloor->FloorBlueprint[LevelIndex] == (short)ECardinalNodeDirections::Empty)
 			{
@@ -28,8 +30,7 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 			}
 
 			SpawnFloorNode(x , y,LevelIndex );
-        //        
-			m_FloorNodes[LevelIndex]->SetWalkableDirections(m_Floors[0]->FloorBlueprint[LevelIndex]);
+			m_FloorNodes[LevelIndex]->SetWalkableDirections(aFloor->FloorBlueprint[LevelIndex]);
 		}
 	}
 	
@@ -39,9 +40,7 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 
 void AFloorManager::SpawnFloorNode(int aRow, int aColumn, int aIndex)
 {
-
-
-	//Setting new Poisiton
+	//Setting new Positon
 	FVector PositionOffset;
 	PositionOffset.Set(200 * aRow, 200 * aColumn, 0);
 	FVector ActorFinalSpawnPoint = GetActorLocation() + PositionOffset ;
@@ -52,22 +51,15 @@ void AFloorManager::SpawnFloorNode(int aRow, int aColumn, int aIndex)
 	//Rotation
 	FRotator rotator = GetActorRotation();
 	
-
 	//Spawn
-
 	AFloorNode* floorNode;
 
 
 	floorNode = Cast<AFloorNode>(GetWorld()->SpawnActor<AActor>(FloorNodeReference, ActorFinalSpawnPoint, rotator));
-//	floorNode->Rename( *FString(aRow + " " + aColumn));
+	//floorNode->Rename( *FString(aRow + " " + aColumn));
 	floorNode->SetPositionInGrid(PositionInGrid);
 
 	m_FloorNodes[aIndex] = floorNode;
-	
-
-
-	
-	
 }
 
 AFloorNode* AFloorManager::GetNode(FVector2D CurrentPosition, ECardinalNodeDirections TargetDirection)
@@ -75,7 +67,7 @@ AFloorNode* AFloorManager::GetNode(FVector2D CurrentPosition, ECardinalNodeDirec
 	FVector2D FinalPosition =  FVector2D(CurrentPosition.X + m_CardinalPositions[TargetDirection].X,
         CurrentPosition.Y + m_CardinalPositions[TargetDirection].Y );
     
-	int FinalIndex = m_Floors[0]->GetIndex( FinalPosition.X,FinalPosition.Y) ;
+	int FinalIndex = currentFloor->GetIndex( FinalPosition.X,FinalPosition.Y) ;
     
     
 	return m_FloorNodes[FinalIndex] ;
@@ -95,24 +87,35 @@ void AFloorManager::BeginPlay()
 //	//	Testo->Set
 //	}
 
-
-	
 	m_CardinalPositions.Add(ECardinalNodeDirections::Up,    FVector2D(-1,0));
 	m_CardinalPositions.Add(ECardinalNodeDirections::Down,  FVector2D(1,0));
 	m_CardinalPositions.Add(ECardinalNodeDirections::Left,  FVector2D(0,-1));
 	m_CardinalPositions.Add(ECardinalNodeDirections::Right, FVector2D(0,1));
 	
+	floorDictionary.Add(EFloorIdentifier::Floor1,NewObject<UFloorBase>());
 
-	m_Floors.Add(NewObject<UFloorBase>());
-	m_Floors[0]->Initialize();
-
-	//Spawning a list of floorNodes
-	AFloorNode* Object = nullptr;
-	int AmountOfFloorNodes = m_Floors[0]->GridDimensionX * m_Floors[0]->GridDimensionY;
-	m_FloorNodes.Init(Object,AmountOfFloorNodes);
-	
-	CreateGrid(m_Floors[0]);
+	if(floorDictionary[EFloorIdentifier::Floor1] != nullptr)
+	{
+		SpawnFloor(floorDictionary[EFloorIdentifier::Floor1]);
+	}
 }
+
+void AFloorManager::SpawnFloor(UFloorBase* aFloorBase)
+{
+	if(aFloorBase == nullptr)
+	{
+		return;
+	}
+
+	aFloorBase->Initialize();
+	
+	AFloorNode* Object = nullptr;
+	int AmountOfFloorNodes = aFloorBase->GridDimensionX * aFloorBase->GridDimensionY;
+	m_FloorNodes.Init(Object,AmountOfFloorNodes);
+	currentFloor = aFloorBase;
+	CreateGrid(aFloorBase);
+}
+
 
 void AFloorManager::Tick(float DeltaTime)
 {

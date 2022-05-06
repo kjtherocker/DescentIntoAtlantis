@@ -2,7 +2,10 @@
 
 #pragma once
 
+#include <map>
+
 #include "CoreMinimal.h"
+#include "EFloorIdentifier.h"
 #include "GameFramework/Actor.h"
 #include "FloorNode.h"
 #include "FloorBase.h"
@@ -23,20 +26,22 @@ public:
 	AFloorNode* GetNode(FVector2D CurrentPosition,ECardinalNodeDirections TargetDirection);
 	TMap<ECardinalNodeDirections, FVector2D>  m_CardinalPositions;
 	
-	UPROPERTY()
-	TArray<UFloorBase*> m_Floors;
+
 	//UPROPERTY()
 	TArray<AFloorNode*> m_FloorNodes;
 	
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> FloorNodeReference;
 
-	
+	void SpawnFloor(UFloorBase* aFloorBase);
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
+	
+	UPROPERTY()
+	TMap<EFloorIdentifier,UFloorBase*> floorDictionary;
+	UFloorBase* currentFloor;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

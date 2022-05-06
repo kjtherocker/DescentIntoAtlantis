@@ -65,5 +65,17 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\FloorNode.h">
       <Filter>Source\DesentIntoAtlantis</Filter>
     </ClInclude>
+    <Filter Include="Source\DesentIntoAtlantis\Private">
+      <UniqueIdentifier>{EF2FFC69-ACAD-31C2-842F-60D6C3A47B59}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EFloorIdentifier.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\DesentIntoAtlantis\Public">
+      <UniqueIdentifier>{6C922A17-8511-3C11-8EE0-FE2BD835944D}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EFloorIdentifier.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
