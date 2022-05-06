@@ -111,9 +111,9 @@ void AFloorNode::SetLevelNode(TArray<ECardinalNodeDirections> aWalkableDirection
 	
 	walkableDirections = aWalkableDirections;
 
-	for (ECardinalNodeDirections node : walkableDirections)
+	for (ECardinalNodeDirections directions : walkableDirections)
 	{
-		nodeWalls[(int)node]->SetVisibility(false);
+		nodeWalls[(int)directions]->SetVisibility(false);
 	}
 
 }
