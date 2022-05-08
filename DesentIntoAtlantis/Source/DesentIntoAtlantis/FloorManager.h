@@ -9,6 +9,7 @@
 #include "GameFramework/Actor.h"
 #include "FloorNode.h"
 #include "FloorBase.h"
+#include "FloorPawn.h"
 #include "FloorManager.generated.h"
 
 
@@ -23,17 +24,16 @@ public:
 	void CreateGrid(UFloorBase* aFloor);
 	void SpawnFloorNode(int aRow, int aColumn,int aIndex);
 
+	void SpawnFloor(UFloorBase* aFloorBase);
 	AFloorNode* GetNode(FVector2D CurrentPosition,ECardinalNodeDirections TargetDirection);
-	TMap<ECardinalNodeDirections, FVector2D>  m_CardinalPositions;
-	
 
 	//UPROPERTY()
-	TArray<AFloorNode*> m_FloorNodes;
+	TArray<AFloorNode*> floorNodes;
 	
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> FloorNodeReference;
-
-	void SpawnFloor(UFloorBase* aFloorBase);
+	UPROPERTY(EditAnywhere)
+    TSubclassOf<AActor> FloorPawnReference;
 
 protected:
 	// Called when the game starts or when spawned
@@ -42,6 +42,12 @@ protected:
 	UPROPERTY()
 	TMap<EFloorIdentifier,UFloorBase*> floorDictionary;
 	UFloorBase* currentFloor;
+	TMap<ECardinalNodeDirections, FVector2D>  m_CardinalPositions;
+	
+private:
+	void SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes);
+
+	
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

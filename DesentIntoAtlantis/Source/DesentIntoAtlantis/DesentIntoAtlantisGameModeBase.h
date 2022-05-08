@@ -13,5 +13,5 @@ UCLASS()
 class DESENTINTOATLANTIS_API ADesentIntoAtlantisGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-	
+	ADesentIntoAtlantisGameModeBase();
 };

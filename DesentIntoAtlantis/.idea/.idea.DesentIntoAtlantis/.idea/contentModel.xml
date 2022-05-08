@@ -58187,6 +58187,9 @@
         <e p="DefaultEditor.ini" t="Include" />
         <e p="DefaultEngine.ini" t="Include" />
         <e p="DefaultGame.ini" t="Include" />
+        <e p="HoloLens" t="Include">
+          <e p="HoloLensEngine.ini" t="Include" />
+        </e>
       </e>
       <e p="DesentIntoAtlantis.sln" t="IncludeFlat" />
       <e p="DesentIntoAtlantis.uproject" t="Include" />
@@ -58207,6 +58210,8 @@
           <e p="DesentIntoAtlantisGameModeBase.h" t="Include" />
           <e p="ECardinalDirections.cpp" t="Include" />
           <e p="ECardinalDirections.h" t="Include" />
+          <e p="EFloorIdentifier.cpp" t="Include" />
+          <e p="EFloorIdentifier.h" t="Include" />
           <e p="FloorBase.cpp" t="Include" />
           <e p="FloorBase.h" t="Include" />
           <e p="FloorManager.cpp" t="Include" />
@@ -58214,10 +58219,12 @@
           <e p="FloorNode.cpp" t="Include" />
           <e p="FloorNode.h" t="Include" />
           <e p="Private" t="Include">
-            <e p="EFloorIdentifier.cpp" t="Include" />
+            <e p="FloorPawn.cpp" t="Include" />
+            <e p="FloorPlayerController.cpp" t="Include" />
           </e>
           <e p="Public" t="Include">
-            <e p="EFloorIdentifier.h" t="Include" />
+            <e p="FloorPawn.h" t="Include" />
+            <e p="FloorPlayerController.h" t="Include" />
           </e>
         </e>
         <e p="DesentIntoAtlantis.Target.cs" t="Include" />

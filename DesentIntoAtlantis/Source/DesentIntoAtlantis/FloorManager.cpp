@@ -4,6 +4,7 @@
 #include "FloorManager.h"
 
 #include "EFloorIdentifier.h"
+#include "FloorPlayerController.h"
 
 
 // Sets default values
@@ -30,7 +31,7 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 			}
 
 			SpawnFloorNode(x , y,LevelIndex );
-			m_FloorNodes[LevelIndex]->SetWalkableDirections(aFloor->FloorBlueprint[LevelIndex]);
+			floorNodes[LevelIndex]->SetWalkableDirections(aFloor->FloorBlueprint[LevelIndex]);
 		}
 	}
 	
@@ -59,7 +60,7 @@ void AFloorManager::SpawnFloorNode(int aRow, int aColumn, int aIndex)
 	//floorNode->Rename( *FString(aRow + " " + aColumn));
 	floorNode->SetPositionInGrid(PositionInGrid);
 
-	m_FloorNodes[aIndex] = floorNode;
+	floorNodes[aIndex] = floorNode;
 }
 
 AFloorNode* AFloorManager::GetNode(FVector2D CurrentPosition, ECardinalNodeDirections TargetDirection)
@@ -70,7 +71,7 @@ AFloorNode* AFloorManager::GetNode(FVector2D CurrentPosition, ECardinalNodeDirec
 	int FinalIndex = currentFloor->GetIndex( FinalPosition.X,FinalPosition.Y) ;
     
     
-	return m_FloorNodes[FinalIndex] ;
+	return floorNodes[FinalIndex] ;
 	
 }
 
@@ -78,14 +79,6 @@ AFloorNode* AFloorManager::GetNode(FVector2D CurrentPosition, ECardinalNodeDirec
 void AFloorManager::BeginPlay()
 {
 	Super::BeginPlay();
-
-//	APlayerControllerPawn * Testo;
-//	Testo = Cast<APlayerControllerPawn>(GetWorld()->GetFirstPlayerController());
-
-//	if(Testo != nullptr)
-//	{
-//	//	Testo->Set
-//	}
 
 	m_CardinalPositions.Add(ECardinalNodeDirections::Up,    FVector2D(-1,0));
 	m_CardinalPositions.Add(ECardinalNodeDirections::Down,  FVector2D(1,0));
@@ -98,6 +91,28 @@ void AFloorManager::BeginPlay()
 	{
 		SpawnFloor(floorDictionary[EFloorIdentifier::Floor1]);
 	}
+
+	AFloorPlayerController * Testo;
+	Testo = Cast<AFloorPlayerController>(GetWorld()->GetFirstPlayerController());
+
+	if(Testo != nullptr)
+	{
+		//Setting new Positon
+		FVector PositionOffset;
+		FVector ActorFinalSpawnPoint = floorNodes[1]->GetActorLocation();
+
+		//Rotation
+		FRotator rotator = GetActorRotation();
+	
+		//Spawn
+		AFloorPawn* floorNode;
+
+		floorNode = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(FloorPawnReference, ActorFinalSpawnPoint, rotator));
+		floorNode->SpawnFloorPawn(floorNodes[1]);
+
+		Testo->SetPawn(floorNode);
+	}
+
 }
 
 void AFloorManager::SpawnFloor(UFloorBase* aFloorBase)
@@ -108,14 +123,47 @@ void AFloorManager::SpawnFloor(UFloorBase* aFloorBase)
 	}
 
 	aFloorBase->Initialize();
-	
+
 	AFloorNode* Object = nullptr;
 	int AmountOfFloorNodes = aFloorBase->GridDimensionX * aFloorBase->GridDimensionY;
-	m_FloorNodes.Init(Object,AmountOfFloorNodes);
+
+	floorNodes.Init(Object,AmountOfFloorNodes);
 	currentFloor = aFloorBase;
+
 	CreateGrid(aFloorBase);
+	SetFloorNodeNeightbors(floorNodes);
 }
 
+
+void AFloorManager::SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes)
+{
+	if(aFloorNodes.Num() == 0)
+	{
+		return;
+	}
+
+	for(int i = 0 ; i < aFloorNodes.Num();i++)
+	{
+		AFloorNode* mainNode = aFloorNodes[i];
+
+		// In situations where the node was removed at creation
+		if(mainNode != nullptr)
+		{
+			TArray<ECardinalNodeDirections> walkableDirections = mainNode->walkableDirections;
+		
+			for (ECardinalNodeDirections direction : walkableDirections)
+			{
+				AFloorNode* neightborNode = GetNode(mainNode->positionInGrid, direction);
+
+				//In situations where the neightbor in that direction doesnt exist
+				if(neightborNode != nullptr)
+				{
+					mainNode->nodeNeighbors.Add(direction,neightborNode);
+				}
+			}
+		}
+	}
+}
 
 void AFloorManager::Tick(float DeltaTime)
 {

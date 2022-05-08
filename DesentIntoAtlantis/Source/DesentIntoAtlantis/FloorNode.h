@@ -27,6 +27,9 @@ protected:
 
 //	WalkOntopTriggerTypes m_WalkOnTopTriggerTypes;
 	TArray<ECardinalNodeDirections> walkableDirections;
+
+	UPROPERTY()
+	TMap<ECardinalNodeDirections,AFloorNode*> nodeNeighbors;
 	FVector2D positionInGrid;
 	
 	//UPROPERTY(EditAnywhere)
