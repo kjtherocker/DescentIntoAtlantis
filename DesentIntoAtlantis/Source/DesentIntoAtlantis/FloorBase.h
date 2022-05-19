@@ -18,7 +18,7 @@ public:
        short GridDimensionX = 10;
        short GridDimensionY = 10;
        TArray<short> FloorBlueprint;
-       bool FloorRevealed[20];
+    //   bool FloorRevealed[20];
    
        float EnemySpawnRate;
    

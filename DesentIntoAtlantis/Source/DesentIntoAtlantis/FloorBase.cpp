@@ -11,10 +11,10 @@ void UFloorBase::Initialize()
 
  //   FloorRevealed[GridDimensionX * GridDimensionY];
 
-    for (int i = GridDimensionX * GridDimensionY - 1; i >= 0; i--)
-    {
-        FloorRevealed[i] = false;
-    }
+  //  for (int i = GridDimensionX * GridDimensionY - 1; i >= 0; i--)
+  //  {
+  //      FloorRevealed[i] = false;
+  //  }
     
   // short tableinit[] =
   // {
