@@ -42,7 +42,7 @@ protected:
 	UPROPERTY()
 	TMap<EFloorIdentifier,UFloorBase*> floorDictionary;
 	UFloorBase* currentFloor;
-	TMap<ECardinalNodeDirections, FVector2D>  m_CardinalPositions;
+	TMap<ECardinalNodeDirections, FVector2D>  cardinalPositions;
 	
 private:
 	void SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes);

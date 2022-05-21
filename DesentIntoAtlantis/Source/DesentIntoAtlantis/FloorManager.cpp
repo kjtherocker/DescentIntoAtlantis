@@ -65,8 +65,8 @@ void AFloorManager::SpawnFloorNode(int aRow, int aColumn, int aIndex)
 
 AFloorNode* AFloorManager::GetNode(FVector2D CurrentPosition, ECardinalNodeDirections TargetDirection)
 {
-	FVector2D FinalPosition =  FVector2D(CurrentPosition.X + m_CardinalPositions[TargetDirection].X,
-        CurrentPosition.Y + m_CardinalPositions[TargetDirection].Y );
+	FVector2D FinalPosition =  FVector2D(CurrentPosition.X + cardinalPositions[TargetDirection].X,
+        CurrentPosition.Y + cardinalPositions[TargetDirection].Y );
     
 	int FinalIndex = currentFloor->GetIndex( FinalPosition.X,FinalPosition.Y) ;
     
@@ -80,10 +80,10 @@ void AFloorManager::BeginPlay()
 {
 	Super::BeginPlay();
 
-	m_CardinalPositions.Add(ECardinalNodeDirections::Up,    FVector2D(-1,0));
-	m_CardinalPositions.Add(ECardinalNodeDirections::Down,  FVector2D(1,0));
-	m_CardinalPositions.Add(ECardinalNodeDirections::Left,  FVector2D(0,-1));
-	m_CardinalPositions.Add(ECardinalNodeDirections::Right, FVector2D(0,1));
+	cardinalPositions.Add(ECardinalNodeDirections::Up,    FVector2D(-1,0));
+	cardinalPositions.Add(ECardinalNodeDirections::Down,  FVector2D(1,0));
+	cardinalPositions.Add(ECardinalNodeDirections::Left,  FVector2D(0,-1));
+	cardinalPositions.Add(ECardinalNodeDirections::Right, FVector2D(0,1));
 	
 	floorDictionary.Add(EFloorIdentifier::Floor1,NewObject<UFloorBase>());
 
@@ -92,25 +92,26 @@ void AFloorManager::BeginPlay()
 		SpawnFloor(floorDictionary[EFloorIdentifier::Floor1]);
 	}
 
-	AFloorPlayerController * Testo;
-	Testo = Cast<AFloorPlayerController>(GetWorld()->GetFirstPlayerController());
+	AFloorPlayerController * playerController;
+	playerController = Cast<AFloorPlayerController>(GetWorld()->GetFirstPlayerController());
 
-	if(Testo != nullptr)
+	if(playerController != nullptr)
 	{
 		//Setting new Positon
-		FVector PositionOffset;
-		FVector ActorFinalSpawnPoint = floorNodes[1]->GetActorLocation();
+		FVector PositionOffset = FVector(0,0,300);
+		FVector ActorFinalSpawnPoint = floorNodes[1]->GetActorLocation() + PositionOffset;
 
 		//Rotation
 		FRotator rotator = GetActorRotation();
 	
 		//Spawn
-		AFloorPawn* floorNode;
+		AFloorPawn* floorPawn;
 
-		floorNode = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(FloorPawnReference, ActorFinalSpawnPoint, rotator));
-		floorNode->SpawnFloorPawn(floorNodes[1]);
-
-		Testo->SetPawn(floorNode);
+		floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(FloorPawnReference, ActorFinalSpawnPoint, rotator));
+		floorPawn->SpawnFloorPawn(floorNodes[1]);
+		floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
+		
+		playerController->SetPawn(floorPawn);
 	}
 
 }
