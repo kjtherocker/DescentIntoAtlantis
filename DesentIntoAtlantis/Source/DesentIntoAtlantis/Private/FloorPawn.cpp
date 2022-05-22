@@ -31,11 +31,11 @@ FRotator(0,0,0));
 	
 	AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections::Down ,
     FVector2D(1,0), 
-    FRotator(0,160,0));
+    FRotator(0,180,0));
 	
 	AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections::Left ,
     FVector2D(-1,0), 
-    FRotator(0,250,0));
+    FRotator(0,270,0));
 }
 
 // Called every frame
@@ -43,15 +43,8 @@ void AFloorPawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if(FMath::Abs(GetActorRotation().Euler().Z - newRotation) > 10.0f)
-	{
-		double currentRotation = GetActorRotation().Euler().Z + 40.0f * DeltaTime;
-		SetActorRotation(FRotator(0,currentRotation,0));
-	}
-	else
-	{
-		SetActorRotation(FRotator(0,newRotation,0));
-	}
+	//Handling Rotations
+	RotatePawn(DeltaTime);
 }
 
 // Called to bind functionality to input
@@ -60,35 +53,81 @@ void AFloorPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 	//InputComponent->BindAxis("LeftRight", this, &AFloorPawn::RotatePawn);
-	InputComponent->BindAction("Left",IE_Pressed ,this, &AFloorPawn::RightMovement);
+	InputComponent->BindAction("Left",IE_Pressed ,this,  &AFloorPawn::LeftRotation);
+	InputComponent->BindAction("Right",IE_Pressed ,this, &AFloorPawn::RightRotation);
 
 }
 
-void AFloorPawn::RightMovement()
+void AFloorPawn::LeftRotation()
 {
-	RotatePawn(1);
-}
-
-
-void AFloorPawn::RotatePawn(float aRotation)
-{
-	TArray<UFloorPawnPositionInfo*>   newDirectionModel;
-	if(aRotation == 1.0)
+	if(!hasRotationFinished)
 	{
-		newDirectionModel.Add(directionModel[3]); 
-		for(int i = 0 ; i < 3; i++)
-		{
-			newDirectionModel.Add(directionModel[i]);
-		}
+		return;
+	}
+	
+	TArray<UFloorPawnPositionInfo*>   newDirectionModel;
+	newDirectionModel.Add(directionModel[3]); 
+	for(int i = 0 ; i < 3; i++)
+	{
+		newDirectionModel.Add(directionModel[i]);
+	}
 
-		directionModel = newDirectionModel;
-		newRotation = directionModel[0]->rotation.Yaw;
+	SetRotation(newDirectionModel, LEFT_DIRECTION);
+}
+
+void AFloorPawn::RightRotation()
+{
+	if(!hasRotationFinished)
+	{
+		return;
+	}
+
+	TArray<UFloorPawnPositionInfo*>   newDirectionModel;
+	
+	for(int i = 1 ; i < 4; i++)
+	{
+		newDirectionModel.Add(directionModel[i]);
+	}
+	newDirectionModel.Add(directionModel[0]);
+	
+	SetRotation(newDirectionModel, RIGHT_DIRECTION);
+}
+
+void AFloorPawn::SetRotation(TArray<UFloorPawnPositionInfo*> aDirectionalModel, double aDirection)
+{
+	directionModel = aDirectionalModel;
+	newRotation = directionModel[0]->rotation.Yaw;
+	rotationDirection = aDirection;
+
+	hasRotationFinished = false;
+}
+
+void AFloorPawn::RotatePawn(float aDeltatime)
+{
+	double actorRotation = GetActorRotation().Yaw;
+	double currentRotationConversion = FMath::Fmod(actorRotation + FULL_MOVEMENT,FULL_MOVEMENT);
+
+	if(currentRotationConversion == newRotation)
+	{
+		return;
+    }
+	
+	if( FMath::Abs(currentRotationConversion - newRotation) > ROTATION_DIFFERENCE)
+	{
+		double currentPosition = currentRotationConversion + rotationDirection * ( ROTATION_SPEED * aDeltatime);
+		SetActorRotation(FRotator(0,currentPosition,0));
+	}
+	else
+	{
+		if(currentRotationConversion != newRotation)
+		{
+			//Rotation Finished
+			hasRotationFinished = true;
+			SetActorRotation(FRotator(0,newRotation,0));
+		}
 	}
 }
 
-void AFloorPawn::RotateEntirePawn(FRotator aNewRotation)
-{
-}
 
 void AFloorPawn::AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections aDirection,FVector2D aDirectionPosition, FRotator aRotation)
 {

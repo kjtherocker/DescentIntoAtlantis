@@ -23,6 +23,17 @@ protected:
 	void Initialize();
 	AFloorNode* currentNodePlayerIsOn;
 	double newRotation;
+
+	const double FULL_MOVEMENT       = 360;
+	const double ROTATION_DIFFERENCE = 2.0f;
+	const double ROTATION_SPEED      = 180.0f;
+	const float  RIGHT_DIRECTION     = 1;
+	const float  LEFT_DIRECTION      = -1;
+	bool hasRotationFinished = true;
+	
+	double testo2;
+	
+	double rotationDirection;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -31,10 +42,13 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	void SpawnFloorPawn(AFloorNode* aFloorNode);
-	void RotatePawn(float aRotation);
+	void RotatePawn(float aDeltatime);
 	void AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections aDirection,FVector2D aDirectionPosition,FRotator aRotation);
-	void RightMovement();
-	void RotateEntirePawn(FRotator aNewRotation);
+	void LeftRotation();
+	void RightRotation();
+
+	void SetRotation(TArray<UFloorPawnPositionInfo*> aDirectionalModel, double aDirection );
+
 	
 	TArray<UFloorPawnPositionInfo*>   directionModel;
 
