@@ -7,6 +7,7 @@
 #include "FloorPlayerController.h"
 
 
+
 // Sets default values
 AFloorManager::AFloorManager()
 {
@@ -70,7 +71,10 @@ AFloorNode* AFloorManager::GetNode(FVector2D CurrentPosition, ECardinalNodeDirec
     
 	int FinalIndex = currentFloor->GetIndex( FinalPosition.X,FinalPosition.Y) ;
     
-    
+    if(FinalIndex > floorNodes.Num() || FinalIndex < 0)
+    {
+	    return nullptr;
+    }
 	return floorNodes[FinalIndex] ;
 	
 }

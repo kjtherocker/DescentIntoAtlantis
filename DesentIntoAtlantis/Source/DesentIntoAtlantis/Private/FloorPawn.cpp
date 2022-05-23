@@ -25,7 +25,7 @@ void AFloorPawn::Initialize()
 FVector2D(-1,0), 
 FRotator(0,0,0));
 	
-	AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections::Right,
+	AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections::Left,
     FVector2D(0,1), 
     FRotator(0,90,0));
 	
@@ -33,7 +33,7 @@ FRotator(0,0,0));
     FVector2D(1,0), 
     FRotator(0,180,0));
 	
-	AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections::Left ,
+	AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections::Right ,
     FVector2D(-1,0), 
     FRotator(0,270,0));
 }
@@ -53,9 +53,36 @@ void AFloorPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 	//InputComponent->BindAxis("LeftRight", this, &AFloorPawn::RotatePawn);
-	InputComponent->BindAction("Left",IE_Pressed ,this,  &AFloorPawn::LeftRotation);
+	InputComponent->BindAction("Left" ,IE_Pressed ,this, &AFloorPawn::LeftRotation );
 	InputComponent->BindAction("Right",IE_Pressed ,this, &AFloorPawn::RightRotation);
+	InputComponent->BindAction("Up"   ,IE_Pressed ,this, &AFloorPawn::MoveForward  );
 
+}
+
+void AFloorPawn::MoveForward()
+{
+	if(!hasRotationFinished)
+	{
+		return;
+	}
+
+	ECardinalNodeDirections currentNodeDirection = directionModel[0]->directions;
+
+	AFloorNode* nodeToMoveTo = nullptr;
+	TMap<ECardinalNodeDirections,AFloorNode*> currentNodeNeightbors = currentNodePlayerIsOn->nodeNeighbors;
+	
+	if(currentNodeNeightbors.Contains(currentNodeDirection))
+	{
+		nodeToMoveTo = currentNodePlayerIsOn->nodeNeighbors[currentNodeDirection];
+	}
+	
+	if(nodeToMoveTo != nullptr)
+	{
+		FVector PositionOffset = FVector(0,0,300);
+		FVector Finalposition  = nodeToMoveTo->GetActorLocation() + PositionOffset;
+		SetActorLocation(Finalposition);
+		currentNodePlayerIsOn = nodeToMoveTo;
+	}
 }
 
 void AFloorPawn::LeftRotation()
@@ -146,7 +173,6 @@ void AFloorPawn::SpawnFloorPawn(AFloorNode* aFloorNode)
 	
 	currentNodePlayerIsOn = aFloorNode;
 	SetActorRotation(directionModel[0]->rotation);
-	
 }
 
 

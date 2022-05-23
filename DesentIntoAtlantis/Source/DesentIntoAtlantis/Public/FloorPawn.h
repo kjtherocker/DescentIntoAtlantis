@@ -21,6 +21,11 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void Initialize();
+	
+	void LeftRotation();
+	void RightRotation();
+	void MoveForward();
+	
 	AFloorNode* currentNodePlayerIsOn;
 	double newRotation;
 
@@ -44,8 +49,8 @@ public:
 	void SpawnFloorPawn(AFloorNode* aFloorNode);
 	void RotatePawn(float aDeltatime);
 	void AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections aDirection,FVector2D aDirectionPosition,FRotator aRotation);
-	void LeftRotation();
-	void RightRotation();
+	
+
 
 	void SetRotation(TArray<UFloorPawnPositionInfo*> aDirectionalModel, double aDirection );
 
