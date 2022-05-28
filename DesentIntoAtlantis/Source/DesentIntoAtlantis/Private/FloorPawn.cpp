@@ -106,6 +106,7 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 		hasRotationFinished = true;
 		currentNodePlayerIsOn = nodeToMoveTowards;
 		nodeToMoveTowards = nullptr;
+		return;
 	}
 
 

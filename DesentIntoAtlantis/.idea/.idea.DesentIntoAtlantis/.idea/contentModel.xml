@@ -90,6 +90,7 @@
       <e p="Windows" t="Include">
         <e p="BaseWindowsEngine.ini" t="Include" />
         <e p="DataDrivenPlatformInfo.ini" t="Include" />
+        <e p="WindowsEditorPerProjectUserSettings.ini" t="Include" />
         <e p="WindowsEngine.ini" t="Include" />
         <e p="WindowsGame.ini" t="Include" />
       </e>
@@ -10821,8 +10822,8 @@
       </e>
       <e p="Resources" t="Include">
         <e p="Icon128.png" t="Include" />
-        <e p="sg_context_logo.png" t="Include" />
-        <e p="sg_logo_80px.png" t="Include" />
+        <e p="W18_SG_QAT_40x40.png" t="Include" />
+        <e p="W20_SG_QAT_24x24.png" t="Include" />
       </e>
       <e p="Shotgrid.uplugin" t="Include" />
       <e p="Source" t="Include">
@@ -14171,6 +14172,8 @@
             <e p="BinkMoviePlayerSettings.h" t="Include" />
             <e p="BinkMovieStreamer.cpp" t="Include" />
             <e p="BinkMovieStreamer.h" t="Include" />
+            <e p="binkpluginRHI.cpp" t="Include" />
+            <e p="binktexturesRHI.cpp" t="Include" />
           </e>
           <e p="Public" t="Include">
             <e p="BinkFunctionLibrary.h" t="Include" />
@@ -14202,6 +14205,45 @@
             </e>
             <e p="SBinkWidgets.cpp" t="Include" />
             <e p="SBinkWidgets.h" t="Include" />
+          </e>
+        </e>
+        <e p="BinkMediaPlayerSDK" t="Include">
+          <e p="BinkMediaPlayerSDK.Build.cs" t="Include" />
+          <e p="include" t="Include">
+            <e p="binkplugin.h" t="Include" />
+            <e p="binktextures.h" t="Include" />
+            <e p="binktiny.h" t="Include" />
+            <e p="egttypes.h" t="Include" />
+          </e>
+          <e p="lib" t="Include">
+            <e p="Android" t="Include">
+              <e p="arm64" t="Include">
+                <e p="libBinkUnrealAndroid.a" t="Include" />
+              </e>
+              <e p="armv7" t="Include">
+                <e p="libBinkUnrealAndroid.a" t="Include" />
+              </e>
+              <e p="x64" t="Include">
+                <e p="libBinkUnrealAndroid.a" t="Include" />
+              </e>
+              <e p="x86" t="Include">
+                <e p="libBinkUnrealAndroid.a" t="Include" />
+              </e>
+            </e>
+            <e p="BinkUnrealLinux.a" t="Include" />
+            <e p="BinkUnrealLinuxArm64.a" t="Include" />
+            <e p="BinkUnrealMac.a" t="Include" />
+            <e p="BinkUnrealWin32.lib" t="Include" />
+            <e p="BinkUnrealWin64.lib" t="Include" />
+            <e p="BinkUnrealWinGDK.lib" t="Include" />
+            <e p="libBinkUnrealIOS.a" t="Include" />
+          </e>
+          <e p="src" t="Include">
+            <e p="BinkSourceAndroid.7z" t="Include" />
+            <e p="BinkSourceIOS.7z" t="Include" />
+            <e p="BinkSourceLinux.7z" t="Include" />
+            <e p="BinkSourceMac.7z" t="Include" />
+            <e p="BinkSourceWin.7z" t="Include" />
           </e>
         </e>
       </e>
@@ -16494,6 +16536,8 @@
               <e p="CameraAnimationSequenceFactoryNew.h" t="Include" />
               <e p="TemplateSequenceFactoryNew.cpp" t="Include" />
               <e p="TemplateSequenceFactoryNew.h" t="Include" />
+              <e p="TemplateSequenceFactoryUtil.cpp" t="Include" />
+              <e p="TemplateSequenceFactoryUtil.h" t="Include" />
             </e>
             <e p="Misc" t="Include">
               <e p="MovieSceneSequenceEditor_TemplateSequence.h" t="Include" />
@@ -29070,6 +29114,7 @@
       <e p="BasePassVertexCommon.ush" t="Include" />
       <e p="BasePassVertexShader.usf" t="Include" />
       <e p="BCCompressionCommon.ush" t="Include" />
+      <e p="Bink.usf" t="Include" />
       <e p="BitPacking.ush" t="Include" />
       <e p="BitStreamReaderImplementation.ush" t="Include" />
       <e p="BlockCompressionCommon.ush" t="Include" />
@@ -54464,6 +54509,7 @@
     </e>
     <e p="C:\Program Files\Epic Games\UE_5.0\Engine\Source\Runtime\RenderCore" t="Include">
       <e p="Private" t="Include">
+        <e p="BinkShaders.cpp" t="Include" />
         <e p="BuiltInRayTracingShaders.cpp" t="Include" />
         <e p="ClearQuad.cpp" t="Include" />
         <e p="ClearReplacementShaders.cpp" t="Include" />
@@ -54526,6 +54572,7 @@
         <e p="VisualizeTexture.cpp" t="Include" />
       </e>
       <e p="Public" t="Include">
+        <e p="BinkShaders.h" t="Include" />
         <e p="BuiltInRayTracingShaders.h" t="Include" />
         <e p="ClearQuad.h" t="Include" />
         <e p="ClearReplacementShaders.h" t="Include" />
@@ -58187,6 +58234,7 @@
         <e p="DefaultEditor.ini" t="Include" />
         <e p="DefaultEngine.ini" t="Include" />
         <e p="DefaultGame.ini" t="Include" />
+        <e p="DefaultInput.ini" t="Include" />
         <e p="HoloLens" t="Include">
           <e p="HoloLensEngine.ini" t="Include" />
         </e>
@@ -58219,10 +58267,16 @@
           <e p="FloorNode.cpp" t="Include" />
           <e p="FloorNode.h" t="Include" />
           <e p="Private" t="Include">
+            <e p="CombatEntity.cpp" t="Include" />
+            <e p="EElementalType.cpp" t="Include" />
+            <e p="FloorEnemyPawn.cpp" t="Include" />
             <e p="FloorPawn.cpp" t="Include" />
             <e p="FloorPlayerController.cpp" t="Include" />
           </e>
           <e p="Public" t="Include">
+            <e p="CombatEntity.h" t="Include" />
+            <e p="EElementalType.h" t="Include" />
+            <e p="FloorEnemyPawn.h" t="Include" />
             <e p="FloorPawn.h" t="Include" />
             <e p="FloorPlayerController.h" t="Include" />
           </e>

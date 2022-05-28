@@ -19,8 +19,7 @@ public:
        short GridDimensionY = 10;
        TArray<short> FloorBlueprint;
     //   bool FloorRevealed[20];
-   
-       float EnemySpawnRate;
+       TArray<FVector2D> EnemyStartPositions;
    
        FVector2D m_DefaultSpawnPosition;
    

@@ -30,12 +30,13 @@ protected:
 	double newRotation;
 
 	const double FULL_MOVEMENT       = 360;
-	const double ROTATION_DIFFERENCE = 4.0f;
+	
+	const float  MOVEMENT_SPEED      = 800;
+	const double ROTATION_DIFFERENCE = 5.0f;
 	const double ROTATION_SPEED      = 280.0f;
+	
 	const float  RIGHT_DIRECTION     = 1;
 	const float  LEFT_DIRECTION      = -1;
-
-	const float MOVEMENT_SPEED = 800;
 	
 	bool hasRotationFinished = true;
 	AFloorNode* nodeToMoveTowards;

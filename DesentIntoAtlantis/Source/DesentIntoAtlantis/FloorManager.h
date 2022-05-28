@@ -10,6 +10,7 @@
 #include "FloorNode.h"
 #include "FloorBase.h"
 #include "FloorPawn.h"
+#include "FloorEnemyPawn.h"
 #include "FloorManager.generated.h"
 
 
@@ -22,18 +23,23 @@ public:
 	// Sets default values for this actor's properties
 	AFloorManager();
 	void CreateGrid(UFloorBase* aFloor);
+	
 	void SpawnFloorNode(int aRow, int aColumn,int aIndex);
-
+	void SpawnFloorEnemyPawn();
 	void SpawnFloor(UFloorBase* aFloorBase);
-	AFloorNode* GetNode(FVector2D CurrentPosition,ECardinalNodeDirections TargetDirection);
+	
+	AFloorNode* GetNodeInDirection(FVector2D CurrentPosition,ECardinalNodeDirections TargetDirection);
+	AFloorNode* GetNode(FVector2D CurrentPosition);
 
 	//UPROPERTY()
 	TArray<AFloorNode*> floorNodes;
 	
 	UPROPERTY(EditAnywhere)
-	TSubclassOf<AActor> FloorNodeReference;
+	TSubclassOf<AActor> floorNodeReference;
 	UPROPERTY(EditAnywhere)
-    TSubclassOf<AActor> FloorPawnReference;
+    TSubclassOf<AActor> floorPawnReference;
+	UPROPERTY(EditAnywhere)
+    TSubclassOf<AActor> floorEnemyPawnReference;
 
 protected:
 	// Called when the game starts or when spawned

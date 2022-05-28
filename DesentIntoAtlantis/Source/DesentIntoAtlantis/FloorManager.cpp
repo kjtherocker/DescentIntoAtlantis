@@ -57,14 +57,14 @@ void AFloorManager::SpawnFloorNode(int aRow, int aColumn, int aIndex)
 	AFloorNode* floorNode;
 
 
-	floorNode = Cast<AFloorNode>(GetWorld()->SpawnActor<AActor>(FloorNodeReference, ActorFinalSpawnPoint, rotator));
+	floorNode = Cast<AFloorNode>(GetWorld()->SpawnActor<AActor>(floorNodeReference, ActorFinalSpawnPoint, rotator));
 	//floorNode->Rename( *FString(aRow + " " + aColumn));
 	floorNode->SetPositionInGrid(PositionInGrid);
 
 	floorNodes[aIndex] = floorNode;
 }
 
-AFloorNode* AFloorManager::GetNode(FVector2D CurrentPosition, ECardinalNodeDirections TargetDirection)
+AFloorNode* AFloorManager::GetNodeInDirection(FVector2D CurrentPosition, ECardinalNodeDirections TargetDirection)
 {
 	FVector2D FinalPosition =  FVector2D(CurrentPosition.X + cardinalPositions[TargetDirection].X,
         CurrentPosition.Y + cardinalPositions[TargetDirection].Y );
@@ -77,6 +77,17 @@ AFloorNode* AFloorManager::GetNode(FVector2D CurrentPosition, ECardinalNodeDirec
     }
 	return floorNodes[FinalIndex] ;
 	
+}
+
+AFloorNode* AFloorManager::GetNode(FVector2D CurrentPosition)
+{
+	int FinalIndex = currentFloor->GetIndex( CurrentPosition.X,CurrentPosition.Y) ;
+    
+	if(FinalIndex > floorNodes.Num() || FinalIndex < 0)
+	{
+		return nullptr;
+	}
+	return floorNodes[FinalIndex] ;
 }
 
 // Called when the game starts or when spawned
@@ -111,12 +122,14 @@ void AFloorManager::BeginPlay()
 		//Spawn
 		AFloorPawn* floorPawn;
 
-		floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(FloorPawnReference, ActorFinalSpawnPoint, rotator));
+		floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, ActorFinalSpawnPoint, rotator));
 		floorPawn->SpawnFloorPawn(floorNodes[1]);
 		floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
 		
 		playerController->SetPawn(floorPawn);
 	}
+
+	SpawnFloorEnemyPawn();
 
 }
 
@@ -158,7 +171,7 @@ void AFloorManager::SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes)
 		
 			for (ECardinalNodeDirections direction : walkableDirections)
 			{
-				AFloorNode* neightborNode = GetNode(mainNode->positionInGrid, direction);
+				AFloorNode* neightborNode = GetNodeInDirection(mainNode->positionInGrid, direction);
 
 				//In situations where the neightbor in that direction doesnt exist
 				if(neightborNode != nullptr)
@@ -168,6 +181,20 @@ void AFloorManager::SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes)
 			}
 		}
 	}
+}
+
+void AFloorManager::SpawnFloorEnemyPawn()
+{
+	FVector PositionOffset = FVector(0,0,300);
+	FVector ActorFinalSpawnPoint = GetNode(FVector2d(3,3))->GetActorLocation() + PositionOffset;
+
+	//Rotation
+	FRotator rotator = GetActorRotation();
+	
+	//Spawn
+	AFloorEnemyPawn* floorPawn;
+
+	floorPawn = Cast<AFloorEnemyPawn>(GetWorld()->SpawnActor<AActor>(floorEnemyPawnReference, ActorFinalSpawnPoint, rotator));
 }
 
 void AFloorManager::Tick(float DeltaTime)

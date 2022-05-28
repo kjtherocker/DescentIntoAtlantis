@@ -9,6 +9,8 @@ void UFloorBase::Initialize()
     GridDimensionX = 20;
     GridDimensionY = 20;
 
+    EnemyStartPositions.Add(FVector2d(1,1));
+    
  //   FloorRevealed[GridDimensionX * GridDimensionY];
 
   //  for (int i = GridDimensionX * GridDimensionY - 1; i >= 0; i--)
@@ -66,7 +68,7 @@ void UFloorBase::Initialize()
        //  0   1   2   3   4   5   6   7   8   9  10   11  12  13  14  15  16  17  18  19
        }; 
     
-    FloorBlueprint.Append(tableinit, ARRAY_COUNT(tableinit));
+    FloorBlueprint.Append(tableinit, UE_ARRAY_COUNT(tableinit));
 }
 
 int UFloorBase::GetIndex(int aRow, int aColumn)
