@@ -83,10 +83,10 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 template<> DESENTINTOATLANTIS_API UClass* StaticClass<class AFloorPawn>();
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_67_SPARSE_DATA
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_67_RPC_WRAPPERS
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_67_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_67_INCLASS_NO_PURE_DECLS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_73_SPARSE_DATA
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_73_RPC_WRAPPERS
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_73_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_73_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUFloorPawnPositionInfo(); \
 	friend struct Z_Construct_UClass_UFloorPawnPositionInfo_Statics; \
@@ -95,7 +95,7 @@ public: \
 	DECLARE_SERIALIZER(UFloorPawnPositionInfo)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_67_INCLASS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_73_INCLASS \
 private: \
 	static void StaticRegisterNativesUFloorPawnPositionInfo(); \
 	friend struct Z_Construct_UClass_UFloorPawnPositionInfo_Statics; \
@@ -104,7 +104,7 @@ public: \
 	DECLARE_SERIALIZER(UFloorPawnPositionInfo)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_67_STANDARD_CONSTRUCTORS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_73_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UFloorPawnPositionInfo(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UFloorPawnPositionInfo) \
@@ -117,7 +117,7 @@ private: \
 public:
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_67_ENHANCED_CONSTRUCTORS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_73_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UFloorPawnPositionInfo(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -130,25 +130,25 @@ public: \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UFloorPawnPositionInfo)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_64_PROLOG
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_67_GENERATED_BODY_LEGACY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_70_PROLOG
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_73_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_67_SPARSE_DATA \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_67_RPC_WRAPPERS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_67_INCLASS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_67_STANDARD_CONSTRUCTORS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_73_SPARSE_DATA \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_73_RPC_WRAPPERS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_73_INCLASS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_73_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_67_GENERATED_BODY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_73_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_67_SPARSE_DATA \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_67_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_67_INCLASS_NO_PURE_DECLS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_67_ENHANCED_CONSTRUCTORS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_73_SPARSE_DATA \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_73_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_73_INCLASS_NO_PURE_DECLS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_73_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

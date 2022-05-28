@@ -45,6 +45,7 @@ void AFloorPawn::Tick(float DeltaTime)
 
 	//Handling Rotations
 	RotatePawn(DeltaTime);
+	MovePawn(DeltaTime);
 }
 
 // Called to bind functionality to input
@@ -78,11 +79,49 @@ void AFloorPawn::MoveForward()
 	
 	if(nodeToMoveTo != nullptr)
 	{
-		FVector PositionOffset = FVector(0,0,300);
-		FVector Finalposition  = nodeToMoveTo->GetActorLocation() + PositionOffset;
-		SetActorLocation(Finalposition);
-		currentNodePlayerIsOn = nodeToMoveTo;
+		//FVector PositionOffset = FVector(0,0,300);
+		//FVector Finalposition  = nodeToMoveTo->GetActorLocation() + PositionOffset;
+		//SetActorLocation(Finalposition);
+		nodeToMoveTowards = nodeToMoveTo;
 	}
+}
+
+void AFloorPawn::MovePawn(float aDeltaTime)
+{
+	if(!hasRotationFinished)
+	{
+		return;
+	}
+
+	if(nodeToMoveTowards == nullptr)
+	{
+		return;
+	}
+	
+	FVector PositionOffset = FVector(0,0,300);
+	FVector nodeToMoveTowardsPostion = nodeToMoveTowards->GetActorLocation() + PositionOffset;
+	
+	if(FVector::Dist(GetActorLocation(), nodeToMoveTowardsPostion) < 20.5f )
+	{
+		hasRotationFinished = true;
+		currentNodePlayerIsOn = nodeToMoveTowards;
+		nodeToMoveTowards = nullptr;
+	}
+
+
+	FVector currentPostion  = GetActorLocation();
+	
+	float deltaX = nodeToMoveTowardsPostion.X - currentPostion.X;
+	float deltaY = nodeToMoveTowardsPostion.Y - currentPostion.Y;
+
+	float AngleToWaypoint = atan2(deltaX,deltaY);
+	
+	currentPostion.X += sin(AngleToWaypoint) * MOVEMENT_SPEED * aDeltaTime;
+	currentPostion.Y += cos(AngleToWaypoint) * MOVEMENT_SPEED * aDeltaTime;
+	
+	
+	SetActorLocation(currentPostion);
+	
 }
 
 void AFloorPawn::LeftRotation()
