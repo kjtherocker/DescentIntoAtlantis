@@ -1,0 +1,14 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\eelementaltype.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\desentintoatlantiseditor\\debuggame\\engine\\sharedpch.engine.nonoptimized.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\debuggame\\desentintoatlantis\\definitions.desentintoatlantis.h",
+            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\source\\desentintoatlantis\\public\\eelementaltype.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

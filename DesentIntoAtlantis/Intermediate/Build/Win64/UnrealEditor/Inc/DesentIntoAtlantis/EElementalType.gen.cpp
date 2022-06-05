@@ -9,79 +9,80 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeEElementalType() {}
 // Cross Module References
-	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEElementalType_NoRegister();
-	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEElementalType();
-	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EElementalType();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
 // End Cross Module References
-	void UEElementalType::StaticRegisterNativesUEElementalType()
+	static FEnumRegistrationInfo Z_Registration_Info_UEnum_EElementalType;
+	static UEnum* EElementalType_StaticEnum()
 	{
-	}
-	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UEElementalType);
-	UClass* Z_Construct_UClass_UEElementalType_NoRegister()
-	{
-		return UEElementalType::StaticClass();
-	}
-	struct Z_Construct_UClass_UEElementalType_Statics
-	{
-		static UObject* (*const DependentSingletons[])();
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
-#endif
-		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
-		static const UECodeGen_Private::FClassParams ClassParams;
-	};
-	UObject* (*const Z_Construct_UClass_UEElementalType_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_UObject,
-		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEElementalType_Statics::Class_MetaDataParams[] = {
-		{ "Comment", "/**\n * \n */" },
-		{ "IncludePath", "EElementalType.h" },
-		{ "ModuleRelativePath", "Public/EElementalType.h" },
-	};
-#endif
-	const FCppClassTypeInfoStatic Z_Construct_UClass_UEElementalType_Statics::StaticCppClassTypeInfo = {
-		TCppClassTypeTraits<UEElementalType>::IsAbstract,
-	};
-	const UECodeGen_Private::FClassParams Z_Construct_UClass_UEElementalType_Statics::ClassParams = {
-		&UEElementalType::StaticClass,
-		nullptr,
-		&StaticCppClassTypeInfo,
-		DependentSingletons,
-		nullptr,
-		nullptr,
-		nullptr,
-		UE_ARRAY_COUNT(DependentSingletons),
-		0,
-		0,
-		0,
-		0x001000A0u,
-		METADATA_PARAMS(Z_Construct_UClass_UEElementalType_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UEElementalType_Statics::Class_MetaDataParams))
-	};
-	UClass* Z_Construct_UClass_UEElementalType()
-	{
-		if (!Z_Registration_Info_UClass_UEElementalType.OuterSingleton)
+		if (!Z_Registration_Info_UEnum_EElementalType.OuterSingleton)
 		{
-			UECodeGen_Private::ConstructUClass(Z_Registration_Info_UClass_UEElementalType.OuterSingleton, Z_Construct_UClass_UEElementalType_Statics::ClassParams);
+			Z_Registration_Info_UEnum_EElementalType.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_DesentIntoAtlantis_EElementalType, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("EElementalType"));
 		}
-		return Z_Registration_Info_UClass_UEElementalType.OuterSingleton;
+		return Z_Registration_Info_UEnum_EElementalType.OuterSingleton;
 	}
-	template<> DESENTINTOATLANTIS_API UClass* StaticClass<UEElementalType>()
+	template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EElementalType>()
 	{
-		return UEElementalType::StaticClass();
+		return EElementalType_StaticEnum();
 	}
-	DEFINE_VTABLE_PTR_HELPER_CTOR(UEElementalType);
+	struct Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics
+	{
+		static const UECodeGen_Private::FEnumeratorParam Enumerators[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FEnumParams EnumParams;
+	};
+	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics::Enumerators[] = {
+		{ "EElementalType::Null", (int64)EElementalType::Null },
+		{ "EElementalType::Fire", (int64)EElementalType::Fire },
+		{ "EElementalType::Water", (int64)EElementalType::Water },
+		{ "EElementalType::Wind", (int64)EElementalType::Wind },
+		{ "EElementalType::Lighting", (int64)EElementalType::Lighting },
+		{ "EElementalType::Shadow", (int64)EElementalType::Shadow },
+		{ "EElementalType::Light", (int64)EElementalType::Light },
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics::Enum_MetaDataParams[] = {
+		{ "Fire.Name", "EElementalType::Fire" },
+		{ "Light.Name", "EElementalType::Light" },
+		{ "Lighting.Name", "EElementalType::Lighting" },
+		{ "ModuleRelativePath", "Public/EElementalType.h" },
+		{ "Null.Name", "EElementalType::Null" },
+		{ "Shadow.Name", "EElementalType::Shadow" },
+		{ "Water.Name", "EElementalType::Water" },
+		{ "Wind.Name", "EElementalType::Wind" },
+	};
+#endif
+	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics::EnumParams = {
+		(UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		nullptr,
+		"EElementalType",
+		"EElementalType",
+		Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics::Enumerators,
+		UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics::Enumerators),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EEnumFlags::None,
+		(uint8)UEnum::ECppForm::EnumClass,
+		METADATA_PARAMS(Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics::Enum_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics::Enum_MetaDataParams))
+	};
+	UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EElementalType()
+	{
+		if (!Z_Registration_Info_UEnum_EElementalType.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_EElementalType.InnerSingleton, Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics::EnumParams);
+		}
+		return Z_Registration_Info_UEnum_EElementalType.InnerSingleton;
+	}
 	struct Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_Statics
 	{
-		static const FClassRegisterCompiledInInfo ClassInfo[];
+		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UEElementalType, UEElementalType::StaticClass, TEXT("UEElementalType"), &Z_Registration_Info_UClass_UEElementalType, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEElementalType), 3418185397U) },
+	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_Statics::EnumInfo[] = {
+		{ EElementalType_StaticEnum, TEXT("EElementalType"), &Z_Registration_Info_UEnum_EElementalType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3346300291U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_931022906(TEXT("/Script/DesentIntoAtlantis"),
-		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_1899640679(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
-		nullptr, 0);
+		nullptr, 0,
+		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_Statics::EnumInfo));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

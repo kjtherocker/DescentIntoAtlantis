@@ -62,7 +62,7 @@ void AFloorPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 
 void AFloorPawn::MoveForward()
 {
-	if(!hasRotationFinished)
+	if(!hasRotationFinished || currentNodePlayerIsOn == nullptr)
 	{
 		return;
 	}
@@ -79,9 +79,6 @@ void AFloorPawn::MoveForward()
 	
 	if(nodeToMoveTo != nullptr)
 	{
-		//FVector PositionOffset = FVector(0,0,300);
-		//FVector Finalposition  = nodeToMoveTo->GetActorLocation() + PositionOffset;
-		//SetActorLocation(Finalposition);
 		nodeToMoveTowards = nodeToMoveTo;
 	}
 }

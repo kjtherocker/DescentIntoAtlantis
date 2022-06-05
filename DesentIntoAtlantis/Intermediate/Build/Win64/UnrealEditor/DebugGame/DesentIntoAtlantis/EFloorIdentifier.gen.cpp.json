@@ -1,0 +1,20 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\eflooridentifier.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\desentintoatlantiseditor\\debuggame\\engine\\sharedpch.engine.nonoptimized.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\debuggame\\desentintoatlantis\\definitions.desentintoatlantis.h",
+            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\source\\desentintoatlantis\\eflooridentifier.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\coreuobject\\public\\uobject\\noexporttypes.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\core\\public\\math\\unitconversion.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\core\\public\\math\\unitconversion.inl",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\core\\public\\internationalization\\polyglottextdata.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\coreuobject\\public\\assetregistry\\arfilter.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

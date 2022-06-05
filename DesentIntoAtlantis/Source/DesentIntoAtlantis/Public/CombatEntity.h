@@ -4,8 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "CombatEntity.generated.h"
 #include "EElementalType.h"
+#include "CombatEntity.generated.h"
 
 /**
  * 

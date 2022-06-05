@@ -93,28 +93,42 @@ void AFloorNode::SetWalkableDirections(short aWalkabledirections)
 		break;
 
 	}
+
+	SetFloorNodeWallInfo(ECardinalNodeDirections::Left,
+       FVector(0,-110,210),
+       FRotator(0,0,0));
+
+	SetFloorNodeWallInfo(ECardinalNodeDirections::Down,
+	FVector(116.0,-1.0,210),
+	FRotator(0,90,0));
+	
+	SetFloorNodeWallInfo(ECardinalNodeDirections::Right,
+	FVector(0.0,120,210),
+	FRotator(0,180,0));
+		
+	SetFloorNodeWallInfo(ECardinalNodeDirections::Up,
+			FVector(-121.0,-8,210),
+			FRotator(0,270,0));
 	
 	SetLevelNode(walkableDirections);
 }
 
 void AFloorNode::SetLevelNode(TArray<ECardinalNodeDirections> aWalkableDirections)
 {
-	if(nodeWalls.Num() <= 0)
-	{
-		return;
-	}
-	
-	for(int i = 1 ; i < nodeWalls.Num();i++)
-	{
-		nodeWalls[i]->SetVisibility(true);
-	}
-	
 	walkableDirections = aWalkableDirections;
 
-	for (ECardinalNodeDirections directions : walkableDirections)
+	for(int i = 0 ; i < cardinalNodeDirections.Num();i++)
 	{
-		nodeWalls[(int)directions]->SetVisibility(false);
+		ECardinalNodeDirections direction = cardinalNodeDirections[i];
+		if(!aWalkableDirections.Contains(direction))
+		{
+			if(floorNodeWallInfos.Contains(direction))
+			{
+				floorNodeWallInfos[direction]->wallActor = SpawnNodeWall(floorNodeWallInfos[direction],direction);
+			}
+		}
 	}
+
 
 }
 
@@ -146,5 +160,38 @@ void AFloorNode::BeginPlay()
 {
 	Super::BeginPlay();
 
-	GetComponents<UStaticMeshComponent>(nodeWalls);
+	cardinalNodeDirections.Add(ECardinalNodeDirections::Up);
+	cardinalNodeDirections.Add(ECardinalNodeDirections::Down);
+	cardinalNodeDirections.Add(ECardinalNodeDirections::Left);
+	cardinalNodeDirections.Add(ECardinalNodeDirections::Right);
+	
+}
+
+AActor* AFloorNode::SpawnNodeWall(UFloorNodeWallInfo* nodeWallInfo, ECardinalNodeDirections aCardinalDirection)
+{
+	AActor* wallActor;
+	const FAttachmentTransformRules AttachmentTransformRules = FAttachmentTransformRules( EAttachmentRule::KeepRelative, true );
+	FRotator rotator = GetActorRotation() + nodeWallInfo->rotation;
+	
+	wallActor = Cast<AActor>(GetWorld()->SpawnActor<AActor>(wallReference, nodeWallInfo->wallPosition + FVector::Zero(), rotator));
+	wallActor->SetActorLabel(FString(UEnum::GetDisplayValueAsText(aCardinalDirection).ToString()));
+	wallActor->AttachToActor(this,AttachmentTransformRules, "directionName" );
+
+	return wallActor;
+}
+
+void AFloorNode::SetFloorNodeWallInfo(ECardinalNodeDirections aCardinalDirection, FVector aWallPosition,
+    FRotator aRotation)
+{
+	if(wallReference == nullptr)
+	{
+		return;
+	}
+	
+	UFloorNodeWallInfo* floorNodeWallInfo = NewObject<UFloorNodeWallInfo>();
+
+	floorNodeWallInfo->wallPosition = aWallPosition;
+	floorNodeWallInfo->rotation = aRotation;
+
+	floorNodeWallInfos.Add(aCardinalDirection,floorNodeWallInfo);
 }

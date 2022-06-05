@@ -129,7 +129,7 @@ void AFloorManager::BeginPlay()
 		playerController->SetPawn(floorPawn);
 	}
 
-	SpawnFloorEnemyPawn();
+	//SpawnFloorEnemyPawn();
 
 }
 
