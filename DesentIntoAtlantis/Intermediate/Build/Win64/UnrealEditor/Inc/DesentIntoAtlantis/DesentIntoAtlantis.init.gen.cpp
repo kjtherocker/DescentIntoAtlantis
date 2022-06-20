@@ -17,13 +17,13 @@ void EmptyLinkFunctionForGeneratedCodeDesentIntoAtlantis_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0xB3389E8C,
-				0x52795C46,
+				0x2DF62276,
+				0x21AC73EF,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_DesentIntoAtlantis.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_DesentIntoAtlantis.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_DesentIntoAtlantis(Z_Construct_UPackage__Script_DesentIntoAtlantis, TEXT("/Script/DesentIntoAtlantis"), Z_Registration_Info_UPackage__Script_DesentIntoAtlantis, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xB3389E8C, 0x52795C46));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_DesentIntoAtlantis(Z_Construct_UPackage__Script_DesentIntoAtlantis, TEXT("/Script/DesentIntoAtlantis"), Z_Registration_Info_UPackage__Script_DesentIntoAtlantis, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x2DF62276, 0x21AC73EF));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

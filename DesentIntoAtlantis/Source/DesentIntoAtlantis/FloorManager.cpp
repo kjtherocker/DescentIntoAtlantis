@@ -150,6 +150,7 @@ void AFloorManager::SpawnFloor(UFloorBase* aFloorBase)
 
 	CreateGrid(aFloorBase);
 	SetFloorNodeNeightbors(floorNodes);
+	
 }
 
 
@@ -193,6 +194,8 @@ void AFloorManager::SpawnFloorEnemyPawn()
 	
 	//Spawn
 	AFloorEnemyPawn* floorPawn;
+
+	GetWorld()->GetGameViewport()->RemoveAllViewportWidgets();
 
 	floorPawn = Cast<AFloorEnemyPawn>(GetWorld()->SpawnActor<AActor>(floorEnemyPawnReference, ActorFinalSpawnPoint, rotator));
 }

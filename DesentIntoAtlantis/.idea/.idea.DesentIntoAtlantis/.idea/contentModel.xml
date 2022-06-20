@@ -58268,6 +58268,7 @@
           <e p="FloorNode.h" t="Include" />
           <e p="Private" t="Include">
             <e p="CombatEntity.cpp" t="Include" />
+            <e p="CommandBoard.cpp" t="Include" />
             <e p="EElementalType.cpp" t="Include" />
             <e p="FloorEnemyPawn.cpp" t="Include" />
             <e p="FloorPawn.cpp" t="Include" />
@@ -58275,6 +58276,7 @@
           </e>
           <e p="Public" t="Include">
             <e p="CombatEntity.h" t="Include" />
+            <e p="CommandBoard.h" t="Include" />
             <e p="EElementalType.h" t="Include" />
             <e p="FloorEnemyPawn.h" t="Include" />
             <e p="FloorPawn.h" t="Include" />
