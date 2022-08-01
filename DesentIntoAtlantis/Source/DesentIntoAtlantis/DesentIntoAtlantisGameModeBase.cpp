@@ -11,5 +11,6 @@ ADesentIntoAtlantisGameModeBase::ADesentIntoAtlantisGameModeBase()
     bPauseable = true;
     bStartPlayersAsSpectators = false;
 
+    
     PlayerControllerClass = AFloorPlayerController::StaticClass();
 }

@@ -2,6 +2,8 @@
 
 
 #include "FloorPawn.h"
+
+#include "InGameHUD.h"
 #include "DesentIntoAtlantis/FloorNode.h"
 
 // Sets default values
@@ -65,8 +67,18 @@ void AFloorPawn::MoveForward()
 	if(!hasRotationFinished || currentNodePlayerIsOn == nullptr)
 	{
 		return;
-	}
+	} 
 
+	AInGameHUD * hud = (AInGameHUD*)GetWorld()->GetFirstPlayerController()->GetHUD();
+
+	if(hud)
+	{
+		hud->PushView(EViews::CombatBackground);
+		hud->PushView(EViews::Healthbars);
+		hud->PushView(EViews::CommandBoard);
+	}
+	//((UUserWidget)commandBoardTest)->Add
+	
 	ECardinalNodeDirections currentNodeDirection = directionModel[0]->directions;
 
 	AFloorNode* nodeToMoveTo = nullptr;

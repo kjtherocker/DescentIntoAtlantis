@@ -25,6 +25,8 @@ protected:
 	void LeftRotation();
 	void RightRotation();
 	void MoveForward();
+
+	TSubclassOf<AActor> commandBoardTest;
 	
 	AFloorNode* currentNodePlayerIsOn;
 	double newRotation;

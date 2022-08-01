@@ -1,0 +1,88 @@
+Log started at 7/9/2022 1:57:55 PM (2022-07-09T17:57:55Z)
+No config file at C:\Users\kylej\Documents\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Configuration will be read from:
+  C:\Users\kylej\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Log file: C:\Users\kylej\Documents\PortfolioSSd\DescentIntoAtlantis\DesentIntoAtlantis\Saved\Logs\UnrealVersionSelector-2022.07.09-13.57.54.log
+
+Note: Android toolchain NDK r21b recommended
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (1)
+Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (2)
+Found Windows 10 SDK version 10.0.16299.0 at C:\Program Files (x86)\Windows Kits\10
+Found Universal CRT version 10.0.16299.0 at C:\Program Files (x86)\Windows Kits\10
+Found Windows 10 SDK version 10.0.19041.0 at C:\Program Files (x86)\Windows Kits\10
+Found Universal CRT version 10.0.19041.0 at C:\Program Files (x86)\Windows Kits\10
+Win64 using Manual SDK 10.0.19041.0
+Log file: C:\Users\kylej\AppData\Local\UnrealBuildTool\Log_GPF.txt
+Deleting old log file: C:\Users\kylej\AppData\Local\UnrealBuildTool\Log_GPF-backup-2021.05.26-21.48.33.txt
+
+---   SDK INFO START   ---
+
+Some Platforms were skipped due to invalid SDK setup: IOS, Android, Linux, LinuxArm64.
+See the log file for detailed information
+
+---   SDK INFO END   ---
+
+Discovering modules, targets and source code for project...
+Found Visual Studio installation: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community (Product=Microsoft.VisualStudio.Product.Community, Version=16.11.32228.343)
+Found Visual Studio toolchain: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133 (Family=14.29.30133, FamilyRank=0, Version=14.29.30141, Is64Bit=True, Preview=False, Architecture=x64, Error=False, Redist=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Redist\MSVC\14.29.30133)
+Skipping C:\Program Files\Epic Games\UE_5.0\Engine\Intermediate\Build\BuildRules\UE5Rules.dll: File is installed
+Skipping C:\Program Files\Epic Games\UE_5.0\Engine\Intermediate\Build\BuildRules\UE5ProgramRules.dll: File is installed
+Binding IntelliSense data...
+@progress 'Binding IntelliSense data...' 0%
+Enabling plugin 'ModelingToolsEditorMode' (referenced via DesentIntoAtlantis.uproject)
+Enabling plugin 'MeshModelingToolset' (referenced via DesentIntoAtlantis.uproject -> ModelingToolsEditorMode.uplugin)
+Enabling plugin 'GeometryProcessing' (referenced via DesentIntoAtlantis.uproject -> ModelingToolsEditorMode.uplugin -> MeshModelingToolset.uplugin)
+Enabling plugin 'ProxyLODPlugin' (referenced via DesentIntoAtlantis.uproject -> ModelingToolsEditorMode.uplugin -> MeshModelingToolset.uplugin)
+Enabling plugin 'HairStrands' (referenced via DesentIntoAtlantis.uproject -> ModelingToolsEditorMode.uplugin -> MeshModelingToolset.uplugin)
+Enabling plugin 'Niagara' (referenced via DesentIntoAtlantis.uproject -> ModelingToolsEditorMode.uplugin -> MeshModelingToolset.uplugin -> HairStrands.uplugin)
+Enabling plugin 'PythonScriptPlugin' (referenced via DesentIntoAtlantis.uproject -> ModelingToolsEditorMode.uplugin -> MeshModelingToolset.uplugin -> HairStrands.uplugin -> Niagara.uplugin)
+Enabling plugin 'ContentBrowserFileDataSource' (referenced via DesentIntoAtlantis.uproject -> ModelingToolsEditorMode.uplugin -> MeshModelingToolset.uplugin -> HairStrands.uplugin -> Niagara.uplugin -> PythonScriptPlugin.uplugin)
+Enabling plugin 'GeometryCache' (referenced via DesentIntoAtlantis.uproject -> ModelingToolsEditorMode.uplugin -> MeshModelingToolset.uplugin -> HairStrands.uplugin)
+Enabling plugin 'MeshModelingToolsetExp' (referenced via DesentIntoAtlantis.uproject -> ModelingToolsEditorMode.uplugin)
+Enabling plugin 'MeshLODToolset' (referenced via DesentIntoAtlantis.uproject -> ModelingToolsEditorMode.uplugin)
+Enabling plugin 'GeometryFlow' (referenced via DesentIntoAtlantis.uproject -> ModelingToolsEditorMode.uplugin -> MeshLODToolset.uplugin)
+Enabling plugin 'EditorScriptingUtilities' (referenced via DesentIntoAtlantis.uproject -> ModelingToolsEditorMode.uplugin -> MeshLODToolset.uplugin)
+Enabling plugin 'StylusInput' (referenced via DesentIntoAtlantis.uproject -> ModelingToolsEditorMode.uplugin)
+Enabling plugin 'Bridge' (referenced via DesentIntoAtlantis.uproject)
+Enabling plugin 'Paper2D' (referenced via default plugins)
+Enabling plugin 'AISupport' (referenced via default plugins)
+Enabling plugin 'EnvironmentQueryEditor' (referenced via default plugins)
+Enabling plugin 'AnimationModifierLibrary' (referenced via default plugins)
+Enabling plugin 'BlendSpaceMotionAnalysis' (referenced via default plugins)
+Enabling plugin 'ControlRigSpline' (referenced via default plugins)
+Enabling plugin 'ControlRig' (referenced via default plugins -> ControlRigSpline.uplugin)
+Enabling plugin 'LevelSequenceEditor' (referenced via default plugins -> ControlRigSpline.uplugin -> ControlRig.uplugin)
+Enabling plugin 'SequencerScripting' (referenced via default plugins -> ControlRigSpline.uplugin -> ControlRig.uplugin -> LevelSequenceEditor.uplugin)
+Enabling plugin 'PropertyAccessEditor' (referenced via default plugins -> ControlRigSpline.uplugin -> ControlRig.uplugin)
+Enabling plugin 'IKRig' (referenced via default plugins)
+Enabling plugin 'FullBodyIK' (referenced via default plugins -> IKRig.uplugin)
+Enabling plugin 'CameraShakePreviewer' (referenced via default plugins)
+Enabling plugin 'GameplayCameras' (referenced via default plugins -> CameraShakePreviewer.uplugin)
+Enabling plugin 'TemplateSequence' (referenced via default plugins -> CameraShakePreviewer.uplugin -> GameplayCameras.uplugin)
+Enabling plugin 'OodleNetwork' (referenced via default plugins)
+Enabling plugin 'AnimationSharing' (referenced via default plugins)
+Enabling plugin 'SignificanceManager' (referenced via default plugins -> AnimationSharing.uplugin)
+Enabling plugin 'CLionSourceCodeAccess' (referenced via default plugins)
+Enabling plugin 'CodeLiteSourceCodeAccess' (referenced via default plugins)
+Enabling plugin 'GitSourceControl' (referenced via default plugins)
+Enabling plugin 'KDevelopSourceCodeAccess' (referenced via default plugins)
+Enabling plugin 'NullSourceCodeAccess' (referenced via default plugins)
+Enabling plugin 'PerforceSourceControl' (referenced via default plugins)
+Enabling plugin 'PixWinPlugin' (referenced via default plugins)
+Enabling plugin 'PlasticSourceControl' (referenced via default plugins)
+Enabling plugin 'PluginUtils' (referenced via default plugins)
+Enabling plugin 'PropertyAccessNode' (referenced via default plugins)
+Enabling plugin 'RiderLink' (referenced via default plugins)
+WARNING: Exception while generating include data for DesentIntoAtlantisEditor: Expecting to find a type to be declared in a module rules named 'RD' in UE5Rules, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.  This type must derive from the 'ModuleRules' type defined by Unreal Build Tool.
+@progress 'Binding IntelliSense data...' 100%
+Writing project files...
+@progress 'Writing project files...' 0%
+@progress 'Writing project files...' 33%
+@progress 'Writing project files...' 67%
+@progress 'Writing project files...' 100%
+WriteFileIfChanged() wrote 0 changed files of 0 requested writes.
+Timeline:
+
+[ 0.000]
+[ 0.000](+2.906) <unknown>
+[ 2.906]
