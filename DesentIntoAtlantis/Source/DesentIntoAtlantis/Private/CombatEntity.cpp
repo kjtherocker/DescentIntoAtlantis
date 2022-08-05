@@ -65,22 +65,24 @@ int UCombatEntity::GetAllResistance()
     return TemporaryMagic;
 }
 
-void UCombatEntity::DecrementHealth(int Decremenby)
+void UCombatEntity::SetHealth(int aHealth)
 {
-    m_CurrentHealth -= Decremenby;
+    maxHealth = aHealth;
+    currentHealth = maxHealth;
 }
 
-void UCombatEntity::DecrementHealth(int Decrementby, EElementalType elementalType, float TimeTillInitalDamage,
-    float TimeTillHoveringUiElement, float TimeTillDamage)
+void UCombatEntity::DecrementHealth(int aDecremenby)
 {
-    EElementalType AttackingElement = elementalType;
+    currentHealth -= aDecremenby;
+}
+
+void UCombatEntity::DecrementHealth(int aDecrementby, EElementalType aElementalType, float aTimeTillInitalDamage,
+    float aTimeTillHoveringUiElement, float TimeTillDamage)
+{
+    EElementalType AttackingElement = aElementalType;
     EElementalType ElementalWeakness = m_ElementalWeakness;
     EElementalType ElementalStrength = m_ElementalStrength;
         
-    int ArgumentReference = Decrementby;
-    float ConvertToFloat = ArgumentReference / 1.5f;
-    int ConvertToInt = (int)ConvertToFloat;
-    Decrementby = ConvertToInt;
 
     if (AttackingElement == ElementalWeakness)
     {
@@ -91,13 +93,13 @@ void UCombatEntity::DecrementHealth(int Decrementby, EElementalType elementalTyp
 
     }
 
-    DecrementHealth(Decrementby);
+    DecrementHealth(aDecrementby);
     DeathCheck();
 }
 
 void UCombatEntity::IncrementHealth(int Increment)
 {
-    m_CurrentHealth += Increment;
+    currentHealth += Increment;
 }
 
 UCombatEntity::Charactertype UCombatEntity::GetCharactertype()
@@ -115,4 +117,12 @@ void UCombatEntity::DeathCheck()
 
 void UCombatEntity::Death()
 {
+}
+
+float UCombatEntity::GetHealthPercentage()
+{
+    float tempCurrentHealth = currentHealth;
+    float tempMaxHealth     = maxHealth;
+    
+    return tempCurrentHealth / tempMaxHealth;
 }

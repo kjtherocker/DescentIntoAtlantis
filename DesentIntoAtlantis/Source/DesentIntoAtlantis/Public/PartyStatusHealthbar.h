@@ -7,6 +7,7 @@
 #include "Blueprint/UserWidget.h"
 #include "PartyStatusHealthbar.generated.h"
 
+class UCombatEntity;
 class UTextBlock;
 class UProgressBar;
 /**
@@ -16,9 +17,12 @@ UCLASS()
 class DESENTINTOATLANTIS_API UPartyStatusHealthbar : public UBaseUserWidget
 {
 	GENERATED_BODY()
-	
-	virtual void UiInitialize() override;
+
 public:
+
+	virtual void UiInitialize() override;
+
+	void SetCombatEntity(UCombatEntity* aCombatEntity);
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UProgressBar* BW_Mana;
 

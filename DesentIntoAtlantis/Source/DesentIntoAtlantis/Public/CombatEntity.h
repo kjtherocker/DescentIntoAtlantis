@@ -47,8 +47,10 @@ public:
 
 	//SetStatusEffect(StatusEffects aStatusEffect);
 
-	virtual void DecrementHealth(int Decremenby);
-	void DecrementHealth(int Decrementby, EElementalType elementalType,float TimeTillInitalDamage, float TimeTillHoveringUiElement, float TimeTillDamage);
+	virtual void SetHealth(int aHealth);
+	
+	virtual void DecrementHealth(int aDecremenby);
+	void DecrementHealth(int aDecrementby, EElementalType aElementalType,float aTimeTillInitalDamage, float aTimeTillHoveringUiElement, float TimeTillDamage);
 
 	virtual void IncrementHealth(int Increment);
 
@@ -58,6 +60,7 @@ public:
 	void DeathCheck();
 	virtual void Death();
 
+	virtual float GetHealthPercentage();
 	
 //	Skills m_Attack;
 //	List<Skills> m_Skills { get; protected set; }
@@ -72,9 +75,11 @@ public:
 //	MovementType m_CreaturesMovementType;
 
 //	MovementList m_MovementList;
-    
-	int m_CurrentHealth;
-	int m_MaxHealth;
+
+	FString Name;
+	
+	int currentHealth;
+	int maxHealth;
     
     
 	int m_BaseStrength;
@@ -110,8 +115,6 @@ public:
 
 	int m_CurrentDomainpoints;
 	int m_MaxDomainPoints = 3;
-
-	int m_CreatureMovement = 4;
 
 	int m_AmountOfTurns;
     

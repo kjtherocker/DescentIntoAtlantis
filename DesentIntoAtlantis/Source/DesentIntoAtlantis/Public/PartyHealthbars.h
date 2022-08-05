@@ -7,6 +7,8 @@
 #include "Blueprint/UserWidget.h"
 #include "PartyHealthbars.generated.h"
 
+class UCombatEntity;
+class UPartyStatusHealthbar;
 /**
  * 
  */
@@ -18,8 +20,10 @@ class DESENTINTOATLANTIS_API UPartyHealthbars : public UBaseUserWidget
 public:
 
 	virtual void UiInitialize() override;
-	void CreateHealthbar();
+	void CreateHealthbar(UCombatEntity* aCombatEntity);
 	TSubclassOf<UUserWidget> BP_PartyStatus;
+
+	TArray<UPartyStatusHealthbar*> healthBars;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	class UHorizontalBox* BW_HorizontalBox;
