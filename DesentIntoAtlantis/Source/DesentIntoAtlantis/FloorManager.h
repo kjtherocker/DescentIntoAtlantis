@@ -5,6 +5,7 @@
 #include <map>
 
 #include "CoreMinimal.h"
+#include "DataTableUtils.h"
 #include "EFloorIdentifier.h"
 #include "GameFramework/Actor.h"
 #include "FloorNode.h"
@@ -33,6 +34,9 @@ public:
 
 	//UPROPERTY()
 	TArray<AFloorNode*> floorNodes;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Animation, meta = (AllowPrivateAccess = "true"))
+	UDataTable* datatable;
 	
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> floorNodeReference;

@@ -14,18 +14,6 @@ void AInGameHUD::Tick(float DeltaSeconds)
     Super::Tick(DeltaSeconds);
 }
 
-void AInGameHUD::DisplayCommandboard()
-{
-    if(commandBoardPrefab)
-    {
-        commandBoard = CreateWidget<UCommandBoard>(GetWorld(),commandBoardPrefab);
-        if(commandBoard)
-        {
-            commandBoard->AddToViewport();
-        }
-    }
-}
-
 void AInGameHUD::PushView(EViews aView)
 {
     UBaseUserWidget* newView = CreateWidget<UBaseUserWidget>(GetWorld(),userWidgets[aView]);

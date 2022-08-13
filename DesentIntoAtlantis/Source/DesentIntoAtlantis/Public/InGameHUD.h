@@ -31,8 +31,7 @@ public:
     TMap<EViews,TSubclassOf<UUserWidget>> userWidgets;
 	UPROPERTY(EditDefaultsOnly, Category = "Widgets")
 	TMap<EViewElements,TSubclassOf<UUserWidget>> viewElements;
-
-	void DisplayCommandboard();
+	
 	void PushView(EViews aView);    
 
     TArray<UBaseUserWidget*> viewStack;

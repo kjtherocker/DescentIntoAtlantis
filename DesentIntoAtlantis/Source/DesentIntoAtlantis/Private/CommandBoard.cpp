@@ -16,7 +16,7 @@ void UCommandBoard::UiInitialize()
 	
 	InputComponent->BindAction("Up"      ,IE_Pressed ,this, &UCommandBoard::MoveUp  );
 	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &UCommandBoard::MoveDown  );
-	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UCommandBoard::Attack  );
+	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UCommandBoard::ActivateCommandboardFunction  );
 	
 	// ItemTitle can be nullptr if we haven't created it in the
 	// Blueprint subclass
@@ -40,8 +40,8 @@ void UCommandBoard::UiInitialize()
 
 	commandBoards[0]->SetBrushColor(highlightedColor);
 
-	//	commandBoardFunction.BindSP(&UCommandBoard::Attack);
-	//	
+	//commandBoardFunction.BindSP(this,&UCommandBoard::Attack);
+		
 	//	CommandBoardFunctions.Add();
 }
 
@@ -76,11 +76,12 @@ void UCommandBoard::MoveDown()
 
 void UCommandBoard::ActivateCommandboardFunction()
 {
-	//CommandBoardFunctions[0].Broadcast();
+	CommandBoardFunctions[0].Execute();
 }
 
 void UCommandBoard::Attack()
 {
+	int testo = 0 ; 
 }
 
 void UCommandBoard::Testo()
