@@ -12,14 +12,14 @@ void UPartyStatusHealthbar::UiInitialize()
 
 }
 
-void UPartyStatusHealthbar::SetCombatEntity(UCombatEntity* aCombatEntity)
+void UPartyStatusHealthbar::SetCombatEntity(FCombatEntity* aCombatEntity)
 {
-	if(aCombatEntity->maxHealth != 0)
-	{
-		
-		BW_Health->SetPercent(aCombatEntity->GetHealthPercentage());
-	//	BW_Health->SetPercent(0.5f);
-	}
+	//if(aCombatEntity->maxHealth != 0)
+	//{
+	//	
+	//	BW_Health->SetPercent(aCombatEntity->GetHealthPercentage());
+	////	BW_Health->SetPercent(0.5f);
+	//}
 	BW_HealthText->SetText(FText::FromString( FString::FromInt(aCombatEntity->currentHealth)));
 
 	BW_Mana->SetPercent(0);

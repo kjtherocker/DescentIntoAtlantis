@@ -75,7 +75,8 @@ void AFloorPawn::MoveForward()
 	{
 		hud->PushView(EViews::CombatBackground);
 		hud->PushView(EViews::Healthbars);
-		hud->PushView(EViews::CommandBoard);
+		//hud->PushView(EViews::CommandBoard);
+		hud->PushView(EViews::SkillMenu);
 	}
 	//((UUserWidget)commandBoardTest)->Add
 	

@@ -5,15 +5,16 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "EElementalType.h"
+#include "CombatEntityClass.h"
 #include "CombatEntity.generated.h"
 
 /**
  * 
  */
-UCLASS()
-class DESENTINTOATLANTIS_API UCombatEntity : public UObject
+USTRUCT()
+struct DESENTINTOATLANTIS_API FCombatEntity : public FTableRowBase
 {
-	GENERATED_BODY()
+	GENERATED_USTRUCT_BODY()
 
 	 enum Charactertype
 	{
@@ -76,47 +77,46 @@ public:
 
 //	MovementList m_MovementList;
 
-	FString Name;
+	UCombatEntityClass* currentClass;
+
+	UPROPERTY( EditAnywhere )
+	FString characterName;
+	UPROPERTY( EditAnywhere )
+	FString classDataTablePath;
 	
 	int currentHealth;
-	int maxHealth;
-    
-    
-	int m_BaseStrength;
-	int m_BuffStrength;
-	int m_DebuffStrength;
-	int m_DomainStrength;
+	int currentMana;
+	
+	int buffStrength;
+	int debuffStrength;
+	int domainStrength;
 
-	int m_BaseMagic;
-	int m_BuffMagic;
-	int m_DebuffMagic;
-	int m_DomainMagic;
+	int buffMagic;
+	int debuffMagic;
+	int domainMagic;
     
-	int m_BaseHit;
-	int m_BuffHit;
-	int m_DebuffHit;
-	int m_DomainHit;
-    
-	int m_BaseEvasion;
-	int m_BuffEvasion;
-	int m_DebuffEvasion;
-	int m_DomainEvasion;
-    
-	int m_BaseDefence;
-	int m_BuffDefence;
-	int m_DebuffDefence;
-	int m_DomainDefence;
-    
-    
-	int m_BaseResistance;
-	int m_BuffResistance;
-	int m_DebuffResistance;
-	int m_DomainResistance;
 
-	int m_CurrentDomainpoints;
-	int m_MaxDomainPoints = 3;
+	int buffHit;
+	int debuffHit;
+	int domainHit;
+	
+	int buffEvasion;
+	int debuffEvasion;
+	int domainEvasion;
+	
+	int BuffDefence;
+	int DebuffDefence;
+	int DomainDefence;
+    
+	
+	int BuffResistance;
+	int DebuffResistance;
+	int DomainResistance;
 
-	int m_AmountOfTurns;
+	int CurrentDomainpoints;
+	int MaxDomainPoints = 3;
+
+	int AmountOfTurns;
     
 
 //	string DomainAffectingCreature;

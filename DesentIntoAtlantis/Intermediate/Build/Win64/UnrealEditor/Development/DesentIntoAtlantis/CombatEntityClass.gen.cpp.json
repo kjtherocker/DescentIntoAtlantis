@@ -1,0 +1,26 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\combatentityclass.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\desentintoatlantiseditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\development\\desentintoatlantis\\definitions.desentintoatlantis.h",
+            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\source\\desentintoatlantis\\public\\combatentityclass.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\engine\\datatable.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\public\\datatableutils.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\datatable.generated.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\coreuobject\\public\\uobject\\noexporttypes.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\core\\public\\math\\unitconversion.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\core\\public\\math\\unitconversion.inl",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\core\\public\\internationalization\\polyglottextdata.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\coreuobject\\public\\assetregistry\\arfilter.h",
+            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\source\\desentintoatlantis\\public\\skills_base.h",
+            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\skills_base.generated.h",
+            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\combatentityclass.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

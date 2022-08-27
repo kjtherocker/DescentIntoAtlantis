@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PartyManager.h"
+#include "SkillFactory.h"
 #include "GameFramework/GameModeBase.h"
 #include "DesentIntoAtlantisGameModeBase.generated.h"
 
@@ -14,4 +16,8 @@ class DESENTINTOATLANTIS_API ADesentIntoAtlantisGameModeBase : public AGameModeB
 {
 	GENERATED_BODY()
 	ADesentIntoAtlantisGameModeBase();
+public:
+	
+	USkillFactory* skillFactory;
+	UPartyManager* partyManager;
 };

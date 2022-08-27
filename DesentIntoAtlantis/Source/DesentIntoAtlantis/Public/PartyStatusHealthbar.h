@@ -7,7 +7,7 @@
 #include "Blueprint/UserWidget.h"
 #include "PartyStatusHealthbar.generated.h"
 
-class UCombatEntity;
+struct FCombatEntity;
 class UTextBlock;
 class UProgressBar;
 /**
@@ -22,7 +22,7 @@ public:
 
 	virtual void UiInitialize() override;
 
-	void SetCombatEntity(UCombatEntity* aCombatEntity);
+	void SetCombatEntity(FCombatEntity* aCombatEntity);
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UProgressBar* BW_Mana;
 

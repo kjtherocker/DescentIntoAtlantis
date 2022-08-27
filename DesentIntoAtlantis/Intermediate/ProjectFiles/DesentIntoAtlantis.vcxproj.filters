@@ -11,6 +11,7 @@
     <None Include="..\..\Source\DesentIntoAtlantisEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\DesentIntoAtlantis.png" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -1445,6 +1446,9 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CombatEntity.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CombatEntityClass.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CommandBoard.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
@@ -1469,10 +1473,19 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\PartyHealthbars.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\PartyManager.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\PartyStatusHealthbar.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\Skill.cpp">
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\SkillFactory.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\SkillMenu.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\Skills_Base.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\Views.cpp">
@@ -1488,6 +1501,9 @@
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatEntity.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatEntityClass.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CommandBoard.h">
@@ -1514,10 +1530,19 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PartyHealthbars.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PartyManager.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PartyStatusHealthbar.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\Skill.h">
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SkillFactory.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SkillMenu.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\Skills_Base.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\Views.h">

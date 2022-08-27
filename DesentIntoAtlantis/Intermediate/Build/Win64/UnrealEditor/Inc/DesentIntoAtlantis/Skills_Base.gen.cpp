@@ -14,9 +14,9 @@ void EmptyLinkFunctionForGeneratedCodeSkills_Base() {}
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EElementalTypes();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EAilment();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ESkillRange();
-	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkills_Base_NoRegister();
-	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkills_Base();
-	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FSkills_Base();
+	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
+	ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
 // End Cross Module References
 	static FEnumRegistrationInfo Z_Registration_Info_UEnum_ESkillType;
 	static UEnum* ESkillType_StaticEnum()
@@ -255,68 +255,151 @@ void EmptyLinkFunctionForGeneratedCodeSkills_Base() {}
 		}
 		return Z_Registration_Info_UEnum_ESkillRange.InnerSingleton;
 	}
-	void USkills_Base::StaticRegisterNativesUSkills_Base()
+
+static_assert(std::is_polymorphic<FSkills_Base>() == std::is_polymorphic<FTableRowBase>(), "USTRUCT FSkills_Base cannot be polymorphic unless super FTableRowBase is polymorphic");
+
+	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_Skills_Base;
+class UScriptStruct* FSkills_Base::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_Skills_Base.OuterSingleton)
 	{
+		Z_Registration_Info_UScriptStruct_Skills_Base.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FSkills_Base, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("Skills_Base"));
 	}
-	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(USkills_Base);
-	UClass* Z_Construct_UClass_USkills_Base_NoRegister()
+	return Z_Registration_Info_UScriptStruct_Skills_Base.OuterSingleton;
+}
+template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FSkills_Base>()
+{
+	return FSkills_Base::StaticStruct();
+}
+	struct Z_Construct_UScriptStruct_FSkills_Base_Statics
 	{
-		return USkills_Base::StaticClass();
-	}
-	struct Z_Construct_UClass_USkills_Base_Statics
-	{
-		static UObject* (*const DependentSingletons[])();
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
+		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
 #endif
-		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
-		static const UECodeGen_Private::FClassParams ClassParams;
-	};
-	UObject* (*const Z_Construct_UClass_USkills_Base_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_UObject,
-		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		static void* NewStructOps();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ElementalType_MetaData[];
+#endif
+		static const UECodeGen_Private::FBytePropertyParams NewProp_ElementalType;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SkillName_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_SkillName;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SkillDescription_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_SkillDescription;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CostToUse_MetaData[];
+#endif
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_CostToUse;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Damage_MetaData[];
+#endif
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_Damage;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SkillRange_MetaData[];
+#endif
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_SkillRange;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SkillIcon_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_SkillIcon;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UECodeGen_Private::FStructParams ReturnStructParams;
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USkills_Base_Statics::Class_MetaDataParams[] = {
-		{ "IncludePath", "Skills_Base.h" },
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FSkills_Base_Statics::Struct_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Public/Skills_Base.h" },
 	};
 #endif
-	const FCppClassTypeInfoStatic Z_Construct_UClass_USkills_Base_Statics::StaticCppClassTypeInfo = {
-		TCppClassTypeTraits<USkills_Base>::IsAbstract,
-	};
-	const UECodeGen_Private::FClassParams Z_Construct_UClass_USkills_Base_Statics::ClassParams = {
-		&USkills_Base::StaticClass,
-		nullptr,
-		&StaticCppClassTypeInfo,
-		DependentSingletons,
-		nullptr,
-		nullptr,
-		nullptr,
-		UE_ARRAY_COUNT(DependentSingletons),
-		0,
-		0,
-		0,
-		0x001000A0u,
-		METADATA_PARAMS(Z_Construct_UClass_USkills_Base_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_USkills_Base_Statics::Class_MetaDataParams))
-	};
-	UClass* Z_Construct_UClass_USkills_Base()
+	void* Z_Construct_UScriptStruct_FSkills_Base_Statics::NewStructOps()
 	{
-		if (!Z_Registration_Info_UClass_USkills_Base.OuterSingleton)
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FSkills_Base>();
+	}
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_ElementalType_MetaData[] = {
+		{ "Category", "Skills_Base" },
+		{ "ModuleRelativePath", "Public/Skills_Base.h" },
+	};
+#endif
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_ElementalType = { "ElementalType", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FSkills_Base, ElementalType), Z_Construct_UEnum_DesentIntoAtlantis_EElementalTypes, METADATA_PARAMS(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_ElementalType_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_ElementalType_MetaData)) }; // 4008016569
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillName_MetaData[] = {
+		{ "Category", "Skills_Base" },
+		{ "ModuleRelativePath", "Public/Skills_Base.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillName = { "SkillName", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FSkills_Base, SkillName), METADATA_PARAMS(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillName_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillName_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillDescription_MetaData[] = {
+		{ "Category", "Skills_Base" },
+		{ "ModuleRelativePath", "Public/Skills_Base.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillDescription = { "SkillDescription", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FSkills_Base, SkillDescription), METADATA_PARAMS(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillDescription_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillDescription_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_CostToUse_MetaData[] = {
+		{ "Category", "Skills_Base" },
+		{ "ModuleRelativePath", "Public/Skills_Base.h" },
+	};
+#endif
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_CostToUse = { "CostToUse", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FSkills_Base, CostToUse), METADATA_PARAMS(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_CostToUse_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_CostToUse_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_Damage_MetaData[] = {
+		{ "Category", "Skills_Base" },
+		{ "ModuleRelativePath", "Public/Skills_Base.h" },
+	};
+#endif
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_Damage = { "Damage", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FSkills_Base, Damage), METADATA_PARAMS(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_Damage_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_Damage_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillRange_MetaData[] = {
+		{ "Category", "Skills_Base" },
+		{ "ModuleRelativePath", "Public/Skills_Base.h" },
+	};
+#endif
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillRange = { "SkillRange", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FSkills_Base, SkillRange), METADATA_PARAMS(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillRange_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillRange_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillIcon_MetaData[] = {
+		{ "Category", "Skills_Base" },
+		{ "ModuleRelativePath", "Public/Skills_Base.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillIcon = { "SkillIcon", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FSkills_Base, SkillIcon), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillIcon_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillIcon_MetaData)) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FSkills_Base_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_ElementalType,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillName,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillDescription,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_CostToUse,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_Damage,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillRange,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillIcon,
+	};
+	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FSkills_Base_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		Z_Construct_UScriptStruct_FTableRowBase,
+		&NewStructOps,
+		"Skills_Base",
+		sizeof(FSkills_Base),
+		alignof(FSkills_Base),
+		Z_Construct_UScriptStruct_FSkills_Base_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FSkills_Base_Statics::PropPointers),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000201),
+		METADATA_PARAMS(Z_Construct_UScriptStruct_FSkills_Base_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FSkills_Base_Statics::Struct_MetaDataParams))
+	};
+	UScriptStruct* Z_Construct_UScriptStruct_FSkills_Base()
+	{
+		if (!Z_Registration_Info_UScriptStruct_Skills_Base.InnerSingleton)
 		{
-			UECodeGen_Private::ConstructUClass(Z_Registration_Info_UClass_USkills_Base.OuterSingleton, Z_Construct_UClass_USkills_Base_Statics::ClassParams);
+			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_Skills_Base.InnerSingleton, Z_Construct_UScriptStruct_FSkills_Base_Statics::ReturnStructParams);
 		}
-		return Z_Registration_Info_UClass_USkills_Base.OuterSingleton;
+		return Z_Registration_Info_UScriptStruct_Skills_Base.InnerSingleton;
 	}
-	template<> DESENTINTOATLANTIS_API UClass* StaticClass<USkills_Base>()
-	{
-		return USkills_Base::StaticClass();
-	}
-	DEFINE_VTABLE_PTR_HELPER_CTOR(USkills_Base);
 	struct Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_Statics
 	{
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
-		static const FClassRegisterCompiledInInfo ClassInfo[];
+		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_Statics::EnumInfo[] = {
 		{ ESkillType_StaticEnum, TEXT("ESkillType"), &Z_Registration_Info_UEnum_ESkillType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 95639070U) },
@@ -324,11 +407,11 @@ void EmptyLinkFunctionForGeneratedCodeSkills_Base() {}
 		{ EAilment_StaticEnum, TEXT("EAilment"), &Z_Registration_Info_UEnum_EAilment, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3317222983U) },
 		{ ESkillRange_StaticEnum, TEXT("ESkillRange"), &Z_Registration_Info_UEnum_ESkillRange, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2381454770U) },
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_USkills_Base, USkills_Base::StaticClass, TEXT("USkills_Base"), &Z_Registration_Info_UClass_USkills_Base, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkills_Base), 1723990458U) },
+	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_Statics::ScriptStructInfo[] = {
+		{ FSkills_Base::StaticStruct, Z_Construct_UScriptStruct_FSkills_Base_Statics::NewStructOps, TEXT("Skills_Base"), &Z_Registration_Info_UScriptStruct_Skills_Base, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FSkills_Base), 2113845255U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_132349330(TEXT("/Script/DesentIntoAtlantis"),
-		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_2991658482(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
+		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_Statics::EnumInfo));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

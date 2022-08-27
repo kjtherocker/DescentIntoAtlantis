@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Engine/DataTable.h"
 #include "UObject/NoExportTypes.h"
 #include "Skills_Base.generated.h"
 
@@ -52,18 +53,20 @@ enum ESkillRange
 
 class ACreature_Base;
 
-UCLASS()
-class DESENTINTOATLANTIS_API USkills_Base : public UObject
+USTRUCT()
+struct DESENTINTOATLANTIS_API FSkills_Base : public FTableRowBase
 {
-	GENERATED_BODY()
+	GENERATED_USTRUCT_BODY()
 
 
 public:
 
-	EElementalTypes m_ElementalType;
-	ESkillType      m_SkillType;
-	ESkillRange     m_SkillFormation;
-	EAilment        m_SkillAilment;
+	UPROPERTY( EditAnywhere )
+	TEnumAsByte<EElementalTypes> ElementalType;
+	
+	ESkillType      SkillType;
+	ESkillRange     SkillFormation;
+	EAilment        SkillAilment;
 	
 	UPROPERTY( EditAnywhere )
 	FString SkillName;
@@ -71,11 +74,14 @@ public:
 	FString SkillDescription;
 
 	UPROPERTY( EditAnywhere )
-	int m_CostToUse;
+	int CostToUse;
 	UPROPERTY( EditAnywhere )
-	int m_Damage;
+	int Damage;
 	UPROPERTY( EditAnywhere )
-	int m_SkillRange;
+	int SkillRange;
+
+	UPROPERTY( EditAnywhere )
+	UTexture2D* SkillIcon;
 
 
 	virtual void UseSkillMulti(ACreature_Base* aAttacker, TArray<ACreature_Base*> aVictim);

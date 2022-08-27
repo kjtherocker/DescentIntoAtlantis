@@ -3,10 +3,12 @@
 
 #include "FloorManager.h"
 
+#include "DesentIntoAtlantisGameModeBase.h"
 #include "EFloorIdentifier.h"
 #include "FloorPlayerController.h"
 #include "Skills_Base.h"
 #include "Engine/DataTable.h"
+#include "Kismet/GameplayStatics.h"
 
 
 // Sets default values
@@ -14,14 +16,7 @@ AFloorManager::AFloorManager()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
-
-	static ConstructorHelpers::FObjectFinder<UObject> PlayerAttackMontageObject(TEXT("DataTable'/Game/Skills/AtlantisSkills.AtlantisSkills'"));
-	if (PlayerAttackMontageObject.Succeeded())
-	{ 
-		datatable = dynamic_cast<UDataTable*>( PlayerAttackMontageObject.Object);
-		USkills_Base* test = datatable->FindRow<USkills_Base>("IceRain",FString("Searching for IceRain"));
-
-	}
+	
 }
 
 void AFloorManager::CreateGrid(UFloorBase* aFloor)
@@ -103,14 +98,21 @@ void AFloorManager::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	ADesentIntoAtlantisGameModeBase* MyMode = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 
+	skillbasetest =  MyMode->skillFactory->GetSkill("IceRain");
+
+	if(skillbasetest)
+	{
+		int damage = skillbasetest->Damage;
+	}
 	cardinalPositions.Add(ECardinalNodeDirections::Up,    FVector2D(-1,0));
 	cardinalPositions.Add(ECardinalNodeDirections::Down,  FVector2D(1,0));
 	cardinalPositions.Add(ECardinalNodeDirections::Left,  FVector2D(0,-1));
 	cardinalPositions.Add(ECardinalNodeDirections::Right, FVector2D(0,1));
 	
 	floorDictionary.Add(EFloorIdentifier::Floor1,NewObject<UFloorBase>());
-
+	
 	if(floorDictionary[EFloorIdentifier::Floor1] != nullptr)
 	{
 		SpawnFloor(floorDictionary[EFloorIdentifier::Floor1]);

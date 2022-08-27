@@ -15,6 +15,7 @@
 #include "FloorManager.generated.h"
 
 
+struct FSkills_Base;
 UCLASS()
 class DESENTINTOATLANTIS_API AFloorManager : public AActor
 {
@@ -57,6 +58,7 @@ protected:
 private:
 	void SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes);
 
+	FSkills_Base* skillbasetest;
 	
 public:	
 	// Called every frame

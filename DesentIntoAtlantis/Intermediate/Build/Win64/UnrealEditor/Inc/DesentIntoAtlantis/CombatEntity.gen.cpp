@@ -9,79 +9,101 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCombatEntity() {}
 // Cross Module References
-	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatEntity_NoRegister();
-	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatEntity();
-	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCombatEntity();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
+	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
 // End Cross Module References
-	void UCombatEntity::StaticRegisterNativesUCombatEntity()
+
+static_assert(std::is_polymorphic<FCombatEntity>() == std::is_polymorphic<FTableRowBase>(), "USTRUCT FCombatEntity cannot be polymorphic unless super FTableRowBase is polymorphic");
+
+	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_CombatEntity;
+class UScriptStruct* FCombatEntity::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_CombatEntity.OuterSingleton)
 	{
+		Z_Registration_Info_UScriptStruct_CombatEntity.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FCombatEntity, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("CombatEntity"));
 	}
-	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UCombatEntity);
-	UClass* Z_Construct_UClass_UCombatEntity_NoRegister()
+	return Z_Registration_Info_UScriptStruct_CombatEntity.OuterSingleton;
+}
+template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntity>()
+{
+	return FCombatEntity::StaticStruct();
+}
+	struct Z_Construct_UScriptStruct_FCombatEntity_Statics
 	{
-		return UCombatEntity::StaticClass();
-	}
-	struct Z_Construct_UClass_UCombatEntity_Statics
-	{
-		static UObject* (*const DependentSingletons[])();
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
+		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
 #endif
-		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
-		static const UECodeGen_Private::FClassParams ClassParams;
-	};
-	UObject* (*const Z_Construct_UClass_UCombatEntity_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_UObject,
-		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		static void* NewStructOps();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_characterName_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_characterName;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_classDataTablePath_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_classDataTablePath;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UECodeGen_Private::FStructParams ReturnStructParams;
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatEntity_Statics::Class_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCombatEntity_Statics::Struct_MetaDataParams[] = {
 		{ "Comment", "/**\n * \n */" },
-		{ "IncludePath", "CombatEntity.h" },
 		{ "ModuleRelativePath", "Public/CombatEntity.h" },
 	};
 #endif
-	const FCppClassTypeInfoStatic Z_Construct_UClass_UCombatEntity_Statics::StaticCppClassTypeInfo = {
-		TCppClassTypeTraits<UCombatEntity>::IsAbstract,
-	};
-	const UECodeGen_Private::FClassParams Z_Construct_UClass_UCombatEntity_Statics::ClassParams = {
-		&UCombatEntity::StaticClass,
-		nullptr,
-		&StaticCppClassTypeInfo,
-		DependentSingletons,
-		nullptr,
-		nullptr,
-		nullptr,
-		UE_ARRAY_COUNT(DependentSingletons),
-		0,
-		0,
-		0,
-		0x001000A0u,
-		METADATA_PARAMS(Z_Construct_UClass_UCombatEntity_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatEntity_Statics::Class_MetaDataParams))
-	};
-	UClass* Z_Construct_UClass_UCombatEntity()
+	void* Z_Construct_UScriptStruct_FCombatEntity_Statics::NewStructOps()
 	{
-		if (!Z_Registration_Info_UClass_UCombatEntity.OuterSingleton)
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FCombatEntity>();
+	}
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCombatEntity_Statics::NewProp_characterName_MetaData[] = {
+		{ "Category", "CombatEntity" },
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FCombatEntity_Statics::NewProp_characterName = { "characterName", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCombatEntity, characterName), METADATA_PARAMS(Z_Construct_UScriptStruct_FCombatEntity_Statics::NewProp_characterName_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCombatEntity_Statics::NewProp_characterName_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCombatEntity_Statics::NewProp_classDataTablePath_MetaData[] = {
+		{ "Category", "CombatEntity" },
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FCombatEntity_Statics::NewProp_classDataTablePath = { "classDataTablePath", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCombatEntity, classDataTablePath), METADATA_PARAMS(Z_Construct_UScriptStruct_FCombatEntity_Statics::NewProp_classDataTablePath_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCombatEntity_Statics::NewProp_classDataTablePath_MetaData)) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FCombatEntity_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCombatEntity_Statics::NewProp_characterName,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCombatEntity_Statics::NewProp_classDataTablePath,
+	};
+	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FCombatEntity_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		Z_Construct_UScriptStruct_FTableRowBase,
+		&NewStructOps,
+		"CombatEntity",
+		sizeof(FCombatEntity),
+		alignof(FCombatEntity),
+		Z_Construct_UScriptStruct_FCombatEntity_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCombatEntity_Statics::PropPointers),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000201),
+		METADATA_PARAMS(Z_Construct_UScriptStruct_FCombatEntity_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCombatEntity_Statics::Struct_MetaDataParams))
+	};
+	UScriptStruct* Z_Construct_UScriptStruct_FCombatEntity()
+	{
+		if (!Z_Registration_Info_UScriptStruct_CombatEntity.InnerSingleton)
 		{
-			UECodeGen_Private::ConstructUClass(Z_Registration_Info_UClass_UCombatEntity.OuterSingleton, Z_Construct_UClass_UCombatEntity_Statics::ClassParams);
+			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_CombatEntity.InnerSingleton, Z_Construct_UScriptStruct_FCombatEntity_Statics::ReturnStructParams);
 		}
-		return Z_Registration_Info_UClass_UCombatEntity.OuterSingleton;
+		return Z_Registration_Info_UScriptStruct_CombatEntity.InnerSingleton;
 	}
-	template<> DESENTINTOATLANTIS_API UClass* StaticClass<UCombatEntity>()
-	{
-		return UCombatEntity::StaticClass();
-	}
-	DEFINE_VTABLE_PTR_HELPER_CTOR(UCombatEntity);
 	struct Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics
 	{
-		static const FClassRegisterCompiledInInfo ClassInfo[];
+		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCombatEntity, UCombatEntity::StaticClass, TEXT("UCombatEntity"), &Z_Registration_Info_UClass_UCombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatEntity), 515052136U) },
+	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo[] = {
+		{ FCombatEntity::StaticStruct, Z_Construct_UScriptStruct_FCombatEntity_Statics::NewStructOps, TEXT("CombatEntity"), &Z_Registration_Info_UScriptStruct_CombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatEntity), 2528093899U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_1013493471(TEXT("/Script/DesentIntoAtlantis"),
-		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_358860671(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
+		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo),
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

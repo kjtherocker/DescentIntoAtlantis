@@ -3,80 +3,82 @@
 
 #include "CombatEntity.h"
 
-void UCombatEntity::SetTacticsEntity()
+
+void FCombatEntity::SetTacticsEntity()
+{
+    currentClass = NewObject<UCombatEntityClass>(); 
+    currentClass->InitializeDataTable(classDataTablePath);
+}
+
+void FCombatEntity::EndTurn()
 {
 }
 
-void UCombatEntity::EndTurn()
-{
-}
-
-int UCombatEntity::GetAllStrength()
+int FCombatEntity::GetAllStrength()
 {
     int TemporaryStat;
 
-    TemporaryStat = m_BuffStrength + m_DebuffStrength + m_BaseStrength + m_DomainStrength;
+    TemporaryStat = currentClass->currentClassLevel->baseStrength + buffStrength + debuffStrength + domainStrength;
 
     return TemporaryStat;
 }
 
-int UCombatEntity::GetAllMagic()
+int FCombatEntity::GetAllMagic()
 {
     int TemporaryStat;
 
-    TemporaryStat = m_BuffMagic + m_DebuffMagic + m_BaseMagic + m_DomainMagic;
+    TemporaryStat =  currentClass->currentClassLevel->baseMagic  + buffMagic + debuffMagic + domainMagic;
 
     return TemporaryStat;
 }
 
-int UCombatEntity::GetAllHit()
+int FCombatEntity::GetAllHit()
 {
     int TemporaryStat;
 
-    TemporaryStat = m_BuffHit + m_DebuffHit + m_BaseHit + m_DomainHit;
+    TemporaryStat = currentClass->currentClassLevel->baseHit + buffHit + debuffHit + domainHit;
 
     return TemporaryStat;
 }
 
-int UCombatEntity::GetAllEvasion()
+int FCombatEntity::GetAllEvasion()
 {
     int TemporaryStat;
 
-    TemporaryStat = m_BuffEvasion+ m_DebuffEvasion + m_BaseEvasion + m_DomainEvasion;
+    TemporaryStat = currentClass->currentClassLevel->baseEvasion + buffEvasion + debuffEvasion + domainEvasion;
 
     return TemporaryStat;
 }
 
-int UCombatEntity::GetAllDefence()
+int FCombatEntity::GetAllDefence()
 {
     int TemporaryStat;
 
-    TemporaryStat = m_BuffDefence + m_DebuffDefence + m_BaseDefence + m_DomainDefence;
+    TemporaryStat = currentClass->currentClassLevel->baseDefence + BuffDefence + DebuffDefence + DomainDefence;
 
     return TemporaryStat;
 }
 
-int UCombatEntity::GetAllResistance()
+int FCombatEntity::GetAllResistance()
 {
     int TemporaryMagic;
 
-    TemporaryMagic = m_BuffResistance + m_DebuffResistance + m_BaseResistance + m_DomainResistance;
+    TemporaryMagic = currentClass->currentClassLevel->BaseResistance + BuffResistance + DebuffResistance + DomainResistance;
 
     return TemporaryMagic;
 }
 
-void UCombatEntity::SetHealth(int aHealth)
+void FCombatEntity::SetHealth(int aHealth)
 {
-    maxHealth = aHealth;
-    currentHealth = maxHealth;
+//    currentHealth = currentClass->currentClassLevel->maxHealth;
 }
 
-void UCombatEntity::DecrementHealth(int aDecremenby)
+void FCombatEntity::DecrementHealth(int aDecremenby)
 {
     currentHealth -= aDecremenby;
 }
 
-void UCombatEntity::DecrementHealth(int aDecrementby, EElementalType aElementalType, float aTimeTillInitalDamage,
+void FCombatEntity::DecrementHealth(int aDecrementby, EElementalType aElementalType, float aTimeTillInitalDamage,
     float aTimeTillHoveringUiElement, float TimeTillDamage)
 {
     EElementalType AttackingElement = aElementalType;
@@ -97,32 +99,32 @@ void UCombatEntity::DecrementHealth(int aDecrementby, EElementalType aElementalT
     DeathCheck();
 }
 
-void UCombatEntity::IncrementHealth(int Increment)
+void FCombatEntity::IncrementHealth(int Increment)
 {
     currentHealth += Increment;
 }
 
-UCombatEntity::Charactertype UCombatEntity::GetCharactertype()
+FCombatEntity::Charactertype FCombatEntity::GetCharactertype()
 {
     return m_Charactertype;
 }
 
-void UCombatEntity::Resurrection()
+void FCombatEntity::Resurrection()
 {
 }
 
-void UCombatEntity::DeathCheck()
+void FCombatEntity::DeathCheck()
 {
 }
 
-void UCombatEntity::Death()
+void FCombatEntity::Death()
 {
 }
 
-float UCombatEntity::GetHealthPercentage()
+float FCombatEntity::GetHealthPercentage()
 {
     float tempCurrentHealth = currentHealth;
-    float tempMaxHealth     = maxHealth;
+    float tempMaxHealth     = currentHealth ;//currentClass->currentClassLevel->maxHealth;
     
     return tempCurrentHealth / tempMaxHealth;
 }

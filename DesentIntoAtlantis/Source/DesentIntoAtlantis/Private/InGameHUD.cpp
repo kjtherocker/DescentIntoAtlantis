@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
-#include "CommandBoard.h"
 #include "InGameHUD.h"
+#include "CommandBoard.h"
+
 
 void AInGameHUD::BeginPlay()
 {
