@@ -30,7 +30,8 @@ template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EViews>();
 
 #define FOREACH_ENUM_EVIEWELEMENTS(op) \
 	op(EViewElements::None) \
-	op(EViewElements::PartyStatusHealthbar) 
+	op(EViewElements::PartyStatusHealthbar) \
+	op(EViewElements::SkillBar) 
 
 enum class EViewElements;
 template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EViewElements>();

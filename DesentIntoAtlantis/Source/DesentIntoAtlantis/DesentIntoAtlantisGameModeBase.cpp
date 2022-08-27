@@ -16,4 +16,5 @@ ADesentIntoAtlantisGameModeBase::ADesentIntoAtlantisGameModeBase()
 
     skillFactory = NewObject<USkillFactory>();
     partyManager = NewObject<UPartyManager>();
+    partyManager->Initialize(skillFactory);
 }

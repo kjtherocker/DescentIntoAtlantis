@@ -97,12 +97,14 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_EViewElements_Statics::Enumerators[] = {
 		{ "EViewElements::None", (int64)EViewElements::None },
 		{ "EViewElements::PartyStatusHealthbar", (int64)EViewElements::PartyStatusHealthbar },
+		{ "EViewElements::SkillBar", (int64)EViewElements::SkillBar },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EViewElements_Statics::Enum_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Public/Views.h" },
 		{ "None.Name", "EViewElements::None" },
 		{ "PartyStatusHealthbar.Name", "EViewElements::PartyStatusHealthbar" },
+		{ "SkillBar.Name", "EViewElements::SkillBar" },
 	};
 #endif
 	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_DesentIntoAtlantis_EViewElements_Statics::EnumParams = {
@@ -131,9 +133,9 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo[] = {
 		{ EViews_StaticEnum, TEXT("EViews"), &Z_Registration_Info_UEnum_EViews, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 824824834U) },
-		{ EViewElements_StaticEnum, TEXT("EViewElements"), &Z_Registration_Info_UEnum_EViewElements, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2240120800U) },
+		{ EViewElements_StaticEnum, TEXT("EViewElements"), &Z_Registration_Info_UEnum_EViewElements, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3401629272U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_2441688631(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_2492708606(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo));

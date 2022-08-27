@@ -1,13 +1,13 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
+#include "SkillFactory.h"
 #include "CombatEntity.h"
 
 
-void FCombatEntity::SetTacticsEntity()
+void FCombatEntity::SetTacticsEntity(USkillFactory* aSkillFactory)
 {
-    currentClass = NewObject<UCombatEntityClass>(); 
-    currentClass->InitializeDataTable(classDataTablePath);
+    currentClass = NewObject<UCombatClass>(); 
+    currentClass->InitializeDataTable(classDataTablePath, aSkillFactory);
 }
 
 void FCombatEntity::EndTurn()

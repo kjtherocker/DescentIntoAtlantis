@@ -6,6 +6,8 @@
 #include "UObject/NoExportTypes.h"
 #include "PartyManager.generated.h"
 
+struct FCombatEntity;
+class USkillFactory;
 /**
  * 
  */
@@ -14,5 +16,13 @@ class DESENTINTOATLANTIS_API UPartyManager : public UObject
 {
 	GENERATED_BODY()
 	UPartyManager();
+	USkillFactory* skillFactory;
+
+
+public:
+	
+	void Initialize(USkillFactory* aSkillFactory);
+	TArray<FCombatEntity*> combatEntity;
+
 	
 };

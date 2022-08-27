@@ -5,9 +5,10 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "EElementalType.h"
-#include "CombatEntityClass.h"
+#include "CombatClass.h"
 #include "CombatEntity.generated.h"
 
+class USkillFactory;
 /**
  * 
  */
@@ -36,7 +37,7 @@ struct DESENTINTOATLANTIS_API FCombatEntity : public FTableRowBase
 public:
 
 
-	void SetTacticsEntity();
+	void SetTacticsEntity(USkillFactory* aSkillFactory);
 	void EndTurn();
 
 	virtual int GetAllStrength();
@@ -77,7 +78,7 @@ public:
 
 //	MovementList m_MovementList;
 
-	UCombatEntityClass* currentClass;
+	UCombatClass* currentClass;
 
 	UPROPERTY( EditAnywhere )
 	FString characterName;

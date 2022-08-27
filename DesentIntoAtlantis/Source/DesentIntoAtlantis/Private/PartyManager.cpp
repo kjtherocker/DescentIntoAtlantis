@@ -4,6 +4,7 @@
 #include "PartyManager.h"
 
 #include "CombatEntity.h"
+#include "SkillFactory.h"
 #include "Engine/DataTable.h"
 
 UPartyManager::UPartyManager()
@@ -12,10 +13,17 @@ UPartyManager::UPartyManager()
 	if (PlayerAttackMontageObject.Succeeded())
 	{ 
 		UDataTable* datatable = dynamic_cast<UDataTable*>( PlayerAttackMontageObject.Object);
-		FCombatEntity* combatEntity = datatable->FindRow<FCombatEntity>(FName(TEXT("0")),FString("Searching for seres"),true);
-		if(combatEntity)
-		{
-			combatEntity->SetTacticsEntity();
-		}
+		combatEntity.Add(datatable->FindRow<FCombatEntity>(FName(TEXT("0")),FString("Searching for seres"),true));
+	}
+}
+
+void UPartyManager::Initialize (USkillFactory* aSkillFactory)
+{
+	skillFactory = aSkillFactory;
+
+	for(int i = 0;i < combatEntity.Num();i++)
+	{
+		combatEntity[i]->SetTacticsEntity(aSkillFactory);
+		combatEntity[i]->currentClass->AddExperience(150);
 	}
 }
