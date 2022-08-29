@@ -6,6 +6,7 @@
 #include "UObject/NoExportTypes.h"
 #include "EElementalType.h"
 #include "CombatClass.h"
+#include "Components/Image.h"
 #include "CombatEntity.generated.h"
 
 class USkillFactory;
@@ -63,6 +64,7 @@ public:
 	virtual void Death();
 
 	virtual float GetHealthPercentage();
+	virtual float GetManaPercentage();
 	
 //	Skills m_Attack;
 //	List<Skills> m_Skills { get; protected set; }
@@ -84,6 +86,11 @@ public:
 	FString characterName;
 	UPROPERTY( EditAnywhere )
 	FString classDataTablePath;
+
+	UPROPERTY( EditAnywhere )
+	UTexture2D* characterPortrait;
+	UPROPERTY( EditAnywhere )
+	UTexture2D* fullBodyCharacterPortrait;
 	
 	int currentHealth;
 	int currentMana;

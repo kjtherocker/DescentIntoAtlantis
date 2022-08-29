@@ -9,11 +9,14 @@
 
 UPartyManager::UPartyManager()
 {
-	static ConstructorHelpers::FObjectFinder<UObject> PlayerAttackMontageObject(TEXT("DataTable'/Game/Skills/Atlantis_-_PlayerCharacters.Atlantis_-_PlayerCharacters'"));
-	if (PlayerAttackMontageObject.Succeeded())
+	static ConstructorHelpers::FObjectFinder<UObject> partyDatatable(TEXT("DataTable'/Game/Datatables/Atlantis_-_PlayerCharacters.Atlantis_-_PlayerCharacters'"));
+	if (partyDatatable.Succeeded())
 	{ 
-		UDataTable* datatable = dynamic_cast<UDataTable*>( PlayerAttackMontageObject.Object);
-		combatEntity.Add(datatable->FindRow<FCombatEntity>(FName(TEXT("0")),FString("Searching for seres"),true));
+		UDataTable* datatable = dynamic_cast<UDataTable*>( partyDatatable.Object);
+		for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
+		{
+			playerEntityData.Add(datatable->FindRow<FCombatEntity>(FName(FString::FromInt(i)),FString("Searching for seres"),true));
+		}
 	}
 }
 
@@ -21,9 +24,18 @@ void UPartyManager::Initialize (USkillFactory* aSkillFactory)
 {
 	skillFactory = aSkillFactory;
 
-	for(int i = 0;i < combatEntity.Num();i++)
+	for(int i = 0;i < playerEntityData.Num();i++)
 	{
-		combatEntity[i]->SetTacticsEntity(aSkillFactory);
-		combatEntity[i]->currentClass->AddExperience(150);
+		//if we dont get back the correct information from the datatable
+		if(playerEntityData[i] != nullptr)
+		{
+			playerEntityData[i]->SetTacticsEntity(aSkillFactory);
+			//combatEntity[i]->currentClass->AddExperience(150);
+		}
 	}
+}
+
+TArray<FCombatEntity*> UPartyManager::ReturnActivePartyEntityData()
+{
+	return playerEntityData;
 }

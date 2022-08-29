@@ -8,6 +8,7 @@
 
 struct FCombatEntity;
 struct FSkills_Base;
+class UTextBlock;
 /**
  * 
  */
@@ -18,8 +19,23 @@ class DESENTINTOATLANTIS_API USkillMenu : public UBaseUserWidget
 	virtual void UiInitialize() override;
 
 	void CreateSkillbar(FSkills_Base* aSkill);
-
+	void ReturnToPreviousScreen();
+	void SkillSelection(FSkills_Base* aSkill);
 public:
+	
+	FCombatEntity* currentActivePartyMember;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UTextBlock* BW_CharacterName;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UTextBlock* BW_ClassName;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UTextBlock* BW_SkillName;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UTextBlock* BW_SkillDescription;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	class UVerticalBox* BW_VerticalBox;

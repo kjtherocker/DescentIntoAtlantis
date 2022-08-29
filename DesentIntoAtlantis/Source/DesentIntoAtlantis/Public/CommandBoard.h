@@ -7,6 +7,9 @@
 #include "Blueprint/UserWidget.h"
 #include "CommandBoard.generated.h"
 
+class UImage;
+class UBorder;
+struct FCombatEntity;
 /**
  * 
  */
@@ -19,27 +22,32 @@ class DESENTINTOATLANTIS_API UCommandBoard : public UBaseUserWidget
 
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	class UBorder* B_Attack;
+	UBorder* B_Attack;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	class UBorder* B_Skill;
+	 UBorder* B_Skill;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-    class UBorder* B_Domain;
+     UBorder* B_Domain;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	class UBorder* B_Item;
+	 UBorder* B_Item;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	class UBorder* B_Escape;
+	 UBorder* B_Escape;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	class UBorder* B_Pass;
+	 UBorder* B_Pass;
 
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UImage* BW_FullBodyPortrait;
+	
 	TArray<UBorder*> commandBoards;
 
 	FLinearColor unhightlighedColor = FLinearColor(0.0,0.0,0.0,1.0);
 	FLinearColor highlightedColor   = FLinearColor(1.0,1.0,1.0,1.0);
+
+	FCombatEntity* currentActivePartyMember;
 	
 	int cursorPosition;
 

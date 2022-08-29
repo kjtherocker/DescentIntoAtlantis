@@ -1443,10 +1443,13 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CombatBackground.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CombatClass.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CombatEntity.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CombatEntityClass.cpp">
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CombatManager.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CommandBoard.cpp">
@@ -1503,10 +1506,13 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatBackground.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatClass.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatEntity.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatEntityClass.h">
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatManager.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CommandBoard.h">

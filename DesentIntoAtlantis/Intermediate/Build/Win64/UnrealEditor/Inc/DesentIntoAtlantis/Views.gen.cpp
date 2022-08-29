@@ -11,6 +11,7 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 // Cross Module References
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EViews();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EUiType();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EViewElements();
 // End Cross Module References
 	static FEnumRegistrationInfo Z_Registration_Info_UEnum_EViews;
@@ -73,6 +74,60 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 		}
 		return Z_Registration_Info_UEnum_EViews.InnerSingleton;
 	}
+	static FEnumRegistrationInfo Z_Registration_Info_UEnum_EUiType;
+	static UEnum* EUiType_StaticEnum()
+	{
+		if (!Z_Registration_Info_UEnum_EUiType.OuterSingleton)
+		{
+			Z_Registration_Info_UEnum_EUiType.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_DesentIntoAtlantis_EUiType, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("EUiType"));
+		}
+		return Z_Registration_Info_UEnum_EUiType.OuterSingleton;
+	}
+	template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EUiType>()
+	{
+		return EUiType_StaticEnum();
+	}
+	struct Z_Construct_UEnum_DesentIntoAtlantis_EUiType_Statics
+	{
+		static const UECodeGen_Private::FEnumeratorParam Enumerators[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FEnumParams EnumParams;
+	};
+	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_EUiType_Statics::Enumerators[] = {
+		{ "EUiType::None", (int64)EUiType::None },
+		{ "EUiType::ActiveUi", (int64)EUiType::ActiveUi },
+		{ "EUiType::PersistentUi", (int64)EUiType::PersistentUi },
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EUiType_Statics::Enum_MetaDataParams[] = {
+		{ "ActiveUi.Name", "EUiType::ActiveUi" },
+		{ "ModuleRelativePath", "Public/Views.h" },
+		{ "None.Name", "EUiType::None" },
+		{ "PersistentUi.Name", "EUiType::PersistentUi" },
+	};
+#endif
+	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_DesentIntoAtlantis_EUiType_Statics::EnumParams = {
+		(UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		nullptr,
+		"EUiType",
+		"EUiType",
+		Z_Construct_UEnum_DesentIntoAtlantis_EUiType_Statics::Enumerators,
+		UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EUiType_Statics::Enumerators),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EEnumFlags::None,
+		(uint8)UEnum::ECppForm::EnumClass,
+		METADATA_PARAMS(Z_Construct_UEnum_DesentIntoAtlantis_EUiType_Statics::Enum_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EUiType_Statics::Enum_MetaDataParams))
+	};
+	UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EUiType()
+	{
+		if (!Z_Registration_Info_UEnum_EUiType.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_EUiType.InnerSingleton, Z_Construct_UEnum_DesentIntoAtlantis_EUiType_Statics::EnumParams);
+		}
+		return Z_Registration_Info_UEnum_EUiType.InnerSingleton;
+	}
 	static FEnumRegistrationInfo Z_Registration_Info_UEnum_EViewElements;
 	static UEnum* EViewElements_StaticEnum()
 	{
@@ -133,9 +188,10 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo[] = {
 		{ EViews_StaticEnum, TEXT("EViews"), &Z_Registration_Info_UEnum_EViews, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 824824834U) },
+		{ EUiType_StaticEnum, TEXT("EUiType"), &Z_Registration_Info_UEnum_EUiType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4223346555U) },
 		{ EViewElements_StaticEnum, TEXT("EViewElements"), &Z_Registration_Info_UEnum_EViewElements, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3401629272U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_2492708606(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_3703764811(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo));

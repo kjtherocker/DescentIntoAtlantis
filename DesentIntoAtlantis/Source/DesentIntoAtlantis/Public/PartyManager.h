@@ -22,7 +22,11 @@ class DESENTINTOATLANTIS_API UPartyManager : public UObject
 public:
 	
 	void Initialize(USkillFactory* aSkillFactory);
-	TArray<FCombatEntity*> combatEntity;
+
+	TArray<FCombatEntity*> ReturnActivePartyEntityData();
+	
+	TArray<FCombatEntity*> playerEntityData;
+	TArray<FCombatEntity*> activePartyEntityData;;
 
 	
 };

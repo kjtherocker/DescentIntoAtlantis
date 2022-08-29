@@ -32,9 +32,14 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "Widgets")
 	TMap<EViewElements,TSubclassOf<UUserWidget>> viewElements;
 	
-	void PushView(EViews aView);    
-
-    TArray<UBaseUserWidget*> viewStack;
+	void PushView(EViews aView, EUiType aUiType);
+	void PopMostRecentActiveView();
+	void PushMostRecentInActiveView();
+	void ReturnToPreviousActiveView();
+	TArray<UBaseUserWidget*> persistentViewStack;
+    TArray<UBaseUserWidget*> activeViewStack;
+	TArray<UBaseUserWidget*> inactiveViewStack;
+	
 	TSubclassOf<UUserWidget> GetElement(EViewElements aViewElement);
 private:
     UCommandBoard* commandBoard;

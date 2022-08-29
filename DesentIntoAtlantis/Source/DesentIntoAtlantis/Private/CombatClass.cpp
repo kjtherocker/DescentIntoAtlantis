@@ -5,14 +5,14 @@
 #include "SkillFactory.h"
 #include "CombatClass.h"
 
-
+#include "CombatEntity.h"
 
 
 //"DataTable'/Game/Skills/AtlantisSkills.AtlantisSkills'"
 
 
 
-void UCombatClass::InitializeDataTable(FString aClassExcelSheet, USkillFactory* aSkillFactory)
+void UCombatClass::InitializeDataTable(FString aClassExcelSheet, USkillFactory* aSkillFactory, FCombatEntity* aCombatEntity)
 {
 	static ConstructorHelpers::FObjectFinder<UObject> classDatatable((TEXT("%s"), *aClassExcelSheet));
 	if (classDatatable.Succeeded())
@@ -26,6 +26,8 @@ void UCombatClass::InitializeDataTable(FString aClassExcelSheet, USkillFactory* 
 	}
 
 	skillFactory = aSkillFactory;
+	attachedCombatEntity = aCombatEntity;
+	Levelup();
 	Levelup();
 	Levelup();
 	Levelup();
@@ -45,6 +47,8 @@ void UCombatClass::Levelup()
 {
 	currentClassLevel = classLevels[0];
 	classSkills.Add(skillFactory->GetSkill(currentClassLevel->newlyObtainedSkill));
+	attachedCombatEntity->currentHealth = currentClassLevel->maxHealth;
+	attachedCombatEntity->currentMana   = currentClassLevel->maxMana;
 
 	classLevels.RemoveAt(0);
 }

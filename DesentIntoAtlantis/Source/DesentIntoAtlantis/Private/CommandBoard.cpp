@@ -3,11 +3,15 @@
 
 #include "CommandBoard.h"
 
+#include "CombatEntity.h"
+#include "CombatManager.h"
 #include "EngineUtils.h"
 #include "Components/TextBlock.h"
 #include "Components/Border.h"
 #include "Components/Image.h"
+#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
 #include "Engine/ObjectLibrary.h"
+#include "Kismet/GameplayStatics.h"
 
 void UCommandBoard::UiInitialize()
 {
@@ -18,14 +22,11 @@ void UCommandBoard::UiInitialize()
 	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &UCommandBoard::MoveDown  );
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UCommandBoard::ActivateCommandboardFunction  );
 	
-	// ItemTitle can be nullptr if we haven't created it in the
-	// Blueprint subclass
-	//if (ItemTitle)
-	//{
-	//	ItemTitle->SetText(FText::FromString(TEXT("Hello world!")));
-	//}
-	//
-	//
+	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	currentActivePartyMember = GameModeBase->combatManager->ReturnCurrentActivePartyMember();
+
+	BW_FullBodyPortrait->SetBrushFromTexture(currentActivePartyMember->fullBodyCharacterPortrait);
+	
 	commandBoards.Add(B_Attack);
 	commandBoards.Add(B_Skill);
 	commandBoards.Add(B_Domain);
@@ -76,7 +77,8 @@ void UCommandBoard::MoveDown()
 
 void UCommandBoard::ActivateCommandboardFunction()
 {
-	CommandBoardFunctions[0].Execute();
+	InGameHUD->PopMostRecentActiveView();
+	InGameHUD->PushView(EViews::SkillMenu,EUiType::ActiveUi);
 }
 
 void UCommandBoard::Attack()

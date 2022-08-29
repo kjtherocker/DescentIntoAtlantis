@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
 #include "Blueprint/UserWidget.h"
+#include "Components/Image.h"
 #include "PartyStatusHealthbar.generated.h"
 
 struct FCombatEntity;
@@ -34,4 +35,7 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_HealthText;
+	
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UImage* BW_CharacterPortrait;
 };

@@ -28,6 +28,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 enum class EViews;
 template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EViews>();
 
+#define FOREACH_ENUM_EUITYPE(op) \
+	op(EUiType::None) \
+	op(EUiType::ActiveUi) \
+	op(EUiType::PersistentUi) 
+
+enum class EUiType;
+template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EUiType>();
+
 #define FOREACH_ENUM_EVIEWELEMENTS(op) \
 	op(EViewElements::None) \
 	op(EViewElements::PartyStatusHealthbar) \

@@ -8,6 +8,8 @@
 #include "GameFramework/GameModeBase.h"
 #include "DesentIntoAtlantisGameModeBase.generated.h"
 
+class AInGameHUD;
+class UCombatManager;
 /**
  * 
  */
@@ -18,6 +20,8 @@ class DESENTINTOATLANTIS_API ADesentIntoAtlantisGameModeBase : public AGameModeB
 	ADesentIntoAtlantisGameModeBase();
 public:
 	
-	USkillFactory* skillFactory;
-	UPartyManager* partyManager;
+	USkillFactory*  skillFactory;
+	UPartyManager*  partyManager;
+	UCombatManager* combatManager;
+	AInGameHUD*     InGameHUD;
 };

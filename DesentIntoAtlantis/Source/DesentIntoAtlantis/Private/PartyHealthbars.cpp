@@ -2,46 +2,35 @@
 
 
 #include "PartyHealthbars.h"
-
+#include "Components/HorizontalBox.h"
+#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+#include "Kismet/GameplayStatics.h"
 #include "CombatEntity.h"
 #include "PartyStatusHealthbar.h"
-#include "Components/HorizontalBox.h"
 
 void UPartyHealthbars::UiInitialize()
 {
-	//FCombatEntity* testo1 = NewObject<FCombatEntity>();
-	//testo1->SetHealth(100);
-	//testo1->DecrementHealth(50);
-	//
-	//FCombatEntity* testo2 = NewObject<FCombatEntity>();
-	//testo2->SetHealth(200);
-	//testo2->DecrementHealth(150);
-	//
-	//FCombatEntity* testo3 = NewObject<FCombatEntity>();
-	//testo3->SetHealth(300);
-	//testo3->DecrementHealth(100);
-	//
-	//FCombatEntity* testo4 = NewObject<FCombatEntity>();
-	//testo4->SetHealth(400);
-	//testo4->DecrementHealth(150);
-	//
-	//CreateHealthbar(testo1);
-	//CreateHealthbar(testo2);
-	//CreateHealthbar(testo3);
-	//CreateHealthbar(testo4);
-	
-}
 
+	ADesentIntoAtlantisGameModeBase* MyMode = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+
+	UPartyManager* PartyManager =  MyMode->partyManager;
+
+	for(int i = 0 ; i < PartyManager->playerEntityData.Num();i++)
+	{
+		CreateHealthbar(PartyManager->playerEntityData[i]);
+	}
+}
+ 
 void UPartyHealthbars::CreateHealthbar(FCombatEntity* aCombatEntity)
 {
-	UUserWidget* testo = CreateWidget(this, InGameHUD->GetElement(EViewElements::PartyStatusHealthbar));
+	UUserWidget* partyStatusHealthbar = CreateWidget(this, InGameHUD->GetElement(EViewElements::PartyStatusHealthbar));
 
-	UPartyStatusHealthbar* baseUserWidget = (UPartyStatusHealthbar*)testo;
+	UPartyStatusHealthbar* baseUserWidget = (UPartyStatusHealthbar*)partyStatusHealthbar;
 	baseUserWidget->UiInitialize();
-	testo->AddToViewport();
+	partyStatusHealthbar->AddToViewport();
 
 	baseUserWidget->SetCombatEntity(aCombatEntity);
 	
 	healthBars.Add(baseUserWidget);
-	BW_HorizontalBox->AddChild(testo);
+	BW_HorizontalBox->AddChild(partyStatusHealthbar);
 }

@@ -7,7 +7,7 @@
 void FCombatEntity::SetTacticsEntity(USkillFactory* aSkillFactory)
 {
     currentClass = NewObject<UCombatClass>(); 
-    currentClass->InitializeDataTable(classDataTablePath, aSkillFactory);
+    currentClass->InitializeDataTable(classDataTablePath, aSkillFactory,this);
 }
 
 void FCombatEntity::EndTurn()
@@ -123,8 +123,16 @@ void FCombatEntity::Death()
 
 float FCombatEntity::GetHealthPercentage()
 {
-    float tempCurrentHealth = currentHealth;
-    float tempMaxHealth     = currentHealth ;//currentClass->currentClassLevel->maxHealth;
+    float currentValue = currentHealth;
+    float maxValue     = currentClass->currentClassLevel->maxHealth;
     
-    return tempCurrentHealth / tempMaxHealth;
+    return currentValue / maxValue;
+}
+
+float FCombatEntity::GetManaPercentage()
+{
+    float currentValue = currentMana;
+    float maxValue     = currentClass->currentClassLevel->maxMana;
+    
+    return currentValue / maxValue;
 }

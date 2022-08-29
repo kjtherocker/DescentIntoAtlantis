@@ -10,6 +10,7 @@
 
 struct FClassData;
 class USkillFactory;
+struct FCombatEntity;
 
 /**
  * 
@@ -22,8 +23,9 @@ class UCombatClass : public UObject
 
 public:
 
-	void InitializeDataTable(FString aClassExcelSheet,USkillFactory* aSkillFactory);
+	void InitializeDataTable(FString aClassExcelSheet,USkillFactory* aSkillFactory, FCombatEntity * combatEntity);
 
+	FCombatEntity* attachedCombatEntity;
 	FClassData* currentClassLevel;
 	TArray<FClassData*> classLevels;
 	TArray<FSkills_Base*> classSkills;

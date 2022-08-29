@@ -17,6 +17,17 @@ enum class  EViews
 };
 
 
+
+UENUM()
+enum class  EUiType
+{
+	None              = 0,
+	ActiveUi          = 1,
+	PersistentUi      = 2
+};
+
+
+
 UENUM()
 enum class  EViewElements
 {

@@ -3,8 +3,11 @@
 
 #include "FloorPawn.h"
 
+#include "CombatManager.h"
 #include "InGameHUD.h"
+#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
 #include "DesentIntoAtlantis/FloorNode.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 AFloorPawn::AFloorPawn()
@@ -18,7 +21,11 @@ AFloorPawn::AFloorPawn()
 void AFloorPawn::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	AInGameHUD * hud = (AInGameHUD*)GetWorld()->GetFirstPlayerController()->GetHUD();
+
+	GameModeBase->InGameHUD = hud;
 }
 
 void AFloorPawn::Initialize()
@@ -69,16 +76,9 @@ void AFloorPawn::MoveForward()
 		return;
 	} 
 
-	AInGameHUD * hud = (AInGameHUD*)GetWorld()->GetFirstPlayerController()->GetHUD();
+	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	GameModeBase->combatManager->StartCombat();
 
-	if(hud)
-	{
-		hud->PushView(EViews::CombatBackground);
-		hud->PushView(EViews::Healthbars);
-		//hud->PushView(EViews::CommandBoard);
-		hud->PushView(EViews::SkillMenu);
-	}
-	//((UUserWidget)commandBoardTest)->Add
 	
 	ECardinalNodeDirections currentNodeDirection = directionModel[0]->directions;
 

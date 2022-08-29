@@ -8,7 +8,7 @@
 
 USkillFactory::USkillFactory()
 {
-	static ConstructorHelpers::FObjectFinder<UObject> skillDatatable(TEXT("DataTable'/Game/Skills/AtlantisSkills.AtlantisSkills'"));
+	static ConstructorHelpers::FObjectFinder<UObject> skillDatatable(TEXT("DataTable'/Game/Datatables/Atlantis_-_Skills.Atlantis_-_Skills'"));
 	if (skillDatatable.Succeeded())
 	{ 
 		UDataTable* datatable = dynamic_cast<UDataTable*>( skillDatatable.Object);
