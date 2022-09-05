@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "EnemyCombatEntity.h"
+#include "PlayerCombatEntity.h"
 #include "UObject/NoExportTypes.h"
 #include "CombatManager.generated.h"
 
@@ -20,14 +22,18 @@ public:
 	void Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase);
 	void StartCombat();
 	void EndCombat();
-
-	FCombatEntity* ReturnCurrentActivePartyMember();
+	void AddEnemyToCombat(FEnemyEntityData* AEnemyEntityData);
 	
-	FCombatEntity* currentActivePartyMember;
+	FPlayerCombatEntity* ReturnCurrentActivePartyMember();
 	
+	TArray<FEnemyCombatEntity*> ReturnEnemysInCombat();
+	
+	FPlayerCombatEntity* currentActivePartyMember;
 
-	TArray<FCombatEntity*> partyMembersInCombat;
-	TArray<FCombatEntity*> partyMembersDead;
+	TArray<FEnemyCombatEntity*> enemyCombatEntities;
+
+	TArray<FPlayerCombatEntity*> partyMembersInCombat;
+	TArray<FPlayerCombatEntity*> partyMembersDead;
 	ADesentIntoAtlantisGameModeBase* gameModeBase;
 	
 };

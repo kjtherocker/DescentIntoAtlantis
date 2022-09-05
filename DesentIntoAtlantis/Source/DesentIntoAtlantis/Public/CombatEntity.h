@@ -10,9 +10,63 @@
 #include "CombatEntity.generated.h"
 
 class USkillFactory;
+struct FSkills_Base;
 /**
  * 
  */
+
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FCombatEntityData :public  FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	UPROPERTY( EditAnywhere )
+	int maxHealth;
+	
+	UPROPERTY( EditAnywhere )
+	int maxMana;
+
+	UPROPERTY( EditAnywhere )
+	int baseStrength;
+
+	UPROPERTY( EditAnywhere )
+	int baseMagic;
+
+	UPROPERTY( EditAnywhere )
+	int baseHit;
+
+	UPROPERTY( EditAnywhere )
+	int baseEvasion;
+
+	UPROPERTY( EditAnywhere )
+	int baseDefence;
+
+	UPROPERTY( EditAnywhere )
+	int baseResistance;
+
+	UPROPERTY( EditAnywhere )
+	TEnumAsByte<EElementalType> ElementalStrength;
+	UPROPERTY( EditAnywhere )
+	TEnumAsByte<EElementalType> ElementalWeakness;
+};
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FCombatAbilityStats :public  FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+
+	int base;
+	int buff;
+	int debuff;
+	int domain;
+
+	int GetAllStats()
+	{
+		return base + buff + debuff + domain;
+	}
+};
+
+
 USTRUCT()
 struct DESENTINTOATLANTIS_API FCombatEntity : public FTableRowBase
 {
@@ -38,15 +92,8 @@ struct DESENTINTOATLANTIS_API FCombatEntity : public FTableRowBase
 public:
 
 
-	void SetTacticsEntity(USkillFactory* aSkillFactory);
+	virtual void SetTacticsEntity(USkillFactory* aSkillFactory);
 	void EndTurn();
-
-	virtual int GetAllStrength();
-	virtual int GetAllMagic();
-	virtual int GetAllHit();
-	virtual int GetAllEvasion();
-	virtual int GetAllDefence();
-	virtual int GetAllResistance();
 
 	//SetStatusEffect(StatusEffects aStatusEffect);
 
@@ -66,84 +113,28 @@ public:
 	virtual float GetHealthPercentage();
 	virtual float GetManaPercentage();
 	
-//	Skills m_Attack;
-//	List<Skills> m_Skills { get; protected set; }
-//	List<Skills> m_BloodArts { get; protected set; }
-
-//	AiController m_CreatureAi;
-
-	//CreaturesAilment m_creaturesAilment;
 	Charactertype m_Charactertype;
-	EElementalType m_ElementalStrength;
-	EElementalType m_ElementalWeakness;
-//	MovementType m_CreaturesMovementType;
 
-//	MovementList m_MovementList;
 
-	UCombatClass* currentClass;
 
-	UPROPERTY( EditAnywhere )
-	FString characterName;
-	UPROPERTY( EditAnywhere )
-	FString classDataTablePath;
-
-	UPROPERTY( EditAnywhere )
-	UTexture2D* characterPortrait;
-	UPROPERTY( EditAnywhere )
-	UTexture2D* fullBodyCharacterPortrait;
-	
 	int currentHealth;
 	int currentMana;
-	
-	int buffStrength;
-	int debuffStrength;
-	int domainStrength;
 
-	int buffMagic;
-	int debuffMagic;
-	int domainMagic;
-    
-
-	int buffHit;
-	int debuffHit;
-	int domainHit;
+	FCombatAbilityStats StrengthAbilityScore;
+	FCombatAbilityStats MagicAbilityScore;
+	FCombatAbilityStats HitAbilityScore;
+	FCombatAbilityStats EvasionAbilityScore;
+	FCombatAbilityStats DefenceAbilityScore;
+	FCombatAbilityStats ResistanceAbilityScore;
 	
-	int buffEvasion;
-	int debuffEvasion;
-	int domainEvasion;
-	
-	int BuffDefence;
-	int DebuffDefence;
-	int DomainDefence;
-    
-	
-	int BuffResistance;
-	int DebuffResistance;
-	int DomainResistance;
 
 	int CurrentDomainpoints;
 	int MaxDomainPoints = 3;
 
 	int AmountOfTurns;
     
-
-//	string DomainAffectingCreature;
-//	string m_Name = "No Name";
-
-//	Material m_PortaitMaterial;
-
-	//GameObject Model;
-//	GameObject ModelInGame;
-
-	//DomainList.DomainListEnum m_DomainList;
-	//Domain m_Domain;
-	//Devour m_Devour;
-//
-	//List<StatusEffects> m_StatusEffectsOnCreature;
-    
 	bool m_IsAlive;
-	// SkillList m_CreatureSkillList;
-
-	
-	
 };
+
+
+

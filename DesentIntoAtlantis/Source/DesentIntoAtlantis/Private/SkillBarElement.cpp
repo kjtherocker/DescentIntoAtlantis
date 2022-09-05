@@ -8,4 +8,5 @@ void USkillBarElement::SetSkill(FSkills_Base* aSkill)
 	SkillIcon->SetBrushFromTexture(aSkill->SkillIcon);
 	SkillName->Text = FText(FText::FromString(aSkill->SkillName));
 	SkillCost->Text = FText(FText::FromString(FString::FromInt(aSkill->CostToUse)));
+	BW_BackgroundHighlight->SetOpacity(0);
 }

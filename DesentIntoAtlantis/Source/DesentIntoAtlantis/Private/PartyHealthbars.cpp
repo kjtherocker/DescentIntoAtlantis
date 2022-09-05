@@ -6,6 +6,7 @@
 #include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
 #include "Kismet/GameplayStatics.h"
 #include "CombatEntity.h"
+#include "PlayerCombatEntity.h"
 #include "PartyStatusHealthbar.h"
 
 void UPartyHealthbars::UiInitialize()
@@ -21,7 +22,7 @@ void UPartyHealthbars::UiInitialize()
 	}
 }
  
-void UPartyHealthbars::CreateHealthbar(FCombatEntity* aCombatEntity)
+void UPartyHealthbars::CreateHealthbar(FPlayerCombatEntity* aCombatEntity)
 {
 	UUserWidget* partyStatusHealthbar = CreateWidget(this, InGameHUD->GetElement(EViewElements::PartyStatusHealthbar));
 

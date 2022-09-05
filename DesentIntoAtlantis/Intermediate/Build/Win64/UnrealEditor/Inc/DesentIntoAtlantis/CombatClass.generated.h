@@ -85,14 +85,6 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 template<> DESENTINTOATLANTIS_API UClass* StaticClass<class UCombatClass>();
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h_46_GENERATED_BODY \
-	friend struct Z_Construct_UScriptStruct_FClassData_Statics; \
-	static class UScriptStruct* StaticStruct(); \
-	typedef FTableRowBase Super;
-
-
-template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FClassData>();
-
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h
 

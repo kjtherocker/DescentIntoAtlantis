@@ -8,6 +8,7 @@
 #include "Components/Image.h"
 #include "PartyStatusHealthbar.generated.h"
 
+struct FPlayerCombatEntity;
 struct FCombatEntity;
 class UTextBlock;
 class UProgressBar;
@@ -23,7 +24,7 @@ public:
 
 	virtual void UiInitialize() override;
 
-	void SetCombatEntity(FCombatEntity* aCombatEntity);
+	void SetCombatEntity(FPlayerCombatEntity* aCombatEntity);
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UProgressBar* BW_Mana;
 

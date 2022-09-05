@@ -4,6 +4,7 @@
 #include "PartyStatusHealthbar.h"
 
 #include "CombatEntity.h"
+#include "PlayerCombatEntity.h"
 #include "Components/ProgressBar.h"
 #include "Components/TextBlock.h"
 
@@ -12,7 +13,7 @@ void UPartyStatusHealthbar::UiInitialize()
 
 }
 
-void UPartyStatusHealthbar::SetCombatEntity(FCombatEntity* aCombatEntity)
+void UPartyStatusHealthbar::SetCombatEntity(FPlayerCombatEntity* aCombatEntity)
 {
 	if(aCombatEntity->currentClass->currentClassLevel->maxHealth != 0)
 	{

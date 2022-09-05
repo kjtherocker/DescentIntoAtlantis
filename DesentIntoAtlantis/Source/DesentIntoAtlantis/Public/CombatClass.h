@@ -24,7 +24,7 @@ class UCombatClass : public UObject
 public:
 
 	void InitializeDataTable(FString aClassExcelSheet,USkillFactory* aSkillFactory, FCombatEntity * combatEntity);
-
+	ConstructorHelpers::FObjectFinder<UObject> ReturnFoundClass(FString aClassExcelSheet);
 	FCombatEntity* attachedCombatEntity;
 	FClassData* currentClassLevel;
 	TArray<FClassData*> classLevels;
@@ -38,46 +38,4 @@ public:
 };
 
 
-
-//A combat class is filled with the bases of all stats
-USTRUCT()
-struct DESENTINTOATLANTIS_API FClassData :public  FTableRowBase
-{
-	GENERATED_USTRUCT_BODY()
-	UPROPERTY( EditAnywhere )
-	int maxHealth;
-	
-	UPROPERTY( EditAnywhere )
-	int maxMana;
-
-	UPROPERTY( EditAnywhere )
-	FString className;
-
-	UPROPERTY( EditAnywhere )
-	FString classLevelID;
-
-	UPROPERTY( EditAnywhere )
-	int baseStrength;
-
-	UPROPERTY( EditAnywhere )
-	int baseMagic;
-
-	UPROPERTY( EditAnywhere )
-	int baseHit;
-
-	UPROPERTY( EditAnywhere )
-	int baseEvasion;
-
-	UPROPERTY( EditAnywhere )
-	int baseDefence;
-
-	UPROPERTY( EditAnywhere )
-	int BaseResistance;
-
-	UPROPERTY( EditAnywhere )
-	int expToNextClassLevel;
-
-	UPROPERTY( EditAnywhere )
-	FString newlyObtainedSkill;
-};
 

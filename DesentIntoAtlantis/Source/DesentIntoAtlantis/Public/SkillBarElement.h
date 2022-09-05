@@ -27,5 +27,8 @@ public:
 	UTextBlock* SkillName;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* SkillCost;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UImage* BW_BackgroundHighlight;
 	
 };

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "EElementalType.h"
 #include "Engine/DataTable.h"
 #include "UObject/NoExportTypes.h"
 #include "Skills_Base.generated.h"
@@ -20,17 +21,6 @@ enum ESkillType
 
 };
 
-UENUM(BlueprintType)
-enum EElementalTypes
-{
-	Null,
-	Fire,
-	Ice,
-	Wind,
-	Lighting,
-	Shadow,
-	Light
-};
 
 UENUM(BlueprintType)
 enum EAilment
@@ -62,7 +52,7 @@ struct DESENTINTOATLANTIS_API FSkills_Base : public FTableRowBase
 public:
 
 	UPROPERTY( EditAnywhere )
-	TEnumAsByte<EElementalTypes> ElementalType;
+	TEnumAsByte<EElementalType> ElementalType;
 	
 	ESkillType      SkillType;
 	ESkillRange     SkillFormation;

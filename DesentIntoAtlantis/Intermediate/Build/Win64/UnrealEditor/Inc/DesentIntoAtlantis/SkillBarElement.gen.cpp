@@ -42,6 +42,10 @@ void EmptyLinkFunctionForGeneratedCodeSkillBarElement() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SkillCost_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_SkillCost;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_BackgroundHighlight_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_BackgroundHighlight;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -84,10 +88,20 @@ void EmptyLinkFunctionForGeneratedCodeSkillBarElement() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_USkillBarElement_Statics::NewProp_SkillCost = { "SkillCost", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(USkillBarElement, SkillCost), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_USkillBarElement_Statics::NewProp_SkillCost_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USkillBarElement_Statics::NewProp_SkillCost_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USkillBarElement_Statics::NewProp_BW_BackgroundHighlight_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "SkillBarElement" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/SkillBarElement.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_USkillBarElement_Statics::NewProp_BW_BackgroundHighlight = { "BW_BackgroundHighlight", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(USkillBarElement, BW_BackgroundHighlight), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_USkillBarElement_Statics::NewProp_BW_BackgroundHighlight_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USkillBarElement_Statics::NewProp_BW_BackgroundHighlight_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_USkillBarElement_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillBarElement_Statics::NewProp_SkillIcon,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillBarElement_Statics::NewProp_SkillName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillBarElement_Statics::NewProp_SkillCost,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillBarElement_Statics::NewProp_BW_BackgroundHighlight,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_USkillBarElement_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<USkillBarElement>::IsAbstract,
@@ -125,9 +139,9 @@ void EmptyLinkFunctionForGeneratedCodeSkillBarElement() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_SkillBarElement_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_USkillBarElement, USkillBarElement::StaticClass, TEXT("USkillBarElement"), &Z_Registration_Info_UClass_USkillBarElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillBarElement), 3109805054U) },
+		{ Z_Construct_UClass_USkillBarElement, USkillBarElement::StaticClass, TEXT("USkillBarElement"), &Z_Registration_Info_UClass_USkillBarElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillBarElement), 225864180U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_SkillBarElement_h_1886237371(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_SkillBarElement_h_1087628906(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_SkillBarElement_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_SkillBarElement_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

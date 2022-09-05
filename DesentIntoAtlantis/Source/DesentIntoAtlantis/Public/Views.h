@@ -13,7 +13,9 @@ enum class  EViews
 	Healthbars       = 2,
 	CombatBackground = 3,
 	EnemySelection   = 4,
-	SkillMenu        = 5
+	SkillMenu        = 5,
+	EnemyPortraits   = 6,
+	TurnCounter      = 7
 };
 
 

@@ -3,9 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
 #include "UObject/NoExportTypes.h"
 #include "PartyManager.generated.h"
 
+struct FPlayerCombatEntity;
 struct FCombatEntity;
 class USkillFactory;
 /**
@@ -23,10 +25,10 @@ public:
 	
 	void Initialize(USkillFactory* aSkillFactory);
 
-	TArray<FCombatEntity*> ReturnActivePartyEntityData();
+	TArray<FPlayerCombatEntity*> ReturnActivePartyEntityData();
 	
-	TArray<FCombatEntity*> playerEntityData;
-	TArray<FCombatEntity*> activePartyEntityData;;
+	TArray<FPlayerCombatEntity*> playerEntityData;
+	TArray<FPlayerCombatEntity*> activePartyEntityData;;
 
 	
 };

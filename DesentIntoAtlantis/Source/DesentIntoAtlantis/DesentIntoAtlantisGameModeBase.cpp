@@ -15,6 +15,8 @@ ADesentIntoAtlantisGameModeBase::ADesentIntoAtlantisGameModeBase()
     PlayerControllerClass = AFloorPlayerController::StaticClass();
 
     skillFactory = NewObject<USkillFactory>();
+    enemyFactory = NewObject<UEnemyFactory>();
+    
     partyManager = NewObject<UPartyManager>();
     partyManager->Initialize(skillFactory);
 

@@ -34,24 +34,25 @@ void EmptyLinkFunctionForGeneratedCodeEElementalType() {}
 		static const UECodeGen_Private::FEnumParams EnumParams;
 	};
 	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics::Enumerators[] = {
-		{ "EElementalType::Null", (int64)EElementalType::Null },
-		{ "EElementalType::Fire", (int64)EElementalType::Fire },
-		{ "EElementalType::Water", (int64)EElementalType::Water },
-		{ "EElementalType::Wind", (int64)EElementalType::Wind },
-		{ "EElementalType::Lighting", (int64)EElementalType::Lighting },
-		{ "EElementalType::Shadow", (int64)EElementalType::Shadow },
-		{ "EElementalType::Light", (int64)EElementalType::Light },
+		{ "Null", (int64)Null },
+		{ "Fire", (int64)Fire },
+		{ "Ice", (int64)Ice },
+		{ "Wind", (int64)Wind },
+		{ "Lighting", (int64)Lighting },
+		{ "Shadow", (int64)Shadow },
+		{ "Light", (int64)Light },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics::Enum_MetaDataParams[] = {
-		{ "Fire.Name", "EElementalType::Fire" },
-		{ "Light.Name", "EElementalType::Light" },
-		{ "Lighting.Name", "EElementalType::Lighting" },
+		{ "BlueprintType", "true" },
+		{ "Fire.Name", "Fire" },
+		{ "Ice.Name", "Ice" },
+		{ "Light.Name", "Light" },
+		{ "Lighting.Name", "Lighting" },
 		{ "ModuleRelativePath", "Public/EElementalType.h" },
-		{ "Null.Name", "EElementalType::Null" },
-		{ "Shadow.Name", "EElementalType::Shadow" },
-		{ "Water.Name", "EElementalType::Water" },
-		{ "Wind.Name", "EElementalType::Wind" },
+		{ "Null.Name", "Null" },
+		{ "Shadow.Name", "Shadow" },
+		{ "Wind.Name", "Wind" },
 	};
 #endif
 	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics::EnumParams = {
@@ -63,7 +64,7 @@ void EmptyLinkFunctionForGeneratedCodeEElementalType() {}
 		UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics::Enumerators),
 		RF_Public|RF_Transient|RF_MarkAsNative,
 		EEnumFlags::None,
-		(uint8)UEnum::ECppForm::EnumClass,
+		(uint8)UEnum::ECppForm::Regular,
 		METADATA_PARAMS(Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics::Enum_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics::Enum_MetaDataParams))
 	};
 	UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EElementalType()
@@ -79,9 +80,9 @@ void EmptyLinkFunctionForGeneratedCodeEElementalType() {}
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_Statics::EnumInfo[] = {
-		{ EElementalType_StaticEnum, TEXT("EElementalType"), &Z_Registration_Info_UEnum_EElementalType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3346300291U) },
+		{ EElementalType_StaticEnum, TEXT("EElementalType"), &Z_Registration_Info_UEnum_EElementalType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1311641526U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_1899640679(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_2150452476(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_Statics::EnumInfo));

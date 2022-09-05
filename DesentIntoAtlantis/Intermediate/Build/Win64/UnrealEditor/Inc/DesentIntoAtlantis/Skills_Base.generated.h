@@ -13,7 +13,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define DESENTINTOATLANTIS_Skills_Base_generated_h
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_59_GENERATED_BODY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_49_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FSkills_Base_Statics; \
 	static class UScriptStruct* StaticStruct(); \
 	typedef FTableRowBase Super;
@@ -30,14 +30,6 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FSkills_Bas
 	op(Heal) \
 	op(Defence) \
 	op(Domain) 
-#define FOREACH_ENUM_EELEMENTALTYPES(op) \
-	op(Null) \
-	op(Fire) \
-	op(Ice) \
-	op(Wind) \
-	op(Lighting) \
-	op(Shadow) \
-	op(Light) 
 #define FOREACH_ENUM_EAILMENT(op) \
 	op(None) \
 	op(Poison) \

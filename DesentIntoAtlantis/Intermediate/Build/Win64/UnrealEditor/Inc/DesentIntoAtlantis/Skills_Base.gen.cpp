@@ -11,11 +11,11 @@ void EmptyLinkFunctionForGeneratedCodeSkills_Base() {}
 // Cross Module References
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ESkillType();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
-	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EElementalTypes();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EAilment();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ESkillRange();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FSkills_Base();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EElementalType();
 	ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
 // End Cross Module References
 	static FEnumRegistrationInfo Z_Registration_Info_UEnum_ESkillType;
@@ -79,69 +79,6 @@ void EmptyLinkFunctionForGeneratedCodeSkills_Base() {}
 			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_ESkillType.InnerSingleton, Z_Construct_UEnum_DesentIntoAtlantis_ESkillType_Statics::EnumParams);
 		}
 		return Z_Registration_Info_UEnum_ESkillType.InnerSingleton;
-	}
-	static FEnumRegistrationInfo Z_Registration_Info_UEnum_EElementalTypes;
-	static UEnum* EElementalTypes_StaticEnum()
-	{
-		if (!Z_Registration_Info_UEnum_EElementalTypes.OuterSingleton)
-		{
-			Z_Registration_Info_UEnum_EElementalTypes.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_DesentIntoAtlantis_EElementalTypes, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("EElementalTypes"));
-		}
-		return Z_Registration_Info_UEnum_EElementalTypes.OuterSingleton;
-	}
-	template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EElementalTypes>()
-	{
-		return EElementalTypes_StaticEnum();
-	}
-	struct Z_Construct_UEnum_DesentIntoAtlantis_EElementalTypes_Statics
-	{
-		static const UECodeGen_Private::FEnumeratorParam Enumerators[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FEnumParams EnumParams;
-	};
-	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_EElementalTypes_Statics::Enumerators[] = {
-		{ "Null", (int64)Null },
-		{ "Fire", (int64)Fire },
-		{ "Ice", (int64)Ice },
-		{ "Wind", (int64)Wind },
-		{ "Lighting", (int64)Lighting },
-		{ "Shadow", (int64)Shadow },
-		{ "Light", (int64)Light },
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EElementalTypes_Statics::Enum_MetaDataParams[] = {
-		{ "BlueprintType", "true" },
-		{ "Fire.Name", "Fire" },
-		{ "Ice.Name", "Ice" },
-		{ "Light.Name", "Light" },
-		{ "Lighting.Name", "Lighting" },
-		{ "ModuleRelativePath", "Public/Skills_Base.h" },
-		{ "Null.Name", "Null" },
-		{ "Shadow.Name", "Shadow" },
-		{ "Wind.Name", "Wind" },
-	};
-#endif
-	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_DesentIntoAtlantis_EElementalTypes_Statics::EnumParams = {
-		(UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
-		nullptr,
-		"EElementalTypes",
-		"EElementalTypes",
-		Z_Construct_UEnum_DesentIntoAtlantis_EElementalTypes_Statics::Enumerators,
-		UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EElementalTypes_Statics::Enumerators),
-		RF_Public|RF_Transient|RF_MarkAsNative,
-		EEnumFlags::None,
-		(uint8)UEnum::ECppForm::Regular,
-		METADATA_PARAMS(Z_Construct_UEnum_DesentIntoAtlantis_EElementalTypes_Statics::Enum_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EElementalTypes_Statics::Enum_MetaDataParams))
-	};
-	UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EElementalTypes()
-	{
-		if (!Z_Registration_Info_UEnum_EElementalTypes.InnerSingleton)
-		{
-			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_EElementalTypes.InnerSingleton, Z_Construct_UEnum_DesentIntoAtlantis_EElementalTypes_Statics::EnumParams);
-		}
-		return Z_Registration_Info_UEnum_EElementalTypes.InnerSingleton;
 	}
 	static FEnumRegistrationInfo Z_Registration_Info_UEnum_EAilment;
 	static UEnum* EAilment_StaticEnum()
@@ -323,7 +260,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FSkills_Base>()
 		{ "ModuleRelativePath", "Public/Skills_Base.h" },
 	};
 #endif
-	const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_ElementalType = { "ElementalType", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FSkills_Base, ElementalType), Z_Construct_UEnum_DesentIntoAtlantis_EElementalTypes, METADATA_PARAMS(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_ElementalType_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_ElementalType_MetaData)) }; // 4008016569
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_ElementalType = { "ElementalType", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FSkills_Base, ElementalType), Z_Construct_UEnum_DesentIntoAtlantis_EElementalType, METADATA_PARAMS(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_ElementalType_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_ElementalType_MetaData)) }; // 1311641526
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FSkills_Base_Statics::NewProp_SkillName_MetaData[] = {
 		{ "Category", "Skills_Base" },
@@ -403,14 +340,13 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FSkills_Base>()
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_Statics::EnumInfo[] = {
 		{ ESkillType_StaticEnum, TEXT("ESkillType"), &Z_Registration_Info_UEnum_ESkillType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 95639070U) },
-		{ EElementalTypes_StaticEnum, TEXT("EElementalTypes"), &Z_Registration_Info_UEnum_EElementalTypes, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4008016569U) },
 		{ EAilment_StaticEnum, TEXT("EAilment"), &Z_Registration_Info_UEnum_EAilment, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3317222983U) },
 		{ ESkillRange_StaticEnum, TEXT("ESkillRange"), &Z_Registration_Info_UEnum_ESkillRange, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2381454770U) },
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_Statics::ScriptStructInfo[] = {
-		{ FSkills_Base::StaticStruct, Z_Construct_UScriptStruct_FSkills_Base_Statics::NewStructOps, TEXT("Skills_Base"), &Z_Registration_Info_UScriptStruct_Skills_Base, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FSkills_Base), 2113845255U) },
+		{ FSkills_Base::StaticStruct, Z_Construct_UScriptStruct_FSkills_Base_Statics::NewStructOps, TEXT("Skills_Base"), &Z_Registration_Info_UScriptStruct_Skills_Base, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FSkills_Base), 1015834298U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_2991658482(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_3559802734(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_Statics::EnumInfo));

@@ -4,8 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
+#include "PlayerCombatEntity.h"
 #include "SkillMenu.generated.h"
 
+class USkillBarElement;
 struct FCombatEntity;
 struct FSkills_Base;
 class UTextBlock;
@@ -21,10 +23,17 @@ class DESENTINTOATLANTIS_API USkillMenu : public UBaseUserWidget
 	void CreateSkillbar(FSkills_Base* aSkill);
 	void ReturnToPreviousScreen();
 	void SkillSelection(FSkills_Base* aSkill);
+	void SelectSkill();
+	void MoveUp();
+	void MoveDown();
 public:
 	
-	FCombatEntity* currentActivePartyMember;
+	FPlayerCombatEntity* currentActivePartyMember;
 
+	int cursorPosition;
+
+	TArray<USkillBarElement*> skillBarElements;
+	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_CharacterName;
 

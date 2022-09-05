@@ -6,6 +6,7 @@
 #include "CombatEntity.h"
 #include "SkillFactory.h"
 #include "Engine/DataTable.h"
+#include "PlayerCombatEntity.h"
 
 UPartyManager::UPartyManager()
 {
@@ -15,7 +16,7 @@ UPartyManager::UPartyManager()
 		UDataTable* datatable = dynamic_cast<UDataTable*>( partyDatatable.Object);
 		for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
 		{
-			playerEntityData.Add(datatable->FindRow<FCombatEntity>(FName(FString::FromInt(i)),FString("Searching for seres"),true));
+			playerEntityData.Add(datatable->FindRow<FPlayerCombatEntity>(FName(FString::FromInt(i)),FString("Searching for seres"),true));
 		}
 	}
 }
@@ -35,7 +36,7 @@ void UPartyManager::Initialize (USkillFactory* aSkillFactory)
 	}
 }
 
-TArray<FCombatEntity*> UPartyManager::ReturnActivePartyEntityData()
+TArray<FPlayerCombatEntity*> UPartyManager::ReturnActivePartyEntityData()
 {
 	return playerEntityData;
 }

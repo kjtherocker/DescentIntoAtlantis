@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "EnemyFactory.h"
 #include "PartyManager.h"
 #include "SkillFactory.h"
 #include "GameFramework/GameModeBase.h"
@@ -21,6 +22,7 @@ class DESENTINTOATLANTIS_API ADesentIntoAtlantisGameModeBase : public AGameModeB
 public:
 	
 	USkillFactory*  skillFactory;
+	UEnemyFactory*  enemyFactory;
 	UPartyManager*  partyManager;
 	UCombatManager* combatManager;
 	AInGameHUD*     InGameHUD;

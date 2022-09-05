@@ -7,6 +7,7 @@
 #include "Blueprint/UserWidget.h"
 #include "PartyHealthbars.generated.h"
 
+struct FPlayerCombatEntity;
 struct FCombatEntity;
 class UPartyStatusHealthbar;
 /**
@@ -20,7 +21,7 @@ class DESENTINTOATLANTIS_API UPartyHealthbars : public UBaseUserWidget
 public:
 
 	virtual void UiInitialize() override;
-	void CreateHealthbar(FCombatEntity* aCombatEntity);
+	void CreateHealthbar(FPlayerCombatEntity* aCombatEntity);
 	TSubclassOf<UUserWidget> BP_PartyStatus;
 
 	TArray<UPartyStatusHealthbar*> healthBars;

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
+#include "PlayerCombatEntity.h"
 #include "Blueprint/UserWidget.h"
 #include "CommandBoard.generated.h"
 
@@ -47,7 +48,7 @@ class DESENTINTOATLANTIS_API UCommandBoard : public UBaseUserWidget
 	FLinearColor unhightlighedColor = FLinearColor(0.0,0.0,0.0,1.0);
 	FLinearColor highlightedColor   = FLinearColor(1.0,1.0,1.0,1.0);
 
-	FCombatEntity* currentActivePartyMember;
+	FPlayerCombatEntity* currentActivePartyMember;
 	
 	int cursorPosition;
 
