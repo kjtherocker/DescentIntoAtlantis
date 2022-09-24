@@ -7,6 +7,7 @@
 #include "UObject/NoExportTypes.h"
 #include "EnemyFactory.generated.h"
 
+struct FEnemyGroupData;
 /**
  * 
  */
@@ -17,7 +18,36 @@ class DESENTINTOATLANTIS_API UEnemyFactory : public UObject
 
 	UEnemyFactory();
 	TArray<FEnemyEntityData*>  allEnemys;
+	TArray<FEnemyGroupData*>   allEnemysGroups;
 	TMap<FString,FEnemyEntityData*> enemyMap;
+	TMap<FString,TArray<FString>>   enemyGroupMap;
 public:
 	FEnemyEntityData* ReturnEnemyEntityData(FString enemyName);
+
+	TArray<FString>   ReturnEnemyGroupData(FString groupName);
+
+	TArray<FEnemyGroupData*> allEnemyGroupData;
+
+
+};
+
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FEnemyGroupData :public  FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	
+	UPROPERTY( EditAnywhere )
+	FString GroupName;
+
+	UPROPERTY( EditAnywhere )
+	FString EnemyName1;
+
+	UPROPERTY( EditAnywhere )
+	FString EnemyName2;
+
+	UPROPERTY( EditAnywhere )
+	FString EnemyName3;
+
+	
 };

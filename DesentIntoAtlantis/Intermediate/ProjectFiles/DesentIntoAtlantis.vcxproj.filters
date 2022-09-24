@@ -1467,6 +1467,9 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EnemyPortraits.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EnemySelectionElement.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EnemySelectionView.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
@@ -1543,6 +1546,9 @@
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EnemyPortraits.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EnemySelectionElement.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EnemySelectionView.h">

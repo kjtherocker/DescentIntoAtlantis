@@ -11,6 +11,11 @@ void FEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData* AEnemyEntityData)
 	SetAbilityScores();
 }
 
+float FEnemyCombatEntity::GetHealthPercentage()
+{
+	return currentHealth / enemyEntityData->maxHealth;
+}
+
 void FEnemyCombatEntity::SetAbilityScores()
 {
 	StrengthAbilityScore.base    =  enemyEntityData->baseStrength;

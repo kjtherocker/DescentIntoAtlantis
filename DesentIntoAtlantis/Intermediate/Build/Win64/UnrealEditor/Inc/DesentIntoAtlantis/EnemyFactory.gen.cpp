@@ -13,6 +13,8 @@ void EmptyLinkFunctionForGeneratedCodeEnemyFactory() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEnemyFactory();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FEnemyGroupData();
+	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
 // End Cross Module References
 	void UEnemyFactory::StaticRegisterNativesUEnemyFactory()
 	{
@@ -73,15 +75,124 @@ void EmptyLinkFunctionForGeneratedCodeEnemyFactory() {}
 		return UEnemyFactory::StaticClass();
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UEnemyFactory);
+
+static_assert(std::is_polymorphic<FEnemyGroupData>() == std::is_polymorphic<FTableRowBase>(), "USTRUCT FEnemyGroupData cannot be polymorphic unless super FTableRowBase is polymorphic");
+
+	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_EnemyGroupData;
+class UScriptStruct* FEnemyGroupData::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_EnemyGroupData.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_EnemyGroupData.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FEnemyGroupData, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("EnemyGroupData"));
+	}
+	return Z_Registration_Info_UScriptStruct_EnemyGroupData.OuterSingleton;
+}
+template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FEnemyGroupData>()
+{
+	return FEnemyGroupData::StaticStruct();
+}
+	struct Z_Construct_UScriptStruct_FEnemyGroupData_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_GroupName_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_GroupName;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_EnemyName1_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_EnemyName1;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_EnemyName2_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_EnemyName2;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_EnemyName3_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_EnemyName3;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UECodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEnemyGroupData_Statics::Struct_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/EnemyFactory.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FEnemyGroupData>();
+	}
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_GroupName_MetaData[] = {
+		{ "Category", "EnemyGroupData" },
+		{ "ModuleRelativePath", "Public/EnemyFactory.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_GroupName = { "GroupName", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FEnemyGroupData, GroupName), METADATA_PARAMS(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_GroupName_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_GroupName_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName1_MetaData[] = {
+		{ "Category", "EnemyGroupData" },
+		{ "ModuleRelativePath", "Public/EnemyFactory.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName1 = { "EnemyName1", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FEnemyGroupData, EnemyName1), METADATA_PARAMS(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName1_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName1_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName2_MetaData[] = {
+		{ "Category", "EnemyGroupData" },
+		{ "ModuleRelativePath", "Public/EnemyFactory.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName2 = { "EnemyName2", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FEnemyGroupData, EnemyName2), METADATA_PARAMS(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName2_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName2_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName3_MetaData[] = {
+		{ "Category", "EnemyGroupData" },
+		{ "ModuleRelativePath", "Public/EnemyFactory.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName3 = { "EnemyName3", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FEnemyGroupData, EnemyName3), METADATA_PARAMS(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName3_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName3_MetaData)) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FEnemyGroupData_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_GroupName,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName1,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName2,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName3,
+	};
+	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FEnemyGroupData_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		Z_Construct_UScriptStruct_FTableRowBase,
+		&NewStructOps,
+		"EnemyGroupData",
+		sizeof(FEnemyGroupData),
+		alignof(FEnemyGroupData),
+		Z_Construct_UScriptStruct_FEnemyGroupData_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::PropPointers),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000201),
+		METADATA_PARAMS(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::Struct_MetaDataParams))
+	};
+	UScriptStruct* Z_Construct_UScriptStruct_FEnemyGroupData()
+	{
+		if (!Z_Registration_Info_UScriptStruct_EnemyGroupData.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_EnemyGroupData.InnerSingleton, Z_Construct_UScriptStruct_FEnemyGroupData_Statics::ReturnStructParams);
+		}
+		return Z_Registration_Info_UScriptStruct_EnemyGroupData.InnerSingleton;
+	}
 	struct Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_Statics
 	{
+		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
+	};
+	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_Statics::ScriptStructInfo[] = {
+		{ FEnemyGroupData::StaticStruct, Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewStructOps, TEXT("EnemyGroupData"), &Z_Registration_Info_UScriptStruct_EnemyGroupData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEnemyGroupData), 2227243721U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UEnemyFactory, UEnemyFactory::StaticClass, TEXT("UEnemyFactory"), &Z_Registration_Info_UClass_UEnemyFactory, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEnemyFactory), 2860614721U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_314718779(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_1553349821(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_Statics::ClassInfo),
-		nullptr, 0,
+		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_Statics::ScriptStructInfo),
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

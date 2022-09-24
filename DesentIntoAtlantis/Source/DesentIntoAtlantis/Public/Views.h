@@ -36,4 +36,5 @@ enum class  EViewElements
 	None                     = 0,
 	PartyStatusHealthbar     = 1,
 	SkillBar                 = 2,
+	EnemySelectionElement    = 3
 };

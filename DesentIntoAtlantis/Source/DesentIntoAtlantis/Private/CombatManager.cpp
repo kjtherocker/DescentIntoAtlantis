@@ -16,10 +16,13 @@ void UCombatManager::StartCombat()
 
 	partyMembersInCombat = gameModeBase->partyManager->ReturnActivePartyEntityData();
 	currentActivePartyMember = partyMembersInCombat[0];
-	
-	AddEnemyToCombat(gameModeBase->enemyFactory->ReturnEnemyEntityData("Mermaid"));
-	AddEnemyToCombat(gameModeBase->enemyFactory->ReturnEnemyEntityData("Mermaid"));
-	AddEnemyToCombat(gameModeBase->enemyFactory->ReturnEnemyEntityData("Mermaid"));
+
+	TArray<FString> EnemyNames = gameModeBase->enemyFactory->ReturnEnemyGroupData("FloorFight1");
+
+	for(int i = 0 ; i < EnemyNames.Num();i++)
+	{
+		AddEnemyToCombat(gameModeBase->enemyFactory->ReturnEnemyEntityData(EnemyNames[i]));
+	}
 	
 	if(hud)
 	{

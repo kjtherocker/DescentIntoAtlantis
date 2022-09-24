@@ -16,6 +16,7 @@
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/EnemyCombatEntity.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/EnemyFactory.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/EnemyPortraits.cpp"
+#include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/EnemySelectionElement.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/EnemySelectionView.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/FloorEnemyPawn.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/FloorPawn.cpp"

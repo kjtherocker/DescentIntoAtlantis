@@ -33,6 +33,9 @@ struct DESENTINTOATLANTIS_API FEnemyCombatEntity : public FCombatEntity
 public:
 	void SetAbilityScores();
 	void SetEnemyEntityData(FEnemyEntityData* AEnemyEntityData);
+
+	virtual float GetHealthPercentage() override;
+	
 	FEnemyEntityData* enemyEntityData;
 };
 
