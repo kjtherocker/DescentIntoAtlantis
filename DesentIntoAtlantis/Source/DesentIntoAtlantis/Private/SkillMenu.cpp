@@ -9,6 +9,7 @@
 #include "CombatClass.h"
 #include "Components/TextBlock.h"
 #include "CombatManager.h"
+#include "CombatSelectionView.h"
 #include "PlayerCombatEntity.h"
 
 
@@ -21,9 +22,9 @@ void USkillMenu::UiInitialize()
 	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &USkillMenu::MoveDown  );
 	
 	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
-	UCombatClass* testo = GameModeBase->partyManager->playerEntityData[0]->currentClass;
-
-    currentActivePartyMember = GameModeBase->combatManager->ReturnCurrentActivePartyMember();
+	
+	currentActivePartyMember = GameModeBase->combatManager->ReturnCurrentActivePartyMember();
+	UCombatClass* testo = currentActivePartyMember->currentClass;
 
     BW_CharacterName->Text = FText(FText::FromString(currentActivePartyMember->characterName));
     BW_ClassName->Text     = FText(FText::FromString(currentActivePartyMember->currentClass->currentClassLevel->className));
@@ -73,6 +74,13 @@ void USkillMenu::SelectSkill()
 {
 	InGameHUD->PopMostRecentActiveView();
 	InGameHUD->PushView(EViews::EnemySelection,EUiType::ActiveUi);
+	UCombatSelectionView* SkillMenu = (UCombatSelectionView*)InGameHUD->GetActiveHUDView(EViews::EnemySelection,EUiType::ActiveUi);
+	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	
+	currentActivePartyMember = GameModeBase->combatManager->ReturnCurrentActivePartyMember();
+	
+	UCombatClass* testo = currentActivePartyMember->currentClass;
+	SkillMenu->SetSkill(testo->classSkills[cursorPosition]);
 }
 
 void USkillMenu::MoveUp()

@@ -13,5 +13,17 @@ UCLASS()
 class DESENTINTOATLANTIS_API UTurnCounter : public UBaseUserWidget
 {
 	GENERATED_BODY()
+
+	virtual void UiInitialize() override;
 	
+	TArray<UBaseUserWidget*> TurnCounter;
+
+	void AddTurnCounterToUi(TSubclassOf<UUserWidget> aTurnCounter);
+	
+public:
+
+	void SetTurnOrder(int turn);
+	
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	class UHorizontalBox* BW_HorizontalBox;
 };

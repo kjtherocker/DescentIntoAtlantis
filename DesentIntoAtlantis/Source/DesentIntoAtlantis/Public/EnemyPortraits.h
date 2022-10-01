@@ -7,6 +7,7 @@
 #include "Components/Image.h"
 #include "EnemyPortraits.generated.h"
 
+class UEnemyPortraitElement;
 struct FEnemyCombatEntity;
 /**
  * 
@@ -17,20 +18,21 @@ class DESENTINTOATLANTIS_API UEnemyPortraits : public UBaseUserWidget
 	GENERATED_BODY()
 public:
 	virtual void UiInitialize() override;
+	virtual void NativeTick(const FGeometry& MyGeometry, float DeltaTime) override;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UImage* BW_Portrait1;
+	UEnemyPortraitElement* BW_Portrait1;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UImage* BW_Portrait2;
+	UEnemyPortraitElement* BW_Portrait2;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UImage* BW_Portrait3;
+	UEnemyPortraitElement* BW_Portrait3;
 	
 	TArray<FEnemyCombatEntity*> enemysInCombat;
 	
-	TArray<UImage*> Portraits;
-	void SetEnemyPortraits(UImage* Aimage , FEnemyCombatEntity* AEnemyCombatEntity);
+	TArray<UEnemyPortraitElement*> Portraits;
+	void SetEnemyPortraits(UEnemyPortraitElement* aImage , FEnemyCombatEntity* AEnemyCombatEntity);
 	
 	
 };

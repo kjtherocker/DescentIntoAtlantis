@@ -4,14 +4,15 @@
 
 #include "CoreMinimal.h"
 
-UENUM(BlueprintType)
-enum EElementalType
+UENUM()
+enum class EElementalType
 {
-	Null,
-	Fire,
-	Ice,
-	Wind,
-	Lighting,
-	Shadow,
-	Light
+	Null     = 0,
+	Fire     = 1,
+	Ice      = 2,
+	Wind     = 3,
+	Lighting = 4,
+	Shadow   = 5,
+	Light    = 6,
+	Earth    = 7
 };

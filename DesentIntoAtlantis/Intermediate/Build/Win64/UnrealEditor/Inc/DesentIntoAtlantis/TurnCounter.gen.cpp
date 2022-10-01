@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeTurnCounter() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UTurnCounter();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UBaseUserWidget();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
+	UMG_API UClass* Z_Construct_UClass_UHorizontalBox_NoRegister();
 // End Cross Module References
 	void UTurnCounter::StaticRegisterNativesUTurnCounter()
 	{
@@ -28,6 +29,11 @@ void EmptyLinkFunctionForGeneratedCodeTurnCounter() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_HorizontalBox_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_HorizontalBox;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
@@ -42,6 +48,18 @@ void EmptyLinkFunctionForGeneratedCodeTurnCounter() {}
 		{ "ModuleRelativePath", "Public/TurnCounter.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTurnCounter_Statics::NewProp_BW_HorizontalBox_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "TurnCounter" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/TurnCounter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTurnCounter_Statics::NewProp_BW_HorizontalBox = { "BW_HorizontalBox", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTurnCounter, BW_HorizontalBox), Z_Construct_UClass_UHorizontalBox_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTurnCounter_Statics::NewProp_BW_HorizontalBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTurnCounter_Statics::NewProp_BW_HorizontalBox_MetaData)) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UTurnCounter_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTurnCounter_Statics::NewProp_BW_HorizontalBox,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UTurnCounter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UTurnCounter>::IsAbstract,
 	};
@@ -51,11 +69,11 @@ void EmptyLinkFunctionForGeneratedCodeTurnCounter() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_UTurnCounter_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_UTurnCounter_Statics::PropPointers),
 		0,
 		0x00B010A0u,
 		METADATA_PARAMS(Z_Construct_UClass_UTurnCounter_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UTurnCounter_Statics::Class_MetaDataParams))
@@ -78,9 +96,9 @@ void EmptyLinkFunctionForGeneratedCodeTurnCounter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TurnCounter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UTurnCounter, UTurnCounter::StaticClass, TEXT("UTurnCounter"), &Z_Registration_Info_UClass_UTurnCounter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTurnCounter), 2790024442U) },
+		{ Z_Construct_UClass_UTurnCounter, UTurnCounter::StaticClass, TEXT("UTurnCounter"), &Z_Registration_Info_UClass_UTurnCounter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTurnCounter), 3243461629U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TurnCounter_h_3403323238(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TurnCounter_h_2409660533(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TurnCounter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TurnCounter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

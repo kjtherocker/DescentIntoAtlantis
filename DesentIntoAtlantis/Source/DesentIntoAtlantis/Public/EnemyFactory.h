@@ -51,3 +51,42 @@ struct DESENTINTOATLANTIS_API FEnemyGroupData :public  FTableRowBase
 
 	
 };
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FEnemyBestiaryData:public  FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	
+	TMap<FString, TMap<EElementalType,bool>> BestiaryInfo;
+
+	void InitializeEnemyIntoBestariary(FEnemyEntityData* aEnemyToAdd)
+	{
+		TMap<EElementalType,bool> enemyElementalInfo;
+
+		enemyElementalInfo.Add(EElementalType::Fire,false);
+		enemyElementalInfo.Add(EElementalType::Ice,false);
+		enemyElementalInfo.Add(EElementalType::Light,false);
+		enemyElementalInfo.Add(EElementalType::Lighting,false);
+		enemyElementalInfo.Add(EElementalType::Null,false);
+		enemyElementalInfo.Add(EElementalType::Shadow,false);
+		enemyElementalInfo.Add(EElementalType::Wind,false);
+		enemyElementalInfo.Add(EElementalType::Earth,false);
+
+		BestiaryInfo.Add(aEnemyToAdd->characterName, enemyElementalInfo);
+		
+	}
+
+	void RevealElementalInfo(FEnemyEntityData* aEnemyToAdd,EElementalType aElementToReveal )
+	{
+		BestiaryInfo[aEnemyToAdd->characterName][aElementToReveal] = true;
+	}
+
+	bool GetRevealedElementalType(FEnemyEntityData* aEnemyToAdd,EElementalType aElementToReveal )
+	{
+		return BestiaryInfo[aEnemyToAdd->characterName][aElementToReveal];
+	}
+
+	
+};
+
+

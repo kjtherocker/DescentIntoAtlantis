@@ -1,7 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "CombatEntity.h"
 #include "SkillFactory.h"
-
 #include "Skills_Base.h"
 
 
@@ -20,30 +19,15 @@ void FCombatEntity::SetHealth(int aHealth)
 //    currentHealth = currentClass->currentClassLevel->maxHealth;
 }
 
-void FCombatEntity::DecrementHealth(int aDecremenby)
+PressTurnReactions FCombatEntity::DecrementHealth(int aDecremenby)
 {
     currentHealth -= aDecremenby;
+    return PressTurnReactions::Normal;
 }
 
-void FCombatEntity::DecrementHealth(int aDecrementby, EElementalType aElementalType, float aTimeTillInitalDamage,
-    float aTimeTillHoveringUiElement, float TimeTillDamage)
+PressTurnReactions FCombatEntity::DecrementHealth(int aDecrementby, EElementalType aElementalType)
 {
-    EElementalType AttackingElement = aElementalType;
-   // EElementalType ElementalWeakness = m_ElementalWeakness;
-   // EElementalType ElementalStrength = m_ElementalStrength;
-   //     
-//
-   // if (AttackingElement == ElementalWeakness)
-   // {
-//
-   // }
-   // if (AttackingElement == ElementalStrength)
-   // {
-//
-   // }
-
-    DecrementHealth(aDecrementby);
-    DeathCheck();
+    return PressTurnReactions::Normal;
 }
 
 void FCombatEntity::IncrementHealth(int Increment)
@@ -53,7 +37,7 @@ void FCombatEntity::IncrementHealth(int Increment)
 
 FCombatEntity::Charactertype FCombatEntity::GetCharactertype()
 {
-    return m_Charactertype;
+    return characterType;
 }
 
 void FCombatEntity::Resurrection()

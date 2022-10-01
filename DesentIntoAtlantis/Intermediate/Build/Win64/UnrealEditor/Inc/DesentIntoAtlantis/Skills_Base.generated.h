@@ -13,7 +13,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define DESENTINTOATLANTIS_Skills_Base_generated_h
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_49_GENERATED_BODY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Skills_Base_h_50_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FSkills_Base_Statics; \
 	static class UScriptStruct* StaticStruct(); \
 	typedef FTableRowBase Super;

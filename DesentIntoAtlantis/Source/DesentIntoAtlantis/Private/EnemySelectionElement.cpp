@@ -9,9 +9,8 @@ void UEnemySelectionElement::SetEnemySelectionElement(FEnemyCombatEntity* aEnemy
 {
 	FEnemyEntityData* enemyEntityData = aEnemyCombatEntity->enemyEntityData;
 	
-	BW_EnemyName->Text = FText(FText::FromString(enemyEntityData->characterName));	
-	BW_Healthbar->Percent = aEnemyCombatEntity->GetHealthPercentage();
-
+	BW_EnemyName->SetText(FText(FText::FromString(enemyEntityData->characterName)));
+	BW_Healthbar->SetPercent(aEnemyCombatEntity->GetHealthPercentage());
 	
 	SetElementalText(BW_NullText,     enemyEntityData);
 	SetElementalText(BW_FireText,     enemyEntityData);
@@ -27,5 +26,5 @@ void UEnemySelectionElement::SetEnemySelectionElement(FEnemyCombatEntity* aEnemy
 void UEnemySelectionElement::SetElementalText(UTextBlock* aElementalText, FEnemyEntityData* aEnemyEntityData)
 {
 
-	aElementalText->Text = FText(FText::FromString(""));	
+	aElementalText->SetText(FText(FText::FromString("?")));	
 }

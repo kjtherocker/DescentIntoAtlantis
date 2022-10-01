@@ -99,8 +99,8 @@ public:
 
 	virtual void SetHealth(int aHealth);
 	
-	virtual void DecrementHealth(int aDecremenby);
-	void DecrementHealth(int aDecrementby, EElementalType aElementalType,float aTimeTillInitalDamage, float aTimeTillHoveringUiElement, float TimeTillDamage);
+	virtual PressTurnReactions DecrementHealth(int aDecremenby);
+	virtual PressTurnReactions DecrementHealth(int aDecrementby, EElementalType aElementalType);
 
 	virtual void IncrementHealth(int Increment);
 
@@ -113,7 +113,7 @@ public:
 	virtual float GetHealthPercentage();
 	virtual float GetManaPercentage();
 	
-	Charactertype m_Charactertype;
+	Charactertype characterType;
 
 
 

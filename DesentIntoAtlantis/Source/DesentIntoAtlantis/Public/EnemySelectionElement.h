@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
 #include "Blueprint/UserWidget.h"
+#include "Components/Image.h"
 #include "Components/ProgressBar.h"
 #include "EnemySelectionElement.generated.h"
 
@@ -22,6 +23,9 @@ public:
 	void SetEnemySelectionElement(FEnemyCombatEntity* aEnemyCombatEntity);
 	
 	void SetElementalText(UTextBlock* aElementalText, FEnemyEntityData* aEnemyEntityData );
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UImage* BW_BackgroundHighlight;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_EnemyName;
@@ -49,8 +53,6 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_ShadowText;
-	
-	
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UProgressBar* BW_Healthbar;

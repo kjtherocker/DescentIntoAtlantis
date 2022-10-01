@@ -4,9 +4,30 @@
 #include "PlayerCombatEntity.h"
 
 
+PressTurnReactions FPlayerCombatEntity::DecrementHealth(int aDecrementby, EElementalType aElementalType)
+{
+	PressTurnReactions reaction = PressTurnReactions::Normal;
+	    
+	if (aElementalType == currentClass->currentClassLevel->ElementalWeakness)
+	{
+		aDecrementby = aDecrementby * 1.5;
+		reaction =  PressTurnReactions::Weak;
+	}
+	if (aElementalType == currentClass->currentClassLevel->ElementalStrength)
+	{
+		aDecrementby = aDecrementby * 0.6;
+		reaction =  PressTurnReactions::Strong;
+	}
+
+	currentHealth -= aDecrementby;
+	DeathCheck();
+
+	return reaction;
+}
 
 void FPlayerCombatEntity::SetTacticsEntity(USkillFactory* aSkillFactory)
 {
+	characterType = Ally;
 	currentClass = NewObject<UCombatClass>(); 
 	currentClass->InitializeDataTable(classDataTablePath, aSkillFactory,this);
 

@@ -15,7 +15,8 @@ enum class  EViews
 	EnemySelection   = 4,
 	SkillMenu        = 5,
 	EnemyPortraits   = 6,
-	TurnCounter      = 7
+	TurnCounter      = 7,
+	Dialogue         = 8,
 };
 
 
@@ -36,5 +37,6 @@ enum class  EViewElements
 	None                     = 0,
 	PartyStatusHealthbar     = 1,
 	SkillBar                 = 2,
-	EnemySelectionElement    = 3
+	EnemySelectionElement    = 3,
+	TurnCounterElement       = 4
 };

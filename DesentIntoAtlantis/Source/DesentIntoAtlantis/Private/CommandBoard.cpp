@@ -23,7 +23,8 @@ void UCommandBoard::UiInitialize()
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UCommandBoard::ActivateCommandboardFunction  );
 	
 	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
-	currentActivePartyMember = GameModeBase->combatManager->ReturnCurrentActivePartyMember();
+	combatManager =  GameModeBase->combatManager;
+	currentActivePartyMember = combatManager->ReturnCurrentActivePartyMember();
 
 	BW_FullBodyPortrait->SetBrushFromTexture(currentActivePartyMember->fullBodyCharacterPortrait);
 	
@@ -77,6 +78,7 @@ void UCommandBoard::MoveDown()
 
 void UCommandBoard::ActivateCommandboardFunction()
 {
+	//combatManager->TurnFinished();
 	InGameHUD->PopMostRecentActiveView();
 	InGameHUD->PushView(EViews::SkillMenu,EUiType::ActiveUi);
 }

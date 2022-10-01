@@ -22,8 +22,9 @@ public:
 
 	virtual void UiInitialize() override;
 	void CreateHealthbar(FPlayerCombatEntity* aCombatEntity);
+	void SetHighlightHealthbar(FPlayerCombatEntity* aPlayerCombatEntity, float aOpacity);
+	
 	TSubclassOf<UUserWidget> BP_PartyStatus;
-
 	TArray<UPartyStatusHealthbar*> healthBars;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))

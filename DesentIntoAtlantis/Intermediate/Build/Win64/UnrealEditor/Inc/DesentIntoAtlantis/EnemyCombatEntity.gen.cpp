@@ -9,13 +9,69 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeEnemyCombatEntity() {}
 // Cross Module References
-	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FEnemyEntityData();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EEnemyCombatPositions();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FEnemyEntityData();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCombatEntityData();
 	ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEnemyPortraitElement_NoRegister();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FEnemyCombatEntity();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCombatEntity();
 // End Cross Module References
+	static FEnumRegistrationInfo Z_Registration_Info_UEnum_EEnemyCombatPositions;
+	static UEnum* EEnemyCombatPositions_StaticEnum()
+	{
+		if (!Z_Registration_Info_UEnum_EEnemyCombatPositions.OuterSingleton)
+		{
+			Z_Registration_Info_UEnum_EEnemyCombatPositions.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_DesentIntoAtlantis_EEnemyCombatPositions, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("EEnemyCombatPositions"));
+		}
+		return Z_Registration_Info_UEnum_EEnemyCombatPositions.OuterSingleton;
+	}
+	template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EEnemyCombatPositions>()
+	{
+		return EEnemyCombatPositions_StaticEnum();
+	}
+	struct Z_Construct_UEnum_DesentIntoAtlantis_EEnemyCombatPositions_Statics
+	{
+		static const UECodeGen_Private::FEnumeratorParam Enumerators[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FEnumParams EnumParams;
+	};
+	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_EEnemyCombatPositions_Statics::Enumerators[] = {
+		{ "EEnemyCombatPositions::Left", (int64)EEnemyCombatPositions::Left },
+		{ "EEnemyCombatPositions::Middle", (int64)EEnemyCombatPositions::Middle },
+		{ "EEnemyCombatPositions::Right", (int64)EEnemyCombatPositions::Right },
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EEnemyCombatPositions_Statics::Enum_MetaDataParams[] = {
+		{ "Left.Name", "EEnemyCombatPositions::Left" },
+		{ "Middle.Name", "EEnemyCombatPositions::Middle" },
+		{ "ModuleRelativePath", "Public/EnemyCombatEntity.h" },
+		{ "Right.Name", "EEnemyCombatPositions::Right" },
+	};
+#endif
+	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_DesentIntoAtlantis_EEnemyCombatPositions_Statics::EnumParams = {
+		(UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		nullptr,
+		"EEnemyCombatPositions",
+		"EEnemyCombatPositions",
+		Z_Construct_UEnum_DesentIntoAtlantis_EEnemyCombatPositions_Statics::Enumerators,
+		UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EEnemyCombatPositions_Statics::Enumerators),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EEnumFlags::None,
+		(uint8)UEnum::ECppForm::EnumClass,
+		METADATA_PARAMS(Z_Construct_UEnum_DesentIntoAtlantis_EEnemyCombatPositions_Statics::Enum_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EEnemyCombatPositions_Statics::Enum_MetaDataParams))
+	};
+	UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EEnemyCombatPositions()
+	{
+		if (!Z_Registration_Info_UEnum_EEnemyCombatPositions.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_EEnemyCombatPositions.InnerSingleton, Z_Construct_UEnum_DesentIntoAtlantis_EEnemyCombatPositions_Statics::EnumParams);
+		}
+		return Z_Registration_Info_UEnum_EEnemyCombatPositions.InnerSingleton;
+	}
 
 static_assert(std::is_polymorphic<FEnemyEntityData>() == std::is_polymorphic<FCombatEntityData>(), "USTRUCT FEnemyEntityData cannot be polymorphic unless super FCombatEntityData is polymorphic");
 
@@ -42,6 +98,10 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FEnemyEntityData>(
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_fullBodyCharacterPortrait_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_fullBodyCharacterPortrait;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_imageBodyPortrait_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_imageBodyPortrait;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_characterName_MetaData[];
 #endif
@@ -70,6 +130,14 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FEnemyEntityData>(
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FEnemyEntityData_Statics::NewProp_fullBodyCharacterPortrait = { "fullBodyCharacterPortrait", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FEnemyEntityData, fullBodyCharacterPortrait), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(Z_Construct_UScriptStruct_FEnemyEntityData_Statics::NewProp_fullBodyCharacterPortrait_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyEntityData_Statics::NewProp_fullBodyCharacterPortrait_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEnemyEntityData_Statics::NewProp_imageBodyPortrait_MetaData[] = {
+		{ "Category", "EnemyEntityData" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/EnemyCombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FEnemyEntityData_Statics::NewProp_imageBodyPortrait = { "imageBodyPortrait", nullptr, (EPropertyFlags)0x0010000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FEnemyEntityData, imageBodyPortrait), Z_Construct_UClass_UEnemyPortraitElement_NoRegister, METADATA_PARAMS(Z_Construct_UScriptStruct_FEnemyEntityData_Statics::NewProp_imageBodyPortrait_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyEntityData_Statics::NewProp_imageBodyPortrait_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEnemyEntityData_Statics::NewProp_characterName_MetaData[] = {
 		{ "Category", "EnemyEntityData" },
 		{ "ModuleRelativePath", "Public/EnemyCombatEntity.h" },
@@ -85,6 +153,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FEnemyEntityData>(
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FEnemyEntityData_Statics::NewProp_Behaviour = { "Behaviour", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FEnemyEntityData, Behaviour), METADATA_PARAMS(Z_Construct_UScriptStruct_FEnemyEntityData_Statics::NewProp_Behaviour_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyEntityData_Statics::NewProp_Behaviour_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FEnemyEntityData_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FEnemyEntityData_Statics::NewProp_fullBodyCharacterPortrait,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FEnemyEntityData_Statics::NewProp_imageBodyPortrait,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FEnemyEntityData_Statics::NewProp_characterName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FEnemyEntityData_Statics::NewProp_Behaviour,
 	};
@@ -98,7 +167,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FEnemyEntityData>(
 		Z_Construct_UScriptStruct_FEnemyEntityData_Statics::PropPointers,
 		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyEntityData_Statics::PropPointers),
 		RF_Public|RF_Transient|RF_MarkAsNative,
-		EStructFlags(0x00000201),
+		EStructFlags(0x00000205),
 		METADATA_PARAMS(Z_Construct_UScriptStruct_FEnemyEntityData_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyEntityData_Statics::Struct_MetaDataParams))
 	};
 	UScriptStruct* Z_Construct_UScriptStruct_FEnemyEntityData()
@@ -165,14 +234,18 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FEnemyCombatEntity
 	}
 	struct Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyCombatEntity_h_Statics
 	{
+		static const FEnumRegisterCompiledInInfo EnumInfo[];
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
+	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyCombatEntity_h_Statics::EnumInfo[] = {
+		{ EEnemyCombatPositions_StaticEnum, TEXT("EEnemyCombatPositions"), &Z_Registration_Info_UEnum_EEnemyCombatPositions, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3890971794U) },
+	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyCombatEntity_h_Statics::ScriptStructInfo[] = {
-		{ FEnemyEntityData::StaticStruct, Z_Construct_UScriptStruct_FEnemyEntityData_Statics::NewStructOps, TEXT("EnemyEntityData"), &Z_Registration_Info_UScriptStruct_EnemyEntityData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEnemyEntityData), 2597442566U) },
+		{ FEnemyEntityData::StaticStruct, Z_Construct_UScriptStruct_FEnemyEntityData_Statics::NewStructOps, TEXT("EnemyEntityData"), &Z_Registration_Info_UScriptStruct_EnemyEntityData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEnemyEntityData), 894930952U) },
 		{ FEnemyCombatEntity::StaticStruct, Z_Construct_UScriptStruct_FEnemyCombatEntity_Statics::NewStructOps, TEXT("EnemyCombatEntity"), &Z_Registration_Info_UScriptStruct_EnemyCombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEnemyCombatEntity), 650468375U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyCombatEntity_h_4125223313(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyCombatEntity_h_3434856533(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyCombatEntity_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyCombatEntity_h_Statics::ScriptStructInfo),
-		nullptr, 0);
+		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyCombatEntity_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyCombatEntity_h_Statics::EnumInfo));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

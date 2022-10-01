@@ -1452,7 +1452,13 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CombatManager.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CombatSelectionView.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CommandBoard.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\DialogueView.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EElementalType.cpp">
@@ -1464,13 +1470,13 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EnemyFactory.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EnemyPortraitElement.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EnemyPortraits.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EnemySelectionElement.cpp">
-      <Filter>Source\DesentIntoAtlantis\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EnemySelectionView.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\FloorEnemyPawn.cpp">
@@ -1497,6 +1503,9 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\PlayerCombatEntity.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\PressTurnManager.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\SkillBarElement.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
@@ -1510,6 +1519,9 @@
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\TurnCounter.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\TurnCounterElement.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\Views.cpp">
@@ -1533,7 +1545,13 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatManager.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatSelectionView.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CommandBoard.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\DialogueView.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EElementalType.h">
@@ -1543,6 +1561,9 @@
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EnemyFactory.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EnemyPortraitElement.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EnemyPortraits.h">
@@ -1578,6 +1599,9 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PlayerCombatEntity.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PressTurnManager.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SkillBarElement.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
@@ -1591,6 +1615,9 @@
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\TurnCounter.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\TurnCounterElement.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\Views.h">

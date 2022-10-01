@@ -25,6 +25,9 @@ public:
 	virtual void UiInitialize() override;
 
 	void SetCombatEntity(FPlayerCombatEntity* aCombatEntity);
+
+	FString characterName;
+	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UProgressBar* BW_Mana;
 
@@ -39,4 +42,7 @@ public:
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_CharacterPortrait;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UImage* BW_BackgroundHighlight;
 };

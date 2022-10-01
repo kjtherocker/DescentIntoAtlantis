@@ -33,7 +33,9 @@ public:
 	TMap<EViewElements,TSubclassOf<UUserWidget>> viewElements;
 	
 	void PushView(EViews aView, EUiType aUiType);
+	UUserWidget* GetActiveHUDView(EViews aView, EUiType aUiType);
 	void PopMostRecentActiveView();
+	void PopAllActiveViews();
 	void PushMostRecentInActiveView();
 	void ReturnToPreviousActiveView();
 	TArray<UBaseUserWidget*> persistentViewStack;

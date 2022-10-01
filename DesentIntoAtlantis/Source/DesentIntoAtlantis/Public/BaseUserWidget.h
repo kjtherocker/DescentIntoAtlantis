@@ -17,4 +17,5 @@ class DESENTINTOATLANTIS_API UBaseUserWidget : public UUserWidget
 public:
 	virtual void UiInitialize();
 	AInGameHUD* InGameHUD;
+	EViews viewName;
 };

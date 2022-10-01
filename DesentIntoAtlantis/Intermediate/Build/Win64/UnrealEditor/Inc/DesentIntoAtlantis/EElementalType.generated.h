@@ -18,11 +18,16 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 
 #define FOREACH_ENUM_EELEMENTALTYPE(op) \
-	op(Null) \
-	op(Fire) \
-	op(Ice) \
-	op(Wind) \
-	op(Lighting) \
-	op(Shadow) \
-	op(Light) 
+	op(EElementalType::Null) \
+	op(EElementalType::Fire) \
+	op(EElementalType::Ice) \
+	op(EElementalType::Wind) \
+	op(EElementalType::Lighting) \
+	op(EElementalType::Shadow) \
+	op(EElementalType::Light) \
+	op(EElementalType::Earth) 
+
+enum class EElementalType;
+template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EElementalType>();
+
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

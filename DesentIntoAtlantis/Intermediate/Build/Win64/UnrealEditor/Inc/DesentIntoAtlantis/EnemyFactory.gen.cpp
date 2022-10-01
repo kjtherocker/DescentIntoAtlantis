@@ -15,6 +15,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemyFactory() {}
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FEnemyGroupData();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FEnemyBestiaryData();
 // End Cross Module References
 	void UEnemyFactory::StaticRegisterNativesUEnemyFactory()
 	{
@@ -180,6 +181,60 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FEnemyGroupData>()
 		}
 		return Z_Registration_Info_UScriptStruct_EnemyGroupData.InnerSingleton;
 	}
+
+static_assert(std::is_polymorphic<FEnemyBestiaryData>() == std::is_polymorphic<FTableRowBase>(), "USTRUCT FEnemyBestiaryData cannot be polymorphic unless super FTableRowBase is polymorphic");
+
+	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_EnemyBestiaryData;
+class UScriptStruct* FEnemyBestiaryData::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_EnemyBestiaryData.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_EnemyBestiaryData.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FEnemyBestiaryData, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("EnemyBestiaryData"));
+	}
+	return Z_Registration_Info_UScriptStruct_EnemyBestiaryData.OuterSingleton;
+}
+template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FEnemyBestiaryData>()
+{
+	return FEnemyBestiaryData::StaticStruct();
+}
+	struct Z_Construct_UScriptStruct_FEnemyBestiaryData_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+		static const UECodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEnemyBestiaryData_Statics::Struct_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/EnemyFactory.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FEnemyBestiaryData_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FEnemyBestiaryData>();
+	}
+	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FEnemyBestiaryData_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		Z_Construct_UScriptStruct_FTableRowBase,
+		&NewStructOps,
+		"EnemyBestiaryData",
+		sizeof(FEnemyBestiaryData),
+		alignof(FEnemyBestiaryData),
+		nullptr,
+		0,
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000201),
+		METADATA_PARAMS(Z_Construct_UScriptStruct_FEnemyBestiaryData_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyBestiaryData_Statics::Struct_MetaDataParams))
+	};
+	UScriptStruct* Z_Construct_UScriptStruct_FEnemyBestiaryData()
+	{
+		if (!Z_Registration_Info_UScriptStruct_EnemyBestiaryData.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_EnemyBestiaryData.InnerSingleton, Z_Construct_UScriptStruct_FEnemyBestiaryData_Statics::ReturnStructParams);
+		}
+		return Z_Registration_Info_UScriptStruct_EnemyBestiaryData.InnerSingleton;
+	}
 	struct Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_Statics
 	{
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
@@ -187,11 +242,12 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FEnemyGroupData>()
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_Statics::ScriptStructInfo[] = {
 		{ FEnemyGroupData::StaticStruct, Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewStructOps, TEXT("EnemyGroupData"), &Z_Registration_Info_UScriptStruct_EnemyGroupData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEnemyGroupData), 2227243721U) },
+		{ FEnemyBestiaryData::StaticStruct, Z_Construct_UScriptStruct_FEnemyBestiaryData_Statics::NewStructOps, TEXT("EnemyBestiaryData"), &Z_Registration_Info_UScriptStruct_EnemyBestiaryData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEnemyBestiaryData), 2930306837U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UEnemyFactory, UEnemyFactory::StaticClass, TEXT("UEnemyFactory"), &Z_Registration_Info_UClass_UEnemyFactory, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEnemyFactory), 2860614721U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_1553349821(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_2976092999(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_Statics::ScriptStructInfo),
 		nullptr, 0);

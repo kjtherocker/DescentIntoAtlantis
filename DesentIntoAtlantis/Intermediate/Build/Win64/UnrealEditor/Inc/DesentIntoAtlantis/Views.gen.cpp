@@ -44,11 +44,13 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 		{ "EViews::SkillMenu", (int64)EViews::SkillMenu },
 		{ "EViews::EnemyPortraits", (int64)EViews::EnemyPortraits },
 		{ "EViews::TurnCounter", (int64)EViews::TurnCounter },
+		{ "EViews::Dialogue", (int64)EViews::Dialogue },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EViews_Statics::Enum_MetaDataParams[] = {
 		{ "CombatBackground.Name", "EViews::CombatBackground" },
 		{ "CommandBoard.Name", "EViews::CommandBoard" },
+		{ "Dialogue.Name", "EViews::Dialogue" },
 		{ "EnemyPortraits.Name", "EViews::EnemyPortraits" },
 		{ "EnemySelection.Name", "EViews::EnemySelection" },
 		{ "Healthbars.Name", "EViews::Healthbars" },
@@ -158,6 +160,7 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 		{ "EViewElements::PartyStatusHealthbar", (int64)EViewElements::PartyStatusHealthbar },
 		{ "EViewElements::SkillBar", (int64)EViewElements::SkillBar },
 		{ "EViewElements::EnemySelectionElement", (int64)EViewElements::EnemySelectionElement },
+		{ "EViewElements::TurnCounterElement", (int64)EViewElements::TurnCounterElement },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EViewElements_Statics::Enum_MetaDataParams[] = {
@@ -166,6 +169,7 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 		{ "None.Name", "EViewElements::None" },
 		{ "PartyStatusHealthbar.Name", "EViewElements::PartyStatusHealthbar" },
 		{ "SkillBar.Name", "EViewElements::SkillBar" },
+		{ "TurnCounterElement.Name", "EViewElements::TurnCounterElement" },
 	};
 #endif
 	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_DesentIntoAtlantis_EViewElements_Statics::EnumParams = {
@@ -193,11 +197,11 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo[] = {
-		{ EViews_StaticEnum, TEXT("EViews"), &Z_Registration_Info_UEnum_EViews, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1249805058U) },
+		{ EViews_StaticEnum, TEXT("EViews"), &Z_Registration_Info_UEnum_EViews, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3810842322U) },
 		{ EUiType_StaticEnum, TEXT("EUiType"), &Z_Registration_Info_UEnum_EUiType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4223346555U) },
-		{ EViewElements_StaticEnum, TEXT("EViewElements"), &Z_Registration_Info_UEnum_EViewElements, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3796173240U) },
+		{ EViewElements_StaticEnum, TEXT("EViewElements"), &Z_Registration_Info_UEnum_EViewElements, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3583364803U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_205123456(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_3824675851(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo));

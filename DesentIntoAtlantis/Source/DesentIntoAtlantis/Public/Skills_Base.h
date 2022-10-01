@@ -4,10 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "EElementalType.h"
+#include "PressTurnManager.h"
 #include "Engine/DataTable.h"
 #include "UObject/NoExportTypes.h"
 #include "Skills_Base.generated.h"
 
+struct FCombatEntity;
 /**
  * 
  */
@@ -41,7 +43,6 @@ enum ESkillRange
 
 
 
-class ACreature_Base;
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FSkills_Base : public FTableRowBase
@@ -72,10 +73,8 @@ public:
 
 	UPROPERTY( EditAnywhere )
 	UTexture2D* SkillIcon;
-
-
-	virtual void UseSkillMulti(ACreature_Base* aAttacker, TArray<ACreature_Base*> aVictim);
-	virtual void UseSkill(ACreature_Base* aAttacker, ACreature_Base* aVictim);
+	
+	virtual PressTurnReactions UseSkill(FCombatEntity* aAttacker, FCombatEntity* aVictim);
 	
 	virtual void Initialize();
 	

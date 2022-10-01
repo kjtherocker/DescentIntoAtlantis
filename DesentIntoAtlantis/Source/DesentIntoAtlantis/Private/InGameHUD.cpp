@@ -22,7 +22,7 @@ void AInGameHUD::PushView(EViews aView, EUiType aUiType)
         newView->InGameHUD = this;
         newView->UiInitialize();
         newView->AddToViewport();
-        
+        newView->viewName = aView;
         switch (aUiType)
         { 
         case EUiType::ActiveUi:
@@ -40,6 +40,21 @@ void AInGameHUD::PushView(EViews aView, EUiType aUiType)
     }
 }
 
+UUserWidget* AInGameHUD::GetActiveHUDView(EViews aView, EUiType aUiType)
+{
+    TArray<UBaseUserWidget*> viewArray = aUiType == EUiType::ActiveUi ? activeViewStack : persistentViewStack;
+    for(int i = 0 ; i < viewArray.Num();i++)
+    {
+        if(viewArray[i]->viewName == aView)
+        {
+            return viewArray[i];
+        }
+    }
+
+    UE_LOG(LogUObjectGlobals, Fatal, TEXT("We tried to get an view that isnt currently active"), aView);
+    return nullptr;
+}
+
 void AInGameHUD::PopMostRecentActiveView()
 {
     if(activeViewStack.Num() > 0)
@@ -48,6 +63,15 @@ void AInGameHUD::PopMostRecentActiveView()
         activeViewStack[lastActiveElement]->RemoveFromViewport();
         inactiveViewStack.Add(activeViewStack[activeViewStack.Num() -1]);
         activeViewStack.RemoveAt(lastActiveElement);
+    }
+}
+
+void AInGameHUD::PopAllActiveViews()
+{
+    for(int i = activeViewStack.Num() - 1 ; i >= 0 ;i--)
+    {
+        activeViewStack[i]->RemoveFromViewport();
+        activeViewStack.RemoveAt(i);
     }
 }
 

@@ -8,6 +8,7 @@
 #include "Blueprint/UserWidget.h"
 #include "CommandBoard.generated.h"
 
+class UCombatManager;
 class UImage;
 class UBorder;
 struct FCombatEntity;
@@ -19,6 +20,11 @@ class DESENTINTOATLANTIS_API UCommandBoard : public UBaseUserWidget
 {
 	GENERATED_BODY()
 	virtual void UiInitialize() override;
+
+private:
+
+	UCombatManager* combatManager;
+	
 	protected:
 
 

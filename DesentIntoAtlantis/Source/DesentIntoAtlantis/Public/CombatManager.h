@@ -8,25 +8,46 @@
 #include "UObject/NoExportTypes.h"
 #include "CombatManager.generated.h"
 
+class UPressTurnManager;
+class AInGameHUD;
+class UTurnCounter;
+class UPartyHealthbars;
 struct FCombatEntity;
 class ADesentIntoAtlantisGameModeBase;
 /**
  * 
  */
+
+
+
+
+
 UCLASS()
 class DESENTINTOATLANTIS_API UCombatManager : public UObject
 {
 	GENERATED_BODY()
+
+private:
+	UTurnCounter*     turnCounter;    
+	UPartyHealthbars* partyHealthbars;
+	
+	const float FULL_OPACITY = 100;
+	bool hasCombatStarted;
+	int currentActivePosition;
+	AInGameHUD * GameHUD;
 public:
+	UPressTurnManager* pressTurnManager;
 
 	void Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase);
 	void StartCombat();
 	void EndCombat();
 	void AddEnemyToCombat(FEnemyEntityData* AEnemyEntityData);
+	void TurnFinished();
 	
 	FPlayerCombatEntity* ReturnCurrentActivePartyMember();
 	
-	TArray<FEnemyCombatEntity*> ReturnEnemysInCombat();
+	TArray<FEnemyCombatEntity*> GetEnemysInCombat();
+	TArray<FPlayerCombatEntity*> GetPlayersInCombat();
 	
 	FPlayerCombatEntity* currentActivePartyMember;
 

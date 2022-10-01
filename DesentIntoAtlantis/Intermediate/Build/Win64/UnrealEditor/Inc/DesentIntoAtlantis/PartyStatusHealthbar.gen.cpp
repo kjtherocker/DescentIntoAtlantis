@@ -51,6 +51,10 @@ void EmptyLinkFunctionForGeneratedCodePartyStatusHealthbar() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_CharacterPortrait_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_CharacterPortrait;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_BackgroundHighlight_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_BackgroundHighlight;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -111,12 +115,22 @@ void EmptyLinkFunctionForGeneratedCodePartyStatusHealthbar() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPartyStatusHealthbar_Statics::NewProp_BW_CharacterPortrait = { "BW_CharacterPortrait", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPartyStatusHealthbar, BW_CharacterPortrait), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPartyStatusHealthbar_Statics::NewProp_BW_CharacterPortrait_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPartyStatusHealthbar_Statics::NewProp_BW_CharacterPortrait_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPartyStatusHealthbar_Statics::NewProp_BW_BackgroundHighlight_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "PartyStatusHealthbar" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/PartyStatusHealthbar.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPartyStatusHealthbar_Statics::NewProp_BW_BackgroundHighlight = { "BW_BackgroundHighlight", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPartyStatusHealthbar, BW_BackgroundHighlight), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPartyStatusHealthbar_Statics::NewProp_BW_BackgroundHighlight_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPartyStatusHealthbar_Statics::NewProp_BW_BackgroundHighlight_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UPartyStatusHealthbar_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPartyStatusHealthbar_Statics::NewProp_BW_Mana,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPartyStatusHealthbar_Statics::NewProp_BW_Health,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPartyStatusHealthbar_Statics::NewProp_BW_ManaText,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPartyStatusHealthbar_Statics::NewProp_BW_HealthText,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPartyStatusHealthbar_Statics::NewProp_BW_CharacterPortrait,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPartyStatusHealthbar_Statics::NewProp_BW_BackgroundHighlight,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UPartyStatusHealthbar_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UPartyStatusHealthbar>::IsAbstract,
@@ -154,9 +168,9 @@ void EmptyLinkFunctionForGeneratedCodePartyStatusHealthbar() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyStatusHealthbar_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPartyStatusHealthbar, UPartyStatusHealthbar::StaticClass, TEXT("UPartyStatusHealthbar"), &Z_Registration_Info_UClass_UPartyStatusHealthbar, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPartyStatusHealthbar), 3275426456U) },
+		{ Z_Construct_UClass_UPartyStatusHealthbar, UPartyStatusHealthbar::StaticClass, TEXT("UPartyStatusHealthbar"), &Z_Registration_Info_UClass_UPartyStatusHealthbar, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPartyStatusHealthbar), 1859921509U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyStatusHealthbar_h_2484716563(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyStatusHealthbar_h_1396849990(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyStatusHealthbar_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyStatusHealthbar_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

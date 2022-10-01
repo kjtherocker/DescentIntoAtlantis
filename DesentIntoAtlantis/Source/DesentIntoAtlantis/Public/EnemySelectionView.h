@@ -24,4 +24,5 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UEnemySelectionElement* BW_EnemySelectionBar_2;
+	
 };

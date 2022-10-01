@@ -20,6 +20,8 @@ void UPartyStatusHealthbar::SetCombatEntity(FPlayerCombatEntity* aCombatEntity)
 		BW_Health->SetPercent(aCombatEntity->GetHealthPercentage());
 	}
 	BW_HealthText->SetText(FText::FromString( FString::FromInt(aCombatEntity->currentHealth)));
+
+	characterName = aCombatEntity->characterName;
 	
 	BW_Mana->SetPercent(aCombatEntity->GetManaPercentage());
 	BW_ManaText->SetText(FText::FromString( FString::FromInt(aCombatEntity->currentMana)));

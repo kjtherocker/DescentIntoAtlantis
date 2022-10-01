@@ -31,7 +31,18 @@ void UPartyHealthbars::CreateHealthbar(FPlayerCombatEntity* aCombatEntity)
 	partyStatusHealthbar->AddToViewport();
 
 	baseUserWidget->SetCombatEntity(aCombatEntity);
-	
+	baseUserWidget->BW_BackgroundHighlight->SetOpacity(0);
 	healthBars.Add(baseUserWidget);
 	BW_HorizontalBox->AddChild(partyStatusHealthbar);
+}
+
+void UPartyHealthbars::SetHighlightHealthbar(FPlayerCombatEntity* aPlayerCombatEntity, float aOpacity)
+{
+	for(int i = 0 ; i < healthBars.Num();i++)
+	{
+		if(healthBars[i]->characterName == aPlayerCombatEntity->characterName)
+		{
+			healthBars[i]->BW_BackgroundHighlight->SetOpacity(aOpacity);	
+		}
+	}
 }

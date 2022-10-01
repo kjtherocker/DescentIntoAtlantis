@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemySelectionElement() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEnemySelectionElement();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UBaseUserWidget();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
+	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UProgressBar_NoRegister();
 // End Cross Module References
@@ -30,6 +31,10 @@ void EmptyLinkFunctionForGeneratedCodeEnemySelectionElement() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_BackgroundHighlight_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_BackgroundHighlight;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_EnemyName_MetaData[];
 #endif
@@ -85,6 +90,15 @@ void EmptyLinkFunctionForGeneratedCodeEnemySelectionElement() {}
 		{ "ModuleRelativePath", "Public/EnemySelectionElement.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEnemySelectionElement_Statics::NewProp_BW_BackgroundHighlight_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "EnemySelectionElement" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/EnemySelectionElement.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEnemySelectionElement_Statics::NewProp_BW_BackgroundHighlight = { "BW_BackgroundHighlight", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UEnemySelectionElement, BW_BackgroundHighlight), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UEnemySelectionElement_Statics::NewProp_BW_BackgroundHighlight_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UEnemySelectionElement_Statics::NewProp_BW_BackgroundHighlight_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEnemySelectionElement_Statics::NewProp_BW_EnemyName_MetaData[] = {
 		{ "BindWidget", "" },
@@ -176,6 +190,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemySelectionElement() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEnemySelectionElement_Statics::NewProp_BW_Healthbar = { "BW_Healthbar", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UEnemySelectionElement, BW_Healthbar), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UEnemySelectionElement_Statics::NewProp_BW_Healthbar_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UEnemySelectionElement_Statics::NewProp_BW_Healthbar_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UEnemySelectionElement_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemySelectionElement_Statics::NewProp_BW_BackgroundHighlight,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemySelectionElement_Statics::NewProp_BW_EnemyName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemySelectionElement_Statics::NewProp_BW_NullText,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemySelectionElement_Statics::NewProp_BW_FireText,
@@ -223,9 +238,9 @@ void EmptyLinkFunctionForGeneratedCodeEnemySelectionElement() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemySelectionElement_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UEnemySelectionElement, UEnemySelectionElement::StaticClass, TEXT("UEnemySelectionElement"), &Z_Registration_Info_UClass_UEnemySelectionElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEnemySelectionElement), 2217968908U) },
+		{ Z_Construct_UClass_UEnemySelectionElement, UEnemySelectionElement::StaticClass, TEXT("UEnemySelectionElement"), &Z_Registration_Info_UClass_UEnemySelectionElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEnemySelectionElement), 3046125783U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemySelectionElement_h_4084732723(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemySelectionElement_h_689360872(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemySelectionElement_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemySelectionElement_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

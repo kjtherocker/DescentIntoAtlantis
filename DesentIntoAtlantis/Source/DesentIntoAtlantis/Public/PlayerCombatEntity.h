@@ -25,6 +25,8 @@ struct DESENTINTOATLANTIS_API FPlayerCombatEntity : public FCombatEntity
 	UTexture2D* characterPortrait;
 	UPROPERTY( EditAnywhere )
 	UTexture2D* fullBodyCharacterPortrait;
+
+	virtual PressTurnReactions DecrementHealth(int aDecrementby, EElementalType aElementalType) override;
 	
 	virtual void SetTacticsEntity(USkillFactory* aSkillFactory) override;
 	void SetAbilityScores();

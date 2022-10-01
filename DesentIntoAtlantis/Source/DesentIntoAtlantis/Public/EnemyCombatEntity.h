@@ -7,7 +7,16 @@
 #include "UObject/NoExportTypes.h"
 #include "EnemyCombatEntity.generated.h"
 
+class UEnemyPortraitElement;
 struct FEnemyEntityData;
+
+UENUM()
+enum class  EEnemyCombatPositions
+{
+	Left   = 0,
+	Middle = 1,
+	Right  = 2
+};
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FEnemyEntityData :public  FCombatEntityData
@@ -18,6 +27,9 @@ struct DESENTINTOATLANTIS_API FEnemyEntityData :public  FCombatEntityData
 	UTexture2D* fullBodyCharacterPortrait;
 
 	UPROPERTY( EditAnywhere )
+	UEnemyPortraitElement*  imageBodyPortrait;
+
+	UPROPERTY( EditAnywhere )
 	FString characterName;
 
 	UPROPERTY( EditAnywhere )
@@ -26,6 +38,7 @@ struct DESENTINTOATLANTIS_API FEnemyEntityData :public  FCombatEntityData
 	
 };
 
+
 USTRUCT()
 struct DESENTINTOATLANTIS_API FEnemyCombatEntity : public FCombatEntity
 {
@@ -33,9 +46,12 @@ struct DESENTINTOATLANTIS_API FEnemyCombatEntity : public FCombatEntity
 public:
 	void SetAbilityScores();
 	void SetEnemyEntityData(FEnemyEntityData* AEnemyEntityData);
+	virtual PressTurnReactions DecrementHealth(int aDecrementby, EElementalType aElementalType) override;
 
 	virtual float GetHealthPercentage() override;
 	
 	FEnemyEntityData* enemyEntityData;
+
+	EEnemyCombatPositions enemyCombatPosition;
 };
 

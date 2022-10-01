@@ -98,14 +98,6 @@ void AFloorManager::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	ADesentIntoAtlantisGameModeBase* MyMode = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
-
-	skillbasetest =  MyMode->skillFactory->GetSkill("IceRain");
-
-	if(skillbasetest)
-	{
-		int damage = skillbasetest->Damage;
-	}
 	cardinalPositions.Add(ECardinalNodeDirections::Up,    FVector2D(-1,0));
 	cardinalPositions.Add(ECardinalNodeDirections::Down,  FVector2D(1,0));
 	cardinalPositions.Add(ECardinalNodeDirections::Left,  FVector2D(0,-1));

@@ -13,7 +13,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define DESENTINTOATLANTIS_EnemyCombatEntity_generated_h
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyCombatEntity_h_15_GENERATED_BODY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyCombatEntity_h_24_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FEnemyEntityData_Statics; \
 	static class UScriptStruct* StaticStruct(); \
 	typedef FCombatEntityData Super;
@@ -21,7 +21,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FEnemyEntityData>();
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyCombatEntity_h_32_GENERATED_BODY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyCombatEntity_h_45_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FEnemyCombatEntity_Statics; \
 	static class UScriptStruct* StaticStruct(); \
 	typedef FCombatEntity Super;
@@ -32,5 +32,13 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FEnemyComba
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyCombatEntity_h
 
+
+#define FOREACH_ENUM_EENEMYCOMBATPOSITIONS(op) \
+	op(EEnemyCombatPositions::Left) \
+	op(EEnemyCombatPositions::Middle) \
+	op(EEnemyCombatPositions::Right) 
+
+enum class EEnemyCombatPositions;
+template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EEnemyCombatPositions>();
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

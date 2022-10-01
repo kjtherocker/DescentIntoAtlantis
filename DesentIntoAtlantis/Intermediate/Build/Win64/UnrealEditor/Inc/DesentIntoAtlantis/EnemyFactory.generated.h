@@ -91,6 +91,14 @@ template<> DESENTINTOATLANTIS_API UClass* StaticClass<class UEnemyFactory>();
 
 template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FEnemyGroupData>();
 
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h_58_GENERATED_BODY \
+	friend struct Z_Construct_UScriptStruct_FEnemyBestiaryData_Statics; \
+	static class UScriptStruct* StaticStruct(); \
+	typedef FTableRowBase Super;
+
+
+template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FEnemyBestiaryData>();
+
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactory_h
 

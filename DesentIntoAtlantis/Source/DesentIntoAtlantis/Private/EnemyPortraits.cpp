@@ -15,7 +15,7 @@ void UEnemyPortraits::UiInitialize()
 	Portraits.Add(BW_Portrait3);
 	
 	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
-	enemysInCombat = GameModeBase->combatManager->ReturnEnemysInCombat();
+	enemysInCombat = GameModeBase->combatManager->GetEnemysInCombat();
 
 	for(int i = 0 ; i < enemysInCombat.Num();i++)
 	{
@@ -23,9 +23,18 @@ void UEnemyPortraits::UiInitialize()
 	}
 }
 
-void UEnemyPortraits::SetEnemyPortraits(UImage* Aimage, FEnemyCombatEntity* AEnemyCombatEntity)
+void UEnemyPortraits::NativeTick(const FGeometry& MyGeometry, float DeltaTime)
 {
-	Aimage->SetBrushFromTexture(AEnemyCombatEntity->enemyEntityData->fullBodyCharacterPortrait);
+	Super::NativeTick(MyGeometry, DeltaTime);
+
+	int testo = 0;
+}
+
+void UEnemyPortraits::SetEnemyPortraits(UEnemyPortraitElement* aImage, FEnemyCombatEntity* AEnemyCombatEntity)
+{
+	AEnemyCombatEntity->enemyEntityData->imageBodyPortrait = aImage;
+	
+	aImage->BW_Portrait->SetBrushFromTexture(AEnemyCombatEntity->enemyEntityData->fullBodyCharacterPortrait);
 }
 
 

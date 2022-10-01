@@ -70,14 +70,16 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntityData>
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_baseResistance_MetaData[];
 #endif
 		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_baseResistance;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_ElementalStrength_Underlying;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ElementalStrength_MetaData[];
 #endif
-		static const UECodeGen_Private::FBytePropertyParams NewProp_ElementalStrength;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_ElementalStrength;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_ElementalWeakness_Underlying;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ElementalWeakness_MetaData[];
 #endif
-		static const UECodeGen_Private::FBytePropertyParams NewProp_ElementalWeakness;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_ElementalWeakness;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -147,20 +149,22 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntityData>
 	};
 #endif
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_baseResistance = { "baseResistance", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCombatEntityData, baseResistance), METADATA_PARAMS(Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_baseResistance_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_baseResistance_MetaData)) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalStrength_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalStrength_MetaData[] = {
 		{ "Category", "CombatEntityData" },
 		{ "ModuleRelativePath", "Public/CombatEntity.h" },
 	};
 #endif
-	const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalStrength = { "ElementalStrength", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCombatEntityData, ElementalStrength), Z_Construct_UEnum_DesentIntoAtlantis_EElementalType, METADATA_PARAMS(Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalStrength_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalStrength_MetaData)) }; // 1311641526
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalStrength = { "ElementalStrength", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCombatEntityData, ElementalStrength), Z_Construct_UEnum_DesentIntoAtlantis_EElementalType, METADATA_PARAMS(Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalStrength_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalStrength_MetaData)) }; // 928806472
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalWeakness_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalWeakness_MetaData[] = {
 		{ "Category", "CombatEntityData" },
 		{ "ModuleRelativePath", "Public/CombatEntity.h" },
 	};
 #endif
-	const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalWeakness = { "ElementalWeakness", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCombatEntityData, ElementalWeakness), Z_Construct_UEnum_DesentIntoAtlantis_EElementalType, METADATA_PARAMS(Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalWeakness_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalWeakness_MetaData)) }; // 1311641526
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalWeakness = { "ElementalWeakness", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCombatEntityData, ElementalWeakness), Z_Construct_UEnum_DesentIntoAtlantis_EElementalType, METADATA_PARAMS(Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalWeakness_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalWeakness_MetaData)) }; // 928806472
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FCombatEntityData_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_maxHealth,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_maxMana,
@@ -170,7 +174,9 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntityData>
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_baseEvasion,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_baseDefence,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_baseResistance,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalStrength_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalStrength,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalWeakness_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewProp_ElementalWeakness,
 	};
 	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FCombatEntityData_Statics::ReturnStructParams = {
@@ -307,11 +313,11 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntity>()
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo[] = {
-		{ FCombatEntityData::StaticStruct, Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewStructOps, TEXT("CombatEntityData"), &Z_Registration_Info_UScriptStruct_CombatEntityData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatEntityData), 2439573012U) },
+		{ FCombatEntityData::StaticStruct, Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewStructOps, TEXT("CombatEntityData"), &Z_Registration_Info_UScriptStruct_CombatEntityData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatEntityData), 2239992258U) },
 		{ FCombatAbilityStats::StaticStruct, Z_Construct_UScriptStruct_FCombatAbilityStats_Statics::NewStructOps, TEXT("CombatAbilityStats"), &Z_Registration_Info_UScriptStruct_CombatAbilityStats, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatAbilityStats), 3676810248U) },
 		{ FCombatEntity::StaticStruct, Z_Construct_UScriptStruct_FCombatEntity_Statics::NewStructOps, TEXT("CombatEntity"), &Z_Registration_Info_UScriptStruct_CombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatEntity), 1688199274U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_4134954434(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_1993334893(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo),
 		nullptr, 0);
