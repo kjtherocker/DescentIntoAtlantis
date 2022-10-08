@@ -35,6 +35,7 @@ private:
 	const int   ENEMY_TURN_TIME = 2;
 	bool hasCombatStarted;
 	int currentActivePosition;
+	int combatExp;
 	AInGameHUD * GameHUD;
 	USkillFactory * skillFactory;
 	UWorld* world;

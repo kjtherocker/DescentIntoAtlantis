@@ -29,6 +29,9 @@ struct DESENTINTOATLANTIS_API FEnemyEntityData :public  FCombatEntityData
 	
 
 	UPROPERTY( EditAnywhere )
+	int experience;
+	
+	UPROPERTY( EditAnywhere )
 	FString characterName;
 
 	UPROPERTY( EditAnywhere )

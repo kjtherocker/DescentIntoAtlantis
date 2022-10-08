@@ -35,7 +35,7 @@ void UCombatManager::StartCombat(UWorld* aWorld)
 	GameHUD = gameModeBase->InGameHUD;
 
 	partyMembersInCombat     = gameModeBase->partyManager->ReturnActivePartyEntityData();
-	currentActivePartyMember = partyMembersInCombat[1];
+	currentActivePartyMember = partyMembersInCombat[0];
 	currentTurnType          = ECharactertype::Ally;
 	
 	TArray<FString> EnemyNames = gameModeBase->enemyFactory->ReturnEnemyGroupData("FloorFight1");
@@ -49,16 +49,15 @@ void UCombatManager::StartCombat(UWorld* aWorld)
 	{
 		//hud->PushView(EViews::Dialogue,  EUiType::PersistentUi);
 		GameHUD->PushView(EViews::CombatBackground,  EUiType::PersistentUi);
-		//GameHUD->PushView(EViews::EnemyPortraits,    EUiType::PersistentUi);
-		ULevelupView * testo = (ULevelupView*)GameHUD->PushAndGetView(EViews::Levelup,    EUiType::ActiveUi);
-		testo->SetupLevelupView(currentActivePartyMember);
-
-		//turnCounter     = (UTurnCounter*)GameHUD->PushAndGetView(EViews::TurnCounter,         EUiType::PersistentUi);
-		//partyHealthbars = (UPartyHealthbarsView*)GameHUD->PushAndGetView(EViews::Healthbars,  EUiType::PersistentUi);
+		GameHUD->PushView(EViews::EnemyPortraits,    EUiType::PersistentUi);
+		
+		turnCounter     = (UTurnCounter*)GameHUD->PushAndGetView(EViews::TurnCounter,         EUiType::PersistentUi);
+		partyHealthbars = (UPartyHealthbarsView*)GameHUD->PushAndGetView(EViews::Healthbars,  EUiType::PersistentUi);
 	}
 
-	//pressTurnManager->SetAmountOfTurns(partyMembersInCombat.Num());
-	//AllyStartTurn();
+	combatExp = 0;
+	pressTurnManager->SetAmountOfTurns(partyMembersInCombat.Num());
+	AllyStartTurn();
 	
 }
 
@@ -101,6 +100,9 @@ void UCombatManager::EndCombat()
 	hasCombatStarted = false;
 	GameHUD->PopAllPersistantViews();
 	GameHUD->PopAllActiveViews();
+	
+	ULevelupView * testo = (ULevelupView*)GameHUD->PushAndGetView(EViews::Levelup,    EUiType::ActiveUi);
+		
 }
 
 void UCombatManager::TurnFinished()
@@ -119,6 +121,7 @@ void UCombatManager::TurnFinished()
 		{
 			if(enemyCombatEntities[i]->GetIsMarkedForDeath())
 			{
+				combatExp += enemyCombatEntities[i]->enemyEntityData->experience;
 				enemyCombatEntities[i]->Death();
 				enemyCombatEntities.RemoveAt(i);
 			}
