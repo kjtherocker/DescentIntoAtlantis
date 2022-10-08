@@ -9,6 +9,7 @@
 #include "Components/Image.h"
 #include "CombatEntity.generated.h"
 
+class UEnemyPortraitElement;
 class USkillFactory;
 struct FSkills_Base;
 /**
@@ -45,9 +46,11 @@ struct DESENTINTOATLANTIS_API FCombatEntityData :public  FTableRowBase
 	int baseResistance;
 
 	UPROPERTY( EditAnywhere )
-	TEnumAsByte<EElementalType> ElementalStrength;
+	EElementalType ElementalStrength;
+	
 	UPROPERTY( EditAnywhere )
-	TEnumAsByte<EElementalType> ElementalWeakness;
+	EElementalType ElementalWeakness;
+	
 };
 
 USTRUCT()
@@ -55,10 +58,10 @@ struct DESENTINTOATLANTIS_API FCombatAbilityStats :public  FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 
-	int base;
-	int buff;
-	int debuff;
-	int domain;
+	int base    = 0;
+	int buff    = 0;
+	int debuff  = 0;
+	int domain  = 0;
 
 	int GetAllStats()
 	{
@@ -66,31 +69,42 @@ struct DESENTINTOATLANTIS_API FCombatAbilityStats :public  FTableRowBase
 	}
 };
 
+UENUM()
+enum class ECharactertype
+{
+	Undefined,
+	Ally,
+	Enemy
+};
+
+//UENUM()
+//class enum ECreaturesAilment
+//{
+//	None,
+//	Poison,
+//	Daze,
+//	Sleep,
+//	Rage,
+//};
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FCombatEntity : public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 
-	 enum Charactertype
-	{
-		Undefined,
-        Ally,
-        Enemy
-    };
-
-	 enum CreaturesAilment
-	{
-		None,
-        Poison,
-        Daze,
-        Sleep,
-        Rage,
-    };
 
 
+
+
+protected:
+	inline static const float DAMAGE_CONVERSION_RATIO = 3;
+	inline static const float STRONG_DAMAGE_REDUCTION = 0.6f;
+	inline static const float WEAK_DAMAGE_INCREASE    = 1.5f;
+	
+	bool isMarkedForDeath = false;
+	
 public:
-
+	
 
 	virtual void SetTacticsEntity(USkillFactory* aSkillFactory);
 	void EndTurn();
@@ -100,23 +114,35 @@ public:
 	virtual void SetHealth(int aHealth);
 	
 	virtual PressTurnReactions DecrementHealth(int aDecremenby);
-	virtual PressTurnReactions DecrementHealth(int aDecrementby, EElementalType aElementalType);
-
+	virtual int CalculateDamage(FCombatEntity* aAttacker,FSkills_Base* aSkill);
+	virtual PressTurnReactions DecrementHealth(FCombatEntity* aAttacker, FSkills_Base* aSkill);
+	
 	virtual void IncrementHealth(int Increment);
 
 
-	virtual Charactertype GetCharactertype();
+	virtual ECharactertype GetCharactertype();
 	virtual void Resurrection();
 	void DeathCheck();
 	virtual void Death();
 
+	virtual void ActivateDamageHitEffect();
+
 	virtual float GetHealthPercentage();
+	virtual float GetPotentialHealthPercentage(int aDamage);
 	virtual float GetManaPercentage();
+
+	bool GetIsMarkedForDeath();
+
 	
-	Charactertype characterType;
+	EElementalType ElementalStrength;
+	
+	EElementalType ElementalWeakness;
+	
+	ECharactertype characterType;
 
+	UEnemyPortraitElement*  imageBodyPortrait;
 
-
+	int maxHealth;
 	int currentHealth;
 	int currentMana;
 
@@ -132,8 +158,6 @@ public:
 	int MaxDomainPoints = 3;
 
 	int AmountOfTurns;
-    
-	bool m_IsAlive;
 };
 
 

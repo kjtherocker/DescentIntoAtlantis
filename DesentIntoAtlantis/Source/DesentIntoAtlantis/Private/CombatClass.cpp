@@ -11,7 +11,7 @@
 
 
 
-void UCombatClass::InitializeDataTable(FString aClassExcelSheet, USkillFactory* aSkillFactory, FCombatEntity* aCombatEntity)
+void UCombatClass::InitializeDataTable(FString aClassExcelSheet, USkillFactory* aSkillFactory, FPlayerCombatEntity* aCombatEntity)
 {
 	uint32 InLoadFlags = LOAD_None;
 	UDataTable* datatable = LoadObject<UDataTable>(NULL, *aClassExcelSheet, nullptr, InLoadFlags);
@@ -25,10 +25,6 @@ void UCombatClass::InitializeDataTable(FString aClassExcelSheet, USkillFactory* 
 		skillFactory = aSkillFactory;
 		attachedCombatEntity = aCombatEntity;
 		Levelup();
-		Levelup();
-		Levelup();
-		Levelup();
-		Levelup();
 	}
 }
 
@@ -37,21 +33,23 @@ void UCombatClass::InitializeDataTable(FString aClassExcelSheet, USkillFactory* 
 void UCombatClass::AddExperience(int aExperience)
 {
 	experience += aExperience;
-	if(experience > currentClassLevel->expToNextClassLevel)
+	if(classLevels.Num() > 0)
 	{
-		Levelup();
+		if(experience > currentClassLevel->expToNextClassLevel)
+		{
+			isReadyToLevelup = true;
+		}
 	}
 }
 
-void UCombatClass::Levelup()
+FClassData* UCombatClass::Levelup()
 {
-	if(classLevels.Num() > 0)
-	{
-		currentClassLevel = classLevels[0];
-		classSkills.Add(skillFactory->GetSkill(currentClassLevel->newlyObtainedSkill));
-		attachedCombatEntity->currentHealth = currentClassLevel->maxHealth;
-		attachedCombatEntity->currentMana   = currentClassLevel->maxMana;
-
-		classLevels.RemoveAt(0);
-	}
+	currentClassLevel = classLevels[0];
+	classSkills.Add(skillFactory->GetSkill(currentClassLevel->newlyObtainedSkill));
+	attachedCombatEntity->currentHealth = currentClassLevel->maxHealth;
+	attachedCombatEntity->currentMana   = currentClassLevel->maxMana;
+	attachedCombatEntity->SetAbilityScores();
+	
+	classLevels.RemoveAt(0);
+	return currentClassLevel;
 }

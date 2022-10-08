@@ -20,7 +20,7 @@ USkillFactory::USkillFactory()
  
 		for (FSkills_Base* skills : allSkills)
 		{
-			skillMap.Add(skills->SkillName,skills);
+			skillMap.Add(skills->skillName,skills);
 		}
 	}
 }

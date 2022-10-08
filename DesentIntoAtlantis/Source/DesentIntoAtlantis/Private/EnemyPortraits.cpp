@@ -3,6 +3,7 @@
 #include "EnemyPortraits.h"
 
 #include "CombatManager.h"
+#include "EnemyPortraitElement.h"
 #include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -32,7 +33,7 @@ void UEnemyPortraits::NativeTick(const FGeometry& MyGeometry, float DeltaTime)
 
 void UEnemyPortraits::SetEnemyPortraits(UEnemyPortraitElement* aImage, FEnemyCombatEntity* AEnemyCombatEntity)
 {
-	AEnemyCombatEntity->enemyEntityData->imageBodyPortrait = aImage;
+	AEnemyCombatEntity->imageBodyPortrait = aImage;
 	
 	aImage->BW_Portrait->SetBrushFromTexture(AEnemyCombatEntity->enemyEntityData->fullBodyCharacterPortrait);
 }

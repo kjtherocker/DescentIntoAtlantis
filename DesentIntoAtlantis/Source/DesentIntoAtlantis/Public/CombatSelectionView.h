@@ -23,6 +23,8 @@ private:
 	bool hasCursor;
 	int cursorMaxRange;
 	int cursorPosition;
+
+	TArray<FEnemyCombatEntity*> enemysInCombat;
 public:
 
 	virtual void UiInitialize() override;

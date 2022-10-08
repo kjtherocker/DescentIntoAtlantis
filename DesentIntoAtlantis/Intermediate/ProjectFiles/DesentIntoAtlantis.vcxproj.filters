@@ -1464,6 +1464,9 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EElementalType.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EnemyBehaviour.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EnemyCombatEntity.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
@@ -1479,6 +1482,9 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EnemySelectionElement.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EnemySkillView.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\FloorEnemyPawn.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
@@ -1491,13 +1497,19 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\InGameHUD.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\PartyHealthbars.cpp">
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\LevelupPanelElement.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\LevelupView.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\PartyHealthbarElement.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\PartyHealthbarsView.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\PartyManager.cpp">
-      <Filter>Source\DesentIntoAtlantis\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\PartyStatusHealthbar.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\PlayerCombatEntity.cpp">
@@ -1557,6 +1569,9 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EElementalType.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EnemyBehaviour.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EnemyCombatEntity.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
@@ -1575,6 +1590,9 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EnemySelectionView.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EnemySkillView.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\FloorEnemyPawn.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
@@ -1587,13 +1605,19 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\InGameHUD.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PartyHealthbars.h">
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\LevelupPanelElement.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\LevelupView.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PartyHealthbarElement.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PartyHealthbarsView.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PartyManager.h">
-      <Filter>Source\DesentIntoAtlantis\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PartyStatusHealthbar.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PlayerCombatEntity.h">

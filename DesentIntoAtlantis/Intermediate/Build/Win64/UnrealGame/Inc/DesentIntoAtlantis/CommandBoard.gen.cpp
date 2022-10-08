@@ -14,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeCommandBoard() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UBaseUserWidget();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
 	UMG_API UClass* Z_Construct_UClass_UBorder_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(UCommandBoard::execAttack)
 	{
@@ -88,6 +89,10 @@ void EmptyLinkFunctionForGeneratedCodeCommandBoard() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_B_Pass_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_B_Pass;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_FullBodyPortrait_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_FullBodyPortrait;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -160,6 +165,15 @@ void EmptyLinkFunctionForGeneratedCodeCommandBoard() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCommandBoard_Statics::NewProp_B_Pass = { "B_Pass", nullptr, (EPropertyFlags)0x002008000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCommandBoard, B_Pass), Z_Construct_UClass_UBorder_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCommandBoard_Statics::NewProp_B_Pass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCommandBoard_Statics::NewProp_B_Pass_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCommandBoard_Statics::NewProp_BW_FullBodyPortrait_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "CommandBoard" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/CommandBoard.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCommandBoard_Statics::NewProp_BW_FullBodyPortrait = { "BW_FullBodyPortrait", nullptr, (EPropertyFlags)0x002008000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCommandBoard, BW_FullBodyPortrait), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCommandBoard_Statics::NewProp_BW_FullBodyPortrait_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCommandBoard_Statics::NewProp_BW_FullBodyPortrait_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCommandBoard_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCommandBoard_Statics::NewProp_B_Attack,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCommandBoard_Statics::NewProp_B_Skill,
@@ -167,6 +181,7 @@ void EmptyLinkFunctionForGeneratedCodeCommandBoard() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCommandBoard_Statics::NewProp_B_Item,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCommandBoard_Statics::NewProp_B_Escape,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCommandBoard_Statics::NewProp_B_Pass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCommandBoard_Statics::NewProp_BW_FullBodyPortrait,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCommandBoard_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UCommandBoard>::IsAbstract,
@@ -204,9 +219,9 @@ void EmptyLinkFunctionForGeneratedCodeCommandBoard() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CommandBoard_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCommandBoard, UCommandBoard::StaticClass, TEXT("UCommandBoard"), &Z_Registration_Info_UClass_UCommandBoard, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCommandBoard), 1546524843U) },
+		{ Z_Construct_UClass_UCommandBoard, UCommandBoard::StaticClass, TEXT("UCommandBoard"), &Z_Registration_Info_UClass_UCommandBoard, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCommandBoard), 535165766U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CommandBoard_h_2727318745(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CommandBoard_h_2688024672(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CommandBoard_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CommandBoard_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

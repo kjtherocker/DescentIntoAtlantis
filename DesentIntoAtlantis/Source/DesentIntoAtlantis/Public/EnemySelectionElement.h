@@ -18,11 +18,17 @@ class UTextBlock;
 UCLASS()
 class DESENTINTOATLANTIS_API UEnemySelectionElement : public UBaseUserWidget
 {
-	GENERATED_BODY() 
+	GENERATED_BODY()
+
+private:
+	FEnemyCombatEntity* enemyCombatEntity;
+	
 public:
 	void SetEnemySelectionElement(FEnemyCombatEntity* aEnemyCombatEntity);
 	
 	void SetElementalText(UTextBlock* aElementalText, FEnemyEntityData* aEnemyEntityData );
+
+	void SetHighlightSelectionElement(float aDamageValue,int Opacity);
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_BackgroundHighlight;
@@ -55,7 +61,10 @@ public:
 	UTextBlock* BW_ShadowText;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UProgressBar* BW_Healthbar;
+	UProgressBar* BW_Healthbar_MainBar;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UProgressBar* BW_Healthbar_Temporary;
 	
 	
 };

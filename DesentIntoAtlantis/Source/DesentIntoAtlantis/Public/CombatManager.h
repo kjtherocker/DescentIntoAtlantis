@@ -11,7 +11,7 @@
 class UPressTurnManager;
 class AInGameHUD;
 class UTurnCounter;
-class UPartyHealthbars;
+class UPartyHealthbarsView;
 struct FCombatEntity;
 class ADesentIntoAtlantisGameModeBase;
 /**
@@ -29,20 +29,30 @@ class DESENTINTOATLANTIS_API UCombatManager : public UObject
 
 private:
 	UTurnCounter*     turnCounter;    
-	UPartyHealthbars* partyHealthbars;
+	UPartyHealthbarsView* partyHealthbars;
 	
-	const float FULL_OPACITY = 100;
+	const float FULL_OPACITY    = 100;
+	const int   ENEMY_TURN_TIME = 2;
 	bool hasCombatStarted;
 	int currentActivePosition;
 	AInGameHUD * GameHUD;
+	USkillFactory * skillFactory;
+	UWorld* world;
+	ECharactertype currentTurnType; 
 public:
 	UPressTurnManager* pressTurnManager;
 
 	void Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase);
-	void StartCombat();
+	void StartCombat(UWorld* aWorld);
 	void EndCombat();
 	void AddEnemyToCombat(FEnemyEntityData* AEnemyEntityData);
+	void SwitchCombatSides();
 	void TurnFinished();
+	void AllyStartTurn();
+	void EnemyStartTurn();
+	void EnemyActivateSkill(FEnemyCombatEntity* aEnemyCombatEntity);
+	
+
 	
 	FPlayerCombatEntity* ReturnCurrentActivePartyMember();
 	

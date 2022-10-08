@@ -35,4 +35,5 @@ public:
 	void SetEnemyPortraits(UEnemyPortraitElement* aImage , FEnemyCombatEntity* AEnemyCombatEntity);
 	
 	
+	
 };

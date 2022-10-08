@@ -40,6 +40,13 @@ void AInGameHUD::PushView(EViews aView, EUiType aUiType)
     }
 }
 
+UUserWidget* AInGameHUD::PushAndGetView(EViews aView, EUiType aUiType)
+{
+    PushView(aView,aUiType);
+
+    return GetActiveHUDView(aView, aUiType);
+}
+
 UUserWidget* AInGameHUD::GetActiveHUDView(EViews aView, EUiType aUiType)
 {
     TArray<UBaseUserWidget*> viewArray = aUiType == EUiType::ActiveUi ? activeViewStack : persistentViewStack;
@@ -72,6 +79,15 @@ void AInGameHUD::PopAllActiveViews()
     {
         activeViewStack[i]->RemoveFromViewport();
         activeViewStack.RemoveAt(i);
+    }
+}
+
+void AInGameHUD::PopAllPersistantViews()
+{
+    for(int i = persistentViewStack.Num() - 1 ; i >= 0 ;i--)
+    {
+        persistentViewStack[i]->RemoveFromViewport();
+        persistentViewStack.RemoveAt(i);
     }
 }
 

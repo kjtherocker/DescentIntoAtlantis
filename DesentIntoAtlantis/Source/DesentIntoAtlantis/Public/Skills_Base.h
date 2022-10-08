@@ -23,6 +23,14 @@ enum ESkillType
 
 };
 
+UENUM()
+enum class ESkillDamageType
+{
+	none     = 0,
+	Strength = 1,
+	Magic    = 2,
+};
+
 
 UENUM(BlueprintType)
 enum EAilment
@@ -34,8 +42,8 @@ enum EAilment
 	Rage,
 };
 
-UENUM(BlueprintType)
-enum ESkillRange
+UENUM()
+enum class ESkillRange
 {
 	Single,
 	Multi,
@@ -53,26 +61,28 @@ struct DESENTINTOATLANTIS_API FSkills_Base : public FTableRowBase
 public:
 
 	UPROPERTY( EditAnywhere )
-	TEnumAsByte<EElementalType> ElementalType;
+	EElementalType elementalType;
+
+	UPROPERTY( EditAnywhere )
+	ESkillDamageType skillDamageType;
 	
 	ESkillType      SkillType;
-	ESkillRange     SkillFormation;
 	EAilment        SkillAilment;
 	
 	UPROPERTY( EditAnywhere )
-	FString SkillName;
+	FString skillName;
 	UPROPERTY( EditAnywhere )
-	FString SkillDescription;
+	FString skillDescription;
 
 	UPROPERTY( EditAnywhere )
-	int CostToUse;
+	int costToUse;
 	UPROPERTY( EditAnywhere )
-	int Damage;
+	int damage;
 	UPROPERTY( EditAnywhere )
-	int SkillRange;
+	ESkillRange skillRange;
 
 	UPROPERTY( EditAnywhere )
-	UTexture2D* SkillIcon;
+	UTexture2D* skillIcon;
 	
 	virtual PressTurnReactions UseSkill(FCombatEntity* aAttacker, FCombatEntity* aVictim);
 	

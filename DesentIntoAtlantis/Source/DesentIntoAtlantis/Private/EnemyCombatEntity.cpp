@@ -3,38 +3,45 @@
 
 #include "EnemyCombatEntity.h"
 
+#include "EnemyBehaviour.h"
 #include "EnemyPortraitElement.h"
+#include "SkillFactory.h"
 
-void FEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData* AEnemyEntityData)
+void FEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData* AEnemyEntityData,USkillFactory * skillFactory)
 {
-	characterType   = Enemy;
+	characterType   = ECharactertype::Enemy;
 	enemyEntityData = AEnemyEntityData;
+
+	maxHealth       = enemyEntityData->maxHealth;
 	currentHealth   = enemyEntityData->maxHealth;
 	currentMana     = enemyEntityData->maxMana;
+
+	ElementalStrength = AEnemyEntityData->ElementalStrength;
+	ElementalWeakness = AEnemyEntityData->ElementalWeakness;
+
+	enemyBehaviour = NewObject<UEnemyBehaviour>();
+	enemyBehaviour->Initialize(this);
+	
+	enemySkills.Add(skillFactory->GetSkill(enemyEntityData->Skill1));
+	enemySkills.Add(skillFactory->GetSkill(enemyEntityData->Skill2));
+	enemySkills.Add(skillFactory->GetSkill(enemyEntityData->Skill3));
+	enemySkills.Add(skillFactory->GetSkill(enemyEntityData->Skill4));
+	enemySkills.Add(skillFactory->GetSkill(enemyEntityData->Skill5));
+	
 	SetAbilityScores();
 }
 
-PressTurnReactions FEnemyCombatEntity::DecrementHealth(int aDecrementby, EElementalType aElementalType)
+void FEnemyCombatEntity::Death()
 {
-	PressTurnReactions reaction = PressTurnReactions::Normal;
-	    
-	if (aElementalType == enemyEntityData->ElementalWeakness)
-	{
-		aDecrementby = aDecrementby * 1.5;
-		reaction =  PressTurnReactions::Weak;
-	}
-	if (aElementalType == enemyEntityData->ElementalStrength)
-	{
-		aDecrementby = aDecrementby * 0.6;
-		reaction =  PressTurnReactions::Strong;
-	}
+	FCombatEntity::Death();
 
-	currentHealth -= aDecrementby;
-	DeathCheck();
+	imageBodyPortrait->BW_Portrait->SetOpacity(0);
+}
 
-	enemyEntityData->imageBodyPortrait->isTriggeringHitEffect = true;
-	
-	return reaction;
+void FEnemyCombatEntity::ActivateDamageHitEffect()
+{
+	FCombatEntity::ActivateDamageHitEffect();
+	imageBodyPortrait->isTriggeringHitEffect = true;
 }
 
 float FEnemyCombatEntity::GetHealthPercentage()

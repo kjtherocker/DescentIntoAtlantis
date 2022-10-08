@@ -36,21 +36,23 @@ void EmptyLinkFunctionForGeneratedCodeEElementalType() {}
 	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics::Enumerators[] = {
 		{ "EElementalType::Null", (int64)EElementalType::Null },
 		{ "EElementalType::Fire", (int64)EElementalType::Fire },
-		{ "EElementalType::Water", (int64)EElementalType::Water },
+		{ "EElementalType::Ice", (int64)EElementalType::Ice },
 		{ "EElementalType::Wind", (int64)EElementalType::Wind },
 		{ "EElementalType::Lighting", (int64)EElementalType::Lighting },
 		{ "EElementalType::Shadow", (int64)EElementalType::Shadow },
 		{ "EElementalType::Light", (int64)EElementalType::Light },
+		{ "EElementalType::Earth", (int64)EElementalType::Earth },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics::Enum_MetaDataParams[] = {
+		{ "Earth.Name", "EElementalType::Earth" },
 		{ "Fire.Name", "EElementalType::Fire" },
+		{ "Ice.Name", "EElementalType::Ice" },
 		{ "Light.Name", "EElementalType::Light" },
 		{ "Lighting.Name", "EElementalType::Lighting" },
 		{ "ModuleRelativePath", "Public/EElementalType.h" },
 		{ "Null.Name", "EElementalType::Null" },
 		{ "Shadow.Name", "EElementalType::Shadow" },
-		{ "Water.Name", "EElementalType::Water" },
 		{ "Wind.Name", "EElementalType::Wind" },
 	};
 #endif
@@ -79,9 +81,9 @@ void EmptyLinkFunctionForGeneratedCodeEElementalType() {}
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_Statics::EnumInfo[] = {
-		{ EElementalType_StaticEnum, TEXT("EElementalType"), &Z_Registration_Info_UEnum_EElementalType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3346300291U) },
+		{ EElementalType_StaticEnum, TEXT("EElementalType"), &Z_Registration_Info_UEnum_EElementalType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 928806472U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_1899640679(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_3181039840(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EElementalType_h_Statics::EnumInfo));

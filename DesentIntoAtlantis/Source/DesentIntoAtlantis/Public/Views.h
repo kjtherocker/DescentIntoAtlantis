@@ -17,6 +17,8 @@ enum class  EViews
 	EnemyPortraits   = 6,
 	TurnCounter      = 7,
 	Dialogue         = 8,
+	EnemySkill       = 9,
+	Levelup          = 10,
 };
 
 

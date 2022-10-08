@@ -3,53 +3,44 @@
 
 #include "PlayerCombatEntity.h"
 
+#include "PartyHealthbarElement.h"
 
-PressTurnReactions FPlayerCombatEntity::DecrementHealth(int aDecrementby, EElementalType aElementalType)
-{
-	PressTurnReactions reaction = PressTurnReactions::Normal;
-	    
-	if (aElementalType == currentClass->currentClassLevel->ElementalWeakness)
-	{
-		aDecrementby = aDecrementby * 1.5;
-		reaction =  PressTurnReactions::Weak;
-	}
-	if (aElementalType == currentClass->currentClassLevel->ElementalStrength)
-	{
-		aDecrementby = aDecrementby * 0.6;
-		reaction =  PressTurnReactions::Strong;
-	}
-
-	currentHealth -= aDecrementby;
-	DeathCheck();
-
-	return reaction;
-}
 
 void FPlayerCombatEntity::SetTacticsEntity(USkillFactory* aSkillFactory)
 {
-	characterType = Ally;
-	currentClass = NewObject<UCombatClass>(); 
-	currentClass->InitializeDataTable(classDataTablePath, aSkillFactory,this);
+	characterType = ECharactertype::Ally;
+	baseClass = NewObject<UCombatClass>(); 
+	baseClass->InitializeDataTable(classDataTablePath, aSkillFactory,this);
 
+	maxHealth         = baseClass->currentClassLevel->maxHealth;
+	currentHealth     = maxHealth;
+	ElementalStrength = baseClass->currentClassLevel->ElementalStrength;
+	ElementalWeakness = baseClass->currentClassLevel->ElementalWeakness;
 	
 	SetAbilityScores();
 }
 
 void FPlayerCombatEntity::SetAbilityScores()
 {
-	StrengthAbilityScore.base    = currentClass->currentClassLevel->baseStrength;
-	MagicAbilityScore.base       = currentClass->currentClassLevel->baseMagic;
-	HitAbilityScore.base         = currentClass->currentClassLevel->baseHit;
-	EvasionAbilityScore.base     = currentClass->currentClassLevel->baseEvasion;
-	DefenceAbilityScore.base     = currentClass->currentClassLevel->baseDefence;
-	ResistanceAbilityScore.base  = currentClass->currentClassLevel->baseResistance;
+	StrengthAbilityScore.base    = baseClass->currentClassLevel->baseStrength;
+	MagicAbilityScore.base       = baseClass->currentClassLevel->baseMagic;
+	HitAbilityScore.base         = baseClass->currentClassLevel->baseHit;
+	EvasionAbilityScore.base     = baseClass->currentClassLevel->baseEvasion;
+	DefenceAbilityScore.base     = baseClass->currentClassLevel->baseDefence;
+	ResistanceAbilityScore.base  = baseClass->currentClassLevel->baseResistance;
+}
+
+void FPlayerCombatEntity::ActivateDamageHitEffect()
+{
+	FCombatEntity::ActivateDamageHitEffect();
+	partyHealthbarElement->UpdateHealthBar();
 }
 
 
 float FPlayerCombatEntity::GetHealthPercentage()
 {
 	float currentValue = currentHealth;
-	float maxValue     = currentClass->currentClassLevel->maxHealth;
+	float maxValue     = baseClass->currentClassLevel->maxHealth;
     
 	return currentValue / maxValue;
 }
@@ -57,7 +48,7 @@ float FPlayerCombatEntity::GetHealthPercentage()
 float FPlayerCombatEntity::GetManaPercentage()
 {
 	float currentValue = currentMana;
-	float maxValue     = currentClass->currentClassLevel->maxMana;
+	float maxValue     = baseClass->currentClassLevel->maxMana;
     
 	return currentValue / maxValue;
 }

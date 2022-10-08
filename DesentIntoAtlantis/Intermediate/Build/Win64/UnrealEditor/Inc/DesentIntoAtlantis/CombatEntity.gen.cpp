@@ -14,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeCombatEntity() {}
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EElementalType();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCombatAbilityStats();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECharactertype();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCombatEntity();
 // End Cross Module References
 
@@ -254,6 +255,60 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatAbilityStat
 		}
 		return Z_Registration_Info_UScriptStruct_CombatAbilityStats.InnerSingleton;
 	}
+	static FEnumRegistrationInfo Z_Registration_Info_UEnum_ECharactertype;
+	static UEnum* ECharactertype_StaticEnum()
+	{
+		if (!Z_Registration_Info_UEnum_ECharactertype.OuterSingleton)
+		{
+			Z_Registration_Info_UEnum_ECharactertype.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_DesentIntoAtlantis_ECharactertype, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("ECharactertype"));
+		}
+		return Z_Registration_Info_UEnum_ECharactertype.OuterSingleton;
+	}
+	template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<ECharactertype>()
+	{
+		return ECharactertype_StaticEnum();
+	}
+	struct Z_Construct_UEnum_DesentIntoAtlantis_ECharactertype_Statics
+	{
+		static const UECodeGen_Private::FEnumeratorParam Enumerators[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FEnumParams EnumParams;
+	};
+	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_ECharactertype_Statics::Enumerators[] = {
+		{ "ECharactertype::Undefined", (int64)ECharactertype::Undefined },
+		{ "ECharactertype::Ally", (int64)ECharactertype::Ally },
+		{ "ECharactertype::Enemy", (int64)ECharactertype::Enemy },
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_ECharactertype_Statics::Enum_MetaDataParams[] = {
+		{ "Ally.Name", "ECharactertype::Ally" },
+		{ "Enemy.Name", "ECharactertype::Enemy" },
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+		{ "Undefined.Name", "ECharactertype::Undefined" },
+	};
+#endif
+	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_DesentIntoAtlantis_ECharactertype_Statics::EnumParams = {
+		(UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		nullptr,
+		"ECharactertype",
+		"ECharactertype",
+		Z_Construct_UEnum_DesentIntoAtlantis_ECharactertype_Statics::Enumerators,
+		UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_ECharactertype_Statics::Enumerators),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EEnumFlags::None,
+		(uint8)UEnum::ECppForm::EnumClass,
+		METADATA_PARAMS(Z_Construct_UEnum_DesentIntoAtlantis_ECharactertype_Statics::Enum_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_ECharactertype_Statics::Enum_MetaDataParams))
+	};
+	UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECharactertype()
+	{
+		if (!Z_Registration_Info_UEnum_ECharactertype.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_ECharactertype.InnerSingleton, Z_Construct_UEnum_DesentIntoAtlantis_ECharactertype_Statics::EnumParams);
+		}
+		return Z_Registration_Info_UEnum_ECharactertype.InnerSingleton;
+	}
 
 static_assert(std::is_polymorphic<FCombatEntity>() == std::is_polymorphic<FTableRowBase>(), "USTRUCT FCombatEntity cannot be polymorphic unless super FTableRowBase is polymorphic");
 
@@ -280,7 +335,9 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntity>()
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCombatEntity_Statics::Struct_MetaDataParams[] = {
+		{ "Comment", "//UENUM()\n//class enum ECreaturesAilment\n//{\n//\x09None,\n//\x09Poison,\n//\x09""Daze,\n//\x09Sleep,\n//\x09Rage,\n//};\n" },
 		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+		{ "ToolTip", "UENUM()\nclass enum ECreaturesAilment\n{\n       None,\n       Poison,\n       Daze,\n       Sleep,\n       Rage,\n};" },
 	};
 #endif
 	void* Z_Construct_UScriptStruct_FCombatEntity_Statics::NewStructOps()
@@ -310,15 +367,19 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntity>()
 	}
 	struct Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics
 	{
+		static const FEnumRegisterCompiledInInfo EnumInfo[];
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
+	};
+	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::EnumInfo[] = {
+		{ ECharactertype_StaticEnum, TEXT("ECharactertype"), &Z_Registration_Info_UEnum_ECharactertype, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4018082004U) },
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo[] = {
 		{ FCombatEntityData::StaticStruct, Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewStructOps, TEXT("CombatEntityData"), &Z_Registration_Info_UScriptStruct_CombatEntityData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatEntityData), 2239992258U) },
 		{ FCombatAbilityStats::StaticStruct, Z_Construct_UScriptStruct_FCombatAbilityStats_Statics::NewStructOps, TEXT("CombatAbilityStats"), &Z_Registration_Info_UScriptStruct_CombatAbilityStats, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatAbilityStats), 3676810248U) },
-		{ FCombatEntity::StaticStruct, Z_Construct_UScriptStruct_FCombatEntity_Statics::NewStructOps, TEXT("CombatEntity"), &Z_Registration_Info_UScriptStruct_CombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatEntity), 1688199274U) },
+		{ FCombatEntity::StaticStruct, Z_Construct_UScriptStruct_FCombatEntity_Statics::NewStructOps, TEXT("CombatEntity"), &Z_Registration_Info_UScriptStruct_CombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatEntity), 989967192U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_1993334893(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_2669806933(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo),
-		nullptr, 0);
+		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::EnumInfo));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

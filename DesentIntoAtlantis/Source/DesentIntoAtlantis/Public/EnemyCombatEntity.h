@@ -7,6 +7,7 @@
 #include "UObject/NoExportTypes.h"
 #include "EnemyCombatEntity.generated.h"
 
+class UEnemyBehaviour;
 class UEnemyPortraitElement;
 struct FEnemyEntityData;
 
@@ -25,9 +26,7 @@ struct DESENTINTOATLANTIS_API FEnemyEntityData :public  FCombatEntityData
 	
 	UPROPERTY( EditAnywhere )
 	UTexture2D* fullBodyCharacterPortrait;
-
-	UPROPERTY( EditAnywhere )
-	UEnemyPortraitElement*  imageBodyPortrait;
+	
 
 	UPROPERTY( EditAnywhere )
 	FString characterName;
@@ -35,6 +34,16 @@ struct DESENTINTOATLANTIS_API FEnemyEntityData :public  FCombatEntityData
 	UPROPERTY( EditAnywhere )
 	FString Behaviour;
 
+	UPROPERTY( EditAnywhere )
+	FString Skill1;
+	UPROPERTY( EditAnywhere )
+	FString Skill2;
+	UPROPERTY( EditAnywhere )
+	FString Skill3;
+	UPROPERTY( EditAnywhere )
+	FString Skill4;
+	UPROPERTY( EditAnywhere )
+	FString Skill5;
 	
 };
 
@@ -45,10 +54,14 @@ struct DESENTINTOATLANTIS_API FEnemyCombatEntity : public FCombatEntity
 	GENERATED_BODY()
 public:
 	void SetAbilityScores();
-	void SetEnemyEntityData(FEnemyEntityData* AEnemyEntityData);
-	virtual PressTurnReactions DecrementHealth(int aDecrementby, EElementalType aElementalType) override;
-
+	void SetEnemyEntityData(FEnemyEntityData* AEnemyEntityData,USkillFactory * skillFactory);
+	virtual void Death() override;
+	virtual void ActivateDamageHitEffect() override;
 	virtual float GetHealthPercentage() override;
+	
+	TArray<FSkills_Base*> enemySkills;
+
+	UEnemyBehaviour* enemyBehaviour; 
 	
 	FEnemyEntityData* enemyEntityData;
 

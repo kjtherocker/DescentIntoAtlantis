@@ -13,7 +13,7 @@ void UTurnCounter::UiInitialize()
 
 	TSubclassOf<UUserWidget> TurncounterElement = InGameHUD->GetElement(EViewElements::TurnCounterElement);
 
-	for(int i = 0; i < 4; i++)
+	for(int i = 0; i < 9; i++)
 	{
 		AddTurnCounterToUi(TurncounterElement);
 	}
@@ -35,8 +35,13 @@ void UTurnCounter::AddTurnCounterToUi(TSubclassOf<UUserWidget> aTurnCounter)
 
 void UTurnCounter::SetTurnOrder(int turn)
 {
+	for(int i = 0 ; i <= TurnCounter.Num() - 1;i++)
+	{
+		TurnCounter[i]->SetColorAndOpacity(FLinearColor(1,1,1,0));
+	}
+
 	
-	for(int i = 0 ; i <= turn;i++)
+	for(int i = 0 ; i <= turn-1;i++)
 	{
 		TurnCounter[i]->SetColorAndOpacity(FLinearColor(1,1,1,1));
 	}

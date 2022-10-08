@@ -174,7 +174,7 @@ AActor* AFloorNode::SpawnNodeWall(UFloorNodeWallInfo* nodeWallInfo, ECardinalNod
 	FRotator rotator = GetActorRotation() + nodeWallInfo->rotation;
 	
 	wallActor = Cast<AActor>(GetWorld()->SpawnActor<AActor>(wallReference, nodeWallInfo->wallPosition + FVector::Zero(), rotator));
-	wallActor->SetActorLabel(FString(UEnum::GetDisplayValueAsText(aCardinalDirection).ToString()));
+	//wallActor->SetActorLabel(FString(UEnum::GetDisplayValueAsText(aCardinalDirection).ToString()));
 	wallActor->AttachToActor(this,AttachmentTransformRules, "directionName" );
 
 	return wallActor;

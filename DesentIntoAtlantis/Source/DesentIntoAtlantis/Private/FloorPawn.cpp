@@ -77,7 +77,7 @@ void AFloorPawn::MoveForward()
 	} 
 
 	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
-	GameModeBase->combatManager->StartCombat();
+	GameModeBase->combatManager->StartCombat(GetWorld());
 
 	
 	ECardinalNodeDirections currentNodeDirection = directionModel[0]->directions;

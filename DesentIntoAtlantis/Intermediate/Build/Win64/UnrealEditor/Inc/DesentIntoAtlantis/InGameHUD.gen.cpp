@@ -76,14 +76,14 @@ void EmptyLinkFunctionForGeneratedCodeInGameHUD() {}
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AInGameHUD_Statics::NewProp_commandBoardPrefab = { "commandBoardPrefab", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AInGameHUD, commandBoardPrefab), Z_Construct_UClass_UUserWidget_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_AInGameHUD_Statics::NewProp_commandBoardPrefab_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInGameHUD_Statics::NewProp_commandBoardPrefab_MetaData)) };
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AInGameHUD_Statics::NewProp_userWidgets_ValueProp = { "userWidgets", nullptr, (EPropertyFlags)0x0004000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_UUserWidget_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(nullptr, 0) };
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AInGameHUD_Statics::NewProp_userWidgets_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AInGameHUD_Statics::NewProp_userWidgets_Key_KeyProp = { "userWidgets_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EViews, METADATA_PARAMS(nullptr, 0) }; // 3810842322
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AInGameHUD_Statics::NewProp_userWidgets_Key_KeyProp = { "userWidgets_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EViews, METADATA_PARAMS(nullptr, 0) }; // 2443252154
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInGameHUD_Statics::NewProp_userWidgets_MetaData[] = {
 		{ "Category", "Widgets" },
 		{ "ModuleRelativePath", "Public/InGameHUD.h" },
 	};
 #endif
-	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_AInGameHUD_Statics::NewProp_userWidgets = { "userWidgets", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AInGameHUD, userWidgets), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AInGameHUD_Statics::NewProp_userWidgets_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInGameHUD_Statics::NewProp_userWidgets_MetaData)) }; // 3810842322
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_AInGameHUD_Statics::NewProp_userWidgets = { "userWidgets", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AInGameHUD, userWidgets), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AInGameHUD_Statics::NewProp_userWidgets_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AInGameHUD_Statics::NewProp_userWidgets_MetaData)) }; // 2443252154
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AInGameHUD_Statics::NewProp_viewElements_ValueProp = { "viewElements", nullptr, (EPropertyFlags)0x0004000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_UUserWidget_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(nullptr, 0) };
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AInGameHUD_Statics::NewProp_viewElements_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
 	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AInGameHUD_Statics::NewProp_viewElements_Key_KeyProp = { "viewElements_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EViewElements, METADATA_PARAMS(nullptr, 0) }; // 3583364803
@@ -141,9 +141,9 @@ void EmptyLinkFunctionForGeneratedCodeInGameHUD() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_InGameHUD_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AInGameHUD, AInGameHUD::StaticClass, TEXT("AInGameHUD"), &Z_Registration_Info_UClass_AInGameHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AInGameHUD), 2930624431U) },
+		{ Z_Construct_UClass_AInGameHUD, AInGameHUD::StaticClass, TEXT("AInGameHUD"), &Z_Registration_Info_UClass_AInGameHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AInGameHUD), 1432657802U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_InGameHUD_h_1508258265(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_InGameHUD_h_1124477882(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_InGameHUD_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_InGameHUD_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

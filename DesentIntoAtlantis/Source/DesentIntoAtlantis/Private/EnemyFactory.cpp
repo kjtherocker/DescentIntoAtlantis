@@ -18,9 +18,9 @@ UEnemyFactory::UEnemyFactory()
 			allEnemys.Add(datatable->FindRow<FEnemyEntityData>(FName(FString::FromInt(i)),FString("Searching for Enemys"),true));
 		}
  
-		for (FEnemyEntityData* skills : allEnemys)
+		for (FEnemyEntityData* enemys : allEnemys)
 		{
-			enemyMap.Add(skills->characterName,skills);
+			enemyMap.Add(enemys->characterName,enemys);
 		}
 	}
 

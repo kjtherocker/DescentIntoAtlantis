@@ -9,8 +9,7 @@ PressTurnReactions FSkills_Base::UseSkill(FCombatEntity* aAttacker, FCombatEntit
 {
 	if(SkillType == ESkillType::Attack)
 	{
-		int damage = (aAttacker->StrengthAbilityScore.GetAllStats()/3) + Damage;
-		return aVictim->DecrementHealth(damage,ElementalType);
+		return aVictim->DecrementHealth(aAttacker,this);
 	}
 
 	return PressTurnReactions::Normal;

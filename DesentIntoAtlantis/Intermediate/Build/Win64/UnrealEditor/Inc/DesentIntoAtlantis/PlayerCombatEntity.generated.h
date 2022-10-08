@@ -13,7 +13,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define DESENTINTOATLANTIS_PlayerCombatEntity_generated_h
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_16_GENERATED_BODY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_17_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FPlayerCombatEntity_Statics; \
 	static class UScriptStruct* StaticStruct(); \
 	typedef FCombatEntity Super;
@@ -21,7 +21,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FPlayerCombatEntity>();
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_41_GENERATED_BODY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_43_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FClassData_Statics; \
 	static class UScriptStruct* StaticStruct(); \
 	typedef FCombatEntityData Super;

@@ -19,6 +19,11 @@ void UCombatSelectionView::UiInitialize()
 	enemySelectionElements.Add(EEnemyCombatPositions::Left,BW_EnemySelectionBar);
 	enemySelectionElements.Add(EEnemyCombatPositions::Middle,BW_EnemySelectionBar_1);
 	enemySelectionElements.Add(EEnemyCombatPositions::Right,BW_EnemySelectionBar_2);
+
+	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	
+	combatManager =  GameModeBase->combatManager;
+	enemysInCombat = combatManager->GetEnemysInCombat();
 	
 }
 
@@ -72,9 +77,24 @@ void UCombatSelectionView::SetCursorHud(bool aisActive)
 		case Attack:
 		{
 			float opacity = aisActive ? 100 : 0;
-			TArray<FEnemyCombatEntity*> enemysInCombat = combatManager->GetEnemysInCombat();
-			enemySelectionElements[enemysInCombat[cursorPosition]->enemyCombatPosition]->BW_BackgroundHighlight->SetOpacity(opacity);
-			
+	
+
+			if(hasCursor)
+			{
+				float potentialDamage = enemysInCombat[cursorPosition]->
+					GetPotentialHealthPercentage(enemysInCombat[cursorPosition]->CalculateDamage(combatManager->currentActivePartyMember,currentSkill));
+				enemySelectionElements[enemysInCombat[cursorPosition]->enemyCombatPosition]->SetHighlightSelectionElement(potentialDamage,opacity);
+			}
+			else
+			{
+				for(int i = 0 ; i < enemysInCombat.Num();i++)
+				{
+					float potentialDamage = enemysInCombat[i]->
+						GetPotentialHealthPercentage(enemysInCombat[i]->CalculateDamage(combatManager->currentActivePartyMember,currentSkill));
+					enemySelectionElements[enemysInCombat[i]->enemyCombatPosition]->SetHighlightSelectionElement(potentialDamage,opacity);
+				}
+			}
+
 			break;
 		}
 		case Heal:
@@ -121,10 +141,9 @@ void UCombatSelectionView::InitializeEnemySelectionElements(TArray<FEnemyCombatE
 void UCombatSelectionView::SetSkill(FSkills_Base* aSkill)
 {
 	currentSkill = aSkill;
-	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
-	combatManager =  GameModeBase->combatManager;
 
-	if(aSkill->SkillFormation == ESkillRange::Single)
+
+	if(aSkill->skillRange == ESkillRange::Single)
 	{
 		hasCursor = true;
 	}
@@ -133,7 +152,6 @@ void UCombatSelectionView::SetSkill(FSkills_Base* aSkill)
 	{
 		case Attack:
 		{
-			TArray<FEnemyCombatEntity*> enemysInCombat = combatManager->GetEnemysInCombat();
 			InitializeEnemySelectionElements(enemysInCombat);
 			cursorMaxRange = enemysInCombat.Num() -1;
 			break;

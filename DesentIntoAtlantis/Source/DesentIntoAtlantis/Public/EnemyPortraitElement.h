@@ -18,9 +18,13 @@ class DESENTINTOATLANTIS_API UEnemyPortraitElement : public UBaseUserWidget
 private:
 	float movementTimer = 0;
 public:
+	virtual void UiInitialize() override;
+	
 	bool isTriggeringHitEffect;
 	virtual void NativeTick(const FGeometry& MyGeometry, float DeltaTime) override;
 	void HitEffect(float DeltaTime);
+	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_Portrait;
+	
 };

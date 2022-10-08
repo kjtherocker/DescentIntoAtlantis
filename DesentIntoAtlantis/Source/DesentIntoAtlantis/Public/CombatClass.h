@@ -8,6 +8,7 @@
 #include "Skills_Base.h"
 #include "CombatClass.generated.h"
 
+struct FPlayerCombatEntity;
 struct FClassData;
 class USkillFactory;
 struct FCombatEntity;
@@ -20,12 +21,14 @@ class UCombatClass : public UObject
 {
 	GENERATED_BODY()
 	
-
+private:
+	bool isReadyToLevelup = false;
+	
 public:
 
-	void InitializeDataTable(FString aClassExcelSheet,USkillFactory* aSkillFactory, FCombatEntity * combatEntity);
+	void InitializeDataTable(FString aClassExcelSheet,USkillFactory* aSkillFactory, FPlayerCombatEntity * combatEntity);
 	ConstructorHelpers::FObjectFinder<UObject> ReturnFoundClass(FString aClassExcelSheet);
-	FCombatEntity* attachedCombatEntity;
+	FPlayerCombatEntity* attachedCombatEntity;
 	FClassData* currentClassLevel;
 	TArray<FClassData*> classLevels;
 	TArray<FSkills_Base*> classSkills;
@@ -33,7 +36,7 @@ public:
 	USkillFactory* skillFactory;
 	
 	void AddExperience(int aExperience);
-	void Levelup();
+	FClassData* Levelup();
 	int experience;
 };
 

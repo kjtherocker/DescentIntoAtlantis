@@ -23,14 +23,29 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	op(EViews::Healthbars) \
 	op(EViews::CombatBackground) \
 	op(EViews::EnemySelection) \
-	op(EViews::SkillMenu) 
+	op(EViews::SkillMenu) \
+	op(EViews::EnemyPortraits) \
+	op(EViews::TurnCounter) \
+	op(EViews::Dialogue) \
+	op(EViews::EnemySkill) 
 
 enum class EViews;
 template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EViews>();
 
+#define FOREACH_ENUM_EUITYPE(op) \
+	op(EUiType::None) \
+	op(EUiType::ActiveUi) \
+	op(EUiType::PersistentUi) 
+
+enum class EUiType;
+template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EUiType>();
+
 #define FOREACH_ENUM_EVIEWELEMENTS(op) \
 	op(EViewElements::None) \
-	op(EViewElements::PartyStatusHealthbar) 
+	op(EViewElements::PartyStatusHealthbar) \
+	op(EViewElements::SkillBar) \
+	op(EViewElements::EnemySelectionElement) \
+	op(EViewElements::TurnCounterElement) 
 
 enum class EViewElements;
 template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EViewElements>();

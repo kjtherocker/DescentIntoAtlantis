@@ -45,13 +45,14 @@ private:
 
 	ADesentIntoAtlantisGameModeBase* gameModeBase;
 	UTurnCounter* turnCounter;
-public:
 	
 	TArray<UPressTurn*> activePressTurns;
 	TArray<UPressTurn*> inActivePressTurns;
+public:
+	
 
 	UPressTurn* GetInActivePressturns();
-	
+	int         GetNumberOfActivePressTurns();
 	void Initialize(UCombatManager* aCombatManager, ADesentIntoAtlantisGameModeBase* aGameModeBase );
 
 	void SetAmountOfTurns(int aTurnAmount);

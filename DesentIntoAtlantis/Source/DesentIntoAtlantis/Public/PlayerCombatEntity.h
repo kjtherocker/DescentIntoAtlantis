@@ -7,6 +7,7 @@
 #include "UObject/NoExportTypes.h"
 #include "PlayerCombatEntity.generated.h"
 
+class UPartyHealthbarElement;
 /**
  * 
  */
@@ -14,21 +15,22 @@ USTRUCT()
 struct DESENTINTOATLANTIS_API FPlayerCombatEntity : public FCombatEntity
 {
 	GENERATED_USTRUCT_BODY()
-	UCombatClass* currentClass;
+	UCombatClass* baseClass;
 	UPROPERTY( EditAnywhere )
 	FString classDataTablePath;
 	
 	UPROPERTY( EditAnywhere )
 	FString characterName;
 
+	UPartyHealthbarElement* partyHealthbarElement;
+	
 	UPROPERTY( EditAnywhere )
 	UTexture2D* characterPortrait;
 	UPROPERTY( EditAnywhere )
 	UTexture2D* fullBodyCharacterPortrait;
-
-	virtual PressTurnReactions DecrementHealth(int aDecrementby, EElementalType aElementalType) override;
 	
 	virtual void SetTacticsEntity(USkillFactory* aSkillFactory) override;
+	virtual void ActivateDamageHitEffect() override;
 	void SetAbilityScores();
 	virtual float GetHealthPercentage() override;
 	virtual float GetManaPercentage()   override;

@@ -24,10 +24,10 @@ void USkillMenu::UiInitialize()
 	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 	
 	currentActivePartyMember = GameModeBase->combatManager->ReturnCurrentActivePartyMember();
-	UCombatClass* testo = currentActivePartyMember->currentClass;
+	UCombatClass* testo = currentActivePartyMember->baseClass;
 
     BW_CharacterName->Text = FText(FText::FromString(currentActivePartyMember->characterName));
-    BW_ClassName->Text     = FText(FText::FromString(currentActivePartyMember->currentClass->currentClassLevel->className));
+    BW_ClassName->Text     = FText(FText::FromString(currentActivePartyMember->baseClass->currentClassLevel->className));
 	
 	for(int i = 0 ; i < testo->classSkills.Num();i++)
 	{
@@ -66,8 +66,8 @@ void USkillMenu::ReturnToPreviousScreen()
 
 void USkillMenu::SkillSelection(FSkills_Base* aSkill)
 {
-	BW_SkillName->SetText(FText(FText::FromString(aSkill->SkillName)));
-	BW_SkillDescription->SetText(FText(FText::FromString(aSkill->SkillDescription)));
+	BW_SkillName->SetText(FText(FText::FromString(aSkill->skillName)));
+	BW_SkillDescription->SetText(FText(FText::FromString(aSkill->skillDescription)));
 }
 
 void USkillMenu::SelectSkill()
@@ -79,7 +79,7 @@ void USkillMenu::SelectSkill()
 	
 	currentActivePartyMember = GameModeBase->combatManager->ReturnCurrentActivePartyMember();
 	
-	UCombatClass* testo = currentActivePartyMember->currentClass;
+	UCombatClass* testo = currentActivePartyMember->baseClass;
 	SkillMenu->SetSkill(testo->classSkills[cursorPosition]);
 }
 
@@ -90,9 +90,9 @@ void USkillMenu::MoveUp()
 
 	if(-1 == cursorPosition)
 	{
-		cursorPosition = currentActivePartyMember->currentClass->classSkills.Num() - 1;
+		cursorPosition = currentActivePartyMember->baseClass->classSkills.Num() - 1;
 	}
-	SkillSelection(currentActivePartyMember->currentClass->classSkills[cursorPosition]);
+	SkillSelection(currentActivePartyMember->baseClass->classSkills[cursorPosition]);
 	
 	skillBarElements[cursorPosition]->BW_BackgroundHighlight->SetOpacity(1);
 
@@ -103,11 +103,11 @@ void USkillMenu::MoveDown()
 	skillBarElements[cursorPosition]->BW_BackgroundHighlight->SetOpacity(0);
 	cursorPosition++;
 
-	if(cursorPosition >= currentActivePartyMember->currentClass->classSkills.Num())
+	if(cursorPosition >= currentActivePartyMember->baseClass->classSkills.Num())
 	{
 		cursorPosition = 0;
 	}
-	SkillSelection(currentActivePartyMember->currentClass->classSkills[cursorPosition]);
+	SkillSelection(currentActivePartyMember->baseClass->classSkills[cursorPosition]);
 
 	skillBarElements[cursorPosition]->BW_BackgroundHighlight->SetOpacity(1);
 }

@@ -28,6 +28,15 @@ void UPressTurnManager::Initialize(UCombatManager* aCombatManager, ADesentIntoAt
 
 void UPressTurnManager::SetAmountOfTurns(int aTurnAmount)
 {
+	if(activePressTurns.Num() > 0)
+	{
+		for (int i = activePressTurns.Num() - 1; i > 0; i--)
+		{
+			inActivePressTurns.Add(activePressTurns[i]);
+			activePressTurns.RemoveAt(i);
+		}
+	}
+	
 	for(int i =0 ;i < aTurnAmount;i++)
 	{
 		activePressTurns.Add(GetInActivePressturns());
@@ -50,6 +59,11 @@ UPressTurn* UPressTurnManager::GetInActivePressturns()
 	return nullptr;
 }
 
+int UPressTurnManager::GetNumberOfActivePressTurns()
+{
+	return activePressTurns.Num();
+}
+
 void UPressTurnManager::ActivateSkill(FCombatEntity* aAttacker, int aCursorPosition, FSkills_Base* aSkill)
 {
 	TArray<FCombatEntity*>  enemysInCombat  = TArray<FCombatEntity*>(combatManager->GetEnemysInCombat());
@@ -60,20 +74,20 @@ void UPressTurnManager::ActivateSkill(FCombatEntity* aAttacker, int aCursorPosit
 	TArray<PressTurnReactions> turnReactions;
 	
 	
-	if(aAttacker->characterType == FCombatEntity::Ally)
+	if(aAttacker->characterType == ECharactertype::Ally)
 	{
 		entitySkillsAreUsedOn = aSkill->SkillType == Attack ? enemysInCombat : playersInCombat;
 	}
-	else if(aAttacker->characterType == FCombatEntity::Enemy)
+	else if(aAttacker->characterType == ECharactertype::Enemy)
 	{
 		entitySkillsAreUsedOn = aSkill->SkillType == Attack ? playersInCombat : enemysInCombat;
 	}
 
-	if(aSkill->SkillFormation == ESkillRange::Single)
+	if(aSkill->skillRange == ESkillRange::Single)
 	{
 		turnReactions.Add(aSkill->UseSkill(aAttacker,entitySkillsAreUsedOn[aCursorPosition]));
 	}
-	else if (aSkill->SkillFormation == ESkillRange::Multi)
+	else if (aSkill->skillRange == ESkillRange::Multi)
 	{
 		for(int i = 0 ; i <entitySkillsAreUsedOn.Num();i++)
 		{

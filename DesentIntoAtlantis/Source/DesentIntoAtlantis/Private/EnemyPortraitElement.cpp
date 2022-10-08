@@ -3,7 +3,14 @@
 
 #include "EnemyPortraitElement.h"
 
+#include "Components/HorizontalBox.h"
 #include "Components/Image.h"
+
+void UEnemyPortraitElement::UiInitialize()
+{
+	Super::UiInitialize();
+	
+}
 
 void UEnemyPortraitElement::NativeTick(const FGeometry& MyGeometry, float DeltaTime)
 {

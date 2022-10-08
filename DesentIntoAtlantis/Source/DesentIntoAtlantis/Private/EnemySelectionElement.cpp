@@ -7,19 +7,20 @@
 
 void UEnemySelectionElement::SetEnemySelectionElement(FEnemyCombatEntity* aEnemyCombatEntity)
 {
-	FEnemyEntityData* enemyEntityData = aEnemyCombatEntity->enemyEntityData;
+	enemyCombatEntity = aEnemyCombatEntity;
+	FEnemyEntityData* enemyEntity = enemyCombatEntity->enemyEntityData;
 	
-	BW_EnemyName->SetText(FText(FText::FromString(enemyEntityData->characterName)));
-	BW_Healthbar->SetPercent(aEnemyCombatEntity->GetHealthPercentage());
-	
-	SetElementalText(BW_NullText,     enemyEntityData);
-	SetElementalText(BW_FireText,     enemyEntityData);
-	SetElementalText(BW_IceText,      enemyEntityData);
-	SetElementalText(BW_WindText,     enemyEntityData);
-	SetElementalText(BW_EarthText,    enemyEntityData);
-	SetElementalText(BW_LightningText,enemyEntityData);
-	SetElementalText(BW_LightText,    enemyEntityData);
-	SetElementalText(BW_ShadowText,   enemyEntityData);
+	BW_EnemyName->SetText(FText(FText::FromString(enemyEntity->characterName)));
+	BW_Healthbar_MainBar->SetPercent(aEnemyCombatEntity->GetHealthPercentage());
+	BW_Healthbar_Temporary->SetPercent(aEnemyCombatEntity->GetHealthPercentage());
+	SetElementalText(BW_NullText,     enemyEntity);
+	SetElementalText(BW_FireText,     enemyEntity);
+	SetElementalText(BW_IceText,      enemyEntity);
+	SetElementalText(BW_WindText,     enemyEntity);
+	SetElementalText(BW_EarthText,    enemyEntity);
+	SetElementalText(BW_LightningText,enemyEntity);
+	SetElementalText(BW_LightText,    enemyEntity);
+	SetElementalText(BW_ShadowText,   enemyEntity);
 	
 }
 
@@ -27,4 +28,20 @@ void UEnemySelectionElement::SetElementalText(UTextBlock* aElementalText, FEnemy
 {
 
 	aElementalText->SetText(FText(FText::FromString("?")));	
+}
+
+void UEnemySelectionElement::SetHighlightSelectionElement(float aDamageValue, int Opacity)
+{
+
+	BW_BackgroundHighlight->SetColorAndOpacity(FLinearColor(1,1,1,Opacity));
+	if(Opacity == 0)
+	{
+		BW_Healthbar_MainBar->SetPercent(enemyCombatEntity->GetHealthPercentage());
+	}
+	else
+	{
+		BW_Healthbar_MainBar->SetPercent(aDamageValue);	
+	}
+	
+	
 }
