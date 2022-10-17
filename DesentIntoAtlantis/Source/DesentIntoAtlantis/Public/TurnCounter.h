@@ -4,8 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
+#include "CombatEntity.h"
 #include "TurnCounter.generated.h"
 
+class UTurnCounterElement;
 /**
  * 
  */
@@ -16,13 +18,13 @@ class DESENTINTOATLANTIS_API UTurnCounter : public UBaseUserWidget
 
 	virtual void UiInitialize() override;
 	
-	TArray<UBaseUserWidget*> TurnCounter;
+	TArray<UTurnCounterElement*> TurnCounter;
 
 	void AddTurnCounterToUi(TSubclassOf<UUserWidget> aTurnCounter);
 	
 public:
 
-	void SetTurnOrder(int turn);
+	void SetTurnOrder(int turn, ECharactertype aCharacterType);
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	class UHorizontalBox* BW_HorizontalBox;

@@ -33,7 +33,7 @@ void UTurnCounter::AddTurnCounterToUi(TSubclassOf<UUserWidget> aTurnCounter)
 	TurnCounter.Add(baseUserWidget);
 }
 
-void UTurnCounter::SetTurnOrder(int turn)
+void UTurnCounter::SetTurnOrder(int turn, ECharactertype aCharacterType)
 {
 	for(int i = 0 ; i <= TurnCounter.Num() - 1;i++)
 	{
@@ -44,6 +44,7 @@ void UTurnCounter::SetTurnOrder(int turn)
 	for(int i = 0 ; i <= turn-1;i++)
 	{
 		TurnCounter[i]->SetColorAndOpacity(FLinearColor(1,1,1,1));
+		TurnCounter[i]->SwitchTurnIcons(aCharacterType);
 	}
 	
 }

@@ -5,9 +5,10 @@
 #include "CoreMinimal.h"
 #include "PressTurnManager.generated.h"
 
+enum class ECharactertype;
 class UTurnCounter;
 class ADesentIntoAtlantisGameModeBase;
-struct FCombatEntity;
+class UCombatEntity;
 class UCombatManager;
 struct FSkills_Base;
 /**
@@ -48,6 +49,7 @@ private:
 	
 	TArray<UPressTurn*> activePressTurns;
 	TArray<UPressTurn*> inActivePressTurns;
+	ECharactertype characterType;
 public:
 	
 
@@ -55,9 +57,9 @@ public:
 	int         GetNumberOfActivePressTurns();
 	void Initialize(UCombatManager* aCombatManager, ADesentIntoAtlantisGameModeBase* aGameModeBase );
 
-	void SetAmountOfTurns(int aTurnAmount);
+	void SetAmountOfTurns(int aTurnAmount, ECharactertype aCharacterType );
 	
-	void ActivateSkill(FCombatEntity* aAttacker,int aCursorPosition,FSkills_Base* aSkill);
+	void ActivateSkill(UCombatEntity* aAttacker,int aCursorPosition,FSkills_Base aSkill);
 	
 	void ProcessTurn(TArray<PressTurnReactions> aAllTurnReactions);
 	void ConsumeTurn(int aAmountOfTurnsConsumed);

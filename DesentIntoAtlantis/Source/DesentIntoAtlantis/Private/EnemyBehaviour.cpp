@@ -5,21 +5,21 @@
 
 #include "EnemyCombatEntity.h"
 
-void UEnemyBehaviour::Initialize(FEnemyCombatEntity* aEnemyCombatEntity)
+void UEnemyBehaviour::Initialize(UEnemyCombatEntity* aEnemyCombatEntity)
 {
 	enemyCombatEntity = aEnemyCombatEntity;
 }
 
-int UEnemyBehaviour::PlayerToAttack(TArray<FCombatEntity*> aCombatEntity)
+int UEnemyBehaviour::PlayerToAttack(TArray<UPlayerCombatEntity*> aCombatEntity)
 {
 	return FMath::RandRange(0,aCombatEntity.Num()-1);
 }
 
 
 
-FSkills_Base* UEnemyBehaviour::GetSkill()
+FSkills_Base UEnemyBehaviour::GetSkill()
 {
-	TArray<FSkills_Base*> enemySkills = enemyCombatEntity->enemySkills;
+	TArray<FSkills_Base> enemySkills = enemyCombatEntity->enemySkills;
 	
 	return enemySkills[FMath::RandRange(0,enemySkills.Num()-1)];
 }

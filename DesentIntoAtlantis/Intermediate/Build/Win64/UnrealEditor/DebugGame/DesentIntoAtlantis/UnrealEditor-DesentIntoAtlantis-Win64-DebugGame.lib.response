@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-DesentIntoAtlantis-Win64-DebugGame.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\kylej\Documents\PortfolioSSd\DescentIntoAtlantis\DesentIntoAtlantis\Intermediate\Build\Win64\DesentIntoAtlantisEditor\DebugGame\Engine\SharedPCH.Engine.NonOptimized.ShadowErrors.h.obj"
+"C:\Users\kylej\Documents\PortfolioSSd\DescentIntoAtlantis\DesentIntoAtlantis\Intermediate\Build\Win64\UnrealEditor\DebugGame\DesentIntoAtlantis\Module.DesentIntoAtlantis.cpp.obj"
+"C:\Users\kylej\Documents\PortfolioSSd\DescentIntoAtlantis\DesentIntoAtlantis\Intermediate\Build\Win64\UnrealEditor\DebugGame\DesentIntoAtlantis\Module.DesentIntoAtlantis.gen.cpp.obj"
+"C:\Users\kylej\Documents\PortfolioSSd\DescentIntoAtlantis\DesentIntoAtlantis\Intermediate\Build\Win64\UnrealEditor\DebugGame\DesentIntoAtlantis\Default.rc2.res"
+/OUT:"C:\Users\kylej\Documents\PortfolioSSd\DescentIntoAtlantis\DesentIntoAtlantis\Intermediate\Build\Win64\UnrealEditor\DebugGame\DesentIntoAtlantis\UnrealEditor-DesentIntoAtlantis-Win64-DebugGame.lib"

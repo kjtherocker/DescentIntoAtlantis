@@ -9,7 +9,7 @@
 #include "UObject/NoExportTypes.h"
 #include "Skills_Base.generated.h"
 
-struct FCombatEntity;
+class UCombatEntity;
 /**
  * 
  */
@@ -84,7 +84,7 @@ public:
 	UPROPERTY( EditAnywhere )
 	UTexture2D* skillIcon;
 	
-	virtual PressTurnReactions UseSkill(FCombatEntity* aAttacker, FCombatEntity* aVictim);
+	virtual PressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim);
 	
 	virtual void Initialize();
 	

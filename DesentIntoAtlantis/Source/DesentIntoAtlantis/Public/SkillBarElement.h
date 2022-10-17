@@ -19,7 +19,7 @@ class DESENTINTOATLANTIS_API USkillBarElement : public UBaseUserWidget
 
 public:
 
-	void SetSkill(FSkills_Base* aSkill);
+	void SetSkill(FSkills_Base aSkill);
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* SkillIcon;

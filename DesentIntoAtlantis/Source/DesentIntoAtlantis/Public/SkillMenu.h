@@ -8,7 +8,7 @@
 #include "SkillMenu.generated.h"
 
 class USkillBarElement;
-struct FCombatEntity;
+class UCombatEntity;
 struct FSkills_Base;
 class UTextBlock;
 /**
@@ -20,15 +20,15 @@ class DESENTINTOATLANTIS_API USkillMenu : public UBaseUserWidget
 	GENERATED_BODY()
 	virtual void UiInitialize() override;
 
-	void CreateSkillbar(FSkills_Base* aSkill);
+	void CreateSkillbar(FSkills_Base aSkill);
 	void ReturnToPreviousScreen();
-	void SkillSelection(FSkills_Base* aSkill);
+	void SkillSelection(FSkills_Base aSkill);
 	void SelectSkill();
 	void MoveUp();
 	void MoveDown();
 public:
 	
-	FPlayerCombatEntity* currentActivePartyMember;
+	UPlayerCombatEntity* currentActivePartyMember;
 
 	int cursorPosition;
 

@@ -11,43 +11,43 @@
 
 
 
-void UCombatClass::InitializeDataTable(FString aClassExcelSheet, USkillFactory* aSkillFactory, FPlayerCombatEntity* aCombatEntity)
+void UCombatClass::InitializeDataTable(UDataTable* aClassDataTable, USkillFactory* aSkillFactory, UPlayerCombatEntity* aCombatEntity)
 {
-	uint32 InLoadFlags = LOAD_None;
-	UDataTable* datatable = LoadObject<UDataTable>(NULL, *aClassExcelSheet, nullptr, InLoadFlags);
-	if (datatable)
+	UDataTable* datatable = aClassDataTable;
+
+	for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
 	{
-		for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
-		{
-			classLevels.Add(datatable->FindRow<FClassData>(FName(FString::FromInt(i)),FString("Searching for class levels"),true));
-			
-		}
-		skillFactory = aSkillFactory;
-		attachedCombatEntity = aCombatEntity;
-		Levelup();
+		classLevels.Add(*datatable->FindRow<FClassData>(FName(FString::FromInt(i)),FString("Searching for class levels"),true));
 	}
+	
+	skillFactory = aSkillFactory;
+	attachedCombatEntity = aCombatEntity;
+	Levelup();
 }
 
 
 
-void UCombatClass::AddExperience(int aExperience)
+bool UCombatClass::AddExperience(int aExperience)
 {
 	experience += aExperience;
 	if(classLevels.Num() > 0)
 	{
-		if(experience > currentClassLevel->expToNextClassLevel)
+		if(experience > currentClassLevel.expToNextClassLevel)
 		{
-			isReadyToLevelup = true;
+			return true;
 		}
 	}
+	return false;
 }
 
-FClassData* UCombatClass::Levelup()
+FClassData UCombatClass::Levelup()
 {
 	currentClassLevel = classLevels[0];
-	classSkills.Add(skillFactory->GetSkill(currentClassLevel->newlyObtainedSkill));
-	attachedCombatEntity->currentHealth = currentClassLevel->maxHealth;
-	attachedCombatEntity->currentMana   = currentClassLevel->maxMana;
+	FSkills_Base newSkill = skillFactory->GetSkill(currentClassLevel.newlyObtainedSkill);
+
+	classSkills.Add(skillFactory->GetSkill(currentClassLevel.newlyObtainedSkill));
+	attachedCombatEntity->currentHealth = currentClassLevel.maxHealth;
+	attachedCombatEntity->currentMana   = currentClassLevel.maxMana;
 	attachedCombatEntity->SetAbilityScores();
 	
 	classLevels.RemoveAt(0);

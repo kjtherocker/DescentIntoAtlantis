@@ -26,8 +26,8 @@ void USkillMenu::UiInitialize()
 	currentActivePartyMember = GameModeBase->combatManager->ReturnCurrentActivePartyMember();
 	UCombatClass* testo = currentActivePartyMember->baseClass;
 
-    BW_CharacterName->Text = FText(FText::FromString(currentActivePartyMember->characterName));
-    BW_ClassName->Text     = FText(FText::FromString(currentActivePartyMember->baseClass->currentClassLevel->className));
+    BW_CharacterName->Text = FText(FText::FromString(currentActivePartyMember->playerEntityData.characterName));
+    BW_ClassName->Text     = FText(FText::FromString(currentActivePartyMember->baseClass->currentClassLevel.className));
 	
 	for(int i = 0 ; i < testo->classSkills.Num();i++)
 	{
@@ -40,7 +40,7 @@ void USkillMenu::UiInitialize()
 
 
 
-void USkillMenu::CreateSkillbar(FSkills_Base* aSkill)
+void USkillMenu::CreateSkillbar(FSkills_Base aSkill)
 {
 	UUserWidget* testo = CreateWidget(this, InGameHUD->GetElement(EViewElements::SkillBar));
 
@@ -64,10 +64,10 @@ void USkillMenu::ReturnToPreviousScreen()
 
 }
 
-void USkillMenu::SkillSelection(FSkills_Base* aSkill)
+void USkillMenu::SkillSelection(FSkills_Base aSkill)
 {
-	BW_SkillName->SetText(FText(FText::FromString(aSkill->skillName)));
-	BW_SkillDescription->SetText(FText(FText::FromString(aSkill->skillDescription)));
+	BW_SkillName->SetText(FText(FText::FromString(aSkill.skillName)));
+	BW_SkillDescription->SetText(FText(FText::FromString(aSkill.skillDescription)));
 }
 
 void USkillMenu::SelectSkill()

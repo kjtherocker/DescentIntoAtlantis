@@ -3,12 +3,13 @@
 
 #include "EnemySkillView.h"
 
+#include "Skills_Base.h"
 #include "Components/TextBlock.h"
 
-void UEnemySkillView::SetSkill(FSkills_Base* aSkill, FEnemyCombatEntity* aEnemyCombatEntity)
+void UEnemySkillView::SetSkill(FSkills_Base aSkill, UEnemyCombatEntity* aEnemyCombatEntity)
 {
-	BW_SkillIcon->SetBrushFromTexture(aSkill->skillIcon);
-	BW_SkillName->SetText(FText(FText::FromString(aSkill->skillName)));
-	BW_EnemyName->SetText(FText(FText::FromString(aEnemyCombatEntity->enemyEntityData->characterName)));
+	BW_SkillIcon->SetBrushFromTexture(aSkill.skillIcon);
+	BW_SkillName->SetText(FText(FText::FromString(aSkill.skillName)));
+	BW_EnemyName->SetText(FText(FText::FromString(aEnemyCombatEntity->enemyEntityData.characterName)));
 
 }

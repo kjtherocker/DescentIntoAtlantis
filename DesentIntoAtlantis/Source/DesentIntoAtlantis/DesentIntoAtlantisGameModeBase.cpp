@@ -13,13 +13,33 @@ ADesentIntoAtlantisGameModeBase::ADesentIntoAtlantisGameModeBase()
     bStartPlayersAsSpectators = false;
     
     PlayerControllerClass = AFloorPlayerController::StaticClass();
+}
+
+void ADesentIntoAtlantisGameModeBase::PostInitializeComponents()
+{
+    Super::PostInitializeComponents();
 
     skillFactory = NewObject<USkillFactory>();
-    enemyFactory = NewObject<UEnemyFactory>();
-    
-    partyManager = NewObject<UPartyManager>();
-    partyManager->Initialize(skillFactory);
 
+    if(dataTables[EDataTableTypes::Skills] != nullptr)
+    {
+        skillFactory->InitializeDatabase(dataTables[EDataTableTypes::Skills]);
+    }
+
+    if(dataTables[EDataTableTypes::Enemys] != nullptr ||
+       dataTables[EDataTableTypes::EnemyGroups] != nullptr )
+    {
+        enemyFactory = NewObject<UEnemyFactory>();
+        enemyFactory->InitializeDatabase(dataTables[EDataTableTypes::Enemys],
+            dataTables[EDataTableTypes::EnemyGroups]);
+    }
+
+    if(dataTables[EDataTableTypes::Party] != nullptr ||
+       !dataTablesClasses.IsEmpty())
+    {
+        partyManager = NewObject<UPartyManager>();
+        partyManager->InitializeDataTable(skillFactory,dataTables[EDataTableTypes::Party], dataTablesClasses);
+    }
     combatManager = NewObject<UCombatManager>();
     combatManager->Initialize(this);
 }

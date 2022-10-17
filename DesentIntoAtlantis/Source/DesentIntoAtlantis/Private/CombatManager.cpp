@@ -56,21 +56,18 @@ void UCombatManager::StartCombat(UWorld* aWorld)
 	}
 
 	combatExp = 0;
-	pressTurnManager->SetAmountOfTurns(partyMembersInCombat.Num());
+	pressTurnManager->SetAmountOfTurns(partyMembersInCombat.Num(),currentTurnType);
 	AllyStartTurn();
 	
 }
 
-void UCombatManager::AddEnemyToCombat(FEnemyEntityData* AEnemyEntityData)
+void UCombatManager::AddEnemyToCombat(FEnemyEntityData AEnemyEntityData)
 {
-	if(AEnemyEntityData != nullptr)
-	{
-		FEnemyCombatEntity* EnemyCombatEntity = new FEnemyCombatEntity;
-		EnemyCombatEntity->SetEnemyEntityData(AEnemyEntityData,skillFactory);
-		
-		enemyCombatEntities.Add(EnemyCombatEntity);
-		EnemyCombatEntity->enemyCombatPosition = static_cast<EEnemyCombatPositions>(enemyCombatEntities.Num()-1);
-	}
+	UEnemyCombatEntity* EnemyCombatEntity = NewObject<UEnemyCombatEntity>();
+	EnemyCombatEntity->SetEnemyEntityData(AEnemyEntityData,skillFactory);
+	EnemyCombatEntity->enemyBestiaryData = gameModeBase->enemyFactory->GetBestiaryEntry(EnemyCombatEntity->enemyEntityData.characterName);
+	enemyCombatEntities.Add(EnemyCombatEntity);
+	EnemyCombatEntity->enemyCombatPosition = static_cast<EEnemyCombatPositions>(enemyCombatEntities.Num()-1);
 }
 
 void UCombatManager::SwitchCombatSides()
@@ -82,7 +79,7 @@ void UCombatManager::SwitchCombatSides()
 	? partyMembersInCombat.Num()
 	: enemyCombatEntities.Num();
 	
-	pressTurnManager->SetAmountOfTurns(numberOfTurns);
+	pressTurnManager->SetAmountOfTurns(numberOfTurns,currentTurnType);
 	GameHUD->PopAllActiveViews();
 
 	if(currentTurnType == ECharactertype::Ally)
@@ -100,8 +97,22 @@ void UCombatManager::EndCombat()
 	hasCombatStarted = false;
 	GameHUD->PopAllPersistantViews();
 	GameHUD->PopAllActiveViews();
-	
-	ULevelupView * testo = (ULevelupView*)GameHUD->PushAndGetView(EViews::Levelup,    EUiType::ActiveUi);
+
+	TArray<UPlayerCombatEntity*> combatEntitysToLevelup;
+	for(int i = 0 ; i < partyMembersInCombat.Num();i++)
+	{
+		if(partyMembersInCombat[i]->baseClass->AddExperience(combatExp))
+		{
+			combatEntitysToLevelup.Add(partyMembersInCombat[i]);
+		}
+	}
+
+
+	if(combatEntitysToLevelup.Num() > 0)
+	{
+		ULevelupView * testo = (ULevelupView*)GameHUD->PushAndGetView(EViews::Levelup,    EUiType::ActiveUi);
+		testo->InitializeCombatEntitysToLevelUp(combatEntitysToLevelup);
+	}
 		
 }
 
@@ -121,7 +132,7 @@ void UCombatManager::TurnFinished()
 		{
 			if(enemyCombatEntities[i]->GetIsMarkedForDeath())
 			{
-				combatExp += enemyCombatEntities[i]->enemyEntityData->experience;
+				combatExp += enemyCombatEntities[i]->enemyEntityData.experience;
 				enemyCombatEntities[i]->Death();
 				enemyCombatEntities.RemoveAt(i);
 			}
@@ -148,15 +159,18 @@ void UCombatManager::TurnFinished()
 
 	if(currentTurnType == ECharactertype::Enemy)
 	{
+		FTimerHandle handle;
 
+		world->GetTimerManager().SetTimer(handle,this,&UCombatManager::EnemyStartTurn,ENEMY_TURN_TIME,false);
 	}
 }
 
 void UCombatManager::AllyStartTurn()
 {
-	GameHUD->PushView(EViews::CommandBoard,      EUiType::ActiveUi);
 	currentActivePosition = 0;
+	currentActivePartyMember = partyMembersInCombat[currentActivePosition];
 	partyHealthbars->SetHighlightHealthbar(currentActivePartyMember,FULL_OPACITY);
+	GameHUD->PushView(EViews::CommandBoard,      EUiType::ActiveUi);
 }
 
 void UCombatManager::EnemyStartTurn()
@@ -180,42 +194,32 @@ void UCombatManager::EnemyStartTurn()
 		EnemyActivateSkill(enemyCombatEntities[currentActivePosition]);
 		currentActivePosition++;
 	}
-
-
-	if(world)
-	{
-		FTimerHandle handle;
-
-		world->GetTimerManager().SetTimer(handle,this,&UCombatManager::EnemyStartTurn,ENEMY_TURN_TIME,false);
-	}
-	
-	
 }
 
-void UCombatManager::EnemyActivateSkill(FEnemyCombatEntity* aEnemyCombatEntity)
+void UCombatManager::EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEntity)
 {
 	UEnemySkillView* enemySkillView = (UEnemySkillView*)GameHUD->PushAndGetView(EViews::EnemySkill,      EUiType::ActiveUi);
 
-	FSkills_Base* skill = aEnemyCombatEntity->enemyBehaviour->GetSkill();
+	FSkills_Base skill = aEnemyCombatEntity->enemyBehaviour->GetSkill();
 	
 	enemySkillView->SetSkill(skill,aEnemyCombatEntity);
 
-	int playerToAttack = aEnemyCombatEntity->enemyBehaviour->PlayerToAttack(static_cast<TArray<FCombatEntity*>>(partyMembersInCombat));
+	int playerToAttack = aEnemyCombatEntity->enemyBehaviour->PlayerToAttack(partyMembersInCombat);
 
 	pressTurnManager->ActivateSkill(aEnemyCombatEntity,playerToAttack,skill);
 }
 
-FPlayerCombatEntity* UCombatManager::ReturnCurrentActivePartyMember()
+UPlayerCombatEntity* UCombatManager::ReturnCurrentActivePartyMember()
 {
 	return currentActivePartyMember;
 }
 
-TArray<FEnemyCombatEntity*> UCombatManager::GetEnemysInCombat()
+TArray<UEnemyCombatEntity*> UCombatManager::GetEnemysInCombat()
 {
 	return enemyCombatEntities;
 }
 
-TArray<FPlayerCombatEntity*> UCombatManager::GetPlayersInCombat()
+TArray<UPlayerCombatEntity*> UCombatManager::GetPlayersInCombat()
 {
 	return partyMembersInCombat;
 }

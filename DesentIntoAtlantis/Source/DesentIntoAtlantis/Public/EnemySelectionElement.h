@@ -9,7 +9,8 @@
 #include "Components/ProgressBar.h"
 #include "EnemySelectionElement.generated.h"
 
-struct FEnemyCombatEntity;
+enum class EElementalType;
+class UEnemyCombatEntity;
 struct FEnemyEntityData;
 class UTextBlock;
 /**
@@ -21,12 +22,14 @@ class DESENTINTOATLANTIS_API UEnemySelectionElement : public UBaseUserWidget
 	GENERATED_BODY()
 
 private:
-	FEnemyCombatEntity* enemyCombatEntity;
-	
+	UPROPERTY()
+	UEnemyCombatEntity* enemyCombatEntity;
+
 public:
-	void SetEnemySelectionElement(FEnemyCombatEntity* aEnemyCombatEntity);
 	
-	void SetElementalText(UTextBlock* aElementalText, FEnemyEntityData* aEnemyEntityData );
+	void SetEnemySelectionElement(UEnemyCombatEntity* aEnemyCombatEntity);
+	
+	void SetElementalText(UTextBlock* aElementalText, EElementalType aElementalType ,UEnemyCombatEntity* aEnemyEntityData );
 
 	void SetHighlightSelectionElement(float aDamageValue,int Opacity);
 

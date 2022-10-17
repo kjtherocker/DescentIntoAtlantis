@@ -29,7 +29,7 @@ void UCombatSelectionView::UiInitialize()
 
 void UCombatSelectionView::ActivateSkill()
 {
-	combatManager->pressTurnManager->ActivateSkill((FCombatEntity*)combatManager->currentActivePartyMember,cursorPosition,currentSkill);
+	combatManager->pressTurnManager->ActivateSkill(combatManager->currentActivePartyMember,cursorPosition,currentSkill);
 }
 
 void UCombatSelectionView::MoveCursorLeft()
@@ -72,7 +72,7 @@ void UCombatSelectionView::MoveCursorRight()
 
 void UCombatSelectionView::SetCursorHud(bool aisActive)
 {
-	switch(currentSkill->SkillType)
+	switch(currentSkill.SkillType)
 	{
 		case Attack:
 		{
@@ -99,7 +99,7 @@ void UCombatSelectionView::SetCursorHud(bool aisActive)
 		}
 		case Heal:
 		{
-			TArray<FPlayerCombatEntity*> playersInCombat = combatManager->GetPlayersInCombat();
+			TArray<UPlayerCombatEntity*> playersInCombat = combatManager->GetPlayersInCombat();
 			cursorMaxRange = playersInCombat.Num() -1;
 			break;
 		}
@@ -119,7 +119,7 @@ void UCombatSelectionView::SetCursorHud(bool aisActive)
 
 }
 
-void UCombatSelectionView::InitializeEnemySelectionElements(TArray<FEnemyCombatEntity*> aEnemysInCombat)
+void UCombatSelectionView::InitializeEnemySelectionElements(TArray<UEnemyCombatEntity*> aEnemysInCombat)
 {
 	for (TPair<EEnemyCombatPositions, UEnemySelectionElement*>& pair : enemySelectionElements)
 	{
@@ -138,17 +138,17 @@ void UCombatSelectionView::InitializeEnemySelectionElements(TArray<FEnemyCombatE
 
 }
 
-void UCombatSelectionView::SetSkill(FSkills_Base* aSkill)
+void UCombatSelectionView::SetSkill(FSkills_Base aSkill)
 {
 	currentSkill = aSkill;
 
 
-	if(aSkill->skillRange == ESkillRange::Single)
+	if(aSkill.skillRange == ESkillRange::Single)
 	{
 		hasCursor = true;
 	}
 	
-	switch(aSkill->SkillType)
+	switch(aSkill.SkillType)
 	{
 		case Attack:
 		{
@@ -158,7 +158,7 @@ void UCombatSelectionView::SetSkill(FSkills_Base* aSkill)
 		}
 		case Heal:
 		{
-			TArray<FPlayerCombatEntity*> playersInCombat = combatManager->GetPlayersInCombat();
+			TArray<UPlayerCombatEntity*> playersInCombat = combatManager->GetPlayersInCombat();
 			cursorMaxRange = playersInCombat.Num() -1;
 			break;
 		}

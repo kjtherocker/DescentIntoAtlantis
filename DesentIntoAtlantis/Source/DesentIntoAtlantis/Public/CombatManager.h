@@ -12,7 +12,7 @@ class UPressTurnManager;
 class AInGameHUD;
 class UTurnCounter;
 class UPartyHealthbarsView;
-struct FCombatEntity;
+class UCombatEntity;
 class ADesentIntoAtlantisGameModeBase;
 /**
  * 
@@ -46,26 +46,26 @@ public:
 	void Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase);
 	void StartCombat(UWorld* aWorld);
 	void EndCombat();
-	void AddEnemyToCombat(FEnemyEntityData* AEnemyEntityData);
+	void AddEnemyToCombat(FEnemyEntityData AEnemyEntityData);
 	void SwitchCombatSides();
 	void TurnFinished();
 	void AllyStartTurn();
 	void EnemyStartTurn();
-	void EnemyActivateSkill(FEnemyCombatEntity* aEnemyCombatEntity);
+	void EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEntity);
 	
 
 	
-	FPlayerCombatEntity* ReturnCurrentActivePartyMember();
+	UPlayerCombatEntity* ReturnCurrentActivePartyMember();
 	
-	TArray<FEnemyCombatEntity*> GetEnemysInCombat();
-	TArray<FPlayerCombatEntity*> GetPlayersInCombat();
+	TArray<UEnemyCombatEntity*> GetEnemysInCombat();
+	TArray<UPlayerCombatEntity*> GetPlayersInCombat();
 	
-	FPlayerCombatEntity* currentActivePartyMember;
+	UPlayerCombatEntity* currentActivePartyMember;
 
-	TArray<FEnemyCombatEntity*> enemyCombatEntities;
+	TArray<UEnemyCombatEntity*> enemyCombatEntities;
 
-	TArray<FPlayerCombatEntity*> partyMembersInCombat;
-	TArray<FPlayerCombatEntity*> partyMembersDead;
+	TArray<UPlayerCombatEntity*> partyMembersInCombat;
+	TArray<UPlayerCombatEntity*> partyMembersDead;
 	ADesentIntoAtlantisGameModeBase* gameModeBase;
 	
 };

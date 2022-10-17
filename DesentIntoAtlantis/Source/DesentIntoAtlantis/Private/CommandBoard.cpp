@@ -26,7 +26,7 @@ void UCommandBoard::UiInitialize()
 	combatManager =  GameModeBase->combatManager;
 	currentActivePartyMember = combatManager->ReturnCurrentActivePartyMember();
 
-	BW_FullBodyPortrait->SetBrushFromTexture(currentActivePartyMember->fullBodyCharacterPortrait);
+	BW_FullBodyPortrait->SetBrushFromTexture(currentActivePartyMember->playerEntityData.fullBodyCharacterPortrait);
 	
 	commandBoards.Add(B_Attack);
 	commandBoards.Add(B_Skill);

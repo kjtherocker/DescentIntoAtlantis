@@ -6,6 +6,7 @@
 #include "BaseUserWidget.h"
 #include "EnemyCombatEntity.h"
 #include "EnemySelectionElement.h"
+#include "Skills_Base.h"
 #include "CombatSelectionView.generated.h"
 
 class UCombatManager;
@@ -19,18 +20,19 @@ class DESENTINTOATLANTIS_API UCombatSelectionView : public UBaseUserWidget
 
 private:
 	UCombatManager* combatManager;
-	FSkills_Base* currentSkill;
+	UPROPERTY()
+	FSkills_Base currentSkill;
 	bool hasCursor;
 	int cursorMaxRange;
 	int cursorPosition;
 
-	TArray<FEnemyCombatEntity*> enemysInCombat;
+	TArray<UEnemyCombatEntity*> enemysInCombat;
 public:
 
 	virtual void UiInitialize() override;
 
-	void InitializeEnemySelectionElements(TArray<FEnemyCombatEntity*> aEnemysInCombat);
-	void SetSkill(FSkills_Base* aSkill);
+	void InitializeEnemySelectionElements(TArray<UEnemyCombatEntity*> aEnemysInCombat);
+	void SetSkill(FSkills_Base aSkill);
 
 	void ActivateSkill();
 

@@ -3,12 +3,15 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Engine/DataTable.h"
 
 #include "UObject/NoExportTypes.h"
 #include "PartyManager.generated.h"
 
-struct FPlayerCombatEntity;
-struct FCombatEntity;
+struct FPlayerEntityData;
+enum class EDataTableClasses;
+class UPlayerCombatEntity;
+class UCombatEntity;
 class USkillFactory;
 /**
  * 
@@ -23,12 +26,16 @@ class DESENTINTOATLANTIS_API UPartyManager : public UObject
 
 public:
 	
-	void Initialize(USkillFactory* aSkillFactory);
+	void InitializeDataTable(USkillFactory* aSkillFactory,UDataTable* aDataTable,TMap<EDataTableClasses,UDataTable*> aClassDataTable);
 
-	TArray<FPlayerCombatEntity*> ReturnActivePartyEntityData();
-	
-	TArray<FPlayerCombatEntity*> playerEntityData;
-	TArray<FPlayerCombatEntity*> activePartyEntityData;;
+	TArray<UPlayerCombatEntity*> ReturnActivePartyEntityData();
+
+	UPROPERTY()
+	TArray<FPlayerEntityData> playerEntityData;
+	UPROPERTY()
+	TArray<UPlayerCombatEntity*> playerCombatEntity;
+	UPROPERTY()
+	TArray<UPlayerCombatEntity*> activePartyEntityData;;
 
 	
 };

@@ -7,6 +7,7 @@
 #include "UObject/NoExportTypes.h"
 #include "EnemyCombatEntity.generated.h"
 
+class UEnemyBestiaryData;
 class UEnemyBehaviour;
 class UEnemyPortraitElement;
 struct FEnemyEntityData;
@@ -51,22 +52,26 @@ struct DESENTINTOATLANTIS_API FEnemyEntityData :public  FCombatEntityData
 };
 
 
-USTRUCT()
-struct DESENTINTOATLANTIS_API FEnemyCombatEntity : public FCombatEntity
+UCLASS()
+class DESENTINTOATLANTIS_API UEnemyCombatEntity : public UCombatEntity
 {
 	GENERATED_BODY()
 public:
 	void SetAbilityScores();
-	void SetEnemyEntityData(FEnemyEntityData* AEnemyEntityData,USkillFactory * skillFactory);
+	void SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactory * skillFactory);
 	virtual void Death() override;
 	virtual void ActivateDamageHitEffect() override;
 	virtual float GetHealthPercentage() override;
-	
-	TArray<FSkills_Base*> enemySkills;
+	virtual PressTurnReactions DecrementHealth(UCombatEntity* aAttacker, FSkills_Base aSkill) override;
+
+	UPROPERTY()
+	TArray<FSkills_Base> enemySkills;
 
 	UEnemyBehaviour* enemyBehaviour; 
+
+	UEnemyBestiaryData* enemyBestiaryData; 
 	
-	FEnemyEntityData* enemyEntityData;
+	FEnemyEntityData enemyEntityData;
 
 	EEnemyCombatPositions enemyCombatPosition;
 };

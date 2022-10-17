@@ -2,59 +2,65 @@
 
 
 #include "EnemyCombatEntity.h"
-
+#include "EnemyBeastiaryData.h"
 #include "EnemyBehaviour.h"
 #include "EnemyPortraitElement.h"
 #include "SkillFactory.h"
 
-void FEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData* AEnemyEntityData,USkillFactory * skillFactory)
+void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactory * skillFactory)
 {
 	characterType   = ECharactertype::Enemy;
 	enemyEntityData = AEnemyEntityData;
 
-	maxHealth       = enemyEntityData->maxHealth;
-	currentHealth   = enemyEntityData->maxHealth;
-	currentMana     = enemyEntityData->maxMana;
+	maxHealth       = enemyEntityData.maxHealth;
+	currentHealth   = enemyEntityData.maxHealth;
+	currentMana     = enemyEntityData.maxMana;
 
-	ElementalStrength = AEnemyEntityData->ElementalStrength;
-	ElementalWeakness = AEnemyEntityData->ElementalWeakness;
+	ElementalStrength = AEnemyEntityData.ElementalStrength;
+	ElementalWeakness = AEnemyEntityData.ElementalWeakness;
 
 	enemyBehaviour = NewObject<UEnemyBehaviour>();
 	enemyBehaviour->Initialize(this);
 	
-	enemySkills.Add(skillFactory->GetSkill(enemyEntityData->Skill1));
-	enemySkills.Add(skillFactory->GetSkill(enemyEntityData->Skill2));
-	enemySkills.Add(skillFactory->GetSkill(enemyEntityData->Skill3));
-	enemySkills.Add(skillFactory->GetSkill(enemyEntityData->Skill4));
-	enemySkills.Add(skillFactory->GetSkill(enemyEntityData->Skill5));
+	enemySkills.Add(skillFactory->GetSkill(enemyEntityData.Skill1));
+	enemySkills.Add(skillFactory->GetSkill(enemyEntityData.Skill2));
+	enemySkills.Add(skillFactory->GetSkill(enemyEntityData.Skill3));
+	enemySkills.Add(skillFactory->GetSkill(enemyEntityData.Skill4));
+	enemySkills.Add(skillFactory->GetSkill(enemyEntityData.Skill5));
 	
 	SetAbilityScores();
 }
 
-void FEnemyCombatEntity::Death()
+void UEnemyCombatEntity::Death()
 {
-	FCombatEntity::Death();
+	UCombatEntity::Death();
 
 	imageBodyPortrait->BW_Portrait->SetOpacity(0);
 }
 
-void FEnemyCombatEntity::ActivateDamageHitEffect()
+void UEnemyCombatEntity::ActivateDamageHitEffect()
 {
-	FCombatEntity::ActivateDamageHitEffect();
+	UCombatEntity::ActivateDamageHitEffect();
 	imageBodyPortrait->isTriggeringHitEffect = true;
 }
 
-float FEnemyCombatEntity::GetHealthPercentage()
+float UEnemyCombatEntity::GetHealthPercentage()
 {
-	return (float)currentHealth / (float)enemyEntityData->maxHealth;
+	return (float)currentHealth / (float)enemyEntityData.maxHealth;
 }
 
-void FEnemyCombatEntity::SetAbilityScores()
+PressTurnReactions UEnemyCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkills_Base aSkill)
 {
-	StrengthAbilityScore.base    =  enemyEntityData->baseStrength;
-	MagicAbilityScore.base       =  enemyEntityData->baseMagic;
-	HitAbilityScore.base         =  enemyEntityData->baseHit;
-	EvasionAbilityScore.base     =  enemyEntityData->baseEvasion;
-	DefenceAbilityScore.base     =  enemyEntityData->baseDefence;
-	ResistanceAbilityScore.base  =  enemyEntityData->baseResistance;
+	enemyBestiaryData->RevealElementalInfo(aSkill.elementalType);
+	return UCombatEntity::DecrementHealth(aAttacker, aSkill);
+}
+
+void UEnemyCombatEntity::SetAbilityScores()
+{
+	StrengthAbilityScore.base    =  enemyEntityData.baseStrength;
+	MagicAbilityScore.base       =  enemyEntityData.baseMagic;
+	HitAbilityScore.base         =  enemyEntityData.baseHit;
+	EvasionAbilityScore.base     =  enemyEntityData.baseEvasion;
+	DefenceAbilityScore.base     =  enemyEntityData.baseDefence;
+	ResistanceAbilityScore.base  =  enemyEntityData.baseResistance;
 }

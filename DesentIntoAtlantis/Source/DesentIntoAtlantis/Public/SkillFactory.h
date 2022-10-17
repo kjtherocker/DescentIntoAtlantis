@@ -3,10 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Skills_Base.h"
 #include "UObject/NoExportTypes.h"
 #include "SkillFactory.generated.h"
 
-struct FSkills_Base;
+class UDataTable;
+
 
 /**
  * 
@@ -18,8 +20,12 @@ class DESENTINTOATLANTIS_API USkillFactory : public UObject
 
 	USkillFactory();
 
-	TArray<FSkills_Base*> allSkills;
-	TMap<FString,FSkills_Base*> skillMap;
+	UPROPERTY()
+	TArray<FSkills_Base> allSkills;
+	
+	UPROPERTY()
+	TMap<FString,FSkills_Base> skillMap;
 public:
-	FSkills_Base* GetSkill(FString aSkillName);
+	void InitializeDatabase(UDataTable* aSkillDataTable);
+	FSkills_Base GetSkill(FString aSkillName);
 };

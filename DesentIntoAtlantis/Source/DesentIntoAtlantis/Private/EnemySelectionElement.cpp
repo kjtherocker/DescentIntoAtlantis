@@ -2,32 +2,52 @@
 
 
 #include "EnemySelectionElement.h"
+
+#include "EnemyBeastiaryData.h"
 #include "EnemyCombatEntity.h"
 #include "Components/TextBlock.h"
 
-void UEnemySelectionElement::SetEnemySelectionElement(FEnemyCombatEntity* aEnemyCombatEntity)
+void UEnemySelectionElement::SetEnemySelectionElement(UEnemyCombatEntity* aEnemyCombatEntity)
 {
 	enemyCombatEntity = aEnemyCombatEntity;
-	FEnemyEntityData* enemyEntity = enemyCombatEntity->enemyEntityData;
 	
-	BW_EnemyName->SetText(FText(FText::FromString(enemyEntity->characterName)));
+	BW_EnemyName->SetText(FText(FText::FromString(enemyCombatEntity->enemyEntityData.characterName)));
 	BW_Healthbar_MainBar->SetPercent(aEnemyCombatEntity->GetHealthPercentage());
 	BW_Healthbar_Temporary->SetPercent(aEnemyCombatEntity->GetHealthPercentage());
-	SetElementalText(BW_NullText,     enemyEntity);
-	SetElementalText(BW_FireText,     enemyEntity);
-	SetElementalText(BW_IceText,      enemyEntity);
-	SetElementalText(BW_WindText,     enemyEntity);
-	SetElementalText(BW_EarthText,    enemyEntity);
-	SetElementalText(BW_LightningText,enemyEntity);
-	SetElementalText(BW_LightText,    enemyEntity);
-	SetElementalText(BW_ShadowText,   enemyEntity);
 	
+	SetElementalText(BW_NullText,     EElementalType::Null	    ,enemyCombatEntity);
+	SetElementalText(BW_FireText,     EElementalType::Fire		,enemyCombatEntity);
+	SetElementalText(BW_IceText,      EElementalType::Ice		,enemyCombatEntity);
+	SetElementalText(BW_WindText,     EElementalType::Wind		,enemyCombatEntity);
+	SetElementalText(BW_EarthText,    EElementalType::Earth		,enemyCombatEntity);
+	SetElementalText(BW_LightningText,EElementalType::Lighting	,enemyCombatEntity);
+	SetElementalText(BW_LightText,    EElementalType::Light		,enemyCombatEntity);
+	SetElementalText(BW_ShadowText,   EElementalType::Shadow	,enemyCombatEntity);
+						
 }
 
-void UEnemySelectionElement::SetElementalText(UTextBlock* aElementalText, FEnemyEntityData* aEnemyEntityData)
+void UEnemySelectionElement::SetElementalText(UTextBlock* aElementalText,EElementalType aElementalType ,UEnemyCombatEntity* aEnemyEntityData)
 {
 
-	aElementalText->SetText(FText(FText::FromString("?")));	
+	if(aEnemyEntityData->enemyBestiaryData->GetRevealedElementalType(aElementalType))
+	{
+		if(aEnemyEntityData->enemyEntityData.ElementalStrength == aElementalType)
+		{
+			aElementalText->SetText(FText(FText::FromString("STR")));
+			return;
+		}
+		if(aEnemyEntityData->enemyEntityData.ElementalWeakness == aElementalType)
+		{
+			aElementalText->SetText(FText(FText::FromString("WK")));
+			return;
+		}
+
+		aElementalText->SetText(FText(FText::FromString("-")));
+	}
+	else if(!aEnemyEntityData->enemyBestiaryData->GetRevealedElementalType(aElementalType))
+	{
+		aElementalText->SetText(FText(FText::FromString("?")));
+	}
 }
 
 void UEnemySelectionElement::SetHighlightSelectionElement(float aDamageValue, int Opacity)

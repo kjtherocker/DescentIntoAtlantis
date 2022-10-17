@@ -31,11 +31,11 @@ void UEnemyPortraits::NativeTick(const FGeometry& MyGeometry, float DeltaTime)
 	int testo = 0;
 }
 
-void UEnemyPortraits::SetEnemyPortraits(UEnemyPortraitElement* aImage, FEnemyCombatEntity* AEnemyCombatEntity)
+void UEnemyPortraits::SetEnemyPortraits(UEnemyPortraitElement* aImage, UEnemyCombatEntity* AEnemyCombatEntity)
 {
 	AEnemyCombatEntity->imageBodyPortrait = aImage;
 	
-	aImage->BW_Portrait->SetBrushFromTexture(AEnemyCombatEntity->enemyEntityData->fullBodyCharacterPortrait);
+	aImage->BW_Portrait->SetBrushFromTexture(AEnemyCombatEntity->enemyEntityData.fullBodyCharacterPortrait);
 }
 
 

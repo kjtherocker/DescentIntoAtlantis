@@ -40,8 +40,11 @@ public:
 	void PopAllActiveViews();
 	void PushMostRecentInActiveView();
 	void ReturnToPreviousActiveView();
+	UPROPERTY()
 	TArray<UBaseUserWidget*> persistentViewStack;
+	UPROPERTY()
     TArray<UBaseUserWidget*> activeViewStack;
+	UPROPERTY()
 	TArray<UBaseUserWidget*> inactiveViewStack;
 	
 	TSubclassOf<UUserWidget> GetElement(EViewElements aViewElement);

@@ -8,7 +8,7 @@
 #include "EnemyPortraits.generated.h"
 
 class UEnemyPortraitElement;
-struct FEnemyCombatEntity;
+class UEnemyCombatEntity;
 /**
  * 
  */
@@ -28,11 +28,13 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UEnemyPortraitElement* BW_Portrait3;
-	
-	TArray<FEnemyCombatEntity*> enemysInCombat;
-	
+
+	UPROPERTY()
+	TArray<UEnemyCombatEntity*> enemysInCombat;
+	UPROPERTY()
 	TArray<UEnemyPortraitElement*> Portraits;
-	void SetEnemyPortraits(UEnemyPortraitElement* aImage , FEnemyCombatEntity* AEnemyCombatEntity);
+	
+	void SetEnemyPortraits(UEnemyPortraitElement* aImage , UEnemyCombatEntity* AEnemyCombatEntity);
 	
 	
 	

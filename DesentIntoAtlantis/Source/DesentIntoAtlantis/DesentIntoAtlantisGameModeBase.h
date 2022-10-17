@@ -6,11 +6,14 @@
 #include "EnemyFactory.h"
 #include "PartyManager.h"
 #include "SkillFactory.h"
+#include "Views.h"
+#include "EDataTableTypes.h"
 #include "GameFramework/GameModeBase.h"
 #include "DesentIntoAtlantisGameModeBase.generated.h"
 
 class AInGameHUD;
 class UCombatManager;
+
 /**
  * 
  */
@@ -20,10 +23,20 @@ class DESENTINTOATLANTIS_API ADesentIntoAtlantisGameModeBase : public AGameModeB
 	GENERATED_BODY()
 	ADesentIntoAtlantisGameModeBase();
 public:
-	
+	virtual void PostInitializeComponents() override;
+	UPROPERTY(EditAnywhere, Category = "Data")
+	TMap<EDataTableTypes,UDataTable*> dataTables;
+	UPROPERTY(EditAnywhere, Category = "Data")
+	TMap<EDataTableClasses,UDataTable*> dataTablesClasses;
+
+	UPROPERTY()
 	USkillFactory*  skillFactory;
+	UPROPERTY()
 	UEnemyFactory*  enemyFactory;
+	UPROPERTY()
 	UPartyManager*  partyManager;
+	UPROPERTY()
 	UCombatManager* combatManager;
+	UPROPERTY()
 	AInGameHUD*     InGameHUD;
 };

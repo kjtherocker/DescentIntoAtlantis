@@ -8,7 +8,7 @@
 #include "LevelupView.generated.h"
 
 class USkillBarElement;
-struct FPlayerCombatEntity;
+class UPlayerCombatEntity;
 class UTextBlock;
 class UImage;
 class ULevelupPanelElement;
@@ -19,9 +19,15 @@ UCLASS()
 class DESENTINTOATLANTIS_API ULevelupView : public UBaseUserWidget
 {
 	GENERATED_BODY()
+private:
+	TArray<UPlayerCombatEntity*> combatEntitysToLevelup;
+	
 public:
+	void InitializeCombatEntitysToLevelUp(TArray<UPlayerCombatEntity*> aPlayerCombatEntitys);
+	
+	void SetupLevelupView(UPlayerCombatEntity* aPlayerCombatEntity);
 
-	void SetupLevelupView(FPlayerCombatEntity* aPlayerCombatEntity);
+	void ActivateNextLevelup();
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_CharacterPortrait;

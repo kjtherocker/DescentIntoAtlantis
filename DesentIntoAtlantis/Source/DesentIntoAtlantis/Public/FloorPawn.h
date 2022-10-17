@@ -27,7 +27,7 @@ protected:
 	void MoveForward();
 
 	TSubclassOf<AActor> commandBoardTest;
-	
+	UPROPERTY()
 	AFloorNode* currentNodePlayerIsOn;
 	double newRotation;
 
@@ -41,10 +41,9 @@ protected:
 	const float  LEFT_DIRECTION      = -1;
 	
 	bool hasRotationFinished = true;
+	UPROPERTY()
 	AFloorNode* nodeToMoveTowards;
 	
-	
-	double testo2;
 	
 	double rotationDirection;
 public:	
@@ -63,7 +62,7 @@ public:
 
 	void SetRotation(TArray<UFloorPawnPositionInfo*> aDirectionalModel, double aDirection );
 
-	
+	UPROPERTY()
 	TArray<UFloorPawnPositionInfo*>   directionModel;
 
 };

@@ -6,37 +6,38 @@
 #include "CombatEntity.h"
 #include "SkillFactory.h"
 #include "Engine/DataTable.h"
+#include "EDataTableTypes.h"
 #include "PlayerCombatEntity.h"
 
 UPartyManager::UPartyManager()
 {
-	static ConstructorHelpers::FObjectFinder<UObject> partyDatatable(TEXT("DataTable'/Game/Datatables/Atlantis_-_PlayerCharacters.Atlantis_-_PlayerCharacters'"));
-	if (partyDatatable.Succeeded())
-	{ 
-		UDataTable* datatable = dynamic_cast<UDataTable*>( partyDatatable.Object);
-		for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
-		{
-			playerEntityData.Add(datatable->FindRow<FPlayerCombatEntity>(FName(FString::FromInt(i)),FString("Searching for seres"),true));
-		}
-	}
 }
 
-void UPartyManager::Initialize (USkillFactory* aSkillFactory)
+void UPartyManager::InitializeDataTable (USkillFactory* aSkillFactory,UDataTable* aDataTable, TMap<EDataTableClasses,UDataTable*> aClassDataTable)
 {
 	skillFactory = aSkillFactory;
 
+	UDataTable* datatable = aDataTable;
+	for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
+	{
+		playerEntityData.Add(*datatable->FindRow<FPlayerEntityData>(FName(FString::FromInt(i)),FString("Searching for seres"),true));
+	}
+
+	
 	for(int i = 0;i < playerEntityData.Num();i++)
 	{
 		//if we dont get back the correct information from the datatable
-		if(playerEntityData[i] != nullptr)
-		{
-			playerEntityData[i]->SetTacticsEntity(aSkillFactory);
-			//combatEntity[i]->currentClass->AddExperience(150);
-		}
+		EDataTableClasses classTable = playerEntityData[i].DataTableClass;
+		UPlayerCombatEntity* PlayerCombatEntity = NewObject<UPlayerCombatEntity>();
+
+		PlayerCombatEntity->SetPlayerEntity(playerEntityData[i]);
+		PlayerCombatEntity->SetTacticsEntity(aSkillFactory);
+		PlayerCombatEntity->SetPlayerClass(aClassDataTable[classTable]);
+		playerCombatEntity.Add(PlayerCombatEntity);
 	}
 }
 
-TArray<FPlayerCombatEntity*> UPartyManager::ReturnActivePartyEntityData()
+TArray<UPlayerCombatEntity*> UPartyManager::ReturnActivePartyEntityData()
 {
-	return playerEntityData;
+	return playerCombatEntity;
 }

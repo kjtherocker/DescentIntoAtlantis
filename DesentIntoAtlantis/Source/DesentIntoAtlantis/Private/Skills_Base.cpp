@@ -5,11 +5,11 @@
 
 #include "CombatEntity.h"
 
-PressTurnReactions FSkills_Base::UseSkill(FCombatEntity* aAttacker, FCombatEntity* aVictim)
+PressTurnReactions FSkills_Base::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
 	if(SkillType == ESkillType::Attack)
 	{
-		return aVictim->DecrementHealth(aAttacker,this);
+		return aVictim->DecrementHealth(aAttacker,*this);
 	}
 
 	return PressTurnReactions::Normal;

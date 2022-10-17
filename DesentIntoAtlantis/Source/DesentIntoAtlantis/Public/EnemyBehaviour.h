@@ -7,7 +7,8 @@
 #include "UObject/NoExportTypes.h"
 #include "EnemyBehaviour.generated.h"
 
-struct FEnemyCombatEntity;
+class UPlayerCombatEntity;
+class UEnemyCombatEntity;
 /**
  * 
  */
@@ -17,15 +18,15 @@ class DESENTINTOATLANTIS_API UEnemyBehaviour : public UObject
 	GENERATED_BODY()
 
 private:
-	FEnemyCombatEntity* enemyCombatEntity;
+	UEnemyCombatEntity* enemyCombatEntity;
 	
 
 public:
 	
 	
-	virtual void Initialize(FEnemyCombatEntity* aEnemyCombatEntity);
-	virtual int PlayerToAttack(TArray<FCombatEntity*> aCombatEntity);
+	virtual void Initialize(UEnemyCombatEntity* aEnemyCombatEntity);
+	virtual int PlayerToAttack(TArray<UPlayerCombatEntity*>  aCombatEntity);
 	
-	FSkills_Base* GetSkill();
+	FSkills_Base GetSkill();
 	
 };

@@ -16,13 +16,13 @@ void UPartyHealthbarsView::UiInitialize()
 
 	UPartyManager* PartyManager =  MyMode->partyManager;
 
-	for(int i = 0 ; i < PartyManager->playerEntityData.Num();i++)
+	for(int i = 0 ; i < PartyManager->playerCombatEntity.Num();i++)
 	{
-		CreateHealthbar(PartyManager->playerEntityData[i]);
+		CreateHealthbar(PartyManager->playerCombatEntity[i]);
 	}
 }
  
-void UPartyHealthbarsView::CreateHealthbar(FPlayerCombatEntity* aCombatEntity)
+void UPartyHealthbarsView::CreateHealthbar(UPlayerCombatEntity* aCombatEntity)
 {
 	UUserWidget* partyStatusHealthbar = CreateWidget(this, InGameHUD->GetElement(EViewElements::PartyStatusHealthbar));
 
@@ -36,11 +36,11 @@ void UPartyHealthbarsView::CreateHealthbar(FPlayerCombatEntity* aCombatEntity)
 	BW_HorizontalBox->AddChild(partyStatusHealthbar);
 }
 
-void UPartyHealthbarsView::SetHighlightHealthbar(FPlayerCombatEntity* aPlayerCombatEntity, float aOpacity)
+void UPartyHealthbarsView::SetHighlightHealthbar(UPlayerCombatEntity* aPlayerCombatEntity, float aOpacity)
 {
 	for(int i = 0 ; i < healthBars.Num();i++)
 	{
-		if(healthBars[i]->characterName == aPlayerCombatEntity->characterName)
+		if(healthBars[i]->characterName == aPlayerCombatEntity->playerEntityData.characterName)
 		{
 			healthBars[i]->BW_BackgroundHighlight->SetOpacity(aOpacity);	
 		}

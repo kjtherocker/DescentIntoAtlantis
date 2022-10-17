@@ -13,7 +13,7 @@ void UPartyHealthbarElement::UiInitialize()
 
 }
 
-void UPartyHealthbarElement::SetCombatEntity(FPlayerCombatEntity* aCombatEntity)
+void UPartyHealthbarElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 {
 	playerCombatEntity = aCombatEntity;
 	playerCombatEntity->partyHealthbarElement = this;
@@ -23,11 +23,11 @@ void UPartyHealthbarElement::SetCombatEntity(FPlayerCombatEntity* aCombatEntity)
 	}
 	BW_HealthText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->currentHealth)));
 
-	characterName = playerCombatEntity->characterName;
+	characterName = playerCombatEntity->playerEntityData.characterName;
 	
 	BW_Mana->SetPercent(playerCombatEntity->GetManaPercentage());
 	BW_ManaText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->currentMana)));
-	BW_CharacterPortrait->SetBrushFromTexture(playerCombatEntity->characterPortrait);
+	BW_CharacterPortrait->SetBrushFromTexture(playerCombatEntity->playerEntityData.characterPortrait);
 }
 
 void UPartyHealthbarElement::NativeTick(const FGeometry& MyGeometry, float DeltaTime)

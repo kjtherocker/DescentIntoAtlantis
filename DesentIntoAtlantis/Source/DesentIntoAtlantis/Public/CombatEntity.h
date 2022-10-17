@@ -5,8 +5,10 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "EElementalType.h"
-#include "CombatClass.h"
+#include "PressTurnManager.h"
+
 #include "Components/Image.h"
+#include "Engine/DataTable.h"
 #include "CombatEntity.generated.h"
 
 class UEnemyPortraitElement;
@@ -87,10 +89,10 @@ enum class ECharactertype
 //	Rage,
 //};
 
-USTRUCT()
-struct DESENTINTOATLANTIS_API FCombatEntity : public FTableRowBase
+UCLASS()
+class DESENTINTOATLANTIS_API UCombatEntity : public UObject
 {
-	GENERATED_USTRUCT_BODY()
+	GENERATED_BODY()
 
 
 
@@ -114,8 +116,8 @@ public:
 	virtual void SetHealth(int aHealth);
 	
 	virtual PressTurnReactions DecrementHealth(int aDecremenby);
-	virtual int CalculateDamage(FCombatEntity* aAttacker,FSkills_Base* aSkill);
-	virtual PressTurnReactions DecrementHealth(FCombatEntity* aAttacker, FSkills_Base* aSkill);
+	virtual int CalculateDamage(UCombatEntity* aAttacker,FSkills_Base aSkill);
+	virtual PressTurnReactions DecrementHealth(UCombatEntity* aAttacker, FSkills_Base aSkill);
 	
 	virtual void IncrementHealth(int Increment);
 

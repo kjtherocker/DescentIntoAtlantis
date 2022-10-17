@@ -3,19 +3,41 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CombatEntity.h"
 #include "Engine/DataTable.h"
 #include "UObject/NoExportTypes.h"
 #include "Skills_Base.h"
 #include "CombatClass.generated.h"
 
-struct FPlayerCombatEntity;
-struct FClassData;
+class UPlayerCombatEntity;
 class USkillFactory;
-struct FCombatEntity;
+class UCombatEntity;
 
 /**
  * 
  */
+//A combat class is filled with the bases of all stats
+USTRUCT(Atomic)
+struct DESENTINTOATLANTIS_API FClassData :public  FCombatEntityData
+{
+	GENERATED_USTRUCT_BODY()
+
+	
+	UPROPERTY( EditAnywhere )
+	FString className;
+
+	UPROPERTY( EditAnywhere )
+	FString classLevelID;
+	
+	UPROPERTY( EditAnywhere )
+	int expToNextClassLevel;
+
+	UPROPERTY( EditAnywhere )
+	FString newlyObtainedSkill;
+};
+
+
+
 UCLASS()
 class UCombatClass : public UObject
 {
@@ -26,17 +48,22 @@ private:
 	
 public:
 
-	void InitializeDataTable(FString aClassExcelSheet,USkillFactory* aSkillFactory, FPlayerCombatEntity * combatEntity);
+	void InitializeDataTable(UDataTable* aClassDataTable,USkillFactory* aSkillFactory, UPlayerCombatEntity * combatEntity);
 	ConstructorHelpers::FObjectFinder<UObject> ReturnFoundClass(FString aClassExcelSheet);
-	FPlayerCombatEntity* attachedCombatEntity;
-	FClassData* currentClassLevel;
-	TArray<FClassData*> classLevels;
-	TArray<FSkills_Base*> classSkills;
+	UPlayerCombatEntity* attachedCombatEntity;
 
+	UPROPERTY()
+	FClassData currentClassLevel;
+
+	UPROPERTY()
+	TArray<FClassData> classLevels;
+	UPROPERTY()
+	TArray<FSkills_Base> classSkills;
+	UPROPERTY()
 	USkillFactory* skillFactory;
 	
-	void AddExperience(int aExperience);
-	FClassData* Levelup();
+	bool AddExperience(int aExperience);
+	FClassData Levelup();
 	int experience;
 };
 

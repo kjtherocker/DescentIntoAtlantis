@@ -26,7 +26,7 @@ void UPressTurnManager::Initialize(UCombatManager* aCombatManager, ADesentIntoAt
 	}
 }
 
-void UPressTurnManager::SetAmountOfTurns(int aTurnAmount)
+void UPressTurnManager::SetAmountOfTurns(int aTurnAmount, ECharactertype aCharacterType)
 {
 	if(activePressTurns.Num() > 0)
 	{
@@ -42,8 +42,10 @@ void UPressTurnManager::SetAmountOfTurns(int aTurnAmount)
 		activePressTurns.Add(GetInActivePressturns());
 	}
 
+	characterType = aCharacterType;
+	
 	turnCounter = (UTurnCounter*)gameModeBase->InGameHUD->GetActiveHUDView(EViews::TurnCounter, EUiType::PersistentUi);
-	turnCounter->SetTurnOrder(activePressTurns.Num());
+	turnCounter->SetTurnOrder(activePressTurns.Num(),characterType);
 
 }
 
@@ -64,34 +66,35 @@ int UPressTurnManager::GetNumberOfActivePressTurns()
 	return activePressTurns.Num();
 }
 
-void UPressTurnManager::ActivateSkill(FCombatEntity* aAttacker, int aCursorPosition, FSkills_Base* aSkill)
+void UPressTurnManager::ActivateSkill(UCombatEntity* aAttacker, int aCursorPosition, FSkills_Base aSkill)
 {
-	TArray<FCombatEntity*>  enemysInCombat  = TArray<FCombatEntity*>(combatManager->GetEnemysInCombat());
-	TArray<FCombatEntity*> playersInCombat  = TArray<FCombatEntity*>(combatManager->GetPlayersInCombat());
+
+	TArray<UCombatEntity*>  enemyInCombat  = TArray<UCombatEntity*>(combatManager->GetEnemysInCombat());
+	TArray<UCombatEntity*>  playersInCombat  = TArray<UCombatEntity*>(combatManager->GetPlayersInCombat());
 	
-	TArray<FCombatEntity*> entitySkillsAreUsedOn;
+	TArray<UCombatEntity*> entitySkillsAreUsedOn;
 
 	TArray<PressTurnReactions> turnReactions;
 	
 	
 	if(aAttacker->characterType == ECharactertype::Ally)
 	{
-		entitySkillsAreUsedOn = aSkill->SkillType == Attack ? enemysInCombat : playersInCombat;
+		entitySkillsAreUsedOn = aSkill.SkillType == Attack ? enemyInCombat : playersInCombat;
 	}
 	else if(aAttacker->characterType == ECharactertype::Enemy)
 	{
-		entitySkillsAreUsedOn = aSkill->SkillType == Attack ? playersInCombat : enemysInCombat;
+		entitySkillsAreUsedOn = aSkill.SkillType == Attack ? playersInCombat : enemyInCombat;
 	}
 
-	if(aSkill->skillRange == ESkillRange::Single)
+	if(aSkill.skillRange == ESkillRange::Single)
 	{
-		turnReactions.Add(aSkill->UseSkill(aAttacker,entitySkillsAreUsedOn[aCursorPosition]));
+		turnReactions.Add(aSkill.UseSkill(aAttacker,entitySkillsAreUsedOn[aCursorPosition]));
 	}
-	else if (aSkill->skillRange == ESkillRange::Multi)
+	else if (aSkill.skillRange == ESkillRange::Multi)
 	{
 		for(int i = 0 ; i <entitySkillsAreUsedOn.Num();i++)
 		{
-			turnReactions.Add(aSkill->UseSkill(aAttacker,entitySkillsAreUsedOn[i]));
+			turnReactions.Add(aSkill.UseSkill(aAttacker,entitySkillsAreUsedOn[i]));
 		}
 		
 	}
@@ -154,7 +157,7 @@ void UPressTurnManager::ConsumeTurn(int aAmountOfTurnsConsumed)
 		inActivePressTurns.Add(activePressTurns[i]);
 		activePressTurns.RemoveAt(i);
 	}
-	turnCounter->SetTurnOrder(activePressTurns.Num());
+	turnCounter->SetTurnOrder(activePressTurns.Num(),characterType);
 	
 	combatManager->TurnFinished();
 }

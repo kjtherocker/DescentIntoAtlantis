@@ -8,8 +8,7 @@
 #include "Components/Image.h"
 #include "PartyHealthbarElement.generated.h"
 
-struct FPlayerCombatEntity;
-struct FCombatEntity;
+class UPlayerCombatEntity;
 class UTextBlock;
 class UProgressBar;
 /**
@@ -21,12 +20,12 @@ class DESENTINTOATLANTIS_API UPartyHealthbarElement : public UBaseUserWidget
 	GENERATED_BODY()
 	
 	float movementTimer = 0;
-	FPlayerCombatEntity*  playerCombatEntity;
+	UPlayerCombatEntity*  playerCombatEntity;
 public:
 
 	virtual void UiInitialize() override;
 
-	void SetCombatEntity(FPlayerCombatEntity* aCombatEntity);
+	void SetCombatEntity(UPlayerCombatEntity* aCombatEntity);
 	
 	bool isTriggeringHitEffect;
 	virtual void NativeTick(const FGeometry& MyGeometry, float DeltaTime) override;

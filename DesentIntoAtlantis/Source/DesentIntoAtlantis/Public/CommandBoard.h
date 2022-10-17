@@ -11,7 +11,7 @@
 class UCombatManager;
 class UImage;
 class UBorder;
-struct FCombatEntity;
+class UCombatEntity;
 /**
  * 
  */
@@ -54,7 +54,7 @@ private:
 	FLinearColor unhightlighedColor = FLinearColor(0.0,0.0,0.0,1.0);
 	FLinearColor highlightedColor   = FLinearColor(1.0,1.0,1.0,1.0);
 
-	FPlayerCombatEntity* currentActivePartyMember;
+	UPlayerCombatEntity* currentActivePartyMember;
 	
 	int cursorPosition;
 

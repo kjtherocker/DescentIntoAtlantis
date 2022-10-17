@@ -97,7 +97,6 @@ AFloorNode* AFloorManager::GetNode(FVector2D CurrentPosition)
 void AFloorManager::BeginPlay()
 {
 	Super::BeginPlay();
-	
 	cardinalPositions.Add(ECardinalNodeDirections::Up,    FVector2D(-1,0));
 	cardinalPositions.Add(ECardinalNodeDirections::Down,  FVector2D(1,0));
 	cardinalPositions.Add(ECardinalNodeDirections::Left,  FVector2D(0,-1));

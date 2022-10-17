@@ -6,40 +6,40 @@
 
 
 
-void FCombatEntity::SetTacticsEntity(USkillFactory* aSkillFactory)
+void UCombatEntity::SetTacticsEntity(USkillFactory* aSkillFactory)
 {
 }
 
-void FCombatEntity::EndTurn()
+void UCombatEntity::EndTurn()
 {
 }
 
 
 
-void FCombatEntity::SetHealth(int aHealth)
+void UCombatEntity::SetHealth(int aHealth)
 {
 //    currentHealth = currentClass->currentClassLevel->maxHealth;
 }
 
-PressTurnReactions FCombatEntity::DecrementHealth(int aDecremenby)
+PressTurnReactions UCombatEntity::DecrementHealth(int aDecremenby)
 {
     currentHealth -= aDecremenby;
     return PressTurnReactions::Normal;
 }
 
-int FCombatEntity::CalculateDamage(FCombatEntity* aAttacker, FSkills_Base* aSkill)
+int UCombatEntity::CalculateDamage(UCombatEntity* aAttacker, FSkills_Base aSkill)
 {
-    int decementBy = aSkill->damage;
+    int decementBy = aSkill.damage;
 
-    decementBy += aSkill->skillDamageType == ESkillDamageType::Strength ?
+    decementBy += aSkill.skillDamageType == ESkillDamageType::Strength ?
         aAttacker->StrengthAbilityScore.GetAllStats() / DAMAGE_CONVERSION_RATIO
       : aAttacker->MagicAbilityScore.GetAllStats()    / DAMAGE_CONVERSION_RATIO;
 	
-    if (aSkill->elementalType == ElementalWeakness)
+    if (aSkill.elementalType == ElementalWeakness)
     {
         decementBy = decementBy * WEAK_DAMAGE_INCREASE;
     }
-    if (aSkill->elementalType == ElementalStrength)
+    if (aSkill.elementalType == ElementalStrength)
     {
         decementBy = decementBy * STRONG_DAMAGE_REDUCTION;
     }
@@ -47,15 +47,15 @@ int FCombatEntity::CalculateDamage(FCombatEntity* aAttacker, FSkills_Base* aSkil
     return decementBy;
 }
 
-PressTurnReactions FCombatEntity::DecrementHealth(FCombatEntity* aAttacker, FSkills_Base* aSkill)
+PressTurnReactions UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkills_Base aSkill)
 {
     PressTurnReactions reaction = PressTurnReactions::Normal;
 	    
-    if (aSkill->elementalType == ElementalWeakness)
+    if (aSkill.elementalType == ElementalWeakness)
     {
         reaction =  PressTurnReactions::Weak;
     }
-    if (aSkill->elementalType ==  ElementalStrength)
+    if (aSkill.elementalType ==  ElementalStrength)
     {
         reaction =  PressTurnReactions::Strong;
     }
@@ -70,21 +70,21 @@ PressTurnReactions FCombatEntity::DecrementHealth(FCombatEntity* aAttacker, FSki
 }
 
 
-void FCombatEntity::IncrementHealth(int Increment)
+void UCombatEntity::IncrementHealth(int Increment)
 {
     currentHealth += Increment;
 }
 
-ECharactertype FCombatEntity::GetCharactertype()
+ECharactertype UCombatEntity::GetCharactertype()
 {
     return characterType;
 }
 
-void FCombatEntity::Resurrection()
+void UCombatEntity::Resurrection()
 {
 }
 
-void FCombatEntity::DeathCheck()
+void UCombatEntity::DeathCheck()
 {
     if(currentHealth <= 0)
     {
@@ -92,20 +92,20 @@ void FCombatEntity::DeathCheck()
     }
 }
 
-void FCombatEntity::Death()
+void UCombatEntity::Death()
 {
 }
 
-void FCombatEntity::ActivateDamageHitEffect()
+void UCombatEntity::ActivateDamageHitEffect()
 {
 }
 
-float FCombatEntity::GetHealthPercentage()
+float UCombatEntity::GetHealthPercentage()
 {
     return 0;
 }
 
-float FCombatEntity::GetPotentialHealthPercentage(int aDamage)
+float UCombatEntity::GetPotentialHealthPercentage(int aDamage)
 {
     int tempCurrentHealth = currentHealth;
     tempCurrentHealth -= aDamage;
@@ -114,12 +114,12 @@ float FCombatEntity::GetPotentialHealthPercentage(int aDamage)
     
 }
 
-float FCombatEntity::GetManaPercentage()
+float UCombatEntity::GetManaPercentage()
 {
     return 0;
 }
 
-bool FCombatEntity::GetIsMarkedForDeath()
+bool UCombatEntity::GetIsMarkedForDeath()
 {
     return isMarkedForDeath;
 }

@@ -5,54 +5,56 @@
 #include "CoreMinimal.h"
 #include "CombatEntity.h"
 #include "UObject/NoExportTypes.h"
+#include "CombatClass.h"
 #include "PlayerCombatEntity.generated.h"
 
+enum class EDataTableClasses;
 class UPartyHealthbarElement;
 /**
  * 
  */
+
 USTRUCT()
-struct DESENTINTOATLANTIS_API FPlayerCombatEntity : public FCombatEntity
+struct DESENTINTOATLANTIS_API FPlayerEntityData
 {
 	GENERATED_USTRUCT_BODY()
-	UCombatClass* baseClass;
 	UPROPERTY( EditAnywhere )
-	FString classDataTablePath;
+	EDataTableClasses DataTableClass;
 	
 	UPROPERTY( EditAnywhere )
 	FString characterName;
-
-	UPartyHealthbarElement* partyHealthbarElement;
 	
 	UPROPERTY( EditAnywhere )
 	UTexture2D* characterPortrait;
 	UPROPERTY( EditAnywhere )
 	UTexture2D* fullBodyCharacterPortrait;
+};
+
+UCLASS()
+class DESENTINTOATLANTIS_API UPlayerCombatEntity : public UCombatEntity
+{
+	GENERATED_BODY()
+private:
+	USkillFactory* skillFactory;
+
+public:
 	
+	UPROPERTY()
+	UCombatClass* baseClass;
+	
+	UPROPERTY()
+	FPlayerEntityData playerEntityData;
+	UPROPERTY()
+	UPartyHealthbarElement* partyHealthbarElement;
+
+
+	virtual void SetPlayerEntity(FPlayerEntityData aPlayerEntityData);
 	virtual void SetTacticsEntity(USkillFactory* aSkillFactory) override;
+	virtual void SetPlayerClass(UDataTable*EDataTableClasses);
 	virtual void ActivateDamageHitEffect() override;
 	void SetAbilityScores();
 	virtual float GetHealthPercentage() override;
 	virtual float GetManaPercentage()   override;
 };
 
-//A combat class is filled with the bases of all stats
-USTRUCT()
-struct DESENTINTOATLANTIS_API FClassData :public  FCombatEntityData
-{
-	GENERATED_USTRUCT_BODY()
-
-	
-	UPROPERTY( EditAnywhere )
-	FString className;
-
-	UPROPERTY( EditAnywhere )
-	FString classLevelID;
-	
-	UPROPERTY( EditAnywhere )
-	int expToNextClassLevel;
-
-	UPROPERTY( EditAnywhere )
-	FString newlyObtainedSkill;
-};
 
