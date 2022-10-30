@@ -6,7 +6,7 @@
 #include "CombatEntity.h"
 #include "Engine/DataTable.h"
 #include "UObject/NoExportTypes.h"
-#include "Skills_Base.h"
+#include "SkillsData.h"
 #include "CombatClass.generated.h"
 
 class UPlayerCombatEntity;
@@ -50,6 +50,8 @@ public:
 
 	void InitializeDataTable(UDataTable* aClassDataTable,USkillFactory* aSkillFactory, UPlayerCombatEntity * combatEntity);
 	ConstructorHelpers::FObjectFinder<UObject> ReturnFoundClass(FString aClassExcelSheet);
+
+	UPROPERTY()
 	UPlayerCombatEntity* attachedCombatEntity;
 
 	UPROPERTY()
@@ -58,7 +60,7 @@ public:
 	UPROPERTY()
 	TArray<FClassData> classLevels;
 	UPROPERTY()
-	TArray<FSkills_Base> classSkills;
+	TArray<USkillBase*> classSkills;
 	UPROPERTY()
 	USkillFactory* skillFactory;
 	

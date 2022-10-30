@@ -8,26 +8,26 @@
 #include "Components/ProgressBar.h"
 #include "Components/TextBlock.h"
 
-void UPartyHealthbarElement::UiInitialize()
+void UPartyHealthbarElement::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 {
-
+	Super::UiInitialize(aGameModeBase);
 }
 
 void UPartyHealthbarElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 {
 	playerCombatEntity = aCombatEntity;
 	playerCombatEntity->partyHealthbarElement = this;
-	if(playerCombatEntity->maxHealth != 0)
-	{
-		BW_Health->SetPercent(playerCombatEntity->GetHealthPercentage());
-	}
-	BW_HealthText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->currentHealth)));
 
+	aCombatEntity->wasDamaged.AddDynamic(this,
+		&UPartyHealthbarElement::TriggerHitEffect);
+	
+	aCombatEntity->hasHealthOrManaValuesChanged.AddDynamic(this,
+		&UPartyHealthbarElement::UpdateHealthbarElements);
+	
 	characterName = playerCombatEntity->playerEntityData.characterName;
 	
-	BW_Mana->SetPercent(playerCombatEntity->GetManaPercentage());
-	BW_ManaText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->currentMana)));
 	BW_CharacterPortrait->SetBrushFromTexture(playerCombatEntity->playerEntityData.characterPortrait);
+	UpdateHealthbarElements();
 }
 
 void UPartyHealthbarElement::NativeTick(const FGeometry& MyGeometry, float DeltaTime)
@@ -37,6 +37,15 @@ void UPartyHealthbarElement::NativeTick(const FGeometry& MyGeometry, float Delta
 	{
 		HitEffect(DeltaTime);
 	}
+}
+
+void UPartyHealthbarElement::UpdateHealthbarElements()
+{
+	BW_Health->SetPercent(playerCombatEntity->GetHealthPercentage());
+	BW_HealthText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->currentHealth)));
+	
+	BW_Mana->SetPercent(playerCombatEntity->GetManaPercentage());
+	BW_ManaText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->currentMana)));
 }
 
 void UPartyHealthbarElement::HitEffect(float DeltaTime)
@@ -53,10 +62,20 @@ void UPartyHealthbarElement::HitEffect(float DeltaTime)
 	BW_CharacterPortrait->SetColorAndOpacity(FLinearColor(1,movementTimer,movementTimer,1));
 }
 
-void UPartyHealthbarElement::UpdateHealthBar()
+void UPartyHealthbarElement::TriggerHitEffect()
 {
-	BW_Health->SetPercent(playerCombatEntity->GetHealthPercentage());
+	UpdateHealthbarElements();
 	isTriggeringHitEffect = true;
+}
+
+void UPartyHealthbarElement::MoveUp()
+{
+	SetRenderTranslation(FVector2d(0,MOVEUP_TRANSLATION_OFFSET));
+}
+
+void UPartyHealthbarElement::ResetTranslation()
+{
+	SetRenderTranslation(FVector2d(0,0));
 }
 
 

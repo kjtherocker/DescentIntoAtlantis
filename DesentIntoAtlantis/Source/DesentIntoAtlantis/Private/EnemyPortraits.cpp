@@ -4,12 +4,13 @@
 
 #include "CombatManager.h"
 #include "EnemyPortraitElement.h"
+#include "EnemyCombatEntity.h"
 #include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
 #include "Kismet/GameplayStatics.h"
 
-void UEnemyPortraits::UiInitialize()
+void UEnemyPortraits::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 {
-	Super::UiInitialize();
+	Super::UiInitialize(aGameModeBase);
 	
 	Portraits.Add(BW_Portrait1);
 	Portraits.Add(BW_Portrait2);
@@ -27,15 +28,11 @@ void UEnemyPortraits::UiInitialize()
 void UEnemyPortraits::NativeTick(const FGeometry& MyGeometry, float DeltaTime)
 {
 	Super::NativeTick(MyGeometry, DeltaTime);
-
-	int testo = 0;
 }
 
 void UEnemyPortraits::SetEnemyPortraits(UEnemyPortraitElement* aImage, UEnemyCombatEntity* AEnemyCombatEntity)
 {
-	AEnemyCombatEntity->imageBodyPortrait = aImage;
-	
-	aImage->BW_Portrait->SetBrushFromTexture(AEnemyCombatEntity->enemyEntityData.fullBodyCharacterPortrait);
+	aImage->SetCombatEntity(AEnemyCombatEntity);
 }
 
 

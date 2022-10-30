@@ -9,16 +9,91 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCombatEntity() {}
 // Cross Module References
-	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCombatEntityData();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EAbilityScoreTypes();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCombatEntityData();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EElementalType();
-	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCombatAbilityStats();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatAbilityStats_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatAbilityStats();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECharactertype();
+	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasBeenDamaged__DelegateSignature();
+	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature();
+	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasHealthOrManaValuesChanged__DelegateSignature();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatEntity_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatEntity();
-	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
 // End Cross Module References
+	static FEnumRegistrationInfo Z_Registration_Info_UEnum_EAbilityScoreTypes;
+	static UEnum* EAbilityScoreTypes_StaticEnum()
+	{
+		if (!Z_Registration_Info_UEnum_EAbilityScoreTypes.OuterSingleton)
+		{
+			Z_Registration_Info_UEnum_EAbilityScoreTypes.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_DesentIntoAtlantis_EAbilityScoreTypes, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("EAbilityScoreTypes"));
+		}
+		return Z_Registration_Info_UEnum_EAbilityScoreTypes.OuterSingleton;
+	}
+	template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EAbilityScoreTypes>()
+	{
+		return EAbilityScoreTypes_StaticEnum();
+	}
+	struct Z_Construct_UEnum_DesentIntoAtlantis_EAbilityScoreTypes_Statics
+	{
+		static const UECodeGen_Private::FEnumeratorParam Enumerators[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FEnumParams EnumParams;
+	};
+	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_EAbilityScoreTypes_Statics::Enumerators[] = {
+		{ "EAbilityScoreTypes::Undefined", (int64)EAbilityScoreTypes::Undefined },
+		{ "EAbilityScoreTypes::Strength", (int64)EAbilityScoreTypes::Strength },
+		{ "EAbilityScoreTypes::Magic", (int64)EAbilityScoreTypes::Magic },
+		{ "EAbilityScoreTypes::Hit", (int64)EAbilityScoreTypes::Hit },
+		{ "EAbilityScoreTypes::Evasion", (int64)EAbilityScoreTypes::Evasion },
+		{ "EAbilityScoreTypes::Defence", (int64)EAbilityScoreTypes::Defence },
+		{ "EAbilityScoreTypes::Resistance", (int64)EAbilityScoreTypes::Resistance },
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EAbilityScoreTypes_Statics::Enum_MetaDataParams[] = {
+		{ "Comment", "/**\n * \n */" },
+		{ "Defence.Comment", "/**\n * \n */" },
+		{ "Defence.Name", "EAbilityScoreTypes::Defence" },
+		{ "Evasion.Comment", "/**\n * \n */" },
+		{ "Evasion.Name", "EAbilityScoreTypes::Evasion" },
+		{ "Hit.Comment", "/**\n * \n */" },
+		{ "Hit.Name", "EAbilityScoreTypes::Hit" },
+		{ "Magic.Comment", "/**\n * \n */" },
+		{ "Magic.Name", "EAbilityScoreTypes::Magic" },
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+		{ "Resistance.Comment", "/**\n * \n */" },
+		{ "Resistance.Name", "EAbilityScoreTypes::Resistance" },
+		{ "Strength.Comment", "/**\n * \n */" },
+		{ "Strength.Name", "EAbilityScoreTypes::Strength" },
+		{ "Undefined.Comment", "/**\n * \n */" },
+		{ "Undefined.Name", "EAbilityScoreTypes::Undefined" },
+	};
+#endif
+	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_DesentIntoAtlantis_EAbilityScoreTypes_Statics::EnumParams = {
+		(UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		nullptr,
+		"EAbilityScoreTypes",
+		"EAbilityScoreTypes",
+		Z_Construct_UEnum_DesentIntoAtlantis_EAbilityScoreTypes_Statics::Enumerators,
+		UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EAbilityScoreTypes_Statics::Enumerators),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EEnumFlags::None,
+		(uint8)UEnum::ECppForm::EnumClass,
+		METADATA_PARAMS(Z_Construct_UEnum_DesentIntoAtlantis_EAbilityScoreTypes_Statics::Enum_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EAbilityScoreTypes_Statics::Enum_MetaDataParams))
+	};
+	UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EAbilityScoreTypes()
+	{
+		if (!Z_Registration_Info_UEnum_EAbilityScoreTypes.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_EAbilityScoreTypes.InnerSingleton, Z_Construct_UEnum_DesentIntoAtlantis_EAbilityScoreTypes_Statics::EnumParams);
+		}
+		return Z_Registration_Info_UEnum_EAbilityScoreTypes.InnerSingleton;
+	}
 
 static_assert(std::is_polymorphic<FCombatEntityData>() == std::is_polymorphic<FTableRowBase>(), "USTRUCT FCombatEntityData cannot be polymorphic unless super FTableRowBase is polymorphic");
 
@@ -88,7 +163,6 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntityData>
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCombatEntityData_Statics::Struct_MetaDataParams[] = {
-		{ "Comment", "/**\n * \n */" },
 		{ "ModuleRelativePath", "Public/CombatEntity.h" },
 	};
 #endif
@@ -203,60 +277,64 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntityData>
 		}
 		return Z_Registration_Info_UScriptStruct_CombatEntityData.InnerSingleton;
 	}
-
-static_assert(std::is_polymorphic<FCombatAbilityStats>() == std::is_polymorphic<FTableRowBase>(), "USTRUCT FCombatAbilityStats cannot be polymorphic unless super FTableRowBase is polymorphic");
-
-	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_CombatAbilityStats;
-class UScriptStruct* FCombatAbilityStats::StaticStruct()
-{
-	if (!Z_Registration_Info_UScriptStruct_CombatAbilityStats.OuterSingleton)
+	void UCombatAbilityStats::StaticRegisterNativesUCombatAbilityStats()
 	{
-		Z_Registration_Info_UScriptStruct_CombatAbilityStats.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FCombatAbilityStats, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("CombatAbilityStats"));
 	}
-	return Z_Registration_Info_UScriptStruct_CombatAbilityStats.OuterSingleton;
-}
-template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatAbilityStats>()
-{
-	return FCombatAbilityStats::StaticStruct();
-}
-	struct Z_Construct_UScriptStruct_FCombatAbilityStats_Statics
+	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UCombatAbilityStats);
+	UClass* Z_Construct_UClass_UCombatAbilityStats_NoRegister()
 	{
+		return UCombatAbilityStats::StaticClass();
+	}
+	struct Z_Construct_UClass_UCombatAbilityStats_Statics
+	{
+		static UObject* (*const DependentSingletons[])();
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
-		static void* NewStructOps();
-		static const UECodeGen_Private::FStructParams ReturnStructParams;
+		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
+		static const UECodeGen_Private::FClassParams ClassParams;
+	};
+	UObject* (*const Z_Construct_UClass_UCombatAbilityStats_Statics::DependentSingletons[])() = {
+		(UObject* (*)())Z_Construct_UClass_UObject,
+		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCombatAbilityStats_Statics::Struct_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatAbilityStats_Statics::Class_MetaDataParams[] = {
+		{ "IncludePath", "CombatEntity.h" },
 		{ "ModuleRelativePath", "Public/CombatEntity.h" },
 	};
 #endif
-	void* Z_Construct_UScriptStruct_FCombatAbilityStats_Statics::NewStructOps()
-	{
-		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FCombatAbilityStats>();
-	}
-	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FCombatAbilityStats_Statics::ReturnStructParams = {
-		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
-		Z_Construct_UScriptStruct_FTableRowBase,
-		&NewStructOps,
-		"CombatAbilityStats",
-		sizeof(FCombatAbilityStats),
-		alignof(FCombatAbilityStats),
-		nullptr,
-		0,
-		RF_Public|RF_Transient|RF_MarkAsNative,
-		EStructFlags(0x00000201),
-		METADATA_PARAMS(Z_Construct_UScriptStruct_FCombatAbilityStats_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCombatAbilityStats_Statics::Struct_MetaDataParams))
+	const FCppClassTypeInfoStatic Z_Construct_UClass_UCombatAbilityStats_Statics::StaticCppClassTypeInfo = {
+		TCppClassTypeTraits<UCombatAbilityStats>::IsAbstract,
 	};
-	UScriptStruct* Z_Construct_UScriptStruct_FCombatAbilityStats()
+	const UECodeGen_Private::FClassParams Z_Construct_UClass_UCombatAbilityStats_Statics::ClassParams = {
+		&UCombatAbilityStats::StaticClass,
+		nullptr,
+		&StaticCppClassTypeInfo,
+		DependentSingletons,
+		nullptr,
+		nullptr,
+		nullptr,
+		UE_ARRAY_COUNT(DependentSingletons),
+		0,
+		0,
+		0,
+		0x001000A0u,
+		METADATA_PARAMS(Z_Construct_UClass_UCombatAbilityStats_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatAbilityStats_Statics::Class_MetaDataParams))
+	};
+	UClass* Z_Construct_UClass_UCombatAbilityStats()
 	{
-		if (!Z_Registration_Info_UScriptStruct_CombatAbilityStats.InnerSingleton)
+		if (!Z_Registration_Info_UClass_UCombatAbilityStats.OuterSingleton)
 		{
-			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_CombatAbilityStats.InnerSingleton, Z_Construct_UScriptStruct_FCombatAbilityStats_Statics::ReturnStructParams);
+			UECodeGen_Private::ConstructUClass(Z_Registration_Info_UClass_UCombatAbilityStats.OuterSingleton, Z_Construct_UClass_UCombatAbilityStats_Statics::ClassParams);
 		}
-		return Z_Registration_Info_UScriptStruct_CombatAbilityStats.InnerSingleton;
+		return Z_Registration_Info_UClass_UCombatAbilityStats.OuterSingleton;
 	}
+	template<> DESENTINTOATLANTIS_API UClass* StaticClass<UCombatAbilityStats>()
+	{
+		return UCombatAbilityStats::StaticClass();
+	}
+	DEFINE_VTABLE_PTR_HELPER_CTOR(UCombatAbilityStats);
 	static FEnumRegistrationInfo Z_Registration_Info_UEnum_ECharactertype;
 	static UEnum* ECharactertype_StaticEnum()
 	{
@@ -311,8 +389,110 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatAbilityStat
 		}
 		return Z_Registration_Info_UEnum_ECharactertype.InnerSingleton;
 	}
+	struct Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasBeenDamaged__DelegateSignature_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasBeenDamaged__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "//UENUM()\n//class enum ECreaturesAilment\n//{\n//\x09None,\n//\x09Poison,\n//\x09""Daze,\n//\x09Sleep,\n//\x09Rage,\n//};\n" },
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+		{ "ToolTip", "UENUM()\nclass enum ECreaturesAilment\n{\n       None,\n       Poison,\n       Daze,\n       Sleep,\n       Rage,\n};" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasBeenDamaged__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis, nullptr, "HasBeenDamaged__DelegateSignature", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasBeenDamaged__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasBeenDamaged__DelegateSignature_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasBeenDamaged__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasBeenDamaged__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis, nullptr, "WasKilled__DelegateSignature", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasHealthOrManaValuesChanged__DelegateSignature_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasHealthOrManaValuesChanged__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasHealthOrManaValuesChanged__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis, nullptr, "HasHealthOrManaValuesChanged__DelegateSignature", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasHealthOrManaValuesChanged__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasHealthOrManaValuesChanged__DelegateSignature_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasHealthOrManaValuesChanged__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasHealthOrManaValuesChanged__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	DEFINE_FUNCTION(UCombatEntity::execEndTurn)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->EndTurn();
+		P_NATIVE_END;
+	}
 	void UCombatEntity::StaticRegisterNativesUCombatEntity()
 	{
+		UClass* Class = UCombatEntity::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "EndTurn", &UCombatEntity::execEndTurn },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UCombatEntity_EndTurn_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCombatEntity_EndTurn_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCombatEntity_EndTurn_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCombatEntity, nullptr, "EndTurn", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020400, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UCombatEntity_EndTurn_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatEntity_EndTurn_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UCombatEntity_EndTurn()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCombatEntity_EndTurn_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UCombatEntity);
 	UClass* Z_Construct_UClass_UCombatEntity_NoRegister()
@@ -322,6 +502,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatAbilityStat
 	struct Z_Construct_UClass_UCombatEntity_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -332,12 +513,13 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatAbilityStat
 		(UObject* (*)())Z_Construct_UClass_UObject,
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
 	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_UCombatEntity_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UCombatEntity_EndTurn, "EndTurn" }, // 1192934819
+	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatEntity_Statics::Class_MetaDataParams[] = {
-		{ "Comment", "//UENUM()\n//class enum ECreaturesAilment\n//{\n//\x09None,\n//\x09Poison,\n//\x09""Daze,\n//\x09Sleep,\n//\x09Rage,\n//};\n" },
 		{ "IncludePath", "CombatEntity.h" },
 		{ "ModuleRelativePath", "Public/CombatEntity.h" },
-		{ "ToolTip", "UENUM()\nclass enum ECreaturesAilment\n{\n       None,\n       Poison,\n       Daze,\n       Sleep,\n       Rage,\n};" },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCombatEntity_Statics::StaticCppClassTypeInfo = {
@@ -348,11 +530,11 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatAbilityStat
 		nullptr,
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		nullptr,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		0,
 		0,
 		0x001000A0u,
@@ -378,16 +560,17 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatAbilityStat
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::EnumInfo[] = {
+		{ EAbilityScoreTypes_StaticEnum, TEXT("EAbilityScoreTypes"), &Z_Registration_Info_UEnum_EAbilityScoreTypes, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2976405321U) },
 		{ ECharactertype_StaticEnum, TEXT("ECharactertype"), &Z_Registration_Info_UEnum_ECharactertype, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4018082004U) },
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo[] = {
-		{ FCombatEntityData::StaticStruct, Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewStructOps, TEXT("CombatEntityData"), &Z_Registration_Info_UScriptStruct_CombatEntityData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatEntityData), 2239992258U) },
-		{ FCombatAbilityStats::StaticStruct, Z_Construct_UScriptStruct_FCombatAbilityStats_Statics::NewStructOps, TEXT("CombatAbilityStats"), &Z_Registration_Info_UScriptStruct_CombatAbilityStats, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatAbilityStats), 3676810248U) },
+		{ FCombatEntityData::StaticStruct, Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewStructOps, TEXT("CombatEntityData"), &Z_Registration_Info_UScriptStruct_CombatEntityData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatEntityData), 2337549904U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCombatEntity, UCombatEntity::StaticClass, TEXT("UCombatEntity"), &Z_Registration_Info_UClass_UCombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatEntity), 2800046440U) },
+		{ Z_Construct_UClass_UCombatAbilityStats, UCombatAbilityStats::StaticClass, TEXT("UCombatAbilityStats"), &Z_Registration_Info_UClass_UCombatAbilityStats, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatAbilityStats), 3393592517U) },
+		{ Z_Construct_UClass_UCombatEntity, UCombatEntity::StaticClass, TEXT("UCombatEntity"), &Z_Registration_Info_UClass_UCombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatEntity), 3717844487U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_3476624711(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_577056606(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::EnumInfo));

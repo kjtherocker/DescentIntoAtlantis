@@ -15,7 +15,7 @@
 #include "FloorManager.generated.h"
 
 
-struct FSkills_Base;
+struct FSkillsData;
 UCLASS()
 class DESENTINTOATLANTIS_API AFloorManager : public AActor
 {
@@ -24,25 +24,21 @@ class DESENTINTOATLANTIS_API AFloorManager : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AFloorManager();
-	void CreateGrid(UFloorBase* aFloor);
+	void Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase);
 	
+	void CreateGrid(UFloorBase* aFloor);
+	void CreateFloor(EFloorIdentifier aFloorIdentifier);
 	void SpawnFloorNode(int aRow, int aColumn,int aIndex);
-	void SpawnFloorEnemyPawn();
+	void SpawnFloorEnemyPawn(FVector2D aPositionInGrid);
 	void SpawnFloor(UFloorBase* aFloorBase);
 	
 	AFloorNode* GetNodeInDirection(FVector2D CurrentPosition,ECardinalNodeDirections TargetDirection);
 	AFloorNode* GetNode(FVector2D CurrentPosition);
 
-	//UPROPERTY()
+	UPROPERTY()
 	TArray<AFloorNode*> floorNodes;
-	
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Animation, meta = (AllowPrivateAccess = "true"))
-	UDataTable* datatable;
-	
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> floorNodeReference;
-	UPROPERTY(EditAnywhere)
-    TSubclassOf<AActor> floorPawnReference;
 	UPROPERTY(EditAnywhere)
     TSubclassOf<AActor> floorEnemyPawnReference;
 
@@ -52,14 +48,14 @@ protected:
 	
 	UPROPERTY()
 	TMap<EFloorIdentifier,UFloorBase*> floorDictionary;
+	UPROPERTY()
 	UFloorBase* currentFloor;
 	TMap<ECardinalNodeDirections, FVector2D>  cardinalPositions;
 	
 private:
 	void SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes);
-
-	FSkills_Base* skillbasetest;
-	
+	void SetPlayerPosition(FVector2D aStartPositionInGrid);
+	ADesentIntoAtlantisGameModeBase* gameModeBase;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

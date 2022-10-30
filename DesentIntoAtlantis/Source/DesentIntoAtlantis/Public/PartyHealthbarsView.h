@@ -20,7 +20,7 @@ class DESENTINTOATLANTIS_API UPartyHealthbarsView : public UBaseUserWidget
 
 public:
 
-	virtual void UiInitialize() override;
+	virtual void UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase) override;
 	void CreateHealthbar(UPlayerCombatEntity* aCombatEntity);
 	void SetHighlightHealthbar(UPlayerCombatEntity* aPlayerCombatEntity, float aOpacity);
 	

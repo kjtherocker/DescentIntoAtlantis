@@ -15,51 +15,66 @@ class UCombatEntity;
 /**
  * 
  */
+UENUM()
+enum class ECommandBoardStates
+{
+	Attack = 0,
+	Skill  = 1,
+	Item   = 2,
+	Escape = 3,
+	Pass   = 4
+};
+
+
 UCLASS()
 class DESENTINTOATLANTIS_API UCommandBoard : public UBaseUserWidget
 {
 	GENERATED_BODY()
-	virtual void UiInitialize() override;
+	virtual void UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase) override;
 
 private:
-
 	UCombatManager* combatManager;
-	
+	TMap<ECommandBoardStates,FViewSelection > commandboardSelections;
+	FViewSelection commandBoardSelectionAttack;
+	FViewSelection commandBoardSelectionSkill;
+	FViewSelection commandBoardSelectionItem;
+	FViewSelection commandBoardSelectionEscape;
+	FViewSelection commandBoardSelectionPass;
+
+	UPROPERTY()
+	USkillAttack* defaultAttack;
 	protected:
 
+	TArray<FViewSelection> commandBoardSelections;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UBorder* B_Attack;
+	UBorder* BW_Attack;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	 UBorder* B_Skill;
-
-	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-     UBorder* B_Domain;
+	 UBorder* BW_Skill;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	 UBorder* B_Item;
-	
-	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	 UBorder* B_Escape;
+	 UBorder* BW_Escape;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	 UBorder* B_Pass;
+	 UBorder* BW_Pass;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_FullBodyPortrait;
 	
+	UPROPERTY()
 	TArray<UBorder*> commandBoards;
 
-	FLinearColor unhightlighedColor = FLinearColor(0.0,0.0,0.0,1.0);
-	FLinearColor highlightedColor   = FLinearColor(1.0,1.0,1.0,1.0);
-
-	UPlayerCombatEntity* currentActivePartyMember;
 	
-	int cursorPosition;
 
-	void MoveUp();
-	void MoveDown();
+
+	UPROPERTY()
+	UPlayerCombatEntity* currentActivePartyMember;
+
+
+	virtual void SetCursorPositionInfo() override;
+	virtual void MoveUp() override;
+	virtual void MoveDown() override;
 	
 	const FString folderpath = "/Game/Ui/uiTextures";
 
@@ -73,6 +88,10 @@ private:
 	
 	UFUNCTION()
 	void Attack();
-	
-	void Testo();
+	UFUNCTION()
+	void Skill();
+	UFUNCTION()
+	void Escape();
+	UFUNCTION()
+	void Pass();
 };

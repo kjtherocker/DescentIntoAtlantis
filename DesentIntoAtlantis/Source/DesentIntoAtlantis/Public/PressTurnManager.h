@@ -5,25 +5,17 @@
 #include "CoreMinimal.h"
 #include "PressTurnManager.generated.h"
 
+enum class PressTurnReactions;
+class USkillBase;
 enum class ECharactertype;
 class UTurnCounter;
 class ADesentIntoAtlantisGameModeBase;
 class UCombatEntity;
 class UCombatManager;
-struct FSkills_Base;
+struct FSkillsData;
 /**
  * 
  */
-UENUM()
-enum class  PressTurnReactions
-{
-	Normal,
-	Weak,
-	Strong,
-	Dodge,
-	Null,
-	Pass
-};
 
 UCLASS()
 class DESENTINTOATLANTIS_API UPressTurn : public UObject
@@ -41,15 +33,22 @@ class DESENTINTOATLANTIS_API UPressTurnManager : public UObject
 	GENERATED_BODY()
 
 private:
+	UPROPERTY()
 	UCombatManager* combatManager;
 	const int AMOUNT_OF_PRESSTURNS = 10;
 
+	UPROPERTY()
 	ADesentIntoAtlantisGameModeBase* gameModeBase;
+	UPROPERTY()
 	UTurnCounter* turnCounter;
-	
+	UPROPERTY()
 	TArray<UPressTurn*> activePressTurns;
+	UPROPERTY()
 	TArray<UPressTurn*> inActivePressTurns;
 	ECharactertype characterType;
+	
+	void ConsumeTurn(int aAmountOfTurnsConsumed);
+	void EmpowerTurn();
 public:
 	
 
@@ -59,11 +58,10 @@ public:
 
 	void SetAmountOfTurns(int aTurnAmount, ECharactertype aCharacterType );
 	
-	void ActivateSkill(UCombatEntity* aAttacker,int aCursorPosition,FSkills_Base aSkill);
+	void ActivateSkill(UCombatEntity* aAttacker, int aCursorPosition, USkillBase* aSkill);
 	
 	void ProcessTurn(TArray<PressTurnReactions> aAllTurnReactions);
-	void ConsumeTurn(int aAmountOfTurnsConsumed);
-	void EmpowerTurn();
+
 
 
 };

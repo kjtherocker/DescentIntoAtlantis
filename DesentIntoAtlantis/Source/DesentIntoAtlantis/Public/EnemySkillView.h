@@ -18,7 +18,7 @@ class DESENTINTOATLANTIS_API UEnemySkillView : public UBaseUserWidget
 	GENERATED_BODY()
 
 public:
-	void SetSkill(FSkills_Base aSkill, UEnemyCombatEntity* aEnemyCombatEntity);
+	void SetSkill(FSkillsData aSkill, UEnemyCombatEntity* aEnemyCombatEntity);
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_SkillIcon;

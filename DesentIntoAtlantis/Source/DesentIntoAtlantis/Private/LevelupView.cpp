@@ -25,7 +25,7 @@ void ULevelupView::SetupLevelupView(UPlayerCombatEntity* aPlayerCombatEntity)
 	
 	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 	
-	FSkills_Base newSKill = GameModeBase->skillFactory->GetSkill(nextClassLevel.newlyObtainedSkill);
+	FSkillsData newSKill = GameModeBase->skillFactory->GetSkill(nextClassLevel.newlyObtainedSkill)->skillData;
 	
 	BW_Skillbar->SetSkill(newSKill);
 
@@ -36,27 +36,27 @@ void ULevelupView::SetupLevelupView(UPlayerCombatEntity* aPlayerCombatEntity)
 	BW_PreviousLevelNumber->SetText(FText(FText::FromString(currentClassLevel.classLevelID)));
 	BW_CurrentLevelNumber->SetText(FText(FText::FromString(nextClassLevel.classLevelID)));
 	
-	BW_StrengthLevelpanel->Initialize(FString("Str"),
+	BW_StrengthLevelpanel->SetLevelupPanelElement(FString("Str"),
 		FString::FromInt(currentClassLevel.baseStrength),
 		  FString::FromInt(nextClassLevel.baseStrength));
 
-	BW_MagicLevelPanel->Initialize(FString("Mag"),
+	BW_MagicLevelPanel->SetLevelupPanelElement(FString("Mag"),
 	FString::FromInt(currentClassLevel.baseMagic),
 	  FString::FromInt(nextClassLevel.baseMagic));
 
-	BW_HitLevelPanel->Initialize(FString("Hit"),
+	BW_HitLevelPanel->SetLevelupPanelElement(FString("Hit"),
 	FString::FromInt(currentClassLevel.baseHit),
 	  FString::FromInt(nextClassLevel.baseHit));
 
-	BW_EvasionLevelPanel->Initialize(FString("Eva"),
+	BW_EvasionLevelPanel->SetLevelupPanelElement(FString("Eva"),
 	FString::FromInt(currentClassLevel.baseEvasion),
 	  FString::FromInt(nextClassLevel.baseEvasion));
 
-	BW_DefencePanel->Initialize(FString("Def"),
+	BW_DefencePanel->SetLevelupPanelElement(FString("Def"),
 	FString::FromInt(currentClassLevel.baseDefence),
 	  FString::FromInt(nextClassLevel.baseDefence));
 	
-	BW_ResistancePanel->Initialize(FString("Res"),
+	BW_ResistancePanel->SetLevelupPanelElement(FString("Res"),
 	FString::FromInt(currentClassLevel.baseResistance),
 	  FString::FromInt(nextClassLevel.baseResistance));
 }

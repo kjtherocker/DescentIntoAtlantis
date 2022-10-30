@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Skills_Base.h"
+#include "SkillsData.h"
 #include "UObject/NoExportTypes.h"
 #include "SkillFactory.generated.h"
 
@@ -19,13 +19,29 @@ class DESENTINTOATLANTIS_API USkillFactory : public UObject
 	GENERATED_BODY()
 
 	USkillFactory();
-
-	UPROPERTY()
-	TArray<FSkills_Base> allSkills;
+private:
+	
 	
 	UPROPERTY()
-	TMap<FString,FSkills_Base> skillMap;
+	TArray<USkillBase*> allSkills;
+
+	UPROPERTY()
+	TArray<FSkillsData> attackSkillsData;
+
+	UPROPERTY()
+	TArray<FSkillsData> healSkillsData;
+
+	UPROPERTY()
+	TArray<FSkillsData> buffSkillsData;
+
+	UPROPERTY()
+	TArray<FSkillsData> debuffData;
+	
+	UPROPERTY()
+	TMap<FString,USkillBase*> skillMap;
 public:
-	void InitializeDatabase(UDataTable* aSkillDataTable);
-	FSkills_Base GetSkill(FString aSkillName);
+	void InitializeDatabase(TMap<ESkillType,UDataTable*>  aSkillDataTable);
+	USkillBase* GetSkill(FString aSkillName);
+
+	
 };

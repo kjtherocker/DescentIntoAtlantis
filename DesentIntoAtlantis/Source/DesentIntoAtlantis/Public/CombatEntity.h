@@ -6,17 +6,29 @@
 #include "UObject/NoExportTypes.h"
 #include "EElementalType.h"
 #include "PressTurnManager.h"
-
 #include "Components/Image.h"
 #include "Engine/DataTable.h"
 #include "CombatEntity.generated.h"
 
+struct FSkillsData;
+class UCombatManager;
 class UEnemyPortraitElement;
 class USkillFactory;
-struct FSkills_Base;
 /**
  * 
  */
+
+UENUM()
+enum class EAbilityScoreTypes
+{
+	Undefined,
+	Strength,
+	Magic,
+	Hit,
+	Evasion,
+	Defence,
+	Resistance
+};
 
 
 USTRUCT()
@@ -55,20 +67,52 @@ struct DESENTINTOATLANTIS_API FCombatEntityData :public  FTableRowBase
 	
 };
 
-USTRUCT()
-struct DESENTINTOATLANTIS_API FCombatAbilityStats :public  FTableRowBase
+UCLASS()
+class DESENTINTOATLANTIS_API UCombatAbilityStats : public UObject
 {
-	GENERATED_USTRUCT_BODY()
+	GENERATED_BODY()
+public:
+	int base    			= 0;
+	int buff    			= 0;
+	int debuff  			= 0;
+	int domain  			= 0;
+	int buffTimeRemaining   = 0;
+	int debuffTimeRemaining = 0;
 
-	int base    = 0;
-	int buff    = 0;
-	int debuff  = 0;
-	int domain  = 0;
-
+	inline static const float ABILITYSCORE_CONVERSION_RATIO = 3;
 	int GetAllStats()
 	{
 		return base + buff + debuff + domain;
 	}
+	void AttachAbilityScoreChange(int timeLimit,bool isBuff)
+	{
+		if(isBuff)
+		{
+			buffTimeRemaining = timeLimit;
+			buff              = base * ABILITYSCORE_CONVERSION_RATIO*10;
+		}
+		else
+		{
+			debuffTimeRemaining = timeLimit;
+			debuff              = base * ABILITYSCORE_CONVERSION_RATIO;
+		}
+	}
+
+	void TurnEnd()
+	{
+		buffTimeRemaining--;
+		if(buffTimeRemaining <= 0)
+		{
+			buff = 0;
+		}
+		
+		debuff--;
+		if(debuffTimeRemaining <= 0)
+		{
+			debuff = 0;
+		}
+	}
+	
 };
 
 UENUM()
@@ -89,38 +133,40 @@ enum class ECharactertype
 //	Rage,
 //};
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWasDamaged);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWasKilled);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FHasHealthOrManaValuesChanged);
 UCLASS()
 class DESENTINTOATLANTIS_API UCombatEntity : public UObject
 {
 	GENERATED_BODY()
-
-
-
-
-
 protected:
-	inline static const float DAMAGE_CONVERSION_RATIO = 3;
-	inline static const float STRONG_DAMAGE_REDUCTION = 0.6f;
-	inline static const float WEAK_DAMAGE_INCREASE    = 1.5f;
+	inline static const float ABILITYSCORE_CONVERSION_RATIO = 3;
+	inline static const float ABILITYSCORE_BUFF_MULTIPLIER  = 2;
+	inline static const float STRONG_DAMAGE_REDUCTION       = 0.6f;
+	inline static const float WEAK_DAMAGE_INCREASE          = 1.5f;
 	
 	bool isMarkedForDeath = false;
 	
 public:
-	
+	FWasKilled                        wasKilled;
+	FWasDamaged					      wasDamaged;
+	FHasHealthOrManaValuesChanged     hasHealthOrManaValuesChanged;
+	virtual void SetTacticsEntity(USkillFactory*  aSkillFactory);
+	virtual void SetTacticsEvents(UCombatManager* aCombatManager);
 
-	virtual void SetTacticsEntity(USkillFactory* aSkillFactory);
-	void EndTurn();
+	UFUNCTION()
+	virtual void EndTurn();
 
 	//SetStatusEffect(StatusEffects aStatusEffect);
 
 	virtual void SetHealth(int aHealth);
 	
-	virtual PressTurnReactions DecrementHealth(int aDecremenby);
-	virtual int CalculateDamage(UCombatEntity* aAttacker,FSkills_Base aSkill);
-	virtual PressTurnReactions DecrementHealth(UCombatEntity* aAttacker, FSkills_Base aSkill);
+	virtual int CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
 	
-	virtual void IncrementHealth(int Increment);
-
+	virtual PressTurnReactions DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill);
+	virtual PressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
+	virtual PressTurnReactions ApplyBuff(      UCombatEntity* aBuffer,   FSkillsData aSkill);
 
 	virtual ECharactertype GetCharactertype();
 	virtual void Resurrection();
@@ -141,19 +187,14 @@ public:
 	EElementalType ElementalWeakness;
 	
 	ECharactertype characterType;
-
-	UEnemyPortraitElement*  imageBodyPortrait;
+	
 
 	int maxHealth;
 	int currentHealth;
 	int currentMana;
 
-	FCombatAbilityStats StrengthAbilityScore;
-	FCombatAbilityStats MagicAbilityScore;
-	FCombatAbilityStats HitAbilityScore;
-	FCombatAbilityStats EvasionAbilityScore;
-	FCombatAbilityStats DefenceAbilityScore;
-	FCombatAbilityStats ResistanceAbilityScore;
+	TMap< EAbilityScoreTypes,UCombatAbilityStats*> abilityScoreMap;
+
 	
 
 	int CurrentDomainpoints;

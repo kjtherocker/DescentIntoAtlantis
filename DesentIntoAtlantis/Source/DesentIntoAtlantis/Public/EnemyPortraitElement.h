@@ -6,6 +6,7 @@
 #include "BaseUserWidget.h"
 #include "EnemyPortraitElement.generated.h"
 
+class UEnemyCombatEntity;
 class UImage;
 /**
  * 
@@ -16,14 +17,23 @@ class DESENTINTOATLANTIS_API UEnemyPortraitElement : public UBaseUserWidget
 	GENERATED_BODY()
 
 private:
-	float movementTimer = 0;
-public:
-	virtual void UiInitialize() override;
-	
+	float hitEffectTimer           = 0;
+	float disappearTimer           = 1;
+	bool  isTriggeringDisappear    = false;
 	bool isTriggeringHitEffect;
-	virtual void NativeTick(const FGeometry& MyGeometry, float DeltaTime) override;
 	void HitEffect(float DeltaTime);
+	void Disappear(float DeltaTime);
 	
+public:
+	virtual void UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase) override;
+	void SetCombatEntity(UEnemyCombatEntity* aCombatEntity);
+	virtual void NativeTick(const FGeometry& MyGeometry, float DeltaTime) override;
+
+	
+	UFUNCTION()
+	void TriggerHitEffect();
+	UFUNCTION()
+	void TriggerDisappear();
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_Portrait;
 	

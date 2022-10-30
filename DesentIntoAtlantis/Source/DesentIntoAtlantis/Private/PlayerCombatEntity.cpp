@@ -2,7 +2,7 @@
 
 
 #include "PlayerCombatEntity.h"
-
+#include "CombatManager.h"
 #include "PartyHealthbarElement.h"
 
 
@@ -17,6 +17,7 @@ void UPlayerCombatEntity::SetTacticsEntity(USkillFactory* aSkillFactory)
 	characterType = ECharactertype::Ally;
 	skillFactory = aSkillFactory;
 }
+
 
 void UPlayerCombatEntity::SetPlayerClass(UDataTable*  EDataTableClasses)
 {
@@ -33,33 +34,20 @@ void UPlayerCombatEntity::SetPlayerClass(UDataTable*  EDataTableClasses)
 
 void UPlayerCombatEntity::SetAbilityScores()
 {
-	StrengthAbilityScore.base    = baseClass->currentClassLevel.baseStrength;
-	MagicAbilityScore.base       = baseClass->currentClassLevel.baseMagic;
-	HitAbilityScore.base         = baseClass->currentClassLevel.baseHit;
-	EvasionAbilityScore.base     = baseClass->currentClassLevel.baseEvasion;
-	DefenceAbilityScore.base     = baseClass->currentClassLevel.baseDefence;
-	ResistanceAbilityScore.base  = baseClass->currentClassLevel.baseResistance;
+	abilityScoreMap[EAbilityScoreTypes::Strength]->base   = baseClass->currentClassLevel.baseStrength;
+	abilityScoreMap[EAbilityScoreTypes::Magic]->base      = baseClass->currentClassLevel.baseMagic;
+	abilityScoreMap[EAbilityScoreTypes::Hit]->base        = baseClass->currentClassLevel.baseHit;
+	abilityScoreMap[EAbilityScoreTypes::Evasion]->base    = baseClass->currentClassLevel.baseEvasion;
+	abilityScoreMap[EAbilityScoreTypes::Defence]->base    = baseClass->currentClassLevel.baseDefence;
+	abilityScoreMap[EAbilityScoreTypes::Resistance]->base = baseClass->currentClassLevel.baseResistance;
 }
-
-void UPlayerCombatEntity::ActivateDamageHitEffect()
-{
-	UCombatEntity::ActivateDamageHitEffect();
-	partyHealthbarElement->UpdateHealthBar();
-}
-
 
 float UPlayerCombatEntity::GetHealthPercentage()
 {
-	float currentValue = currentHealth;
-	float maxValue     = baseClass->currentClassLevel.maxHealth;
-    
-	return currentValue / maxValue;
+	return  (float)currentHealth /  (float)baseClass->currentClassLevel.maxHealth;
 }
 
 float UPlayerCombatEntity::GetManaPercentage()
 {
-	float currentValue = currentMana;
-	float maxValue     = baseClass->currentClassLevel.maxMana;
-    
-	return currentValue / maxValue;
+	return (float)currentMana / (float)baseClass->currentClassLevel.maxMana;
 }

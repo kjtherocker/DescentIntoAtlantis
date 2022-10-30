@@ -8,6 +8,7 @@
 #include "InGameHUD.generated.h"
 
 
+class ADesentIntoAtlantisGameModeBase;
 class UBaseUserWidget;
 class UCommandBoard;
 /**
@@ -19,8 +20,10 @@ class DESENTINTOATLANTIS_API AInGameHUD : public AHUD
 	GENERATED_BODY()
 
 
+	UPROPERTY()
+	ADesentIntoAtlantisGameModeBase* gameModeBase;
 public:
-
+	
     void BeginPlay() override;
     void Tick(float DeltaSeconds) override;
 
@@ -45,7 +48,7 @@ public:
 	UPROPERTY()
     TArray<UBaseUserWidget*> activeViewStack;
 	UPROPERTY()
-	TArray<UBaseUserWidget*> inactiveViewStack;
+	TArray<UBaseUserWidget*>inactiveViewStack;
 	
 	TSubclassOf<UUserWidget> GetElement(EViewElements aViewElement);
 private:

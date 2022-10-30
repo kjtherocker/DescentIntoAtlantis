@@ -9,16 +9,17 @@
 #include "PlayerCombatEntity.h"
 #include "PartyHealthbarElement.h"
 
-void UPartyHealthbarsView::UiInitialize()
+void UPartyHealthbarsView::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 {
+	Super::UiInitialize(aGameModeBase);
+	
+	UPartyManager* PartyManager =  gameModeBase->partyManager;
 
-	ADesentIntoAtlantisGameModeBase* MyMode = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
-
-	UPartyManager* PartyManager =  MyMode->partyManager;
-
-	for(int i = 0 ; i < PartyManager->playerCombatEntity.Num();i++)
+	TArray<UPlayerCombatEntity*> activeParty = PartyManager->ReturnActiveParty();
+	
+	for(int i = 0 ; i < activeParty.Num();i++)
 	{
-		CreateHealthbar(PartyManager->playerCombatEntity[i]);
+		CreateHealthbar(activeParty[i]);
 	}
 }
  
@@ -27,7 +28,7 @@ void UPartyHealthbarsView::CreateHealthbar(UPlayerCombatEntity* aCombatEntity)
 	UUserWidget* partyStatusHealthbar = CreateWidget(this, InGameHUD->GetElement(EViewElements::PartyStatusHealthbar));
 
 	UPartyHealthbarElement* baseUserWidget = (UPartyHealthbarElement*)partyStatusHealthbar;
-	baseUserWidget->UiInitialize();
+	baseUserWidget->UiInitialize(gameModeBase);
 	partyStatusHealthbar->AddToViewport();
 
 	baseUserWidget->SetCombatEntity(aCombatEntity);

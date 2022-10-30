@@ -6,7 +6,7 @@
 #include "DesentIntoAtlantisGameModeBase.h"
 #include "EFloorIdentifier.h"
 #include "FloorPlayerController.h"
-#include "Skills_Base.h"
+#include "SkillsData.h"
 #include "Engine/DataTable.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -16,30 +16,56 @@ AFloorManager::AFloorManager()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
-	
+}
+
+void AFloorManager::Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
+{
+	cardinalPositions.Add(ECardinalNodeDirections::Up,    FVector2D(-1,0));
+	cardinalPositions.Add(ECardinalNodeDirections::Down,  FVector2D(1,0));
+	cardinalPositions.Add(ECardinalNodeDirections::Left,  FVector2D(0,-1));
+	cardinalPositions.Add(ECardinalNodeDirections::Right, FVector2D(0,1));
+	gameModeBase = aGameModeBase;
 }
 
 void AFloorManager::CreateGrid(UFloorBase* aFloor)
 {
 	UFloorBase* tempfloor = aFloor;
-	
 	for (int x = 0; x < tempfloor->GridDimensionX; x++)
 	{
 		for (int y = 0; y < tempfloor->GridDimensionY; y++)
 		{
 			int LevelIndex = aFloor->GetIndex(x, y);
 			//If there is no node then continue
-			if (tempfloor->FloorBlueprint[LevelIndex] == (short)ECardinalNodeDirections::Empty)
+			if (tempfloor->floorData.floorBlueprint[LevelIndex] == (short)ECardinalNodeDirections::Empty)
 			{
 				continue;
 			}
 
 			SpawnFloorNode(x , y,LevelIndex );
-			floorNodes[LevelIndex]->SetWalkableDirections(aFloor->FloorBlueprint[LevelIndex]);
+			floorNodes[LevelIndex]->SetWalkableDirections(aFloor->floorData.floorBlueprint[LevelIndex]);
+			FVector2D positionInGrid = FVector2D(x,y);
+			if(aFloor->floorEventData.Contains(positionInGrid))
+			{
+				floorNodes[LevelIndex]->hasFloorEvent = true;//aFloor->floorEventData[FVector2D(x,y)];
+				floorNodes[LevelIndex]->floorEventHasBeenTriggeredEvent = gameModeBase->floorEventManager->EventHasBeenTriggered;
+				SpawnFloorEnemyPawn(positionInGrid);
+			}
 		}
 	}
 	
 
+}
+
+void AFloorManager::CreateFloor(EFloorIdentifier aFloorIdentifier)
+{
+	floorDictionary = gameModeBase->floorFactory->floorDictionary;
+	
+	if(floorDictionary[aFloorIdentifier] != nullptr)
+	{
+		SpawnFloor(floorDictionary[aFloorIdentifier]);
+		SetPlayerPosition(floorDictionary[aFloorIdentifier]->floorData.startPosition);
+	}
+	
 }
 
 
@@ -97,41 +123,6 @@ AFloorNode* AFloorManager::GetNode(FVector2D CurrentPosition)
 void AFloorManager::BeginPlay()
 {
 	Super::BeginPlay();
-	cardinalPositions.Add(ECardinalNodeDirections::Up,    FVector2D(-1,0));
-	cardinalPositions.Add(ECardinalNodeDirections::Down,  FVector2D(1,0));
-	cardinalPositions.Add(ECardinalNodeDirections::Left,  FVector2D(0,-1));
-	cardinalPositions.Add(ECardinalNodeDirections::Right, FVector2D(0,1));
-	
-	floorDictionary.Add(EFloorIdentifier::Floor1,NewObject<UFloorBase>());
-	
-	if(floorDictionary[EFloorIdentifier::Floor1] != nullptr)
-	{
-		SpawnFloor(floorDictionary[EFloorIdentifier::Floor1]);
-	}
-
-	AFloorPlayerController * playerController;
-	playerController = Cast<AFloorPlayerController>(GetWorld()->GetFirstPlayerController());
-
-	if(playerController != nullptr)
-	{
-		//Setting new Positon
-		FVector PositionOffset = FVector(0,0,300);
-		FVector ActorFinalSpawnPoint = floorNodes[1]->GetActorLocation() + PositionOffset;
-
-		//Rotation
-		FRotator rotator = GetActorRotation();
-	
-		//Spawn
-		AFloorPawn* floorPawn;
-
-		floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, ActorFinalSpawnPoint, rotator));
-		floorPawn->SpawnFloorPawn(floorNodes[1]);
-		floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
-		
-		playerController->SetPawn(floorPawn);
-	}
-
-	//SpawnFloorEnemyPawn();
 
 }
 
@@ -186,20 +177,46 @@ void AFloorManager::SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes)
 	}
 }
 
-void AFloorManager::SpawnFloorEnemyPawn()
+void AFloorManager::SetPlayerPosition(FVector2D aStartPositionInGrid)
+{
+	AFloorPlayerController * playerController;
+	playerController = Cast<AFloorPlayerController>(GetWorld()->GetFirstPlayerController());
+
+	if(playerController != nullptr)
+	{
+		int startPositionIndex = currentFloor->GetIndex( aStartPositionInGrid.X,aStartPositionInGrid.Y) ;
+		//Setting new Positon
+		FVector PositionOffset = FVector(0,0,300);
+		FVector ActorFinalSpawnPoint = floorNodes[startPositionIndex]->GetActorLocation() + PositionOffset;
+
+		//Rotation
+		FRotator rotator = GetActorRotation();
+	
+		//Spawn
+		AFloorPawn* floorPawn = gameModeBase->floorPawn;
+		floorPawn->SpawnFloorPawn(floorNodes[startPositionIndex]);
+		floorPawn->SetActorLocation(ActorFinalSpawnPoint);
+		floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
+		
+		playerController->SetPawn(floorPawn);
+	}
+
+}
+
+void AFloorManager::SpawnFloorEnemyPawn(FVector2D aPositionInGrid)
 {
 	FVector PositionOffset = FVector(0,0,300);
-	FVector ActorFinalSpawnPoint = GetNode(FVector2d(3,3))->GetActorLocation() + PositionOffset;
+
+	FVector ActorFinalSpawnPoint = GetNode(aPositionInGrid)->GetActorLocation() + PositionOffset;
 
 	//Rotation
 	FRotator rotator = GetActorRotation();
 	
 	//Spawn
-	AFloorEnemyPawn* floorPawn;
+	AActor* floorPawn;
 
-	GetWorld()->GetGameViewport()->RemoveAllViewportWidgets();
-
-	floorPawn = Cast<AFloorEnemyPawn>(GetWorld()->SpawnActor<AActor>(floorEnemyPawnReference, ActorFinalSpawnPoint, rotator));
+	floorPawn = GetWorld()->SpawnActor<AActor>(floorEnemyPawnReference);
+	floorPawn->SetActorLocation(ActorFinalSpawnPoint);
 }
 
 void AFloorManager::Tick(float DeltaTime)

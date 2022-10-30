@@ -3,6 +3,34 @@
 
 #include "BaseUserWidget.h"
 
-void UBaseUserWidget::UiInitialize()
+#include "SoundManager.h"
+#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+
+void UBaseUserWidget::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 {
+	gameModeBase = aGameModeBase;
+}
+
+void UBaseUserWidget::SetCursorPositionInfo()
+{
+}
+
+void UBaseUserWidget::MoveUp()
+{
+	cursorPosition--;
+	if(minCursorPosition > cursorPosition)
+	{
+		cursorPosition = maxCursorPosition;
+	}
+	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Selection);
+}
+
+void UBaseUserWidget::MoveDown()
+{
+	cursorPosition++;
+	if(cursorPosition > maxCursorPosition)
+	{
+		cursorPosition = minCursorPosition;
+	}
+	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Selection);
 }

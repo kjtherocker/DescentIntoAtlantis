@@ -1,12 +1,14 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "InGameHUD.h"
 #include "CommandBoard.h"
+#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+#include "Kismet/GameplayStatics.h"
 
 
 void AInGameHUD::BeginPlay()
 {
     Super::BeginPlay();
-
+    gameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 }
 
 void AInGameHUD::Tick(float DeltaSeconds)
@@ -20,7 +22,7 @@ void AInGameHUD::PushView(EViews aView, EUiType aUiType)
     if(newView)
     {
         newView->InGameHUD = this;
-        newView->UiInitialize();
+        newView->UiInitialize(gameModeBase);
         newView->AddToViewport();
         newView->viewName = aView;
         switch (aUiType)
@@ -112,7 +114,7 @@ void AInGameHUD::ReturnToPreviousActiveView()
         activeViewStack[lastActiveElement]->RemoveFromViewport();
         activeViewStack.RemoveAt(lastActiveElement);
 
-        inactiveViewStack[lastInActiveElement]->UiInitialize();
+        inactiveViewStack[lastInActiveElement]->UiInitialize(gameModeBase);
         inactiveViewStack[lastInActiveElement]->AddToViewport();
         activeViewStack.Add(inactiveViewStack[lastInActiveElement]);
 

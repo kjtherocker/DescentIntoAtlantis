@@ -1,13 +1,27 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "CombatEntity.h"
+#include "CombatManager.h"
 #include "SkillFactory.h"
-#include "Skills_Base.h"
+#include "SkillsData.h"
+
 
 
 
 
 void UCombatEntity::SetTacticsEntity(USkillFactory* aSkillFactory)
 {
+    abilityScoreMap.Add(EAbilityScoreTypes::Strength,  NewObject<UCombatAbilityStats>());
+    abilityScoreMap.Add(EAbilityScoreTypes::Magic,     NewObject<UCombatAbilityStats>());
+    abilityScoreMap.Add(EAbilityScoreTypes::Hit,       NewObject<UCombatAbilityStats>());
+    abilityScoreMap.Add(EAbilityScoreTypes::Evasion,   NewObject<UCombatAbilityStats>());
+    abilityScoreMap.Add(EAbilityScoreTypes::Defence,   NewObject<UCombatAbilityStats>());
+    abilityScoreMap.Add(EAbilityScoreTypes::Resistance,NewObject<UCombatAbilityStats>());
+    
+}
+
+void UCombatEntity::SetTacticsEvents(UCombatManager* aCombatManager)
+{
+    aCombatManager->OnRoundEndDelegate.AddDynamic(this,&UCombatEntity::EndTurn);
 }
 
 void UCombatEntity::EndTurn()
@@ -21,19 +35,14 @@ void UCombatEntity::SetHealth(int aHealth)
 //    currentHealth = currentClass->currentClassLevel->maxHealth;
 }
 
-PressTurnReactions UCombatEntity::DecrementHealth(int aDecremenby)
-{
-    currentHealth -= aDecremenby;
-    return PressTurnReactions::Normal;
-}
-
-int UCombatEntity::CalculateDamage(UCombatEntity* aAttacker, FSkills_Base aSkill)
+int UCombatEntity::CalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
     int decementBy = aSkill.damage;
 
-    decementBy += aSkill.skillDamageType == ESkillDamageType::Strength ?
-        aAttacker->StrengthAbilityScore.GetAllStats() / DAMAGE_CONVERSION_RATIO
-      : aAttacker->MagicAbilityScore.GetAllStats()    / DAMAGE_CONVERSION_RATIO;
+
+    int strengthAllStats =  aAttacker->abilityScoreMap[EAbilityScoreTypes::Strength]->GetAllStats() / ABILITYSCORE_CONVERSION_RATIO;
+    int magicAllStats    =  aAttacker->abilityScoreMap[EAbilityScoreTypes::Magic]->GetAllStats()    / ABILITYSCORE_CONVERSION_RATIO;
+    decementBy += aSkill.skillDamageType == ESkillDamageType::Strength ? strengthAllStats : magicAllStats;
 	
     if (aSkill.elementalType == ElementalWeakness)
     {
@@ -47,7 +56,7 @@ int UCombatEntity::CalculateDamage(UCombatEntity* aAttacker, FSkills_Base aSkill
     return decementBy;
 }
 
-PressTurnReactions UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkills_Base aSkill)
+PressTurnReactions UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
     PressTurnReactions reaction = PressTurnReactions::Normal;
 	    
@@ -62,6 +71,7 @@ PressTurnReactions UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSki
 
     currentHealth -= CalculateDamage(aAttacker,aSkill);
     DeathCheck();
+    hasHealthOrManaValuesChanged.Broadcast();
     if(!isMarkedForDeath)
     {
         ActivateDamageHitEffect();
@@ -70,9 +80,25 @@ PressTurnReactions UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSki
 }
 
 
-void UCombatEntity::IncrementHealth(int Increment)
+PressTurnReactions UCombatEntity::IncrementHealth(UCombatEntity* aHealer, FSkillsData aSkill)
 {
-    currentHealth += Increment;
+    int AmountOfHpToAdd =  aSkill.damage + (aHealer->abilityScoreMap[EAbilityScoreTypes::Magic]->GetAllStats() / ABILITYSCORE_CONVERSION_RATIO);
+    currentHealth += AmountOfHpToAdd;
+    
+    if(currentHealth >= maxHealth)
+    {
+        currentHealth = maxHealth;
+    }
+    hasHealthOrManaValuesChanged.Broadcast();
+    return PressTurnReactions::Normal;
+}
+
+PressTurnReactions UCombatEntity::ApplyBuff(UCombatEntity* aBuffer, FSkillsData aSkill)
+{
+     abilityScoreMap[aSkill.ablityScoreToBuffOrDebuff]->AttachAbilityScoreChange(aSkill.abilityScoreChangeDuration,true);
+
+
+    return PressTurnReactions::Normal;
 }
 
 ECharactertype UCombatEntity::GetCharactertype()
@@ -94,10 +120,12 @@ void UCombatEntity::DeathCheck()
 
 void UCombatEntity::Death()
 {
+    wasKilled.Broadcast();
 }
 
 void UCombatEntity::ActivateDamageHitEffect()
 {
+    wasDamaged.Broadcast();
 }
 
 float UCombatEntity::GetHealthPercentage()

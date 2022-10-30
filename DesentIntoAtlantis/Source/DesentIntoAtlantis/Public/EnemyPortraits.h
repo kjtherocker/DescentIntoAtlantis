@@ -17,7 +17,7 @@ class DESENTINTOATLANTIS_API UEnemyPortraits : public UBaseUserWidget
 {
 	GENERATED_BODY()
 public:
-	virtual void UiInitialize() override;
+	virtual void UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase) override;
 	virtual void NativeTick(const FGeometry& MyGeometry, float DeltaTime) override;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))

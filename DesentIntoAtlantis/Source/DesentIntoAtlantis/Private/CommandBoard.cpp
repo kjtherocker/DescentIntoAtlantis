@@ -5,108 +5,107 @@
 
 #include "CombatEntity.h"
 #include "CombatManager.h"
+#include "CombatSelectionView.h"
 #include "EngineUtils.h"
+#include "SoundManager.h"
 #include "Components/TextBlock.h"
 #include "Components/Border.h"
 #include "Components/Image.h"
 #include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
-#include "Engine/ObjectLibrary.h"
-#include "Kismet/GameplayStatics.h"
 
-void UCommandBoard::UiInitialize()
+void UCommandBoard::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 {
-	
+	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();
 	
 	InputComponent->BindAction("Up"      ,IE_Pressed ,this, &UCommandBoard::MoveUp  );
 	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &UCommandBoard::MoveDown  );
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UCommandBoard::ActivateCommandboardFunction  );
 	
-	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
-	combatManager =  GameModeBase->combatManager;
+	combatManager =  gameModeBase->combatManager;
 	currentActivePartyMember = combatManager->ReturnCurrentActivePartyMember();
-
+	defaultAttack = static_cast<USkillAttack*>(gameModeBase->skillFactory->GetSkill("DefaultAttack"));
 	BW_FullBodyPortrait->SetBrushFromTexture(currentActivePartyMember->playerEntityData.fullBodyCharacterPortrait);
 	
-	commandBoards.Add(B_Attack);
-	commandBoards.Add(B_Skill);
-	commandBoards.Add(B_Domain);
-	commandBoards.Add(B_Item);
-	commandBoards.Add(B_Escape);
-	commandBoards.Add(B_Pass);
+	commandBoards.Add(BW_Attack);
+	commandBoards.Add(BW_Skill);
+	commandBoards.Add(BW_Escape);
+	commandBoards.Add(BW_Pass);
 
 	for(int i = 0 ; i < commandBoards.Num();i++)
 	{
 		commandBoards[i]->SetBrushColor(unhightlighedColor);
 	}
 
-	commandBoards[0]->SetBrushColor(highlightedColor);
+	commandBoardSelectionAttack.AddDynamic(this, &UCommandBoard::Attack);
+	commandboardSelections.Add(ECommandBoardStates::Attack,commandBoardSelectionAttack );
+	
+	commandBoardSelectionSkill.AddDynamic(this,  &UCommandBoard::Skill);
+	commandboardSelections.Add(ECommandBoardStates::Skill,commandBoardSelectionSkill );
+	
+	commandBoardSelectionEscape.AddDynamic(this, &UCommandBoard::Escape);
+	commandboardSelections.Add(ECommandBoardStates::Escape,commandBoardSelectionEscape );
+	
+	commandBoardSelectionPass.AddDynamic(this,   &UCommandBoard::Pass);
+	commandboardSelections.Add(ECommandBoardStates::Pass,commandBoardSelectionPass );
 
-	//commandBoardFunction.BindSP(this,&UCommandBoard::Attack);
+	
+	commandBoards[0]->SetBrushColor(highlightedColor);
+	
 		
 	//	CommandBoardFunctions.Add();
+	SetCursorPositionInfo();
+}
+
+void UCommandBoard::SetCursorPositionInfo()
+{
+	Super::SetCursorPositionInfo();
+
+	cursorPosition    =  0;
+	minCursorPosition =  0;
+	maxCursorPosition = commandBoards.Num()-1;
 }
 
 void UCommandBoard::MoveUp()
 {
 	commandBoards[cursorPosition]->SetBrushColor(unhightlighedColor);
-
-	cursorPosition--;
-
-	if(-1 == cursorPosition)
-	{
-		cursorPosition = commandBoards.Num() - 1;
-	}
-	
+	Super::MoveUp();
 	commandBoards[cursorPosition]->SetBrushColor(highlightedColor);
 }
 
 void UCommandBoard::MoveDown()
 {
 	commandBoards[cursorPosition]->SetBrushColor(unhightlighedColor);
-
-	cursorPosition++;
-
-	if(cursorPosition >= commandBoards.Num())
-	{
-		cursorPosition = 0;
-	}
-
+	Super::MoveDown();
 	commandBoards[cursorPosition]->SetBrushColor(highlightedColor);
-	
 }
 
 void UCommandBoard::ActivateCommandboardFunction()
 {
-	//combatManager->TurnFinished();
-	InGameHUD->PopMostRecentActiveView();
-	InGameHUD->PushView(EViews::SkillMenu,EUiType::ActiveUi);
+	const ECommandBoardStates commandBoardCommandToActivate = static_cast<ECommandBoardStates>(cursorPosition);
+	commandboardSelections[commandBoardCommandToActivate].Broadcast();
+	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Accept);
 }
 
 void UCommandBoard::Attack()
 {
-	int testo = 0 ; 
+	InGameHUD->PopMostRecentActiveView();
+	UCombatSelectionView* SelectionView = (UCombatSelectionView*)InGameHUD->PushAndGetView(EViews::CombatSelection,EUiType::ActiveUi);
+	SelectionView->SetSkill(defaultAttack);
 }
 
-void UCommandBoard::Testo()
+void UCommandBoard::Skill()
 {
-	//FString filepath("/Game/Ui/uiTextures");  // without extension, path start with `/Game`, `/Game` refer-> `Content` folder in real.
-	//FStringAssetReference asset_stream_ref(filepath);
-	//TAssetPtr<UTexture> imageAsset(asset_stream_ref);
-	//UTexture* animation = imageAsset.LoadSynchronous();
-//
-	//
-	//UObjectLibrary* lib = UObjectLibrary::CreateLibrary(UTexture::StaticClass(), false, GIsEditor);
-	//lib->AddToRoot();
-	//lib->LoadAssetDataFromPath(folderpath);
-	//lib->LoadAssetsFromAssetData();
-//
-	//TArray<FAssetData> asset_data;
-	//lib->GetAssetDataList(asset_data);
-//
-	//UTexture2D* testoo = (UTexture2D*)asset_data[4].GetAsset();
-	//if(testoo != nullptr)
-	//{
-	//	UndineImage->SetBrushFromTexture(testoo);
-	//}
+	InGameHUD->PopMostRecentActiveView();
+	InGameHUD->PushView(EViews::Skill,EUiType::ActiveUi);
+}
+void UCommandBoard::Escape()
+{
+}
+
+void UCommandBoard::Pass()
+{
+	TArray<PressTurnReactions> pressTurnReaction;
+	pressTurnReaction.Add(PressTurnReactions::Pass);
+	combatManager->pressTurnManager->ProcessTurn(pressTurnReaction);
 }

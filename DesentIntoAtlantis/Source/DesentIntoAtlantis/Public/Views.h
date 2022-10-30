@@ -8,17 +8,19 @@
 UENUM()
 enum class  EViews
 {
-	None             = 0,
-	CommandBoard     = 1,
-	Healthbars       = 2,
-	CombatBackground = 3,
-	EnemySelection   = 4,
-	SkillMenu        = 5,
-	EnemyPortraits   = 6,
-	TurnCounter      = 7,
-	Dialogue         = 8,
-	EnemySkill       = 9,
-	Levelup          = 10,
+	None              = 0,
+	CommandBoard      = 1,
+	Healthbars        = 2,
+	CombatBackground  = 3,
+	CombatSelection   = 4,
+	Skill             = 5,
+	EnemyPortraits    = 6,
+	TurnCounter       = 7,
+	Dialogue          = 8,
+	EnemySkill        = 9,
+	Levelup           = 10,
+	Tutorial          = 11,
+	Title             = 12
 };
 
 

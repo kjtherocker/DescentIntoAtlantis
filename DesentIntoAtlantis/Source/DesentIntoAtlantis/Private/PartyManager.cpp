@@ -13,7 +13,7 @@ UPartyManager::UPartyManager()
 {
 }
 
-void UPartyManager::InitializeDataTable (USkillFactory* aSkillFactory,UDataTable* aDataTable, TMap<EDataTableClasses,UDataTable*> aClassDataTable)
+void UPartyManager::InitializeDataTable (USkillFactory* aSkillFactory,UDataTable* aDataTable, TMap<EDataTableClasses,UDataTable*> aClassDataTable,UCombatManager* aCombatManager)
 {
 	skillFactory = aSkillFactory;
 
@@ -33,11 +33,20 @@ void UPartyManager::InitializeDataTable (USkillFactory* aSkillFactory,UDataTable
 		PlayerCombatEntity->SetPlayerEntity(playerEntityData[i]);
 		PlayerCombatEntity->SetTacticsEntity(aSkillFactory);
 		PlayerCombatEntity->SetPlayerClass(aClassDataTable[classTable]);
+		PlayerCombatEntity->SetTacticsEvents(aCombatManager);
+		
+
 		playerCombatEntity.Add(PlayerCombatEntity);
+		playerCombatEntityInfo.Add(classTable,PlayerCombatEntity);
 	}
 }
 
-TArray<UPlayerCombatEntity*> UPartyManager::ReturnActivePartyEntityData()
+void UPartyManager::AddPlayerToActiveParty(EDataTableClasses aClasses)
 {
-	return playerCombatEntity;
+	activePartyEntityData.Add(playerCombatEntityInfo[aClasses]);
+}
+
+TArray<UPlayerCombatEntity*> UPartyManager::ReturnActiveParty()
+{
+	return activePartyEntityData;
 }

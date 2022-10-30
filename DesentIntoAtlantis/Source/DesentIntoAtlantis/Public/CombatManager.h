@@ -6,8 +6,13 @@
 #include "EnemyCombatEntity.h"
 #include "PlayerCombatEntity.h"
 #include "UObject/NoExportTypes.h"
-#include "CombatManager.generated.h"
 
+#include "CombatManager.generated.h"
+class USkillFactory;
+enum class ECharactertype;
+class UPlayerCombatEntity;
+class UEnemyCombatEntity;
+struct FEnemyEntityData;
 class UPressTurnManager;
 class AInGameHUD;
 class UTurnCounter;
@@ -20,7 +25,7 @@ class ADesentIntoAtlantisGameModeBase;
 
 
 
-
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FRoundEndDelegate);
 
 UCLASS()
 class DESENTINTOATLANTIS_API UCombatManager : public UObject
@@ -36,15 +41,28 @@ private:
 	bool hasCombatStarted;
 	int currentActivePosition;
 	int combatExp;
+	UPROPERTY()
 	AInGameHUD * GameHUD;
+	
+	UPROPERTY()
 	USkillFactory * skillFactory;
+	
+	UPROPERTY()
 	UWorld* world;
 	ECharactertype currentTurnType; 
 public:
+	
+
+	UPROPERTY(BlueprintAssignable, Category = "Test")
+	FRoundEndDelegate OnRoundEndDelegate;
+
+
+	
+	UPROPERTY()
 	UPressTurnManager* pressTurnManager;
 
-	void Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase);
-	void StartCombat(UWorld* aWorld);
+	void Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase,UWorld* aWorld);
+	void StartCombat(FString aEnemyGroupName);
 	void EndCombat();
 	void AddEnemyToCombat(FEnemyEntityData AEnemyEntityData);
 	void SwitchCombatSides();
@@ -53,19 +71,20 @@ public:
 	void EnemyStartTurn();
 	void EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEntity);
 	
-
-	
 	UPlayerCombatEntity* ReturnCurrentActivePartyMember();
 	
 	TArray<UEnemyCombatEntity*> GetEnemysInCombat();
 	TArray<UPlayerCombatEntity*> GetPlayersInCombat();
-	
+
+	UPROPERTY()
 	UPlayerCombatEntity* currentActivePartyMember;
-
+	UPROPERTY()
 	TArray<UEnemyCombatEntity*> enemyCombatEntities;
-
+	UPROPERTY()
 	TArray<UPlayerCombatEntity*> partyMembersInCombat;
+	UPROPERTY()
 	TArray<UPlayerCombatEntity*> partyMembersDead;
+	UPROPERTY()
 	ADesentIntoAtlantisGameModeBase* gameModeBase;
 	
 };

@@ -16,7 +16,7 @@ class DESENTINTOATLANTIS_API ULevelupPanelElement : public UBaseUserWidget
 	GENERATED_BODY()
 public:
 
-	void Initialize(FString aAbilityModifierName,FString aPreviousClassValue,FString aNextClassValue);
+	void SetLevelupPanelElement(FString aAbilityModifierName,FString aPreviousClassValue,FString aNextClassValue);
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_PreviousClassText;

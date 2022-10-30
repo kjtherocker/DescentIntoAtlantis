@@ -23,6 +23,9 @@ void UCombatClass::InitializeDataTable(UDataTable* aClassDataTable, USkillFactor
 	skillFactory = aSkillFactory;
 	attachedCombatEntity = aCombatEntity;
 	Levelup();
+	Levelup();
+	Levelup();
+	Levelup();
 }
 
 
@@ -43,9 +46,9 @@ bool UCombatClass::AddExperience(int aExperience)
 FClassData UCombatClass::Levelup()
 {
 	currentClassLevel = classLevels[0];
-	FSkills_Base newSkill = skillFactory->GetSkill(currentClassLevel.newlyObtainedSkill);
+	USkillBase* newSkill = skillFactory->GetSkill(currentClassLevel.newlyObtainedSkill);
 
-	classSkills.Add(skillFactory->GetSkill(currentClassLevel.newlyObtainedSkill));
+	classSkills.Add(newSkill);
 	attachedCombatEntity->currentHealth = currentClassLevel.maxHealth;
 	attachedCombatEntity->currentMana   = currentClassLevel.maxMana;
 	attachedCombatEntity->SetAbilityScores();

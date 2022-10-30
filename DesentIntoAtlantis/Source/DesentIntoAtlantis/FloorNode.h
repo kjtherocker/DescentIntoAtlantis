@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "ECardinalDirections.h"
+#include "FloorBase.h"
+#include "FloorEventManager.h"
 #include "GameFramework/Actor.h"
 #include "FloorNode.generated.h"
 
@@ -27,7 +29,14 @@ public:
 	bool IsDirectionWalkable(ECardinalNodeDirections aDirection);
 	void SetFloorNodeWallInfo(ECardinalNodeDirections aCardinalDirection, FVector aWallPosition, FRotator aRotation);
 	//	WalkOntopTriggerTypes m_WalkOnTopTriggerTypes;
+	void PlayerIsOnTopOfNode();
 	TArray<ECardinalNodeDirections> walkableDirections;
+
+
+	FFloorEventHasBeenTriggered floorEventHasBeenTriggeredEvent;
+	
+	UPROPERTY( EditAnywhere )
+	bool hasFloorEvent;
 
 	AActor* SpawnNodeWall(UFloorNodeWallInfo* nodeWallInfo,ECardinalNodeDirections aCardinalDirection);
 	
@@ -41,6 +50,8 @@ public:
 
 	TMap<ECardinalNodeDirections,UFloorNodeWallInfo*> floorNodeWallInfos;
 
+	FFloorEventHasBeenTriggered floorEventHasBeenTriggered;
+
 
 };
 
@@ -52,6 +63,7 @@ public:
 
 	FVector wallPosition;
 	FRotator rotation;
+	UPROPERTY()
 	AActor* wallActor;
 };
 

@@ -5,6 +5,7 @@
 
 #include "CombatManager.h"
 #include "InGameHUD.h"
+#include "SoundManager.h"
 #include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
 #include "DesentIntoAtlantis/FloorNode.h"
 #include "Kismet/GameplayStatics.h"
@@ -31,8 +32,8 @@ void AFloorPawn::BeginPlay()
 void AFloorPawn::Initialize()
 {
 	AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections::Up,
-FVector2D(-1,0), 
-FRotator(0,0,0));
+	FVector2D(-1,0), 
+	FRotator(0,0,0));
 	
 	AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections::Left,
     FVector2D(0,1), 
@@ -77,7 +78,7 @@ void AFloorPawn::MoveForward()
 	} 
 
 	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
-	GameModeBase->combatManager->StartCombat(GetWorld());
+	GameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Footsteps);
 
 	
 	ECardinalNodeDirections currentNodeDirection = directionModel[0]->directions;
@@ -115,6 +116,7 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 	{
 		hasRotationFinished = true;
 		currentNodePlayerIsOn = nodeToMoveTowards;
+		currentNodePlayerIsOn->PlayerIsOnTopOfNode();
 		nodeToMoveTowards = nullptr;
 		return;
 	}

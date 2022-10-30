@@ -4,13 +4,14 @@
 #include "CombatSelectionView.h"
 
 #include "CombatManager.h"
+#include "PartyHealthbarElement.h"
 #include "Components/TextBlock.h"
 #include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
 #include "Kismet/GameplayStatics.h"
 
-void UCombatSelectionView::UiInitialize()
+void UCombatSelectionView::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 {
-	Super::UiInitialize();
+	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UCombatSelectionView::ActivateSkill  );
 	InputComponent->BindAction("Left"   ,IE_Pressed , this, &UCombatSelectionView::MoveCursorLeft  );
@@ -20,15 +21,20 @@ void UCombatSelectionView::UiInitialize()
 	enemySelectionElements.Add(EEnemyCombatPositions::Middle,BW_EnemySelectionBar_1);
 	enemySelectionElements.Add(EEnemyCombatPositions::Right,BW_EnemySelectionBar_2);
 
-	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	for (TTuple<EEnemyCombatPositions, UEnemySelectionElement*> enemyUiElement : enemySelectionElements)
+	{
+		enemyUiElement.Value->SetRenderOpacity(NO_OPACITY);
+	}
 	
-	combatManager =  GameModeBase->combatManager;
+	
+	combatManager =  gameModeBase->combatManager;
 	enemysInCombat = combatManager->GetEnemysInCombat();
 	
 }
 
 void UCombatSelectionView::ActivateSkill()
 {
+	SetCursorHud(false);
 	combatManager->pressTurnManager->ActivateSkill(combatManager->currentActivePartyMember,cursorPosition,currentSkill);
 }
 
@@ -41,12 +47,7 @@ void UCombatSelectionView::MoveCursorLeft()
 
 	SetCursorHud(false);
 
-	cursorPosition--;
-
-	if(-1 == cursorPosition)
-	{
-		cursorPosition = cursorMaxRange;
-	}
+	Super::MoveUp();
 	
 	SetCursorHud(true);
 }
@@ -60,29 +61,26 @@ void UCombatSelectionView::MoveCursorRight()
 
 	SetCursorHud(false);
 
-	cursorPosition++;
-
-	if(cursorPosition > cursorMaxRange)
-	{
-		cursorPosition = 0;
-	}
+	Super::MoveDown();
+	
 	SetCursorHud(true);
-
 }
 
 void UCombatSelectionView::SetCursorHud(bool aisActive)
 {
-	switch(currentSkill.SkillType)
+
+	FSkillsData skillData = currentSkill->skillData;
+	switch(skillData.skillUsage)
 	{
-		case Attack:
+	case ESkillUsage::Opponents:
 		{
-			float opacity = aisActive ? 100 : 0;
+			float opacity = aisActive ? MAX_OPACITY : NO_OPACITY;
 	
 
 			if(hasCursor)
 			{
 				float potentialDamage = enemysInCombat[cursorPosition]->
-					GetPotentialHealthPercentage(enemysInCombat[cursorPosition]->CalculateDamage(combatManager->currentActivePartyMember,currentSkill));
+					GetPotentialHealthPercentage(enemysInCombat[cursorPosition]->CalculateDamage(combatManager->currentActivePartyMember,skillData));
 				enemySelectionElements[enemysInCombat[cursorPosition]->enemyCombatPosition]->SetHighlightSelectionElement(potentialDamage,opacity);
 			}
 			else
@@ -90,25 +88,49 @@ void UCombatSelectionView::SetCursorHud(bool aisActive)
 				for(int i = 0 ; i < enemysInCombat.Num();i++)
 				{
 					float potentialDamage = enemysInCombat[i]->
-						GetPotentialHealthPercentage(enemysInCombat[i]->CalculateDamage(combatManager->currentActivePartyMember,currentSkill));
+						GetPotentialHealthPercentage(enemysInCombat[i]->CalculateDamage(combatManager->currentActivePartyMember,skillData));
 					enemySelectionElements[enemysInCombat[i]->enemyCombatPosition]->SetHighlightSelectionElement(potentialDamage,opacity);
 				}
 			}
 
 			break;
 		}
-		case Heal:
+		case ESkillUsage::Comrades:
 		{
-			TArray<UPlayerCombatEntity*> playersInCombat = combatManager->GetPlayersInCombat();
-			cursorMaxRange = playersInCombat.Num() -1;
-			break;
-		}
-		case Defence:
-		{
-			break;
-		}
-		case Domain:
-		{
+
+			if(hasCursor)
+			{
+				
+				//float potentialDamage = enemysInCombat[cursorPosition]->
+				//	GetPotentialHealthPercentage(enemysInCombat[cursorPosition]->CalculateDamage(combatManager->currentActivePartyMember,skillData));
+				//enemySelectionElements[enemysInCombat[cursorPosition]->enemyCombatPosition]->SetHighlightSelectionElement(potentialDamage,opacity);
+				if(aisActive)
+				{
+					playersInCombat[cursorPosition]->partyHealthbarElement->MoveUp();
+				}
+				else
+				{
+					playersInCombat[cursorPosition]->partyHealthbarElement->ResetTranslation();
+				}
+			}
+			else
+			{
+				for(int i = 0 ; i < playersInCombat.Num();i++)
+				{
+				//float potentialDamage = enemysInCombat[i]->
+				//	GetPotentialHealthPercentage(enemysInCombat[i]->CalculateDamage(combatManager->currentActivePartyMember,skillData));
+				//	enemySelectionElements[enemysInCombat[i]->enemyCombatPosition]->SetHighlightSelectionElement(potentialDamage,opacity);
+					if(aisActive)
+                	{
+                		playersInCombat[cursorPosition]->partyHealthbarElement->MoveUp();
+                	}
+                	else
+                	{
+                		playersInCombat[cursorPosition]->partyHealthbarElement->ResetTranslation();
+                	}
+				}
+			}
+			
 			break;
 		}
 		default:
@@ -138,36 +160,35 @@ void UCombatSelectionView::InitializeEnemySelectionElements(TArray<UEnemyCombatE
 
 }
 
-void UCombatSelectionView::SetSkill(FSkills_Base aSkill)
+void UCombatSelectionView::SetSkill(USkillBase* aSkill)
 {
 	currentSkill = aSkill;
+	FSkillsData skillData = currentSkill->skillData;
 
-
-	if(aSkill.skillRange == ESkillRange::Single)
+	if(skillData.skillRange == ESkillRange::Single)
 	{
 		hasCursor = true;
 	}
-	
-	switch(aSkill.SkillType)
+	cursorPosition = 0;
+	switch(skillData.skillUsage)
 	{
-		case Attack:
+		case ESkillUsage::Opponents:
 		{
 			InitializeEnemySelectionElements(enemysInCombat);
-			cursorMaxRange = enemysInCombat.Num() -1;
+			maxCursorPosition = enemysInCombat.Num() -1;
+			minCursorPosition = 0;
+
+			for (TTuple<EEnemyCombatPositions, UEnemySelectionElement*> enemyUiElement : enemySelectionElements)
+			{
+				enemyUiElement.Value->SetRenderOpacity(MAX_OPACITY);
+			}
 			break;
 		}
-		case Heal:
+		case ESkillUsage::Comrades:
 		{
-			TArray<UPlayerCombatEntity*> playersInCombat = combatManager->GetPlayersInCombat();
-			cursorMaxRange = playersInCombat.Num() -1;
-			break;
-		}
-		case Defence:
-		{
-			break;
-		}
-		case Domain:
-		{
+			playersInCombat = combatManager->GetPlayersInCombat();
+			maxCursorPosition = playersInCombat.Num() -1;
+			minCursorPosition = 0;
 			break;
 		}
 		default:

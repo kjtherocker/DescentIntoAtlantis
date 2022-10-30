@@ -35,6 +35,7 @@ class DESENTINTOATLANTIS_API UPlayerCombatEntity : public UCombatEntity
 {
 	GENERATED_BODY()
 private:
+	UPROPERTY()
 	USkillFactory* skillFactory;
 
 public:
@@ -50,9 +51,12 @@ public:
 
 	virtual void SetPlayerEntity(FPlayerEntityData aPlayerEntityData);
 	virtual void SetTacticsEntity(USkillFactory* aSkillFactory) override;
+	
 	virtual void SetPlayerClass(UDataTable*EDataTableClasses);
-	virtual void ActivateDamageHitEffect() override;
+	
+
 	void SetAbilityScores();
+	
 	virtual float GetHealthPercentage() override;
 	virtual float GetManaPercentage()   override;
 };

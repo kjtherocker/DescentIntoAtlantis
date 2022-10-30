@@ -3,7 +3,7 @@
 
 #include "SkillBarElement.h"
 
-void USkillBarElement::SetSkill(FSkills_Base aSkill)
+void USkillBarElement::SetSkill(FSkillsData aSkill)
 {
 	SkillIcon->SetBrushFromTexture(aSkill.skillIcon);
 	SkillName->SetText(FText(FText::FromString(aSkill.skillName)));

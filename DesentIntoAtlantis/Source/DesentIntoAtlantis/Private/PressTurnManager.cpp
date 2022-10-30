@@ -9,7 +9,8 @@
 #include "CombatManager.h"
 #include "InGameHUD.h"
 #include "UObject/NoExportTypes.h"
-#include "Skills_Base.h"
+#include "SkillsData.h"
+#include "SoundManager.h"
 #include "TurnCounter.h"
 #include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
 
@@ -66,35 +67,41 @@ int UPressTurnManager::GetNumberOfActivePressTurns()
 	return activePressTurns.Num();
 }
 
-void UPressTurnManager::ActivateSkill(UCombatEntity* aAttacker, int aCursorPosition, FSkills_Base aSkill)
+void UPressTurnManager::ActivateSkill(UCombatEntity* aAttacker, int aCursorPosition, USkillBase* aSkill)
 {
 
-	TArray<UCombatEntity*>  enemyInCombat  = TArray<UCombatEntity*>(combatManager->GetEnemysInCombat());
+	TArray<UCombatEntity*>  enemyInCombat    = TArray<UCombatEntity*>(combatManager->GetEnemysInCombat());
 	TArray<UCombatEntity*>  playersInCombat  = TArray<UCombatEntity*>(combatManager->GetPlayersInCombat());
 	
 	TArray<UCombatEntity*> entitySkillsAreUsedOn;
 
 	TArray<PressTurnReactions> turnReactions;
-	
+
+	FSkillsData skillsData = aSkill->skillData;
 	
 	if(aAttacker->characterType == ECharactertype::Ally)
 	{
-		entitySkillsAreUsedOn = aSkill.SkillType == Attack ? enemyInCombat : playersInCombat;
+		entitySkillsAreUsedOn = skillsData.skillUsage == ESkillUsage::Opponents ? enemyInCombat : playersInCombat;
 	}
 	else if(aAttacker->characterType == ECharactertype::Enemy)
 	{
-		entitySkillsAreUsedOn = aSkill.SkillType == Attack ? playersInCombat : enemyInCombat;
+		entitySkillsAreUsedOn = skillsData.skillUsage == ESkillUsage::Opponents ? playersInCombat : enemyInCombat;
 	}
 
-	if(aSkill.skillRange == ESkillRange::Single)
+	if(skillsData.skillType == ESkillType::Attack)
 	{
-		turnReactions.Add(aSkill.UseSkill(aAttacker,entitySkillsAreUsedOn[aCursorPosition]));
+		gameModeBase->soundManager->PlayAudio(EAudioSources::CombatSoundEffect,EAudio::FireBall);
 	}
-	else if (aSkill.skillRange == ESkillRange::Multi)
+
+	if(skillsData.skillRange == ESkillRange::Single)
+	{
+		turnReactions.Add(aSkill->UseSkill(aAttacker,entitySkillsAreUsedOn[aCursorPosition]));
+	}
+	else if (skillsData.skillRange == ESkillRange::Multi)
 	{
 		for(int i = 0 ; i <entitySkillsAreUsedOn.Num();i++)
 		{
-			turnReactions.Add(aSkill.UseSkill(aAttacker,entitySkillsAreUsedOn[i]));
+			turnReactions.Add(aSkill->UseSkill(aAttacker,entitySkillsAreUsedOn[i]));
 		}
 		
 	}

@@ -20,6 +20,7 @@ class DESENTINTOATLANTIS_API ULevelupView : public UBaseUserWidget
 {
 	GENERATED_BODY()
 private:
+	UPROPERTY()
 	TArray<UPlayerCombatEntity*> combatEntitysToLevelup;
 	
 public:

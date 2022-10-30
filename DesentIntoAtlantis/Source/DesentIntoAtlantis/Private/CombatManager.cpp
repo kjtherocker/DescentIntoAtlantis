@@ -8,38 +8,44 @@
 #include "PartyHealthbarsView.h"
 #include "PressTurnManager.h"
 #include "TurnCounter.h"
+#include "EnemyCombatEntity.h"
+#include "PlayerCombatEntity.h"
+#include "PartyHealthbarElement.h"
+#include "SkillFactory.h"
+#include "SoundManager.h"
 #include "Blueprint/UserWidget.h"
 #include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
 #include "Kismet/GameplayStatics.h"
 
 
-void UCombatManager::Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
+void UCombatManager::Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase,UWorld* aWorld)
 {
 	gameModeBase = aGameModeBase;
 	pressTurnManager = NewObject<UPressTurnManager>();
 	pressTurnManager->Initialize(this,aGameModeBase);
 	skillFactory = aGameModeBase->skillFactory;
+	world = aWorld;
 }
 
-void UCombatManager::StartCombat(UWorld* aWorld)
+void UCombatManager::StartCombat(FString aEnemyGroupName)
 {
 	if(hasCombatStarted)
 	{
 		return;
 	}
-
-	world =aWorld;
 	
+	gameModeBase->soundManager->PlayAudio(EAudioSources::CombatMusic,EAudio::Combat);
 	hasCombatStarted = true;
 	
 	GameHUD = gameModeBase->InGameHUD;
 
-	partyMembersInCombat     = gameModeBase->partyManager->ReturnActivePartyEntityData();
+	partyMembersInCombat     = gameModeBase->partyManager->ReturnActiveParty();
+	
 	currentActivePartyMember = partyMembersInCombat[0];
 	currentTurnType          = ECharactertype::Ally;
 	
-	TArray<FString> EnemyNames = gameModeBase->enemyFactory->ReturnEnemyGroupData("FloorFight1");
-
+	TArray<FString> EnemyNames = gameModeBase->enemyFactory->ReturnEnemyGroupData(aEnemyGroupName);
+		
 	for(int i = 0 ; i < EnemyNames.Num();i++)
 	{
 		AddEnemyToCombat(gameModeBase->enemyFactory->ReturnEnemyEntityData(EnemyNames[i]));
@@ -54,16 +60,20 @@ void UCombatManager::StartCombat(UWorld* aWorld)
 		turnCounter     = (UTurnCounter*)GameHUD->PushAndGetView(EViews::TurnCounter,         EUiType::PersistentUi);
 		partyHealthbars = (UPartyHealthbarsView*)GameHUD->PushAndGetView(EViews::Healthbars,  EUiType::PersistentUi);
 	}
+	
 
 	combatExp = 0;
 	pressTurnManager->SetAmountOfTurns(partyMembersInCombat.Num(),currentTurnType);
-	AllyStartTurn();
 	
+	AllyStartTurn();
+	//GameHUD->PushView(EViews::Tutorial,    EUiType::PersistentUi);
 }
 
 void UCombatManager::AddEnemyToCombat(FEnemyEntityData AEnemyEntityData)
 {
 	UEnemyCombatEntity* EnemyCombatEntity = NewObject<UEnemyCombatEntity>();
+	EnemyCombatEntity->SetTacticsEntity(skillFactory);
+	EnemyCombatEntity->SetTacticsEvents(this);
 	EnemyCombatEntity->SetEnemyEntityData(AEnemyEntityData,skillFactory);
 	EnemyCombatEntity->enemyBestiaryData = gameModeBase->enemyFactory->GetBestiaryEntry(EnemyCombatEntity->enemyEntityData.characterName);
 	enemyCombatEntities.Add(EnemyCombatEntity);
@@ -200,13 +210,14 @@ void UCombatManager::EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEntity)
 {
 	UEnemySkillView* enemySkillView = (UEnemySkillView*)GameHUD->PushAndGetView(EViews::EnemySkill,      EUiType::ActiveUi);
 
-	FSkills_Base skill = aEnemyCombatEntity->enemyBehaviour->GetSkill();
+	USkillBase* skillObject = aEnemyCombatEntity->enemyBehaviour->GetSkill();
+	FSkillsData skillData = skillObject->skillData;
 	
-	enemySkillView->SetSkill(skill,aEnemyCombatEntity);
+	enemySkillView->SetSkill(skillData,aEnemyCombatEntity);
 
 	int playerToAttack = aEnemyCombatEntity->enemyBehaviour->PlayerToAttack(partyMembersInCombat);
 
-	pressTurnManager->ActivateSkill(aEnemyCombatEntity,playerToAttack,skill);
+	pressTurnManager->ActivateSkill(aEnemyCombatEntity,playerToAttack,skillObject);
 }
 
 UPlayerCombatEntity* UCombatManager::ReturnCurrentActivePartyMember()

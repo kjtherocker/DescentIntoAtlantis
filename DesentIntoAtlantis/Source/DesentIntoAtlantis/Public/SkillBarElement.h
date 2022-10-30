@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
-#include "Skills_Base.h"
+#include "SkillsData.h"
 #include "Components/Image.h"
 #include "Components/TextBlock.h"
 #include "SkillBarElement.generated.h"
@@ -19,7 +19,7 @@ class DESENTINTOATLANTIS_API USkillBarElement : public UBaseUserWidget
 
 public:
 
-	void SetSkill(FSkills_Base aSkill);
+	void SetSkill(FSkillsData aSkill);
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* SkillIcon;

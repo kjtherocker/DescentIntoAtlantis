@@ -17,9 +17,9 @@ int UEnemyBehaviour::PlayerToAttack(TArray<UPlayerCombatEntity*> aCombatEntity)
 
 
 
-FSkills_Base UEnemyBehaviour::GetSkill()
+USkillBase* UEnemyBehaviour::GetSkill()
 {
-	TArray<FSkills_Base> enemySkills = enemyCombatEntity->enemySkills;
+	TArray<USkillBase*> enemySkills = enemyCombatEntity->enemySkills;
 	
 	return enemySkills[FMath::RandRange(0,enemySkills.Num()-1)];
 }

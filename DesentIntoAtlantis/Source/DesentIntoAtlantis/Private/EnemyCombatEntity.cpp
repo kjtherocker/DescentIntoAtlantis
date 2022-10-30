@@ -5,6 +5,7 @@
 #include "EnemyBeastiaryData.h"
 #include "EnemyBehaviour.h"
 #include "EnemyPortraitElement.h"
+#include "CombatManager.h"
 #include "SkillFactory.h"
 
 void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactory * skillFactory)
@@ -35,13 +36,7 @@ void UEnemyCombatEntity::Death()
 {
 	UCombatEntity::Death();
 
-	imageBodyPortrait->BW_Portrait->SetOpacity(0);
-}
-
-void UEnemyCombatEntity::ActivateDamageHitEffect()
-{
-	UCombatEntity::ActivateDamageHitEffect();
-	imageBodyPortrait->isTriggeringHitEffect = true;
+	wasKilled.Broadcast();
 }
 
 float UEnemyCombatEntity::GetHealthPercentage()
@@ -49,7 +44,7 @@ float UEnemyCombatEntity::GetHealthPercentage()
 	return (float)currentHealth / (float)enemyEntityData.maxHealth;
 }
 
-PressTurnReactions UEnemyCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkills_Base aSkill)
+PressTurnReactions UEnemyCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
 	enemyBestiaryData->RevealElementalInfo(aSkill.elementalType);
 	return UCombatEntity::DecrementHealth(aAttacker, aSkill);
@@ -57,10 +52,10 @@ PressTurnReactions UEnemyCombatEntity::DecrementHealth(UCombatEntity* aAttacker,
 
 void UEnemyCombatEntity::SetAbilityScores()
 {
-	StrengthAbilityScore.base    =  enemyEntityData.baseStrength;
-	MagicAbilityScore.base       =  enemyEntityData.baseMagic;
-	HitAbilityScore.base         =  enemyEntityData.baseHit;
-	EvasionAbilityScore.base     =  enemyEntityData.baseEvasion;
-	DefenceAbilityScore.base     =  enemyEntityData.baseDefence;
-	ResistanceAbilityScore.base  =  enemyEntityData.baseResistance;
+	abilityScoreMap[EAbilityScoreTypes::Strength]->base    =  enemyEntityData.baseStrength;
+	abilityScoreMap[EAbilityScoreTypes::Magic]->base       =  enemyEntityData.baseMagic;
+	abilityScoreMap[EAbilityScoreTypes::Hit]->base         =  enemyEntityData.baseHit;
+	abilityScoreMap[EAbilityScoreTypes::Evasion]->base     =  enemyEntityData.baseEvasion;
+	abilityScoreMap[EAbilityScoreTypes::Defence]->base     =  enemyEntityData.baseDefence;
+	abilityScoreMap[EAbilityScoreTypes::Resistance]->base  =  enemyEntityData.baseResistance;
 }

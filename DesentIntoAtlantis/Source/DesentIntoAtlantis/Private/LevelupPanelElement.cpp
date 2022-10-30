@@ -4,7 +4,7 @@
 #include "LevelupPanelElement.h"
 #include "Components/TextBlock.h"
 
-void ULevelupPanelElement::Initialize(FString aAbilityModifierName, FString aPreviousClassValue,
+void ULevelupPanelElement::SetLevelupPanelElement(FString aAbilityModifierName, FString aPreviousClassValue,
 	FString aNextClassValue)
 {
 	BW_AbilityModifierName->SetText(FText(FText::FromString(aAbilityModifierName)));

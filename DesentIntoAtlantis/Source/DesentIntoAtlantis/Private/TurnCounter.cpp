@@ -7,9 +7,9 @@
 #include "Components/HorizontalBox.h"
 
 
-void UTurnCounter::UiInitialize()
+void UTurnCounter::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 {
-	Super::UiInitialize();
+	Super::UiInitialize(aGameModeBase);
 
 	TSubclassOf<UUserWidget> TurncounterElement = InGameHUD->GetElement(EViewElements::TurnCounterElement);
 
@@ -25,7 +25,7 @@ void UTurnCounter::AddTurnCounterToUi(TSubclassOf<UUserWidget> aTurnCounter)
 
 	
 	UTurnCounterElement* baseUserWidget = (UTurnCounterElement*)turnCounter;
-	baseUserWidget->UiInitialize();
+	baseUserWidget->UiInitialize(gameModeBase);
 	turnCounter->AddToViewport();
 
 	turnCounter->SetColorAndOpacity(FLinearColor(1,1,1,0));

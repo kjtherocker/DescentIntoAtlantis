@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-
 UENUM()
 enum class EElementalType
 {
@@ -15,4 +14,15 @@ enum class EElementalType
 	Shadow   = 5,
 	Light    = 6,
 	Earth    = 7
+};
+
+UENUM()
+enum class  PressTurnReactions
+{
+	Normal,
+	Weak,
+	Strong,
+	Dodge,
+	Null,
+	Pass
 };

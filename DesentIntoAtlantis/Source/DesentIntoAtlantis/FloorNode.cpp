@@ -1,5 +1,9 @@
 #include "FloorNode.h"
 
+#include "CombatManager.h"
+#include "DesentIntoAtlantisGameModeBase.h"
+#include "Kismet/GameplayStatics.h"
+
 // Sets default values
 AFloorNode::AFloorNode()
 {
@@ -194,4 +198,12 @@ void AFloorNode::SetFloorNodeWallInfo(ECardinalNodeDirections aCardinalDirection
 	floorNodeWallInfo->rotation = aRotation;
 
 	floorNodeWallInfos.Add(aCardinalDirection,floorNodeWallInfo);
+}
+
+void AFloorNode::PlayerIsOnTopOfNode()
+{
+	if(hasFloorEvent)
+	{
+		floorEventHasBeenTriggeredEvent.Broadcast(positionInGrid);
+	}
 }

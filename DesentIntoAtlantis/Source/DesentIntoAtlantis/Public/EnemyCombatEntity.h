@@ -10,6 +10,7 @@
 class UEnemyBestiaryData;
 class UEnemyBehaviour;
 class UEnemyPortraitElement;
+class UCombatManager;
 struct FEnemyEntityData;
 
 UENUM()
@@ -60,16 +61,16 @@ public:
 	void SetAbilityScores();
 	void SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactory * skillFactory);
 	virtual void Death() override;
-	virtual void ActivateDamageHitEffect() override;
 	virtual float GetHealthPercentage() override;
-	virtual PressTurnReactions DecrementHealth(UCombatEntity* aAttacker, FSkills_Base aSkill) override;
+	virtual PressTurnReactions DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill) override;
 
 	UPROPERTY()
-	TArray<FSkills_Base> enemySkills;
+	TArray<USkillBase*> enemySkills;
 
+	UPROPERTY()
 	UEnemyBehaviour* enemyBehaviour; 
-
-	UEnemyBestiaryData* enemyBestiaryData; 
+	UPROPERTY()
+	UEnemyBestiaryData* enemyBestiaryData;
 	
 	FEnemyEntityData enemyEntityData;
 

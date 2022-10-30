@@ -1,7 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "SkillFactory.h"
+
+#include "CombatEntity.h"
 #include "Engine/DataTable.h"
-#include "Skills_Base.h"
+#include "SkillsData.h"
 
 
 
@@ -10,25 +12,64 @@ USkillFactory::USkillFactory()
 {
 }
 
-void USkillFactory::InitializeDatabase(UDataTable* aSkillDataTable)
+void USkillFactory::InitializeDatabase(TMap<ESkillType,UDataTable*> aSkillDataTable)
 {
 
-	UDataTable* datatable = aSkillDataTable;
-	
-	for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
+	TMap<ESkillType,UDataTable*>  datatable = aSkillDataTable;
+
+	if(datatable[ESkillType::Attack])
 	{
-		allSkills.Add(*datatable->FindRow<FSkills_Base>(FName(FString::FromInt(i)),FString("Searching for Skills levels"),true));
+		for(int i = 0 ; i < datatable[ESkillType::Attack]->GetRowMap().Num(); i ++)
+		{
+			FSkillsData skillData = *datatable[ESkillType::Attack]->FindRow<FSkillsData>(FName(FString::FromInt(i)),FString("Searching for Skills levels"),true);
+
+			USkillAttack* skillObject = NewObject<USkillAttack>();
+			skillObject->Initialize(skillData);
+			skillMap.Add(skillData.skillName,skillObject);
+		}
 	}
- 
-	for (FSkills_Base skills : allSkills)
+
+	if(datatable[ESkillType::Heal])
 	{
-		skillMap.Add(skills.skillName,skills);
+		for(int i = 0 ; i < datatable[ESkillType::Heal]->GetRowMap().Num(); i ++)
+		{
+			FSkillsData skillData = *datatable[ESkillType::Heal]->FindRow<FSkillsData>(FName(FString::FromInt(i)),FString("Searching for Skills levels"),true);
+
+			USkillHeal* skillObject = NewObject<USkillHeal>();
+			skillObject->Initialize(skillData);
+			skillMap.Add(skillData.skillName,skillObject);
+		}
+	}
+
+	if(datatable[ESkillType::Buff])
+	{
+		for(int i = 0 ; i < datatable[ESkillType::Buff]->GetRowMap().Num(); i ++)
+		{
+			FSkillsData skillData = *datatable[ESkillType::Buff]->FindRow<FSkillsData>(FName(FString::FromInt(i)),FString("Searching for Skills levels"),true);
+
+			USkillBuff* skillObject = NewObject<USkillBuff>();
+			skillObject->Initialize(skillData);
+			skillMap.Add(skillData.skillName,skillObject);
+		}
+	}
+
+	if(datatable[ESkillType::Debuff])
+	{
+		for(int i = 0 ; i < datatable[ESkillType::Debuff]->GetRowMap().Num(); i ++)
+		{
+			FSkillsData skillData = *datatable[ESkillType::Debuff]->FindRow<FSkillsData>(FName(FString::FromInt(i)),FString("Searching for Skills levels"),true);
+
+			USkillDebuff* skillObject = NewObject<USkillDebuff>();
+			skillObject->Initialize(skillData);
+			skillMap.Add(skillData.skillName,skillObject);
+		}
 	}
 	
+
 	
 }
 
-FSkills_Base USkillFactory::GetSkill(FString aSkillName)
+USkillBase* USkillFactory::GetSkill(FString aSkillName)
 {
 		return skillMap.FindRef(aSkillName);
 }

@@ -3,9 +3,9 @@
 
 #include "TurnCounterElement.h"
 
-void UTurnCounterElement::UiInitialize()
+void UTurnCounterElement::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 {
-	Super::UiInitialize();
+	Super::UiInitialize(aGameModeBase);
 
 	turnIcons.Add(ECharactertype::Ally,  BW_TurnIconAlly);
 	turnIcons.Add(ECharactertype::Enemy, BW_TurnIconEnemy);

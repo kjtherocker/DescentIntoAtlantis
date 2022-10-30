@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Skills_Base.h"
+#include "SkillsData.h"
 #include "UObject/NoExportTypes.h"
 #include "EnemyBehaviour.generated.h"
 
@@ -18,6 +18,7 @@ class DESENTINTOATLANTIS_API UEnemyBehaviour : public UObject
 	GENERATED_BODY()
 
 private:
+	UPROPERTY()
 	UEnemyCombatEntity* enemyCombatEntity;
 	
 
@@ -27,6 +28,6 @@ public:
 	virtual void Initialize(UEnemyCombatEntity* aEnemyCombatEntity);
 	virtual int PlayerToAttack(TArray<UPlayerCombatEntity*>  aCombatEntity);
 	
-	FSkills_Base GetSkill();
+	USkillBase* GetSkill();
 	
 };

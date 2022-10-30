@@ -11,6 +11,10 @@ enum class  EDataTableTypes
 	Enemys           = 2,
 	EnemyGroups      = 3,
 	Party            = 4,
+	Tutorial         = 5,
+	Floor            = 6,
+	FloorEvent       = 7,
+	Dialogue         = 8,
 };
 
 
@@ -23,4 +27,5 @@ enum class  EDataTableClasses
 	Dancer               = 3,
 	SoulEater            = 4,
 };
+
 
