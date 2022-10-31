@@ -10,6 +10,7 @@
 #include "DialogueFactory.generated.h"
 
 
+enum class EAudio;
 USTRUCT()
 struct DESENTINTOATLANTIS_API FDialogueData : public FTableRowBase
 {
@@ -31,6 +32,9 @@ struct DESENTINTOATLANTIS_API FDialogueData : public FTableRowBase
 	
 	UPROPERTY( EditAnywhere )
 	UTexture2D* BackgroundCG;
+
+	UPROPERTY( EditAnywhere )
+	EAudio musicToPlay;
 
 };
 

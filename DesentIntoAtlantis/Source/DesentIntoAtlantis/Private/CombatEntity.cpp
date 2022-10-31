@@ -26,6 +26,10 @@ void UCombatEntity::SetTacticsEvents(UCombatManager* aCombatManager)
 
 void UCombatEntity::EndTurn()
 {
+    for (TTuple<EAbilityScoreTypes, UCombatAbilityStats*> abilityScore : abilityScoreMap)
+    {
+        abilityScore.Value->TurnEnd();
+    }
 }
 
 
@@ -52,8 +56,17 @@ int UCombatEntity::CalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
     {
         decementBy = decementBy * STRONG_DAMAGE_REDUCTION;
     }
+
+    decementBy -=  aSkill.skillDamageType == ESkillDamageType::Strength ?
+        abilityScoreMap[EAbilityScoreTypes::Defence]->GetAllStats()    / ABILITYSCORE_CONVERSION_RATIO :
+        abilityScoreMap[EAbilityScoreTypes::Resistance]->GetAllStats() / ABILITYSCORE_CONVERSION_RATIO;
 	
     return decementBy;
+}
+
+void UCombatEntity::Reset()
+{
+    
 }
 
 PressTurnReactions UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
@@ -71,6 +84,10 @@ PressTurnReactions UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSki
 
     currentHealth -= CalculateDamage(aAttacker,aSkill);
     DeathCheck();
+    if(currentHealth < 0)
+    {
+        currentHealth = 0;
+    }
     hasHealthOrManaValuesChanged.Broadcast();
     if(!isMarkedForDeath)
     {
@@ -101,6 +118,12 @@ PressTurnReactions UCombatEntity::ApplyBuff(UCombatEntity* aBuffer, FSkillsData 
     return PressTurnReactions::Normal;
 }
 
+void UCombatEntity::DecrementMana(int aDecrementBy)
+{
+    currentMana -= aDecrementBy;
+    hasHealthOrManaValuesChanged.Broadcast();
+}
+
 ECharactertype UCombatEntity::GetCharactertype()
 {
     return characterType;
@@ -126,6 +149,10 @@ void UCombatEntity::Death()
 void UCombatEntity::ActivateDamageHitEffect()
 {
     wasDamaged.Broadcast();
+}
+
+void UCombatEntity::SetToDefaultState()
+{
 }
 
 float UCombatEntity::GetHealthPercentage()

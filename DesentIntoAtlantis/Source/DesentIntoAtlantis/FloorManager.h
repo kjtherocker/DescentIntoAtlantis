@@ -31,6 +31,8 @@ public:
 	void SpawnFloorNode(int aRow, int aColumn,int aIndex);
 	void SpawnFloorEnemyPawn(FVector2D aPositionInGrid);
 	void SpawnFloor(UFloorBase* aFloorBase);
+
+	void MovePlayerToPreviousNode();
 	
 	AFloorNode* GetNodeInDirection(FVector2D CurrentPosition,ECardinalNodeDirections TargetDirection);
 	AFloorNode* GetNode(FVector2D CurrentPosition);

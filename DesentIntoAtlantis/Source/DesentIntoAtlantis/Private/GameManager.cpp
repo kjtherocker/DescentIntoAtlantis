@@ -23,9 +23,13 @@ void UGameManager::SetUpTitleMenu()
 void UGameManager::StartGame()
 {
 	gameModeBase->floorManager->CreateFloor(EFloorIdentifier::Floor1);
-	//UDialogueView* DialogueView  = (UDialogueView*)gameModeBase->InGameHUD->PushAndGetView(EViews::Dialogue,EUiType::ActiveUi);
-	//DialogueView->SetDialogueData(EDialogueTriggers::StartGame);
+	UDialogueView* DialogueView  = (UDialogueView*)gameModeBase->InGameHUD->PushAndGetView(EViews::Dialogue,EUiType::ActiveUi);
+	DialogueView->SetDialogueData(EDialogueTriggers::StartGame);
 	gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::Paladin);
-	gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::SoulEater);
-	gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::DarkKnight);
+}
+
+void UGameManager::ResetPlayerToPreviousPosition()
+{
+	gameModeBase->floorManager->MovePlayerToPreviousNode();
+	gameModeBase->combatManager->EndCombat(false);
 }

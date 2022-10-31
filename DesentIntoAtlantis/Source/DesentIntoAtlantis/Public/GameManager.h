@@ -15,6 +15,7 @@ UCLASS()
 class DESENTINTOATLANTIS_API UGameManager : public UObject
 {
 	GENERATED_BODY()
+	UPROPERTY()
 	ADesentIntoAtlantisGameModeBase* gameModeBase;
 	FStartGameDelegate startGameDelegate;
 public:
@@ -23,5 +24,7 @@ public:
 	void SetUpTitleMenu();
 	UFUNCTION()
 	void StartGame();
+	UFUNCTION()
+	void ResetPlayerToPreviousPosition();
 	
 };

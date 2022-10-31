@@ -18,8 +18,10 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnum() {}
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EFloorIdentifier();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EDialogueTriggers();
-	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_TutorialTriggers();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ETutorialTriggers();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FFloorEventData();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EViews();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FTutorialData();
 	ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
 // End Cross Module References
@@ -49,6 +51,7 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnum() {}
 		{ "EFloorEventStates::DialogueOnStart", (int64)EFloorEventStates::DialogueOnStart },
 		{ "EFloorEventStates::TutorialOnStart", (int64)EFloorEventStates::TutorialOnStart },
 		{ "EFloorEventStates::Combat", (int64)EFloorEventStates::Combat },
+		{ "EFloorEventStates::Levelup", (int64)EFloorEventStates::Levelup },
 		{ "EFloorEventStates::DialogueOnEnd", (int64)EFloorEventStates::DialogueOnEnd },
 		{ "EFloorEventStates::TutorialOnEnd", (int64)EFloorEventStates::TutorialOnEnd },
 		{ "EFloorEventStates::Completed", (int64)EFloorEventStates::Completed },
@@ -59,6 +62,7 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnum() {}
 		{ "Completed.Name", "EFloorEventStates::Completed" },
 		{ "DialogueOnEnd.Name", "EFloorEventStates::DialogueOnEnd" },
 		{ "DialogueOnStart.Name", "EFloorEventStates::DialogueOnStart" },
+		{ "Levelup.Name", "EFloorEventStates::Levelup" },
 		{ "ModuleRelativePath", "Public/FloorEnum.h" },
 		{ "None.Name", "EFloorEventStates::None" },
 		{ "TutorialOnEnd.Name", "EFloorEventStates::TutorialOnEnd" },
@@ -132,7 +136,7 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnum() {}
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_TriggerNextEventStage__DelegateSignature_Statics::NewProp_aFloorEventStates_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_TriggerNextEventStage__DelegateSignature_Statics::NewProp_aFloorEventStates = { "aFloorEventStates", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_DesentIntoAtlantis_eventTriggerNextEventStage_Parms, aFloorEventStates), Z_Construct_UEnum_DesentIntoAtlantis_EFloorEventStates, METADATA_PARAMS(nullptr, 0) }; // 1456056601
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_TriggerNextEventStage__DelegateSignature_Statics::NewProp_aFloorEventStates = { "aFloorEventStates", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_DesentIntoAtlantis_eventTriggerNextEventStage_Parms, aFloorEventStates), Z_Construct_UEnum_DesentIntoAtlantis_EFloorEventStates, METADATA_PARAMS(nullptr, 0) }; // 2475026128
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_DesentIntoAtlantis_TriggerNextEventStage__DelegateSignature_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_DesentIntoAtlantis_TriggerNextEventStage__DelegateSignature_Statics::NewProp_aFloorEventStates_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_DesentIntoAtlantis_TriggerNextEventStage__DelegateSignature_Statics::NewProp_aFloorEventStates,
@@ -277,13 +281,23 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FFloorData>()
 		{ "EDialogueTriggers::StartGame", (int64)EDialogueTriggers::StartGame },
 		{ "EDialogueTriggers::Combat1Start", (int64)EDialogueTriggers::Combat1Start },
 		{ "EDialogueTriggers::Combat1End", (int64)EDialogueTriggers::Combat1End },
+		{ "EDialogueTriggers::ArdusJoin", (int64)EDialogueTriggers::ArdusJoin },
+		{ "EDialogueTriggers::SeresFightStart", (int64)EDialogueTriggers::SeresFightStart },
+		{ "EDialogueTriggers::SeresFightEnd", (int64)EDialogueTriggers::SeresFightEnd },
+		{ "EDialogueTriggers::FinalBossStart", (int64)EDialogueTriggers::FinalBossStart },
+		{ "EDialogueTriggers::FinalBossEnd", (int64)EDialogueTriggers::FinalBossEnd },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EDialogueTriggers_Statics::Enum_MetaDataParams[] = {
+		{ "ArdusJoin.Name", "EDialogueTriggers::ArdusJoin" },
 		{ "Combat1End.Name", "EDialogueTriggers::Combat1End" },
 		{ "Combat1Start.Name", "EDialogueTriggers::Combat1Start" },
+		{ "FinalBossEnd.Name", "EDialogueTriggers::FinalBossEnd" },
+		{ "FinalBossStart.Name", "EDialogueTriggers::FinalBossStart" },
 		{ "ModuleRelativePath", "Public/FloorEnum.h" },
 		{ "None.Name", "EDialogueTriggers::None" },
+		{ "SeresFightEnd.Name", "EDialogueTriggers::SeresFightEnd" },
+		{ "SeresFightStart.Name", "EDialogueTriggers::SeresFightStart" },
 		{ "StartGame.Name", "EDialogueTriggers::StartGame" },
 	};
 #endif
@@ -307,20 +321,20 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FFloorData>()
 		}
 		return Z_Registration_Info_UEnum_EDialogueTriggers.InnerSingleton;
 	}
-	static FEnumRegistrationInfo Z_Registration_Info_UEnum_TutorialTriggers;
-	static UEnum* TutorialTriggers_StaticEnum()
+	static FEnumRegistrationInfo Z_Registration_Info_UEnum_ETutorialTriggers;
+	static UEnum* ETutorialTriggers_StaticEnum()
 	{
-		if (!Z_Registration_Info_UEnum_TutorialTriggers.OuterSingleton)
+		if (!Z_Registration_Info_UEnum_ETutorialTriggers.OuterSingleton)
 		{
-			Z_Registration_Info_UEnum_TutorialTriggers.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_DesentIntoAtlantis_TutorialTriggers, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("TutorialTriggers"));
+			Z_Registration_Info_UEnum_ETutorialTriggers.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_DesentIntoAtlantis_ETutorialTriggers, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("ETutorialTriggers"));
 		}
-		return Z_Registration_Info_UEnum_TutorialTriggers.OuterSingleton;
+		return Z_Registration_Info_UEnum_ETutorialTriggers.OuterSingleton;
 	}
-	template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<TutorialTriggers>()
+	template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<ETutorialTriggers>()
 	{
-		return TutorialTriggers_StaticEnum();
+		return ETutorialTriggers_StaticEnum();
 	}
-	struct Z_Construct_UEnum_DesentIntoAtlantis_TutorialTriggers_Statics
+	struct Z_Construct_UEnum_DesentIntoAtlantis_ETutorialTriggers_Statics
 	{
 		static const UECodeGen_Private::FEnumeratorParam Enumerators[];
 #if WITH_METADATA
@@ -328,42 +342,42 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FFloorData>()
 #endif
 		static const UECodeGen_Private::FEnumParams EnumParams;
 	};
-	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_TutorialTriggers_Statics::Enumerators[] = {
-		{ "TutorialTriggers::None", (int64)TutorialTriggers::None },
-		{ "TutorialTriggers::Combat1", (int64)TutorialTriggers::Combat1 },
-		{ "TutorialTriggers::Combat2", (int64)TutorialTriggers::Combat2 },
-		{ "TutorialTriggers::Combat3", (int64)TutorialTriggers::Combat3 },
-		{ "TutorialTriggers::Combat4", (int64)TutorialTriggers::Combat4 },
+	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_ETutorialTriggers_Statics::Enumerators[] = {
+		{ "ETutorialTriggers::None", (int64)ETutorialTriggers::None },
+		{ "ETutorialTriggers::Combat1Start", (int64)ETutorialTriggers::Combat1Start },
+		{ "ETutorialTriggers::Combat1End", (int64)ETutorialTriggers::Combat1End },
+		{ "ETutorialTriggers::ArdusJoin", (int64)ETutorialTriggers::ArdusJoin },
+		{ "ETutorialTriggers::Combat3End", (int64)ETutorialTriggers::Combat3End },
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_TutorialTriggers_Statics::Enum_MetaDataParams[] = {
-		{ "Combat1.Name", "TutorialTriggers::Combat1" },
-		{ "Combat2.Name", "TutorialTriggers::Combat2" },
-		{ "Combat3.Name", "TutorialTriggers::Combat3" },
-		{ "Combat4.Name", "TutorialTriggers::Combat4" },
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_ETutorialTriggers_Statics::Enum_MetaDataParams[] = {
+		{ "ArdusJoin.Name", "ETutorialTriggers::ArdusJoin" },
+		{ "Combat1End.Name", "ETutorialTriggers::Combat1End" },
+		{ "Combat1Start.Name", "ETutorialTriggers::Combat1Start" },
+		{ "Combat3End.Name", "ETutorialTriggers::Combat3End" },
 		{ "ModuleRelativePath", "Public/FloorEnum.h" },
-		{ "None.Name", "TutorialTriggers::None" },
+		{ "None.Name", "ETutorialTriggers::None" },
 	};
 #endif
-	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_DesentIntoAtlantis_TutorialTriggers_Statics::EnumParams = {
+	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_DesentIntoAtlantis_ETutorialTriggers_Statics::EnumParams = {
 		(UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
 		nullptr,
-		"TutorialTriggers",
-		"TutorialTriggers",
-		Z_Construct_UEnum_DesentIntoAtlantis_TutorialTriggers_Statics::Enumerators,
-		UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_TutorialTriggers_Statics::Enumerators),
+		"ETutorialTriggers",
+		"ETutorialTriggers",
+		Z_Construct_UEnum_DesentIntoAtlantis_ETutorialTriggers_Statics::Enumerators,
+		UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_ETutorialTriggers_Statics::Enumerators),
 		RF_Public|RF_Transient|RF_MarkAsNative,
 		EEnumFlags::None,
 		(uint8)UEnum::ECppForm::EnumClass,
-		METADATA_PARAMS(Z_Construct_UEnum_DesentIntoAtlantis_TutorialTriggers_Statics::Enum_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_TutorialTriggers_Statics::Enum_MetaDataParams))
+		METADATA_PARAMS(Z_Construct_UEnum_DesentIntoAtlantis_ETutorialTriggers_Statics::Enum_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_ETutorialTriggers_Statics::Enum_MetaDataParams))
 	};
-	UEnum* Z_Construct_UEnum_DesentIntoAtlantis_TutorialTriggers()
+	UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ETutorialTriggers()
 	{
-		if (!Z_Registration_Info_UEnum_TutorialTriggers.InnerSingleton)
+		if (!Z_Registration_Info_UEnum_ETutorialTriggers.InnerSingleton)
 		{
-			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_TutorialTriggers.InnerSingleton, Z_Construct_UEnum_DesentIntoAtlantis_TutorialTriggers_Statics::EnumParams);
+			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_ETutorialTriggers.InnerSingleton, Z_Construct_UEnum_DesentIntoAtlantis_ETutorialTriggers_Statics::EnumParams);
 		}
-		return Z_Registration_Info_UEnum_TutorialTriggers.InnerSingleton;
+		return Z_Registration_Info_UEnum_ETutorialTriggers.InnerSingleton;
 	}
 
 static_assert(std::is_polymorphic<FFloorEventData>() == std::is_polymorphic<FTableRowBase>(), "USTRUCT FFloorEventData cannot be polymorphic unless super FTableRowBase is polymorphic");
@@ -420,6 +434,16 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FFloorEventData>()
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_dialogueTriggerOnEnd_MetaData[];
 #endif
 		static const UECodeGen_Private::FEnumPropertyParams NewProp_dialogueTriggerOnEnd;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_partyMemberGainedOnEnd_Underlying;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_partyMemberGainedOnEnd_MetaData[];
+#endif
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_partyMemberGainedOnEnd;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_viewPushedOnEnd_Underlying;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_viewPushedOnEnd_MetaData[];
+#endif
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_viewPushedOnEnd;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -461,7 +485,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FFloorEventData>()
 		{ "ModuleRelativePath", "Public/FloorEnum.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_tutorialTriggerOnStart = { "tutorialTriggerOnStart", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FFloorEventData, tutorialTriggerOnStart), Z_Construct_UEnum_DesentIntoAtlantis_TutorialTriggers, METADATA_PARAMS(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_tutorialTriggerOnStart_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_tutorialTriggerOnStart_MetaData)) }; // 1024122667
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_tutorialTriggerOnStart = { "tutorialTriggerOnStart", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FFloorEventData, tutorialTriggerOnStart), Z_Construct_UEnum_DesentIntoAtlantis_ETutorialTriggers, METADATA_PARAMS(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_tutorialTriggerOnStart_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_tutorialTriggerOnStart_MetaData)) }; // 4028792989
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_tutorialTriggerOnEnd_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_tutorialTriggerOnEnd_MetaData[] = {
@@ -469,7 +493,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FFloorEventData>()
 		{ "ModuleRelativePath", "Public/FloorEnum.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_tutorialTriggerOnEnd = { "tutorialTriggerOnEnd", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FFloorEventData, tutorialTriggerOnEnd), Z_Construct_UEnum_DesentIntoAtlantis_TutorialTriggers, METADATA_PARAMS(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_tutorialTriggerOnEnd_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_tutorialTriggerOnEnd_MetaData)) }; // 1024122667
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_tutorialTriggerOnEnd = { "tutorialTriggerOnEnd", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FFloorEventData, tutorialTriggerOnEnd), Z_Construct_UEnum_DesentIntoAtlantis_ETutorialTriggers, METADATA_PARAMS(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_tutorialTriggerOnEnd_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_tutorialTriggerOnEnd_MetaData)) }; // 4028792989
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnStart_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnStart_MetaData[] = {
@@ -477,7 +501,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FFloorEventData>()
 		{ "ModuleRelativePath", "Public/FloorEnum.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnStart = { "dialogueTriggerOnStart", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FFloorEventData, dialogueTriggerOnStart), Z_Construct_UEnum_DesentIntoAtlantis_EDialogueTriggers, METADATA_PARAMS(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnStart_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnStart_MetaData)) }; // 3022347595
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnStart = { "dialogueTriggerOnStart", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FFloorEventData, dialogueTriggerOnStart), Z_Construct_UEnum_DesentIntoAtlantis_EDialogueTriggers, METADATA_PARAMS(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnStart_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnStart_MetaData)) }; // 3835709850
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnEnd_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnEnd_MetaData[] = {
@@ -485,7 +509,23 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FFloorEventData>()
 		{ "ModuleRelativePath", "Public/FloorEnum.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnEnd = { "dialogueTriggerOnEnd", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FFloorEventData, dialogueTriggerOnEnd), Z_Construct_UEnum_DesentIntoAtlantis_EDialogueTriggers, METADATA_PARAMS(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnEnd_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnEnd_MetaData)) }; // 3022347595
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnEnd = { "dialogueTriggerOnEnd", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FFloorEventData, dialogueTriggerOnEnd), Z_Construct_UEnum_DesentIntoAtlantis_EDialogueTriggers, METADATA_PARAMS(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnEnd_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnEnd_MetaData)) }; // 3835709850
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_partyMemberGainedOnEnd_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_partyMemberGainedOnEnd_MetaData[] = {
+		{ "Category", "FloorEventData" },
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+	};
+#endif
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_partyMemberGainedOnEnd = { "partyMemberGainedOnEnd", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FFloorEventData, partyMemberGainedOnEnd), Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses, METADATA_PARAMS(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_partyMemberGainedOnEnd_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_partyMemberGainedOnEnd_MetaData)) }; // 916432985
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_viewPushedOnEnd_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_viewPushedOnEnd_MetaData[] = {
+		{ "Category", "FloorEventData" },
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+	};
+#endif
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_viewPushedOnEnd = { "viewPushedOnEnd", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FFloorEventData, viewPushedOnEnd), Z_Construct_UEnum_DesentIntoAtlantis_EViews, METADATA_PARAMS(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_viewPushedOnEnd_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_viewPushedOnEnd_MetaData)) }; // 3315017103
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FFloorEventData_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_floorIdentifier_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_floorIdentifier,
@@ -499,6 +539,10 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FFloorEventData>()
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnStart,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnEnd_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_dialogueTriggerOnEnd,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_partyMemberGainedOnEnd_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_partyMemberGainedOnEnd,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_viewPushedOnEnd_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_viewPushedOnEnd,
 	};
 	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FFloorEventData_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
@@ -561,14 +605,21 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FTutorialData>()
 #endif
 		static const UECodeGen_Private::FStrPropertyParams NewProp_classDescription;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bulletPoint1_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_bulletPoint1;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bulletPoint2_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_bulletPoint2;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bulletPoint3_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_bulletPoint3;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_characterPortrait_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_characterPortrait;
-		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_intTable_Inner;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_intTable_MetaData[];
-#endif
-		static const UECodeGen_Private::FArrayPropertyParams NewProp_intTable;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -588,7 +639,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FTutorialData>()
 		{ "ModuleRelativePath", "Public/FloorEnum.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_tutorialTrigger = { "tutorialTrigger", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FTutorialData, tutorialTrigger), Z_Construct_UEnum_DesentIntoAtlantis_TutorialTriggers, METADATA_PARAMS(Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_tutorialTrigger_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_tutorialTrigger_MetaData)) }; // 1024122667
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_tutorialTrigger = { "tutorialTrigger", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FTutorialData, tutorialTrigger), Z_Construct_UEnum_DesentIntoAtlantis_ETutorialTriggers, METADATA_PARAMS(Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_tutorialTrigger_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_tutorialTrigger_MetaData)) }; // 4028792989
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_classTitle_MetaData[] = {
 		{ "Category", "TutorialData" },
@@ -611,29 +662,43 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FTutorialData>()
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_classDescription = { "classDescription", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FTutorialData, classDescription), METADATA_PARAMS(Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_classDescription_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_classDescription_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_bulletPoint1_MetaData[] = {
+		{ "Category", "TutorialData" },
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_bulletPoint1 = { "bulletPoint1", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FTutorialData, bulletPoint1), METADATA_PARAMS(Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_bulletPoint1_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_bulletPoint1_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_bulletPoint2_MetaData[] = {
+		{ "Category", "TutorialData" },
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_bulletPoint2 = { "bulletPoint2", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FTutorialData, bulletPoint2), METADATA_PARAMS(Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_bulletPoint2_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_bulletPoint2_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_bulletPoint3_MetaData[] = {
+		{ "Category", "TutorialData" },
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_bulletPoint3 = { "bulletPoint3", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FTutorialData, bulletPoint3), METADATA_PARAMS(Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_bulletPoint3_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_bulletPoint3_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_characterPortrait_MetaData[] = {
 		{ "Category", "TutorialData" },
 		{ "ModuleRelativePath", "Public/FloorEnum.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_characterPortrait = { "characterPortrait", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FTutorialData, characterPortrait), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_characterPortrait_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_characterPortrait_MetaData)) };
-	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_intTable_Inner = { "intTable", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_intTable_MetaData[] = {
-		{ "Category", "TutorialData" },
-		{ "ModuleRelativePath", "Public/FloorEnum.h" },
-	};
-#endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_intTable = { "intTable", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FTutorialData, intTable), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_intTable_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_intTable_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FTutorialData_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_tutorialTrigger_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_tutorialTrigger,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_classTitle,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_characterName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_classDescription,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_bulletPoint1,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_bulletPoint2,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_bulletPoint3,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_characterPortrait,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_intTable_Inner,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FTutorialData_Statics::NewProp_intTable,
 	};
 	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FTutorialData_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
@@ -662,16 +727,16 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FTutorialData>()
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::EnumInfo[] = {
-		{ EFloorEventStates_StaticEnum, TEXT("EFloorEventStates"), &Z_Registration_Info_UEnum_EFloorEventStates, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1456056601U) },
-		{ EDialogueTriggers_StaticEnum, TEXT("EDialogueTriggers"), &Z_Registration_Info_UEnum_EDialogueTriggers, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3022347595U) },
-		{ TutorialTriggers_StaticEnum, TEXT("TutorialTriggers"), &Z_Registration_Info_UEnum_TutorialTriggers, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1024122667U) },
+		{ EFloorEventStates_StaticEnum, TEXT("EFloorEventStates"), &Z_Registration_Info_UEnum_EFloorEventStates, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2475026128U) },
+		{ EDialogueTriggers_StaticEnum, TEXT("EDialogueTriggers"), &Z_Registration_Info_UEnum_EDialogueTriggers, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3835709850U) },
+		{ ETutorialTriggers_StaticEnum, TEXT("ETutorialTriggers"), &Z_Registration_Info_UEnum_ETutorialTriggers, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4028792989U) },
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::ScriptStructInfo[] = {
 		{ FFloorData::StaticStruct, Z_Construct_UScriptStruct_FFloorData_Statics::NewStructOps, TEXT("FloorData"), &Z_Registration_Info_UScriptStruct_FloorData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FFloorData), 1519163134U) },
-		{ FFloorEventData::StaticStruct, Z_Construct_UScriptStruct_FFloorEventData_Statics::NewStructOps, TEXT("FloorEventData"), &Z_Registration_Info_UScriptStruct_FloorEventData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FFloorEventData), 2125691558U) },
-		{ FTutorialData::StaticStruct, Z_Construct_UScriptStruct_FTutorialData_Statics::NewStructOps, TEXT("TutorialData"), &Z_Registration_Info_UScriptStruct_TutorialData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FTutorialData), 1495021731U) },
+		{ FFloorEventData::StaticStruct, Z_Construct_UScriptStruct_FFloorEventData_Statics::NewStructOps, TEXT("FloorEventData"), &Z_Registration_Info_UScriptStruct_FloorEventData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FFloorEventData), 2380252017U) },
+		{ FTutorialData::StaticStruct, Z_Construct_UScriptStruct_FTutorialData_Statics::NewStructOps, TEXT("TutorialData"), &Z_Registration_Info_UScriptStruct_TutorialData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FTutorialData), 2681244502U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_1101896027(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_1139424525(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::EnumInfo));

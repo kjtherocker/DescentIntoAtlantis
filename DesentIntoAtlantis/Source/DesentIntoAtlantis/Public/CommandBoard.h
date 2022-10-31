@@ -20,9 +20,8 @@ enum class ECommandBoardStates
 {
 	Attack = 0,
 	Skill  = 1,
-	Item   = 2,
-	Escape = 3,
-	Pass   = 4
+	Escape = 2,
+	Pass   = 3
 };
 
 
@@ -33,6 +32,7 @@ class DESENTINTOATLANTIS_API UCommandBoard : public UBaseUserWidget
 	virtual void UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase) override;
 
 private:
+	UPROPERTY()
 	UCombatManager* combatManager;
 	TMap<ECommandBoardStates,FViewSelection > commandboardSelections;
 	FViewSelection commandBoardSelectionAttack;

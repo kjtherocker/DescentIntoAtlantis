@@ -38,6 +38,9 @@ public:
 	void HitEffect(float DeltaTime);
 	UFUNCTION()
 	void TriggerHitEffect();
+	UFUNCTION()
+	void TriggerGreyScale();
+	
 	void MoveUp();
 	void ResetTranslation();
 	FString characterName;

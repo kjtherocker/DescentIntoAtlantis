@@ -565,6 +565,14 @@
 			"ChunkId": "4aded844d379242600000001"
 		},
 		{
+			"Path": "DesentIntoAtlantis/Content/Ui/BP_EndView.uasset",
+			"ChunkId": "2b119af95199485c00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/BP_DeathView.uasset",
+			"ChunkId": "f70a0b8363fcc57400000001"
+		},
+		{
 			"Path": "DesentIntoAtlantis/Content/Objects/Material__25.uasset",
 			"ChunkId": "a8f978ef0f72a7d700000001"
 		},
@@ -617,6 +625,10 @@
 			"ChunkId": "4d2c25fe0752566200000001"
 		},
 		{
+			"Path": "DesentIntoAtlantis/Content/Datatables/Atlantis_-_Dancer.uasset",
+			"ChunkId": "7ba1b129bfb6969700000001"
+		},
+		{
 			"Path": "DesentIntoAtlantis/Content/CodeObjects/MyFloorPlayerController.uasset",
 			"ChunkId": "136f0d287cfa641a00000001"
 		},
@@ -625,36 +637,40 @@
 			"ChunkId": "c001dbb6964ecff500000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Audio/Music/Main_Title_Good_Copy_B.uasset",
-			"ChunkId": "d5020acc14ebca2500000001"
+			"Path": "Engine/Content/EditorBlueprintResources/StandardMacros.uasset",
+			"ChunkId": "72ff6427f1042ed200000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Audio/Music/Main_Title_Good_Copy_B.ubulk",
-			"ChunkId": "d5020acc14ebca2500000002"
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/WallBounce.uasset",
+			"ChunkId": "184c999dd23d2b0b00000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Audio/Music/Encounter.uasset",
-			"ChunkId": "67f4ffafde26484f00000001"
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/WallBounce.ubulk",
+			"ChunkId": "184c999dd23d2b0b00000002"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Audio/Music/Encounter.ubulk",
-			"ChunkId": "67f4ffafde26484f00000002"
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/SelectionNotNocturne.uasset",
+			"ChunkId": "c024e732542be7f100000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/Undines2.uasset",
-			"ChunkId": "63870dfbff38a2b900000001"
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/SelectionNotNocturne.ubulk",
+			"ChunkId": "c024e732542be7f100000002"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Day203.uasset",
-			"ChunkId": "db704e09781961aa00000001"
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/HealthBoard/PeteHealthboard.uasset",
+			"ChunkId": "5354b381c0652f0d00000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Texture_Baragor.uasset",
-			"ChunkId": "5b3e82cf862647cc00000001"
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/LevelupArrow.uasset",
+			"ChunkId": "a08d179306459a0e00000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Sword.uasset",
-			"ChunkId": "c0973af4cb2ae38700000001"
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/SkillpanelHighlight.uasset",
+			"ChunkId": "ed95c50fdfa183f300000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Skillpanel5.uasset",
+			"ChunkId": "03c6783f1bdc66d300000001"
 		},
 		{
 			"Path": "Engine/Content/EngineResources/GradientTexture0.uasset",
@@ -693,16 +709,16 @@
 			"ChunkId": "5fa057107001d56d00000001"
 		},
 		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Texture_Baragor.uasset",
+			"ChunkId": "5b3e82cf862647cc00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Sword.uasset",
+			"ChunkId": "c0973af4cb2ae38700000001"
+		},
+		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Solid_black.uasset",
 			"ChunkId": "f29a23e1b325146200000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/SkillpanelHighlight.uasset",
-			"ChunkId": "ed95c50fdfa183f300000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Skillpanel5.uasset",
-			"ChunkId": "03c6783f1bdc66d300000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Resolution_test.uasset",
@@ -723,10 +739,6 @@
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/leveluparrowdown.uasset",
 			"ChunkId": "28c7606484dbba7a00000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/LevelupArrow.uasset",
-			"ChunkId": "a08d179306459a0e00000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/KristoffHealthboard.uasset",
@@ -753,6 +765,10 @@
 			"ChunkId": "1a7324b98077ebea00000001"
 		},
 		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Day203.uasset",
+			"ChunkId": "db704e09781961aa00000001"
+		},
+		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Commandboard.uasset",
 			"ChunkId": "dc0cbee37237b8fb00000001"
 		},
@@ -763,6 +779,10 @@
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/battlebackground.uasset",
 			"ChunkId": "6b368819a0b90e8700000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/battlebackground-Undine.uasset",
+			"ChunkId": "11e426f0167071ce00000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/artassetman.uasset",
@@ -779,10 +799,6 @@
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/HealthBoard/Testhigherezhealthboard.uasset",
 			"ChunkId": "dd3a7f38b87223ac00000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/HealthBoard/PeteHealthboard.uasset",
-			"ChunkId": "5354b381c0652f0d00000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/HealthBoard/Illustration.uasset",
@@ -813,6 +829,22 @@
 			"ChunkId": "5aa9e3a32d2b3f1f00000001"
 		},
 		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/VermilionLordBackground.uasset",
+			"ChunkId": "1422199ee45fe1ed00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/VermilionLord.uasset",
+			"ChunkId": "07ebda9d021da7b700000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/UndinesPortrait.uasset",
+			"ChunkId": "79af776f3a889b5800000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/Undines2.uasset",
+			"ChunkId": "63870dfbff38a2b900000001"
+		},
+		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/Undines.uasset",
 			"ChunkId": "853a9789cd2697d500000001"
 		},
@@ -821,88 +853,12 @@
 			"ChunkId": "56ab0ee9f521d1a300000001"
 		},
 		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/GoldLancer.uasset",
+			"ChunkId": "77b9b5915a2323b900000001"
+		},
+		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/Enemy_Gold_Lancer.uasset",
 			"ChunkId": "2fb342caf9fc264d00000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/Enemy_AnimatedWeapon.uasset",
-			"ChunkId": "18b8e16a29015d9300000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/Day267.uasset",
-			"ChunkId": "64a9d2dcbb35cbb300000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/Day225.uasset",
-			"ChunkId": "6a499bf09cc976b700000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealthboardDesign_Seres.uasset",
-			"ChunkId": "f6f32ae3eee296b100000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealthboardDesign_Rain.uasset",
-			"ChunkId": "9cf28197034d54c700000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/WallBounce.uasset",
-			"ChunkId": "184c999dd23d2b0b00000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/WallBounce.ubulk",
-			"ChunkId": "184c999dd23d2b0b00000002"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/SelectionNotNocturne.uasset",
-			"ChunkId": "c024e732542be7f100000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/SelectionNotNocturne.ubulk",
-			"ChunkId": "c024e732542be7f100000002"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Footsteps.uasset",
-			"ChunkId": "19768f09c0b0152100000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Footsteps.ubulk",
-			"ChunkId": "19768f09c0b0152100000002"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Fireball.uasset",
-			"ChunkId": "2f7d4fce2bb55f9400000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Fireball.ubulk",
-			"ChunkId": "2f7d4fce2bb55f9400000002"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/EnemyEncounter2.uasset",
-			"ChunkId": "abf6b63e8f06155e00000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/EnemyEncounter2.ubulk",
-			"ChunkId": "abf6b63e8f06155e00000002"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Accept.uasset",
-			"ChunkId": "7f687ff56e3ef7bf00000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Accept.ubulk",
-			"ChunkId": "7f687ff56e3ef7bf00000002"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/Music/Overworld.uasset",
-			"ChunkId": "e0e12aed095bac4200000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/Music/Overworld.ubulk",
-			"ChunkId": "e0e12aed095bac4200000002"
-		},
-		{
-			"Path": "Engine/Content/EditorBlueprintResources/StandardMacros.uasset",
-			"ChunkId": "72ff6427f1042ed200000001"
 		},
 		{
 			"Path": "Engine/Content/EngineSounds/Submixes/MasterEQEffectPreset.uasset",
@@ -945,32 +901,112 @@
 			"ChunkId": "3bf2df25e14476d700000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/circle.uasset",
-			"ChunkId": "7047a60deed32f6900000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Materials/Turn_Face_Enemy.uasset",
-			"ChunkId": "6e5339d4b8dab05f00000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Materials/Tile.uasset",
-			"ChunkId": "e569bf46f0c9c61600000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Ardus.uasset",
-			"ChunkId": "be134441d44cd58d00000001"
-		},
-		{
 			"Path": "Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/ObjectScale.uasset",
 			"ChunkId": "4762b775bfe4b22d00000001"
 		},
 		{
-			"Path": "Engine/Content/EngineMaterials/PhAT_JointLimitMaterial.uasset",
-			"ChunkId": "305a1ec18dd5a4be00000001"
+			"Path": "DesentIntoAtlantis/Content/Audio/Music/Encounter.uasset",
+			"ChunkId": "67f4ffafde26484f00000001"
 		},
 		{
-			"Path": "Engine/Plugins/Animation/ControlRig/Content/M_Manip.uasset",
-			"ChunkId": "9a5a67fa3c2b2de900000001"
+			"Path": "DesentIntoAtlantis/Content/Audio/Music/Encounter.ubulk",
+			"ChunkId": "67f4ffafde26484f00000002"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/fire_element_1.uasset",
+			"ChunkId": "9d70fe8bd879b47400000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/fire_element_1.ubulk",
+			"ChunkId": "9d70fe8bd879b47400000002"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/earth_element.uasset",
+			"ChunkId": "3e4bbf9ed457123700000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/earth_element.ubulk",
+			"ChunkId": "3e4bbf9ed457123700000002"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Footsteps.uasset",
+			"ChunkId": "19768f09c0b0152100000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Footsteps.ubulk",
+			"ChunkId": "19768f09c0b0152100000002"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Fireball.uasset",
+			"ChunkId": "2f7d4fce2bb55f9400000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Fireball.ubulk",
+			"ChunkId": "2f7d4fce2bb55f9400000002"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/EnemyEncounter2.uasset",
+			"ChunkId": "abf6b63e8f06155e00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/EnemyEncounter2.ubulk",
+			"ChunkId": "abf6b63e8f06155e00000002"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Accept.uasset",
+			"ChunkId": "7f687ff56e3ef7bf00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Accept.ubulk",
+			"ChunkId": "7f687ff56e3ef7bf00000002"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/Music/Main_Title_Good_Copy_B.uasset",
+			"ChunkId": "d5020acc14ebca2500000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/Music/Main_Title_Good_Copy_B.ubulk",
+			"ChunkId": "d5020acc14ebca2500000002"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/circle.uasset",
+			"ChunkId": "7047a60deed32f6900000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Materials/Down.uasset",
+			"ChunkId": "8cfa773be9edf88500000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Materials/AllSidesOpen-blue.uasset",
+			"ChunkId": "147ceefe53037ebf00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealthboardDesign_Seres.uasset",
+			"ChunkId": "f6f32ae3eee296b100000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealthboardDesign_Rain.uasset",
+			"ChunkId": "9cf28197034d54c700000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealthboardDesign_Kristoff.uasset",
+			"ChunkId": "3622356eb50027df00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealthboardDesign_Ardus.uasset",
+			"ChunkId": "d8c2b6ae571871f900000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealtboardDesign_Kain.uasset",
+			"ChunkId": "8e75b053282667ef00000001"
+		},
+		{
+			"Path": "Engine/Content/MobileResources/HUD/VirtualJoystick_Background.uasset",
+			"ChunkId": "c472a8877b0ae2f900000001"
+		},
+		{
+			"Path": "Engine/Content/MobileResources/HUD/VirtualJoystick_Thumb.uasset",
+			"ChunkId": "2a8ace463a029fae00000001"
 		},
 		{
 			"Path": "Engine/Plugins/2D/Paper2D/Content/DummySprite.uasset",
@@ -979,6 +1015,14 @@
 		{
 			"Path": "Engine/Plugins/2D/Paper2D/Content/DefaultSpriteMaterial.uasset",
 			"ChunkId": "12c2c1346a8453a600000001"
+		},
+		{
+			"Path": "Engine/Content/EngineMaterials/PhAT_JointLimitMaterial.uasset",
+			"ChunkId": "305a1ec18dd5a4be00000001"
+		},
+		{
+			"Path": "Engine/Plugins/Animation/ControlRig/Content/M_Manip.uasset",
+			"ChunkId": "9a5a67fa3c2b2de900000001"
 		},
 		{
 			"Path": "Engine/Content/EngineFonts/Roboto.uasset",
@@ -1029,24 +1073,28 @@
 			"ChunkId": "b4d3126ba7954ec000000001"
 		},
 		{
-			"Path": "Engine/Content/EditorMaterials/PreviewShadowIndicator.uasset",
-			"ChunkId": "2d5d52b0905803e600000001"
+			"Path": "Engine/Content/EngineMaterials/WorldGridMaterial.uasset",
+			"ChunkId": "eeb296b2a739309500000001"
 		},
 		{
-			"Path": "Engine/Content/EditorMaterials/PreviewShadowIndicator.ubulk",
-			"ChunkId": "2d5d52b0905803e600000002"
+			"Path": "DesentIntoAtlantis/Content/Audio/Music/Overworld.uasset",
+			"ChunkId": "e0e12aed095bac4200000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealthboardDesign_Kristoff.uasset",
-			"ChunkId": "3622356eb50027df00000001"
+			"Path": "DesentIntoAtlantis/Content/Audio/Music/Overworld.ubulk",
+			"ChunkId": "e0e12aed095bac4200000002"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealthboardDesign_Ardus.uasset",
-			"ChunkId": "d8c2b6ae571871f900000001"
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/BatteIndicators/DEFENSE_UP_Indicator.uasset",
+			"ChunkId": "9c99a69435f80d4600000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealtboardDesign_Kain.uasset",
-			"ChunkId": "8e75b053282667ef00000001"
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/Enemy_AnimatedWeapon.uasset",
+			"ChunkId": "18b8e16a29015d9300000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/Day267.uasset",
+			"ChunkId": "64a9d2dcbb35cbb300000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Seres.uasset",
@@ -1065,6 +1113,10 @@
 			"ChunkId": "d4b109f410ab281900000001"
 		},
 		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Ardus.uasset",
+			"ChunkId": "be134441d44cd58d00000001"
+		},
+		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/BatteIndicators/WEAK_Indicator.uasset",
 			"ChunkId": "71503ff60913d6c900000001"
 		},
@@ -1081,10 +1133,6 @@
 			"ChunkId": "05c82efe944be42a00000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/BatteIndicators/DEFENSE_UP_Indicator.uasset",
-			"ChunkId": "9c99a69435f80d4600000001"
-		},
-		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/BatteIndicators/ATTACK_UP_Indicator.uasset",
 			"ChunkId": "e0716ff9935497b500000001"
 		},
@@ -1093,12 +1141,12 @@
 			"ChunkId": "2079f5ae2aba477e00000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Materials/Down.uasset",
-			"ChunkId": "8cfa773be9edf88500000001"
+			"Path": "DesentIntoAtlantis/Content/Materials/Turn_Face_Enemy.uasset",
+			"ChunkId": "6e5339d4b8dab05f00000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Materials/AllSidesOpen-blue.uasset",
-			"ChunkId": "147ceefe53037ebf00000001"
+			"Path": "DesentIntoAtlantis/Content/Materials/Tile.uasset",
+			"ChunkId": "e569bf46f0c9c61600000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/wind_element.uasset",
@@ -1165,20 +1213,12 @@
 			"ChunkId": "910038e8fa220ef900000002"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/fire_element_1.uasset",
-			"ChunkId": "9d70fe8bd879b47400000001"
+			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/fire_element_2.uasset",
+			"ChunkId": "69aecdca4a128a0300000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/fire_element_1.ubulk",
-			"ChunkId": "9d70fe8bd879b47400000002"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/earth_element.uasset",
-			"ChunkId": "3e4bbf9ed457123700000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/earth_element.ubulk",
-			"ChunkId": "3e4bbf9ed457123700000002"
+			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/fire_element_2.ubulk",
+			"ChunkId": "69aecdca4a128a0300000002"
 		},
 		{
 			"Path": "Engine/Content/EngineMaterials/DefaultCalibrationGrayscale.uasset",
@@ -1189,16 +1229,12 @@
 			"ChunkId": "c8548e53bc64ae9400000001"
 		},
 		{
-			"Path": "Engine/Content/MobileResources/HUD/VirtualJoystick_Background.uasset",
-			"ChunkId": "c472a8877b0ae2f900000001"
+			"Path": "Engine/Content/EditorMaterials/PreviewShadowIndicator.uasset",
+			"ChunkId": "2d5d52b0905803e600000001"
 		},
 		{
-			"Path": "Engine/Content/MobileResources/HUD/VirtualJoystick_Thumb.uasset",
-			"ChunkId": "2a8ace463a029fae00000001"
-		},
-		{
-			"Path": "Engine/Content/EngineMaterials/WorldGridMaterial.uasset",
-			"ChunkId": "eeb296b2a739309500000001"
+			"Path": "Engine/Content/EditorMaterials/PreviewShadowIndicator.ubulk",
+			"ChunkId": "2d5d52b0905803e600000002"
 		},
 		{
 			"Path": "Engine/Content/EngineMaterials/DefaultTextMaterialOpaque.uasset",
@@ -1215,10 +1251,6 @@
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/BP_TurnCounterElement.uasset",
 			"ChunkId": "8c93e887c9782c8800000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Datatables/Atlantis_-_Dialogue.uasset",
-			"ChunkId": "27e65c068a09f3e100000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/BP_MAT_Mask.uasset",
@@ -1253,10 +1285,6 @@
 			"ChunkId": "68c891a4c3bbd51a00000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/BP_TutorialView.uasset",
-			"ChunkId": "10ad12d6631bae5b00000001"
-		},
-		{
 			"Path": "DesentIntoAtlantis/Content/Ui/BP_DialogueView.uasset",
 			"ChunkId": "29cd7de6ada93b3e00000001"
 		},
@@ -1267,6 +1295,10 @@
 		{
 			"Path": "DesentIntoAtlantis/Content/Datatables/Atlantis_-_PlayerCharacters.uasset",
 			"ChunkId": "fccd5a7ff25ee33e00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Datatables/Atlantis_-_Dialogue.uasset",
+			"ChunkId": "27e65c068a09f3e100000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Objects/cullens_wall_2_Box001.uasset",
@@ -1313,16 +1345,16 @@
 			"ChunkId": "5d6a598bef74770200000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Datatables/Atlantis_-_Skills_Attack.uasset",
-			"ChunkId": "4ab096a6d1c247bb00000001"
-		},
-		{
 			"Path": "DesentIntoAtlantis/Content/Datatables/Atlantis_-_Skills_Debuff.uasset",
 			"ChunkId": "2ae7fafcff0d4de200000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Datatables/Atlantis_-_Skills_Buff.uasset",
 			"ChunkId": "f34d4db758cfc77c00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Datatables/Atlantis_-_Skills_Attack.uasset",
+			"ChunkId": "4ab096a6d1c247bb00000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/BP_EnemySelectionBar.uasset",
@@ -1961,12 +1993,16 @@
 			"ChunkId": "34868b7f9c10838900000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/BP_EnemyPortraits.uasset",
-			"ChunkId": "6c0c176983666c1500000001"
+			"Path": "DesentIntoAtlantis/Content/Ui/BP_TutorialView.uasset",
+			"ChunkId": "10ad12d6631bae5b00000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/BP_PartyHealthbarElement.uasset",
 			"ChunkId": "9bcd497117a05ca200000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/BP_EnemyPortraits.uasset",
+			"ChunkId": "6c0c176983666c1500000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/BP_LevelupView.uasset",
@@ -2037,6 +2073,14 @@
 			"ChunkId": "e21ddbf85577df6700000001"
 		},
 		{
+			"Path": "Engine/Content/EditorResources/EmptyActor.uasset",
+			"ChunkId": "cb90c94586b3228900000001"
+		},
+		{
+			"Path": "Engine/Content/EngineSky/M_Sky_Panning_Clouds2.uasset",
+			"ChunkId": "6098725f85292e1b00000001"
+		},
+		{
 			"Path": "Engine/Content/EngineSky/SM_SkySphere.uasset",
 			"ChunkId": "48df828be219f7ad00000001"
 		},
@@ -2045,24 +2089,16 @@
 			"ChunkId": "48df828be219f7ad00000002"
 		},
 		{
-			"Path": "Engine/Content/EngineSky/M_Sky_Panning_Clouds2.uasset",
-			"ChunkId": "6098725f85292e1b00000001"
-		},
-		{
 			"Path": "Engine/Content/EngineSky/M_SimpleSkyDome.uasset",
 			"ChunkId": "e61c20398c40eda200000001"
 		},
 		{
-			"Path": "Engine/Content/EngineSky/T_Sky_Stars.uasset",
-			"ChunkId": "56d51199b9b2142a00000001"
+			"Path": "Engine/Content/EngineSky/T_Sky_Clouds_M.uasset",
+			"ChunkId": "927b2fe4876a1f7400000001"
 		},
 		{
-			"Path": "Engine/Content/EngineSky/T_Sky_Stars.ubulk",
-			"ChunkId": "56d51199b9b2142a00000002"
-		},
-		{
-			"Path": "Engine/Content/EditorResources/EmptyActor.uasset",
-			"ChunkId": "cb90c94586b3228900000001"
+			"Path": "Engine/Content/EngineSky/T_Sky_Clouds_M.ubulk",
+			"ChunkId": "927b2fe4876a1f7400000002"
 		},
 		{
 			"Path": "Engine/Content/EngineSky/T_Sky_Blue.uasset",
@@ -2073,12 +2109,12 @@
 			"ChunkId": "86737b633647e77300000002"
 		},
 		{
-			"Path": "Engine/Content/EngineSky/T_Sky_Clouds_M.uasset",
-			"ChunkId": "927b2fe4876a1f7400000001"
+			"Path": "Engine/Content/EngineSky/T_Sky_Stars.uasset",
+			"ChunkId": "56d51199b9b2142a00000001"
 		},
 		{
-			"Path": "Engine/Content/EngineSky/T_Sky_Clouds_M.ubulk",
-			"ChunkId": "927b2fe4876a1f7400000002"
+			"Path": "Engine/Content/EngineSky/T_Sky_Stars.ubulk",
+			"ChunkId": "56d51199b9b2142a00000002"
 		}
 	],
 	"Packages": [
@@ -2678,6 +2714,14 @@
 			"PackageChunkId": "4aded844d379242600000001"
 		},
 		{
+			"Name": "/Game/Ui/BP_EndView",
+			"PackageChunkId": "2b119af95199485c00000001"
+		},
+		{
+			"Name": "/Game/Ui/BP_DeathView",
+			"PackageChunkId": "f70a0b8363fcc57400000001"
+		},
+		{
 			"Name": "/Game/Objects/Material__25",
 			"PackageChunkId": "a8f978ef0f72a7d700000001"
 		},
@@ -2729,6 +2773,10 @@
 			"PackageChunkId": "4d2c25fe0752566200000001"
 		},
 		{
+			"Name": "/Game/Datatables/Atlantis_-_Dancer",
+			"PackageChunkId": "7ba1b129bfb6969700000001"
+		},
+		{
 			"Name": "/Game/CodeObjects/MyFloorPlayerController",
 			"PackageChunkId": "136f0d287cfa641a00000001"
 		},
@@ -2737,34 +2785,38 @@
 			"PackageChunkId": "c001dbb6964ecff500000001"
 		},
 		{
-			"Name": "/Game/Audio/Music/Main_Title_Good_Copy_B",
-			"PackageChunkId": "d5020acc14ebca2500000001",
+			"Name": "/Engine/EditorBlueprintResources/StandardMacros",
+			"PackageChunkId": "72ff6427f1042ed200000001"
+		},
+		{
+			"Name": "/Game/Audio/SoundEffect/WallBounce",
+			"PackageChunkId": "184c999dd23d2b0b00000001",
 			"BulkDataChunkIds": [
-				"d5020acc14ebca2500000002"
+				"184c999dd23d2b0b00000002"
 			]
 		},
 		{
-			"Name": "/Game/Audio/Music/Encounter",
-			"PackageChunkId": "67f4ffafde26484f00000001",
+			"Name": "/Game/Audio/SoundEffect/SelectionNotNocturne",
+			"PackageChunkId": "c024e732542be7f100000001",
 			"BulkDataChunkIds": [
-				"67f4ffafde26484f00000002"
+				"c024e732542be7f100000002"
 			]
 		},
 		{
-			"Name": "/Game/Ui/uiTextures/EnemyTextures/Undines2",
-			"PackageChunkId": "63870dfbff38a2b900000001"
+			"Name": "/Game/Ui/uiTextures/HealthBoard/PeteHealthboard",
+			"PackageChunkId": "5354b381c0652f0d00000001"
 		},
 		{
-			"Name": "/Game/Ui/uiTextures/Misc/Day203",
-			"PackageChunkId": "db704e09781961aa00000001"
+			"Name": "/Game/Ui/uiTextures/Misc/LevelupArrow",
+			"PackageChunkId": "a08d179306459a0e00000001"
 		},
 		{
-			"Name": "/Game/Ui/uiTextures/Misc/Texture_Baragor",
-			"PackageChunkId": "5b3e82cf862647cc00000001"
+			"Name": "/Game/Ui/uiTextures/Misc/SkillpanelHighlight",
+			"PackageChunkId": "ed95c50fdfa183f300000001"
 		},
 		{
-			"Name": "/Game/Ui/uiTextures/Misc/Sword",
-			"PackageChunkId": "c0973af4cb2ae38700000001"
+			"Name": "/Game/Ui/uiTextures/Misc/Skillpanel5",
+			"PackageChunkId": "03c6783f1bdc66d300000001"
 		},
 		{
 			"Name": "/Engine/EngineResources/GradientTexture0",
@@ -2802,16 +2854,16 @@
 			"PackageChunkId": "5fa057107001d56d00000001"
 		},
 		{
+			"Name": "/Game/Ui/uiTextures/Misc/Texture_Baragor",
+			"PackageChunkId": "5b3e82cf862647cc00000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Misc/Sword",
+			"PackageChunkId": "c0973af4cb2ae38700000001"
+		},
+		{
 			"Name": "/Game/Ui/uiTextures/Misc/Solid_black",
 			"PackageChunkId": "f29a23e1b325146200000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Misc/SkillpanelHighlight",
-			"PackageChunkId": "ed95c50fdfa183f300000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Misc/Skillpanel5",
-			"PackageChunkId": "03c6783f1bdc66d300000001"
 		},
 		{
 			"Name": "/Game/Ui/uiTextures/Misc/Resolution_test",
@@ -2832,10 +2884,6 @@
 		{
 			"Name": "/Game/Ui/uiTextures/Misc/leveluparrowdown",
 			"PackageChunkId": "28c7606484dbba7a00000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Misc/LevelupArrow",
-			"PackageChunkId": "a08d179306459a0e00000001"
 		},
 		{
 			"Name": "/Game/Ui/uiTextures/Misc/KristoffHealthboard",
@@ -2862,6 +2910,10 @@
 			"PackageChunkId": "1a7324b98077ebea00000001"
 		},
 		{
+			"Name": "/Game/Ui/uiTextures/Misc/Day203",
+			"PackageChunkId": "db704e09781961aa00000001"
+		},
+		{
 			"Name": "/Game/Ui/uiTextures/Misc/Commandboard",
 			"PackageChunkId": "dc0cbee37237b8fb00000001"
 		},
@@ -2872,6 +2924,10 @@
 		{
 			"Name": "/Game/Ui/uiTextures/Misc/battlebackground",
 			"PackageChunkId": "6b368819a0b90e8700000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Misc/battlebackground-Undine",
+			"PackageChunkId": "11e426f0167071ce00000001"
 		},
 		{
 			"Name": "/Game/Ui/uiTextures/Misc/artassetman",
@@ -2888,10 +2944,6 @@
 		{
 			"Name": "/Game/Ui/uiTextures/HealthBoard/Testhigherezhealthboard",
 			"PackageChunkId": "dd3a7f38b87223ac00000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/HealthBoard/PeteHealthboard",
-			"PackageChunkId": "5354b381c0652f0d00000001"
 		},
 		{
 			"Name": "/Game/Ui/uiTextures/HealthBoard/Illustration",
@@ -2922,6 +2974,22 @@
 			"PackageChunkId": "5aa9e3a32d2b3f1f00000001"
 		},
 		{
+			"Name": "/Game/Ui/uiTextures/EnemyTextures/VermilionLordBackground",
+			"PackageChunkId": "1422199ee45fe1ed00000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/EnemyTextures/VermilionLord",
+			"PackageChunkId": "07ebda9d021da7b700000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/EnemyTextures/UndinesPortrait",
+			"PackageChunkId": "79af776f3a889b5800000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/EnemyTextures/Undines2",
+			"PackageChunkId": "63870dfbff38a2b900000001"
+		},
+		{
 			"Name": "/Game/Ui/uiTextures/EnemyTextures/Undines",
 			"PackageChunkId": "853a9789cd2697d500000001"
 		},
@@ -2930,81 +2998,12 @@
 			"PackageChunkId": "56ab0ee9f521d1a300000001"
 		},
 		{
+			"Name": "/Game/Ui/uiTextures/EnemyTextures/GoldLancer",
+			"PackageChunkId": "77b9b5915a2323b900000001"
+		},
+		{
 			"Name": "/Game/Ui/uiTextures/EnemyTextures/Enemy_Gold_Lancer",
 			"PackageChunkId": "2fb342caf9fc264d00000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/EnemyTextures/Enemy_AnimatedWeapon",
-			"PackageChunkId": "18b8e16a29015d9300000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/EnemyTextures/Day267",
-			"PackageChunkId": "64a9d2dcbb35cbb300000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/EnemyTextures/Day225",
-			"PackageChunkId": "6a499bf09cc976b700000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Characters/HealthboardDesign_Seres",
-			"PackageChunkId": "f6f32ae3eee296b100000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Characters/HealthboardDesign_Rain",
-			"PackageChunkId": "9cf28197034d54c700000001"
-		},
-		{
-			"Name": "/Game/Audio/SoundEffect/WallBounce",
-			"PackageChunkId": "184c999dd23d2b0b00000001",
-			"BulkDataChunkIds": [
-				"184c999dd23d2b0b00000002"
-			]
-		},
-		{
-			"Name": "/Game/Audio/SoundEffect/SelectionNotNocturne",
-			"PackageChunkId": "c024e732542be7f100000001",
-			"BulkDataChunkIds": [
-				"c024e732542be7f100000002"
-			]
-		},
-		{
-			"Name": "/Game/Audio/SoundEffect/Footsteps",
-			"PackageChunkId": "19768f09c0b0152100000001",
-			"BulkDataChunkIds": [
-				"19768f09c0b0152100000002"
-			]
-		},
-		{
-			"Name": "/Game/Audio/SoundEffect/Fireball",
-			"PackageChunkId": "2f7d4fce2bb55f9400000001",
-			"BulkDataChunkIds": [
-				"2f7d4fce2bb55f9400000002"
-			]
-		},
-		{
-			"Name": "/Game/Audio/SoundEffect/EnemyEncounter2",
-			"PackageChunkId": "abf6b63e8f06155e00000001",
-			"BulkDataChunkIds": [
-				"abf6b63e8f06155e00000002"
-			]
-		},
-		{
-			"Name": "/Game/Audio/SoundEffect/Accept",
-			"PackageChunkId": "7f687ff56e3ef7bf00000001",
-			"BulkDataChunkIds": [
-				"7f687ff56e3ef7bf00000002"
-			]
-		},
-		{
-			"Name": "/Game/Audio/Music/Overworld",
-			"PackageChunkId": "e0e12aed095bac4200000001",
-			"BulkDataChunkIds": [
-				"e0e12aed095bac4200000002"
-			]
-		},
-		{
-			"Name": "/Engine/EditorBlueprintResources/StandardMacros",
-			"PackageChunkId": "72ff6427f1042ed200000001"
 		},
 		{
 			"Name": "/Engine/EngineSounds/Submixes/MasterEQEffectPreset",
@@ -3047,32 +3046,104 @@
 			"PackageChunkId": "3bf2df25e14476d700000001"
 		},
 		{
-			"Name": "/Game/Datatables/Icons/circle",
-			"PackageChunkId": "7047a60deed32f6900000001"
-		},
-		{
-			"Name": "/Game/Materials/Turn_Face_Enemy",
-			"PackageChunkId": "6e5339d4b8dab05f00000001"
-		},
-		{
-			"Name": "/Game/Materials/Tile",
-			"PackageChunkId": "e569bf46f0c9c61600000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Characters/Commandboard_Portriat_Ardus",
-			"PackageChunkId": "be134441d44cd58d00000001"
-		},
-		{
 			"Name": "/Engine/Functions/Engine_MaterialFunctions02/WorldPositionOffset/ObjectScale",
 			"PackageChunkId": "4762b775bfe4b22d00000001"
 		},
 		{
-			"Name": "/Engine/EngineMaterials/PhAT_JointLimitMaterial",
-			"PackageChunkId": "305a1ec18dd5a4be00000001"
+			"Name": "/Game/Audio/Music/Encounter",
+			"PackageChunkId": "67f4ffafde26484f00000001",
+			"BulkDataChunkIds": [
+				"67f4ffafde26484f00000002"
+			]
 		},
 		{
-			"Name": "/ControlRig/M_Manip",
-			"PackageChunkId": "9a5a67fa3c2b2de900000001"
+			"Name": "/Game/Datatables/Icons/fire_element_1",
+			"PackageChunkId": "9d70fe8bd879b47400000001",
+			"BulkDataChunkIds": [
+				"9d70fe8bd879b47400000002"
+			]
+		},
+		{
+			"Name": "/Game/Datatables/Icons/earth_element",
+			"PackageChunkId": "3e4bbf9ed457123700000001",
+			"BulkDataChunkIds": [
+				"3e4bbf9ed457123700000002"
+			]
+		},
+		{
+			"Name": "/Game/Audio/SoundEffect/Footsteps",
+			"PackageChunkId": "19768f09c0b0152100000001",
+			"BulkDataChunkIds": [
+				"19768f09c0b0152100000002"
+			]
+		},
+		{
+			"Name": "/Game/Audio/SoundEffect/Fireball",
+			"PackageChunkId": "2f7d4fce2bb55f9400000001",
+			"BulkDataChunkIds": [
+				"2f7d4fce2bb55f9400000002"
+			]
+		},
+		{
+			"Name": "/Game/Audio/SoundEffect/EnemyEncounter2",
+			"PackageChunkId": "abf6b63e8f06155e00000001",
+			"BulkDataChunkIds": [
+				"abf6b63e8f06155e00000002"
+			]
+		},
+		{
+			"Name": "/Game/Audio/SoundEffect/Accept",
+			"PackageChunkId": "7f687ff56e3ef7bf00000001",
+			"BulkDataChunkIds": [
+				"7f687ff56e3ef7bf00000002"
+			]
+		},
+		{
+			"Name": "/Game/Audio/Music/Main_Title_Good_Copy_B",
+			"PackageChunkId": "d5020acc14ebca2500000001",
+			"BulkDataChunkIds": [
+				"d5020acc14ebca2500000002"
+			]
+		},
+		{
+			"Name": "/Game/Datatables/Icons/circle",
+			"PackageChunkId": "7047a60deed32f6900000001"
+		},
+		{
+			"Name": "/Game/Materials/Down",
+			"PackageChunkId": "8cfa773be9edf88500000001"
+		},
+		{
+			"Name": "/Game/Materials/AllSidesOpen-blue",
+			"PackageChunkId": "147ceefe53037ebf00000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Characters/HealthboardDesign_Seres",
+			"PackageChunkId": "f6f32ae3eee296b100000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Characters/HealthboardDesign_Rain",
+			"PackageChunkId": "9cf28197034d54c700000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Characters/HealthboardDesign_Kristoff",
+			"PackageChunkId": "3622356eb50027df00000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Characters/HealthboardDesign_Ardus",
+			"PackageChunkId": "d8c2b6ae571871f900000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Characters/HealtboardDesign_Kain",
+			"PackageChunkId": "8e75b053282667ef00000001"
+		},
+		{
+			"Name": "/Engine/MobileResources/HUD/VirtualJoystick_Background",
+			"PackageChunkId": "c472a8877b0ae2f900000001"
+		},
+		{
+			"Name": "/Engine/MobileResources/HUD/VirtualJoystick_Thumb",
+			"PackageChunkId": "2a8ace463a029fae00000001"
 		},
 		{
 			"Name": "/Paper2D/DummySprite",
@@ -3081,6 +3152,14 @@
 		{
 			"Name": "/Paper2D/DefaultSpriteMaterial",
 			"PackageChunkId": "12c2c1346a8453a600000001"
+		},
+		{
+			"Name": "/Engine/EngineMaterials/PhAT_JointLimitMaterial",
+			"PackageChunkId": "305a1ec18dd5a4be00000001"
+		},
+		{
+			"Name": "/ControlRig/M_Manip",
+			"PackageChunkId": "9a5a67fa3c2b2de900000001"
 		},
 		{
 			"Name": "/Engine/EngineFonts/Roboto",
@@ -3130,23 +3209,27 @@
 			"PackageChunkId": "b4d3126ba7954ec000000001"
 		},
 		{
-			"Name": "/Engine/EditorMaterials/PreviewShadowIndicator",
-			"PackageChunkId": "2d5d52b0905803e600000001",
+			"Name": "/Engine/EngineMaterials/WorldGridMaterial",
+			"PackageChunkId": "eeb296b2a739309500000001"
+		},
+		{
+			"Name": "/Game/Audio/Music/Overworld",
+			"PackageChunkId": "e0e12aed095bac4200000001",
 			"BulkDataChunkIds": [
-				"2d5d52b0905803e600000002"
+				"e0e12aed095bac4200000002"
 			]
 		},
 		{
-			"Name": "/Game/Ui/uiTextures/Characters/HealthboardDesign_Kristoff",
-			"PackageChunkId": "3622356eb50027df00000001"
+			"Name": "/Game/Ui/uiTextures/BatteIndicators/DEFENSE_UP_Indicator",
+			"PackageChunkId": "9c99a69435f80d4600000001"
 		},
 		{
-			"Name": "/Game/Ui/uiTextures/Characters/HealthboardDesign_Ardus",
-			"PackageChunkId": "d8c2b6ae571871f900000001"
+			"Name": "/Game/Ui/uiTextures/EnemyTextures/Enemy_AnimatedWeapon",
+			"PackageChunkId": "18b8e16a29015d9300000001"
 		},
 		{
-			"Name": "/Game/Ui/uiTextures/Characters/HealtboardDesign_Kain",
-			"PackageChunkId": "8e75b053282667ef00000001"
+			"Name": "/Game/Ui/uiTextures/EnemyTextures/Day267",
+			"PackageChunkId": "64a9d2dcbb35cbb300000001"
 		},
 		{
 			"Name": "/Game/Ui/uiTextures/Characters/Commandboard_Portriat_Seres",
@@ -3165,6 +3248,10 @@
 			"PackageChunkId": "d4b109f410ab281900000001"
 		},
 		{
+			"Name": "/Game/Ui/uiTextures/Characters/Commandboard_Portriat_Ardus",
+			"PackageChunkId": "be134441d44cd58d00000001"
+		},
+		{
 			"Name": "/Game/Ui/uiTextures/BatteIndicators/WEAK_Indicator",
 			"PackageChunkId": "71503ff60913d6c900000001"
 		},
@@ -3181,10 +3268,6 @@
 			"PackageChunkId": "05c82efe944be42a00000001"
 		},
 		{
-			"Name": "/Game/Ui/uiTextures/BatteIndicators/DEFENSE_UP_Indicator",
-			"PackageChunkId": "9c99a69435f80d4600000001"
-		},
-		{
 			"Name": "/Game/Ui/uiTextures/BatteIndicators/ATTACK_UP_Indicator",
 			"PackageChunkId": "e0716ff9935497b500000001"
 		},
@@ -3193,12 +3276,12 @@
 			"PackageChunkId": "2079f5ae2aba477e00000001"
 		},
 		{
-			"Name": "/Game/Materials/Down",
-			"PackageChunkId": "8cfa773be9edf88500000001"
+			"Name": "/Game/Materials/Turn_Face_Enemy",
+			"PackageChunkId": "6e5339d4b8dab05f00000001"
 		},
 		{
-			"Name": "/Game/Materials/AllSidesOpen-blue",
-			"PackageChunkId": "147ceefe53037ebf00000001"
+			"Name": "/Game/Materials/Tile",
+			"PackageChunkId": "e569bf46f0c9c61600000001"
 		},
 		{
 			"Name": "/Game/Datatables/Icons/wind_element",
@@ -3257,17 +3340,10 @@
 			]
 		},
 		{
-			"Name": "/Game/Datatables/Icons/fire_element_1",
-			"PackageChunkId": "9d70fe8bd879b47400000001",
+			"Name": "/Game/Datatables/Icons/fire_element_2",
+			"PackageChunkId": "69aecdca4a128a0300000001",
 			"BulkDataChunkIds": [
-				"9d70fe8bd879b47400000002"
-			]
-		},
-		{
-			"Name": "/Game/Datatables/Icons/earth_element",
-			"PackageChunkId": "3e4bbf9ed457123700000001",
-			"BulkDataChunkIds": [
-				"3e4bbf9ed457123700000002"
+				"69aecdca4a128a0300000002"
 			]
 		},
 		{
@@ -3279,16 +3355,11 @@
 			"PackageChunkId": "c8548e53bc64ae9400000001"
 		},
 		{
-			"Name": "/Engine/MobileResources/HUD/VirtualJoystick_Background",
-			"PackageChunkId": "c472a8877b0ae2f900000001"
-		},
-		{
-			"Name": "/Engine/MobileResources/HUD/VirtualJoystick_Thumb",
-			"PackageChunkId": "2a8ace463a029fae00000001"
-		},
-		{
-			"Name": "/Engine/EngineMaterials/WorldGridMaterial",
-			"PackageChunkId": "eeb296b2a739309500000001"
+			"Name": "/Engine/EditorMaterials/PreviewShadowIndicator",
+			"PackageChunkId": "2d5d52b0905803e600000001",
+			"BulkDataChunkIds": [
+				"2d5d52b0905803e600000002"
+			]
 		},
 		{
 			"Name": "/Engine/EngineMaterials/DefaultTextMaterialOpaque",
@@ -3305,10 +3376,6 @@
 		{
 			"Name": "/Game/Ui/BP_TurnCounterElement",
 			"PackageChunkId": "8c93e887c9782c8800000001"
-		},
-		{
-			"Name": "/Game/Datatables/Atlantis_-_Dialogue",
-			"PackageChunkId": "27e65c068a09f3e100000001"
 		},
 		{
 			"Name": "/Game/Ui/BP_MAT_Mask",
@@ -3343,10 +3410,6 @@
 			"PackageChunkId": "68c891a4c3bbd51a00000001"
 		},
 		{
-			"Name": "/Game/Ui/BP_TutorialView",
-			"PackageChunkId": "10ad12d6631bae5b00000001"
-		},
-		{
 			"Name": "/Game/Ui/BP_DialogueView",
 			"PackageChunkId": "29cd7de6ada93b3e00000001"
 		},
@@ -3357,6 +3420,10 @@
 		{
 			"Name": "/Game/Datatables/Atlantis_-_PlayerCharacters",
 			"PackageChunkId": "fccd5a7ff25ee33e00000001"
+		},
+		{
+			"Name": "/Game/Datatables/Atlantis_-_Dialogue",
+			"PackageChunkId": "27e65c068a09f3e100000001"
 		},
 		{
 			"Name": "/Game/Objects/cullens_wall_2_Box001",
@@ -3404,16 +3471,16 @@
 			"PackageChunkId": "5d6a598bef74770200000001"
 		},
 		{
-			"Name": "/Game/Datatables/Atlantis_-_Skills_Attack",
-			"PackageChunkId": "4ab096a6d1c247bb00000001"
-		},
-		{
 			"Name": "/Game/Datatables/Atlantis_-_Skills_Debuff",
 			"PackageChunkId": "2ae7fafcff0d4de200000001"
 		},
 		{
 			"Name": "/Game/Datatables/Atlantis_-_Skills_Buff",
 			"PackageChunkId": "f34d4db758cfc77c00000001"
+		},
+		{
+			"Name": "/Game/Datatables/Atlantis_-_Skills_Attack",
+			"PackageChunkId": "4ab096a6d1c247bb00000001"
 		},
 		{
 			"Name": "/Game/Ui/BP_EnemySelectionBar",
@@ -3565,6 +3632,10 @@
 			"BulkDataChunkIds": [
 				"1595b610bf425b8d00000002"
 			]
+		},
+		{
+			"Name": "/Engine/Tutorial/Landscape/Landscape_Painting_Mode",
+			"PackageChunkId": "000000000000000000000000"
 		},
 		{
 			"Name": "/ControlRig/Controls/ControlRig_Wedge_3mm",
@@ -3985,12 +4056,16 @@
 			"PackageChunkId": "34868b7f9c10838900000001"
 		},
 		{
-			"Name": "/Game/Ui/BP_EnemyPortraits",
-			"PackageChunkId": "6c0c176983666c1500000001"
+			"Name": "/Game/Ui/BP_TutorialView",
+			"PackageChunkId": "10ad12d6631bae5b00000001"
 		},
 		{
 			"Name": "/Game/Ui/BP_PartyHealthbarElement",
 			"PackageChunkId": "9bcd497117a05ca200000001"
+		},
+		{
+			"Name": "/Game/Ui/BP_EnemyPortraits",
+			"PackageChunkId": "6c0c176983666c1500000001"
 		},
 		{
 			"Name": "/Game/Ui/BP_LevelupView",
@@ -4073,12 +4148,16 @@
 			"PackageChunkId": "b059d54260cfd24100000001"
 		},
 		{
-			"Name": "/Engine/Tutorial/Landscape/Landscape_Painting_Mode",
-			"PackageChunkId": "000000000000000000000000"
-		},
-		{
 			"Name": "/Game/Map/Floor1/_Generated_/Floor1_MainGrid_L0_X0_Y0_DL0",
 			"PackageChunkId": "e21ddbf85577df6700000001"
+		},
+		{
+			"Name": "/Engine/EditorResources/EmptyActor",
+			"PackageChunkId": "cb90c94586b3228900000001"
+		},
+		{
+			"Name": "/Engine/EngineSky/M_Sky_Panning_Clouds2",
+			"PackageChunkId": "6098725f85292e1b00000001"
 		},
 		{
 			"Name": "/Engine/EngineSky/SM_SkySphere",
@@ -4088,23 +4167,15 @@
 			]
 		},
 		{
-			"Name": "/Engine/EngineSky/M_Sky_Panning_Clouds2",
-			"PackageChunkId": "6098725f85292e1b00000001"
-		},
-		{
 			"Name": "/Engine/EngineSky/M_SimpleSkyDome",
 			"PackageChunkId": "e61c20398c40eda200000001"
 		},
 		{
-			"Name": "/Engine/EngineSky/T_Sky_Stars",
-			"PackageChunkId": "56d51199b9b2142a00000001",
+			"Name": "/Engine/EngineSky/T_Sky_Clouds_M",
+			"PackageChunkId": "927b2fe4876a1f7400000001",
 			"BulkDataChunkIds": [
-				"56d51199b9b2142a00000002"
+				"927b2fe4876a1f7400000002"
 			]
-		},
-		{
-			"Name": "/Engine/EditorResources/EmptyActor",
-			"PackageChunkId": "cb90c94586b3228900000001"
 		},
 		{
 			"Name": "/Engine/EngineSky/T_Sky_Blue",
@@ -4114,10 +4185,10 @@
 			]
 		},
 		{
-			"Name": "/Engine/EngineSky/T_Sky_Clouds_M",
-			"PackageChunkId": "927b2fe4876a1f7400000001",
+			"Name": "/Engine/EngineSky/T_Sky_Stars",
+			"PackageChunkId": "56d51199b9b2142a00000001",
 			"BulkDataChunkIds": [
-				"927b2fe4876a1f7400000002"
+				"56d51199b9b2142a00000002"
 			]
 		}
 	],

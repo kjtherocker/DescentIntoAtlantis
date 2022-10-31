@@ -11,6 +11,12 @@ void UBaseUserWidget::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBas
 	gameModeBase = aGameModeBase;
 }
 
+void UBaseUserWidget::SetViewInfo(EViews aView, EUiType aUiType)
+{
+	view   = aView;
+	UiType = aUiType;
+}
+
 void UBaseUserWidget::SetCursorPositionInfo()
 {
 }
@@ -33,4 +39,9 @@ void UBaseUserWidget::MoveDown()
 		cursorPosition = minCursorPosition;
 	}
 	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Selection);
+}
+
+void UBaseUserWidget::ReturnToPreviousScreen()
+{
+	InGameHUD->ReturnToPreviousActiveView();
 }

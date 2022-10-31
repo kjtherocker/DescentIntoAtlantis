@@ -4,9 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
+#include "FloorEnum.h"
 
 #include "LevelupView.generated.h"
 
+class FTriggerNextEventStage;
 class USkillBarElement;
 class UPlayerCombatEntity;
 class UTextBlock;
@@ -22,9 +24,14 @@ class DESENTINTOATLANTIS_API ULevelupView : public UBaseUserWidget
 private:
 	UPROPERTY()
 	TArray<UPlayerCombatEntity*> combatEntitysToLevelup;
+
+	FTriggerNextEventStage  triggerNextEventStage;
+	
+	EFloorEventStates triggerOnEnd;
+	
 	
 public:
-	void InitializeCombatEntitysToLevelUp(TArray<UPlayerCombatEntity*> aPlayerCombatEntitys);
+	void InitializeCombatEntitysToLevelUp(TArray<UPlayerCombatEntity*> aPlayerCombatEntitys,FTriggerNextEventStage  aTriggerNextEventStage, EFloorEventStates aTriggerOnEnd);
 	
 	void SetupLevelupView(UPlayerCombatEntity* aPlayerCombatEntity);
 

@@ -7,6 +7,7 @@
 #include "CombatManager.h"
 #include "CombatSelectionView.h"
 #include "EngineUtils.h"
+#include "GameManager.h"
 #include "SoundManager.h"
 #include "Components/TextBlock.h"
 #include "Components/Border.h"
@@ -23,7 +24,7 @@ void UCommandBoard::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UCommandBoard::ActivateCommandboardFunction  );
 	
 	combatManager =  gameModeBase->combatManager;
-	currentActivePartyMember = combatManager->ReturnCurrentActivePartyMember();
+	currentActivePartyMember = combatManager->GetCurrentActivePartyMember();
 	defaultAttack = static_cast<USkillAttack*>(gameModeBase->skillFactory->GetSkill("DefaultAttack"));
 	BW_FullBodyPortrait->SetBrushFromTexture(currentActivePartyMember->playerEntityData.fullBodyCharacterPortrait);
 	
@@ -101,6 +102,8 @@ void UCommandBoard::Skill()
 }
 void UCommandBoard::Escape()
 {
+	InGameHUD->PopMostRecentActiveView();
+	gameModeBase->gameManager->ResetPlayerToPreviousPosition();
 }
 
 void UCommandBoard::Pass()

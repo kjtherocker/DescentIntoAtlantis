@@ -22,14 +22,33 @@ void UPlayerCombatEntity::SetTacticsEntity(USkillFactory* aSkillFactory)
 void UPlayerCombatEntity::SetPlayerClass(UDataTable*  EDataTableClasses)
 {
 	baseClass = NewObject<UCombatClass>(); 
-	baseClass->InitializeDataTable(EDataTableClasses, skillFactory,this);
-
-	maxHealth         = baseClass->currentClassLevel.maxHealth;
-	currentHealth     = maxHealth;
+	baseClass->InitializeDataTable(EDataTableClasses, skillFactory,this,playerEntityData.initialLevel);
+	
 	ElementalStrength = baseClass->currentClassLevel.ElementalStrength;
 	ElementalWeakness = baseClass->currentClassLevel.ElementalWeakness;
 	
 	SetAbilityScores();
+	SetToDefaultState();
+}
+
+void UPlayerCombatEntity::Reset()
+{
+	Super::Reset();
+	SetToDefaultState();
+}
+
+void UPlayerCombatEntity::SetToDefaultState()
+{
+	Super::SetToDefaultState();
+	maxHealth         = baseClass->currentClassLevel.maxHealth;
+	currentHealth     = maxHealth;
+	maxMana           = baseClass->currentClassLevel.maxMana;
+	currentMana       = maxMana;
+    isMarkedForDeath  = false;
+	for (TTuple<EAbilityScoreTypes, UCombatAbilityStats*> abilityStats : abilityScoreMap)
+	{
+		abilityStats.Value->ResetAbilityscore();
+	}
 }
 
 void UPlayerCombatEntity::SetAbilityScores()

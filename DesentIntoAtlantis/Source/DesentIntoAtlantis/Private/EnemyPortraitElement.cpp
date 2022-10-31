@@ -61,9 +61,9 @@ void UEnemyPortraitElement::Disappear(float DeltaTime)
 		return;
 	}
 	
-	disappearTimer -= DeltaTime *2;	
+	disappearTimer -= DeltaTime * 2;	
 	
-	BW_Portrait->SetColorAndOpacity(FLinearColor(1,1,1,disappearTimer));
+	BW_Portrait->SetOpacity(disappearTimer);
 }
 
 void UEnemyPortraitElement::TriggerHitEffect()

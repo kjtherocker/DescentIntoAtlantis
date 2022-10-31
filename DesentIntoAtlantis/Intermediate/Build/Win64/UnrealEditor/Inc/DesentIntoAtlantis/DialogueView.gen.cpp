@@ -115,13 +115,13 @@ void EmptyLinkFunctionForGeneratedCodeDialogueView() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UDialogueView_Statics::NewProp_BW_DialogueText = { "BW_DialogueText", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UDialogueView, BW_DialogueText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UDialogueView_Statics::NewProp_BW_DialogueText_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UDialogueView_Statics::NewProp_BW_DialogueText_MetaData)) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UDialogueView_Statics::NewProp_dialogueData_Inner = { "dialogueData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FDialogueData, METADATA_PARAMS(nullptr, 0) }; // 500307315
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UDialogueView_Statics::NewProp_dialogueData_Inner = { "dialogueData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FDialogueData, METADATA_PARAMS(nullptr, 0) }; // 1264916006
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UDialogueView_Statics::NewProp_dialogueData_MetaData[] = {
 		{ "ModuleRelativePath", "Public/DialogueView.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UDialogueView_Statics::NewProp_dialogueData = { "dialogueData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UDialogueView, dialogueData), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UDialogueView_Statics::NewProp_dialogueData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UDialogueView_Statics::NewProp_dialogueData_MetaData)) }; // 500307315
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UDialogueView_Statics::NewProp_dialogueData = { "dialogueData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UDialogueView, dialogueData), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UDialogueView_Statics::NewProp_dialogueData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UDialogueView_Statics::NewProp_dialogueData_MetaData)) }; // 1264916006
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UDialogueView_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDialogueView_Statics::NewProp_BW_LeftCharacterPortrait,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDialogueView_Statics::NewProp_BW_RightCharacterPortrait,
@@ -167,9 +167,9 @@ void EmptyLinkFunctionForGeneratedCodeDialogueView() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DialogueView_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UDialogueView, UDialogueView::StaticClass, TEXT("UDialogueView"), &Z_Registration_Info_UClass_UDialogueView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDialogueView), 1255974634U) },
+		{ Z_Construct_UClass_UDialogueView, UDialogueView::StaticClass, TEXT("UDialogueView"), &Z_Registration_Info_UClass_UDialogueView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDialogueView), 1008030934U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DialogueView_h_3526025042(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DialogueView_h_1884026099(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DialogueView_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DialogueView_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

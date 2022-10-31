@@ -10,7 +10,7 @@
 #include "FloorBase.generated.h"
 
 enum class EDialogueTriggers;
-enum class TutorialTriggers;
+enum class ETutorialTriggers;
 /**
  * 
  */

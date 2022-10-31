@@ -8,7 +8,7 @@
 enum class PressTurnReactions;
 class USkillBase;
 enum class ECharactertype;
-class UTurnCounter;
+class UTurnCounterView;
 class ADesentIntoAtlantisGameModeBase;
 class UCombatEntity;
 class UCombatManager;
@@ -23,7 +23,7 @@ class DESENTINTOATLANTIS_API UPressTurn : public UObject
 	GENERATED_BODY()
 public:
 	 int m_Turns;
-	 bool m_IsEmpowered;
+	 bool isEmpowered;
 	 bool wasUsed;
 };
 
@@ -40,7 +40,7 @@ private:
 	UPROPERTY()
 	ADesentIntoAtlantisGameModeBase* gameModeBase;
 	UPROPERTY()
-	UTurnCounter* turnCounter;
+	UTurnCounterView* turnCounter;
 	UPROPERTY()
 	TArray<UPressTurn*> activePressTurns;
 	UPROPERTY()

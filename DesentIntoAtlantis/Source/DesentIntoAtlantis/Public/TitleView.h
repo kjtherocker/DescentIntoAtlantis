@@ -24,8 +24,9 @@ class DESENTINTOATLANTIS_API UTitleView : public UBaseUserWidget
 {
 	GENERATED_BODY()
 
-
+	UPROPERTY()
 	TMap<ETitleStates,FViewSelection > commandboardSelections;
+	
 	FViewSelection titleBoardSelectionStartGame;
 	FViewSelection titleBoardSelectionQuitGame;
 

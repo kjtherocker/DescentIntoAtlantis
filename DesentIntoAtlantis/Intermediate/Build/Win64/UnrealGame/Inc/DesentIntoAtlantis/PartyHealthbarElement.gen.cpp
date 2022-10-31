@@ -18,6 +18,13 @@ void EmptyLinkFunctionForGeneratedCodePartyHealthbarElement() {}
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(UPartyHealthbarElement::execTriggerGreyScale)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->TriggerGreyScale();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UPartyHealthbarElement::execTriggerHitEffect)
 	{
 		P_FINISH;
@@ -36,10 +43,33 @@ void EmptyLinkFunctionForGeneratedCodePartyHealthbarElement() {}
 	{
 		UClass* Class = UPartyHealthbarElement::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "TriggerGreyScale", &UPartyHealthbarElement::execTriggerGreyScale },
 			{ "TriggerHitEffect", &UPartyHealthbarElement::execTriggerHitEffect },
 			{ "UpdateHealthbarElements", &UPartyHealthbarElement::execUpdateHealthbarElements },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UPartyHealthbarElement_TriggerGreyScale_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPartyHealthbarElement_TriggerGreyScale_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/PartyHealthbarElement.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPartyHealthbarElement_TriggerGreyScale_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPartyHealthbarElement, nullptr, "TriggerGreyScale", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UPartyHealthbarElement_TriggerGreyScale_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UPartyHealthbarElement_TriggerGreyScale_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UPartyHealthbarElement_TriggerGreyScale()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPartyHealthbarElement_TriggerGreyScale_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UPartyHealthbarElement_TriggerHitEffect_Statics
 	{
@@ -134,6 +164,7 @@ void EmptyLinkFunctionForGeneratedCodePartyHealthbarElement() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UPartyHealthbarElement_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UPartyHealthbarElement_TriggerGreyScale, "TriggerGreyScale" }, // 2993512338
 		{ &Z_Construct_UFunction_UPartyHealthbarElement_TriggerHitEffect, "TriggerHitEffect" }, // 97320902
 		{ &Z_Construct_UFunction_UPartyHealthbarElement_UpdateHealthbarElements, "UpdateHealthbarElements" }, // 663163442
 	};
@@ -249,9 +280,9 @@ void EmptyLinkFunctionForGeneratedCodePartyHealthbarElement() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPartyHealthbarElement, UPartyHealthbarElement::StaticClass, TEXT("UPartyHealthbarElement"), &Z_Registration_Info_UClass_UPartyHealthbarElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPartyHealthbarElement), 810193615U) },
+		{ Z_Construct_UClass_UPartyHealthbarElement, UPartyHealthbarElement::StaticClass, TEXT("UPartyHealthbarElement"), &Z_Registration_Info_UClass_UPartyHealthbarElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPartyHealthbarElement), 3271105238U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_1686464243(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_3597624339(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

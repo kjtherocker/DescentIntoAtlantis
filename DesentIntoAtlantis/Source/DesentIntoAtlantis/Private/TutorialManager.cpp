@@ -9,5 +9,6 @@ void UTutorialManager::InitializeDatabase(UDataTable* aTutorialDatabase)
 	for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
 	{
 		tutorialData.Add(*datatable->FindRow<FTutorialData>(FName(FString::FromInt(i)),FString("Searching for class levels"),true));
+		tutorialMap.Add(tutorialData[i].tutorialTrigger,tutorialData[i]);
 	}
 }

@@ -12,16 +12,22 @@ void UEnemyPortraits::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBas
 {
 	Super::UiInitialize(aGameModeBase);
 	
-	Portraits.Add(BW_Portrait1);
-	Portraits.Add(BW_Portrait2);
-	Portraits.Add(BW_Portrait3);
+	Portraits.Add(EEnemyCombatPositions::Left  ,BW_Portrait1);
+	Portraits.Add(EEnemyCombatPositions::Middle,BW_Portrait2);
+	Portraits.Add(EEnemyCombatPositions::Right ,BW_Portrait3);
 	
 	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 	enemysInCombat = GameModeBase->combatManager->GetEnemysInCombat();
 
+
+	for (TTuple<EEnemyCombatPositions, UEnemyPortraitElement*> portrait : Portraits)
+	{
+		portrait.Value->SetRenderOpacity(NO_OPACITY);
+	}
+	
 	for(int i = 0 ; i < enemysInCombat.Num();i++)
 	{
-		SetEnemyPortraits(Portraits[i],enemysInCombat[i]);
+		SetEnemyPortraits(Portraits[enemysInCombat[i]->portraitPosition],enemysInCombat[i]);
 	}
 }
 
@@ -32,6 +38,7 @@ void UEnemyPortraits::NativeTick(const FGeometry& MyGeometry, float DeltaTime)
 
 void UEnemyPortraits::SetEnemyPortraits(UEnemyPortraitElement* aImage, UEnemyCombatEntity* AEnemyCombatEntity)
 {
+	aImage->SetRenderOpacity(MAX_OPACITY);
 	aImage->SetCombatEntity(AEnemyCombatEntity);
 }
 

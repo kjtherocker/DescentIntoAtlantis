@@ -23,16 +23,19 @@ void UPartyHealthbarElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 	
 	aCombatEntity->hasHealthOrManaValuesChanged.AddDynamic(this,
 		&UPartyHealthbarElement::UpdateHealthbarElements);
+
+	aCombatEntity->wasKilled.AddDynamic(this,
+		&UPartyHealthbarElement::TriggerGreyScale);
 	
 	characterName = playerCombatEntity->playerEntityData.characterName;
 	
 	BW_CharacterPortrait->SetBrushFromTexture(playerCombatEntity->playerEntityData.characterPortrait);
 	UpdateHealthbarElements();
+	
 }
 
 void UPartyHealthbarElement::NativeTick(const FGeometry& MyGeometry, float DeltaTime)
 {
-
 	if(isTriggeringHitEffect)
 	{
 		HitEffect(DeltaTime);
@@ -66,6 +69,11 @@ void UPartyHealthbarElement::TriggerHitEffect()
 {
 	UpdateHealthbarElements();
 	isTriggeringHitEffect = true;
+}
+
+void UPartyHealthbarElement::TriggerGreyScale()
+{
+	BW_CharacterPortrait->SetColorAndOpacity(FLinearColor::Black);
 }
 
 void UPartyHealthbarElement::MoveUp()

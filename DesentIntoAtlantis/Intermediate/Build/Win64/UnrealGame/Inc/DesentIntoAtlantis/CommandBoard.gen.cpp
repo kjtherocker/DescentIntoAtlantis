@@ -14,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeCommandBoard() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCommandBoard_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCommandBoard();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UBaseUserWidget();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatManager_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkillAttack_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UBorder_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
@@ -43,7 +44,6 @@ void EmptyLinkFunctionForGeneratedCodeCommandBoard() {}
 	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_ECommandBoardStates_Statics::Enumerators[] = {
 		{ "ECommandBoardStates::Attack", (int64)ECommandBoardStates::Attack },
 		{ "ECommandBoardStates::Skill", (int64)ECommandBoardStates::Skill },
-		{ "ECommandBoardStates::Item", (int64)ECommandBoardStates::Item },
 		{ "ECommandBoardStates::Escape", (int64)ECommandBoardStates::Escape },
 		{ "ECommandBoardStates::Pass", (int64)ECommandBoardStates::Pass },
 	};
@@ -54,8 +54,6 @@ void EmptyLinkFunctionForGeneratedCodeCommandBoard() {}
 		{ "Comment", "/**\n * \n */" },
 		{ "Escape.Comment", "/**\n * \n */" },
 		{ "Escape.Name", "ECommandBoardStates::Escape" },
-		{ "Item.Comment", "/**\n * \n */" },
-		{ "Item.Name", "ECommandBoardStates::Item" },
 		{ "ModuleRelativePath", "Public/CommandBoard.h" },
 		{ "Pass.Comment", "/**\n * \n */" },
 		{ "Pass.Name", "ECommandBoardStates::Pass" },
@@ -223,6 +221,10 @@ void EmptyLinkFunctionForGeneratedCodeCommandBoard() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_combatManager_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_combatManager;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_defaultAttack_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_defaultAttack;
@@ -275,6 +277,12 @@ void EmptyLinkFunctionForGeneratedCodeCommandBoard() {}
 		{ "ModuleRelativePath", "Public/CommandBoard.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCommandBoard_Statics::NewProp_combatManager_MetaData[] = {
+		{ "ModuleRelativePath", "Public/CommandBoard.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCommandBoard_Statics::NewProp_combatManager = { "combatManager", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCommandBoard, combatManager), Z_Construct_UClass_UCombatManager_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCommandBoard_Statics::NewProp_combatManager_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCommandBoard_Statics::NewProp_combatManager_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCommandBoard_Statics::NewProp_defaultAttack_MetaData[] = {
 		{ "ModuleRelativePath", "Public/CommandBoard.h" },
@@ -341,6 +349,7 @@ void EmptyLinkFunctionForGeneratedCodeCommandBoard() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCommandBoard_Statics::NewProp_currentActivePartyMember = { "currentActivePartyMember", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCommandBoard, currentActivePartyMember), Z_Construct_UClass_UPlayerCombatEntity_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCommandBoard_Statics::NewProp_currentActivePartyMember_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCommandBoard_Statics::NewProp_currentActivePartyMember_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCommandBoard_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCommandBoard_Statics::NewProp_combatManager,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCommandBoard_Statics::NewProp_defaultAttack,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCommandBoard_Statics::NewProp_BW_Attack,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCommandBoard_Statics::NewProp_BW_Skill,
@@ -388,12 +397,12 @@ void EmptyLinkFunctionForGeneratedCodeCommandBoard() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CommandBoard_h_Statics::EnumInfo[] = {
-		{ ECommandBoardStates_StaticEnum, TEXT("ECommandBoardStates"), &Z_Registration_Info_UEnum_ECommandBoardStates, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2919785781U) },
+		{ ECommandBoardStates_StaticEnum, TEXT("ECommandBoardStates"), &Z_Registration_Info_UEnum_ECommandBoardStates, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3998345339U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CommandBoard_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCommandBoard, UCommandBoard::StaticClass, TEXT("UCommandBoard"), &Z_Registration_Info_UClass_UCommandBoard, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCommandBoard), 480116224U) },
+		{ Z_Construct_UClass_UCommandBoard, UCommandBoard::StaticClass, TEXT("UCommandBoard"), &Z_Registration_Info_UClass_UCommandBoard, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCommandBoard), 344206143U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CommandBoard_h_2533420360(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CommandBoard_h_3723984401(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CommandBoard_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CommandBoard_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CommandBoard_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CommandBoard_h_Statics::EnumInfo));

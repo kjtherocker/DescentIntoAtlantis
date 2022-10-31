@@ -19,3 +19,8 @@ void UTurnCounterElement::SwitchTurnIcons(ECharactertype aCharacterType)
 	turnIcons[previousCharacterType]->SetOpacity(MIN_OPACITY);
 	turnIcons[aCharacterType]->SetOpacity(MAX_OPACITY);
 }
+
+void UTurnCounterElement::EmpowerTurn(bool aIsEmpowered)
+{
+	BW_EmpoweredIcon->SetOpacity(aIsEmpowered ? MAX_OPACITY : NO_OPACITY);
+}

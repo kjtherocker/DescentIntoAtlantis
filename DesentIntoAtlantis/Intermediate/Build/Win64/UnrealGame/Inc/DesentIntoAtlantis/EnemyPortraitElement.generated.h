@@ -16,11 +16,13 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_17_SPARSE_DATA
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_17_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execTriggerDisappear); \
 	DECLARE_FUNCTION(execTriggerHitEffect);
 
 
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execTriggerDisappear); \
 	DECLARE_FUNCTION(execTriggerHitEffect);
 
 

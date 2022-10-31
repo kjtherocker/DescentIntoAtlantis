@@ -19,16 +19,19 @@ class DESENTINTOATLANTIS_API AInGameHUD : public AHUD
 {
 	GENERATED_BODY()
 
-
+private:
 	UPROPERTY()
 	ADesentIntoAtlantisGameModeBase* gameModeBase;
+	UPROPERTY()
+	TArray<UBaseUserWidget*> persistentViewStack;
+	UPROPERTY()
+	TArray<UBaseUserWidget*> activeViewStack;
+	UPROPERTY()
+	TArray<UBaseUserWidget*>inactiveViewStack;
 public:
 	
-    void BeginPlay() override;
-    void Tick(float DeltaSeconds) override;
-
-    UPROPERTY(EditDefaultsOnly, Category = "Widgets")
-    TSubclassOf<UUserWidget> commandBoardPrefab;
+    virtual void BeginPlay() override;
+    virtual void Tick(float DeltaSeconds) override;
 
     UPROPERTY(EditDefaultsOnly, Category = "Widgets")
     TMap<EViews,TSubclassOf<UUserWidget>> userWidgets;
@@ -43,14 +46,6 @@ public:
 	void PopAllActiveViews();
 	void PushMostRecentInActiveView();
 	void ReturnToPreviousActiveView();
-	UPROPERTY()
-	TArray<UBaseUserWidget*> persistentViewStack;
-	UPROPERTY()
-    TArray<UBaseUserWidget*> activeViewStack;
-	UPROPERTY()
-	TArray<UBaseUserWidget*>inactiveViewStack;
 	
 	TSubclassOf<UUserWidget> GetElement(EViewElements aViewElement);
-private:
-    UCommandBoard* commandBoard;
 };

@@ -14,7 +14,7 @@ enum class EFloorEventStates : int32;
 #endif
 #define DESENTINTOATLANTIS_FloorEnum_generated_h
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_22_DELEGATE \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_25_DELEGATE \
 struct _Script_DesentIntoAtlantis_eventFloorEventHasBeenTriggered_Parms \
 { \
 	FVector2D aPositionInGrid; \
@@ -27,7 +27,7 @@ static inline void FFloorEventHasBeenTriggered_DelegateWrapper(const FMulticastS
 }
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_23_DELEGATE \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_26_DELEGATE \
 struct _Script_DesentIntoAtlantis_eventTriggerNextEventStage_Parms \
 { \
 	EFloorEventStates aFloorEventStates; \
@@ -40,7 +40,7 @@ static inline void FTriggerNextEventStage_DelegateWrapper(const FMulticastScript
 }
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_28_GENERATED_BODY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_31_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FFloorData_Statics; \
 	static class UScriptStruct* StaticStruct(); \
 	typedef FTableRowBase Super;
@@ -48,7 +48,7 @@ static inline void FTriggerNextEventStage_DelegateWrapper(const FMulticastScript
 
 template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FFloorData>();
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_66_GENERATED_BODY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_71_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FFloorEventData_Statics; \
 	static class UScriptStruct* StaticStruct(); \
 	typedef FTableRowBase Super;
@@ -56,7 +56,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FFloorData>
 
 template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FFloorEventData>();
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_94_GENERATED_BODY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_105_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FTutorialData_Statics; \
 	static class UScriptStruct* StaticStruct(); \
 	typedef FTableRowBase Super;
@@ -73,6 +73,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FTutorialDa
 	op(EFloorEventStates::DialogueOnStart) \
 	op(EFloorEventStates::TutorialOnStart) \
 	op(EFloorEventStates::Combat) \
+	op(EFloorEventStates::Levelup) \
 	op(EFloorEventStates::DialogueOnEnd) \
 	op(EFloorEventStates::TutorialOnEnd) \
 	op(EFloorEventStates::Completed) 
@@ -84,19 +85,24 @@ template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EFloorEventStates>();
 	op(EDialogueTriggers::None) \
 	op(EDialogueTriggers::StartGame) \
 	op(EDialogueTriggers::Combat1Start) \
-	op(EDialogueTriggers::Combat1End) 
+	op(EDialogueTriggers::Combat1End) \
+	op(EDialogueTriggers::ArdusJoin) \
+	op(EDialogueTriggers::SeresFightStart) \
+	op(EDialogueTriggers::SeresFightEnd) \
+	op(EDialogueTriggers::FinalBossStart) \
+	op(EDialogueTriggers::FinalBossEnd) 
 
 enum class EDialogueTriggers;
 template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EDialogueTriggers>();
 
-#define FOREACH_ENUM_TUTORIALTRIGGERS(op) \
-	op(TutorialTriggers::None) \
-	op(TutorialTriggers::Combat1) \
-	op(TutorialTriggers::Combat2) \
-	op(TutorialTriggers::Combat3) \
-	op(TutorialTriggers::Combat4) 
+#define FOREACH_ENUM_ETUTORIALTRIGGERS(op) \
+	op(ETutorialTriggers::None) \
+	op(ETutorialTriggers::Combat1Start) \
+	op(ETutorialTriggers::Combat1End) \
+	op(ETutorialTriggers::ArdusJoin) \
+	op(ETutorialTriggers::Combat3End) 
 
-enum class TutorialTriggers;
-template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<TutorialTriggers>();
+enum class ETutorialTriggers;
+template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<ETutorialTriggers>();
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

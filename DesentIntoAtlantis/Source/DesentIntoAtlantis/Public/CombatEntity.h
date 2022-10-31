@@ -72,11 +72,17 @@ class DESENTINTOATLANTIS_API UCombatAbilityStats : public UObject
 {
 	GENERATED_BODY()
 public:
+	UPROPERTY( EditAnywhere )
 	int base    			= 0;
+	UPROPERTY( EditAnywhere )
 	int buff    			= 0;
+	UPROPERTY( EditAnywhere )
 	int debuff  			= 0;
+	UPROPERTY( EditAnywhere )
 	int domain  			= 0;
+	UPROPERTY( EditAnywhere )
 	int buffTimeRemaining   = 0;
+	UPROPERTY( EditAnywhere )
 	int debuffTimeRemaining = 0;
 
 	inline static const float ABILITYSCORE_CONVERSION_RATIO = 3;
@@ -89,13 +95,20 @@ public:
 		if(isBuff)
 		{
 			buffTimeRemaining = timeLimit;
-			buff              = base * ABILITYSCORE_CONVERSION_RATIO*10;
+			buff              = base * ABILITYSCORE_CONVERSION_RATIO;
 		}
 		else
 		{
 			debuffTimeRemaining = timeLimit;
 			debuff              = base * ABILITYSCORE_CONVERSION_RATIO;
 		}
+	}
+
+	void ResetAbilityscore()
+	{
+		buff   = 0;
+		debuff = 0;
+		domain = 0;
 	}
 
 	void TurnEnd()
@@ -163,18 +176,18 @@ public:
 	virtual void SetHealth(int aHealth);
 	
 	virtual int CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
-	
+	virtual void Reset();
 	virtual PressTurnReactions DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill);
 	virtual PressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
 	virtual PressTurnReactions ApplyBuff(      UCombatEntity* aBuffer,   FSkillsData aSkill);
-
+	virtual void DecrementMana(int aDecrementBy);
 	virtual ECharactertype GetCharactertype();
 	virtual void Resurrection();
 	void DeathCheck();
 	virtual void Death();
 
 	virtual void ActivateDamageHitEffect();
-
+	virtual void SetToDefaultState();
 	virtual float GetHealthPercentage();
 	virtual float GetPotentialHealthPercentage(int aDamage);
 	virtual float GetManaPercentage();
@@ -191,8 +204,10 @@ public:
 
 	int maxHealth;
 	int currentHealth;
+	int maxMana;
 	int currentMana;
-
+	
+	UPROPERTY( EditAnywhere )
 	TMap< EAbilityScoreTypes,UCombatAbilityStats*> abilityScoreMap;
 
 	

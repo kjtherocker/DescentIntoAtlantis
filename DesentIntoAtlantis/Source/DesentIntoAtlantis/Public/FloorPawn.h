@@ -46,7 +46,10 @@ protected:
 	
 	
 	double rotationDirection;
-public:	
+public:
+
+	UPROPERTY()
+	AFloorNode* previousNodePlayerWasOn;
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

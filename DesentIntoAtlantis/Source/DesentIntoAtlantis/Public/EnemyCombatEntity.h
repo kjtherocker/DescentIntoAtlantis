@@ -57,13 +57,16 @@ UCLASS()
 class DESENTINTOATLANTIS_API UEnemyCombatEntity : public UCombatEntity
 {
 	GENERATED_BODY()
+private:
 public:
 	void SetAbilityScores();
-	void SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactory * skillFactory);
+	void SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactory * skillFactory,EEnemyCombatPositions aPortraitPosition);
 	virtual void Death() override;
 	virtual float GetHealthPercentage() override;
 	virtual PressTurnReactions DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill) override;
 
+	EEnemyCombatPositions portraitPosition;
+	
 	UPROPERTY()
 	TArray<USkillBase*> enemySkills;
 
@@ -73,7 +76,5 @@ public:
 	UEnemyBestiaryData* enemyBestiaryData;
 	
 	FEnemyEntityData enemyEntityData;
-
-	EEnemyCombatPositions enemyCombatPosition;
 };
 

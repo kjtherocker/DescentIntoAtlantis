@@ -14,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeDialogueFactory() {}
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EDialogueTriggers();
 	ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EAudio();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UDialogueFactory_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UDialogueFactory();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
@@ -65,6 +66,11 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FDialogueData>()
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_BackgroundCG_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_BackgroundCG;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_musicToPlay_Underlying;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_musicToPlay_MetaData[];
+#endif
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_musicToPlay;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -84,7 +90,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FDialogueData>()
 		{ "ModuleRelativePath", "Public/DialogueFactory.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_DialogueTriggers = { "DialogueTriggers", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FDialogueData, DialogueTriggers), Z_Construct_UEnum_DesentIntoAtlantis_EDialogueTriggers, METADATA_PARAMS(Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_DialogueTriggers_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_DialogueTriggers_MetaData)) }; // 3022347595
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_DialogueTriggers = { "DialogueTriggers", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FDialogueData, DialogueTriggers), Z_Construct_UEnum_DesentIntoAtlantis_EDialogueTriggers, METADATA_PARAMS(Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_DialogueTriggers_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_DialogueTriggers_MetaData)) }; // 3835709850
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_Dialogue_MetaData[] = {
 		{ "Category", "DialogueData" },
@@ -120,6 +126,14 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FDialogueData>()
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_BackgroundCG = { "BackgroundCG", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FDialogueData, BackgroundCG), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_BackgroundCG_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_BackgroundCG_MetaData)) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_musicToPlay_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_musicToPlay_MetaData[] = {
+		{ "Category", "DialogueData" },
+		{ "ModuleRelativePath", "Public/DialogueFactory.h" },
+	};
+#endif
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_musicToPlay = { "musicToPlay", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FDialogueData, musicToPlay), Z_Construct_UEnum_DesentIntoAtlantis_EAudio, METADATA_PARAMS(Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_musicToPlay_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_musicToPlay_MetaData)) }; // 767484525
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FDialogueData_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_DialogueTriggers_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_DialogueTriggers,
@@ -128,6 +142,8 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FDialogueData>()
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_LeftPortrait,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_RightPortrait,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_BackgroundCG,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_musicToPlay_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDialogueData_Statics::NewProp_musicToPlay,
 	};
 	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FDialogueData_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
@@ -183,13 +199,13 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FDialogueData>()
 		{ "ModuleRelativePath", "Public/DialogueFactory.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UDialogueFactory_Statics::NewProp_dialogueData_Inner = { "dialogueData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FDialogueData, METADATA_PARAMS(nullptr, 0) }; // 500307315
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UDialogueFactory_Statics::NewProp_dialogueData_Inner = { "dialogueData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FDialogueData, METADATA_PARAMS(nullptr, 0) }; // 1264916006
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UDialogueFactory_Statics::NewProp_dialogueData_MetaData[] = {
 		{ "ModuleRelativePath", "Public/DialogueFactory.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UDialogueFactory_Statics::NewProp_dialogueData = { "dialogueData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UDialogueFactory, dialogueData), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UDialogueFactory_Statics::NewProp_dialogueData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UDialogueFactory_Statics::NewProp_dialogueData_MetaData)) }; // 500307315
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UDialogueFactory_Statics::NewProp_dialogueData = { "dialogueData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UDialogueFactory, dialogueData), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UDialogueFactory_Statics::NewProp_dialogueData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UDialogueFactory_Statics::NewProp_dialogueData_MetaData)) }; // 1264916006
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UDialogueFactory_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDialogueFactory_Statics::NewProp_dialogueData_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDialogueFactory_Statics::NewProp_dialogueData,
@@ -231,12 +247,12 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FDialogueData>()
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DialogueFactory_h_Statics::ScriptStructInfo[] = {
-		{ FDialogueData::StaticStruct, Z_Construct_UScriptStruct_FDialogueData_Statics::NewStructOps, TEXT("DialogueData"), &Z_Registration_Info_UScriptStruct_DialogueData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FDialogueData), 500307315U) },
+		{ FDialogueData::StaticStruct, Z_Construct_UScriptStruct_FDialogueData_Statics::NewStructOps, TEXT("DialogueData"), &Z_Registration_Info_UScriptStruct_DialogueData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FDialogueData), 1264916006U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DialogueFactory_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UDialogueFactory, UDialogueFactory::StaticClass, TEXT("UDialogueFactory"), &Z_Registration_Info_UClass_UDialogueFactory, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDialogueFactory), 2830262638U) },
+		{ Z_Construct_UClass_UDialogueFactory, UDialogueFactory::StaticClass, TEXT("UDialogueFactory"), &Z_Registration_Info_UClass_UDialogueFactory, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDialogueFactory), 2796254595U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DialogueFactory_h_1045626743(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DialogueFactory_h_2592929826(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DialogueFactory_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DialogueFactory_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DialogueFactory_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DialogueFactory_h_Statics::ScriptStructInfo),
 		nullptr, 0);

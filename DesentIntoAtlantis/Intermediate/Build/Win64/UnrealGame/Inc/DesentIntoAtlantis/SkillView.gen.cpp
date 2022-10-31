@@ -14,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeSkillView() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UBaseUserWidget();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UPlayerCombatEntity_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkillBarElement_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UVerticalBox_NoRegister();
 // End Cross Module References
@@ -35,6 +36,11 @@ void EmptyLinkFunctionForGeneratedCodeSkillView() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentActivePartyMember_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_currentActivePartyMember;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_skillBarElements_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_skillBarElements_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_skillBarElements;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_CharacterName_MetaData[];
 #endif
@@ -76,6 +82,14 @@ void EmptyLinkFunctionForGeneratedCodeSkillView() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_USkillView_Statics::NewProp_currentActivePartyMember = { "currentActivePartyMember", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(USkillView, currentActivePartyMember), Z_Construct_UClass_UPlayerCombatEntity_NoRegister, METADATA_PARAMS(Z_Construct_UClass_USkillView_Statics::NewProp_currentActivePartyMember_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USkillView_Statics::NewProp_currentActivePartyMember_MetaData)) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_USkillView_Statics::NewProp_skillBarElements_Inner = { "skillBarElements", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_USkillBarElement_NoRegister, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USkillView_Statics::NewProp_skillBarElements_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/SkillView.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_USkillView_Statics::NewProp_skillBarElements = { "skillBarElements", nullptr, (EPropertyFlags)0x0010008000000008, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(USkillView, skillBarElements), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_USkillView_Statics::NewProp_skillBarElements_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USkillView_Statics::NewProp_skillBarElements_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USkillView_Statics::NewProp_BW_CharacterName_MetaData[] = {
 		{ "BindWidget", "" },
@@ -123,6 +137,8 @@ void EmptyLinkFunctionForGeneratedCodeSkillView() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_USkillView_Statics::NewProp_BW_VerticalBox = { "BW_VerticalBox", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(USkillView, BW_VerticalBox), Z_Construct_UClass_UVerticalBox_NoRegister, METADATA_PARAMS(Z_Construct_UClass_USkillView_Statics::NewProp_BW_VerticalBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USkillView_Statics::NewProp_BW_VerticalBox_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_USkillView_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillView_Statics::NewProp_currentActivePartyMember,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillView_Statics::NewProp_skillBarElements_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillView_Statics::NewProp_skillBarElements,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillView_Statics::NewProp_BW_CharacterName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillView_Statics::NewProp_BW_ClassName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillView_Statics::NewProp_BW_SkillName,
@@ -165,9 +181,9 @@ void EmptyLinkFunctionForGeneratedCodeSkillView() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_SkillView_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_USkillView, USkillView::StaticClass, TEXT("USkillView"), &Z_Registration_Info_UClass_USkillView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillView), 2581194291U) },
+		{ Z_Construct_UClass_USkillView, USkillView::StaticClass, TEXT("USkillView"), &Z_Registration_Info_UClass_USkillView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillView), 3866510739U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_SkillView_h_1893266673(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_SkillView_h_3597768488(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_SkillView_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_SkillView_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

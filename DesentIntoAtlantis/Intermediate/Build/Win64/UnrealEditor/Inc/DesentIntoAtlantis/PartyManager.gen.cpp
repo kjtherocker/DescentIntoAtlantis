@@ -71,13 +71,13 @@ void EmptyLinkFunctionForGeneratedCodePartyManager() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPartyManager_Statics::NewProp_skillFactory = { "skillFactory", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPartyManager, skillFactory), Z_Construct_UClass_USkillFactory_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPartyManager_Statics::NewProp_skillFactory_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPartyManager_Statics::NewProp_skillFactory_MetaData)) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UPartyManager_Statics::NewProp_playerEntityData_Inner = { "playerEntityData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FPlayerEntityData, METADATA_PARAMS(nullptr, 0) }; // 337639282
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UPartyManager_Statics::NewProp_playerEntityData_Inner = { "playerEntityData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FPlayerEntityData, METADATA_PARAMS(nullptr, 0) }; // 2477129161
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPartyManager_Statics::NewProp_playerEntityData_MetaData[] = {
 		{ "ModuleRelativePath", "Public/PartyManager.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UPartyManager_Statics::NewProp_playerEntityData = { "playerEntityData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPartyManager, playerEntityData), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UPartyManager_Statics::NewProp_playerEntityData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPartyManager_Statics::NewProp_playerEntityData_MetaData)) }; // 337639282
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UPartyManager_Statics::NewProp_playerEntityData = { "playerEntityData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPartyManager, playerEntityData), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UPartyManager_Statics::NewProp_playerEntityData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPartyManager_Statics::NewProp_playerEntityData_MetaData)) }; // 2477129161
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPartyManager_Statics::NewProp_playerCombatEntity_Inner = { "playerCombatEntity", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_UPlayerCombatEntity_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPartyManager_Statics::NewProp_playerCombatEntity_MetaData[] = {
@@ -137,9 +137,9 @@ void EmptyLinkFunctionForGeneratedCodePartyManager() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyManager_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPartyManager, UPartyManager::StaticClass, TEXT("UPartyManager"), &Z_Registration_Info_UClass_UPartyManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPartyManager), 3493479384U) },
+		{ Z_Construct_UClass_UPartyManager, UPartyManager::StaticClass, TEXT("UPartyManager"), &Z_Registration_Info_UClass_UPartyManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPartyManager), 1708446861U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyManager_h_3228370939(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyManager_h_4169011913(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyManager_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

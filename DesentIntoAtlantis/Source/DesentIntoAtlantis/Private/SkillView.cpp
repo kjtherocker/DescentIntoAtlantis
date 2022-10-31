@@ -23,7 +23,7 @@ void USkillView::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &USkillView::MoveDown  );
 	InputComponent->BindAction("E"       ,IE_Pressed ,this, &USkillView::ReturnToPreviousScreen  );
 	
-	currentActivePartyMember = gameModeBase->combatManager->ReturnCurrentActivePartyMember();
+	currentActivePartyMember = gameModeBase->combatManager->GetCurrentActivePartyMember();
 	UCombatClass* combatClass = currentActivePartyMember->baseClass;
 
     BW_CharacterName->SetText(FText(FText::FromString(currentActivePartyMember->playerEntityData.characterName)));
@@ -83,11 +83,6 @@ void USkillView::CreateSkillbar(FSkillsData aSkill)
 	BW_VerticalBox->AddChild(skillBarElement);
 }
 
-void USkillView::ReturnToPreviousScreen()
-{
-	InGameHUD->ReturnToPreviousActiveView();
-}
-
 void USkillView::SkillSelection(FSkillsData aSkill)
 {
 	BW_SkillName->SetText(FText(FText::FromString(aSkill.skillName)));
@@ -96,10 +91,15 @@ void USkillView::SkillSelection(FSkillsData aSkill)
 
 void USkillView::SelectSkill()
 {
-	InGameHUD->PopMostRecentActiveView();
-	UCombatSelectionView* SelectionView = (UCombatSelectionView*)InGameHUD->PushAndGetView(EViews::CombatSelection,EUiType::ActiveUi);
 	UCombatClass* combatClass = currentActivePartyMember->baseClass;
+	int skillCost = combatClass->classSkills[cursorPosition]->skillData.costToUse;
 	
-	SelectionView->SetSkill(combatClass->classSkills[cursorPosition]);
+	if(currentActivePartyMember->currentMana >= skillCost)
+	{
+		InGameHUD->PopMostRecentActiveView();
+		UCombatSelectionView* SelectionView = (UCombatSelectionView*)InGameHUD->PushAndGetView(EViews::CombatSelection,EUiType::ActiveUi);
+		
+		SelectionView->SetSkill(combatClass->classSkills[cursorPosition]);
+	}
 }
 

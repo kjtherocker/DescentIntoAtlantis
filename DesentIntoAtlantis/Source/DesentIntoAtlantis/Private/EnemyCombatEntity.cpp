@@ -8,7 +8,7 @@
 #include "CombatManager.h"
 #include "SkillFactory.h"
 
-void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactory * skillFactory)
+void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactory * skillFactory,EEnemyCombatPositions aPortraitPosition)
 {
 	characterType   = ECharactertype::Enemy;
 	enemyEntityData = AEnemyEntityData;
@@ -16,6 +16,8 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,US
 	maxHealth       = enemyEntityData.maxHealth;
 	currentHealth   = enemyEntityData.maxHealth;
 	currentMana     = enemyEntityData.maxMana;
+
+	portraitPosition = aPortraitPosition;
 
 	ElementalStrength = AEnemyEntityData.ElementalStrength;
 	ElementalWeakness = AEnemyEntityData.ElementalWeakness;
@@ -28,6 +30,7 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,US
 	enemySkills.Add(skillFactory->GetSkill(enemyEntityData.Skill3));
 	enemySkills.Add(skillFactory->GetSkill(enemyEntityData.Skill4));
 	enemySkills.Add(skillFactory->GetSkill(enemyEntityData.Skill5));
+	
 	
 	SetAbilityScores();
 }

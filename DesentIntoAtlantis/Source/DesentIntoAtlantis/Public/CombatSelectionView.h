@@ -38,7 +38,7 @@ public:
 
 	void InitializeEnemySelectionElements(TArray<UEnemyCombatEntity*> aEnemysInCombat);
 	void SetSkill(USkillBase* aSkill);
-
+	virtual void ReturnToPreviousScreen() override;
 	void ActivateSkill();
 	
 	UPROPERTY()

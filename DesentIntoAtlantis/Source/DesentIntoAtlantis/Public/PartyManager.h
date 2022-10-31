@@ -26,12 +26,14 @@ class DESENTINTOATLANTIS_API UPartyManager : public UObject
 	UPROPERTY()
 	USkillFactory* skillFactory;
 
-
+	
 public:
 	
 	void InitializeDataTable(USkillFactory* aSkillFactory,UDataTable* aDataTable,TMap<EDataTableClasses,UDataTable*> aClassDataTable,UCombatManager* aCombatManager);
 
 	void AddPlayerToActiveParty(EDataTableClasses aClasses);
+	void ResetActivePartyToDefaultState();
+	
 	TArray<UPlayerCombatEntity*> ReturnActiveParty();
 
 	TMap<EDataTableClasses,UPlayerCombatEntity*> playerCombatEntityInfo;

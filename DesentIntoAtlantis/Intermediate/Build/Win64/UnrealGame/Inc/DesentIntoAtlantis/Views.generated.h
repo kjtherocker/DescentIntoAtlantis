@@ -30,7 +30,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	op(EViews::EnemySkill) \
 	op(EViews::Levelup) \
 	op(EViews::Tutorial) \
-	op(EViews::Title) 
+	op(EViews::Title) \
+	op(EViews::Death) \
+	op(EViews::Ending) 
 
 enum class EViews;
 template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EViews>();

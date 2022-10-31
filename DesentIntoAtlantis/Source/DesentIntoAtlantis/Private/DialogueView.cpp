@@ -14,7 +14,9 @@ void UDialogueView::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();
-	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UDialogueView::ActivateNextDialogue  );
+	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UDialogueView::ActivateNextDialogue);
+	InputComponent->BindAction("Tab"  ,IE_Pressed ,this, &UDialogueView::DialogueFinished);
+	
 }
 
 void UDialogueView::SetFloorEventDialogueData(EDialogueTriggers aDialogueData, EFloorEventStates aTriggerOnEnd, FTriggerNextEventStage aTriggerNextEventStage)
@@ -58,6 +60,11 @@ void UDialogueView::SetNextDialogue(bool audio)
 	if(audio)
 	{
 		gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Accept);
+	}
+
+	if(nextDialogueData.musicToPlay != EAudio::None)
+	{
+		gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldMusic,nextDialogueData.musicToPlay );
 	}
 }
 

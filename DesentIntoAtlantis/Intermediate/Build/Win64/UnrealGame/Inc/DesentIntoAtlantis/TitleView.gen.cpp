@@ -14,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeTitleView() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UTitleView_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UTitleView();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UBaseUserWidget();
+	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_ViewSelection__DelegateSignature();
 	UMG_API UClass* Z_Construct_UClass_UBorder_NoRegister();
 // End Cross Module References
 	static FEnumRegistrationInfo Z_Registration_Info_UEnum_ETitleStates;
@@ -150,6 +151,13 @@ void EmptyLinkFunctionForGeneratedCodeTitleView() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_commandboardSelections_ValueProp;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_commandboardSelections_Key_KeyProp_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_commandboardSelections_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_commandboardSelections_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_commandboardSelections;
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_titleSelections_Inner;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_titleSelections_MetaData[];
@@ -181,6 +189,15 @@ void EmptyLinkFunctionForGeneratedCodeTitleView() {}
 		{ "ModuleRelativePath", "Public/TitleView.h" },
 	};
 #endif
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_ValueProp = { "commandboardSelections", nullptr, (EPropertyFlags)0x0000000000080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UDelegateFunction_DesentIntoAtlantis_ViewSelection__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 59533382
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_Key_KeyProp = { "commandboardSelections_Key", nullptr, (EPropertyFlags)0x0000000000080000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_ETitleStates, METADATA_PARAMS(nullptr, 0) }; // 184536045
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_MetaData[] = {
+		{ "ModuleRelativePath", "Public/TitleView.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections = { "commandboardSelections", nullptr, (EPropertyFlags)0x0040008000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTitleView, commandboardSelections), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_MetaData)) }; // 184536045 59533382
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTitleView_Statics::NewProp_titleSelections_Inner = { "titleSelections", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_UBorder_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTitleView_Statics::NewProp_titleSelections_MetaData[] = {
@@ -208,6 +225,10 @@ void EmptyLinkFunctionForGeneratedCodeTitleView() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTitleView_Statics::NewProp_BW_Exit = { "BW_Exit", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTitleView, BW_Exit), Z_Construct_UClass_UBorder_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTitleView_Statics::NewProp_BW_Exit_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTitleView_Statics::NewProp_BW_Exit_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UTitleView_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_Key_KeyProp_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTitleView_Statics::NewProp_titleSelections_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTitleView_Statics::NewProp_titleSelections,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTitleView_Statics::NewProp_BW_StartGame,
@@ -253,9 +274,9 @@ void EmptyLinkFunctionForGeneratedCodeTitleView() {}
 		{ ETitleStates_StaticEnum, TEXT("ETitleStates"), &Z_Registration_Info_UEnum_ETitleStates, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 184536045U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UTitleView, UTitleView::StaticClass, TEXT("UTitleView"), &Z_Registration_Info_UClass_UTitleView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTitleView), 2004591207U) },
+		{ Z_Construct_UClass_UTitleView, UTitleView::StaticClass, TEXT("UTitleView"), &Z_Registration_Info_UClass_UTitleView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTitleView), 3722439528U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_1329890722(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_2260074922(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_Statics::EnumInfo));

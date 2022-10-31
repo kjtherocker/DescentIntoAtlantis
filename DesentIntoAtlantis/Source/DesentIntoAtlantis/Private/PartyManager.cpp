@@ -43,7 +43,18 @@ void UPartyManager::InitializeDataTable (USkillFactory* aSkillFactory,UDataTable
 
 void UPartyManager::AddPlayerToActiveParty(EDataTableClasses aClasses)
 {
-	activePartyEntityData.Add(playerCombatEntityInfo[aClasses]);
+	if(!activePartyEntityData.Contains(playerCombatEntityInfo[aClasses]))
+	{
+		activePartyEntityData.Add(playerCombatEntityInfo[aClasses]);
+	}
+}
+
+void UPartyManager::ResetActivePartyToDefaultState()
+{
+	for(int i = 0 ;i < activePartyEntityData.Num();i++)
+	{
+		activePartyEntityData[i]->Reset();
+	}
 }
 
 TArray<UPlayerCombatEntity*> UPartyManager::ReturnActiveParty()

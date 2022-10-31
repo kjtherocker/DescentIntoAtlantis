@@ -18,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeFloorEventManager() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UFloorFactory_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatManager_NoRegister();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FFloorEventData();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloorEnemyPawn_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_ADesentIntoAtlantisGameModeBase_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(UFloorEventManager::execTriggerNextFloorEventStep)
@@ -92,7 +93,7 @@ void EmptyLinkFunctionForGeneratedCodeFloorEventManager() {}
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_UFloorEventManager_TriggerNextFloorEventStep_Statics::NewProp_aFloorEventStates_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UFloorEventManager_TriggerNextFloorEventStep_Statics::NewProp_aFloorEventStates = { "aFloorEventStates", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FloorEventManager_eventTriggerNextFloorEventStep_Parms, aFloorEventStates), Z_Construct_UEnum_DesentIntoAtlantis_EFloorEventStates, METADATA_PARAMS(nullptr, 0) }; // 2146798618
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UFloorEventManager_TriggerNextFloorEventStep_Statics::NewProp_aFloorEventStates = { "aFloorEventStates", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FloorEventManager_eventTriggerNextFloorEventStep_Parms, aFloorEventStates), Z_Construct_UEnum_DesentIntoAtlantis_EFloorEventStates, METADATA_PARAMS(nullptr, 0) }; // 2475026128
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UFloorEventManager_TriggerNextFloorEventStep_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UFloorEventManager_TriggerNextFloorEventStep_Statics::NewProp_aFloorEventStates_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UFloorEventManager_TriggerNextFloorEventStep_Statics::NewProp_aFloorEventStates,
@@ -125,6 +126,11 @@ void EmptyLinkFunctionForGeneratedCodeFloorEventManager() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_isEventRunning_MetaData[];
+#endif
+		static void NewProp_isEventRunning_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_isEventRunning;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_floorFactory_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_floorFactory;
@@ -137,10 +143,16 @@ void EmptyLinkFunctionForGeneratedCodeFloorEventManager() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_completedFloorEventData_MetaData[];
 #endif
 		static const UECodeGen_Private::FArrayPropertyParams NewProp_completedFloorEventData;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_floorEnemyEvents_ValueProp;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_floorEnemyEvents_Key_KeyProp;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_gameBase_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_floorEnemyEvents_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_gameBase;
+		static const UECodeGen_Private::FMapPropertyParams NewProp_floorEnemyEvents;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_gameModeBase_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_gameModeBase;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -151,7 +163,7 @@ void EmptyLinkFunctionForGeneratedCodeFloorEventManager() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UFloorEventManager_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UFloorEventManager_PlayerHasTriggeredFloorEvent, "PlayerHasTriggeredFloorEvent" }, // 813366257
-		{ &Z_Construct_UFunction_UFloorEventManager_TriggerNextFloorEventStep, "TriggerNextFloorEventStep" }, // 3956433062
+		{ &Z_Construct_UFunction_UFloorEventManager_TriggerNextFloorEventStep, "TriggerNextFloorEventStep" }, // 2247773235
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UFloorEventManager_Statics::Class_MetaDataParams[] = {
@@ -160,6 +172,16 @@ void EmptyLinkFunctionForGeneratedCodeFloorEventManager() {}
 		{ "ModuleRelativePath", "Public/FloorEventManager.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UFloorEventManager_Statics::NewProp_isEventRunning_MetaData[] = {
+		{ "ModuleRelativePath", "Public/FloorEventManager.h" },
+	};
+#endif
+	void Z_Construct_UClass_UFloorEventManager_Statics::NewProp_isEventRunning_SetBit(void* Obj)
+	{
+		((UFloorEventManager*)Obj)->isEventRunning = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UFloorEventManager_Statics::NewProp_isEventRunning = { "isEventRunning", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UFloorEventManager), &Z_Construct_UClass_UFloorEventManager_Statics::NewProp_isEventRunning_SetBit, METADATA_PARAMS(Z_Construct_UClass_UFloorEventManager_Statics::NewProp_isEventRunning_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UFloorEventManager_Statics::NewProp_isEventRunning_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UFloorEventManager_Statics::NewProp_floorFactory_MetaData[] = {
 		{ "ModuleRelativePath", "Public/FloorEventManager.h" },
@@ -172,25 +194,37 @@ void EmptyLinkFunctionForGeneratedCodeFloorEventManager() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UFloorEventManager_Statics::NewProp_combatManager = { "combatManager", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UFloorEventManager, combatManager), Z_Construct_UClass_UCombatManager_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UFloorEventManager_Statics::NewProp_combatManager_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UFloorEventManager_Statics::NewProp_combatManager_MetaData)) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UFloorEventManager_Statics::NewProp_completedFloorEventData_Inner = { "completedFloorEventData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(nullptr, 0) }; // 2125691558
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UFloorEventManager_Statics::NewProp_completedFloorEventData_Inner = { "completedFloorEventData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(nullptr, 0) }; // 2380252017
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UFloorEventManager_Statics::NewProp_completedFloorEventData_MetaData[] = {
 		{ "ModuleRelativePath", "Public/FloorEventManager.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UFloorEventManager_Statics::NewProp_completedFloorEventData = { "completedFloorEventData", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UFloorEventManager, completedFloorEventData), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UFloorEventManager_Statics::NewProp_completedFloorEventData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UFloorEventManager_Statics::NewProp_completedFloorEventData_MetaData)) }; // 2125691558
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UFloorEventManager_Statics::NewProp_completedFloorEventData = { "completedFloorEventData", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UFloorEventManager, completedFloorEventData), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UFloorEventManager_Statics::NewProp_completedFloorEventData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UFloorEventManager_Statics::NewProp_completedFloorEventData_MetaData)) }; // 2380252017
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UFloorEventManager_Statics::NewProp_floorEnemyEvents_ValueProp = { "floorEnemyEvents", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_AFloorEnemyPawn_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UFloorEventManager_Statics::NewProp_floorEnemyEvents_Key_KeyProp = { "floorEnemyEvents_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UFloorEventManager_Statics::NewProp_gameBase_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UFloorEventManager_Statics::NewProp_floorEnemyEvents_MetaData[] = {
 		{ "ModuleRelativePath", "Public/FloorEventManager.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UFloorEventManager_Statics::NewProp_gameBase = { "gameBase", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UFloorEventManager, gameBase), Z_Construct_UClass_ADesentIntoAtlantisGameModeBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UFloorEventManager_Statics::NewProp_gameBase_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UFloorEventManager_Statics::NewProp_gameBase_MetaData)) };
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UFloorEventManager_Statics::NewProp_floorEnemyEvents = { "floorEnemyEvents", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UFloorEventManager, floorEnemyEvents), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UFloorEventManager_Statics::NewProp_floorEnemyEvents_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UFloorEventManager_Statics::NewProp_floorEnemyEvents_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UFloorEventManager_Statics::NewProp_gameModeBase_MetaData[] = {
+		{ "ModuleRelativePath", "Public/FloorEventManager.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UFloorEventManager_Statics::NewProp_gameModeBase = { "gameModeBase", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UFloorEventManager, gameModeBase), Z_Construct_UClass_ADesentIntoAtlantisGameModeBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UFloorEventManager_Statics::NewProp_gameModeBase_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UFloorEventManager_Statics::NewProp_gameModeBase_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UFloorEventManager_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloorEventManager_Statics::NewProp_isEventRunning,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloorEventManager_Statics::NewProp_floorFactory,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloorEventManager_Statics::NewProp_combatManager,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloorEventManager_Statics::NewProp_completedFloorEventData_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloorEventManager_Statics::NewProp_completedFloorEventData,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloorEventManager_Statics::NewProp_gameBase,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloorEventManager_Statics::NewProp_floorEnemyEvents_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloorEventManager_Statics::NewProp_floorEnemyEvents_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloorEventManager_Statics::NewProp_floorEnemyEvents,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloorEventManager_Statics::NewProp_gameModeBase,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UFloorEventManager_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UFloorEventManager>::IsAbstract,
@@ -228,9 +262,9 @@ void EmptyLinkFunctionForGeneratedCodeFloorEventManager() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEventManager_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UFloorEventManager, UFloorEventManager::StaticClass, TEXT("UFloorEventManager"), &Z_Registration_Info_UClass_UFloorEventManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFloorEventManager), 1940547690U) },
+		{ Z_Construct_UClass_UFloorEventManager, UFloorEventManager::StaticClass, TEXT("UFloorEventManager"), &Z_Registration_Info_UClass_UFloorEventManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFloorEventManager), 3276986399U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEventManager_h_2037899231(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEventManager_h_536506135(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEventManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEventManager_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

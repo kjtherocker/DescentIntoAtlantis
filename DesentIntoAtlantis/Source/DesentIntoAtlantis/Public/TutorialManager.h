@@ -24,5 +24,8 @@ public:
 	
 	UPROPERTY()
 	TArray<FTutorialData> tutorialData;
+
+	UPROPERTY()
+	TMap<ETutorialTriggers,FTutorialData> tutorialMap;
 	
 };

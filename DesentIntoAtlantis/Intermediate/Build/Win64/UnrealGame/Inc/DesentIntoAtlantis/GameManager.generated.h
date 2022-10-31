@@ -23,12 +23,14 @@ static inline void FStartGameDelegate_DelegateWrapper(const FMulticastScriptDele
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_GameManager_h_17_SPARSE_DATA
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_GameManager_h_17_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execResetPlayerToPreviousPosition); \
 	DECLARE_FUNCTION(execStartGame); \
 	DECLARE_FUNCTION(execSetUpTitleMenu);
 
 
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_GameManager_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execResetPlayerToPreviousPosition); \
 	DECLARE_FUNCTION(execStartGame); \
 	DECLARE_FUNCTION(execSetUpTitleMenu);
 

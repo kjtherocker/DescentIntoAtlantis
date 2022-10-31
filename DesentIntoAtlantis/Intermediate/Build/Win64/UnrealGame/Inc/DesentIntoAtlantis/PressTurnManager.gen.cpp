@@ -17,7 +17,7 @@ void EmptyLinkFunctionForGeneratedCodePressTurnManager() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UPressTurnManager();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatManager_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_ADesentIntoAtlantisGameModeBase_NoRegister();
-	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UTurnCounter_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UTurnCounterView_NoRegister();
 // End Cross Module References
 	void UPressTurn::StaticRegisterNativesUPressTurn()
 	{
@@ -146,7 +146,7 @@ void EmptyLinkFunctionForGeneratedCodePressTurnManager() {}
 		{ "ModuleRelativePath", "Public/PressTurnManager.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPressTurnManager_Statics::NewProp_turnCounter = { "turnCounter", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPressTurnManager, turnCounter), Z_Construct_UClass_UTurnCounter_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPressTurnManager_Statics::NewProp_turnCounter_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPressTurnManager_Statics::NewProp_turnCounter_MetaData)) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPressTurnManager_Statics::NewProp_turnCounter = { "turnCounter", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPressTurnManager, turnCounter), Z_Construct_UClass_UTurnCounterView_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPressTurnManager_Statics::NewProp_turnCounter_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPressTurnManager_Statics::NewProp_turnCounter_MetaData)) };
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPressTurnManager_Statics::NewProp_activePressTurns_Inner = { "activePressTurns", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_UPressTurn_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPressTurnManager_Statics::NewProp_activePressTurns_MetaData[] = {
@@ -207,9 +207,9 @@ void EmptyLinkFunctionForGeneratedCodePressTurnManager() {}
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PressTurnManager_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UPressTurn, UPressTurn::StaticClass, TEXT("UPressTurn"), &Z_Registration_Info_UClass_UPressTurn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPressTurn), 4219830195U) },
-		{ Z_Construct_UClass_UPressTurnManager, UPressTurnManager::StaticClass, TEXT("UPressTurnManager"), &Z_Registration_Info_UClass_UPressTurnManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPressTurnManager), 3734715638U) },
+		{ Z_Construct_UClass_UPressTurnManager, UPressTurnManager::StaticClass, TEXT("UPressTurnManager"), &Z_Registration_Info_UClass_UPressTurnManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPressTurnManager), 1778439597U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PressTurnManager_h_1139829261(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PressTurnManager_h_1297694831(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PressTurnManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PressTurnManager_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

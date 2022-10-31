@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "EnemyCombatEntity.h"
+#include "FloorEnum.h"
 #include "PlayerCombatEntity.h"
 #include "UObject/NoExportTypes.h"
 
@@ -15,7 +16,7 @@ class UEnemyCombatEntity;
 struct FEnemyEntityData;
 class UPressTurnManager;
 class AInGameHUD;
-class UTurnCounter;
+class UTurnCounterView;
 class UPartyHealthbarsView;
 class UCombatEntity;
 class ADesentIntoAtlantisGameModeBase;
@@ -33,7 +34,9 @@ class DESENTINTOATLANTIS_API UCombatManager : public UObject
 	GENERATED_BODY()
 
 private:
-	UTurnCounter*     turnCounter;    
+	UPROPERTY()
+	UTurnCounterView*     turnCounter;
+	UPROPERTY()
 	UPartyHealthbarsView* partyHealthbars;
 	
 	const float FULL_OPACITY    = 100;
@@ -49,41 +52,44 @@ private:
 	
 	UPROPERTY()
 	UWorld* world;
-	ECharactertype currentTurnType; 
-public:
-	
+	ECharactertype currentTurnType;
 
+	UPROPERTY()
+	TArray<UPlayerCombatEntity*> partyMembersInCombat;
+	UPROPERTY()
+	TArray<UPlayerCombatEntity*> partyMembersDead;
+	UPROPERTY()
+	UPlayerCombatEntity* currentActivePartyMember;
+	UPROPERTY()
+	TArray<UEnemyCombatEntity*> enemyCombatEntities;
+	
+public:
 	UPROPERTY(BlueprintAssignable, Category = "Test")
 	FRoundEndDelegate OnRoundEndDelegate;
 
-
+	
+	FTriggerNextEventStage triggerNextEventStage;
 	
 	UPROPERTY()
 	UPressTurnManager* pressTurnManager;
 
 	void Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase,UWorld* aWorld);
 	void StartCombat(FString aEnemyGroupName);
-	void EndCombat();
-	void AddEnemyToCombat(FEnemyEntityData AEnemyEntityData);
+	void RemoveDeadPartyMembersFromCombat();
+	void EndCombat(bool aHasWon = true);
+	void AddEnemyToCombat(FEnemyEntityData AEnemyEntityData,int aPosition);
 	void SwitchCombatSides();
 	void TurnFinished();
 	void AllyStartTurn();
 	void EnemyStartTurn();
 	void EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEntity);
-	
-	UPlayerCombatEntity* ReturnCurrentActivePartyMember();
+	int GetEXP();
+	UPlayerCombatEntity* GetCurrentActivePartyMember();
 	
 	TArray<UEnemyCombatEntity*> GetEnemysInCombat();
 	TArray<UPlayerCombatEntity*> GetPlayersInCombat();
 
-	UPROPERTY()
-	UPlayerCombatEntity* currentActivePartyMember;
-	UPROPERTY()
-	TArray<UEnemyCombatEntity*> enemyCombatEntities;
-	UPROPERTY()
-	TArray<UPlayerCombatEntity*> partyMembersInCombat;
-	UPROPERTY()
-	TArray<UPlayerCombatEntity*> partyMembersDead;
+
 	UPROPERTY()
 	ADesentIntoAtlantisGameModeBase* gameModeBase;
 	

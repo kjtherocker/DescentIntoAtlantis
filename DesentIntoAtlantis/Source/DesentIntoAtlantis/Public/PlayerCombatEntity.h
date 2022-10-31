@@ -28,6 +28,9 @@ struct DESENTINTOATLANTIS_API FPlayerEntityData
 	UTexture2D* characterPortrait;
 	UPROPERTY( EditAnywhere )
 	UTexture2D* fullBodyCharacterPortrait;
+
+	UPROPERTY()
+	int initialLevel;
 };
 
 UCLASS()
@@ -53,7 +56,8 @@ public:
 	virtual void SetTacticsEntity(USkillFactory* aSkillFactory) override;
 	
 	virtual void SetPlayerClass(UDataTable*EDataTableClasses);
-	
+	virtual void Reset() override;
+	virtual void SetToDefaultState() override;
 
 	void SetAbilityScores();
 	

@@ -1,6 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
+#include "EDataTableTypes.h"
+#include "Views.h"
 #include "DesentIntoAtlantis/EFloorIdentifier.h"
 #include "Engine/DataTable.h"
 #include "FloorEnum.generated.h"
@@ -14,9 +16,10 @@ enum class EFloorEventStates
 	DialogueOnStart = 1,
 	TutorialOnStart = 2,
 	Combat          = 3,
-	DialogueOnEnd   = 4,
-	TutorialOnEnd   = 5,
-	Completed       = 6,
+	Levelup         = 4,
+	DialogueOnEnd   = 5,
+	TutorialOnEnd   = 6,
+	Completed       = 7,
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FFloorEventHasBeenTriggered, FVector2D, aPositionInGrid);
@@ -45,18 +48,20 @@ enum class EDialogueTriggers
 	StartGame,
 	Combat1Start,
 	Combat1End,
-	
-	
-	
+	ArdusJoin,
+	SeresFightStart,
+	SeresFightEnd,
+	FinalBossStart,
+	FinalBossEnd
 };
 UENUM()
-enum class TutorialTriggers
+enum class ETutorialTriggers
 {
 	None,
-	Combat1,
-	Combat2,
-	Combat3,
-	Combat4,
+	Combat1Start,
+	Combat1End,
+	ArdusJoin,
+	Combat3End,
 	
 };
 
@@ -75,16 +80,22 @@ struct DESENTINTOATLANTIS_API FFloorEventData : public FTableRowBase
 	FString enemyGroupName;
 
 	UPROPERTY( EditAnywhere )
-	TutorialTriggers tutorialTriggerOnStart;
+	ETutorialTriggers tutorialTriggerOnStart;
 
 	UPROPERTY( EditAnywhere )
-	TutorialTriggers tutorialTriggerOnEnd;
+	ETutorialTriggers tutorialTriggerOnEnd;
 	
 	UPROPERTY( EditAnywhere )
 	EDialogueTriggers dialogueTriggerOnStart;
 
 	UPROPERTY( EditAnywhere )
 	EDialogueTriggers dialogueTriggerOnEnd;
+
+	UPROPERTY( EditAnywhere )
+	EDataTableClasses partyMemberGainedOnEnd;
+	
+	UPROPERTY( EditAnywhere )
+	EViews viewPushedOnEnd;
 	
 };
 
@@ -94,7 +105,7 @@ struct DESENTINTOATLANTIS_API FTutorialData : public FTableRowBase
 	GENERATED_USTRUCT_BODY()
 	
 	UPROPERTY( EditAnywhere )
-	TutorialTriggers tutorialTrigger;
+	ETutorialTriggers tutorialTrigger;
 	
 	UPROPERTY( EditAnywhere )
 	FString classTitle;
@@ -106,9 +117,14 @@ struct DESENTINTOATLANTIS_API FTutorialData : public FTableRowBase
 	FString classDescription;
 
 	UPROPERTY( EditAnywhere )
-	UTexture2D* characterPortrait;
+	FString bulletPoint1;
 
 	UPROPERTY( EditAnywhere )
-	TArray<int> intTable;
+	FString bulletPoint2;
 
+	UPROPERTY( EditAnywhere )
+	FString bulletPoint3;
+	
+	UPROPERTY( EditAnywhere )
+	UTexture2D* characterPortrait;
 };

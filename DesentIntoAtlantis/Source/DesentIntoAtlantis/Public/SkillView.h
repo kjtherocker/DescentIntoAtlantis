@@ -21,7 +21,6 @@ class DESENTINTOATLANTIS_API USkillView : public UBaseUserWidget
 	virtual void UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase) override;
 
 	void CreateSkillbar(FSkillsData aSkill);
-	void ReturnToPreviousScreen();
 	void SkillSelection(FSkillsData aSkill);
 	void SelectSkill();
 	virtual void MoveUp() override;
@@ -31,7 +30,8 @@ public:
 
 	UPROPERTY()
 	UPlayerCombatEntity* currentActivePartyMember;
-
+	
+	UPROPERTY()
 	TArray<USkillBarElement*> skillBarElements;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))

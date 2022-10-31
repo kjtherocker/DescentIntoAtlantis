@@ -15,6 +15,7 @@ void EmptyLinkFunctionForGeneratedCodeSoundManager() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_ASoundManager_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_ASoundManager();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
+	ENGINE_API UClass* Z_Construct_UClass_UAudioComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USoundWave_NoRegister();
 // End Cross Module References
 	static FEnumRegistrationInfo Z_Registration_Info_UEnum_EAudioSources;
@@ -157,6 +158,13 @@ void EmptyLinkFunctionForGeneratedCodeSoundManager() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_audioSources_ValueProp;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_audioSources_Key_KeyProp_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_audioSources_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_audioSources_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_audioSources;
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_soundEffects_ValueProp;
 		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_soundEffects_Key_KeyProp_Underlying;
 		static const UECodeGen_Private::FEnumPropertyParams NewProp_soundEffects_Key_KeyProp;
@@ -178,6 +186,16 @@ void EmptyLinkFunctionForGeneratedCodeSoundManager() {}
 		{ "ModuleRelativePath", "Public/SoundManager.h" },
 	};
 #endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASoundManager_Statics::NewProp_audioSources_ValueProp = { "audioSources", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_UAudioComponent_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ASoundManager_Statics::NewProp_audioSources_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ASoundManager_Statics::NewProp_audioSources_Key_KeyProp = { "audioSources_Key", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EAudioSources, METADATA_PARAMS(nullptr, 0) }; // 2531486063
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASoundManager_Statics::NewProp_audioSources_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/SoundManager.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_ASoundManager_Statics::NewProp_audioSources = { "audioSources", nullptr, (EPropertyFlags)0x0010008000000008, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASoundManager, audioSources), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ASoundManager_Statics::NewProp_audioSources_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASoundManager_Statics::NewProp_audioSources_MetaData)) }; // 2531486063
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASoundManager_Statics::NewProp_soundEffects_ValueProp = { "soundEffects", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_USoundWave_NoRegister, METADATA_PARAMS(nullptr, 0) };
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ASoundManager_Statics::NewProp_soundEffects_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
 	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ASoundManager_Statics::NewProp_soundEffects_Key_KeyProp = { "soundEffects_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EAudio, METADATA_PARAMS(nullptr, 0) }; // 767484525
@@ -189,6 +207,10 @@ void EmptyLinkFunctionForGeneratedCodeSoundManager() {}
 #endif
 	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_ASoundManager_Statics::NewProp_soundEffects = { "soundEffects", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASoundManager, soundEffects), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ASoundManager_Statics::NewProp_soundEffects_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASoundManager_Statics::NewProp_soundEffects_MetaData)) }; // 767484525
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASoundManager_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASoundManager_Statics::NewProp_audioSources_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASoundManager_Statics::NewProp_audioSources_Key_KeyProp_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASoundManager_Statics::NewProp_audioSources_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASoundManager_Statics::NewProp_audioSources,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASoundManager_Statics::NewProp_soundEffects_ValueProp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASoundManager_Statics::NewProp_soundEffects_Key_KeyProp_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASoundManager_Statics::NewProp_soundEffects_Key_KeyProp,
@@ -235,9 +257,9 @@ void EmptyLinkFunctionForGeneratedCodeSoundManager() {}
 		{ EAudio_StaticEnum, TEXT("EAudio"), &Z_Registration_Info_UEnum_EAudio, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 767484525U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_SoundManager_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ASoundManager, ASoundManager::StaticClass, TEXT("ASoundManager"), &Z_Registration_Info_UClass_ASoundManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASoundManager), 986781566U) },
+		{ Z_Construct_UClass_ASoundManager, ASoundManager::StaticClass, TEXT("ASoundManager"), &Z_Registration_Info_UClass_ASoundManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASoundManager), 2169104550U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_SoundManager_h_1969659557(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_SoundManager_h_2342684164(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_SoundManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_SoundManager_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_SoundManager_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_SoundManager_h_Statics::EnumInfo));

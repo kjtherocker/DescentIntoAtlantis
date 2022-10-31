@@ -11,7 +11,7 @@
 #include "UObject/NoExportTypes.h"
 #include "SkillsData.h"
 #include "SoundManager.h"
-#include "TurnCounter.h"
+#include "TurnCounterView.h"
 #include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
 
 
@@ -31,21 +31,21 @@ void UPressTurnManager::SetAmountOfTurns(int aTurnAmount, ECharactertype aCharac
 {
 	if(activePressTurns.Num() > 0)
 	{
-		for (int i = activePressTurns.Num() - 1; i > 0; i--)
+		for(int i =  activePressTurns.Num() -1 ; i >= 0;i--)
 		{
 			inActivePressTurns.Add(activePressTurns[i]);
 			activePressTurns.RemoveAt(i);
 		}
 	}
 	
-	for(int i =0 ;i < aTurnAmount;i++)
+	for(int i = 0;i < aTurnAmount;i++)
 	{
 		activePressTurns.Add(GetInActivePressturns());
 	}
 
 	characterType = aCharacterType;
 	
-	turnCounter = (UTurnCounter*)gameModeBase->InGameHUD->GetActiveHUDView(EViews::TurnCounter, EUiType::PersistentUi);
+	turnCounter = (UTurnCounterView*)gameModeBase->InGameHUD->GetActiveHUDView(EViews::TurnCounter, EUiType::PersistentUi);
 	turnCounter->SetTurnOrder(activePressTurns.Num(),characterType);
 
 }
@@ -56,6 +56,7 @@ UPressTurn* UPressTurnManager::GetInActivePressturns()
 	if(inActivePressTurns.Num() > 0)
 	{
 		pressTurn = inActivePressTurns[0];
+		inActivePressTurns[0]->isEmpowered = false;
 		inActivePressTurns.RemoveAt(0);
 		return pressTurn;
 	}
@@ -87,12 +88,7 @@ void UPressTurnManager::ActivateSkill(UCombatEntity* aAttacker, int aCursorPosit
 	{
 		entitySkillsAreUsedOn = skillsData.skillUsage == ESkillUsage::Opponents ? playersInCombat : enemyInCombat;
 	}
-
-	if(skillsData.skillType == ESkillType::Attack)
-	{
-		gameModeBase->soundManager->PlayAudio(EAudioSources::CombatSoundEffect,EAudio::FireBall);
-	}
-
+	
 	if(skillsData.skillRange == ESkillRange::Single)
 	{
 		turnReactions.Add(aSkill->UseSkill(aAttacker,entitySkillsAreUsedOn[aCursorPosition]));
@@ -142,8 +138,8 @@ void UPressTurnManager::ProcessTurn(TArray<PressTurnReactions> aAllTurnReactions
 		if (reaction == PressTurnReactions::Weak || 
 			reaction == PressTurnReactions::Pass)
 		{
-			//EmpowerTurn();
-			//return;
+			EmpowerTurn();
+			return;
 		}
 	}
         
@@ -161,8 +157,11 @@ void UPressTurnManager::ConsumeTurn(int aAmountOfTurnsConsumed)
 	
 	for (int i = activePressTurns.Num() - 1; i > TurnsRemaining; i--)
 	{
-		inActivePressTurns.Add(activePressTurns[i]);
-		activePressTurns.RemoveAt(i);
+		if(i >= 0)
+		{
+			inActivePressTurns.Add(activePressTurns[i]);
+			activePressTurns.RemoveAt(i);
+		}
 	}
 	turnCounter->SetTurnOrder(activePressTurns.Num(),characterType);
 	
@@ -173,11 +172,10 @@ void UPressTurnManager::EmpowerTurn()
 {
 	int ActivePositionTurn = activePressTurns.Num() - 1;
         
-	if (activePressTurns[ActivePositionTurn]->m_IsEmpowered == false)
+	if (activePressTurns[ActivePositionTurn]->isEmpowered == false)
 	{
-		activePressTurns[ActivePositionTurn]->m_IsEmpowered = true;
-		//ChangeActivePressTurn(activePressTurns[ActivePositionTurn], ActivePositionTurn, true);
-		//m_TurnKeeper.SetPressTurns(m_ActivePressTurn);
+		activePressTurns[ActivePositionTurn]->isEmpowered = true;
+		turnCounter->SetEmpowerTurnIcon(ActivePositionTurn);
 		combatManager->TurnFinished();
 	}
 	else

@@ -18,7 +18,8 @@ void EmptyLinkFunctionForGeneratedCodeCombatEntity() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatAbilityStats();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECharactertype();
-	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasDamaged__DelegateSignature();
+	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasDamaged__DelegateSignature();
+	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasHealthOrManaValuesChanged__DelegateSignature();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatEntity_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatEntity();
@@ -290,6 +291,31 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntityData>
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_base_MetaData[];
+#endif
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_base;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_buff_MetaData[];
+#endif
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_buff;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_debuff_MetaData[];
+#endif
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_debuff;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_domain_MetaData[];
+#endif
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_domain;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_buffTimeRemaining_MetaData[];
+#endif
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_buffTimeRemaining;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_debuffTimeRemaining_MetaData[];
+#endif
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_debuffTimeRemaining;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
@@ -303,6 +329,56 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntityData>
 		{ "ModuleRelativePath", "Public/CombatEntity.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_base_MetaData[] = {
+		{ "Category", "CombatAbilityStats" },
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_base = { "base", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatAbilityStats, base), METADATA_PARAMS(Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_base_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_base_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_buff_MetaData[] = {
+		{ "Category", "CombatAbilityStats" },
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_buff = { "buff", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatAbilityStats, buff), METADATA_PARAMS(Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_buff_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_buff_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_debuff_MetaData[] = {
+		{ "Category", "CombatAbilityStats" },
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_debuff = { "debuff", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatAbilityStats, debuff), METADATA_PARAMS(Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_debuff_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_debuff_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_domain_MetaData[] = {
+		{ "Category", "CombatAbilityStats" },
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_domain = { "domain", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatAbilityStats, domain), METADATA_PARAMS(Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_domain_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_domain_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_buffTimeRemaining_MetaData[] = {
+		{ "Category", "CombatAbilityStats" },
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_buffTimeRemaining = { "buffTimeRemaining", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatAbilityStats, buffTimeRemaining), METADATA_PARAMS(Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_buffTimeRemaining_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_buffTimeRemaining_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_debuffTimeRemaining_MetaData[] = {
+		{ "Category", "CombatAbilityStats" },
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_debuffTimeRemaining = { "debuffTimeRemaining", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatAbilityStats, debuffTimeRemaining), METADATA_PARAMS(Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_debuffTimeRemaining_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_debuffTimeRemaining_MetaData)) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCombatAbilityStats_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_base,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_buff,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_debuff,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_domain,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_buffTimeRemaining,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatAbilityStats_Statics::NewProp_debuffTimeRemaining,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCombatAbilityStats_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UCombatAbilityStats>::IsAbstract,
 	};
@@ -312,11 +388,11 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntityData>
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_UCombatAbilityStats_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_UCombatAbilityStats_Statics::PropPointers),
 		0,
 		0x001000A0u,
 		METADATA_PARAMS(Z_Construct_UClass_UCombatAbilityStats_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatAbilityStats_Statics::Class_MetaDataParams))
@@ -388,7 +464,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntityData>
 		}
 		return Z_Registration_Info_UEnum_ECharactertype.InnerSingleton;
 	}
-	struct Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasDamaged__DelegateSignature_Statics
+	struct Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasDamaged__DelegateSignature_Statics
 	{
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -396,19 +472,41 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntityData>
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasDamaged__DelegateSignature_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasDamaged__DelegateSignature_Statics::Function_MetaDataParams[] = {
 		{ "Comment", "//UENUM()\n//class enum ECreaturesAilment\n//{\n//\x09None,\n//\x09Poison,\n//\x09""Daze,\n//\x09Sleep,\n//\x09Rage,\n//};\n" },
 		{ "ModuleRelativePath", "Public/CombatEntity.h" },
 		{ "ToolTip", "UENUM()\nclass enum ECreaturesAilment\n{\n       None,\n       Poison,\n       Daze,\n       Sleep,\n       Rage,\n};" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasDamaged__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis, nullptr, "HasDamaged__DelegateSignature", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasDamaged__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasDamaged__DelegateSignature_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasDamaged__DelegateSignature()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasDamaged__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis, nullptr, "WasDamaged__DelegateSignature", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasDamaged__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasDamaged__DelegateSignature_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasDamaged__DelegateSignature()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasDamaged__DelegateSignature_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasDamaged__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis, nullptr, "WasKilled__DelegateSignature", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -483,6 +581,14 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntityData>
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_abilityScoreMap_ValueProp;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_abilityScoreMap_Key_KeyProp_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_abilityScoreMap_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_abilityScoreMap_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_abilityScoreMap;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
@@ -499,6 +605,22 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntityData>
 		{ "ModuleRelativePath", "Public/CombatEntity.h" },
 	};
 #endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_ValueProp = { "abilityScoreMap", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_UCombatAbilityStats_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_Key_KeyProp = { "abilityScoreMap_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EAbilityScoreTypes, METADATA_PARAMS(nullptr, 0) }; // 2976405321
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_MetaData[] = {
+		{ "Category", "CombatEntity" },
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap = { "abilityScoreMap", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatEntity, abilityScoreMap), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_MetaData)) }; // 2976405321
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCombatEntity_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_Key_KeyProp_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCombatEntity_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UCombatEntity>::IsAbstract,
 	};
@@ -508,11 +630,11 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntityData>
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		FuncInfo,
-		nullptr,
+		Z_Construct_UClass_UCombatEntity_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_UCombatEntity_Statics::PropPointers),
 		0,
 		0x001000A0u,
 		METADATA_PARAMS(Z_Construct_UClass_UCombatEntity_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatEntity_Statics::Class_MetaDataParams))
@@ -544,10 +666,10 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntityData>
 		{ FCombatEntityData::StaticStruct, Z_Construct_UScriptStruct_FCombatEntityData_Statics::NewStructOps, TEXT("CombatEntityData"), &Z_Registration_Info_UScriptStruct_CombatEntityData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatEntityData), 2337549904U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCombatAbilityStats, UCombatAbilityStats::StaticClass, TEXT("UCombatAbilityStats"), &Z_Registration_Info_UClass_UCombatAbilityStats, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatAbilityStats), 3393592517U) },
-		{ Z_Construct_UClass_UCombatEntity, UCombatEntity::StaticClass, TEXT("UCombatEntity"), &Z_Registration_Info_UClass_UCombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatEntity), 3717844487U) },
+		{ Z_Construct_UClass_UCombatAbilityStats, UCombatAbilityStats::StaticClass, TEXT("UCombatAbilityStats"), &Z_Registration_Info_UClass_UCombatAbilityStats, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatAbilityStats), 582172485U) },
+		{ Z_Construct_UClass_UCombatEntity, UCombatEntity::StaticClass, TEXT("UCombatEntity"), &Z_Registration_Info_UClass_UCombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatEntity), 1386572727U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_577056606(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_2080172680(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::EnumInfo));

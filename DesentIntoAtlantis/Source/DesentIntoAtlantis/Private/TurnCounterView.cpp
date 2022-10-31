@@ -33,11 +33,17 @@ void UTurnCounterView::AddTurnCounterToUi(TSubclassOf<UUserWidget> aTurnCounter)
 	TurnCounter.Add(baseUserWidget);
 }
 
+void UTurnCounterView::SetEmpowerTurnIcon(int aTurnIndex)
+{
+	TurnCounter[aTurnIndex]->EmpowerTurn(true);
+}
+
 void UTurnCounterView::SetTurnOrder(int turn, ECharactertype aCharacterType)
 {
 	for(int i = 0 ; i <= TurnCounter.Num() - 1;i++)
 	{
 		TurnCounter[i]->SetColorAndOpacity(FLinearColor(1,1,1,0));
+		TurnCounter[i]->EmpowerTurn(false);
 	}
 
 	

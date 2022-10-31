@@ -120,6 +120,12 @@
 			]
 		},
 		{
+			"ShaderMapHash": "CEB6981B8784CDFA2490593B8D2E0D49BD6FF41E",
+			"Assets": [
+				"/Paper2D/DefaultSpriteMaterial"
+			]
+		},
+		{
 			"ShaderMapHash": "F9263927B9A447444CEB25F0683B99FA6EDE8534",
 			"Assets": [
 				"/Engine/EngineMaterials/PhAT_JointLimitMaterial"
@@ -129,12 +135,6 @@
 			"ShaderMapHash": "3B599E1E84C6BED8F66AF5A2D1125FB845FE4CAB",
 			"Assets": [
 				"/ControlRig/M_Manip"
-			]
-		},
-		{
-			"ShaderMapHash": "CEB6981B8784CDFA2490593B8D2E0D49BD6FF41E",
-			"Assets": [
-				"/Paper2D/DefaultSpriteMaterial"
 			]
 		},
 		{
@@ -199,7 +199,7 @@
 			]
 		},
 		{
-			"ShaderMapHash": "1A16A030E9EB8B91FA369C944259F7920B0D0C68",
+			"ShaderMapHash": "DC07B3D0C1D39FA4CEDF00B64027EC4272105320",
 			"Assets": [
 				"/Game/Ui/uiTextures/Misc/Mat_FaceEnemy"
 			]

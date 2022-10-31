@@ -7,6 +7,7 @@
 #include "Components/Image.h"
 #include "EnemyPortraits.generated.h"
 
+enum class EEnemyCombatPositions;
 class UEnemyPortraitElement;
 class UEnemyCombatEntity;
 /**
@@ -32,7 +33,7 @@ public:
 	UPROPERTY()
 	TArray<UEnemyCombatEntity*> enemysInCombat;
 	UPROPERTY()
-	TArray<UEnemyPortraitElement*> Portraits;
+	TMap<EEnemyCombatPositions,UEnemyPortraitElement*> Portraits;
 	
 	void SetEnemyPortraits(UEnemyPortraitElement* aImage , UEnemyCombatEntity* AEnemyCombatEntity);
 	

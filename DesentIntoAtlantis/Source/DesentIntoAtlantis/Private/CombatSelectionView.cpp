@@ -14,8 +14,9 @@ void UCombatSelectionView::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameMo
 	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UCombatSelectionView::ActivateSkill  );
-	InputComponent->BindAction("Left"   ,IE_Pressed , this, &UCombatSelectionView::MoveCursorLeft  );
+	InputComponent->BindAction("Left"    ,IE_Pressed , this, &UCombatSelectionView::MoveCursorLeft  );
 	InputComponent->BindAction("Right"   ,IE_Pressed ,this, &UCombatSelectionView::MoveCursorRight  );
+	InputComponent->BindAction("E"       ,IE_Pressed ,this, &UCombatSelectionView::ReturnToPreviousScreen  );
 	
 	enemySelectionElements.Add(EEnemyCombatPositions::Left,BW_EnemySelectionBar);
 	enemySelectionElements.Add(EEnemyCombatPositions::Middle,BW_EnemySelectionBar_1);
@@ -35,7 +36,8 @@ void UCombatSelectionView::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameMo
 void UCombatSelectionView::ActivateSkill()
 {
 	SetCursorHud(false);
-	combatManager->pressTurnManager->ActivateSkill(combatManager->currentActivePartyMember,cursorPosition,currentSkill);
+	combatManager->GetCurrentActivePartyMember()->DecrementMana(currentSkill->skillData.costToUse);
+	combatManager->pressTurnManager->ActivateSkill(combatManager->GetCurrentActivePartyMember(),cursorPosition,currentSkill);
 }
 
 void UCombatSelectionView::MoveCursorLeft()
@@ -80,16 +82,16 @@ void UCombatSelectionView::SetCursorHud(bool aisActive)
 			if(hasCursor)
 			{
 				float potentialDamage = enemysInCombat[cursorPosition]->
-					GetPotentialHealthPercentage(enemysInCombat[cursorPosition]->CalculateDamage(combatManager->currentActivePartyMember,skillData));
-				enemySelectionElements[enemysInCombat[cursorPosition]->enemyCombatPosition]->SetHighlightSelectionElement(potentialDamage,opacity);
+					GetPotentialHealthPercentage(enemysInCombat[cursorPosition]->CalculateDamage(combatManager->GetCurrentActivePartyMember(),skillData));
+				enemySelectionElements[enemysInCombat[cursorPosition]->portraitPosition]->SetHighlightSelectionElement(potentialDamage,opacity);
 			}
 			else
 			{
 				for(int i = 0 ; i < enemysInCombat.Num();i++)
 				{
 					float potentialDamage = enemysInCombat[i]->
-						GetPotentialHealthPercentage(enemysInCombat[i]->CalculateDamage(combatManager->currentActivePartyMember,skillData));
-					enemySelectionElements[enemysInCombat[i]->enemyCombatPosition]->SetHighlightSelectionElement(potentialDamage,opacity);
+						GetPotentialHealthPercentage(enemysInCombat[i]->CalculateDamage(combatManager->GetCurrentActivePartyMember(),skillData));
+					enemySelectionElements[enemysInCombat[i]->portraitPosition]->SetHighlightSelectionElement(potentialDamage,opacity);
 				}
 			}
 
@@ -122,11 +124,11 @@ void UCombatSelectionView::SetCursorHud(bool aisActive)
 				//	enemySelectionElements[enemysInCombat[i]->enemyCombatPosition]->SetHighlightSelectionElement(potentialDamage,opacity);
 					if(aisActive)
                 	{
-                		playersInCombat[cursorPosition]->partyHealthbarElement->MoveUp();
+                		playersInCombat[i]->partyHealthbarElement->MoveUp();
                 	}
                 	else
                 	{
-                		playersInCombat[cursorPosition]->partyHealthbarElement->ResetTranslation();
+                		playersInCombat[i]->partyHealthbarElement->ResetTranslation();
                 	}
 				}
 			}
@@ -151,10 +153,10 @@ void UCombatSelectionView::InitializeEnemySelectionElements(TArray<UEnemyCombatE
 
 	for(int i= 0; i < aEnemysInCombat.Num() ;i++)
 	{
-		if(enemySelectionElements.Contains(aEnemysInCombat[i]->enemyCombatPosition))
+		if(enemySelectionElements.Contains(aEnemysInCombat[i]->portraitPosition))
 		{
-			enemySelectionElements[aEnemysInCombat[i]->enemyCombatPosition]->SetColorAndOpacity(FLinearColor(1,1,1,1));
-			enemySelectionElements[aEnemysInCombat[i]->enemyCombatPosition]->SetEnemySelectionElement(aEnemysInCombat[i]);
+			enemySelectionElements[aEnemysInCombat[i]->portraitPosition]->SetColorAndOpacity(FLinearColor(1,1,1,1));
+			enemySelectionElements[aEnemysInCombat[i]->portraitPosition]->SetEnemySelectionElement(aEnemysInCombat[i]);
 		}
 	}
 
@@ -199,4 +201,10 @@ void UCombatSelectionView::SetSkill(USkillBase* aSkill)
 
 
 	SetCursorHud(true);
+}
+
+void UCombatSelectionView::ReturnToPreviousScreen()
+{
+	Super::ReturnToPreviousScreen();
+	SetCursorHud(false);
 }

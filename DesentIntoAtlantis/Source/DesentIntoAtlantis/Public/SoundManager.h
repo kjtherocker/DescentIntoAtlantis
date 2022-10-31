@@ -46,7 +46,8 @@ public:
 	
 	void PlayAudio(EAudioSources aAudioSource,EAudio aSoundEffect);
 	void SetAudioPauseState(EAudioSources aAudioSource,bool aIsPaused);
-
+	
+	UPROPERTY()
 	TMap<EAudioSources,UAudioComponent*> audioSources;
 
 	UPROPERTY(EditAnywhere, Category = "Audio")

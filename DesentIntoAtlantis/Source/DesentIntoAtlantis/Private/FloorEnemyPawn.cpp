@@ -32,3 +32,8 @@ void AFloorEnemyPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 
 }
 
+void AFloorEnemyPawn::DeleteEnemyPawn()
+{
+	Destroy();
+}
+

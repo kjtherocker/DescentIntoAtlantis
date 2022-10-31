@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "CombatManager.h"
+#include "FloorEnemyPawn.h"
 #include "DesentIntoAtlantis/FloorBase.h"
 #include "UObject/NoExportTypes.h"
 #include "FloorEnum.h"
@@ -20,6 +21,9 @@ UCLASS()
 class DESENTINTOATLANTIS_API UFloorEventManager : public UObject
 {
 	GENERATED_BODY()
+
+	UPROPERTY()
+	bool isEventRunning;
 	
 	UPROPERTY()
 	UFloorFactory * floorFactory;
@@ -33,11 +37,14 @@ class DESENTINTOATLANTIS_API UFloorEventManager : public UObject
 
 	UPROPERTY()
 	TArray<FFloorEventData> completedFloorEventData;
+
+	UPROPERTY()
+	TMap<FVector2D , AFloorEnemyPawn*> floorEnemyEvents;
 	
 	FTriggerNextEventStage triggerNextEventStage;
 
 	UPROPERTY()
-	ADesentIntoAtlantisGameModeBase* gameBase;
+	ADesentIntoAtlantisGameModeBase* gameModeBase;
 public:
 
 	FFloorEventHasBeenTriggered EventHasBeenTriggered;
@@ -46,6 +53,12 @@ public:
 	UFUNCTION()
 	void PlayerHasTriggeredFloorEvent(FVector2D aPositionInGrid);
 	void TriggerDialogue(EDialogueTriggers aDialogueTrigger,EFloorEventStates aTriggerOnEnd);
+	void TriggerTutorial(ETutorialTriggers aTutorialTrigger,EFloorEventStates aTriggerOnEnd);
+	void TriggerLevelupMenu(EFloorEventStates aTriggerOnEnd);
 	UFUNCTION()
 	void TriggerNextFloorEventStep(EFloorEventStates aFloorEventStates);
+
+	void EventNotCompleted();
+
+	void AddFloorEnemyEvents(FVector2D aPositionInGrid, AFloorEnemyPawn* aFloorEnemyPawn);
 };

@@ -5,14 +5,14 @@
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
 #include "CombatEntity.h"
-#include "TurnCounter.generated.h"
+#include "TurnCounterView.generated.h"
 
 class UTurnCounterElement;
 /**
  * 
  */
 UCLASS()
-class DESENTINTOATLANTIS_API UTurnCounter : public UBaseUserWidget
+class DESENTINTOATLANTIS_API UTurnCounterView : public UBaseUserWidget
 {
 	GENERATED_BODY()
 

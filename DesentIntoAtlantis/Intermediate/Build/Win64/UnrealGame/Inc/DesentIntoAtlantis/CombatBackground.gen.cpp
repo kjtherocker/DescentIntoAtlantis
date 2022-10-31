@@ -78,9 +78,9 @@ void EmptyLinkFunctionForGeneratedCodeCombatBackground() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatBackground_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCombatBackground, UCombatBackground::StaticClass, TEXT("UCombatBackground"), &Z_Registration_Info_UClass_UCombatBackground, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatBackground), 937534523U) },
+		{ Z_Construct_UClass_UCombatBackground, UCombatBackground::StaticClass, TEXT("UCombatBackground"), &Z_Registration_Info_UClass_UCombatBackground, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatBackground), 47554380U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatBackground_h_496147317(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatBackground_h_2172525585(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatBackground_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatBackground_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

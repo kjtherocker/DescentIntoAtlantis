@@ -11,7 +11,7 @@
 
 
 
-void UCombatClass::InitializeDataTable(UDataTable* aClassDataTable, USkillFactory* aSkillFactory, UPlayerCombatEntity* aCombatEntity)
+void UCombatClass::InitializeDataTable(UDataTable* aClassDataTable, USkillFactory* aSkillFactory, UPlayerCombatEntity* aCombatEntity,int aInitialLevel)
 {
 	UDataTable* datatable = aClassDataTable;
 
@@ -22,10 +22,10 @@ void UCombatClass::InitializeDataTable(UDataTable* aClassDataTable, USkillFactor
 	
 	skillFactory = aSkillFactory;
 	attachedCombatEntity = aCombatEntity;
-	Levelup();
-	Levelup();
-	Levelup();
-	Levelup();
+	for(int i = 0 ; i < aInitialLevel;i++)
+	{
+		Levelup();
+	}
 }
 
 

@@ -46,6 +46,18 @@ void EmptyLinkFunctionForGeneratedCodeTutorialView() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_Portait_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_Portait;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_BulletPoint1_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_BulletPoint1;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_BulletPoint2_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_BulletPoint2;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_BulletPoint3_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_BulletPoint3;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -97,11 +109,41 @@ void EmptyLinkFunctionForGeneratedCodeTutorialView() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_Portait = { "BW_Portait", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTutorialView, BW_Portait), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_Portait_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_Portait_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_BulletPoint1_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "TutorialView" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/TutorialView.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_BulletPoint1 = { "BW_BulletPoint1", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTutorialView, BW_BulletPoint1), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_BulletPoint1_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_BulletPoint1_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_BulletPoint2_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "TutorialView" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/TutorialView.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_BulletPoint2 = { "BW_BulletPoint2", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTutorialView, BW_BulletPoint2), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_BulletPoint2_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_BulletPoint2_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_BulletPoint3_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "TutorialView" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/TutorialView.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_BulletPoint3 = { "BW_BulletPoint3", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTutorialView, BW_BulletPoint3), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_BulletPoint3_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_BulletPoint3_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UTutorialView_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_ClassTitle,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_CharacterName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_ClassDescription,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_Portait,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_BulletPoint1,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_BulletPoint2,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTutorialView_Statics::NewProp_BW_BulletPoint3,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UTutorialView_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UTutorialView>::IsAbstract,
@@ -139,9 +181,9 @@ void EmptyLinkFunctionForGeneratedCodeTutorialView() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TutorialView_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UTutorialView, UTutorialView::StaticClass, TEXT("UTutorialView"), &Z_Registration_Info_UClass_UTutorialView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTutorialView), 3471288342U) },
+		{ Z_Construct_UClass_UTutorialView, UTutorialView::StaticClass, TEXT("UTutorialView"), &Z_Registration_Info_UClass_UTutorialView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTutorialView), 2462049454U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TutorialView_h_720064094(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TutorialView_h_2068565312(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TutorialView_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TutorialView_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

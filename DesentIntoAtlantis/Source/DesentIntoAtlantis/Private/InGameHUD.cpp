@@ -23,16 +23,17 @@ void AInGameHUD::PushView(EViews aView, EUiType aUiType)
     {
         newView->InGameHUD = this;
         newView->UiInitialize(gameModeBase);
+        newView->SetViewInfo(aView, aUiType);
         newView->AddToViewport();
         newView->viewName = aView;
         switch (aUiType)
         { 
-        case EUiType::ActiveUi:
+            case EUiType::ActiveUi:
             {
                 activeViewStack.Add(newView);
                 break;
             }
-        case EUiType::PersistentUi:
+            case EUiType::PersistentUi:
             {
                 persistentViewStack.Add(newView);
                 break;
@@ -98,6 +99,8 @@ void AInGameHUD::PushMostRecentInActiveView()
     if(inactiveViewStack.Num() > 0)
     {
         int lastInActiveElement = inactiveViewStack.Num() -1;
+        const UBaseUserWidget* baseUserWidget = inactiveViewStack[lastInActiveElement];
+        PushView( baseUserWidget->view, baseUserWidget->UiType);
         inactiveViewStack[lastInActiveElement]->AddToViewport();
         inactiveViewStack.RemoveAt(lastInActiveElement);
     }
@@ -113,11 +116,8 @@ void AInGameHUD::ReturnToPreviousActiveView()
     
         activeViewStack[lastActiveElement]->RemoveFromViewport();
         activeViewStack.RemoveAt(lastActiveElement);
-
-        inactiveViewStack[lastInActiveElement]->UiInitialize(gameModeBase);
-        inactiveViewStack[lastInActiveElement]->AddToViewport();
-        activeViewStack.Add(inactiveViewStack[lastInActiveElement]);
-
+        const UBaseUserWidget* baseUserWidget = inactiveViewStack[lastInActiveElement];
+        PushView( baseUserWidget->view, baseUserWidget->UiType);
         inactiveViewStack.RemoveAt(lastInActiveElement);
     }
 }

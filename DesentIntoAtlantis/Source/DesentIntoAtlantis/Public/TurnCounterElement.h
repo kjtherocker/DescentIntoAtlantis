@@ -15,7 +15,8 @@ UCLASS()
 class DESENTINTOATLANTIS_API UTurnCounterElement : public UBaseUserWidget
 {
 	GENERATED_BODY()
-
+	
+	UPROPERTY()
 	TMap<ECharactertype,UImage*> turnIcons;
 
 	const int MAX_OPACITY = 100;
@@ -24,12 +25,14 @@ public:
 	virtual void UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase) override;
 
 	void SwitchTurnIcons(ECharactertype aCharacterType);
+	void EmpowerTurn(bool aIsEmpowered);
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_TurnIconAlly;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_TurnIconEnemy;
-
 	
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UImage* BW_EmpoweredIcon;
 };

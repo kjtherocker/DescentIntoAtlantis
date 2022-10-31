@@ -7,7 +7,7 @@
 #include "LevelupView.h"
 #include "PartyHealthbarsView.h"
 #include "PressTurnManager.h"
-#include "TurnCounter.h"
+#include "TurnCounterView.h"
 #include "EnemyCombatEntity.h"
 #include "PlayerCombatEntity.h"
 #include "PartyHealthbarElement.h"
@@ -33,22 +33,30 @@ void UCombatManager::StartCombat(FString aEnemyGroupName)
 	{
 		return;
 	}
+
 	
 	gameModeBase->soundManager->PlayAudio(EAudioSources::CombatMusic,EAudio::Combat);
+
+	gameModeBase->soundManager->SetAudioPauseState(EAudioSources::CombatSoundEffect,false);
+	gameModeBase->soundManager->SetAudioPauseState(EAudioSources::CombatMusic,false);
+	
+	gameModeBase->soundManager->SetAudioPauseState(EAudioSources::OverworldMusic,true);
+	gameModeBase->soundManager->SetAudioPauseState(EAudioSources::OverworldSoundEffect,true);
+	
 	hasCombatStarted = true;
 	
 	GameHUD = gameModeBase->InGameHUD;
 
-	partyMembersInCombat     = gameModeBase->partyManager->ReturnActiveParty();
-	
-	currentActivePartyMember = partyMembersInCombat[0];
-	currentTurnType          = ECharactertype::Ally;
+	partyMembersInCombat       = gameModeBase->partyManager->ReturnActiveParty();
+	  
+	currentActivePartyMember   = partyMembersInCombat[0];
+	currentTurnType            = ECharactertype::Ally;
 	
 	TArray<FString> EnemyNames = gameModeBase->enemyFactory->ReturnEnemyGroupData(aEnemyGroupName);
 		
 	for(int i = 0 ; i < EnemyNames.Num();i++)
 	{
-		AddEnemyToCombat(gameModeBase->enemyFactory->ReturnEnemyEntityData(EnemyNames[i]));
+		AddEnemyToCombat(gameModeBase->enemyFactory->ReturnEnemyEntityData(EnemyNames[i]),i);
 	}
 	
 	if(GameHUD)
@@ -57,7 +65,7 @@ void UCombatManager::StartCombat(FString aEnemyGroupName)
 		GameHUD->PushView(EViews::CombatBackground,  EUiType::PersistentUi);
 		GameHUD->PushView(EViews::EnemyPortraits,    EUiType::PersistentUi);
 		
-		turnCounter     = (UTurnCounter*)GameHUD->PushAndGetView(EViews::TurnCounter,         EUiType::PersistentUi);
+		turnCounter     = (UTurnCounterView*)GameHUD->PushAndGetView(EViews::TurnCounter,         EUiType::PersistentUi);
 		partyHealthbars = (UPartyHealthbarsView*)GameHUD->PushAndGetView(EViews::Healthbars,  EUiType::PersistentUi);
 	}
 	
@@ -69,15 +77,32 @@ void UCombatManager::StartCombat(FString aEnemyGroupName)
 	//GameHUD->PushView(EViews::Tutorial,    EUiType::PersistentUi);
 }
 
-void UCombatManager::AddEnemyToCombat(FEnemyEntityData AEnemyEntityData)
+void UCombatManager::RemoveDeadPartyMembersFromCombat()
 {
+	for(int i =  partyMembersInCombat.Num() -1 ; i >= 0;i--)
+	{
+		if(partyMembersInCombat[i]->GetIsMarkedForDeath())
+		{
+			partyMembersInCombat[i]->Death();
+			partyMembersInCombat.RemoveAt(i);
+		}
+	}
+}
+
+void UCombatManager::AddEnemyToCombat(FEnemyEntityData AEnemyEntityData,int aPosition)
+{
+	if(AEnemyEntityData.characterName.IsEmpty())
+	{
+		return;
+	}
+	
 	UEnemyCombatEntity* EnemyCombatEntity = NewObject<UEnemyCombatEntity>();
 	EnemyCombatEntity->SetTacticsEntity(skillFactory);
 	EnemyCombatEntity->SetTacticsEvents(this);
-	EnemyCombatEntity->SetEnemyEntityData(AEnemyEntityData,skillFactory);
+	EnemyCombatEntity->SetEnemyEntityData(AEnemyEntityData,skillFactory,static_cast<EEnemyCombatPositions>(aPosition));
 	EnemyCombatEntity->enemyBestiaryData = gameModeBase->enemyFactory->GetBestiaryEntry(EnemyCombatEntity->enemyEntityData.characterName);
 	enemyCombatEntities.Add(EnemyCombatEntity);
-	EnemyCombatEntity->enemyCombatPosition = static_cast<EEnemyCombatPositions>(enemyCombatEntities.Num()-1);
+
 }
 
 void UCombatManager::SwitchCombatSides()
@@ -102,28 +127,32 @@ void UCombatManager::SwitchCombatSides()
 	}
 }
 
-void UCombatManager::EndCombat()
+void UCombatManager::EndCombat(bool aHasWon)
 {
 	hasCombatStarted = false;
 	GameHUD->PopAllPersistantViews();
 	GameHUD->PopAllActiveViews();
 
-	TArray<UPlayerCombatEntity*> combatEntitysToLevelup;
-	for(int i = 0 ; i < partyMembersInCombat.Num();i++)
+	for(int i =  enemyCombatEntities.Num() -1 ; i >= 0;i--)
 	{
-		if(partyMembersInCombat[i]->baseClass->AddExperience(combatExp))
-		{
-			combatEntitysToLevelup.Add(partyMembersInCombat[i]);
-		}
+		enemyCombatEntities.RemoveAt(i);
 	}
 
-
-	if(combatEntitysToLevelup.Num() > 0)
+	gameModeBase->partyManager->ResetActivePartyToDefaultState();
+	
+	if(aHasWon)
 	{
-		ULevelupView * testo = (ULevelupView*)GameHUD->PushAndGetView(EViews::Levelup,    EUiType::ActiveUi);
-		testo->InitializeCombatEntitysToLevelUp(combatEntitysToLevelup);
+		triggerNextEventStage.Broadcast(EFloorEventStates::Levelup);
 	}
-		
+	else
+	{
+		gameModeBase->floorEventManager->EventNotCompleted();
+	}
+	gameModeBase->soundManager->SetAudioPauseState(EAudioSources::CombatSoundEffect,true);
+	gameModeBase->soundManager->SetAudioPauseState(EAudioSources::CombatMusic,true);
+	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldMusic,EAudio::Overword);
+	gameModeBase->soundManager->SetAudioPauseState(EAudioSources::OverworldSoundEffect,false);
+	gameModeBase->soundManager->SetAudioPauseState(EAudioSources::OverworldMusic,false);
 }
 
 void UCombatManager::TurnFinished()
@@ -177,6 +206,13 @@ void UCombatManager::TurnFinished()
 
 void UCombatManager::AllyStartTurn()
 {
+	OnRoundEndDelegate.Broadcast();
+	RemoveDeadPartyMembersFromCombat();
+	if(partyMembersInCombat.Num() == 0)
+	{
+		GameHUD->PushView(EViews::Death,    EUiType::PersistentUi);
+		return;
+	}
 	currentActivePosition = 0;
 	currentActivePartyMember = partyMembersInCombat[currentActivePosition];
 	partyHealthbars->SetHighlightHealthbar(currentActivePartyMember,FULL_OPACITY);
@@ -186,6 +222,13 @@ void UCombatManager::AllyStartTurn()
 void UCombatManager::EnemyStartTurn()
 {
 	GameHUD->PopMostRecentActiveView();
+	
+	RemoveDeadPartyMembersFromCombat();
+	if(partyMembersInCombat.Num() == 0)
+	{
+		GameHUD->PushView(EViews::Death,    EUiType::PersistentUi);
+		return;
+	}
 	
 	if(pressTurnManager->GetNumberOfActivePressTurns() == 0)
 	{
@@ -220,7 +263,12 @@ void UCombatManager::EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEntity)
 	pressTurnManager->ActivateSkill(aEnemyCombatEntity,playerToAttack,skillObject);
 }
 
-UPlayerCombatEntity* UCombatManager::ReturnCurrentActivePartyMember()
+int UCombatManager::GetEXP()
+{
+	return combatExp;
+}
+
+UPlayerCombatEntity* UCombatManager::GetCurrentActivePartyMember()
 {
 	return currentActivePartyMember;
 }

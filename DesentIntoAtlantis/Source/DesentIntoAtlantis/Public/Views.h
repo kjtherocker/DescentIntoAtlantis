@@ -20,7 +20,9 @@ enum class  EViews
 	EnemySkill        = 9,
 	Levelup           = 10,
 	Tutorial          = 11,
-	Title             = 12
+	Title             = 12,
+	Death             = 13,
+	Ending            = 14
 };
 
 

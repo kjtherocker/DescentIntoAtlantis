@@ -16,8 +16,14 @@ UCLASS()
 class DESENTINTOATLANTIS_API UTutorialView : public UBaseUserWidget
 {
 	GENERATED_BODY()
+private:
+	FTriggerNextEventStage nextEventStage;
+	EFloorEventStates floorEventToTriggerOnEnd;
 public:
+	virtual void UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase) override;
 	void SetupTutorialView(FTutorialData aTutorialData);
+	void SetFloorEvent( FTriggerNextEventStage  aTriggerNextEventStage, EFloorEventStates aTriggerOnEnd);
+	void ContinueToNextEventStage();
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_ClassTitle;
@@ -30,4 +36,13 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_Portait;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UTextBlock* BW_BulletPoint1;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UTextBlock* BW_BulletPoint2;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UTextBlock* BW_BulletPoint3;
 };

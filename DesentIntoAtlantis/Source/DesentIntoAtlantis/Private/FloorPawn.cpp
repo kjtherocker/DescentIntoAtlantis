@@ -114,10 +114,11 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 	
 	if(FVector::Dist(GetActorLocation(), nodeToMoveTowardsPostion) < 20.5f )
 	{
-		hasRotationFinished = true;
-		currentNodePlayerIsOn = nodeToMoveTowards;
+		hasRotationFinished     = true;
+		previousNodePlayerWasOn = currentNodePlayerIsOn;
+		currentNodePlayerIsOn   = nodeToMoveTowards;
 		currentNodePlayerIsOn->PlayerIsOnTopOfNode();
-		nodeToMoveTowards = nullptr;
+		nodeToMoveTowards       = nullptr;
 		return;
 	}
 

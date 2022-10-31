@@ -45,10 +45,10 @@ class UCombatClass : public UObject
 	
 private:
 	bool isReadyToLevelup = false;
-	
+
 public:
 
-	void InitializeDataTable(UDataTable* aClassDataTable,USkillFactory* aSkillFactory, UPlayerCombatEntity * combatEntity);
+	void InitializeDataTable(UDataTable* aClassDataTable,USkillFactory* aSkillFactory, UPlayerCombatEntity * combatEntity,int aInitialLevel);
 	ConstructorHelpers::FObjectFinder<UObject> ReturnFoundClass(FString aClassExcelSheet);
 
 	UPROPERTY()

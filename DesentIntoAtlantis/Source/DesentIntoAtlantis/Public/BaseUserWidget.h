@@ -19,18 +19,25 @@ protected:
 	int cursorPosition;
 	int maxCursorPosition;
 	int minCursorPosition;
+	UPROPERTY()
 	ADesentIntoAtlantisGameModeBase* gameModeBase;
+	
 	FLinearColor unhightlighedColor = FLinearColor(0.0,0.0,0.0,1.0);
 	FLinearColor highlightedColor   = FLinearColor(1.0,1.0,1.0,1.0);
 	const int MAX_OPACITY = 100;
 	const int NO_OPACITY  = 0;
 public:
 	virtual void UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase);
+	virtual void SetViewInfo(EViews aView, EUiType aUiType);
 	virtual void SetCursorPositionInfo();
 	virtual void MoveUp();
 	virtual void MoveDown();
+	virtual void ReturnToPreviousScreen();
 	
 	UPROPERTY()
 	AInGameHUD* InGameHUD;
 	EViews viewName;
+
+	EViews view;
+	EUiType UiType;
 };

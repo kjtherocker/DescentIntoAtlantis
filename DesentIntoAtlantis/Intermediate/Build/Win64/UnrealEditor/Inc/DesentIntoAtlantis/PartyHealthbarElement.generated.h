@@ -16,12 +16,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_20_SPARSE_DATA
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_20_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execTriggerGreyScale); \
 	DECLARE_FUNCTION(execTriggerHitEffect); \
 	DECLARE_FUNCTION(execUpdateHealthbarElements);
 
 
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execTriggerGreyScale); \
 	DECLARE_FUNCTION(execTriggerHitEffect); \
 	DECLARE_FUNCTION(execUpdateHealthbarElements);
 

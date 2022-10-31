@@ -46,7 +46,7 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 			FVector2D positionInGrid = FVector2D(x,y);
 			if(aFloor->floorEventData.Contains(positionInGrid))
 			{
-				floorNodes[LevelIndex]->hasFloorEvent = true;//aFloor->floorEventData[FVector2D(x,y)];
+				floorNodes[LevelIndex]->hasFloorEvent = true;
 				floorNodes[LevelIndex]->floorEventHasBeenTriggeredEvent = gameModeBase->floorEventManager->EventHasBeenTriggered;
 				SpawnFloorEnemyPawn(positionInGrid);
 			}
@@ -146,6 +146,13 @@ void AFloorManager::SpawnFloor(UFloorBase* aFloorBase)
 	
 }
 
+void AFloorManager::MovePlayerToPreviousNode()
+{
+	AFloorPawn* floorPawn = gameModeBase->floorPawn;
+	FVector2D previousPosition = floorPawn->previousNodePlayerWasOn->positionInGrid;
+	SetPlayerPosition(previousPosition);
+}
+
 
 void AFloorManager::SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes)
 {
@@ -213,10 +220,11 @@ void AFloorManager::SpawnFloorEnemyPawn(FVector2D aPositionInGrid)
 	FRotator rotator = GetActorRotation();
 	
 	//Spawn
-	AActor* floorPawn;
+	 AFloorEnemyPawn* floorPawn;
 
-	floorPawn = GetWorld()->SpawnActor<AActor>(floorEnemyPawnReference);
+	floorPawn = (AFloorEnemyPawn*)GetWorld()->SpawnActor<AActor>(floorEnemyPawnReference);
 	floorPawn->SetActorLocation(ActorFinalSpawnPoint);
+	gameModeBase->floorEventManager->AddFloorEnemyEvents(aPositionInGrid,floorPawn);
 }
 
 void AFloorManager::Tick(float DeltaTime)
