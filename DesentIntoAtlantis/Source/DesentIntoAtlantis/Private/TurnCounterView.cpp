@@ -1,13 +1,13 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "TurnCounter.h"
+#include "TurnCounterView.h"
 
 #include "TurnCounterElement.h"
 #include "Components/HorizontalBox.h"
 
 
-void UTurnCounter::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
+void UTurnCounterView::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 
@@ -19,7 +19,7 @@ void UTurnCounter::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 	}
 }
 
-void UTurnCounter::AddTurnCounterToUi(TSubclassOf<UUserWidget> aTurnCounter)
+void UTurnCounterView::AddTurnCounterToUi(TSubclassOf<UUserWidget> aTurnCounter)
 {
 	UUserWidget* turnCounter = CreateWidget(this, aTurnCounter);
 
@@ -33,7 +33,7 @@ void UTurnCounter::AddTurnCounterToUi(TSubclassOf<UUserWidget> aTurnCounter)
 	TurnCounter.Add(baseUserWidget);
 }
 
-void UTurnCounter::SetTurnOrder(int turn, ECharactertype aCharacterType)
+void UTurnCounterView::SetTurnOrder(int turn, ECharactertype aCharacterType)
 {
 	for(int i = 0 ; i <= TurnCounter.Num() - 1;i++)
 	{

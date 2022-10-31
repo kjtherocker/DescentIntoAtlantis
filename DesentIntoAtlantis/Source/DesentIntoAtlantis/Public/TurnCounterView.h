@@ -23,7 +23,7 @@ class DESENTINTOATLANTIS_API UTurnCounter : public UBaseUserWidget
 	void AddTurnCounterToUi(TSubclassOf<UUserWidget> aTurnCounter);
 	
 public:
-
+	void SetEmpowerTurnIcon(int aTurnIndex);
 	void SetTurnOrder(int turn, ECharactertype aCharacterType);
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
