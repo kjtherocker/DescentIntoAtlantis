@@ -87,7 +87,6 @@ void AFloorManager::SpawnFloorNode(int aRow, int aColumn, int aIndex)
 
 
 	floorNode = Cast<AFloorNode>(GetWorld()->SpawnActor<AActor>(floorNodeReference, ActorFinalSpawnPoint, rotator));
-	//floorNode->Rename( *FString(aRow + " " + aColumn));
 	floorNode->SetPositionInGrid(PositionInGrid);
 
 	floorNodes[aIndex] = floorNode;

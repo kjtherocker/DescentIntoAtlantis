@@ -21,7 +21,7 @@ class DESENTINTOATLANTIS_API UDialogueView : public UBaseUserWidget
 {
 	GENERATED_BODY()
 
-	
+	bool reactivatePawnInputOnEnd;
 	FTriggerNextEventStage triggerNextEventStage;
 public:
 	virtual void UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase) override;

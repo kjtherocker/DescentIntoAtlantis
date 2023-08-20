@@ -1,6 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "InGameHUD.h"
-#include "CommandBoard.h"
+#include "CommandBoardView.h"
 #include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
 #include "Kismet/GameplayStatics.h"
 

@@ -17,6 +17,8 @@ void UGameManager::SetUpTitleMenu()
 	UTitleView* titleView  = (UTitleView*)gameModeBase->InGameHUD->PushAndGetView(EViews::Title,EUiType::ActiveUi);
 	startGameDelegate.AddDynamic(this,&UGameManager::StartGame);
 	titleView->SetStartGameDelegate(startGameDelegate);
+	
+	gameModeBase->floorPawn->SetFloorPawnInput(false);
 	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldMusic,EAudio::MainMenu);
 }
 

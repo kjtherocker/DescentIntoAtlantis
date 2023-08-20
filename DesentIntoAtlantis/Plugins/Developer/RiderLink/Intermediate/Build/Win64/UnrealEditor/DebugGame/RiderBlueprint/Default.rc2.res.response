@@ -60,8 +60,9 @@
 /DORIGINAL_FILE_NAME="UnrealEditor-RiderBlueprint-Win64-DebugGame.dll"
 /DBUILT_FROM_CHANGELIST=20280985
 /DBUILD_VERSION=++UE5+Release-5.0-CL-20280985
-/DBUILD_ICON_FILE_NAME="\"..\\Build\\Windows\\Resources\\Default.ico\""
+/DBUILD_ICON_FILE_NAME="\"C:\\Users\\kylej\\Documents\\PortfolioSSd\\DescentIntoAtlantis\\DesentIntoAtlantis\\Build\\Windows\\Application.ico\""
 /DPROJECT_COPYRIGHT_STRING="Fill out your copyright notice in the Description page of Project Settings."
+/DPROJECT_PRODUCT_NAME=DescentIntoAtlantis
 /DPROJECT_PRODUCT_IDENTIFIER=DesentIntoAtlantis
 /fo "C:\Users\kylej\Documents\PortfolioSSd\DescentIntoAtlantis\DesentIntoAtlantis\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\DebugGame\RiderBlueprint\Default.rc2.res"
 "..\Build\Windows\Resources\Default.rc2"

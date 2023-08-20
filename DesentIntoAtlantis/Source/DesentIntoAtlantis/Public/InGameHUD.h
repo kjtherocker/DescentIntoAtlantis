@@ -10,7 +10,7 @@
 
 class ADesentIntoAtlantisGameModeBase;
 class UBaseUserWidget;
-class UCommandBoard;
+class UCommandBoardView;
 /**
  * 
  */

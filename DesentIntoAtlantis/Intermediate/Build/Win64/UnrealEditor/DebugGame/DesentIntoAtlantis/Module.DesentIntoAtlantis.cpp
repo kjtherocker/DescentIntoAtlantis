@@ -12,7 +12,7 @@
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/CombatEntity.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/CombatManager.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/CombatSelectionView.cpp"
-#include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/CommandBoard.cpp"
+#include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/CommandBoardView.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/DeathView.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/DialogueFactory.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/DialogueView.cpp"

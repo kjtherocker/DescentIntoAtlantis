@@ -27,7 +27,7 @@ void UFloorEventManager::PlayerHasTriggeredFloorEvent(FVector2D aPositionInGrid)
 	currentEvent = floorFactory->floorDictionary[EFloorIdentifier::Floor1]->floorEventData[aPositionInGrid];
 	TriggerNextFloorEventStep(EFloorEventStates::DialogueOnStart);
 	floorEnemyEvents[currentEvent.positionInGrid]->SetActorHiddenInGame(true);
-	gameModeBase->floorPawn->DisableInput(gameModeBase->world->GetFirstPlayerController());
+	gameModeBase->floorPawn->SetFloorPawnInput(false);
 }
 
 void UFloorEventManager::TriggerDialogue(EDialogueTriggers aDialogueTrigger, EFloorEventStates aTriggerOnEnd)
@@ -140,7 +140,7 @@ void UFloorEventManager::TriggerNextFloorEventStep(EFloorEventStates aFloorEvent
 			isEventRunning = false;
 			if(currentEvent.viewPushedOnEnd == EViews::None)
 			{
-				gameModeBase->floorPawn->EnableInput(gameModeBase->world->GetFirstPlayerController());
+				gameModeBase->floorPawn->SetFloorPawnInput(true);
 			}
 			else
 			{

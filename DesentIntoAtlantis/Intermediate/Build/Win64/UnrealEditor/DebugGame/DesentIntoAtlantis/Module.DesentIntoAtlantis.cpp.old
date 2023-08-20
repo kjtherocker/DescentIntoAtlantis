@@ -18,6 +18,7 @@
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/DialogueView.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/EDataTableTypes.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/EElementalType.cpp"
+#include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/EndView.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/EnemyBeastiaryData.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/EnemyBehaviour.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/EnemyCombatEntity.cpp"

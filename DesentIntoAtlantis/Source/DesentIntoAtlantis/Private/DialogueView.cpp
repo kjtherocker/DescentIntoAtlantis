@@ -24,13 +24,14 @@ void UDialogueView::SetFloorEventDialogueData(EDialogueTriggers aDialogueData, E
 	dialogueData = gameModeBase->dialogueFactory->GetDialogueDataByTrigger(aDialogueData);
 	triggerOnEnd = aTriggerOnEnd;
 	triggerNextEventStage = aTriggerNextEventStage;
-	SetNextDialogue();
+	SetNextDialogue(false);
 }
 
 void UDialogueView::SetDialogueData(EDialogueTriggers aDialogueData)
 {
+	reactivatePawnInputOnEnd = true;
 	dialogueData = gameModeBase->dialogueFactory->GetDialogueDataByTrigger(aDialogueData);
-	SetNextDialogue();
+	SetNextDialogue(false);
 }
 
 
@@ -81,6 +82,11 @@ void UDialogueView::SetDialogueImages(UTexture2D* aPortraitTexture, UImage* aPor
 void UDialogueView::DialogueFinished()
 {
 	InGameHUD->PopMostRecentActiveView();
+	if(reactivatePawnInputOnEnd)
+	{
+		gameModeBase->floorPawn->SetFloorPawnInput(true);
+	}
+	
 	if(triggerOnEnd != EFloorEventStates::None)
 	{
 		triggerNextEventStage.Broadcast(triggerOnEnd);

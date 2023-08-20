@@ -25,7 +25,6 @@ protected:
 	void LeftRotation();
 	void RightRotation();
 	void MoveForward();
-
 	TSubclassOf<AActor> commandBoardTest;
 	UPROPERTY()
 	AFloorNode* currentNodePlayerIsOn;
@@ -46,6 +45,8 @@ protected:
 	
 	
 	double rotationDirection;
+	UPROPERTY()
+	ADesentIntoAtlantisGameModeBase* gameModeBase;
 public:
 
 	UPROPERTY()
@@ -60,14 +61,13 @@ public:
 	void RotatePawn(float aDeltatime);
 	void MovePawn(float aDeltaTime);
 	void AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections aDirection,FVector2D aDirectionPosition,FRotator aRotation);
-	
+	void SetFloorPawnInput(bool aIsInputActive);
 
 
 	void SetRotation(TArray<UFloorPawnPositionInfo*> aDirectionalModel, double aDirection );
 
 	UPROPERTY()
 	TArray<UFloorPawnPositionInfo*>   directionModel;
-
 };
 
 

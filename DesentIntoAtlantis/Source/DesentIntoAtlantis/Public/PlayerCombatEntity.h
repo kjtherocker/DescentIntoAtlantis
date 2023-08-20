@@ -29,7 +29,7 @@ struct DESENTINTOATLANTIS_API FPlayerEntityData
 	UPROPERTY( EditAnywhere )
 	UTexture2D* fullBodyCharacterPortrait;
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 	int initialLevel;
 };
 

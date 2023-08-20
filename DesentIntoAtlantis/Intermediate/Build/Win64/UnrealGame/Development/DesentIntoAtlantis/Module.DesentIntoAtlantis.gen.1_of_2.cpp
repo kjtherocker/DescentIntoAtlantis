@@ -5,7 +5,7 @@
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealGame/Inc/DesentIntoAtlantis/CombatEntity.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealGame/Inc/DesentIntoAtlantis/CombatManager.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealGame/Inc/DesentIntoAtlantis/CombatSelectionView.gen.cpp"
-#include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealGame/Inc/DesentIntoAtlantis/CommandBoard.gen.cpp"
+#include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealGame/Inc/DesentIntoAtlantis/CommandBoardView.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealGame/Inc/DesentIntoAtlantis/DeathView.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealGame/Inc/DesentIntoAtlantis/DesentIntoAtlantis.init.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealGame/Inc/DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.gen.cpp"

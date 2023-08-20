@@ -15,6 +15,7 @@
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/EDataTableTypes.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/EElementalType.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/EFloorIdentifier.gen.cpp"
+#include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/EndView.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/EnemyBeastiaryData.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/EnemyBehaviour.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/EnemyCombatEntity.gen.cpp"

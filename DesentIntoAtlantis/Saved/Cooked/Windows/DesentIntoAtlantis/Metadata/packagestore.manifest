@@ -353,6 +353,10 @@
 			"ChunkId": "474711309ee6ba8900000001"
 		},
 		{
+			"Path": "Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Sound.uasset",
+			"ChunkId": "85cfc579099524d700000001"
+		},
+		{
 			"Path": "Engine/Content/EngineMeshes/Sphere.uasset",
 			"ChunkId": "f421d8f857b9ed0300000001"
 		},
@@ -361,20 +365,40 @@
 			"ChunkId": "f421d8f857b9ed0300000002"
 		},
 		{
-			"Path": "Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Float.uasset",
-			"ChunkId": "a69bcbb54afb7d4300000001"
+			"Path": "Engine/Content/EditorResources/S_BoxReflectionCapture.uasset",
+			"ChunkId": "ff5a26a059754af200000001"
 		},
 		{
-			"Path": "Engine/Content/EngineResources/Black.uasset",
-			"ChunkId": "cda0cf6115260c9400000001"
+			"Path": "Engine/Content/EditorResources/S_Actor.uasset",
+			"ChunkId": "bd472f8cbf5f723d00000001"
 		},
 		{
-			"Path": "Engine/Content/EngineResources/DefaultVolumeTexture.uasset",
-			"ChunkId": "e6291a81a77661e900000001"
+			"Path": "Engine/Content/EditorResources/S_Actor.ubulk",
+			"ChunkId": "bd472f8cbf5f723d00000002"
 		},
 		{
-			"Path": "Engine/Content/EngineResources/DefaultTextureCube.uasset",
-			"ChunkId": "3e6f2bc6739d380300000001"
+			"Path": "Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Move.uasset",
+			"ChunkId": "100a686260435bc000000001"
+		},
+		{
+			"Path": "Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Event.uasset",
+			"ChunkId": "b82834f1c5d5064600000001"
+		},
+		{
+			"Path": "Engine/Content/EngineMaterials/DefaultDiffuse.uasset",
+			"ChunkId": "7539f12095a3f0d100000001"
+		},
+		{
+			"Path": "Engine/Content/EngineMaterials/DefaultDiffuse.ubulk",
+			"ChunkId": "7539f12095a3f0d100000002"
+		},
+		{
+			"Path": "Engine/Content/EngineMaterials/T_Default_Material_Grid_N.uasset",
+			"ChunkId": "7a7173cfb4095b9f00000001"
+		},
+		{
+			"Path": "Engine/Content/EngineMaterials/T_Default_Material_Grid_N.ubulk",
+			"ChunkId": "7a7173cfb4095b9f00000002"
 		},
 		{
 			"Path": "Engine/Content/EngineSky/VolumetricClouds/CloudGradientTexture.uasset",
@@ -465,22 +489,6 @@
 			"ChunkId": "9acae5549f0219b000000002"
 		},
 		{
-			"Path": "Engine/Content/EngineMaterials/DefaultDiffuse.uasset",
-			"ChunkId": "7539f12095a3f0d100000001"
-		},
-		{
-			"Path": "Engine/Content/EngineMaterials/DefaultDiffuse.ubulk",
-			"ChunkId": "7539f12095a3f0d100000002"
-		},
-		{
-			"Path": "Engine/Content/EngineMaterials/T_Default_Material_Grid_N.uasset",
-			"ChunkId": "7a7173cfb4095b9f00000001"
-		},
-		{
-			"Path": "Engine/Content/EngineMaterials/T_Default_Material_Grid_N.ubulk",
-			"ChunkId": "7a7173cfb4095b9f00000002"
-		},
-		{
 			"Path": "Engine/Content/EngineMaterials/T_Default_Material_Grid_M.uasset",
 			"ChunkId": "b743bdd5e5df72a400000001"
 		},
@@ -495,6 +503,14 @@
 		{
 			"Path": "Engine/Content/EngineResources/DefaultVolumeTexture2D.uasset",
 			"ChunkId": "6c54e7f6d4ea912200000001"
+		},
+		{
+			"Path": "Engine/Content/EngineResources/DefaultVolumeTexture.uasset",
+			"ChunkId": "e6291a81a77661e900000001"
+		},
+		{
+			"Path": "Engine/Content/EngineResources/DefaultTextureCube.uasset",
+			"ChunkId": "3e6f2bc6739d380300000001"
 		},
 		{
 			"Path": "Engine/Content/EngineResources/DefaultTexture.uasset",
@@ -517,20 +533,8 @@
 			"ChunkId": "c88f4734102acff000000001"
 		},
 		{
-			"Path": "Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Sound.uasset",
-			"ChunkId": "85cfc579099524d700000001"
-		},
-		{
 			"Path": "Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Slomo.uasset",
 			"ChunkId": "3971ec1ba77895c500000001"
-		},
-		{
-			"Path": "Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Move.uasset",
-			"ChunkId": "100a686260435bc000000001"
-		},
-		{
-			"Path": "Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Event.uasset",
-			"ChunkId": "b82834f1c5d5064600000001"
 		},
 		{
 			"Path": "Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Director.uasset",
@@ -551,6 +555,58 @@
 		{
 			"Path": "Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Anim.uasset",
 			"ChunkId": "9148ba92525e0ece00000001"
+		},
+		{
+			"Path": "Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Float.uasset",
+			"ChunkId": "a69bcbb54afb7d4300000001"
+		},
+		{
+			"Path": "Engine/Content/EngineResources/Black.uasset",
+			"ChunkId": "cda0cf6115260c9400000001"
+		},
+		{
+			"Path": "Engine/Content/EngineResources/GradientTexture0.uasset",
+			"ChunkId": "f87a01e7b138538a00000001"
+		},
+		{
+			"Path": "Engine/Content/EngineResources/WhiteSquareTexture.uasset",
+			"ChunkId": "b85ee5fd59f4dd2000000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/SkillpanelHighlight.uasset",
+			"ChunkId": "ed95c50fdfa183f300000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Skillpanel5.uasset",
+			"ChunkId": "03c6783f1bdc66d300000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Turn_Face_Enemy.uasset",
+			"ChunkId": "23e5e8060ab071f100000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Turn_Face_Ally.uasset",
+			"ChunkId": "8d64dba85f3d6c2c00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Title_Menu.uasset",
+			"ChunkId": "a64481c0b80c8cb200000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Titlecard.uasset",
+			"ChunkId": "5fa057107001d56d00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Texture_Baragor.uasset",
+			"ChunkId": "5b3e82cf862647cc00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Sword.uasset",
+			"ChunkId": "c0973af4cb2ae38700000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Solid_black.uasset",
+			"ChunkId": "f29a23e1b325146200000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/BP_TurnCounter.uasset",
@@ -641,84 +697,52 @@
 			"ChunkId": "72ff6427f1042ed200000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/WallBounce.uasset",
-			"ChunkId": "184c999dd23d2b0b00000001"
+			"Path": "Engine/Content/EngineSounds/Submixes/MasterEQEffectPreset.uasset",
+			"ChunkId": "7819480612024b3600000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/WallBounce.ubulk",
-			"ChunkId": "184c999dd23d2b0b00000002"
+			"Path": "Engine/Content/EngineSounds/Submixes/MasterReverbEffectPreset.uasset",
+			"ChunkId": "abde94c25a5272fc00000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/SelectionNotNocturne.uasset",
-			"ChunkId": "c024e732542be7f100000001"
+			"Path": "Engine/Content/Maps/Entry_BuiltData.uasset",
+			"ChunkId": "f95ade32d57ba98c00000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/SelectionNotNocturne.ubulk",
-			"ChunkId": "c024e732542be7f100000002"
+			"Path": "Engine/Content/BasicShapes/BasicShapeMaterial.uasset",
+			"ChunkId": "5516ce2c36f3d9ae00000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/HealthBoard/PeteHealthboard.uasset",
-			"ChunkId": "5354b381c0652f0d00000001"
+			"Path": "Engine/Content/EngineMaterials/FlattenMaterial_WS_Normal_VT.uasset",
+			"ChunkId": "da9ef9387e6c513600000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/LevelupArrow.uasset",
-			"ChunkId": "a08d179306459a0e00000001"
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Fireball.uasset",
+			"ChunkId": "2f7d4fce2bb55f9400000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/SkillpanelHighlight.uasset",
-			"ChunkId": "ed95c50fdfa183f300000001"
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Fireball.ubulk",
+			"ChunkId": "2f7d4fce2bb55f9400000002"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Skillpanel5.uasset",
-			"ChunkId": "03c6783f1bdc66d300000001"
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/EnemyEncounter2.uasset",
+			"ChunkId": "abf6b63e8f06155e00000001"
 		},
 		{
-			"Path": "Engine/Content/EngineResources/GradientTexture0.uasset",
-			"ChunkId": "f87a01e7b138538a00000001"
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/EnemyEncounter2.ubulk",
+			"ChunkId": "abf6b63e8f06155e00000002"
 		},
 		{
-			"Path": "Engine/Content/EngineResources/WhiteSquareTexture.uasset",
-			"ChunkId": "b85ee5fd59f4dd2000000001"
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Kain.uasset",
+			"ChunkId": "d4b109f410ab281900000001"
 		},
 		{
-			"Path": "Engine/Content/EditorResources/S_BoxReflectionCapture.uasset",
-			"ChunkId": "ff5a26a059754af200000001"
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/UndinesPortrait.uasset",
+			"ChunkId": "79af776f3a889b5800000001"
 		},
 		{
-			"Path": "Engine/Content/EditorResources/S_Actor.uasset",
-			"ChunkId": "bd472f8cbf5f723d00000001"
-		},
-		{
-			"Path": "Engine/Content/EditorResources/S_Actor.ubulk",
-			"ChunkId": "bd472f8cbf5f723d00000002"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Turn_Face_Enemy.uasset",
-			"ChunkId": "23e5e8060ab071f100000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Turn_Face_Ally.uasset",
-			"ChunkId": "8d64dba85f3d6c2c00000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Title_Menu.uasset",
-			"ChunkId": "a64481c0b80c8cb200000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Titlecard.uasset",
-			"ChunkId": "5fa057107001d56d00000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Texture_Baragor.uasset",
-			"ChunkId": "5b3e82cf862647cc00000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Sword.uasset",
-			"ChunkId": "c0973af4cb2ae38700000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Solid_black.uasset",
-			"ChunkId": "f29a23e1b325146200000001"
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/battlebackground.uasset",
+			"ChunkId": "6b368819a0b90e8700000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/Resolution_test.uasset",
@@ -739,6 +763,10 @@
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/leveluparrowdown.uasset",
 			"ChunkId": "28c7606484dbba7a00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/LevelupArrow.uasset",
+			"ChunkId": "a08d179306459a0e00000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/KristoffHealthboard.uasset",
@@ -777,10 +805,6 @@
 			"ChunkId": "6534cd5b1ff28e7d00000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/battlebackground.uasset",
-			"ChunkId": "6b368819a0b90e8700000001"
-		},
-		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Misc/battlebackground-Undine.uasset",
 			"ChunkId": "11e426f0167071ce00000001"
 		},
@@ -799,6 +823,10 @@
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/HealthBoard/Testhigherezhealthboard.uasset",
 			"ChunkId": "dd3a7f38b87223ac00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/HealthBoard/PeteHealthboard.uasset",
+			"ChunkId": "5354b381c0652f0d00000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/HealthBoard/Illustration.uasset",
@@ -837,10 +865,6 @@
 			"ChunkId": "07ebda9d021da7b700000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/UndinesPortrait.uasset",
-			"ChunkId": "79af776f3a889b5800000001"
-		},
-		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/Undines2.uasset",
 			"ChunkId": "63870dfbff38a2b900000001"
 		},
@@ -861,24 +885,108 @@
 			"ChunkId": "2fb342caf9fc264d00000001"
 		},
 		{
-			"Path": "Engine/Content/EngineSounds/Submixes/MasterEQEffectPreset.uasset",
-			"ChunkId": "7819480612024b3600000001"
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/Enemy_AnimatedWeapon.uasset",
+			"ChunkId": "18b8e16a29015d9300000001"
 		},
 		{
-			"Path": "Engine/Content/EngineSounds/Submixes/MasterReverbEffectPreset.uasset",
-			"ChunkId": "abde94c25a5272fc00000001"
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/Day267.uasset",
+			"ChunkId": "64a9d2dcbb35cbb300000001"
 		},
 		{
-			"Path": "Engine/Content/Maps/Entry_BuiltData.uasset",
-			"ChunkId": "f95ade32d57ba98c00000001"
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealthboardDesign_Seres.uasset",
+			"ChunkId": "f6f32ae3eee296b100000001"
 		},
 		{
-			"Path": "Engine/Content/BasicShapes/BasicShapeMaterial.uasset",
-			"ChunkId": "5516ce2c36f3d9ae00000001"
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealthboardDesign_Rain.uasset",
+			"ChunkId": "9cf28197034d54c700000001"
 		},
 		{
-			"Path": "Engine/Content/EngineMaterials/FlattenMaterial_WS_Normal_VT.uasset",
-			"ChunkId": "da9ef9387e6c513600000001"
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealthboardDesign_Kristoff.uasset",
+			"ChunkId": "3622356eb50027df00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealthboardDesign_Ardus.uasset",
+			"ChunkId": "d8c2b6ae571871f900000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealtboardDesign_Kain.uasset",
+			"ChunkId": "8e75b053282667ef00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Seres.uasset",
+			"ChunkId": "85a5e059672daed800000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Rain.uasset",
+			"ChunkId": "f1499e5187850fc400000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Kristoff.uasset",
+			"ChunkId": "724d5c09559a89f200000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Ardus.uasset",
+			"ChunkId": "be134441d44cd58d00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/BatteIndicators/WEAK_Indicator.uasset",
+			"ChunkId": "71503ff60913d6c900000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/WallBounce.uasset",
+			"ChunkId": "184c999dd23d2b0b00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/WallBounce.ubulk",
+			"ChunkId": "184c999dd23d2b0b00000002"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/SelectionNotNocturne.uasset",
+			"ChunkId": "c024e732542be7f100000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/SelectionNotNocturne.ubulk",
+			"ChunkId": "c024e732542be7f100000002"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Footsteps.uasset",
+			"ChunkId": "19768f09c0b0152100000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Footsteps.ubulk",
+			"ChunkId": "19768f09c0b0152100000002"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Accept.uasset",
+			"ChunkId": "7f687ff56e3ef7bf00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Accept.ubulk",
+			"ChunkId": "7f687ff56e3ef7bf00000002"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/Music/Overworld.uasset",
+			"ChunkId": "e0e12aed095bac4200000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/Music/Overworld.ubulk",
+			"ChunkId": "e0e12aed095bac4200000002"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/Music/Main_Title_Good_Copy_B.uasset",
+			"ChunkId": "d5020acc14ebca2500000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/Music/Main_Title_Good_Copy_B.ubulk",
+			"ChunkId": "d5020acc14ebca2500000002"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/Music/Encounter.uasset",
+			"ChunkId": "67f4ffafde26484f00000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Audio/Music/Encounter.ubulk",
+			"ChunkId": "67f4ffafde26484f00000002"
 		},
 		{
 			"Path": "Engine/Content/EngineMaterials/FlattenMaterial_VT.uasset",
@@ -905,108 +1013,12 @@
 			"ChunkId": "4762b775bfe4b22d00000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Audio/Music/Encounter.uasset",
-			"ChunkId": "67f4ffafde26484f00000001"
+			"Path": "Engine/Content/EngineMaterials/PhAT_JointLimitMaterial.uasset",
+			"ChunkId": "305a1ec18dd5a4be00000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Audio/Music/Encounter.ubulk",
-			"ChunkId": "67f4ffafde26484f00000002"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/fire_element_1.uasset",
-			"ChunkId": "9d70fe8bd879b47400000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/fire_element_1.ubulk",
-			"ChunkId": "9d70fe8bd879b47400000002"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/earth_element.uasset",
-			"ChunkId": "3e4bbf9ed457123700000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/earth_element.ubulk",
-			"ChunkId": "3e4bbf9ed457123700000002"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Footsteps.uasset",
-			"ChunkId": "19768f09c0b0152100000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Footsteps.ubulk",
-			"ChunkId": "19768f09c0b0152100000002"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Fireball.uasset",
-			"ChunkId": "2f7d4fce2bb55f9400000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Fireball.ubulk",
-			"ChunkId": "2f7d4fce2bb55f9400000002"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/EnemyEncounter2.uasset",
-			"ChunkId": "abf6b63e8f06155e00000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/EnemyEncounter2.ubulk",
-			"ChunkId": "abf6b63e8f06155e00000002"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Accept.uasset",
-			"ChunkId": "7f687ff56e3ef7bf00000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/SoundEffect/Accept.ubulk",
-			"ChunkId": "7f687ff56e3ef7bf00000002"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/Music/Main_Title_Good_Copy_B.uasset",
-			"ChunkId": "d5020acc14ebca2500000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/Music/Main_Title_Good_Copy_B.ubulk",
-			"ChunkId": "d5020acc14ebca2500000002"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/circle.uasset",
-			"ChunkId": "7047a60deed32f6900000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Materials/Down.uasset",
-			"ChunkId": "8cfa773be9edf88500000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Materials/AllSidesOpen-blue.uasset",
-			"ChunkId": "147ceefe53037ebf00000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealthboardDesign_Seres.uasset",
-			"ChunkId": "f6f32ae3eee296b100000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealthboardDesign_Rain.uasset",
-			"ChunkId": "9cf28197034d54c700000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealthboardDesign_Kristoff.uasset",
-			"ChunkId": "3622356eb50027df00000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealthboardDesign_Ardus.uasset",
-			"ChunkId": "d8c2b6ae571871f900000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/HealtboardDesign_Kain.uasset",
-			"ChunkId": "8e75b053282667ef00000001"
-		},
-		{
-			"Path": "Engine/Content/MobileResources/HUD/VirtualJoystick_Background.uasset",
-			"ChunkId": "c472a8877b0ae2f900000001"
-		},
-		{
-			"Path": "Engine/Content/MobileResources/HUD/VirtualJoystick_Thumb.uasset",
-			"ChunkId": "2a8ace463a029fae00000001"
+			"Path": "Engine/Plugins/Animation/ControlRig/Content/M_Manip.uasset",
+			"ChunkId": "9a5a67fa3c2b2de900000001"
 		},
 		{
 			"Path": "Engine/Plugins/2D/Paper2D/Content/DummySprite.uasset",
@@ -1015,14 +1027,6 @@
 		{
 			"Path": "Engine/Plugins/2D/Paper2D/Content/DefaultSpriteMaterial.uasset",
 			"ChunkId": "12c2c1346a8453a600000001"
-		},
-		{
-			"Path": "Engine/Content/EngineMaterials/PhAT_JointLimitMaterial.uasset",
-			"ChunkId": "305a1ec18dd5a4be00000001"
-		},
-		{
-			"Path": "Engine/Plugins/Animation/ControlRig/Content/M_Manip.uasset",
-			"ChunkId": "9a5a67fa3c2b2de900000001"
 		},
 		{
 			"Path": "Engine/Content/EngineFonts/Roboto.uasset",
@@ -1053,72 +1057,16 @@
 			"ChunkId": "6fab96d8842b418000000001"
 		},
 		{
-			"Path": "Engine/Plugins/Runtime/HairStrands/Content/Materials/HairDebugMaterial.uasset",
-			"ChunkId": "3889933e64b3022c00000001"
+			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/fire_element_2.uasset",
+			"ChunkId": "69aecdca4a128a0300000001"
 		},
 		{
-			"Path": "Engine/Content/EngineSky/VolumetricClouds/m_SimpleVolumetricCloud.uasset",
-			"ChunkId": "497b4263fbd333c800000001"
+			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/fire_element_2.ubulk",
+			"ChunkId": "69aecdca4a128a0300000002"
 		},
 		{
-			"Path": "Engine/Content/EngineMaterials/DefaultPostProcessMaterial.uasset",
-			"ChunkId": "6c3a98c4aa151a5300000001"
-		},
-		{
-			"Path": "Engine/Content/EngineMaterials/DefaultDeferredDecalMaterial.uasset",
-			"ChunkId": "ef400c1f3fd91f2a00000001"
-		},
-		{
-			"Path": "Engine/Content/EngineMaterials/DefaultMaterial.uasset",
-			"ChunkId": "b4d3126ba7954ec000000001"
-		},
-		{
-			"Path": "Engine/Content/EngineMaterials/WorldGridMaterial.uasset",
-			"ChunkId": "eeb296b2a739309500000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/Music/Overworld.uasset",
-			"ChunkId": "e0e12aed095bac4200000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Audio/Music/Overworld.ubulk",
-			"ChunkId": "e0e12aed095bac4200000002"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/BatteIndicators/DEFENSE_UP_Indicator.uasset",
-			"ChunkId": "9c99a69435f80d4600000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/Enemy_AnimatedWeapon.uasset",
-			"ChunkId": "18b8e16a29015d9300000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/EnemyTextures/Day267.uasset",
-			"ChunkId": "64a9d2dcbb35cbb300000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Seres.uasset",
-			"ChunkId": "85a5e059672daed800000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Rain.uasset",
-			"ChunkId": "f1499e5187850fc400000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Kristoff.uasset",
-			"ChunkId": "724d5c09559a89f200000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Kain.uasset",
-			"ChunkId": "d4b109f410ab281900000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Ardus.uasset",
-			"ChunkId": "be134441d44cd58d00000001"
-		},
-		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/BatteIndicators/WEAK_Indicator.uasset",
-			"ChunkId": "71503ff60913d6c900000001"
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/BatteIndicators/ATTACK_DOWN_INDICATOR.uasset",
+			"ChunkId": "2079f5ae2aba477e00000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/BatteIndicators/STRONG_Indicator.uasset",
@@ -1133,12 +1081,12 @@
 			"ChunkId": "05c82efe944be42a00000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/BatteIndicators/ATTACK_UP_Indicator.uasset",
-			"ChunkId": "e0716ff9935497b500000001"
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/BatteIndicators/DEFENSE_UP_Indicator.uasset",
+			"ChunkId": "9c99a69435f80d4600000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/BatteIndicators/ATTACK_DOWN_INDICATOR.uasset",
-			"ChunkId": "2079f5ae2aba477e00000001"
+			"Path": "DesentIntoAtlantis/Content/Ui/uiTextures/BatteIndicators/ATTACK_UP_Indicator.uasset",
+			"ChunkId": "e0716ff9935497b500000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Materials/Turn_Face_Enemy.uasset",
@@ -1147,6 +1095,14 @@
 		{
 			"Path": "DesentIntoAtlantis/Content/Materials/Tile.uasset",
 			"ChunkId": "e569bf46f0c9c61600000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Materials/Down.uasset",
+			"ChunkId": "8cfa773be9edf88500000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Materials/AllSidesOpen-blue.uasset",
+			"ChunkId": "147ceefe53037ebf00000001"
 		},
 		{
 			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/wind_element.uasset",
@@ -1205,20 +1161,24 @@
 			"ChunkId": "5b4eccf655d0f0b800000002"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/ice_element.uasset",
-			"ChunkId": "910038e8fa220ef900000001"
+			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/fire_element_1.uasset",
+			"ChunkId": "9d70fe8bd879b47400000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/ice_element.ubulk",
-			"ChunkId": "910038e8fa220ef900000002"
+			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/fire_element_1.ubulk",
+			"ChunkId": "9d70fe8bd879b47400000002"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/fire_element_2.uasset",
-			"ChunkId": "69aecdca4a128a0300000001"
+			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/earth_element.uasset",
+			"ChunkId": "3e4bbf9ed457123700000001"
 		},
 		{
-			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/fire_element_2.ubulk",
-			"ChunkId": "69aecdca4a128a0300000002"
+			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/earth_element.ubulk",
+			"ChunkId": "3e4bbf9ed457123700000002"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/circle.uasset",
+			"ChunkId": "7047a60deed32f6900000001"
 		},
 		{
 			"Path": "Engine/Content/EngineMaterials/DefaultCalibrationGrayscale.uasset",
@@ -1229,12 +1189,52 @@
 			"ChunkId": "c8548e53bc64ae9400000001"
 		},
 		{
+			"Path": "Engine/Content/MobileResources/HUD/VirtualJoystick_Background.uasset",
+			"ChunkId": "c472a8877b0ae2f900000001"
+		},
+		{
+			"Path": "Engine/Content/MobileResources/HUD/VirtualJoystick_Thumb.uasset",
+			"ChunkId": "2a8ace463a029fae00000001"
+		},
+		{
 			"Path": "Engine/Content/EditorMaterials/PreviewShadowIndicator.uasset",
 			"ChunkId": "2d5d52b0905803e600000001"
 		},
 		{
 			"Path": "Engine/Content/EditorMaterials/PreviewShadowIndicator.ubulk",
 			"ChunkId": "2d5d52b0905803e600000002"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/ice_element.uasset",
+			"ChunkId": "910038e8fa220ef900000001"
+		},
+		{
+			"Path": "DesentIntoAtlantis/Content/Datatables/Icons/ice_element.ubulk",
+			"ChunkId": "910038e8fa220ef900000002"
+		},
+		{
+			"Path": "Engine/Plugins/Runtime/HairStrands/Content/Materials/HairDebugMaterial.uasset",
+			"ChunkId": "3889933e64b3022c00000001"
+		},
+		{
+			"Path": "Engine/Content/EngineSky/VolumetricClouds/m_SimpleVolumetricCloud.uasset",
+			"ChunkId": "497b4263fbd333c800000001"
+		},
+		{
+			"Path": "Engine/Content/EngineMaterials/DefaultPostProcessMaterial.uasset",
+			"ChunkId": "6c3a98c4aa151a5300000001"
+		},
+		{
+			"Path": "Engine/Content/EngineMaterials/DefaultDeferredDecalMaterial.uasset",
+			"ChunkId": "ef400c1f3fd91f2a00000001"
+		},
+		{
+			"Path": "Engine/Content/EngineMaterials/DefaultMaterial.uasset",
+			"ChunkId": "b4d3126ba7954ec000000001"
+		},
+		{
+			"Path": "Engine/Content/EngineMaterials/WorldGridMaterial.uasset",
+			"ChunkId": "eeb296b2a739309500000001"
 		},
 		{
 			"Path": "Engine/Content/EngineMaterials/DefaultTextMaterialOpaque.uasset",
@@ -2073,14 +2073,6 @@
 			"ChunkId": "e21ddbf85577df6700000001"
 		},
 		{
-			"Path": "Engine/Content/EditorResources/EmptyActor.uasset",
-			"ChunkId": "cb90c94586b3228900000001"
-		},
-		{
-			"Path": "Engine/Content/EngineSky/M_Sky_Panning_Clouds2.uasset",
-			"ChunkId": "6098725f85292e1b00000001"
-		},
-		{
 			"Path": "Engine/Content/EngineSky/SM_SkySphere.uasset",
 			"ChunkId": "48df828be219f7ad00000001"
 		},
@@ -2089,16 +2081,24 @@
 			"ChunkId": "48df828be219f7ad00000002"
 		},
 		{
+			"Path": "Engine/Content/EngineSky/M_Sky_Panning_Clouds2.uasset",
+			"ChunkId": "6098725f85292e1b00000001"
+		},
+		{
 			"Path": "Engine/Content/EngineSky/M_SimpleSkyDome.uasset",
 			"ChunkId": "e61c20398c40eda200000001"
 		},
 		{
-			"Path": "Engine/Content/EngineSky/T_Sky_Clouds_M.uasset",
-			"ChunkId": "927b2fe4876a1f7400000001"
+			"Path": "Engine/Content/EngineSky/T_Sky_Stars.uasset",
+			"ChunkId": "56d51199b9b2142a00000001"
 		},
 		{
-			"Path": "Engine/Content/EngineSky/T_Sky_Clouds_M.ubulk",
-			"ChunkId": "927b2fe4876a1f7400000002"
+			"Path": "Engine/Content/EngineSky/T_Sky_Stars.ubulk",
+			"ChunkId": "56d51199b9b2142a00000002"
+		},
+		{
+			"Path": "Engine/Content/EditorResources/EmptyActor.uasset",
+			"ChunkId": "cb90c94586b3228900000001"
 		},
 		{
 			"Path": "Engine/Content/EngineSky/T_Sky_Blue.uasset",
@@ -2109,12 +2109,12 @@
 			"ChunkId": "86737b633647e77300000002"
 		},
 		{
-			"Path": "Engine/Content/EngineSky/T_Sky_Stars.uasset",
-			"ChunkId": "56d51199b9b2142a00000001"
+			"Path": "Engine/Content/EngineSky/T_Sky_Clouds_M.uasset",
+			"ChunkId": "927b2fe4876a1f7400000001"
 		},
 		{
-			"Path": "Engine/Content/EngineSky/T_Sky_Stars.ubulk",
-			"ChunkId": "56d51199b9b2142a00000002"
+			"Path": "Engine/Content/EngineSky/T_Sky_Clouds_M.ubulk",
+			"ChunkId": "927b2fe4876a1f7400000002"
 		}
 	],
 	"Packages": [
@@ -2493,6 +2493,10 @@
 			"PackageChunkId": "474711309ee6ba8900000001"
 		},
 		{
+			"Name": "/Engine/EditorMaterials/MatineeGroups/MAT_Groups_Sound",
+			"PackageChunkId": "85cfc579099524d700000001"
+		},
+		{
 			"Name": "/Engine/EngineMeshes/Sphere",
 			"PackageChunkId": "f421d8f857b9ed0300000001",
 			"BulkDataChunkIds": [
@@ -2500,20 +2504,37 @@
 			]
 		},
 		{
-			"Name": "/Engine/EditorMaterials/MatineeGroups/MAT_Groups_Float",
-			"PackageChunkId": "a69bcbb54afb7d4300000001"
+			"Name": "/Engine/EditorResources/S_BoxReflectionCapture",
+			"PackageChunkId": "ff5a26a059754af200000001"
 		},
 		{
-			"Name": "/Engine/EngineResources/Black",
-			"PackageChunkId": "cda0cf6115260c9400000001"
+			"Name": "/Engine/EditorResources/S_Actor",
+			"PackageChunkId": "bd472f8cbf5f723d00000001",
+			"BulkDataChunkIds": [
+				"bd472f8cbf5f723d00000002"
+			]
 		},
 		{
-			"Name": "/Engine/EngineResources/DefaultVolumeTexture",
-			"PackageChunkId": "e6291a81a77661e900000001"
+			"Name": "/Engine/EditorMaterials/MatineeGroups/MAT_Groups_Move",
+			"PackageChunkId": "100a686260435bc000000001"
 		},
 		{
-			"Name": "/Engine/EngineResources/DefaultTextureCube",
-			"PackageChunkId": "3e6f2bc6739d380300000001"
+			"Name": "/Engine/EditorMaterials/MatineeGroups/MAT_Groups_Event",
+			"PackageChunkId": "b82834f1c5d5064600000001"
+		},
+		{
+			"Name": "/Engine/EngineMaterials/DefaultDiffuse",
+			"PackageChunkId": "7539f12095a3f0d100000001",
+			"BulkDataChunkIds": [
+				"7539f12095a3f0d100000002"
+			]
+		},
+		{
+			"Name": "/Engine/EngineMaterials/T_Default_Material_Grid_N",
+			"PackageChunkId": "7a7173cfb4095b9f00000001",
+			"BulkDataChunkIds": [
+				"7a7173cfb4095b9f00000002"
+			]
 		},
 		{
 			"Name": "/Engine/EngineSky/VolumetricClouds/CloudGradientTexture",
@@ -2598,20 +2619,6 @@
 			]
 		},
 		{
-			"Name": "/Engine/EngineMaterials/DefaultDiffuse",
-			"PackageChunkId": "7539f12095a3f0d100000001",
-			"BulkDataChunkIds": [
-				"7539f12095a3f0d100000002"
-			]
-		},
-		{
-			"Name": "/Engine/EngineMaterials/T_Default_Material_Grid_N",
-			"PackageChunkId": "7a7173cfb4095b9f00000001",
-			"BulkDataChunkIds": [
-				"7a7173cfb4095b9f00000002"
-			]
-		},
-		{
 			"Name": "/Engine/EngineMaterials/T_Default_Material_Grid_M",
 			"PackageChunkId": "b743bdd5e5df72a400000001",
 			"BulkDataChunkIds": [
@@ -2625,6 +2632,14 @@
 		{
 			"Name": "/Engine/EngineResources/DefaultVolumeTexture2D",
 			"PackageChunkId": "6c54e7f6d4ea912200000001"
+		},
+		{
+			"Name": "/Engine/EngineResources/DefaultVolumeTexture",
+			"PackageChunkId": "e6291a81a77661e900000001"
+		},
+		{
+			"Name": "/Engine/EngineResources/DefaultTextureCube",
+			"PackageChunkId": "3e6f2bc6739d380300000001"
 		},
 		{
 			"Name": "/Engine/EngineResources/DefaultTexture",
@@ -2646,20 +2661,8 @@
 			"PackageChunkId": "c88f4734102acff000000001"
 		},
 		{
-			"Name": "/Engine/EditorMaterials/MatineeGroups/MAT_Groups_Sound",
-			"PackageChunkId": "85cfc579099524d700000001"
-		},
-		{
 			"Name": "/Engine/EditorMaterials/MatineeGroups/MAT_Groups_Slomo",
 			"PackageChunkId": "3971ec1ba77895c500000001"
-		},
-		{
-			"Name": "/Engine/EditorMaterials/MatineeGroups/MAT_Groups_Move",
-			"PackageChunkId": "100a686260435bc000000001"
-		},
-		{
-			"Name": "/Engine/EditorMaterials/MatineeGroups/MAT_Groups_Event",
-			"PackageChunkId": "b82834f1c5d5064600000001"
 		},
 		{
 			"Name": "/Engine/EditorMaterials/MatineeGroups/MAT_Groups_Director",
@@ -2682,6 +2685,22 @@
 			"PackageChunkId": "9148ba92525e0ece00000001"
 		},
 		{
+			"Name": "/Engine/EditorMaterials/MatineeGroups/MAT_Groups_Float",
+			"PackageChunkId": "a69bcbb54afb7d4300000001"
+		},
+		{
+			"Name": "/Engine/EngineResources/Black",
+			"PackageChunkId": "cda0cf6115260c9400000001"
+		},
+		{
+			"Name": "/Engine/EngineResources/GradientTexture0",
+			"PackageChunkId": "f87a01e7b138538a00000001"
+		},
+		{
+			"Name": "/Engine/EngineResources/WhiteSquareTexture",
+			"PackageChunkId": "b85ee5fd59f4dd2000000001"
+		},
+		{
 			"Name": "/Game/__ExternalObjects__/Map/Floor1/E/IC/7WJIEB8PQRAE293KLAGOM4",
 			"PackageChunkId": "000000000000000000000000"
 		},
@@ -2700,6 +2719,42 @@
 		{
 			"Name": "/Game/__ExternalObjects__/Map/Floor1/8/RX/2VO6SKTSM9MD2MNA40YMF0",
 			"PackageChunkId": "000000000000000000000000"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Misc/SkillpanelHighlight",
+			"PackageChunkId": "ed95c50fdfa183f300000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Misc/Skillpanel5",
+			"PackageChunkId": "03c6783f1bdc66d300000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Misc/Turn_Face_Enemy",
+			"PackageChunkId": "23e5e8060ab071f100000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Misc/Turn_Face_Ally",
+			"PackageChunkId": "8d64dba85f3d6c2c00000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Misc/Title_Menu",
+			"PackageChunkId": "a64481c0b80c8cb200000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Misc/Titlecard",
+			"PackageChunkId": "5fa057107001d56d00000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Misc/Texture_Baragor",
+			"PackageChunkId": "5b3e82cf862647cc00000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Misc/Sword",
+			"PackageChunkId": "c0973af4cb2ae38700000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Misc/Solid_black",
+			"PackageChunkId": "f29a23e1b325146200000001"
 		},
 		{
 			"Name": "/Game/Ui/BP_TurnCounter",
@@ -2789,81 +2844,50 @@
 			"PackageChunkId": "72ff6427f1042ed200000001"
 		},
 		{
-			"Name": "/Game/Audio/SoundEffect/WallBounce",
-			"PackageChunkId": "184c999dd23d2b0b00000001",
+			"Name": "/Engine/EngineSounds/Submixes/MasterEQEffectPreset",
+			"PackageChunkId": "7819480612024b3600000001"
+		},
+		{
+			"Name": "/Engine/EngineSounds/Submixes/MasterReverbEffectPreset",
+			"PackageChunkId": "abde94c25a5272fc00000001"
+		},
+		{
+			"Name": "/Engine/Maps/Entry_BuiltData",
+			"PackageChunkId": "f95ade32d57ba98c00000001"
+		},
+		{
+			"Name": "/Engine/BasicShapes/BasicShapeMaterial",
+			"PackageChunkId": "5516ce2c36f3d9ae00000001"
+		},
+		{
+			"Name": "/Engine/EngineMaterials/FlattenMaterial_WS_Normal_VT",
+			"PackageChunkId": "da9ef9387e6c513600000001"
+		},
+		{
+			"Name": "/Game/Audio/SoundEffect/Fireball",
+			"PackageChunkId": "2f7d4fce2bb55f9400000001",
 			"BulkDataChunkIds": [
-				"184c999dd23d2b0b00000002"
+				"2f7d4fce2bb55f9400000002"
 			]
 		},
 		{
-			"Name": "/Game/Audio/SoundEffect/SelectionNotNocturne",
-			"PackageChunkId": "c024e732542be7f100000001",
+			"Name": "/Game/Audio/SoundEffect/EnemyEncounter2",
+			"PackageChunkId": "abf6b63e8f06155e00000001",
 			"BulkDataChunkIds": [
-				"c024e732542be7f100000002"
+				"abf6b63e8f06155e00000002"
 			]
 		},
 		{
-			"Name": "/Game/Ui/uiTextures/HealthBoard/PeteHealthboard",
-			"PackageChunkId": "5354b381c0652f0d00000001"
+			"Name": "/Game/Ui/uiTextures/Characters/Commandboard_Portriat_Kain",
+			"PackageChunkId": "d4b109f410ab281900000001"
 		},
 		{
-			"Name": "/Game/Ui/uiTextures/Misc/LevelupArrow",
-			"PackageChunkId": "a08d179306459a0e00000001"
+			"Name": "/Game/Ui/uiTextures/EnemyTextures/UndinesPortrait",
+			"PackageChunkId": "79af776f3a889b5800000001"
 		},
 		{
-			"Name": "/Game/Ui/uiTextures/Misc/SkillpanelHighlight",
-			"PackageChunkId": "ed95c50fdfa183f300000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Misc/Skillpanel5",
-			"PackageChunkId": "03c6783f1bdc66d300000001"
-		},
-		{
-			"Name": "/Engine/EngineResources/GradientTexture0",
-			"PackageChunkId": "f87a01e7b138538a00000001"
-		},
-		{
-			"Name": "/Engine/EngineResources/WhiteSquareTexture",
-			"PackageChunkId": "b85ee5fd59f4dd2000000001"
-		},
-		{
-			"Name": "/Engine/EditorResources/S_BoxReflectionCapture",
-			"PackageChunkId": "ff5a26a059754af200000001"
-		},
-		{
-			"Name": "/Engine/EditorResources/S_Actor",
-			"PackageChunkId": "bd472f8cbf5f723d00000001",
-			"BulkDataChunkIds": [
-				"bd472f8cbf5f723d00000002"
-			]
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Misc/Turn_Face_Enemy",
-			"PackageChunkId": "23e5e8060ab071f100000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Misc/Turn_Face_Ally",
-			"PackageChunkId": "8d64dba85f3d6c2c00000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Misc/Title_Menu",
-			"PackageChunkId": "a64481c0b80c8cb200000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Misc/Titlecard",
-			"PackageChunkId": "5fa057107001d56d00000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Misc/Texture_Baragor",
-			"PackageChunkId": "5b3e82cf862647cc00000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Misc/Sword",
-			"PackageChunkId": "c0973af4cb2ae38700000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Misc/Solid_black",
-			"PackageChunkId": "f29a23e1b325146200000001"
+			"Name": "/Game/Ui/uiTextures/Misc/battlebackground",
+			"PackageChunkId": "6b368819a0b90e8700000001"
 		},
 		{
 			"Name": "/Game/Ui/uiTextures/Misc/Resolution_test",
@@ -2884,6 +2908,10 @@
 		{
 			"Name": "/Game/Ui/uiTextures/Misc/leveluparrowdown",
 			"PackageChunkId": "28c7606484dbba7a00000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Misc/LevelupArrow",
+			"PackageChunkId": "a08d179306459a0e00000001"
 		},
 		{
 			"Name": "/Game/Ui/uiTextures/Misc/KristoffHealthboard",
@@ -2922,10 +2950,6 @@
 			"PackageChunkId": "6534cd5b1ff28e7d00000001"
 		},
 		{
-			"Name": "/Game/Ui/uiTextures/Misc/battlebackground",
-			"PackageChunkId": "6b368819a0b90e8700000001"
-		},
-		{
 			"Name": "/Game/Ui/uiTextures/Misc/battlebackground-Undine",
 			"PackageChunkId": "11e426f0167071ce00000001"
 		},
@@ -2944,6 +2968,10 @@
 		{
 			"Name": "/Game/Ui/uiTextures/HealthBoard/Testhigherezhealthboard",
 			"PackageChunkId": "dd3a7f38b87223ac00000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/HealthBoard/PeteHealthboard",
+			"PackageChunkId": "5354b381c0652f0d00000001"
 		},
 		{
 			"Name": "/Game/Ui/uiTextures/HealthBoard/Illustration",
@@ -2982,10 +3010,6 @@
 			"PackageChunkId": "07ebda9d021da7b700000001"
 		},
 		{
-			"Name": "/Game/Ui/uiTextures/EnemyTextures/UndinesPortrait",
-			"PackageChunkId": "79af776f3a889b5800000001"
-		},
-		{
 			"Name": "/Game/Ui/uiTextures/EnemyTextures/Undines2",
 			"PackageChunkId": "63870dfbff38a2b900000001"
 		},
@@ -3006,24 +3030,101 @@
 			"PackageChunkId": "2fb342caf9fc264d00000001"
 		},
 		{
-			"Name": "/Engine/EngineSounds/Submixes/MasterEQEffectPreset",
-			"PackageChunkId": "7819480612024b3600000001"
+			"Name": "/Game/Ui/uiTextures/EnemyTextures/Enemy_AnimatedWeapon",
+			"PackageChunkId": "18b8e16a29015d9300000001"
 		},
 		{
-			"Name": "/Engine/EngineSounds/Submixes/MasterReverbEffectPreset",
-			"PackageChunkId": "abde94c25a5272fc00000001"
+			"Name": "/Game/Ui/uiTextures/EnemyTextures/Day267",
+			"PackageChunkId": "64a9d2dcbb35cbb300000001"
 		},
 		{
-			"Name": "/Engine/Maps/Entry_BuiltData",
-			"PackageChunkId": "f95ade32d57ba98c00000001"
+			"Name": "/Game/Ui/uiTextures/Characters/HealthboardDesign_Seres",
+			"PackageChunkId": "f6f32ae3eee296b100000001"
 		},
 		{
-			"Name": "/Engine/BasicShapes/BasicShapeMaterial",
-			"PackageChunkId": "5516ce2c36f3d9ae00000001"
+			"Name": "/Game/Ui/uiTextures/Characters/HealthboardDesign_Rain",
+			"PackageChunkId": "9cf28197034d54c700000001"
 		},
 		{
-			"Name": "/Engine/EngineMaterials/FlattenMaterial_WS_Normal_VT",
-			"PackageChunkId": "da9ef9387e6c513600000001"
+			"Name": "/Game/Ui/uiTextures/Characters/HealthboardDesign_Kristoff",
+			"PackageChunkId": "3622356eb50027df00000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Characters/HealthboardDesign_Ardus",
+			"PackageChunkId": "d8c2b6ae571871f900000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Characters/HealtboardDesign_Kain",
+			"PackageChunkId": "8e75b053282667ef00000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Characters/Commandboard_Portriat_Seres",
+			"PackageChunkId": "85a5e059672daed800000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Characters/Commandboard_Portriat_Rain",
+			"PackageChunkId": "f1499e5187850fc400000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Characters/Commandboard_Portriat_Kristoff",
+			"PackageChunkId": "724d5c09559a89f200000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/Characters/Commandboard_Portriat_Ardus",
+			"PackageChunkId": "be134441d44cd58d00000001"
+		},
+		{
+			"Name": "/Game/Ui/uiTextures/BatteIndicators/WEAK_Indicator",
+			"PackageChunkId": "71503ff60913d6c900000001"
+		},
+		{
+			"Name": "/Game/Audio/SoundEffect/WallBounce",
+			"PackageChunkId": "184c999dd23d2b0b00000001",
+			"BulkDataChunkIds": [
+				"184c999dd23d2b0b00000002"
+			]
+		},
+		{
+			"Name": "/Game/Audio/SoundEffect/SelectionNotNocturne",
+			"PackageChunkId": "c024e732542be7f100000001",
+			"BulkDataChunkIds": [
+				"c024e732542be7f100000002"
+			]
+		},
+		{
+			"Name": "/Game/Audio/SoundEffect/Footsteps",
+			"PackageChunkId": "19768f09c0b0152100000001",
+			"BulkDataChunkIds": [
+				"19768f09c0b0152100000002"
+			]
+		},
+		{
+			"Name": "/Game/Audio/SoundEffect/Accept",
+			"PackageChunkId": "7f687ff56e3ef7bf00000001",
+			"BulkDataChunkIds": [
+				"7f687ff56e3ef7bf00000002"
+			]
+		},
+		{
+			"Name": "/Game/Audio/Music/Overworld",
+			"PackageChunkId": "e0e12aed095bac4200000001",
+			"BulkDataChunkIds": [
+				"e0e12aed095bac4200000002"
+			]
+		},
+		{
+			"Name": "/Game/Audio/Music/Main_Title_Good_Copy_B",
+			"PackageChunkId": "d5020acc14ebca2500000001",
+			"BulkDataChunkIds": [
+				"d5020acc14ebca2500000002"
+			]
+		},
+		{
+			"Name": "/Game/Audio/Music/Encounter",
+			"PackageChunkId": "67f4ffafde26484f00000001",
+			"BulkDataChunkIds": [
+				"67f4ffafde26484f00000002"
+			]
 		},
 		{
 			"Name": "/Engine/EngineMaterials/FlattenMaterial_VT",
@@ -3050,100 +3151,12 @@
 			"PackageChunkId": "4762b775bfe4b22d00000001"
 		},
 		{
-			"Name": "/Game/Audio/Music/Encounter",
-			"PackageChunkId": "67f4ffafde26484f00000001",
-			"BulkDataChunkIds": [
-				"67f4ffafde26484f00000002"
-			]
+			"Name": "/Engine/EngineMaterials/PhAT_JointLimitMaterial",
+			"PackageChunkId": "305a1ec18dd5a4be00000001"
 		},
 		{
-			"Name": "/Game/Datatables/Icons/fire_element_1",
-			"PackageChunkId": "9d70fe8bd879b47400000001",
-			"BulkDataChunkIds": [
-				"9d70fe8bd879b47400000002"
-			]
-		},
-		{
-			"Name": "/Game/Datatables/Icons/earth_element",
-			"PackageChunkId": "3e4bbf9ed457123700000001",
-			"BulkDataChunkIds": [
-				"3e4bbf9ed457123700000002"
-			]
-		},
-		{
-			"Name": "/Game/Audio/SoundEffect/Footsteps",
-			"PackageChunkId": "19768f09c0b0152100000001",
-			"BulkDataChunkIds": [
-				"19768f09c0b0152100000002"
-			]
-		},
-		{
-			"Name": "/Game/Audio/SoundEffect/Fireball",
-			"PackageChunkId": "2f7d4fce2bb55f9400000001",
-			"BulkDataChunkIds": [
-				"2f7d4fce2bb55f9400000002"
-			]
-		},
-		{
-			"Name": "/Game/Audio/SoundEffect/EnemyEncounter2",
-			"PackageChunkId": "abf6b63e8f06155e00000001",
-			"BulkDataChunkIds": [
-				"abf6b63e8f06155e00000002"
-			]
-		},
-		{
-			"Name": "/Game/Audio/SoundEffect/Accept",
-			"PackageChunkId": "7f687ff56e3ef7bf00000001",
-			"BulkDataChunkIds": [
-				"7f687ff56e3ef7bf00000002"
-			]
-		},
-		{
-			"Name": "/Game/Audio/Music/Main_Title_Good_Copy_B",
-			"PackageChunkId": "d5020acc14ebca2500000001",
-			"BulkDataChunkIds": [
-				"d5020acc14ebca2500000002"
-			]
-		},
-		{
-			"Name": "/Game/Datatables/Icons/circle",
-			"PackageChunkId": "7047a60deed32f6900000001"
-		},
-		{
-			"Name": "/Game/Materials/Down",
-			"PackageChunkId": "8cfa773be9edf88500000001"
-		},
-		{
-			"Name": "/Game/Materials/AllSidesOpen-blue",
-			"PackageChunkId": "147ceefe53037ebf00000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Characters/HealthboardDesign_Seres",
-			"PackageChunkId": "f6f32ae3eee296b100000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Characters/HealthboardDesign_Rain",
-			"PackageChunkId": "9cf28197034d54c700000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Characters/HealthboardDesign_Kristoff",
-			"PackageChunkId": "3622356eb50027df00000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Characters/HealthboardDesign_Ardus",
-			"PackageChunkId": "d8c2b6ae571871f900000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Characters/HealtboardDesign_Kain",
-			"PackageChunkId": "8e75b053282667ef00000001"
-		},
-		{
-			"Name": "/Engine/MobileResources/HUD/VirtualJoystick_Background",
-			"PackageChunkId": "c472a8877b0ae2f900000001"
-		},
-		{
-			"Name": "/Engine/MobileResources/HUD/VirtualJoystick_Thumb",
-			"PackageChunkId": "2a8ace463a029fae00000001"
+			"Name": "/ControlRig/M_Manip",
+			"PackageChunkId": "9a5a67fa3c2b2de900000001"
 		},
 		{
 			"Name": "/Paper2D/DummySprite",
@@ -3152,14 +3165,6 @@
 		{
 			"Name": "/Paper2D/DefaultSpriteMaterial",
 			"PackageChunkId": "12c2c1346a8453a600000001"
-		},
-		{
-			"Name": "/Engine/EngineMaterials/PhAT_JointLimitMaterial",
-			"PackageChunkId": "305a1ec18dd5a4be00000001"
-		},
-		{
-			"Name": "/ControlRig/M_Manip",
-			"PackageChunkId": "9a5a67fa3c2b2de900000001"
 		},
 		{
 			"Name": "/Engine/EngineFonts/Roboto",
@@ -3189,71 +3194,15 @@
 			"PackageChunkId": "6fab96d8842b418000000001"
 		},
 		{
-			"Name": "/HairStrands/Materials/HairDebugMaterial",
-			"PackageChunkId": "3889933e64b3022c00000001"
-		},
-		{
-			"Name": "/Engine/EngineSky/VolumetricClouds/m_SimpleVolumetricCloud",
-			"PackageChunkId": "497b4263fbd333c800000001"
-		},
-		{
-			"Name": "/Engine/EngineMaterials/DefaultPostProcessMaterial",
-			"PackageChunkId": "6c3a98c4aa151a5300000001"
-		},
-		{
-			"Name": "/Engine/EngineMaterials/DefaultDeferredDecalMaterial",
-			"PackageChunkId": "ef400c1f3fd91f2a00000001"
-		},
-		{
-			"Name": "/Engine/EngineMaterials/DefaultMaterial",
-			"PackageChunkId": "b4d3126ba7954ec000000001"
-		},
-		{
-			"Name": "/Engine/EngineMaterials/WorldGridMaterial",
-			"PackageChunkId": "eeb296b2a739309500000001"
-		},
-		{
-			"Name": "/Game/Audio/Music/Overworld",
-			"PackageChunkId": "e0e12aed095bac4200000001",
+			"Name": "/Game/Datatables/Icons/fire_element_2",
+			"PackageChunkId": "69aecdca4a128a0300000001",
 			"BulkDataChunkIds": [
-				"e0e12aed095bac4200000002"
+				"69aecdca4a128a0300000002"
 			]
 		},
 		{
-			"Name": "/Game/Ui/uiTextures/BatteIndicators/DEFENSE_UP_Indicator",
-			"PackageChunkId": "9c99a69435f80d4600000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/EnemyTextures/Enemy_AnimatedWeapon",
-			"PackageChunkId": "18b8e16a29015d9300000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/EnemyTextures/Day267",
-			"PackageChunkId": "64a9d2dcbb35cbb300000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Characters/Commandboard_Portriat_Seres",
-			"PackageChunkId": "85a5e059672daed800000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Characters/Commandboard_Portriat_Rain",
-			"PackageChunkId": "f1499e5187850fc400000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Characters/Commandboard_Portriat_Kristoff",
-			"PackageChunkId": "724d5c09559a89f200000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Characters/Commandboard_Portriat_Kain",
-			"PackageChunkId": "d4b109f410ab281900000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/Characters/Commandboard_Portriat_Ardus",
-			"PackageChunkId": "be134441d44cd58d00000001"
-		},
-		{
-			"Name": "/Game/Ui/uiTextures/BatteIndicators/WEAK_Indicator",
-			"PackageChunkId": "71503ff60913d6c900000001"
+			"Name": "/Game/Ui/uiTextures/BatteIndicators/ATTACK_DOWN_INDICATOR",
+			"PackageChunkId": "2079f5ae2aba477e00000001"
 		},
 		{
 			"Name": "/Game/Ui/uiTextures/BatteIndicators/STRONG_Indicator",
@@ -3268,12 +3217,12 @@
 			"PackageChunkId": "05c82efe944be42a00000001"
 		},
 		{
-			"Name": "/Game/Ui/uiTextures/BatteIndicators/ATTACK_UP_Indicator",
-			"PackageChunkId": "e0716ff9935497b500000001"
+			"Name": "/Game/Ui/uiTextures/BatteIndicators/DEFENSE_UP_Indicator",
+			"PackageChunkId": "9c99a69435f80d4600000001"
 		},
 		{
-			"Name": "/Game/Ui/uiTextures/BatteIndicators/ATTACK_DOWN_INDICATOR",
-			"PackageChunkId": "2079f5ae2aba477e00000001"
+			"Name": "/Game/Ui/uiTextures/BatteIndicators/ATTACK_UP_Indicator",
+			"PackageChunkId": "e0716ff9935497b500000001"
 		},
 		{
 			"Name": "/Game/Materials/Turn_Face_Enemy",
@@ -3282,6 +3231,14 @@
 		{
 			"Name": "/Game/Materials/Tile",
 			"PackageChunkId": "e569bf46f0c9c61600000001"
+		},
+		{
+			"Name": "/Game/Materials/Down",
+			"PackageChunkId": "8cfa773be9edf88500000001"
+		},
+		{
+			"Name": "/Game/Materials/AllSidesOpen-blue",
+			"PackageChunkId": "147ceefe53037ebf00000001"
 		},
 		{
 			"Name": "/Game/Datatables/Icons/wind_element",
@@ -3333,18 +3290,22 @@
 			]
 		},
 		{
-			"Name": "/Game/Datatables/Icons/ice_element",
-			"PackageChunkId": "910038e8fa220ef900000001",
+			"Name": "/Game/Datatables/Icons/fire_element_1",
+			"PackageChunkId": "9d70fe8bd879b47400000001",
 			"BulkDataChunkIds": [
-				"910038e8fa220ef900000002"
+				"9d70fe8bd879b47400000002"
 			]
 		},
 		{
-			"Name": "/Game/Datatables/Icons/fire_element_2",
-			"PackageChunkId": "69aecdca4a128a0300000001",
+			"Name": "/Game/Datatables/Icons/earth_element",
+			"PackageChunkId": "3e4bbf9ed457123700000001",
 			"BulkDataChunkIds": [
-				"69aecdca4a128a0300000002"
+				"3e4bbf9ed457123700000002"
 			]
+		},
+		{
+			"Name": "/Game/Datatables/Icons/circle",
+			"PackageChunkId": "7047a60deed32f6900000001"
 		},
 		{
 			"Name": "/Engine/EngineMaterials/DefaultCalibrationGrayscale",
@@ -3355,11 +3316,50 @@
 			"PackageChunkId": "c8548e53bc64ae9400000001"
 		},
 		{
+			"Name": "/Engine/MobileResources/HUD/VirtualJoystick_Background",
+			"PackageChunkId": "c472a8877b0ae2f900000001"
+		},
+		{
+			"Name": "/Engine/MobileResources/HUD/VirtualJoystick_Thumb",
+			"PackageChunkId": "2a8ace463a029fae00000001"
+		},
+		{
 			"Name": "/Engine/EditorMaterials/PreviewShadowIndicator",
 			"PackageChunkId": "2d5d52b0905803e600000001",
 			"BulkDataChunkIds": [
 				"2d5d52b0905803e600000002"
 			]
+		},
+		{
+			"Name": "/Game/Datatables/Icons/ice_element",
+			"PackageChunkId": "910038e8fa220ef900000001",
+			"BulkDataChunkIds": [
+				"910038e8fa220ef900000002"
+			]
+		},
+		{
+			"Name": "/HairStrands/Materials/HairDebugMaterial",
+			"PackageChunkId": "3889933e64b3022c00000001"
+		},
+		{
+			"Name": "/Engine/EngineSky/VolumetricClouds/m_SimpleVolumetricCloud",
+			"PackageChunkId": "497b4263fbd333c800000001"
+		},
+		{
+			"Name": "/Engine/EngineMaterials/DefaultPostProcessMaterial",
+			"PackageChunkId": "6c3a98c4aa151a5300000001"
+		},
+		{
+			"Name": "/Engine/EngineMaterials/DefaultDeferredDecalMaterial",
+			"PackageChunkId": "ef400c1f3fd91f2a00000001"
+		},
+		{
+			"Name": "/Engine/EngineMaterials/DefaultMaterial",
+			"PackageChunkId": "b4d3126ba7954ec000000001"
+		},
+		{
+			"Name": "/Engine/EngineMaterials/WorldGridMaterial",
+			"PackageChunkId": "eeb296b2a739309500000001"
 		},
 		{
 			"Name": "/Engine/EngineMaterials/DefaultTextMaterialOpaque",
@@ -3632,10 +3632,6 @@
 			"BulkDataChunkIds": [
 				"1595b610bf425b8d00000002"
 			]
-		},
-		{
-			"Name": "/Engine/Tutorial/Landscape/Landscape_Painting_Mode",
-			"PackageChunkId": "000000000000000000000000"
 		},
 		{
 			"Name": "/ControlRig/Controls/ControlRig_Wedge_3mm",
@@ -4148,16 +4144,12 @@
 			"PackageChunkId": "b059d54260cfd24100000001"
 		},
 		{
+			"Name": "/Engine/Tutorial/Landscape/Landscape_Painting_Mode",
+			"PackageChunkId": "000000000000000000000000"
+		},
+		{
 			"Name": "/Game/Map/Floor1/_Generated_/Floor1_MainGrid_L0_X0_Y0_DL0",
 			"PackageChunkId": "e21ddbf85577df6700000001"
-		},
-		{
-			"Name": "/Engine/EditorResources/EmptyActor",
-			"PackageChunkId": "cb90c94586b3228900000001"
-		},
-		{
-			"Name": "/Engine/EngineSky/M_Sky_Panning_Clouds2",
-			"PackageChunkId": "6098725f85292e1b00000001"
 		},
 		{
 			"Name": "/Engine/EngineSky/SM_SkySphere",
@@ -4167,15 +4159,23 @@
 			]
 		},
 		{
+			"Name": "/Engine/EngineSky/M_Sky_Panning_Clouds2",
+			"PackageChunkId": "6098725f85292e1b00000001"
+		},
+		{
 			"Name": "/Engine/EngineSky/M_SimpleSkyDome",
 			"PackageChunkId": "e61c20398c40eda200000001"
 		},
 		{
-			"Name": "/Engine/EngineSky/T_Sky_Clouds_M",
-			"PackageChunkId": "927b2fe4876a1f7400000001",
+			"Name": "/Engine/EngineSky/T_Sky_Stars",
+			"PackageChunkId": "56d51199b9b2142a00000001",
 			"BulkDataChunkIds": [
-				"927b2fe4876a1f7400000002"
+				"56d51199b9b2142a00000002"
 			]
+		},
+		{
+			"Name": "/Engine/EditorResources/EmptyActor",
+			"PackageChunkId": "cb90c94586b3228900000001"
 		},
 		{
 			"Name": "/Engine/EngineSky/T_Sky_Blue",
@@ -4185,10 +4185,10 @@
 			]
 		},
 		{
-			"Name": "/Engine/EngineSky/T_Sky_Stars",
-			"PackageChunkId": "56d51199b9b2142a00000001",
+			"Name": "/Engine/EngineSky/T_Sky_Clouds_M",
+			"PackageChunkId": "927b2fe4876a1f7400000001",
 			"BulkDataChunkIds": [
-				"56d51199b9b2142a00000002"
+				"927b2fe4876a1f7400000002"
 			]
 		}
 	],

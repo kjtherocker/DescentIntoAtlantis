@@ -43,6 +43,7 @@
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/SkillFactory.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/SkillMenu.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/SkillsData.cpp"
+#include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/SoundManager.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/StatusElement.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/TurnCounter.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/TurnCounterElement.cpp"

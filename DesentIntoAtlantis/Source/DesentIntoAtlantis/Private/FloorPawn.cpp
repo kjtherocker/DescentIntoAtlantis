@@ -23,10 +23,9 @@ void AFloorPawn::BeginPlay()
 {
 	Super::BeginPlay();
 
-	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	gameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
 	AInGameHUD * hud = (AInGameHUD*)GetWorld()->GetFirstPlayerController()->GetHUD();
-
-	GameModeBase->InGameHUD = hud;
+	gameModeBase->InGameHUD = hud;
 }
 
 void AFloorPawn::Initialize()
@@ -67,7 +66,6 @@ void AFloorPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 	InputComponent->BindAction("Left" ,IE_Pressed ,this, &AFloorPawn::LeftRotation );
 	InputComponent->BindAction("Right",IE_Pressed ,this, &AFloorPawn::RightRotation);
 	InputComponent->BindAction("Up"   ,IE_Pressed ,this, &AFloorPawn::MoveForward  );
-
 }
 
 void AFloorPawn::MoveForward()
@@ -77,8 +75,8 @@ void AFloorPawn::MoveForward()
 		return;
 	} 
 
-	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
-	GameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Footsteps);
+
+	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Footsteps);
 
 	
 	ECardinalNodeDirections currentNodeDirection = directionModel[0]->directions;
@@ -95,6 +93,19 @@ void AFloorPawn::MoveForward()
 	{
 		nodeToMoveTowards = nodeToMoveTo;
 	}
+}
+
+void AFloorPawn::SetFloorPawnInput(bool aIsInputActive)
+{
+	if(aIsInputActive)
+	{
+		EnableInput(GetWorld()->GetFirstPlayerController());	
+	}
+	else
+	{
+		DisableInput(GetWorld()->GetFirstPlayerController());		
+	}
+
 }
 
 void AFloorPawn::MovePawn(float aDeltaTime)
@@ -223,6 +234,7 @@ void AFloorPawn::AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirectio
 void AFloorPawn::SpawnFloorPawn(AFloorNode* aFloorNode)
 {
 	Initialize();
+
 	
 	currentNodePlayerIsOn = aFloorNode;
 	SetActorRotation(directionModel[0]->rotation);
