@@ -55,6 +55,7 @@ void UDialogueView::SetNextDialogue(bool audio)
 	BW_DialogueText->SetText(FText(FText::FromString(nextDialogueData.Dialogue)));
 	
 	SetDialogueImages(nextDialogueData.LeftPortrait, BW_LeftCharacterPortrait);
+	SetDialogueImages(nextDialogueData.CenterPortrait,BW_CenterCharacterPortrait);
 	SetDialogueImages(nextDialogueData.RightPortrait,BW_RightCharacterPortrait);
 	SetDialogueImages(nextDialogueData.BackgroundCG, BW_BackgroundCG);
 	

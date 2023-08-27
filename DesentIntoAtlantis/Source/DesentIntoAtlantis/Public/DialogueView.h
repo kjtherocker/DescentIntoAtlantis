@@ -29,6 +29,8 @@ public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage*    BW_LeftCharacterPortrait;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UImage*    BW_CenterCharacterPortrait;
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage*    BW_RightCharacterPortrait;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage*    BW_BackgroundCG;

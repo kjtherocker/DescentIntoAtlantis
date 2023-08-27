@@ -21,7 +21,7 @@ void USkillFactory::InitializeDatabase(TMap<ESkillType,UDataTable*> aSkillDataTa
 	{
 		for(int i = 0 ; i < datatable[ESkillType::Attack]->GetRowMap().Num(); i ++)
 		{
-			FSkillsData skillData = *datatable[ESkillType::Attack]->FindRow<FSkillsData>(FName(FString::FromInt(i)),FString("Searching for Skills levels"),true);
+			FSkillsData skillData = *datatable[ESkillType::Attack]->FindRow<FSkillsData>(FName(FString::FromInt(i)),FString("Searching for Skills"),true);
 
 			USkillAttack* skillObject = NewObject<USkillAttack>();
 			skillObject->Initialize(skillData);
@@ -33,7 +33,7 @@ void USkillFactory::InitializeDatabase(TMap<ESkillType,UDataTable*> aSkillDataTa
 	{
 		for(int i = 0 ; i < datatable[ESkillType::Heal]->GetRowMap().Num(); i ++)
 		{
-			FSkillsData skillData = *datatable[ESkillType::Heal]->FindRow<FSkillsData>(FName(FString::FromInt(i)),FString("Searching for Skills levels"),true);
+			FSkillsData skillData = *datatable[ESkillType::Heal]->FindRow<FSkillsData>(FName(FString::FromInt(i)),FString("Searching for Skills"),true);
 
 			USkillHeal* skillObject = NewObject<USkillHeal>();
 			skillObject->Initialize(skillData);
@@ -45,7 +45,7 @@ void USkillFactory::InitializeDatabase(TMap<ESkillType,UDataTable*> aSkillDataTa
 	{
 		for(int i = 0 ; i < datatable[ESkillType::Buff]->GetRowMap().Num(); i ++)
 		{
-			FSkillsData skillData = *datatable[ESkillType::Buff]->FindRow<FSkillsData>(FName(FString::FromInt(i)),FString("Searching for Skills levels"),true);
+			FSkillsData skillData = *datatable[ESkillType::Buff]->FindRow<FSkillsData>(FName(FString::FromInt(i)),FString("Searching for Skills"),true);
 
 			USkillBuff* skillObject = NewObject<USkillBuff>();
 			skillObject->Initialize(skillData);
@@ -57,7 +57,7 @@ void USkillFactory::InitializeDatabase(TMap<ESkillType,UDataTable*> aSkillDataTa
 	{
 		for(int i = 0 ; i < datatable[ESkillType::Debuff]->GetRowMap().Num(); i ++)
 		{
-			FSkillsData skillData = *datatable[ESkillType::Debuff]->FindRow<FSkillsData>(FName(FString::FromInt(i)),FString("Searching for Skills levels"),true);
+			FSkillsData skillData = *datatable[ESkillType::Debuff]->FindRow<FSkillsData>(FName(FString::FromInt(i)),FString("Searching for Skills"),true);
 
 			USkillDebuff* skillObject = NewObject<USkillDebuff>();
 			skillObject->Initialize(skillData);

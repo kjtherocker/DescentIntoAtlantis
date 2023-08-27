@@ -23,6 +23,9 @@ struct DESENTINTOATLANTIS_API FDialogueData : public FTableRowBase
 
 	UPROPERTY( EditAnywhere )
 	FString SpeakerName;
+
+	UPROPERTY( EditAnywhere )
+	UTexture2D* CenterPortrait;
 	
 	UPROPERTY( EditAnywhere )
 	UTexture2D* LeftPortrait;
