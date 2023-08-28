@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UFloorBase;
 #ifdef DESENTINTOATLANTIS_LevelGeneratorUtilityWidget_generated_h
 #error "LevelGeneratorUtilityWidget.generated.h already included, missing '#pragma once' in LevelGeneratorUtilityWidget.h"
 #endif
@@ -16,11 +17,15 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_21_SPARSE_DATA
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_21_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execSpawnMapButton); \
+	DECLARE_FUNCTION(execCreateGrid); \
 	DECLARE_FUNCTION(execGenerateLevel);
 
 
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execSpawnMapButton); \
+	DECLARE_FUNCTION(execCreateGrid); \
 	DECLARE_FUNCTION(execGenerateLevel);
 
 

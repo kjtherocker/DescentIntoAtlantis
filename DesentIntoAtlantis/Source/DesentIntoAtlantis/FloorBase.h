@@ -20,8 +20,8 @@ class DESENTINTOATLANTIS_API UFloorBase : public UObject
 {
 	   GENERATED_BODY()
 public:
-	short GridDimensionX = 10;
-	short GridDimensionY = 10;
+	short GridDimensionX = 20;
+	short GridDimensionY = 20;
 	TArray<short> FloorBlueprint;
     //   bool FloorRevealed[20];
 	TArray<FVector2D> EnemyStartPositions;

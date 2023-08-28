@@ -23,12 +23,20 @@ class DESENTINTOATLANTIS_API ULevelGeneratorUtilityWidget : public UEditorUtilit
 private:
 	TMap<EFloorIdentifier,FName> FloorNames;
 	UFloorFactory* floorFactory;
+
+	UPROPERTY()
+	TArray<UMapButtonElement*> MapButtons;
+	
 public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UButton* BW_GenerateButton;
 
+		
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UMapButtonElement* BW_MapButtonElement;
+	class UWrapBox* BW_HorizontalBox;
+	
+	UPROPERTY(EditAnywhere)
+	 TSubclassOf<UUserWidget> MapButtonElement;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_TitleText;
@@ -44,6 +52,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "MyEditorUtility")
 	virtual void GenerateLevel();
 	
-	UFUNCTION(BlueprintCallable, Category = "MyEditorUtility")
+	UFUNCTION(BlueprintCallable)
 	virtual void CreateGrid(UFloorBase* aFloor);
+
+	UFUNCTION(BlueprintCallable)
+	void SpawnMapButton(int aRow, int aColumn, int aIndex);
 };

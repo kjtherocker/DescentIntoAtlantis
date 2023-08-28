@@ -13,13 +13,35 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_ULevelGeneratorUtilityWidget();
 	BLUTILITY_API UClass* Z_Construct_UClass_UEditorUtilityWidget();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
-	UMG_API UClass* Z_Construct_UClass_UButton_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UFloorBase_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UMapButtonElement_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UButton_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UWrapBox_NoRegister();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UComboBoxKey_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UDataTable_NoRegister();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EDataTableTypes();
 // End Cross Module References
+	DEFINE_FUNCTION(ULevelGeneratorUtilityWidget::execSpawnMapButton)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_aRow);
+		P_GET_PROPERTY(FIntProperty,Z_Param_aColumn);
+		P_GET_PROPERTY(FIntProperty,Z_Param_aIndex);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SpawnMapButton(Z_Param_aRow,Z_Param_aColumn,Z_Param_aIndex);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ULevelGeneratorUtilityWidget::execCreateGrid)
+	{
+		P_GET_OBJECT(UFloorBase,Z_Param_aFloor);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->CreateGrid(Z_Param_aFloor);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ULevelGeneratorUtilityWidget::execGenerateLevel)
 	{
 		P_FINISH;
@@ -31,9 +53,43 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 	{
 		UClass* Class = ULevelGeneratorUtilityWidget::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "CreateGrid", &ULevelGeneratorUtilityWidget::execCreateGrid },
 			{ "GenerateLevel", &ULevelGeneratorUtilityWidget::execGenerateLevel },
+			{ "SpawnMapButton", &ULevelGeneratorUtilityWidget::execSpawnMapButton },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid_Statics
+	{
+		struct LevelGeneratorUtilityWidget_eventCreateGrid_Parms
+		{
+			UFloorBase* aFloor;
+		};
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_aFloor;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid_Statics::NewProp_aFloor = { "aFloor", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LevelGeneratorUtilityWidget_eventCreateGrid_Parms, aFloor), Z_Construct_UClass_UFloorBase_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid_Statics::NewProp_aFloor,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/LevelGeneratorUtilityWidget.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ULevelGeneratorUtilityWidget, nullptr, "CreateGrid", nullptr, nullptr, sizeof(Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid_Statics::LevelGeneratorUtilityWidget_eventCreateGrid_Parms), Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ULevelGeneratorUtilityWidget_GenerateLevel_Statics
 	{
@@ -58,6 +114,46 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton_Statics
+	{
+		struct LevelGeneratorUtilityWidget_eventSpawnMapButton_Parms
+		{
+			int32 aRow;
+			int32 aColumn;
+			int32 aIndex;
+		};
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_aRow;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_aColumn;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_aIndex;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton_Statics::NewProp_aRow = { "aRow", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LevelGeneratorUtilityWidget_eventSpawnMapButton_Parms, aRow), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton_Statics::NewProp_aColumn = { "aColumn", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LevelGeneratorUtilityWidget_eventSpawnMapButton_Parms, aColumn), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton_Statics::NewProp_aIndex = { "aIndex", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LevelGeneratorUtilityWidget_eventSpawnMapButton_Parms, aIndex), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton_Statics::NewProp_aRow,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton_Statics::NewProp_aColumn,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton_Statics::NewProp_aIndex,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/LevelGeneratorUtilityWidget.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ULevelGeneratorUtilityWidget, nullptr, "SpawnMapButton", nullptr, nullptr, sizeof(Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton_Statics::LevelGeneratorUtilityWidget_eventSpawnMapButton_Parms), Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(ULevelGeneratorUtilityWidget);
 	UClass* Z_Construct_UClass_ULevelGeneratorUtilityWidget_NoRegister()
 	{
@@ -70,14 +166,23 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_MapButtons_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MapButtons_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_MapButtons;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_GenerateButton_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_GenerateButton;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_MapButtonElement_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_HorizontalBox_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_MapButtonElement;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_HorizontalBox;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MapButtonElement_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_MapButtonElement;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_TitleText_MetaData[];
 #endif
@@ -102,7 +207,9 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid, "CreateGrid" }, // 2051181982
 		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_GenerateLevel, "GenerateLevel" }, // 4039593843
+		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton, "SpawnMapButton" }, // 470812995
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::Class_MetaDataParams[] = {
@@ -111,6 +218,14 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 		{ "ModuleRelativePath", "Public/LevelGeneratorUtilityWidget.h" },
 	};
 #endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtons_Inner = { "MapButtons", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_UMapButtonElement_NoRegister, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtons_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/LevelGeneratorUtilityWidget.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtons = { "MapButtons", nullptr, (EPropertyFlags)0x0040008000000008, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ULevelGeneratorUtilityWidget, MapButtons), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtons_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtons_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_GenerateButton_MetaData[] = {
 		{ "BindWidget", "" },
@@ -121,14 +236,21 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_GenerateButton = { "BW_GenerateButton", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ULevelGeneratorUtilityWidget, BW_GenerateButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_GenerateButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_GenerateButton_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_MapButtonElement_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_HorizontalBox_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "Category", "LevelGeneratorUtilityWidget" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/LevelGeneratorUtilityWidget.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_MapButtonElement = { "BW_MapButtonElement", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ULevelGeneratorUtilityWidget, BW_MapButtonElement), Z_Construct_UClass_UMapButtonElement_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_MapButtonElement_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_MapButtonElement_MetaData)) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_HorizontalBox = { "BW_HorizontalBox", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ULevelGeneratorUtilityWidget, BW_HorizontalBox), Z_Construct_UClass_UWrapBox_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_HorizontalBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_HorizontalBox_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtonElement_MetaData[] = {
+		{ "Category", "LevelGeneratorUtilityWidget" },
+		{ "ModuleRelativePath", "Public/LevelGeneratorUtilityWidget.h" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtonElement = { "MapButtonElement", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ULevelGeneratorUtilityWidget, MapButtonElement), Z_Construct_UClass_UUserWidget_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtonElement_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtonElement_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_TitleText_MetaData[] = {
 		{ "BindWidget", "" },
@@ -158,8 +280,11 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 #endif
 	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_dataTables = { "dataTables", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ULevelGeneratorUtilityWidget, dataTables), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_dataTables_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_dataTables_MetaData)) }; // 3523004561
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtons_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtons,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_GenerateButton,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_MapButtonElement,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_HorizontalBox,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtonElement,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_TitleText,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_ComboBoxKey,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_dataTables_ValueProp,
@@ -203,9 +328,9 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ULevelGeneratorUtilityWidget, ULevelGeneratorUtilityWidget::StaticClass, TEXT("ULevelGeneratorUtilityWidget"), &Z_Registration_Info_UClass_ULevelGeneratorUtilityWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelGeneratorUtilityWidget), 2198139825U) },
+		{ Z_Construct_UClass_ULevelGeneratorUtilityWidget, ULevelGeneratorUtilityWidget::StaticClass, TEXT("ULevelGeneratorUtilityWidget"), &Z_Registration_Info_UClass_ULevelGeneratorUtilityWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelGeneratorUtilityWidget), 451038457U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_1206317502(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_974262671(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
