@@ -6,6 +6,7 @@
 #include "EditorUtilityWidget.h"
 #include "FloorFactory.h"
 #include "MapButtonElement.h"
+#include "MapNodeEditorView.h"
 #include "Components/Button.h"
 #include "Components/ComboBoxKey.h"
 #include "Components/TextBlock.h"
@@ -15,6 +16,8 @@
 /**
  * 
  */
+
+
 UCLASS()
 class DESENTINTOATLANTIS_API ULevelGeneratorUtilityWidget : public UEditorUtilityWidget
 {
@@ -27,7 +30,13 @@ private:
 	UPROPERTY()
 	TArray<UMapButtonElement*> MapButtons;
 	
+	UFUNCTION(BlueprintCallable, Category = "MyEditorUtility")
+	void ActivateMapNodeEditor(UMapButtonElement* aMapButtonElement);
+	
 public:
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UMapNodeEditorView* BW_MapNodeEditor;
+	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UButton* BW_GenerateButton;
 

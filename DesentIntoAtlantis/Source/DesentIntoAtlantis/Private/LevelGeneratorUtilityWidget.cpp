@@ -7,7 +7,10 @@
 #include "Components/CanvasPanel.h"
 #include "Components/HorizontalBox.h"
 #include "Components/WrapBox.h"
+#include "MapNodeEditorView.h"
 #include "DesentIntoAtlantis/EFloorIdentifier.h"
+
+
 
 void ULevelGeneratorUtilityWidget::NativeConstruct()
 {
@@ -95,7 +98,16 @@ void ULevelGeneratorUtilityWidget::SpawnMapButton(int aRow, int aColumn, int aIn
 	UMapButtonElement* baseUserWidget = (UMapButtonElement*)skillBarElement;
 	baseUserWidget->AddToViewport();
 	BW_HorizontalBox->AddChild(skillBarElement);
+	baseUserWidget->InitializeMapButton();
 	baseUserWidget->SetPositionInViewport(ActorFinalSpawnPoint,false);
 
+	baseUserWidget->OnMapButtonClicked.AddDynamic(this,&ULevelGeneratorUtilityWidget::ActivateMapNodeEditor);
+	
 	MapButtons[aIndex] = baseUserWidget;
 }
+
+void ULevelGeneratorUtilityWidget::ActivateMapNodeEditor(UMapButtonElement* aMapButtonElement)
+{
+	BW_MapNodeEditor->SetUpMapNodePanel(aMapButtonElement);
+}
+

@@ -12,11 +12,24 @@ class UImage;
 /**
  * 
  */
+
+
+
 UCLASS()
 class DESENTINTOATLANTIS_API UMapButtonElement : public UUserWidget
 {
 	GENERATED_BODY()
+	
+
+	
 public:
+
+	DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMapButtonClicked, UMapButtonElement*, mapButtonElement);
+
+	UPROPERTY()
+	ECardinalNodeDirections CurrentNodeDirection;
+	UPROPERTY()
+	FOnMapButtonClicked OnMapButtonClicked;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UButton* BW_GenerateButton;
 
@@ -26,5 +39,8 @@ public:
 	UPROPERTY(EditAnywhere,meta=(BindWidget))
 	TMap<ECardinalNodeDirections,UTexture2D*> MapIcons;
 	
-	void SetMapIcon(ECardinalNodeDirections aFloorIdentifier);
+	void SetMapIcon(ECardinalNodeDirections aCardinalNodeDirection);
+	UFUNCTION(BlueprintCallable)
+	void ActivateMapNodeEditor();
+	void InitializeMapButton();
 };

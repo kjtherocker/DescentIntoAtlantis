@@ -8,15 +8,37 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UMapButtonElement;
 #ifdef DESENTINTOATLANTIS_MapButtonElement_generated_h
 #error "MapButtonElement.generated.h already included, missing '#pragma once' in MapButtonElement.h"
 #endif
 #define DESENTINTOATLANTIS_MapButtonElement_generated_h
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_SPARSE_DATA
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_RPC_WRAPPERS
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_INCLASS_NO_PURE_DECLS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_27_DELEGATE \
+struct MapButtonElement_eventOnMapButtonClicked_Parms \
+{ \
+	UMapButtonElement* mapButtonElement; \
+}; \
+static inline void FOnMapButtonClicked_DelegateWrapper(const FMulticastScriptDelegate& OnMapButtonClicked, UMapButtonElement* mapButtonElement) \
+{ \
+	MapButtonElement_eventOnMapButtonClicked_Parms Parms; \
+	Parms.mapButtonElement=mapButtonElement; \
+	OnMapButtonClicked.ProcessMulticastDelegate<UObject>(&Parms); \
+}
+
+
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_21_SPARSE_DATA
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_21_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execActivateMapNodeEditor);
+
+
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execActivateMapNodeEditor);
+
+
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_21_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMapButtonElement(); \
 	friend struct Z_Construct_UClass_UMapButtonElement_Statics; \
@@ -25,7 +47,7 @@ public: \
 	DECLARE_SERIALIZER(UMapButtonElement)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_INCLASS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_21_INCLASS \
 private: \
 	static void StaticRegisterNativesUMapButtonElement(); \
 	friend struct Z_Construct_UClass_UMapButtonElement_Statics; \
@@ -34,7 +56,7 @@ public: \
 	DECLARE_SERIALIZER(UMapButtonElement)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_STANDARD_CONSTRUCTORS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_21_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UMapButtonElement(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UMapButtonElement) \
@@ -47,7 +69,7 @@ private: \
 public:
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_ENHANCED_CONSTRUCTORS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_21_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UMapButtonElement(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -60,25 +82,25 @@ public: \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UMapButtonElement)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_15_PROLOG
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_GENERATED_BODY_LEGACY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_PROLOG
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_21_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_SPARSE_DATA \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_RPC_WRAPPERS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_INCLASS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_STANDARD_CONSTRUCTORS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_21_SPARSE_DATA \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_21_RPC_WRAPPERS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_21_INCLASS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_21_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_GENERATED_BODY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_21_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_SPARSE_DATA \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_INCLASS_NO_PURE_DECLS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_18_ENHANCED_CONSTRUCTORS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_21_SPARSE_DATA \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_21_INCLASS_NO_PURE_DECLS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_21_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

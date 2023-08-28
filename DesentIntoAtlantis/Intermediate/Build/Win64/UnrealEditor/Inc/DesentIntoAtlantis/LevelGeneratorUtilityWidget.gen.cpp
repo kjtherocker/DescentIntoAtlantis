@@ -13,8 +13,9 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_ULevelGeneratorUtilityWidget();
 	BLUTILITY_API UClass* Z_Construct_UClass_UEditorUtilityWidget();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
-	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UFloorBase_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UMapButtonElement_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UFloorBase_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UMapNodeEditorView_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UButton_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UWrapBox_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
@@ -49,15 +50,65 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 		P_THIS->GenerateLevel();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ULevelGeneratorUtilityWidget::execActivateMapNodeEditor)
+	{
+		P_GET_OBJECT(UMapButtonElement,Z_Param_aMapButtonElement);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ActivateMapNodeEditor(Z_Param_aMapButtonElement);
+		P_NATIVE_END;
+	}
 	void ULevelGeneratorUtilityWidget::StaticRegisterNativesULevelGeneratorUtilityWidget()
 	{
 		UClass* Class = ULevelGeneratorUtilityWidget::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "ActivateMapNodeEditor", &ULevelGeneratorUtilityWidget::execActivateMapNodeEditor },
 			{ "CreateGrid", &ULevelGeneratorUtilityWidget::execCreateGrid },
 			{ "GenerateLevel", &ULevelGeneratorUtilityWidget::execGenerateLevel },
 			{ "SpawnMapButton", &ULevelGeneratorUtilityWidget::execSpawnMapButton },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor_Statics
+	{
+		struct LevelGeneratorUtilityWidget_eventActivateMapNodeEditor_Parms
+		{
+			UMapButtonElement* aMapButtonElement;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_aMapButtonElement_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_aMapButtonElement;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor_Statics::NewProp_aMapButtonElement_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor_Statics::NewProp_aMapButtonElement = { "aMapButtonElement", nullptr, (EPropertyFlags)0x0010000000080080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LevelGeneratorUtilityWidget_eventActivateMapNodeEditor_Parms, aMapButtonElement), Z_Construct_UClass_UMapButtonElement_NoRegister, METADATA_PARAMS(Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor_Statics::NewProp_aMapButtonElement_MetaData, UE_ARRAY_COUNT(Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor_Statics::NewProp_aMapButtonElement_MetaData)) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor_Statics::NewProp_aMapButtonElement,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor_Statics::Function_MetaDataParams[] = {
+		{ "Category", "MyEditorUtility" },
+		{ "ModuleRelativePath", "Public/LevelGeneratorUtilityWidget.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ULevelGeneratorUtilityWidget, nullptr, "ActivateMapNodeEditor", nullptr, nullptr, sizeof(Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor_Statics::LevelGeneratorUtilityWidget_eventActivateMapNodeEditor_Parms), Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid_Statics
 	{
@@ -172,6 +223,10 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 #endif
 		static const UECodeGen_Private::FArrayPropertyParams NewProp_MapButtons;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_MapNodeEditor_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_MapNodeEditor;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_GenerateButton_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_GenerateButton;
@@ -207,6 +262,7 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor, "ActivateMapNodeEditor" }, // 3599312812
 		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid, "CreateGrid" }, // 2051181982
 		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_GenerateLevel, "GenerateLevel" }, // 4039593843
 		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton, "SpawnMapButton" }, // 470812995
@@ -226,6 +282,15 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtons = { "MapButtons", nullptr, (EPropertyFlags)0x0040008000000008, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ULevelGeneratorUtilityWidget, MapButtons), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtons_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtons_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_MapNodeEditor_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "LevelGeneratorUtilityWidget" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/LevelGeneratorUtilityWidget.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_MapNodeEditor = { "BW_MapNodeEditor", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ULevelGeneratorUtilityWidget, BW_MapNodeEditor), Z_Construct_UClass_UMapNodeEditorView_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_MapNodeEditor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_MapNodeEditor_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_GenerateButton_MetaData[] = {
 		{ "BindWidget", "" },
@@ -282,6 +347,7 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtons_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtons,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_MapNodeEditor,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_GenerateButton,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_HorizontalBox,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_MapButtonElement,
@@ -328,9 +394,9 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ULevelGeneratorUtilityWidget, ULevelGeneratorUtilityWidget::StaticClass, TEXT("ULevelGeneratorUtilityWidget"), &Z_Registration_Info_UClass_ULevelGeneratorUtilityWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelGeneratorUtilityWidget), 451038457U) },
+		{ Z_Construct_UClass_ULevelGeneratorUtilityWidget, ULevelGeneratorUtilityWidget::StaticClass, TEXT("ULevelGeneratorUtilityWidget"), &Z_Registration_Info_UClass_ULevelGeneratorUtilityWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelGeneratorUtilityWidget), 2917386577U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_974262671(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_109991853(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

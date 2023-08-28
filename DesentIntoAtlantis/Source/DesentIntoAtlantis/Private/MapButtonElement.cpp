@@ -6,7 +6,18 @@
 #include "Components/Image.h"
 
 
-void UMapButtonElement::SetMapIcon(ECardinalNodeDirections aFloorIdentifier)
+void UMapButtonElement::SetMapIcon(ECardinalNodeDirections aCardinalNodeDirection)
 {
-	BW_MapIcon->SetBrushFromTexture(MapIcons[aFloorIdentifier]);
+	CurrentNodeDirection = aCardinalNodeDirection;
+	BW_MapIcon->SetBrushFromTexture(MapIcons[aCardinalNodeDirection]);
+}
+
+void UMapButtonElement::ActivateMapNodeEditor()
+{
+	OnMapButtonClicked.Broadcast(this);
+}
+
+void UMapButtonElement::InitializeMapButton()
+{
+	BW_GenerateButton->OnClicked.AddDynamic(this, &UMapButtonElement::ActivateMapNodeEditor);
 }

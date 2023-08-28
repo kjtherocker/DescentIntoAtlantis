@@ -15,6 +15,7 @@ void EmptyLinkFunctionForGeneratedCodeDesentIntoAtlantis_init() {}
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_ViewSelection__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasDamaged__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature();
+	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_UMapButtonElement_OnMapButtonClicked__DelegateSignature();
 	static FPackageRegistrationInfo Z_Registration_Info_UPackage__Script_DesentIntoAtlantis;
 	FORCENOINLINE UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis()
 	{
@@ -29,19 +30,20 @@ void EmptyLinkFunctionForGeneratedCodeDesentIntoAtlantis_init() {}
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_ViewSelection__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasDamaged__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_UMapButtonElement_OnMapButtonClicked__DelegateSignature,
 			};
 			static const UECodeGen_Private::FPackageParams PackageParams = {
 				"/Script/DesentIntoAtlantis",
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x6374A814,
-				0x09E26925,
+				0xFCEA0B86,
+				0xCD67D96B,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_DesentIntoAtlantis.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_DesentIntoAtlantis.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_DesentIntoAtlantis(Z_Construct_UPackage__Script_DesentIntoAtlantis, TEXT("/Script/DesentIntoAtlantis"), Z_Registration_Info_UPackage__Script_DesentIntoAtlantis, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x6374A814, 0x09E26925));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_DesentIntoAtlantis(Z_Construct_UPackage__Script_DesentIntoAtlantis, TEXT("/Script/DesentIntoAtlantis"), Z_Registration_Info_UPackage__Script_DesentIntoAtlantis, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xFCEA0B86, 0xCD67D96B));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
