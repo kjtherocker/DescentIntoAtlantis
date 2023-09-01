@@ -38,8 +38,11 @@
 			"FloorPlayerController.cpp.obj",
 			"GameManager.cpp.obj",
 			"InGameHUD.cpp.obj",
+			"LevelGeneratorUtilityWidget.cpp.obj",
 			"LevelupPanelElement.cpp.obj",
 			"LevelupView.cpp.obj",
+			"MapButtonElement.cpp.obj",
+			"MapNodeEditorView.cpp.obj",
 			"PartyHealthbarElement.cpp.obj",
 			"PartyHealthbarsView.cpp.obj",
 			"PartyManager.cpp.obj",
@@ -58,7 +61,7 @@
 			"TutorialView.cpp.obj",
 			"Views.cpp.obj"
 		],
-		"Module.DesentIntoAtlantis.gen.1_of_2.cpp.obj": [
+		"Module.DesentIntoAtlantis.gen.1_of_3.cpp.obj": [
 			"BaseUserWidget.gen.cpp.obj",
 			"CombatBackground.gen.cpp.obj",
 			"CombatClass.gen.cpp.obj",
@@ -89,7 +92,7 @@
 			"FloorEnemyPawn.gen.cpp.obj",
 			"FloorEnum.gen.cpp.obj"
 		],
-		"Module.DesentIntoAtlantis.gen.2_of_2.cpp.obj": [
+		"Module.DesentIntoAtlantis.gen.2_of_3.cpp.obj": [
 			"FloorEventManager.gen.cpp.obj",
 			"FloorFactory.gen.cpp.obj",
 			"FloorManager.gen.cpp.obj",
@@ -98,8 +101,11 @@
 			"FloorPlayerController.gen.cpp.obj",
 			"GameManager.gen.cpp.obj",
 			"InGameHUD.gen.cpp.obj",
+			"LevelGeneratorUtilityWidget.gen.cpp.obj",
 			"LevelupPanelElement.gen.cpp.obj",
 			"LevelupView.gen.cpp.obj",
+			"MapButtonElement.gen.cpp.obj",
+			"MapNodeEditorView.gen.cpp.obj",
 			"PartyHealthbarElement.gen.cpp.obj",
 			"PartyHealthbarsView.gen.cpp.obj",
 			"PartyManager.gen.cpp.obj",
@@ -111,7 +117,9 @@
 			"SkillView.gen.cpp.obj",
 			"SoundManager.gen.cpp.obj",
 			"StatusElement.gen.cpp.obj",
-			"TitleView.gen.cpp.obj",
+			"TitleView.gen.cpp.obj"
+		],
+		"Module.DesentIntoAtlantis.gen.3_of_3.cpp.obj": [
 			"TurnCounterElement.gen.cpp.obj",
 			"TurnCounterView.gen.cpp.obj",
 			"TutorialManager.gen.cpp.obj",

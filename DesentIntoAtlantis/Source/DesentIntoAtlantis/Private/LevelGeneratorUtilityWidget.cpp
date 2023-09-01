@@ -15,17 +15,17 @@
 void ULevelGeneratorUtilityWidget::NativeConstruct()
 {
 	Super::NativeOnInitialized();
-
-	BW_GenerateButton->OnClicked.AddDynamic(this, &ULevelGeneratorUtilityWidget::GenerateLevel);
-	//static UEnum* EnumPtr = FindObject<UEnum>(ANY_PACKAGE, TEXT("EFloorIdentifier"), true);
-
 	
+
 	if(dataTables[EDataTableTypes::Floor] != nullptr
 			   &&dataTables[EDataTableTypes::FloorEvent] != nullptr)
 	{
 		floorFactory = NewObject<UFloorFactory>();
 		floorFactory->InitializeDatabase(dataTables[EDataTableTypes::Floor],dataTables[EDataTableTypes::FloorEvent]);
 	}
+	
+	BW_GenerateButton->OnClicked.AddDynamic(this, &ULevelGeneratorUtilityWidget::GenerateLevel);
+	BW_SaveButton->OnClicked.AddDynamic(this, &ULevelGeneratorUtilityWidget::SaveCurrentMap);
 
 	//for (int32 EnumIndex = 0; EnumIndex < EnumPtr->NumEnums(); ++EnumIndex)
 	//{
@@ -109,5 +109,16 @@ void ULevelGeneratorUtilityWidget::SpawnMapButton(int aRow, int aColumn, int aIn
 void ULevelGeneratorUtilityWidget::ActivateMapNodeEditor(UMapButtonElement* aMapButtonElement)
 {
 	BW_MapNodeEditor->SetUpMapNodePanel(aMapButtonElement);
+}
+
+void ULevelGeneratorUtilityWidget::SaveCurrentMap()
+{
+	TArray<int> newMapData;
+	for(int i = 0 ;i < MapButtons.Num();i++)
+	{
+		newMapData.Add(static_cast<int>(MapButtons[i]->CurrentNodeDirection));
+	}
+	
+	floorFactory->OverwriteFloorMapData(EFloorIdentifier::Floor1,newMapData);
 }
 

@@ -32,6 +32,8 @@ private:
 	
 	UFUNCTION(BlueprintCallable, Category = "MyEditorUtility")
 	void ActivateMapNodeEditor(UMapButtonElement* aMapButtonElement);
+	UFUNCTION(BlueprintCallable, Category = "MyEditorUtility")
+	void SaveCurrentMap();
 	
 public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
@@ -39,6 +41,9 @@ public:
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UButton* BW_GenerateButton;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UButton* BW_SaveButton;
 
 		
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))

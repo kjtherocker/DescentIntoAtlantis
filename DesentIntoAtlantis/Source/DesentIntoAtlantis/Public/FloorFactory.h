@@ -15,8 +15,14 @@ UCLASS()
 class DESENTINTOATLANTIS_API UFloorFactory : public UObject
 {
 	GENERATED_BODY()
+
+	UDataTable* FloorDatabase;
+	
 public:
 	void InitializeDatabase(UDataTable* aFloorDatabase,UDataTable* aFloorEnemyDatabase);
+
+	UFUNCTION(BlueprintCallable, Category = "MyEditorUtility")
+	void OverwriteFloorMapData(EFloorIdentifier aOverwrittenFloor, TArray<int> aNewMapData);
 	
 	UPROPERTY()
 	TArray<FFloorData> floorData;

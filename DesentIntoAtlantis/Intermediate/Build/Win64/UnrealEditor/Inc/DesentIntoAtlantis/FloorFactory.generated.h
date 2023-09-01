@@ -8,14 +8,23 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+enum class EFloorIdentifier : int32;
 #ifdef DESENTINTOATLANTIS_FloorFactory_generated_h
 #error "FloorFactory.generated.h already included, missing '#pragma once' in FloorFactory.h"
 #endif
 #define DESENTINTOATLANTIS_FloorFactory_generated_h
 
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorFactory_h_17_SPARSE_DATA
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorFactory_h_17_RPC_WRAPPERS
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorFactory_h_17_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorFactory_h_17_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execOverwriteFloorMapData);
+
+
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorFactory_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOverwriteFloorMapData);
+
+
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorFactory_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUFloorFactory(); \

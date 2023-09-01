@@ -21,6 +21,7 @@ class UMapButtonElement;
 	DECLARE_FUNCTION(execSpawnMapButton); \
 	DECLARE_FUNCTION(execCreateGrid); \
 	DECLARE_FUNCTION(execGenerateLevel); \
+	DECLARE_FUNCTION(execSaveCurrentMap); \
 	DECLARE_FUNCTION(execActivateMapNodeEditor);
 
 
@@ -29,6 +30,7 @@ class UMapButtonElement;
 	DECLARE_FUNCTION(execSpawnMapButton); \
 	DECLARE_FUNCTION(execCreateGrid); \
 	DECLARE_FUNCTION(execGenerateLevel); \
+	DECLARE_FUNCTION(execSaveCurrentMap); \
 	DECLARE_FUNCTION(execActivateMapNodeEditor);
 
 

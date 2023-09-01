@@ -13,13 +13,70 @@ void EmptyLinkFunctionForGeneratedCodeFloorFactory() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UFloorFactory();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EFloorIdentifier();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FFloorData();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FFloorEventData();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UFloorBase_NoRegister();
-	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EFloorIdentifier();
 // End Cross Module References
+	DEFINE_FUNCTION(UFloorFactory::execOverwriteFloorMapData)
+	{
+		P_GET_ENUM(EFloorIdentifier,Z_Param_aOverwrittenFloor);
+		P_GET_TARRAY(int32,Z_Param_aNewMapData);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OverwriteFloorMapData(EFloorIdentifier(Z_Param_aOverwrittenFloor),Z_Param_aNewMapData);
+		P_NATIVE_END;
+	}
 	void UFloorFactory::StaticRegisterNativesUFloorFactory()
 	{
+		UClass* Class = UFloorFactory::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "OverwriteFloorMapData", &UFloorFactory::execOverwriteFloorMapData },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics
+	{
+		struct FloorFactory_eventOverwriteFloorMapData_Parms
+		{
+			EFloorIdentifier aOverwrittenFloor;
+			TArray<int32> aNewMapData;
+		};
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_aOverwrittenFloor_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_aOverwrittenFloor;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_aNewMapData_Inner;
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_aNewMapData;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics::NewProp_aOverwrittenFloor_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics::NewProp_aOverwrittenFloor = { "aOverwrittenFloor", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FloorFactory_eventOverwriteFloorMapData_Parms, aOverwrittenFloor), Z_Construct_UEnum_DesentIntoAtlantis_EFloorIdentifier, METADATA_PARAMS(nullptr, 0) }; // 3166737195
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics::NewProp_aNewMapData_Inner = { "aNewMapData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics::NewProp_aNewMapData = { "aNewMapData", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FloorFactory_eventOverwriteFloorMapData_Parms, aNewMapData), EArrayPropertyFlags::None, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics::NewProp_aOverwrittenFloor_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics::NewProp_aOverwrittenFloor,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics::NewProp_aNewMapData_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics::NewProp_aNewMapData,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics::Function_MetaDataParams[] = {
+		{ "Category", "MyEditorUtility" },
+		{ "ModuleRelativePath", "Public/FloorFactory.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UFloorFactory, nullptr, "OverwriteFloorMapData", nullptr, nullptr, sizeof(Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics::FloorFactory_eventOverwriteFloorMapData_Parms), Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UFloorFactory);
 	UClass* Z_Construct_UClass_UFloorFactory_NoRegister()
@@ -29,6 +86,7 @@ void EmptyLinkFunctionForGeneratedCodeFloorFactory() {}
 	struct Z_Construct_UClass_UFloorFactory_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -56,6 +114,9 @@ void EmptyLinkFunctionForGeneratedCodeFloorFactory() {}
 	UObject* (*const Z_Construct_UClass_UFloorFactory_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_UObject,
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_UFloorFactory_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UFloorFactory_OverwriteFloorMapData, "OverwriteFloorMapData" }, // 2210891324
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UFloorFactory_Statics::Class_MetaDataParams[] = {
@@ -105,11 +166,11 @@ void EmptyLinkFunctionForGeneratedCodeFloorFactory() {}
 		nullptr,
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_UFloorFactory_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_UFloorFactory_Statics::PropPointers),
 		0,
 		0x001000A0u,
@@ -133,9 +194,9 @@ void EmptyLinkFunctionForGeneratedCodeFloorFactory() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorFactory_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UFloorFactory, UFloorFactory::StaticClass, TEXT("UFloorFactory"), &Z_Registration_Info_UClass_UFloorFactory, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFloorFactory), 1732543005U) },
+		{ Z_Construct_UClass_UFloorFactory, UFloorFactory::StaticClass, TEXT("UFloorFactory"), &Z_Registration_Info_UClass_UFloorFactory, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFloorFactory), 1822631340U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorFactory_h_3444018163(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorFactory_h_1125078039(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorFactory_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorFactory_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
