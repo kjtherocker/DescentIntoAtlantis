@@ -12,6 +12,11 @@ void UMapButtonElement::SetMapIcon(ECardinalNodeDirections aCardinalNodeDirectio
 	BW_MapIcon->SetBrushFromTexture(MapIcons[aCardinalNodeDirection]);
 }
 
+void UMapButtonElement::SetEventIcon(bool aIsActive)
+{
+	BW_EventIcon->SetOpacity(aIsActive ? 100:0);
+}
+
 void UMapButtonElement::ActivateMapNodeEditor()
 {
 	OnMapButtonClicked.Broadcast(this);

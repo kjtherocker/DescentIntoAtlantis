@@ -42,6 +42,7 @@
 			"LevelupPanelElement.cpp.obj",
 			"LevelupView.cpp.obj",
 			"MapButtonElement.cpp.obj",
+			"MapEventEditorView.cpp.obj",
 			"MapNodeEditorView.cpp.obj",
 			"PartyHealthbarElement.cpp.obj",
 			"PartyHealthbarsView.cpp.obj",
@@ -105,6 +106,7 @@
 			"LevelupPanelElement.gen.cpp.obj",
 			"LevelupView.gen.cpp.obj",
 			"MapButtonElement.gen.cpp.obj",
+			"MapEventEditorView.gen.cpp.obj",
 			"MapNodeEditorView.gen.cpp.obj",
 			"PartyHealthbarElement.gen.cpp.obj",
 			"PartyHealthbarsView.gen.cpp.obj",
@@ -115,11 +117,11 @@
 			"SkillFactory.gen.cpp.obj",
 			"SkillsData.gen.cpp.obj",
 			"SkillView.gen.cpp.obj",
-			"SoundManager.gen.cpp.obj",
-			"StatusElement.gen.cpp.obj",
-			"TitleView.gen.cpp.obj"
+			"SoundManager.gen.cpp.obj"
 		],
 		"Module.DesentIntoAtlantis.gen.3_of_3.cpp.obj": [
+			"StatusElement.gen.cpp.obj",
+			"TitleView.gen.cpp.obj",
 			"TurnCounterElement.gen.cpp.obj",
 			"TurnCounterView.gen.cpp.obj",
 			"TutorialManager.gen.cpp.obj",

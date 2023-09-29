@@ -1,6 +1,4 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "MapNodeEditorView.h"
 
 void UMapNodeEditorView::InitializeEditor()
@@ -24,6 +22,7 @@ void UMapNodeEditorView::SetUpMapNodePanel(UMapButtonElement* aMapNodeElement)
 			baseUserWidget->SetPositionInViewport(PositionOffset,false);
 			baseUserWidget->AddToViewport();
 			BW_MapNodePanel->AddChild(baseUserWidget);
+			baseUserWidget->SetEventIcon(false);
 			baseUserWidget->InitializeMapButton();;
 			baseUserWidget->OnMapButtonClicked.AddDynamic(this,&UMapNodeEditorView::ChangeNodeDirection);
 			baseUserWidget->SetMapIcon(static_cast<ECardinalNodeDirections>(i));
@@ -31,6 +30,8 @@ void UMapNodeEditorView::SetUpMapNodePanel(UMapButtonElement* aMapNodeElement)
 			
 		}
 	}
+
+	BW_MapEditorView->InitializeEvent();
 }
 
 void UMapNodeEditorView::ChangeNodeDirection(UMapButtonElement* aMapNodeElement)

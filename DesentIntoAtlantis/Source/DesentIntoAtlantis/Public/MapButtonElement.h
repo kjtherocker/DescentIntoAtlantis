@@ -36,10 +36,14 @@ public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage*  BW_MapIcon;
 
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UImage*  BW_EventIcon;
+
 	UPROPERTY(EditAnywhere,meta=(BindWidget))
 	TMap<ECardinalNodeDirections,UTexture2D*> MapIcons;
 	
 	void SetMapIcon(ECardinalNodeDirections aCardinalNodeDirection);
+	void SetEventIcon(bool aIsActive);
 	UFUNCTION(BlueprintCallable)
 	void ActivateMapNodeEditor();
 	void InitializeMapButton();

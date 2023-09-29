@@ -220,8 +220,7 @@ void AFloorManager::SpawnFloorEnemyPawn(FVector2D aPositionInGrid)
 	
 	//Spawn
 	 AFloorEnemyPawn* floorPawn;
-
-	floorPawn = (AFloorEnemyPawn*)GetWorld()->SpawnActor<AActor>(floorEnemyPawnReference);
+	floorPawn = Cast<AFloorEnemyPawn>(GetWorld()->SpawnActor<AActor>(floorEnemyPawnReference, ActorFinalSpawnPoint, rotator));
 	floorPawn->SetActorLocation(ActorFinalSpawnPoint);
 	gameModeBase->floorEventManager->AddFloorEnemyEvents(aPositionInGrid,floorPawn);
 }

@@ -4,11 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "MapButtonElement.h"
+#include "MapEventEditorView.h"
 #include "Blueprint/UserWidget.h"
 #include "Components/GridPanel.h"
 #include "Components/HorizontalBox.h"
 #include "MapNodeEditorView.generated.h"
 
+/**
 /**
  * 
  */
@@ -23,6 +25,7 @@ class DESENTINTOATLANTIS_API UMapNodeEditorView : public UUserWidget
 	UMapButtonElement* SelectedMapButton;
 	
 public:
+	
 	void InitializeEditor();
 
 	void SetUpMapNodePanel(UMapButtonElement* aMapNodeElement);
@@ -35,5 +38,9 @@ public:
 	
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<UUserWidget> MapButtonElement;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UMapEventEditorView* BW_MapEditorView;
+	
 };
 

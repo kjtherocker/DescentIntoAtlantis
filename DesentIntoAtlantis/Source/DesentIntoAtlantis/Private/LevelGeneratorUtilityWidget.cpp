@@ -45,10 +45,11 @@ void ULevelGeneratorUtilityWidget::GenerateLevel()
 
 	BW_TitleText->SetText(FText(FText::FromString(BW_ComboBoxKey->GetSelectedOption().ToString())));
 	//BW_MapButtonElement->SetMapIcon(ECardinalNodeDirections::UpLeft);
-
-	floorFactory->floorDictionary[EFloorIdentifier::Floor1]->Initialize();
-	CreateGrid(floorFactory->floorDictionary[EFloorIdentifier::Floor1]);
-	
+	if(MapButtons.Num() <= 0)
+	{
+		floorFactory->floorDictionary[EFloorIdentifier::Floor1]->Initialize();
+		CreateGrid(floorFactory->floorDictionary[EFloorIdentifier::Floor1]);
+	}
 }
 
 void ULevelGeneratorUtilityWidget::CreateGrid(UFloorBase* aFloor)
@@ -63,6 +64,7 @@ void ULevelGeneratorUtilityWidget::CreateGrid(UFloorBase* aFloor)
 			int LevelIndex = aFloor->GetIndex(x, y);
 			SpawnMapButton(x , y,LevelIndex );
 			MapButtons[LevelIndex]->SetMapIcon(static_cast<ECardinalNodeDirections>(aFloor->floorData.floorBlueprint[LevelIndex]));
+			MapButtons[LevelIndex]->SetEventIcon(false);
 			//If there is no node then continue
 			if (tempfloor->floorData.floorBlueprint[LevelIndex] == (short)ECardinalNodeDirections::Empty)
 			{
@@ -80,6 +82,12 @@ void ULevelGeneratorUtilityWidget::CreateGrid(UFloorBase* aFloor)
 //
 		  // }
 		}
+	}
+
+	for (FFloorEventData floorevent : floorFactory->floorEnemyData)
+	{
+		int LevelIndex = aFloor->GetIndex(floorevent.positionInGrid.X, floorevent.positionInGrid.Y);
+		MapButtons[LevelIndex]->SetEventIcon(true);
 	}
 	
 
