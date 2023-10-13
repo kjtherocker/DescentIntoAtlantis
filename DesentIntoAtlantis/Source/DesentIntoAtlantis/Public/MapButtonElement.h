@@ -3,11 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "FloorEnum.h"
 #include "Blueprint/UserWidget.h"
 #include "Components/Button.h"
 #include "DesentIntoAtlantis/ECardinalDirections.h"
 #include "MapButtonElement.generated.h"
 
+struct FFloorEventData;
 class UImage;
 /**
  * 
@@ -25,7 +27,15 @@ class DESENTINTOATLANTIS_API UMapButtonElement : public UUserWidget
 public:
 
 	DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMapButtonClicked, UMapButtonElement*, mapButtonElement);
+	
+	UPROPERTY()
+	int floorEventDataTableindex = 0;
+	UPROPERTY()
+	FFloorEventData currentFloorEventData;
 
+	UPROPERTY()
+	FVector2D positionInGrid;
+	
 	UPROPERTY()
 	ECardinalNodeDirections CurrentNodeDirection;
 	UPROPERTY()
@@ -43,6 +53,7 @@ public:
 	TMap<ECardinalNodeDirections,UTexture2D*> MapIcons;
 	
 	void SetMapIcon(ECardinalNodeDirections aCardinalNodeDirection);
+	void SetFloorEvent(FFloorEventData aFloorEventData,int afloorEventDataTableIndex);
 	void SetEventIcon(bool aIsActive);
 	UFUNCTION(BlueprintCallable)
 	void ActivateMapNodeEditor();

@@ -14,6 +14,8 @@ void EmptyLinkFunctionForGeneratedCodeMapButtonElement() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UMapButtonElement_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UUserWidget();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FFloorEventData();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections();
 	UMG_API UClass* Z_Construct_UClass_UButton_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
@@ -108,6 +110,18 @@ void EmptyLinkFunctionForGeneratedCodeMapButtonElement() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_floorEventDataTableindex_MetaData[];
+#endif
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_floorEventDataTableindex;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentFloorEventData_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_currentFloorEventData;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_positionInGrid_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_positionInGrid;
 		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_CurrentNodeDirection_Underlying;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurrentNodeDirection_MetaData[];
@@ -155,6 +169,24 @@ void EmptyLinkFunctionForGeneratedCodeMapButtonElement() {}
 		{ "ModuleRelativePath", "Public/MapButtonElement.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMapButtonElement_Statics::NewProp_floorEventDataTableindex_MetaData[] = {
+		{ "ModuleRelativePath", "Public/MapButtonElement.h" },
+	};
+#endif
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UMapButtonElement_Statics::NewProp_floorEventDataTableindex = { "floorEventDataTableindex", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMapButtonElement, floorEventDataTableindex), METADATA_PARAMS(Z_Construct_UClass_UMapButtonElement_Statics::NewProp_floorEventDataTableindex_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMapButtonElement_Statics::NewProp_floorEventDataTableindex_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMapButtonElement_Statics::NewProp_currentFloorEventData_MetaData[] = {
+		{ "ModuleRelativePath", "Public/MapButtonElement.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMapButtonElement_Statics::NewProp_currentFloorEventData = { "currentFloorEventData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMapButtonElement, currentFloorEventData), Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(Z_Construct_UClass_UMapButtonElement_Statics::NewProp_currentFloorEventData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMapButtonElement_Statics::NewProp_currentFloorEventData_MetaData)) }; // 2380252017
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMapButtonElement_Statics::NewProp_positionInGrid_MetaData[] = {
+		{ "ModuleRelativePath", "Public/MapButtonElement.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMapButtonElement_Statics::NewProp_positionInGrid = { "positionInGrid", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMapButtonElement, positionInGrid), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(Z_Construct_UClass_UMapButtonElement_Statics::NewProp_positionInGrid_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMapButtonElement_Statics::NewProp_positionInGrid_MetaData)) };
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UMapButtonElement_Statics::NewProp_CurrentNodeDirection_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMapButtonElement_Statics::NewProp_CurrentNodeDirection_MetaData[] = {
@@ -207,6 +239,9 @@ void EmptyLinkFunctionForGeneratedCodeMapButtonElement() {}
 #endif
 	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UMapButtonElement_Statics::NewProp_MapIcons = { "MapIcons", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMapButtonElement, MapIcons), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UMapButtonElement_Statics::NewProp_MapIcons_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMapButtonElement_Statics::NewProp_MapIcons_MetaData)) }; // 3248041013
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMapButtonElement_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapButtonElement_Statics::NewProp_floorEventDataTableindex,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapButtonElement_Statics::NewProp_currentFloorEventData,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapButtonElement_Statics::NewProp_positionInGrid,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapButtonElement_Statics::NewProp_CurrentNodeDirection_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapButtonElement_Statics::NewProp_CurrentNodeDirection,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapButtonElement_Statics::NewProp_OnMapButtonClicked,
@@ -254,9 +289,9 @@ void EmptyLinkFunctionForGeneratedCodeMapButtonElement() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMapButtonElement, UMapButtonElement::StaticClass, TEXT("UMapButtonElement"), &Z_Registration_Info_UClass_UMapButtonElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMapButtonElement), 2376495859U) },
+		{ Z_Construct_UClass_UMapButtonElement, UMapButtonElement::StaticClass, TEXT("UMapButtonElement"), &Z_Registration_Info_UClass_UMapButtonElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMapButtonElement), 4050278375U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_2174119210(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_490790519(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapButtonElement_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

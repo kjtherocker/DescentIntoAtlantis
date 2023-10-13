@@ -15,8 +15,6 @@
 void ULevelGeneratorUtilityWidget::NativeConstruct()
 {
 	Super::NativeOnInitialized();
-	
-
 	if(dataTables[EDataTableTypes::Floor] != nullptr
 			   &&dataTables[EDataTableTypes::FloorEvent] != nullptr)
 	{
@@ -25,18 +23,12 @@ void ULevelGeneratorUtilityWidget::NativeConstruct()
 	}
 	
 	BW_GenerateButton->OnClicked.AddDynamic(this, &ULevelGeneratorUtilityWidget::GenerateLevel);
-	BW_SaveButton->OnClicked.AddDynamic(this, &ULevelGeneratorUtilityWidget::SaveCurrentMap);
-
-	//for (int32 EnumIndex = 0; EnumIndex < EnumPtr->NumEnums(); ++EnumIndex)
-	//{
-//
-	//	FString EnumName = EnumPtr->GetNameStringByIndex(EnumIndex);
-	//	//FloorNames.Add(EnumPtr->enum)
-	//	// Add the enum value to the ComboBox
-	//		//	FloorNames.Add(EnumIndex,FName(EnumName));
-	//	BW_ComboBoxKey->AddOption( FName(EnumName));
-	//}
-
+	BW_SaveButton    ->OnClicked.AddDynamic(this, &ULevelGeneratorUtilityWidget::SaveCurrentMap);
+	BW_MapNodeEditor ->BW_MapEventEditorView->onFloorEventSave.AddDynamic(this,&ULevelGeneratorUtilityWidget::SaveCurrentEvent);
+	BW_MapNodeEditor ->BW_MapEventEditorView->onFloorEventDeletion.AddDynamic(this,&ULevelGeneratorUtilityWidget::DeleteEvent);
+	BW_MapNodeEditor ->BW_MapEventEditorView->onFloorEventCreation.AddDynamic(this,&ULevelGeneratorUtilityWidget::CreateEvent);
+	
+	BW_MapNodeEditor->InitializeEditor();
 }
 
 void ULevelGeneratorUtilityWidget::GenerateLevel()
@@ -56,6 +48,7 @@ void ULevelGeneratorUtilityWidget::CreateGrid(UFloorBase* aFloor)
 {
 	UMapButtonElement* Object = nullptr;
 	UFloorBase* tempfloor = aFloor;
+	
 	MapButtons.Init(Object,tempfloor->GridDimensionX * tempfloor->GridDimensionY );
 	for (int x = 0; x < tempfloor->GridDimensionX; x++)
 	{
@@ -84,10 +77,15 @@ void ULevelGeneratorUtilityWidget::CreateGrid(UFloorBase* aFloor)
 		}
 	}
 
-	for (FFloorEventData floorevent : floorFactory->floorEnemyData)
+	for (TPair<int, FFloorEventData>& floorEvent : floorFactory->floorEventData)
 	{
-		int LevelIndex = aFloor->GetIndex(floorevent.positionInGrid.X, floorevent.positionInGrid.Y);
-		MapButtons[LevelIndex]->SetEventIcon(true);
+		FFloorEventData floorEventData = floorEvent.Value;
+		if(floorEventData.floorIdentifier == aFloor->floorData.floorIdentifier)
+		{
+			int LevelIndex = aFloor->GetIndex(floorEventData.positionInGrid.X, floorEventData.positionInGrid.Y);
+			MapButtons[LevelIndex]->SetEventIcon(true);
+			MapButtons[LevelIndex]->SetFloorEvent(floorEventData,floorEvent.Key);
+		}
 	}
 	
 
@@ -97,21 +95,27 @@ void ULevelGeneratorUtilityWidget::SpawnMapButton(int aRow, int aColumn, int aIn
 {
 	//Setting new Positon
 	FVector2D  PositionOffset;
-	PositionOffset.Set(50 * aRow, 50 * aColumn);
+	PositionOffset.Set(MAP_NODE_POSITION_OFFSET * aRow, MAP_NODE_POSITION_OFFSET * aColumn);
 	FVector2D startPosition = FVector2D(15,188);
 	FVector2D  ActorFinalSpawnPoint =  startPosition + PositionOffset ;
 
-	UUserWidget* skillBarElement = CreateWidget(this,MapButtonElement );
+	UUserWidget* mapbuttonElement = CreateWidget(this,MapButtonElement );
 
-	UMapButtonElement* baseUserWidget = (UMapButtonElement*)skillBarElement;
+	UMapButtonElement* baseUserWidget = (UMapButtonElement*)mapbuttonElement;
 	baseUserWidget->AddToViewport();
-	BW_HorizontalBox->AddChild(skillBarElement);
+	BW_HorizontalBox->AddChild(mapbuttonElement);
 	baseUserWidget->InitializeMapButton();
 	baseUserWidget->SetPositionInViewport(ActorFinalSpawnPoint,false);
+	baseUserWidget->positionInGrid = FVector2d(aRow,aColumn);
 
 	baseUserWidget->OnMapButtonClicked.AddDynamic(this,&ULevelGeneratorUtilityWidget::ActivateMapNodeEditor);
 	
 	MapButtons[aIndex] = baseUserWidget;
+}
+
+void ULevelGeneratorUtilityWidget::RefreshGrid()
+{
+	
 }
 
 void ULevelGeneratorUtilityWidget::ActivateMapNodeEditor(UMapButtonElement* aMapButtonElement)
@@ -128,5 +132,23 @@ void ULevelGeneratorUtilityWidget::SaveCurrentMap()
 	}
 	
 	floorFactory->OverwriteFloorMapData(EFloorIdentifier::Floor1,newMapData);
+}
+
+void ULevelGeneratorUtilityWidget::SaveCurrentEvent( int aFloorEventDataTableIndex, FFloorEventData& aNewEventData)
+{
+	aNewEventData.floorIdentifier = EFloorIdentifier::Floor1;
+	floorFactory->OverwriteFloorEventData(aFloorEventDataTableIndex,aNewEventData);
+	//floorFactory->CreateNewFloorEventRow(aNewEventData);
+}
+
+void ULevelGeneratorUtilityWidget::CreateEvent(FFloorEventData& aNewEventData)
+{
+	aNewEventData.floorIdentifier = EFloorIdentifier::Floor1;
+	floorFactory->CreateNewFloorEventRow(aNewEventData);
+}
+
+void ULevelGeneratorUtilityWidget::DeleteEvent(int aFloorEventDataTableIndex)
+{
+	floorFactory->DeleteFloorEventRow(aFloorEventDataTableIndex);
 }
 

@@ -2,49 +2,90 @@
 
 
 #include "MapEventEditorView.h"
-
 #include "FloorEnum.h"
+#include "MapButtonElement.h"
 
 void UMapEventEditorView::InitializeEvent()
 {
-	SetupComboBox(BW_TutorialOnStart);
-	SetupComboBox(BW_TutorialOnEnd);
+	InitializeComboBox(BW_TutorialOnStart, TUTORIAL_ENUM);
+	InitializeComboBox(BW_TutorialOnEnd  , TUTORIAL_ENUM);
+	InitializeComboBox(BW_AllyGained     , ALLY_ENUM);
+	InitializeComboBox(BW_ViewOnEnd      , VIEW_ENUM);
+	InitializeComboBox(BW_DialogueOnStart, DIALOGUE_ENUM);
+	InitializeComboBox(BW_DialogueOnEnd  , DIALOGUE_ENUM);
+
+	BW_SaveEventButton->OnClicked.AddDynamic(this,   &UMapEventEditorView::SaveEvent);
+	BW_DeleteEventButton->OnClicked.AddDynamic(this, &UMapEventEditorView::DeleteEvent);
 }
 
-void UMapEventEditorView::SetupComboBox(UComboBoxString* aCombobox)
+void UMapEventEditorView::InitializeComboBox(UComboBoxString* aCombobox,FString aEnumName)
 {
-	UEnum* EnumType = FindObject<UEnum>(ANY_PACKAGE, *TUTORIAL_ENUM, true);
+	UEnum* EnumType = FindObject<UEnum>(ANY_PACKAGE, *aEnumName, true);
 	TArray<FName> enumNames = GetAllEnumNames(EnumType);
 	
 	for (int32 i = 0; i < enumNames.Num(); ++i)
 	{
-	
     	FString EnumName = enumNames[i].ToString();
-    	//FloorNames.Add(EnumPtr->enum)
-    
-    	//FloorNames.Add(EnumIndex,FName(EnumName));
     	aCombobox->AddOption(EnumName);
     }
-
 	
+}
+
+void UMapEventEditorView::SetComboxBoxIndex(UMapButtonElement* aMapButtonElement)
+{
+	currentMapButtonElement = aMapButtonElement;
+	FFloorEventData floorEventData = aMapButtonElement->currentFloorEventData;
+	
+//if(floorEventData.floorIdentifier == EFloorIdentifier::None)
+//{
+//	return;
+//}
+	
+	BW_TutorialOnStart->SetSelectedIndex ((int)floorEventData.tutorialTriggerOnStart);
+	BW_TutorialOnEnd->SetSelectedIndex   ((int)floorEventData.tutorialTriggerOnEnd);
+	BW_AllyGained->SetSelectedIndex      ((int)floorEventData.partyMemberGainedOnEnd);
+	BW_ViewOnEnd->SetSelectedIndex       ((int)floorEventData.viewPushedOnEnd);
+	BW_DialogueOnStart->SetSelectedIndex ((int)floorEventData.dialogueTriggerOnStart);
+	BW_DialogueOnEnd->SetSelectedIndex   ((int)floorEventData.dialogueTriggerOnEnd);
+
+	FText EnemyGroupNameText = FText::FromString(floorEventData.enemyGroupName);
+	BW_EnemyGroupTextBox->SetText(EnemyGroupNameText);
 }
 
 
 void UMapEventEditorView::SaveEvent()
 {
+	FFloorEventData floorEventData;
+	
+	floorEventData.enemyGroupName         = (FString)BW_EnemyGroupTextBox->Text.ToString();
+	floorEventData.positionInGrid         = currentMapButtonElement->positionInGrid;
+	floorEventData.dialogueTriggerOnStart = (EDialogueTriggers)BW_TutorialOnStart->GetSelectedIndex();
+	floorEventData.dialogueTriggerOnEnd   = (EDialogueTriggers)BW_TutorialOnStart->GetSelectedIndex();
+	floorEventData.tutorialTriggerOnStart = (ETutorialTriggers)BW_TutorialOnStart->GetSelectedIndex();
+	floorEventData.tutorialTriggerOnEnd   = (ETutorialTriggers)BW_TutorialOnStart->GetSelectedIndex();
+	floorEventData.viewPushedOnEnd        = (EViews)BW_TutorialOnStart->GetSelectedIndex();
+	floorEventData.partyMemberGainedOnEnd = (EDataTableClasses)BW_TutorialOnStart->GetSelectedIndex();
+	
+	if(currentMapButtonElement->currentFloorEventData.floorIdentifier == EFloorIdentifier::None)
+	{
+		onFloorEventCreation.Broadcast(floorEventData);
+	}
+	else
+	{
+		onFloorEventSave.Broadcast(currentMapButtonElement->floorEventDataTableindex ,floorEventData);
+	}
+
 }
 
-void UMapEventEditorView::CreateEvent()
+void UMapEventEditorView::DeleteEvent()
 {
+	onFloorEventDeletion.Broadcast(currentMapButtonElement->floorEventDataTableindex);
 }
 
 void UMapEventEditorView::VerifyGroup()
 {
 }
 
-void UMapEventEditorView::SetCombobox()
-{
-}
 
 TArray<FName> UMapEventEditorView::GetAllEnumNames(UEnum* EnumType)
 {

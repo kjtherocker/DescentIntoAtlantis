@@ -3,7 +3,7 @@
 
 #include "FloorFactory.h"
 
-void UFloorFactory::InitializeDatabase(UDataTable* aFloorDatabase,UDataTable* aFloorEnemyDatabase)
+void UFloorFactory::InitializeDatabase(UDataTable* aFloorDatabase,UDataTable* aFloorEventDatabase)
 {
 	FloorDatabase = aFloorDatabase;
 	
@@ -19,15 +19,16 @@ void UFloorFactory::InitializeDatabase(UDataTable* aFloorDatabase,UDataTable* aF
 		floorDictionary.Add(floorData[i].floorIdentifier,floorBase);
 	}
 
-	UDataTable* datatable2 = aFloorEnemyDatabase;
+	FloorEventDatabase = aFloorEventDatabase;
+	UDataTable* datatable2 = aFloorEventDatabase;
 	for(int i = 0 ; i < datatable2->GetRowMap().Num(); i ++)
 	{
-		floorEnemyData.Add(*datatable2->FindRow<FFloorEventData>(FName(FString::FromInt(i)),FString("Searching for Floors Events"),true));
+		floorEventData.Add( i,*datatable2->FindRow<FFloorEventData>(FName(FString::FromInt(i)),FString("Searching for Floors Events"),true));
 	}
 
-	for(int i = 0 ; i < floorEnemyData.Num(); i++)
+	for(int i = 0 ; i < floorEventData.Num(); i++)
 	{
-		floorDictionary[floorEnemyData[i].floorIdentifier]->floorEventData.Add(floorEnemyData[i].positionInGrid,floorEnemyData[i]);
+		floorDictionary[floorEventData[i].floorIdentifier]->floorEventData.Add(floorEventData[i].positionInGrid,floorEventData[i]);
 	}
 }
 
@@ -45,4 +46,63 @@ void UFloorFactory::OverwriteFloorMapData(EFloorIdentifier aOverwrittenFloor,TAr
 	}
 
 	
+}
+
+void UFloorFactory::OverwriteFloorEventData(int aFloorEventDataTableIndex, FFloorEventData aNewEventData)
+{
+	UDataTable* DataTable = FloorEventDatabase;
+	
+	int currentFloorIndex = aFloorEventDataTableIndex;
+	// Iterate through the rows in the DataTable
+	FFloorEventData* FloorData = DataTable->FindRow<FFloorEventData>(FName(FString::FromInt(currentFloorIndex)), FString("Searching for Floors"), true);
+	if (FloorData)
+	{
+		// Update the specified column with the new TArray<int32>
+		*FloorData = aNewEventData;
+
+		DataTable->PostEditChange();
+		DataTable->PostLoad();
+		
+	}
+}
+
+void UFloorFactory::CreateNewFloorEventRow(FFloorEventData aNewEventData)
+{
+	UDataTable* dataTable = FloorEventDatabase;
+	int floorMaxIndex     = dataTable->GetRowMap().Num();
+
+	dataTable->AddRow(FName(FString::FromInt(floorMaxIndex)),aNewEventData);
+	dataTable->PostEditChange();
+	dataTable->PostLoad();
+}
+
+void UFloorFactory::DeleteFloorEventRow(int aRowIndex)
+{
+	UDataTable* DataTable = FloorEventDatabase;
+	DataTable->RemoveRow(FName(FString::FromInt(aRowIndex)));
+
+	ReOrderFloorEventRow(aRowIndex);
+}
+
+void UFloorFactory::ReOrderFloorEventRow(int aRemovedIndex)
+{
+	UDataTable* datatable = FloorEventDatabase;
+
+	for(int i = aRemovedIndex + REMOVED_INDEX_OFFSET;i  <= datatable->GetRowMap().Num();i++)
+	{
+		FFloorEventData* RowData = datatable->FindRow<FFloorEventData>(FName(FString::FromInt(i)),FString("Searching for Floors Events"),true);
+		FFloorEventData RowDataCopy = *RowData;
+		if (RowData)
+		{
+			// Remove the old row
+			datatable->RemoveRow(FName(FString::FromInt(i)));
+
+			// Re-insert the row with the new name
+			datatable->AddRow(FName(FString::FromInt(i - REMOVED_INDEX_OFFSET)), RowDataCopy);
+
+			// Ensure the new row is properly saved
+			datatable->PostEditChange();
+			datatable->PostLoad();
+		}
+	}
 }

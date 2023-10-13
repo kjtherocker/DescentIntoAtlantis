@@ -9,6 +9,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class UFloorBase;
+struct FFloorEventData;
 class UMapButtonElement;
 #ifdef DESENTINTOATLANTIS_LevelGeneratorUtilityWidget_generated_h
 #error "LevelGeneratorUtilityWidget.generated.h already included, missing '#pragma once' in LevelGeneratorUtilityWidget.h"
@@ -21,6 +22,9 @@ class UMapButtonElement;
 	DECLARE_FUNCTION(execSpawnMapButton); \
 	DECLARE_FUNCTION(execCreateGrid); \
 	DECLARE_FUNCTION(execGenerateLevel); \
+	DECLARE_FUNCTION(execDeleteEvent); \
+	DECLARE_FUNCTION(execCreateEvent); \
+	DECLARE_FUNCTION(execSaveCurrentEvent); \
 	DECLARE_FUNCTION(execSaveCurrentMap); \
 	DECLARE_FUNCTION(execActivateMapNodeEditor);
 
@@ -30,6 +34,9 @@ class UMapButtonElement;
 	DECLARE_FUNCTION(execSpawnMapButton); \
 	DECLARE_FUNCTION(execCreateGrid); \
 	DECLARE_FUNCTION(execGenerateLevel); \
+	DECLARE_FUNCTION(execDeleteEvent); \
+	DECLARE_FUNCTION(execCreateEvent); \
+	DECLARE_FUNCTION(execSaveCurrentEvent); \
 	DECLARE_FUNCTION(execSaveCurrentMap); \
 	DECLARE_FUNCTION(execActivateMapNodeEditor);
 

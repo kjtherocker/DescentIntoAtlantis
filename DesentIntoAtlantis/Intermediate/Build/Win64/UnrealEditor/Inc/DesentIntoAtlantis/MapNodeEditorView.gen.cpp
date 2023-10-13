@@ -101,9 +101,9 @@ void EmptyLinkFunctionForGeneratedCodeMapNodeEditorView() {}
 #endif
 		static const UECodeGen_Private::FClassPropertyParams NewProp_MapButtonElement;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_MapEditorView_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_MapEventEditorView_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_MapEditorView;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_MapEventEditorView;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -146,19 +146,19 @@ void EmptyLinkFunctionForGeneratedCodeMapNodeEditorView() {}
 #endif
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UMapNodeEditorView_Statics::NewProp_MapButtonElement = { "MapButtonElement", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMapNodeEditorView, MapButtonElement), Z_Construct_UClass_UUserWidget_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_UMapNodeEditorView_Statics::NewProp_MapButtonElement_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMapNodeEditorView_Statics::NewProp_MapButtonElement_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMapNodeEditorView_Statics::NewProp_BW_MapEditorView_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMapNodeEditorView_Statics::NewProp_BW_MapEventEditorView_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "Category", "MapNodeEditorView" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/MapNodeEditorView.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMapNodeEditorView_Statics::NewProp_BW_MapEditorView = { "BW_MapEditorView", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMapNodeEditorView, BW_MapEditorView), Z_Construct_UClass_UMapEventEditorView_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMapNodeEditorView_Statics::NewProp_BW_MapEditorView_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMapNodeEditorView_Statics::NewProp_BW_MapEditorView_MetaData)) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMapNodeEditorView_Statics::NewProp_BW_MapEventEditorView = { "BW_MapEventEditorView", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMapNodeEditorView, BW_MapEventEditorView), Z_Construct_UClass_UMapEventEditorView_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMapNodeEditorView_Statics::NewProp_BW_MapEventEditorView_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMapNodeEditorView_Statics::NewProp_BW_MapEventEditorView_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMapNodeEditorView_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapNodeEditorView_Statics::NewProp_SelectedMapButton,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapNodeEditorView_Statics::NewProp_BW_MapNodePanel,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapNodeEditorView_Statics::NewProp_MapButtonElement,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapNodeEditorView_Statics::NewProp_BW_MapEditorView,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapNodeEditorView_Statics::NewProp_BW_MapEventEditorView,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UMapNodeEditorView_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UMapNodeEditorView>::IsAbstract,
@@ -196,9 +196,9 @@ void EmptyLinkFunctionForGeneratedCodeMapNodeEditorView() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapNodeEditorView_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMapNodeEditorView, UMapNodeEditorView::StaticClass, TEXT("UMapNodeEditorView"), &Z_Registration_Info_UClass_UMapNodeEditorView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMapNodeEditorView), 701931874U) },
+		{ Z_Construct_UClass_UMapNodeEditorView, UMapNodeEditorView::StaticClass, TEXT("UMapNodeEditorView"), &Z_Registration_Info_UClass_UMapNodeEditorView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMapNodeEditorView), 3918930741U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapNodeEditorView_h_1709652114(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapNodeEditorView_h_4015117957(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapNodeEditorView_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapNodeEditorView_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

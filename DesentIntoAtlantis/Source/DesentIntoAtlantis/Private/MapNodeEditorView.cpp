@@ -3,6 +3,7 @@
 
 void UMapNodeEditorView::InitializeEditor()
 {
+	BW_MapEventEditorView->InitializeEvent();
 }
 
 void UMapNodeEditorView::SetUpMapNodePanel(UMapButtonElement* aMapNodeElement)
@@ -14,7 +15,7 @@ void UMapNodeEditorView::SetUpMapNodePanel(UMapButtonElement* aMapNodeElement)
 		for(int i = 0 ; i < icons.Num(); i++)
 		{
 			FVector2D  PositionOffset;
-			PositionOffset.Set(50 * i, 0);
+			PositionOffset.Set(MAP_NODE_POSITION_OFFSET * i, 0);
 		
 			UUserWidget* mapbuttonElement = CreateWidget(this,MapButtonElement );
 
@@ -30,8 +31,8 @@ void UMapNodeEditorView::SetUpMapNodePanel(UMapButtonElement* aMapNodeElement)
 			
 		}
 	}
+	BW_MapEventEditorView->SetComboxBoxIndex(aMapNodeElement);
 
-	BW_MapEditorView->InitializeEvent();
 }
 
 void UMapNodeEditorView::ChangeNodeDirection(UMapButtonElement* aMapNodeElement)

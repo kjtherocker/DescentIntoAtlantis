@@ -23,6 +23,8 @@ class DESENTINTOATLANTIS_API UMapNodeEditorView : public UUserWidget
 
 	UPROPERTY()
 	UMapButtonElement* SelectedMapButton;
+
+	const int MAP_NODE_POSITION_OFFSET = 50;
 	
 public:
 	
@@ -40,7 +42,7 @@ public:
 	TSubclassOf<UUserWidget> MapButtonElement;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UMapEventEditorView* BW_MapEditorView;
+	UMapEventEditorView* BW_MapEventEditorView;
 	
 };
 

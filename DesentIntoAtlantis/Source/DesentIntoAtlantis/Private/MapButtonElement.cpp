@@ -12,6 +12,12 @@ void UMapButtonElement::SetMapIcon(ECardinalNodeDirections aCardinalNodeDirectio
 	BW_MapIcon->SetBrushFromTexture(MapIcons[aCardinalNodeDirection]);
 }
 
+void UMapButtonElement::SetFloorEvent(FFloorEventData aFloorEventData,int afloorEventDataTableIndex)
+{
+	currentFloorEventData    = aFloorEventData;
+	floorEventDataTableindex = afloorEventDataTableIndex;
+}
+
 void UMapButtonElement::SetEventIcon(bool aIsActive)
 {
 	BW_EventIcon->SetOpacity(aIsActive ? 100:0);

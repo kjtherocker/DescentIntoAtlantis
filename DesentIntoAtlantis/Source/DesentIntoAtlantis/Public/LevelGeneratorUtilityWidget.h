@@ -24,6 +24,9 @@ class DESENTINTOATLANTIS_API ULevelGeneratorUtilityWidget : public UEditorUtilit
 	GENERATED_BODY()
 
 private:
+	
+	const int MAP_NODE_POSITION_OFFSET = 50;
+	
 	TMap<EFloorIdentifier,FName> FloorNames;
 	UFloorFactory* floorFactory;
 
@@ -32,8 +35,20 @@ private:
 	
 	UFUNCTION(BlueprintCallable, Category = "MyEditorUtility")
 	void ActivateMapNodeEditor(UMapButtonElement* aMapButtonElement);
+
 	UFUNCTION(BlueprintCallable, Category = "MyEditorUtility")
 	void SaveCurrentMap();
+
+	UFUNCTION(BlueprintCallable, Category = "MyEditorUtility")
+	void SaveCurrentEvent(int aFloorEventDataTableIndex, FFloorEventData& aNewEventData);
+
+	UFUNCTION(BlueprintCallable, Category = "MyEditorUtility")
+	void CreateEvent(FFloorEventData& aNewEventData);
+	
+	UFUNCTION(BlueprintCallable, Category = "MyEditorUtility")
+	void DeleteEvent(int aFloorEventDataTableIndex);
+
+	void RefreshGrid();
 	
 public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
@@ -72,3 +87,5 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SpawnMapButton(int aRow, int aColumn, int aIndex);
 };
+
+
