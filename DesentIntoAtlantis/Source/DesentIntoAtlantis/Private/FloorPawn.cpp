@@ -74,7 +74,7 @@ void AFloorPawn::MoveForward()
 	{
 		return;
 	} 
-
+	gameModeBase->InGameHUD->PushView(EViews::Healthbars,    EUiType::PersistentUi);
 
 	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Footsteps);
 
@@ -238,6 +238,8 @@ void AFloorPawn::SpawnFloorPawn(AFloorNode* aFloorNode)
 	
 	currentNodePlayerIsOn = aFloorNode;
 	SetActorRotation(directionModel[0]->rotation);
+
+
 }
 
 

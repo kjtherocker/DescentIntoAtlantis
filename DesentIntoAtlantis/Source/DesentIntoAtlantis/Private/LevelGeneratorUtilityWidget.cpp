@@ -77,18 +77,17 @@ void ULevelGeneratorUtilityWidget::CreateGrid(UFloorBase* aFloor)
 		}
 	}
 
+	//setting event icons
 	for (TPair<int, FFloorEventData>& floorEvent : floorFactory->floorEventData)
 	{
 		FFloorEventData floorEventData = floorEvent.Value;
-		if(floorEventData.floorIdentifier == aFloor->floorData.floorIdentifier)
+		if(floorEventData.floorIdentifier == tempfloor->floorData.floorIdentifier)
 		{
-			int LevelIndex = aFloor->GetIndex(floorEventData.positionInGrid.X, floorEventData.positionInGrid.Y);
+			int LevelIndex = tempfloor->GetIndex(floorEventData.positionInGrid.X, floorEventData.positionInGrid.Y);
 			MapButtons[LevelIndex]->SetEventIcon(true);
 			MapButtons[LevelIndex]->SetFloorEvent(floorEventData,floorEvent.Key);
 		}
 	}
-	
-
 }
 
 void ULevelGeneratorUtilityWidget::SpawnMapButton(int aRow, int aColumn, int aIndex)
@@ -113,9 +112,38 @@ void ULevelGeneratorUtilityWidget::SpawnMapButton(int aRow, int aColumn, int aIn
 	MapButtons[aIndex] = baseUserWidget;
 }
 
-void ULevelGeneratorUtilityWidget::RefreshGrid()
+void ULevelGeneratorUtilityWidget::RefreshGridGimmicks()
 {
-	
+	UFloorBase* tempfloor = floorFactory->floorDictionary[EFloorIdentifier::Floor1];
+
+	//Resetting all of the event icons 
+	for (int x = 0; x < tempfloor->GridDimensionX; x++)
+	{
+		for (int y = 0; y < tempfloor->GridDimensionY; y++)
+		{
+			int LevelIndex = tempfloor->GetIndex(x, y);
+			MapButtons[LevelIndex]->SetEventIcon(false);
+		}
+	}
+
+	if(dataTables[EDataTableTypes::Floor] != nullptr
+		   &&dataTables[EDataTableTypes::FloorEvent] != nullptr)
+	{
+		floorFactory = NewObject<UFloorFactory>();
+		floorFactory->InitializeDatabase(dataTables[EDataTableTypes::Floor],dataTables[EDataTableTypes::FloorEvent]);
+	}
+
+	//setting event icons
+	for (TPair<int, FFloorEventData>& floorEvent : floorFactory->floorEventData)
+	{
+		FFloorEventData floorEventData = floorEvent.Value;
+		if(floorEventData.floorIdentifier == tempfloor->floorData.floorIdentifier)
+		{
+			int LevelIndex = tempfloor->GetIndex(floorEventData.positionInGrid.X, floorEventData.positionInGrid.Y);
+			MapButtons[LevelIndex]->SetEventIcon(true);
+			MapButtons[LevelIndex]->SetFloorEvent(floorEventData,floorEvent.Key);
+		}
+	}
 }
 
 void ULevelGeneratorUtilityWidget::ActivateMapNodeEditor(UMapButtonElement* aMapButtonElement)
@@ -139,16 +167,19 @@ void ULevelGeneratorUtilityWidget::SaveCurrentEvent( int aFloorEventDataTableInd
 	aNewEventData.floorIdentifier = EFloorIdentifier::Floor1;
 	floorFactory->OverwriteFloorEventData(aFloorEventDataTableIndex,aNewEventData);
 	//floorFactory->CreateNewFloorEventRow(aNewEventData);
+	RefreshGridGimmicks();
 }
 
 void ULevelGeneratorUtilityWidget::CreateEvent(FFloorEventData& aNewEventData)
 {
 	aNewEventData.floorIdentifier = EFloorIdentifier::Floor1;
 	floorFactory->CreateNewFloorEventRow(aNewEventData);
+	RefreshGridGimmicks();
 }
 
 void ULevelGeneratorUtilityWidget::DeleteEvent(int aFloorEventDataTableIndex)
 {
 	floorFactory->DeleteFloorEventRow(aFloorEventDataTableIndex);
+	RefreshGridGimmicks();
 }
 

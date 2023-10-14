@@ -203,7 +203,7 @@ void AFloorManager::SetPlayerPosition(FVector2D aStartPositionInGrid)
 		floorPawn->SpawnFloorPawn(floorNodes[startPositionIndex]);
 		floorPawn->SetActorLocation(ActorFinalSpawnPoint);
 		floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
-		
+		gameModeBase->InGameHUD->PushAndGetView(EViews::Healthbars,  EUiType::PersistentUi);
 		playerController->SetPawn(floorPawn);
 	}
 

@@ -48,7 +48,7 @@ private:
 	UFUNCTION(BlueprintCallable, Category = "MyEditorUtility")
 	void DeleteEvent(int aFloorEventDataTableIndex);
 
-	void RefreshGrid();
+	void RefreshGridGimmicks();
 	
 public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))

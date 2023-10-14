@@ -28,6 +28,9 @@ void UGameManager::StartGame()
 	UDialogueView* DialogueView  = (UDialogueView*)gameModeBase->InGameHUD->PushAndGetView(EViews::Dialogue,EUiType::ActiveUi);
 	DialogueView->SetDialogueData(EDialogueTriggers::StartGame);
 	gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::Paladin);
+	gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::SoulEater);
+	gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::Dancer);
+	gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::DarkKnight);
 }
 
 void UGameManager::ResetPlayerToPreviousPosition()

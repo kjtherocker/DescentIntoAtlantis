@@ -121,13 +121,6 @@ void EmptyLinkFunctionForGeneratedCodeMapEventEditorView() {}
 		}
 		return ReturnFunction;
 	}
-	DEFINE_FUNCTION(UMapEventEditorView::execCreateEvent)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->CreateEvent();
-		P_NATIVE_END;
-	}
 	DEFINE_FUNCTION(UMapEventEditorView::execDeleteEvent)
 	{
 		P_FINISH;
@@ -146,33 +139,10 @@ void EmptyLinkFunctionForGeneratedCodeMapEventEditorView() {}
 	{
 		UClass* Class = UMapEventEditorView::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "CreateEvent", &UMapEventEditorView::execCreateEvent },
 			{ "DeleteEvent", &UMapEventEditorView::execDeleteEvent },
 			{ "SaveEvent", &UMapEventEditorView::execSaveEvent },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
-	}
-	struct Z_Construct_UFunction_UMapEventEditorView_CreateEvent_Statics
-	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMapEventEditorView_CreateEvent_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/MapEventEditorView.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMapEventEditorView_CreateEvent_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMapEventEditorView, nullptr, "CreateEvent", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMapEventEditorView_CreateEvent_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMapEventEditorView_CreateEvent_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_UMapEventEditorView_CreateEvent()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMapEventEditorView_CreateEvent_Statics::FuncParams);
-		}
-		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UMapEventEditorView_DeleteEvent_Statics
 	{
@@ -243,10 +213,6 @@ void EmptyLinkFunctionForGeneratedCodeMapEventEditorView() {}
 #endif
 		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_onFloorEventCreation;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_CreateEventButton_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_CreateEventButton;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_DeleteEventButton_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_DeleteEventButton;
@@ -295,7 +261,6 @@ void EmptyLinkFunctionForGeneratedCodeMapEventEditorView() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UMapEventEditorView_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UMapEventEditorView_CreateEvent, "CreateEvent" }, // 3035497958
 		{ &Z_Construct_UFunction_UMapEventEditorView_DeleteEvent, "DeleteEvent" }, // 2247158995
 		{ &Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventCreationDelegate__DelegateSignature, "FloorEventCreationDelegate__DelegateSignature" }, // 3588783669
 		{ &Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventDelegate__DelegateSignature, "FloorEventDelegate__DelegateSignature" }, // 2159051187
@@ -327,15 +292,6 @@ void EmptyLinkFunctionForGeneratedCodeMapEventEditorView() {}
 	};
 #endif
 	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventCreation = { "onFloorEventCreation", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMapEventEditorView, onFloorEventCreation), Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventCreationDelegate__DelegateSignature, METADATA_PARAMS(Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventCreation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventCreation_MetaData)) }; // 3588783669
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_BW_CreateEventButton_MetaData[] = {
-		{ "BindWidget", "" },
-		{ "Category", "MapEventEditorView" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Public/MapEventEditorView.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_BW_CreateEventButton = { "BW_CreateEventButton", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMapEventEditorView, BW_CreateEventButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_BW_CreateEventButton_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_BW_CreateEventButton_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_BW_DeleteEventButton_MetaData[] = {
 		{ "BindWidget", "" },
@@ -430,7 +386,6 @@ void EmptyLinkFunctionForGeneratedCodeMapEventEditorView() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventSave,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventDeletion,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventCreation,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_BW_CreateEventButton,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_BW_DeleteEventButton,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_BW_SaveEventButton,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_BW_VerifyGroupButton,
@@ -478,9 +433,9 @@ void EmptyLinkFunctionForGeneratedCodeMapEventEditorView() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapEventEditorView_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMapEventEditorView, UMapEventEditorView::StaticClass, TEXT("UMapEventEditorView"), &Z_Registration_Info_UClass_UMapEventEditorView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMapEventEditorView), 365743033U) },
+		{ Z_Construct_UClass_UMapEventEditorView, UMapEventEditorView::StaticClass, TEXT("UMapEventEditorView"), &Z_Registration_Info_UClass_UMapEventEditorView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMapEventEditorView), 1189476181U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapEventEditorView_h_1062014026(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapEventEditorView_h_989104152(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapEventEditorView_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapEventEditorView_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

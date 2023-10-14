@@ -60,14 +60,12 @@ static inline void FFloorEventCreationDelegate_DelegateWrapper(const FMulticastS
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapEventEditorView_h_22_SPARSE_DATA
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapEventEditorView_h_22_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execCreateEvent); \
 	DECLARE_FUNCTION(execDeleteEvent); \
 	DECLARE_FUNCTION(execSaveEvent);
 
 
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MapEventEditorView_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execCreateEvent); \
 	DECLARE_FUNCTION(execDeleteEvent); \
 	DECLARE_FUNCTION(execSaveEvent);
 
