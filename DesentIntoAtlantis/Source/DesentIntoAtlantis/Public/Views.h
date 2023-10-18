@@ -22,7 +22,8 @@ enum class  EViews
 	Tutorial          = 11,
 	Title             = 12,
 	Death             = 13,
-	Ending            = 14
+	Ending            = 14,
+	CameraFilter      = 15
 };
 
 

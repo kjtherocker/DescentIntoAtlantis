@@ -29,9 +29,15 @@ private:
 	
 	TMap<EFloorIdentifier,FName> FloorNames;
 	UFloorFactory* floorFactory;
-
+	const FString FLOOR_ENUM = TEXT("EFloorIdentifier");
+	UPROPERTY()
+	UFloorBase* CurrentFloor;
+	UPROPERTY()
+	EFloorIdentifier FloorIdentifier ;
 	UPROPERTY()
 	TArray<UMapButtonElement*> MapButtons;
+
+	void InitializeComboBox(UComboBoxString* aCombobox,FString aEnumName);
 	
 	UFUNCTION(BlueprintCallable, Category = "MyEditorUtility")
 	void ActivateMapNodeEditor(UMapButtonElement* aMapButtonElement);
@@ -71,7 +77,7 @@ public:
 	UTextBlock* BW_TitleText;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UComboBoxKey* BW_ComboBoxKey;
+	UComboBoxString* BW_LevelSelector;
 	
 	virtual void NativeConstruct() override;
 
@@ -86,6 +92,10 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void SpawnMapButton(int aRow, int aColumn, int aIndex);
+
+	TArray<FName> GetAllEnumNames(UEnum* EnumType);
 };
+
+
 
 

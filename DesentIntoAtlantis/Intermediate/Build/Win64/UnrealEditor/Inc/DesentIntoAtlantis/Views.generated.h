@@ -32,7 +32,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	op(EViews::Tutorial) \
 	op(EViews::Title) \
 	op(EViews::Death) \
-	op(EViews::Ending) 
+	op(EViews::Ending) \
+	op(EViews::CameraFilter) 
 
 enum class EViews;
 template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EViews>();

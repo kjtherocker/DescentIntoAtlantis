@@ -10,6 +10,7 @@
 			"FloorManager.cpp.obj",
 			"FloorNode.cpp.obj",
 			"BaseUserWidget.cpp.obj",
+			"CameraFilterView.cpp.obj",
 			"CombatBackground.cpp.obj",
 			"CombatClass.cpp.obj",
 			"CombatEntity.cpp.obj",
@@ -64,6 +65,7 @@
 		],
 		"Module.DesentIntoAtlantis.gen.1_of_3.cpp.obj": [
 			"BaseUserWidget.gen.cpp.obj",
+			"CameraFilterView.gen.cpp.obj",
 			"CombatBackground.gen.cpp.obj",
 			"CombatClass.gen.cpp.obj",
 			"CombatEntity.gen.cpp.obj",
@@ -115,11 +117,11 @@
 			"PressTurnManager.gen.cpp.obj",
 			"SkillBarElement.gen.cpp.obj",
 			"SkillFactory.gen.cpp.obj",
-			"SkillsData.gen.cpp.obj",
-			"SkillView.gen.cpp.obj",
-			"SoundManager.gen.cpp.obj"
+			"SkillsData.gen.cpp.obj"
 		],
 		"Module.DesentIntoAtlantis.gen.3_of_3.cpp.obj": [
+			"SkillView.gen.cpp.obj",
+			"SoundManager.gen.cpp.obj",
 			"StatusElement.gen.cpp.obj",
 			"TitleView.gen.cpp.obj",
 			"TurnCounterElement.gen.cpp.obj",

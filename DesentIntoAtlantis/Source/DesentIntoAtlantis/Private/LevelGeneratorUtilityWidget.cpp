@@ -27,7 +27,9 @@ void ULevelGeneratorUtilityWidget::NativeConstruct()
 	BW_MapNodeEditor ->BW_MapEventEditorView->onFloorEventSave.AddDynamic(this,&ULevelGeneratorUtilityWidget::SaveCurrentEvent);
 	BW_MapNodeEditor ->BW_MapEventEditorView->onFloorEventDeletion.AddDynamic(this,&ULevelGeneratorUtilityWidget::DeleteEvent);
 	BW_MapNodeEditor ->BW_MapEventEditorView->onFloorEventCreation.AddDynamic(this,&ULevelGeneratorUtilityWidget::CreateEvent);
-	
+
+	InitializeComboBox(BW_LevelSelector  , FLOOR_ENUM);
+	BW_LevelSelector->SetSelectedIndex(0);
 	BW_MapNodeEditor->InitializeEditor();
 }
 
@@ -35,12 +37,18 @@ void ULevelGeneratorUtilityWidget::GenerateLevel()
 {
 	int testo = 0;
 
-	BW_TitleText->SetText(FText(FText::FromString(BW_ComboBoxKey->GetSelectedOption().ToString())));
-	//BW_MapButtonElement->SetMapIcon(ECardinalNodeDirections::UpLeft);
+	BW_TitleText->SetText(FText(FText::FromString(BW_LevelSelector->GetSelectedOption())));
+	FloorIdentifier = (EFloorIdentifier)BW_LevelSelector->GetSelectedIndex();
+	if(FloorIdentifier == EFloorIdentifier::None)
+	{
+		return;
+	}
+	
+	CurrentFloor = floorFactory->floorDictionary[FloorIdentifier];
 	if(MapButtons.Num() <= 0)
 	{
-		floorFactory->floorDictionary[EFloorIdentifier::Floor1]->Initialize();
-		CreateGrid(floorFactory->floorDictionary[EFloorIdentifier::Floor1]);
+		CurrentFloor->Initialize();
+		CreateGrid(CurrentFloor);
 	}
 }
 
@@ -114,7 +122,7 @@ void ULevelGeneratorUtilityWidget::SpawnMapButton(int aRow, int aColumn, int aIn
 
 void ULevelGeneratorUtilityWidget::RefreshGridGimmicks()
 {
-	UFloorBase* tempfloor = floorFactory->floorDictionary[EFloorIdentifier::Floor1];
+	UFloorBase* tempfloor = CurrentFloor;
 
 	//Resetting all of the event icons 
 	for (int x = 0; x < tempfloor->GridDimensionX; x++)
@@ -159,12 +167,12 @@ void ULevelGeneratorUtilityWidget::SaveCurrentMap()
 		newMapData.Add(static_cast<int>(MapButtons[i]->CurrentNodeDirection));
 	}
 	
-	floorFactory->OverwriteFloorMapData(EFloorIdentifier::Floor1,newMapData);
+	floorFactory->OverwriteFloorMapData(FloorIdentifier,newMapData);
 }
 
 void ULevelGeneratorUtilityWidget::SaveCurrentEvent( int aFloorEventDataTableIndex, FFloorEventData& aNewEventData)
 {
-	aNewEventData.floorIdentifier = EFloorIdentifier::Floor1;
+	aNewEventData.floorIdentifier = FloorIdentifier;
 	floorFactory->OverwriteFloorEventData(aFloorEventDataTableIndex,aNewEventData);
 	//floorFactory->CreateNewFloorEventRow(aNewEventData);
 	RefreshGridGimmicks();
@@ -172,7 +180,7 @@ void ULevelGeneratorUtilityWidget::SaveCurrentEvent( int aFloorEventDataTableInd
 
 void ULevelGeneratorUtilityWidget::CreateEvent(FFloorEventData& aNewEventData)
 {
-	aNewEventData.floorIdentifier = EFloorIdentifier::Floor1;
+	aNewEventData.floorIdentifier = FloorIdentifier;
 	floorFactory->CreateNewFloorEventRow(aNewEventData);
 	RefreshGridGimmicks();
 }
@@ -183,3 +191,30 @@ void ULevelGeneratorUtilityWidget::DeleteEvent(int aFloorEventDataTableIndex)
 	RefreshGridGimmicks();
 }
 
+TArray<FName> ULevelGeneratorUtilityWidget::GetAllEnumNames(UEnum* EnumType)
+{
+	TArray<FName> EnumNames;
+
+	if (EnumType)
+	{
+		for (int32 i = 0; i < EnumType->NumEnums(); i++)
+		{
+			EnumNames.Add(FName(EnumType->GetNameStringByIndex(i)));
+		}
+	}
+
+	return EnumNames;
+}
+
+void ULevelGeneratorUtilityWidget::InitializeComboBox(UComboBoxString* aCombobox,FString aEnumName)
+{
+	UEnum* EnumType = FindObject<UEnum>(ANY_PACKAGE, *aEnumName, true);
+	TArray<FName> enumNames = GetAllEnumNames(EnumType);
+	
+	for (int32 i = 0; i < enumNames.Num(); ++i)
+	{
+		FString EnumName = enumNames[i].ToString();
+		aCombobox->AddOption(EnumName);
+	}
+	
+}

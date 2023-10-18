@@ -16,7 +16,9 @@ class DESENTINTOATLANTIS_API UFloorFactory : public UObject
 {
 	GENERATED_BODY()
 
+	UPROPERTY()
 	UDataTable* FloorDatabase;
+	UPROPERTY()
 	UDataTable* FloorEventDatabase;
 
 	const int REMOVED_INDEX_OFFSET = 1;
