@@ -74,7 +74,7 @@ void AFloorPawn::MoveForward()
 	{
 		return;
 	} 
-	gameModeBase->InGameHUD->PushView(EViews::CameraFilter,    EUiType::PersistentUi);
+
 	gameModeBase->InGameHUD->PushView(EViews::Healthbars,    EUiType::PersistentUi);
 
 

@@ -55,6 +55,7 @@ protected:
 	TMap<ECardinalNodeDirections, FVector2D>  cardinalPositions;
 	
 private:
+	const double FLOOR_EVENT_HEIGHT_OFFSET = 225;
 	void SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes);
 	void SetPlayerPosition(FVector2D aStartPositionInGrid);
 	ADesentIntoAtlantisGameModeBase* gameModeBase;

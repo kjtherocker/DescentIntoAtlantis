@@ -211,7 +211,7 @@ void AFloorManager::SetPlayerPosition(FVector2D aStartPositionInGrid)
 
 void AFloorManager::SpawnFloorEnemyPawn(FVector2D aPositionInGrid)
 {
-	FVector PositionOffset = FVector(0,0,300);
+	FVector PositionOffset = FVector(0,0,FLOOR_EVENT_HEIGHT_OFFSET);
 
 	FVector ActorFinalSpawnPoint = GetNode(aPositionInGrid)->GetActorLocation() + PositionOffset;
 
@@ -221,8 +221,18 @@ void AFloorManager::SpawnFloorEnemyPawn(FVector2D aPositionInGrid)
 	//Spawn
 	 AFloorEnemyPawn* floorPawn;
 	floorPawn = Cast<AFloorEnemyPawn>(GetWorld()->SpawnActor<AActor>(floorEnemyPawnReference, ActorFinalSpawnPoint, rotator));
-	floorPawn->SetActorLocation(ActorFinalSpawnPoint);
-	gameModeBase->floorEventManager->AddFloorEnemyEvents(aPositionInGrid,floorPawn);
+
+	if (floorPawn)
+	{
+		floorPawn->SetActorLocation(ActorFinalSpawnPoint);
+		gameModeBase->floorEventManager->AddFloorEnemyEvents(aPositionInGrid,floorPawn);
+	}
+	else
+	{
+		// Handle the failure
+		UE_LOG(LogTemp, Error, TEXT("Failed to spawn AFloorEnemyPawn at location: %s"), *ActorFinalSpawnPoint.ToString());
+	}
+
 }
 
 void AFloorManager::Tick(float DeltaTime)
