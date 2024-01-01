@@ -20,7 +20,7 @@ protected:
 
 public:	
 	// Sets default values for this actor's properties
-	AFloorNode();
+	AFloorNe ode();
 	~AFloorNode();
 
 	virtual void SetWalkableDirections(short aWalkabledirections);
