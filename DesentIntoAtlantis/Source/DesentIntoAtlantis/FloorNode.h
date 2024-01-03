@@ -6,6 +6,7 @@
 #include "ECardinalDirections.h"
 #include "FloorBase.h"
 #include "FloorEventManager.h"
+#include "Gimmick_Base.h"
 #include "GameFramework/Actor.h"
 #include "FloorNode.generated.h"
 
@@ -20,7 +21,7 @@ protected:
 
 public:	
 	// Sets default values for this actor's properties
-	AFloorNe ode();
+	AFloorNode();
 	~AFloorNode();
 
 	virtual void SetWalkableDirections(short aWalkabledirections);
@@ -32,6 +33,7 @@ public:
 	void PlayerIsOnTopOfNode();
 	TArray<ECardinalNodeDirections> walkableDirections;
 
+	void SetFloorGimmick(UGimmick_Base* aGimmick);
 
 	FFloorEventHasBeenTriggered floorEventHasBeenTriggeredEvent;
 	
@@ -52,6 +54,8 @@ public:
 
 	FFloorEventHasBeenTriggered floorEventHasBeenTriggered;
 
+private:
+	UGimmick_Base* ActiveNodeGimmick;
 
 };
 

@@ -1,0 +1,87 @@
+// Copyright Epic Games, Inc. All Rights Reserved.
+/*===========================================================================
+	Generated code exported from UnrealHeaderTool.
+	DO NOT modify this manually! Edit the corresponding .h files instead!
+===========================================================================*/
+
+#include "UObject/GeneratedCppIncludes.h"
+#include "DesentIntoAtlantis/Public/Gimmick_Base.h"
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+void EmptyLinkFunctionForGeneratedCodeGimmick_Base() {}
+// Cross Module References
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UGimmick_Base_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UGimmick_Base();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
+	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
+// End Cross Module References
+	void UGimmick_Base::StaticRegisterNativesUGimmick_Base()
+	{
+	}
+	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UGimmick_Base);
+	UClass* Z_Construct_UClass_UGimmick_Base_NoRegister()
+	{
+		return UGimmick_Base::StaticClass();
+	}
+	struct Z_Construct_UClass_UGimmick_Base_Statics
+	{
+		static UObject* (*const DependentSingletons[])();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
+#endif
+		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
+		static const UECodeGen_Private::FClassParams ClassParams;
+	};
+	UObject* (*const Z_Construct_UClass_UGimmick_Base_Statics::DependentSingletons[])() = {
+		(UObject* (*)())Z_Construct_UClass_UObject,
+		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UGimmick_Base_Statics::Class_MetaDataParams[] = {
+		{ "Comment", "/**\n * \n */" },
+		{ "IncludePath", "Gimmick_Base.h" },
+		{ "ModuleRelativePath", "Public/Gimmick_Base.h" },
+	};
+#endif
+	const FCppClassTypeInfoStatic Z_Construct_UClass_UGimmick_Base_Statics::StaticCppClassTypeInfo = {
+		TCppClassTypeTraits<UGimmick_Base>::IsAbstract,
+	};
+	const UECodeGen_Private::FClassParams Z_Construct_UClass_UGimmick_Base_Statics::ClassParams = {
+		&UGimmick_Base::StaticClass,
+		nullptr,
+		&StaticCppClassTypeInfo,
+		DependentSingletons,
+		nullptr,
+		nullptr,
+		nullptr,
+		UE_ARRAY_COUNT(DependentSingletons),
+		0,
+		0,
+		0,
+		0x001000A0u,
+		METADATA_PARAMS(Z_Construct_UClass_UGimmick_Base_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UGimmick_Base_Statics::Class_MetaDataParams))
+	};
+	UClass* Z_Construct_UClass_UGimmick_Base()
+	{
+		if (!Z_Registration_Info_UClass_UGimmick_Base.OuterSingleton)
+		{
+			UECodeGen_Private::ConstructUClass(Z_Registration_Info_UClass_UGimmick_Base.OuterSingleton, Z_Construct_UClass_UGimmick_Base_Statics::ClassParams);
+		}
+		return Z_Registration_Info_UClass_UGimmick_Base.OuterSingleton;
+	}
+	template<> DESENTINTOATLANTIS_API UClass* StaticClass<UGimmick_Base>()
+	{
+		return UGimmick_Base::StaticClass();
+	}
+	DEFINE_VTABLE_PTR_HELPER_CTOR(UGimmick_Base);
+	struct Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Gimmick_Base_h_Statics
+	{
+		static const FClassRegisterCompiledInInfo ClassInfo[];
+	};
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Gimmick_Base_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UGimmick_Base, UGimmick_Base::StaticClass, TEXT("UGimmick_Base"), &Z_Registration_Info_UClass_UGimmick_Base, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGimmick_Base), 989619626U) },
+	};
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Gimmick_Base_h_368593430(TEXT("/Script/DesentIntoAtlantis"),
+		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Gimmick_Base_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Gimmick_Base_h_Statics::ClassInfo),
+		nullptr, 0,
+		nullptr, 0);
+PRAGMA_ENABLE_DEPRECATION_WARNINGS

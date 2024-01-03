@@ -6,6 +6,7 @@
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/FloorPawn.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/FloorPlayerController.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/GameManager.gen.cpp"
+#include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/Gimmick_Base.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/InGameHUD.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/LevelGeneratorUtilityWidget.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/LevelupPanelElement.gen.cpp"

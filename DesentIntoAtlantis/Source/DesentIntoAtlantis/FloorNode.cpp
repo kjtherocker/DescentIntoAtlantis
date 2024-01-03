@@ -205,3 +205,8 @@ void AFloorNode::PlayerIsOnTopOfNode()
 		floorEventHasBeenTriggeredEvent.Broadcast(positionInGrid);
 	}
 }
+
+void AFloorNode::SetFloorGimmick(UGimmick_Base* aGimmick)
+{
+	ActiveNodeGimmick = aGimmick;
+}

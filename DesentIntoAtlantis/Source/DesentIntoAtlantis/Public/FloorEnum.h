@@ -22,6 +22,19 @@ enum class EFloorEventStates
 	Completed       = 7,
 };
 
+UENUM()
+enum class EFloorGimmicks
+{
+	None            = 0,
+	Door            = 1,
+	Movement        = 2,
+	Lever           = 3,
+	Lava            = 4,
+	Teleporter      = 5,
+	Stairs          = 6,
+};
+
+
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FFloorEventHasBeenTriggered, FVector2D, aPositionInGrid);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTriggerNextEventStage, EFloorEventStates, aFloorEventStates);
 
@@ -38,6 +51,9 @@ struct DESENTINTOATLANTIS_API FFloorData : public FTableRowBase
 	
 	UPROPERTY( EditAnywhere )
 	FVector2D startPosition;
+	
+	UPROPERTY( EditAnywhere )
+	TMap<FVector2D, EFloorGimmicks> floorGimmicks;
 };
 
 

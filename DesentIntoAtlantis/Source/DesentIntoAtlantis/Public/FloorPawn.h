@@ -26,8 +26,7 @@ protected:
 	void RightRotation();
 	void MoveForward();
 	TSubclassOf<AActor> commandBoardTest;
-	UPROPERTY()
-	AFloorNode* currentNodePlayerIsOn;
+
 	double newRotation;
 
 	const double FULL_MOVEMENT       = 360;
@@ -40,13 +39,16 @@ protected:
 	const float  LEFT_DIRECTION      = -1;
 	
 	bool hasRotationFinished = true;
+	double rotationDirection;
+
 	UPROPERTY()
 	AFloorNode* nodeToMoveTowards;
 	
-	
-	double rotationDirection;
 	UPROPERTY()
 	ADesentIntoAtlantisGameModeBase* gameModeBase;
+
+	UPROPERTY()
+	AFloorNode* currentNodePlayerIsOn;
 public:
 
 	UPROPERTY()

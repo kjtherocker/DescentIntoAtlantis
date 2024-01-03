@@ -53,7 +53,8 @@ protected:
 	UPROPERTY()
 	UFloorBase* currentFloor;
 	TMap<ECardinalNodeDirections, FVector2D>  cardinalPositions;
-	
+
+	TMap<EFloorGimmicks,UGimmick_Base*> gimmickMap;
 private:
 	const double FLOOR_EVENT_HEIGHT_OFFSET = 225;
 	void SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes);

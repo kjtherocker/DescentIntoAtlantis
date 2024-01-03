@@ -24,6 +24,14 @@ void AFloorManager::Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 	cardinalPositions.Add(ECardinalNodeDirections::Down,  FVector2D(1,0));
 	cardinalPositions.Add(ECardinalNodeDirections::Left,  FVector2D(0,-1));
 	cardinalPositions.Add(ECardinalNodeDirections::Right, FVector2D(0,1));
+
+
+	gimmickMap.Add(EFloorGimmicks::Door,       NewObject<UGimmick_Base>());
+	gimmickMap.Add(EFloorGimmicks::Lava,       NewObject<UGimmick_Base>());
+	gimmickMap.Add(EFloorGimmicks::Teleporter, NewObject<UGimmick_Base>());
+	gimmickMap.Add(EFloorGimmicks::Movement,   NewObject<UGimmick_Base>());
+	gimmickMap.Add(EFloorGimmicks::Stairs,     NewObject<UGimmick_Base>());
+	
 	gameModeBase = aGameModeBase;
 }
 
