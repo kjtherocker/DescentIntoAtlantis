@@ -26,7 +26,9 @@ void UFloorFactory::InitializeDatabase(UDataTable* aFloorDatabase,UDataTable* aF
 		floorEventData.Add( i,*datatable2->FindRow<FFloorEventData>(FName(FString::FromInt(i)),FString("Searching for Floors Events"),true));
 	}
 
-	for(int i = 0 ; i < floorEventData.Num(); i++)
+	int amountOfloorEventData = floorEventData.Num();
+	
+	for(int i = 0 ; i < amountOfloorEventData; i++)
 	{
 		floorDictionary[floorEventData[i].floorIdentifier]->floorEventData.Add(floorEventData[i].positionInGrid,floorEventData[i]);
 	}

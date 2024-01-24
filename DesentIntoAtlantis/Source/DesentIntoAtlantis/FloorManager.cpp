@@ -18,7 +18,7 @@ AFloorManager::AFloorManager()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
-void AFloorManager::Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
+void AFloorManager::Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase,UFloorEventManager* aFloorEventManager)
 {
 	cardinalPositions.Add(ECardinalNodeDirections::Up,    FVector2D(-1,0));
 	cardinalPositions.Add(ECardinalNodeDirections::Down,  FVector2D(1,0));
@@ -31,7 +31,8 @@ void AFloorManager::Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 	gimmickMap.Add(EFloorGimmicks::Teleporter, NewObject<UGimmick_Base>());
 	gimmickMap.Add(EFloorGimmicks::Movement,   NewObject<UGimmick_Base>());
 	gimmickMap.Add(EFloorGimmicks::Stairs,     NewObject<UGimmick_Base>());
-	
+
+	floorEventManager = aFloorEventManager;
 	gameModeBase = aGameModeBase;
 }
 
@@ -66,6 +67,8 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 
 void AFloorManager::CreateFloor(EFloorIdentifier aFloorIdentifier)
 {
+	currentFloorIdentifier = aFloorIdentifier;
+	floorEventManager->SetFloor(currentFloorIdentifier);
 	floorDictionary = gameModeBase->floorFactory->floorDictionary;
 	
 	if(floorDictionary[aFloorIdentifier] != nullptr)
@@ -226,9 +229,11 @@ void AFloorManager::SpawnFloorEnemyPawn(FVector2D aPositionInGrid)
 	//Rotation
 	FRotator rotator = GetActorRotation();
 	
-	//Spawn
+	FActorSpawnParameters ActorSpawnParameters;
+	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	
 	 AFloorEnemyPawn* floorPawn;
-	floorPawn = Cast<AFloorEnemyPawn>(GetWorld()->SpawnActor<AActor>(floorEnemyPawnReference, ActorFinalSpawnPoint, rotator));
+	floorPawn = Cast<AFloorEnemyPawn>(GetWorld()->SpawnActor<AActor>(floorEnemyPawnReference, ActorFinalSpawnPoint, rotator,ActorSpawnParameters));
 
 	if (floorPawn)
 	{

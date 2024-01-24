@@ -21,12 +21,24 @@ void UFloorEventManager::Initialize(ADesentIntoAtlantisGameModeBase* aGameBase ,
 	gameModeBase->combatManager->triggerNextEventStage.AddDynamic(this, &UFloorEventManager::TriggerNextFloorEventStep);
 }
 
+void UFloorEventManager::SetFloor(EFloorIdentifier aFloorIdentifier)
+{
+	currentFloor = aFloorIdentifier;
+}
+
 void UFloorEventManager::PlayerHasTriggeredFloorEvent(FVector2D aPositionInGrid)
 {
 	isEventRunning = true;
-	currentEvent = floorFactory->floorDictionary[EFloorIdentifier::Floor1]->floorEventData[aPositionInGrid];
+	currentEvent = floorFactory->floorDictionary[currentFloor]->floorEventData[aPositionInGrid];
 	TriggerNextFloorEventStep(EFloorEventStates::DialogueOnStart);
-	floorEnemyEvents[currentEvent.positionInGrid]->SetActorHiddenInGame(true);
+	if(floorEnemyEvents[currentEvent.positionInGrid])
+	{
+		floorEnemyEvents[currentEvent.positionInGrid]->SetActorHiddenInGame(true);
+	}
+	else
+	{
+		//Problem 
+	}
 	gameModeBase->floorPawn->SetFloorPawnInput(false);
 }
 

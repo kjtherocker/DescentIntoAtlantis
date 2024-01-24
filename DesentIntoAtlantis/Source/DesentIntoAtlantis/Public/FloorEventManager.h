@@ -45,11 +45,17 @@ class DESENTINTOATLANTIS_API UFloorEventManager : public UObject
 
 	UPROPERTY()
 	ADesentIntoAtlantisGameModeBase* gameModeBase;
+
+	UPROPERTY()
+	EFloorIdentifier currentFloor;
+	
 public:
 
 	FFloorEventHasBeenTriggered EventHasBeenTriggered;
 
 	void Initialize(ADesentIntoAtlantisGameModeBase* aGameBase,UFloorFactory * aFloorFactory,UCombatManager* aCombatManager);
+
+	void SetFloor(EFloorIdentifier aFloorIdentifier);
 	UFUNCTION()
 	void PlayerHasTriggeredFloorEvent(FVector2D aPositionInGrid);
 	void TriggerDialogue(EDialogueTriggers aDialogueTrigger,EFloorEventStates aTriggerOnEnd);

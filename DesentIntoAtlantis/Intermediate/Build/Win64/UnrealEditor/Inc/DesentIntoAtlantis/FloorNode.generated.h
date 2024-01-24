@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define DESENTINTOATLANTIS_FloorNode_generated_h
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_16_SPARSE_DATA
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_16_RPC_WRAPPERS
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_16_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_16_INCLASS_NO_PURE_DECLS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_17_SPARSE_DATA
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_17_RPC_WRAPPERS
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_17_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFloorNode(); \
 	friend struct Z_Construct_UClass_AFloorNode_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(AFloorNode)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_16_INCLASS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_17_INCLASS \
 private: \
 	static void StaticRegisterNativesAFloorNode(); \
 	friend struct Z_Construct_UClass_AFloorNode_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(AFloorNode)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_16_STANDARD_CONSTRUCTORS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_17_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AFloorNode(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AFloorNode) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_16_ENHANCED_CONSTRUCTORS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AFloorNode(AFloorNode&&); \
@@ -58,35 +58,35 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AFloorNode)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_13_PROLOG
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_16_GENERATED_BODY_LEGACY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_14_PROLOG
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_17_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_16_SPARSE_DATA \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_16_RPC_WRAPPERS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_16_INCLASS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_16_STANDARD_CONSTRUCTORS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_17_SPARSE_DATA \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_17_RPC_WRAPPERS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_17_INCLASS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_17_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_16_GENERATED_BODY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_16_SPARSE_DATA \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_16_INCLASS_NO_PURE_DECLS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_16_ENHANCED_CONSTRUCTORS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_17_SPARSE_DATA \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_17_INCLASS_NO_PURE_DECLS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
 template<> DESENTINTOATLANTIS_API UClass* StaticClass<class AFloorNode>();
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_61_SPARSE_DATA
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_61_RPC_WRAPPERS
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_61_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_61_INCLASS_NO_PURE_DECLS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_65_SPARSE_DATA
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_65_RPC_WRAPPERS
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_65_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_65_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUFloorNodeWallInfo(); \
 	friend struct Z_Construct_UClass_UFloorNodeWallInfo_Statics; \
@@ -95,7 +95,7 @@ public: \
 	DECLARE_SERIALIZER(UFloorNodeWallInfo)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_61_INCLASS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_65_INCLASS \
 private: \
 	static void StaticRegisterNativesUFloorNodeWallInfo(); \
 	friend struct Z_Construct_UClass_UFloorNodeWallInfo_Statics; \
@@ -104,7 +104,7 @@ public: \
 	DECLARE_SERIALIZER(UFloorNodeWallInfo)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_61_STANDARD_CONSTRUCTORS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_65_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UFloorNodeWallInfo(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UFloorNodeWallInfo) \
@@ -117,7 +117,7 @@ private: \
 public:
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_61_ENHANCED_CONSTRUCTORS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_65_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UFloorNodeWallInfo(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -130,25 +130,25 @@ public: \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UFloorNodeWallInfo)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_58_PROLOG
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_61_GENERATED_BODY_LEGACY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_62_PROLOG
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_65_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_61_SPARSE_DATA \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_61_RPC_WRAPPERS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_61_INCLASS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_61_STANDARD_CONSTRUCTORS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_65_SPARSE_DATA \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_65_RPC_WRAPPERS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_65_INCLASS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_65_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_61_GENERATED_BODY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_65_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_61_SPARSE_DATA \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_61_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_61_INCLASS_NO_PURE_DECLS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_61_ENHANCED_CONSTRUCTORS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_65_SPARSE_DATA \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_65_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_65_INCLASS_NO_PURE_DECLS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_FloorNode_h_65_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

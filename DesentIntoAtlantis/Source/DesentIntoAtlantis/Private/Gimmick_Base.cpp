@@ -7,6 +7,5 @@
 
 void UGimmick_Base::ActivateGimmick(AFloorPawn* aFloorPawn)
 {
-
-	aFloorPawn->
+	
 }

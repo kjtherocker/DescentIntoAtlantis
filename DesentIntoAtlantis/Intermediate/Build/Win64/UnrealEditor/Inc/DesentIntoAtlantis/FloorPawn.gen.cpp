@@ -34,10 +34,6 @@ void EmptyLinkFunctionForGeneratedCodeFloorPawn() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentNodePlayerIsOn_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_currentNodePlayerIsOn;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_nodeToMoveTowards_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_nodeToMoveTowards;
@@ -45,6 +41,10 @@ void EmptyLinkFunctionForGeneratedCodeFloorPawn() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_gameModeBase_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_gameModeBase;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentNodePlayerIsOn_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_currentNodePlayerIsOn;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_previousNodePlayerWasOn_MetaData[];
 #endif
@@ -70,12 +70,6 @@ void EmptyLinkFunctionForGeneratedCodeFloorPawn() {}
 	};
 #endif
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorPawn_Statics::NewProp_currentNodePlayerIsOn_MetaData[] = {
-		{ "ModuleRelativePath", "Public/FloorPawn.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_currentNodePlayerIsOn = { "currentNodePlayerIsOn", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFloorPawn, currentNodePlayerIsOn), Z_Construct_UClass_AFloorNode_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFloorPawn_Statics::NewProp_currentNodePlayerIsOn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPawn_Statics::NewProp_currentNodePlayerIsOn_MetaData)) };
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorPawn_Statics::NewProp_nodeToMoveTowards_MetaData[] = {
 		{ "ModuleRelativePath", "Public/FloorPawn.h" },
 	};
@@ -87,6 +81,12 @@ void EmptyLinkFunctionForGeneratedCodeFloorPawn() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_gameModeBase = { "gameModeBase", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFloorPawn, gameModeBase), Z_Construct_UClass_ADesentIntoAtlantisGameModeBase_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFloorPawn_Statics::NewProp_gameModeBase_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPawn_Statics::NewProp_gameModeBase_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorPawn_Statics::NewProp_currentNodePlayerIsOn_MetaData[] = {
+		{ "ModuleRelativePath", "Public/FloorPawn.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_currentNodePlayerIsOn = { "currentNodePlayerIsOn", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFloorPawn, currentNodePlayerIsOn), Z_Construct_UClass_AFloorNode_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AFloorPawn_Statics::NewProp_currentNodePlayerIsOn_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPawn_Statics::NewProp_currentNodePlayerIsOn_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorPawn_Statics::NewProp_previousNodePlayerWasOn_MetaData[] = {
 		{ "ModuleRelativePath", "Public/FloorPawn.h" },
@@ -101,9 +101,9 @@ void EmptyLinkFunctionForGeneratedCodeFloorPawn() {}
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_directionModel = { "directionModel", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AFloorPawn, directionModel), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_AFloorPawn_Statics::NewProp_directionModel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPawn_Statics::NewProp_directionModel_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFloorPawn_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_currentNodePlayerIsOn,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_nodeToMoveTowards,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_gameModeBase,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_currentNodePlayerIsOn,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_previousNodePlayerWasOn,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_directionModel_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_directionModel,
@@ -202,10 +202,10 @@ void EmptyLinkFunctionForGeneratedCodeFloorPawn() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFloorPawn, AFloorPawn::StaticClass, TEXT("AFloorPawn"), &Z_Registration_Info_UClass_AFloorPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorPawn), 73854899U) },
+		{ Z_Construct_UClass_AFloorPawn, AFloorPawn::StaticClass, TEXT("AFloorPawn"), &Z_Registration_Info_UClass_AFloorPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorPawn), 3683648940U) },
 		{ Z_Construct_UClass_UFloorPawnPositionInfo, UFloorPawnPositionInfo::StaticClass, TEXT("UFloorPawnPositionInfo"), &Z_Registration_Info_UClass_UFloorPawnPositionInfo, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFloorPawnPositionInfo), 3445471168U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_1553924005(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_4037855327(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorPawn_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

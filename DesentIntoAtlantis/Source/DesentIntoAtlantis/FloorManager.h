@@ -24,7 +24,7 @@ class DESENTINTOATLANTIS_API AFloorManager : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AFloorManager();
-	void Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase);
+	void Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase,UFloorEventManager* aFloorEventManager);
 	
 	void CreateGrid(UFloorBase* aFloor);
 	void CreateFloor(EFloorIdentifier aFloorIdentifier);
@@ -50,15 +50,20 @@ protected:
 	
 	UPROPERTY()
 	TMap<EFloorIdentifier,UFloorBase*> floorDictionary;
+
+	UPROPERTY()
+	EFloorIdentifier currentFloorIdentifier;
 	UPROPERTY()
 	UFloorBase* currentFloor;
 	TMap<ECardinalNodeDirections, FVector2D>  cardinalPositions;
 
 	TMap<EFloorGimmicks,UGimmick_Base*> gimmickMap;
 private:
-	const double FLOOR_EVENT_HEIGHT_OFFSET = 225;
+	const double FLOOR_EVENT_HEIGHT_OFFSET = 240;
 	void SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes);
 	void SetPlayerPosition(FVector2D aStartPositionInGrid);
+	UPROPERTY()
+	UFloorEventManager* floorEventManager;
 	ADesentIntoAtlantisGameModeBase* gameModeBase;
 public:	
 	// Called every frame

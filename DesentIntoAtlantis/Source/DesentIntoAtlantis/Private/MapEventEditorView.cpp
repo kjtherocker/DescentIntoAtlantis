@@ -59,12 +59,12 @@ void UMapEventEditorView::SaveEvent()
 	
 	floorEventData.enemyGroupName         = (FString)BW_EnemyGroupTextBox->Text.ToString();
 	floorEventData.positionInGrid         = currentMapButtonElement->positionInGrid;
-	floorEventData.dialogueTriggerOnStart = (EDialogueTriggers)BW_TutorialOnStart->GetSelectedIndex();
-	floorEventData.dialogueTriggerOnEnd   = (EDialogueTriggers)BW_TutorialOnStart->GetSelectedIndex();
+	floorEventData.dialogueTriggerOnStart = (EDialogueTriggers)BW_DialogueOnStart->GetSelectedIndex();
+	floorEventData.dialogueTriggerOnEnd   = (EDialogueTriggers)BW_DialogueOnEnd->GetSelectedIndex();
 	floorEventData.tutorialTriggerOnStart = (ETutorialTriggers)BW_TutorialOnStart->GetSelectedIndex();
-	floorEventData.tutorialTriggerOnEnd   = (ETutorialTriggers)BW_TutorialOnStart->GetSelectedIndex();
-	floorEventData.viewPushedOnEnd        = (EViews)BW_TutorialOnStart->GetSelectedIndex();
-	floorEventData.partyMemberGainedOnEnd = (EDataTableClasses)BW_TutorialOnStart->GetSelectedIndex();
+	floorEventData.tutorialTriggerOnEnd   = (ETutorialTriggers)BW_TutorialOnEnd->GetSelectedIndex();
+	floorEventData.viewPushedOnEnd        = (EViews)BW_ViewOnEnd->GetSelectedIndex();
+	floorEventData.partyMemberGainedOnEnd = (EDataTableClasses)BW_AllyGained->GetSelectedIndex();
 	
 	if(currentMapButtonElement->currentFloorEventData.floorIdentifier == EFloorIdentifier::None)
 	{
