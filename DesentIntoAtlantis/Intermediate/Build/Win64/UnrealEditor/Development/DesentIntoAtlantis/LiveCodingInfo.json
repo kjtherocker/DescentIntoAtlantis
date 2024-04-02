@@ -38,6 +38,7 @@
 			"FloorPawn.cpp.obj",
 			"FloorPlayerController.cpp.obj",
 			"GameManager.cpp.obj",
+			"GameSettings.cpp.obj",
 			"Gimmick_Base.cpp.obj",
 			"InGameHUD.cpp.obj",
 			"LevelGeneratorUtilityWidget.cpp.obj",
@@ -49,6 +50,7 @@
 			"PartyHealthbarElement.cpp.obj",
 			"PartyHealthbarsView.cpp.obj",
 			"PartyManager.cpp.obj",
+			"PersistentGameinstance.cpp.obj",
 			"PlayerCombatEntity.cpp.obj",
 			"PressTurnManager.cpp.obj",
 			"SkillBarElement.cpp.obj",
@@ -93,10 +95,10 @@
 			"EnemySelectionView.gen.cpp.obj",
 			"EnemySkillView.gen.cpp.obj",
 			"FloorBase.gen.cpp.obj",
-			"FloorEnemyPawn.gen.cpp.obj",
-			"FloorEnum.gen.cpp.obj"
+			"FloorEnemyPawn.gen.cpp.obj"
 		],
 		"Module.DesentIntoAtlantis.gen.2_of_3.cpp.obj": [
+			"FloorEnum.gen.cpp.obj",
 			"FloorEventManager.gen.cpp.obj",
 			"FloorFactory.gen.cpp.obj",
 			"FloorManager.gen.cpp.obj",
@@ -104,6 +106,7 @@
 			"FloorPawn.gen.cpp.obj",
 			"FloorPlayerController.gen.cpp.obj",
 			"GameManager.gen.cpp.obj",
+			"GameSettings.gen.cpp.obj",
 			"Gimmick_Base.gen.cpp.obj",
 			"InGameHUD.gen.cpp.obj",
 			"LevelGeneratorUtilityWidget.gen.cpp.obj",
@@ -115,13 +118,14 @@
 			"PartyHealthbarElement.gen.cpp.obj",
 			"PartyHealthbarsView.gen.cpp.obj",
 			"PartyManager.gen.cpp.obj",
+			"PersistentGameinstance.gen.cpp.obj"
+		],
+		"Module.DesentIntoAtlantis.gen.3_of_3.cpp.obj": [
 			"PlayerCombatEntity.gen.cpp.obj",
 			"PressTurnManager.gen.cpp.obj",
 			"SkillBarElement.gen.cpp.obj",
 			"SkillFactory.gen.cpp.obj",
-			"SkillsData.gen.cpp.obj"
-		],
-		"Module.DesentIntoAtlantis.gen.3_of_3.cpp.obj": [
+			"SkillsData.gen.cpp.obj",
 			"SkillView.gen.cpp.obj",
 			"SoundManager.gen.cpp.obj",
 			"StatusElement.gen.cpp.obj",

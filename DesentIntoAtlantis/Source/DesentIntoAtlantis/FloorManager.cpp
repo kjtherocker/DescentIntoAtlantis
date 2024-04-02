@@ -74,7 +74,7 @@ void AFloorManager::CreateFloor(EFloorIdentifier aFloorIdentifier)
 	if(floorDictionary[aFloorIdentifier] != nullptr)
 	{
 		SpawnFloor(floorDictionary[aFloorIdentifier]);
-		SetPlayerPosition(floorDictionary[aFloorIdentifier]->floorData.startPosition);
+		InitalizePlayerPosition(floorDictionary[aFloorIdentifier]->floorData.startPosition);
 	}
 	
 }
@@ -160,7 +160,7 @@ void AFloorManager::MovePlayerToPreviousNode()
 {
 	AFloorPawn* floorPawn = gameModeBase->floorPawn;
 	FVector2D previousPosition = floorPawn->previousNodePlayerWasOn->positionInGrid;
-	SetPlayerPosition(previousPosition);
+	InitalizePlayerPosition(previousPosition);
 }
 
 
@@ -194,7 +194,7 @@ void AFloorManager::SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes)
 	}
 }
 
-void AFloorManager::SetPlayerPosition(FVector2D aStartPositionInGrid)
+void AFloorManager::InitalizePlayerPosition(FVector2D aStartPositionInGrid)
 {
 	AFloorPlayerController * playerController;
 	playerController = Cast<AFloorPlayerController>(GetWorld()->GetFirstPlayerController());

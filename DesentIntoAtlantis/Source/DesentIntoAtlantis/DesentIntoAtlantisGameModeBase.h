@@ -10,6 +10,7 @@
 #include "EDataTableTypes.h"
 #include "FloorFactory.h"
 #include "FloorManager.h"
+#include "GameSettings.h"
 #include "GameFramework/GameModeBase.h"
 #include "DesentIntoAtlantisGameModeBase.generated.h"
 
@@ -28,9 +29,21 @@ class DESENTINTOATLANTIS_API ADesentIntoAtlantisGameModeBase : public AGameModeB
 {
 	GENERATED_BODY()
 	ADesentIntoAtlantisGameModeBase();
+
+	
 public:
+
+	UFUNCTION()
+	void UnloadLevel(FString aLevelName);
+	UFUNCTION()
+	void LoadLevel(FString aLevelName);
 	virtual void PostInitializeComponents() override;
 	virtual void BeginPlay() override;
+
+	UFUNCTION()
+	void InitializeLevel();
+
+	FString previousLevel;
 	
 	UPROPERTY(EditAnywhere, Category = "Data")
 	TMap<EDataTableTypes,UDataTable*> dataTables;
@@ -55,6 +68,9 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	UGameManager* gameManager;
+
+	UPROPERTY(EditAnywhere)
+	UGameSettings* gameSettings;
 	
 	UPROPERTY(EditAnywhere, Category = "Data")
 	TMap<ESkillType,UDataTable*> dataTablesSkills;

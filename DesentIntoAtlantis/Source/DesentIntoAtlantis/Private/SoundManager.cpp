@@ -1,6 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "SoundManager.h"
+
+#include "GameSettings.h"
 #include "Components/AudioComponent.h"
+
 
 
 // Sets default values
@@ -13,6 +16,10 @@ ASoundManager::ASoundManager()
 
 void ASoundManager::PlayAudio(EAudioSources aAudioSource, EAudio aSoundEffect)
 {
+	if(UGameSettings::AUDIO_OFF)
+	{
+		return;
+	}
 	UAudioComponent* audioSource = audioSources[aAudioSource];
 	audioSource->Sound = soundEffects[aSoundEffect];
 	audioSource->Play();

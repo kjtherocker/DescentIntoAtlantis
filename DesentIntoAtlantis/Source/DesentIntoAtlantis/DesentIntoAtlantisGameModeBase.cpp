@@ -23,10 +23,43 @@ ADesentIntoAtlantisGameModeBase::ADesentIntoAtlantisGameModeBase()
 void ADesentIntoAtlantisGameModeBase::PostInitializeComponents()
 {
     Super::PostInitializeComponents();
+}
 
+void ADesentIntoAtlantisGameModeBase::UnloadLevel(FString aLevelName)
+{
+    FName LevelName = FName(*aLevelName);
+    bool bShouldBlockOnUnload = true; // Set to true if you want to wait for the level to be unloaded
+
+    FLatentActionInfo LatentInfo;
+    UGameplayStatics::UnloadStreamLevel(world, LevelName, LatentInfo, bShouldBlockOnUnload);
+}
+
+void ADesentIntoAtlantisGameModeBase::LoadLevel(FString aLevelName)
+{
+    FString LevelName = aLevelName;
+    previousLevel = LevelName;
+    UGameplayStatics::OpenLevel(world, FName(*LevelName), true);
+}
+
+
+void ADesentIntoAtlantisGameModeBase::BeginPlay()
+{
+    Super::BeginPlay();
+}
+
+void ADesentIntoAtlantisGameModeBase::InitializeLevel()
+{
+
+
+    gameManager = NewObject<UGameManager>();
+    gameManager->Initialize(this);
+    
     world = GetWorld();
     FVector ActorFinalSpawnPoint;
     FRotator rotator;
+
+
+    gameSettings = NewObject<UGameSettings>();
     
     soundManager = Cast<ASoundManager>(world->SpawnActor<AActor>(soundManagerReference, ActorFinalSpawnPoint, rotator));
     
@@ -94,14 +127,4 @@ void ADesentIntoAtlantisGameModeBase::PostInitializeComponents()
 
     floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, ActorFinalSpawnPoint, rotator));
     floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
-}
-
-void ADesentIntoAtlantisGameModeBase::BeginPlay()
-{
-    Super::BeginPlay();
-
- 
-     gameManager = NewObject<UGameManager>();
-     gameManager->Initialize(this);
- //   gameManager->StartGame();
 }

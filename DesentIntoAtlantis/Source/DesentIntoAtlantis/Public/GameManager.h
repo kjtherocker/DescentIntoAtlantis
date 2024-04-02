@@ -18,14 +18,14 @@ class DESENTINTOATLANTIS_API UGameManager : public UObject
 	UPROPERTY()
 	ADesentIntoAtlantisGameModeBase* gameModeBase;
 	FStartGameDelegate startGameDelegate;
-	bool DEBUG_MODE = true;
+	FString previousLevel;
 public:
 	void Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase);
 	UFUNCTION()
 	void SetUpTitleMenu();
+
 	UFUNCTION()
 	void StartGame();
 	UFUNCTION()
 	void ResetPlayerToPreviousPosition();
-	
 };

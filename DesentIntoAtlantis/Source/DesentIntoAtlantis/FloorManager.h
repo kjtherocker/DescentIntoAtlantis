@@ -61,7 +61,7 @@ protected:
 private:
 	const double FLOOR_EVENT_HEIGHT_OFFSET = 240;
 	void SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes);
-	void SetPlayerPosition(FVector2D aStartPositionInGrid);
+	void InitalizePlayerPosition(FVector2D aStartPositionInGrid);
 	UPROPERTY()
 	UFloorEventManager* floorEventManager;
 	ADesentIntoAtlantisGameModeBase* gameModeBase;

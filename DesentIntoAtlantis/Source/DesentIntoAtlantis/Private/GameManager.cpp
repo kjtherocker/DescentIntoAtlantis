@@ -5,6 +5,7 @@
 
 #include "SoundManager.h"
 #include "TitleView.h"
+#include "Kismet/GameplayStatics.h"
 
 void UGameManager::Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 {
@@ -22,13 +23,21 @@ void UGameManager::SetUpTitleMenu()
 	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldMusic,EAudio::MainMenu);
 }
 
+
 void UGameManager::StartGame()
 {
+	
+
+	
 	gameModeBase->floorManager->CreateFloor(EFloorIdentifier::Floor2);
-	UDialogueView* DialogueView  = (UDialogueView*)gameModeBase->InGameHUD->PushAndGetView(EViews::Dialogue,EUiType::ActiveUi);
-	DialogueView->SetDialogueData(EDialogueTriggers::StartGame);
+
+	if(UGameSettings::DISABLE_CUTSCENES)
+	{
+		UDialogueView* DialogueView  = (UDialogueView*)gameModeBase->InGameHUD->PushAndGetView(EViews::Dialogue,EUiType::ActiveUi);
+		DialogueView->SetDialogueData(EDialogueTriggers::StartGame);
+	}
 	gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::Paladin);
-	if(DEBUG_MODE)
+	if(UGameSettings::DEBUG_MODE)
 	{
 		gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::Dancer);
 		gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::SoulEater);
@@ -41,3 +50,5 @@ void UGameManager::ResetPlayerToPreviousPosition()
 	gameModeBase->floorManager->MovePlayerToPreviousNode();
 	gameModeBase->combatManager->EndCombat(false);
 }
+
+
