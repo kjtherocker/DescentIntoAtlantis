@@ -10,7 +10,7 @@
 void UGameManager::Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 {
 	gameModeBase = aGameModeBase;
-	gameModeBase->world->OnWorldBeginPlay.AddUObject(this, &UGameManager::SetUpTitleMenu);
+	//gameModeBase->world->OnWorldBeginPlay.AddUObject(this, &UGameManager::SetUpTitleMenu);
 }
 
 void UGameManager::SetUpTitleMenu()
@@ -43,6 +43,8 @@ void UGameManager::StartGame()
 		gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::SoulEater);
 		gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::DarkKnight);
 	}
+
+	gameModeBase->LoadLevel(TEXT("Floor1"));
 }
 
 void UGameManager::ResetPlayerToPreviousPosition()

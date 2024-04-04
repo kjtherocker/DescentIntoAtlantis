@@ -33,11 +33,9 @@ class DESENTINTOATLANTIS_API ADesentIntoAtlantisGameModeBase : public AGameModeB
 	
 public:
 
-	UFUNCTION()
-	void UnloadLevel(FString aLevelName);
-	UFUNCTION()
-	void LoadLevel(FString aLevelName);
+
 	virtual void PostInitializeComponents() override;
+	virtual void InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage) override;
 	virtual void BeginPlay() override;
 
 	UFUNCTION()

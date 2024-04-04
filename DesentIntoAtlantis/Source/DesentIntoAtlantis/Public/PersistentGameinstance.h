@@ -14,7 +14,25 @@ class DESENTINTOATLANTIS_API UPersistentGameinstance : public UGameInstance
 {
 	GENERATED_BODY()
 
+	
 	UPersistentGameinstance();
 	virtual void Init() override;
+
+	UFUNCTION()
+	void UnloadLevel(FString aLevelName);
+	UFUNCTION()
+	void LoadLevel(FString aLevelName);
+
+	UFUNCTION()
+	void LoadPreSetLevel();
+
+	
+	void GetCurrentLevelName(FString aLevelName);
+	
+
+private:
+	FString currentLevelName;
+	FString preSetLevelName;
+
 	
 };

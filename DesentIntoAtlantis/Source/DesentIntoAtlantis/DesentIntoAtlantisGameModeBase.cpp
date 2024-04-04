@@ -18,46 +18,39 @@ ADesentIntoAtlantisGameModeBase::ADesentIntoAtlantisGameModeBase()
     bStartPlayersAsSpectators = false;
     
     PlayerControllerClass = AFloorPlayerController::StaticClass();
+    
 }
 
 void ADesentIntoAtlantisGameModeBase::PostInitializeComponents()
 {
     Super::PostInitializeComponents();
+    
 }
 
-void ADesentIntoAtlantisGameModeBase::UnloadLevel(FString aLevelName)
+void ADesentIntoAtlantisGameModeBase::InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage)
 {
-    FName LevelName = FName(*aLevelName);
-    bool bShouldBlockOnUnload = true; // Set to true if you want to wait for the level to be unloaded
-
-    FLatentActionInfo LatentInfo;
-    UGameplayStatics::UnloadStreamLevel(world, LevelName, LatentInfo, bShouldBlockOnUnload);
+    Super::InitGame(MapName, Options, ErrorMessage);
 }
 
-void ADesentIntoAtlantisGameModeBase::LoadLevel(FString aLevelName)
-{
-    FString LevelName = aLevelName;
-    previousLevel = LevelName;
-    UGameplayStatics::OpenLevel(world, FName(*LevelName), true);
-}
+
 
 
 void ADesentIntoAtlantisGameModeBase::BeginPlay()
 {
     Super::BeginPlay();
+
+    InitializeLevel();
 }
 
 void ADesentIntoAtlantisGameModeBase::InitializeLevel()
 {
-
-
-    gameManager = NewObject<UGameManager>();
-    gameManager->Initialize(this);
     
     world = GetWorld();
     FVector ActorFinalSpawnPoint;
     FRotator rotator;
 
+    gameManager = NewObject<UGameManager>();
+    gameManager->Initialize(this);
 
     gameSettings = NewObject<UGameSettings>();
     
