@@ -3,14 +3,14 @@
 
 #include "FloorEventManager.h"
 
-#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+#include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "FloorFactory.h"
 #include "LevelupView.h"
 #include "TutorialView.h"
 
 
-void UFloorEventManager::Initialize(ADesentIntoAtlantisGameModeBase* aGameBase ,UFloorFactory * aFloorFactory,UCombatManager* aCombatManager)
+void UFloorEventManager::Initialize(AFloorGameMode* aGameBase ,UFloorFactory * aFloorFactory,UCombatManager* aCombatManager)
 {
 	gameModeBase      = aGameBase;
 	floorFactory  = aFloorFactory;

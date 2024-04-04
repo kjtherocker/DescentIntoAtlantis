@@ -4,9 +4,9 @@
 #include "BaseUserWidget.h"
 
 #include "SoundManager.h"
-#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+#include "DesentIntoAtlantis/FloorGameMode.h"
 
-void UBaseUserWidget::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
+void UBaseUserWidget::UiInitialize(AFloorGameMode* aGameModeBase)
 {
 	gameModeBase = aGameModeBase;
 }

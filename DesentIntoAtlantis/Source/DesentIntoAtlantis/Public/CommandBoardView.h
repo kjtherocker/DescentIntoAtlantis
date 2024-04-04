@@ -29,7 +29,7 @@ UCLASS()
 class DESENTINTOATLANTIS_API UCommandBoardView : public UBaseUserWidget
 {
 	GENERATED_BODY()
-	virtual void UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase) override;
+	virtual void UiInitialize(AFloorGameMode* aGameModeBase) override;
 private:
 	UPROPERTY()
 	UCombatManager* combatManager;

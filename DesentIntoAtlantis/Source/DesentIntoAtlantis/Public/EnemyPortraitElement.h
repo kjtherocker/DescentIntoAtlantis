@@ -25,7 +25,7 @@ private:
 	void Disappear(float DeltaTime);
 	
 public:
-	virtual void UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase) override;
+	virtual void UiInitialize(AFloorGameMode* aGameModeBase) override;
 	void SetCombatEntity(UEnemyCombatEntity* aCombatEntity);
 	virtual void NativeTick(const FGeometry& MyGeometry, float DeltaTime) override;
 

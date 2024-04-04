@@ -14,11 +14,11 @@
 #include "SkillFactory.h"
 #include "SoundManager.h"
 #include "Blueprint/UserWidget.h"
-#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+#include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
 
-void UCombatManager::Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase,UWorld* aWorld)
+void UCombatManager::Initialize(AFloorGameMode* aGameModeBase,UWorld* aWorld)
 {
 	gameModeBase = aGameModeBase;
 	pressTurnManager = NewObject<UPressTurnManager>();

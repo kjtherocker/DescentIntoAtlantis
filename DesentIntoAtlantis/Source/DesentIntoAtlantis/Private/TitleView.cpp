@@ -2,13 +2,13 @@
 
 
 #include "TitleView.h"
-#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+#include "DesentIntoAtlantis/FloorGameMode.h"
 #include "SoundManager.h"
 #include "Components/Border.h"
 
 
 
-void UTitleView::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
+void UTitleView::UiInitialize(AFloorGameMode* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();

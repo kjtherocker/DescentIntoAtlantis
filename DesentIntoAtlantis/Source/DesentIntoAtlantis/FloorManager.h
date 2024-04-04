@@ -24,7 +24,7 @@ class DESENTINTOATLANTIS_API AFloorManager : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AFloorManager();
-	void Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase,UFloorEventManager* aFloorEventManager);
+	void Initialize(AFloorGameMode* aGameModeBase,UFloorEventManager* aFloorEventManager);
 	
 	void CreateGrid(UFloorBase* aFloor);
 	void CreateFloor(EFloorIdentifier aFloorIdentifier);
@@ -64,7 +64,7 @@ private:
 	void InitalizePlayerPosition(FVector2D aStartPositionInGrid);
 	UPROPERTY()
 	UFloorEventManager* floorEventManager;
-	ADesentIntoAtlantisGameModeBase* gameModeBase;
+	AFloorGameMode* gameModeBase;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

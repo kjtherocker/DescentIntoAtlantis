@@ -278,7 +278,9 @@
             "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\enemyskillview.gen.cpp",
             "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\source\\desentintoatlantis\\public\\enemyskillview.h",
             "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\enemyskillview.generated.h",
-            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\floorbase.gen.cpp"
+            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\floorbase.gen.cpp",
+            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\floorenemypawn.gen.cpp",
+            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\floorenum.gen.cpp"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

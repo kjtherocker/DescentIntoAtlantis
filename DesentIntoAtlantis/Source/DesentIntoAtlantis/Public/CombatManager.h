@@ -19,7 +19,7 @@ class AInGameHUD;
 class UTurnCounterView;
 class UPartyHealthbarsView;
 class UCombatEntity;
-class ADesentIntoAtlantisGameModeBase;
+class AFloorGameMode;
 /**
  * 
  */
@@ -73,7 +73,7 @@ public:
 	UPROPERTY()
 	UPressTurnManager* pressTurnManager;
 
-	void Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase,UWorld* aWorld);
+	void Initialize(AFloorGameMode* aGameModeBase,UWorld* aWorld);
 	void StartCombat(FString aEnemyGroupName);
 	void RemoveDeadPartyMembersFromCombat();
 	void EndCombat(bool aHasWon = true);
@@ -91,6 +91,6 @@ public:
 
 
 	UPROPERTY()
-	ADesentIntoAtlantisGameModeBase* gameModeBase;
+	AFloorGameMode* gameModeBase;
 	
 };

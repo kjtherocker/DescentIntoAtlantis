@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
 #include "GameManager.h"
+#include "MainMenuGameMode.h"
 #include "TitleView.generated.h"
 
 class UBorder;
@@ -46,7 +47,7 @@ private:
 
 public:
 	virtual void SetStartGameDelegate(FStartGameDelegate aStartGameDelegate);
-	virtual void UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase) override;
+	virtual void UiInitialize(AFloorGameMode* aGameModeBase) override;
 	virtual void MoveUp() override;
 	virtual void MoveDown() override;
 	virtual void SetCursorPositionInfo() override;

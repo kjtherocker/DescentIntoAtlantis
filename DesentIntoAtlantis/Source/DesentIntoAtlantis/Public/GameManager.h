@@ -3,24 +3,22 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+#include "DesentIntoAtlantis/FloorGameMode.h"
 #include "UObject/NoExportTypes.h"
 #include "GameManager.generated.h"
 
 /**
  * 
  */
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FStartGameDelegate);
 UCLASS()
 class DESENTINTOATLANTIS_API UGameManager : public UObject
 {
 	GENERATED_BODY()
 	UPROPERTY()
-	ADesentIntoAtlantisGameModeBase* gameModeBase;
-	FStartGameDelegate startGameDelegate;
+	AFloorGameMode* gameModeBase;
 	FString previousLevel;
 public:
-	void Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase);
+	void Initialize(AFloorGameMode* aGameModeBase);
 	UFUNCTION()
 	void SetUpTitleMenu();
 

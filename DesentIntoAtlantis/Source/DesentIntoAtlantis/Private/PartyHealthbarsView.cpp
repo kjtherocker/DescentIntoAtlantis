@@ -3,13 +3,13 @@
 
 #include "PartyHealthbarsView.h"
 #include "Components/HorizontalBox.h"
-#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+#include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "CombatEntity.h"
 #include "PlayerCombatEntity.h"
 #include "PartyHealthbarElement.h"
 
-void UPartyHealthbarsView::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
+void UPartyHealthbarsView::UiInitialize(AFloorGameMode* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	

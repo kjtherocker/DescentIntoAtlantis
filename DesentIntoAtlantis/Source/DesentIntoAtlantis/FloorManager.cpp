@@ -3,7 +3,7 @@
 
 #include "FloorManager.h"
 
-#include "DesentIntoAtlantisGameModeBase.h"
+#include "FloorGameMode.h"
 #include "EFloorIdentifier.h"
 #include "FloorPlayerController.h"
 #include "SkillsData.h"
@@ -18,7 +18,7 @@ AFloorManager::AFloorManager()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
-void AFloorManager::Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase,UFloorEventManager* aFloorEventManager)
+void AFloorManager::Initialize(AFloorGameMode* aGameModeBase,UFloorEventManager* aFloorEventManager)
 {
 	cardinalPositions.Add(ECardinalNodeDirections::Up,    FVector2D(-1,0));
 	cardinalPositions.Add(ECardinalNodeDirections::Down,  FVector2D(1,0));
@@ -85,7 +85,7 @@ void AFloorManager::SpawnFloorNode(int aRow, int aColumn, int aIndex)
 	//Setting new Positon
 	FVector PositionOffset;
 	PositionOffset.Set(200 * aRow, 200 * aColumn, 0);
-	FVector ActorFinalSpawnPoint = GetActorLocation() + PositionOffset ;
+	FVector ActorFinalSpawnPoint = GetActorLocation() + PositionOffset;
 	
 	FVector2D PositionInGrid;
 	PositionInGrid.Set(aRow,aColumn);
@@ -214,7 +214,7 @@ void AFloorManager::InitalizePlayerPosition(FVector2D aStartPositionInGrid)
 		floorPawn->SpawnFloorPawn(floorNodes[startPositionIndex]);
 		floorPawn->SetActorLocation(ActorFinalSpawnPoint);
 		floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
-		gameModeBase->InGameHUD->PushAndGetView(EViews::Healthbars,  EUiType::PersistentUi);
+	//	gameModeBase->InGameHUD->PushAndGetView(EViews::Healthbars,  EUiType::PersistentUi);
 		playerController->SetPawn(floorPawn);
 	}
 

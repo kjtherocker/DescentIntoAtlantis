@@ -12,9 +12,9 @@
 #include "Components/TextBlock.h"
 #include "Components/Border.h"
 #include "Components/Image.h"
-#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+#include "DesentIntoAtlantis/FloorGameMode.h"
 
-void UCommandBoardView::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
+void UCommandBoardView::UiInitialize(AFloorGameMode* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();

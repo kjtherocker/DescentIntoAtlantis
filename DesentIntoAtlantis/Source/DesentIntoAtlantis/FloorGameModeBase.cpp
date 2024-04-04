@@ -1,7 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 
-#include "DesentIntoAtlantisGameModeBase.h"
+#include "FloorGameMode.h"
 #include "CombatManager.h"
 #include "FloorEventManager.h"
 #include "FloorPlayerController.h"
@@ -11,7 +11,7 @@
 #include "TutorialManager.h"
 #include "Kismet/GameplayStatics.h"
 
-ADesentIntoAtlantisGameModeBase::ADesentIntoAtlantisGameModeBase()
+AFloorGameMode::AFloorGameMode()
 {
     bNetLoadOnClient = false;
     bPauseable = true;
@@ -21,13 +21,13 @@ ADesentIntoAtlantisGameModeBase::ADesentIntoAtlantisGameModeBase()
     
 }
 
-void ADesentIntoAtlantisGameModeBase::PostInitializeComponents()
+void AFloorGameMode::PostInitializeComponents()
 {
     Super::PostInitializeComponents();
     
 }
 
-void ADesentIntoAtlantisGameModeBase::InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage)
+void AFloorGameMode::InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage)
 {
     Super::InitGame(MapName, Options, ErrorMessage);
 }
@@ -35,14 +35,14 @@ void ADesentIntoAtlantisGameModeBase::InitGame(const FString& MapName, const FSt
 
 
 
-void ADesentIntoAtlantisGameModeBase::BeginPlay()
+void AFloorGameMode::BeginPlay()
 {
     Super::BeginPlay();
 
     InitializeLevel();
 }
 
-void ADesentIntoAtlantisGameModeBase::InitializeLevel()
+void AFloorGameMode::InitializeLevel()
 {
     
     world = GetWorld();
@@ -120,4 +120,6 @@ void ADesentIntoAtlantisGameModeBase::InitializeLevel()
 
     floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, ActorFinalSpawnPoint, rotator));
     floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
+
+    gameManager->StartGame();
 }

@@ -6,7 +6,7 @@
 #include "CombatManager.h"
 #include "InGameHUD.h"
 #include "SoundManager.h"
-#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+#include "DesentIntoAtlantis/FloorGameMode.h"
 #include "DesentIntoAtlantis/FloorNode.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -23,7 +23,7 @@ void AFloorPawn::BeginPlay()
 {
 	Super::BeginPlay();
 
-	gameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	gameModeBase = Cast< AFloorGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
 	AInGameHUD * hud = (AInGameHUD*)GetWorld()->GetFirstPlayerController()->GetHUD();
 	gameModeBase->InGameHUD = hud;
 }

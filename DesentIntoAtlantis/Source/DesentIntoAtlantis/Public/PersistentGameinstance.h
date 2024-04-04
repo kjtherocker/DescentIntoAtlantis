@@ -13,7 +13,7 @@ UCLASS()
 class DESENTINTOATLANTIS_API UPersistentGameinstance : public UGameInstance
 {
 	GENERATED_BODY()
-
+public:
 	
 	UPersistentGameinstance();
 	virtual void Init() override;

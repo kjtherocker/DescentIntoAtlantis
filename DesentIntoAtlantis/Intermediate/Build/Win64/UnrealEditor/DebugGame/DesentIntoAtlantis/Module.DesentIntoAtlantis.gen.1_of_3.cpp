@@ -27,3 +27,5 @@
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/EnemySelectionView.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/EnemySkillView.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/FloorBase.gen.cpp"
+#include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/FloorEnemyPawn.gen.cpp"
+#include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/FloorEnum.gen.cpp"

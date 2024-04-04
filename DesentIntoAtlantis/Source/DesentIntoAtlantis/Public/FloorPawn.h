@@ -45,7 +45,7 @@ protected:
 	AFloorNode* nodeToMoveTowards;
 	
 	UPROPERTY()
-	ADesentIntoAtlantisGameModeBase* gameModeBase;
+	AFloorGameMode* gameModeBase;
 
 	UPROPERTY()
 	AFloorNode* currentNodePlayerIsOn;

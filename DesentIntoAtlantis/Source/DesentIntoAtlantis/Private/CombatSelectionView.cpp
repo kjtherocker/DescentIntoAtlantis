@@ -6,10 +6,10 @@
 #include "CombatManager.h"
 #include "PartyHealthbarElement.h"
 #include "Components/TextBlock.h"
-#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+#include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
-void UCombatSelectionView::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
+void UCombatSelectionView::UiInitialize(AFloorGameMode* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();

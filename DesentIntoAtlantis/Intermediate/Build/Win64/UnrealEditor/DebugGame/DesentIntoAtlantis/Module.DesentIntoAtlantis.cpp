@@ -41,6 +41,7 @@
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/LevelGeneratorUtilityWidget.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/LevelupPanelElement.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/LevelupView.cpp"
+#include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/MainMenuGameMode.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/MapButtonElement.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/MapEventEditorView.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Source/DesentIntoAtlantis/Private/MapNodeEditorView.cpp"

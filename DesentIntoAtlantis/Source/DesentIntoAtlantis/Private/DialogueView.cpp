@@ -6,11 +6,11 @@
 #include "DialogueFactory.h"
 #include "FloorEventManager.h"
 #include "SoundManager.h"
-#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+#include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
 
-void UDialogueView::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
+void UDialogueView::UiInitialize(AFloorGameMode* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();

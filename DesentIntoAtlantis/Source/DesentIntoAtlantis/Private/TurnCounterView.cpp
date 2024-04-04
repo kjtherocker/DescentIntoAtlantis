@@ -7,7 +7,7 @@
 #include "Components/HorizontalBox.h"
 
 
-void UTurnCounterView::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
+void UTurnCounterView::UiInitialize(AFloorGameMode* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 

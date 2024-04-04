@@ -3,7 +3,7 @@
 
 #include "EndView.h"
 
-void UEndView::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
+void UEndView::UiInitialize(AFloorGameMode* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();

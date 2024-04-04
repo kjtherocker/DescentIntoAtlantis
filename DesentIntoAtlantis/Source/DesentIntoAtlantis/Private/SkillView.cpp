@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "SkillView.h"
-#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+#include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "CombatEntity.h"
 #include "Components/VerticalBox.h"
@@ -13,7 +13,7 @@
 #include "PlayerCombatEntity.h"
 
 
-void USkillView::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
+void USkillView::UiInitialize(AFloorGameMode* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();

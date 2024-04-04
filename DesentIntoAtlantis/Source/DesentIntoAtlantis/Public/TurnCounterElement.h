@@ -22,7 +22,7 @@ class DESENTINTOATLANTIS_API UTurnCounterElement : public UBaseUserWidget
 	const int MAX_OPACITY = 100;
 	const int MIN_OPACITY = 0;
 public:
-	virtual void UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase) override;
+	virtual void UiInitialize(AFloorGameMode* aGameModeBase) override;
 
 	void SwitchTurnIcons(ECharactertype aCharacterType);
 	void EmpowerTurn(bool aIsEmpowered);

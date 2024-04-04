@@ -8,7 +8,7 @@
 #include "InGameHUD.generated.h"
 
 
-class ADesentIntoAtlantisGameModeBase;
+class AFloorGameMode;
 class UBaseUserWidget;
 class UCommandBoardView;
 /**
@@ -21,7 +21,7 @@ class DESENTINTOATLANTIS_API AInGameHUD : public AHUD
 
 private:
 	UPROPERTY()
-	ADesentIntoAtlantisGameModeBase* gameModeBase;
+	AFloorGameMode* gameModeBase;
 	UPROPERTY()
 	TArray<UBaseUserWidget*> persistentViewStack;
 	UPROPERTY()

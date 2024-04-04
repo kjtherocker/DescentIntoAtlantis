@@ -34,7 +34,7 @@ private:
 	TArray<UEnemyCombatEntity*> enemysInCombat;
 public:
 
-	virtual void UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase) override;
+	virtual void UiInitialize(AFloorGameMode* aGameModeBase) override;
 
 	void InitializeEnemySelectionElements(TArray<UEnemyCombatEntity*> aEnemysInCombat);
 	void SetSkill(USkillBase* aSkill);

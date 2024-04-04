@@ -1,7 +1,7 @@
 #include "FloorNode.h"
 
 #include "CombatManager.h"
-#include "DesentIntoAtlantisGameModeBase.h"
+#include "FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
 // Sets default values

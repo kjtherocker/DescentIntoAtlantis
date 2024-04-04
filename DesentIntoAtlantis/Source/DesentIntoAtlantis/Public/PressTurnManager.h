@@ -9,7 +9,7 @@ enum class PressTurnReactions;
 class USkillBase;
 enum class ECharactertype;
 class UTurnCounterView;
-class ADesentIntoAtlantisGameModeBase;
+class AFloorGameMode;
 class UCombatEntity;
 class UCombatManager;
 struct FSkillsData;
@@ -38,7 +38,7 @@ private:
 	const int AMOUNT_OF_PRESSTURNS = 10;
 
 	UPROPERTY()
-	ADesentIntoAtlantisGameModeBase* gameModeBase;
+	AFloorGameMode* gameModeBase;
 	UPROPERTY()
 	UTurnCounterView* turnCounter;
 	UPROPERTY()
@@ -54,7 +54,7 @@ public:
 
 	UPressTurn* GetInActivePressturns();
 	int         GetNumberOfActivePressTurns();
-	void Initialize(UCombatManager* aCombatManager, ADesentIntoAtlantisGameModeBase* aGameModeBase );
+	void Initialize(UCombatManager* aCombatManager, AFloorGameMode* aGameModeBase );
 
 	void SetAmountOfTurns(int aTurnAmount, ECharactertype aCharacterType );
 	

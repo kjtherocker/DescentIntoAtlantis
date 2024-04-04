@@ -5,7 +5,7 @@
 #include "PlayerCombatEntity.h"
 #include "Components/TextBlock.h"
 #include "LevelupPanelElement.h"
-#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+#include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "SkillBarElement.h"
 
@@ -25,7 +25,7 @@ void ULevelupView::SetupLevelupView(UPlayerCombatEntity* aPlayerCombatEntity)
 	FClassData currentClassLevel = aPlayerCombatEntity->baseClass->currentClassLevel;
 	FClassData nextClassLevel    = aPlayerCombatEntity->baseClass->Levelup();
 	
-	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	AFloorGameMode* GameModeBase = Cast< AFloorGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
 	
 	FSkillsData newSKill = GameModeBase->skillFactory->GetSkill(nextClassLevel.newlyObtainedSkill)->skillData;
 	

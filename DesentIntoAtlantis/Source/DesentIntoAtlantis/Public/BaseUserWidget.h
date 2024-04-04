@@ -20,14 +20,14 @@ protected:
 	int maxCursorPosition;
 	int minCursorPosition;
 	UPROPERTY()
-	ADesentIntoAtlantisGameModeBase* gameModeBase;
+	AFloorGameMode* gameModeBase;
 	
 	FLinearColor unhightlighedColor = FLinearColor(0.0,0.0,0.0,1.0);
 	FLinearColor highlightedColor   = FLinearColor(1.0,1.0,1.0,1.0);
 	const int MAX_OPACITY = 100;
 	const int NO_OPACITY  = 0;
 public:
-	virtual void UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase);
+	virtual void UiInitialize(AFloorGameMode* aGameModeBase);
 	virtual void SetViewInfo(EViews aView, EUiType aUiType);
 	virtual void SetCursorPositionInfo();
 	virtual void MoveUp();

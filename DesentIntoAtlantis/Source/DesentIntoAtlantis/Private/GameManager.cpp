@@ -7,7 +7,7 @@
 #include "TitleView.h"
 #include "Kismet/GameplayStatics.h"
 
-void UGameManager::Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
+void UGameManager::Initialize(AFloorGameMode* aGameModeBase)
 {
 	gameModeBase = aGameModeBase;
 	//gameModeBase->world->OnWorldBeginPlay.AddUObject(this, &UGameManager::SetUpTitleMenu);
@@ -15,12 +15,12 @@ void UGameManager::Initialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
 
 void UGameManager::SetUpTitleMenu()
 {
-	UTitleView* titleView  = (UTitleView*)gameModeBase->InGameHUD->PushAndGetView(EViews::Title,EUiType::ActiveUi);
-	startGameDelegate.AddDynamic(this,&UGameManager::StartGame);
-	titleView->SetStartGameDelegate(startGameDelegate);
-	
-	gameModeBase->floorPawn->SetFloorPawnInput(false);
-	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldMusic,EAudio::MainMenu);
+	//UTitleView* titleView  = (UTitleView*)gameModeBase->InGameHUD->PushAndGetView(EViews::Title,EUiType::ActiveUi);
+	//startGameDelegate.AddDynamic(this,&UGameManager::StartGame);
+	//titleView->SetStartGameDelegate(startGameDelegate);
+	//
+	//gameModeBase->floorPawn->SetFloorPawnInput(false);
+	//gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldMusic,EAudio::MainMenu);
 }
 
 
@@ -33,8 +33,8 @@ void UGameManager::StartGame()
 
 	if(UGameSettings::DISABLE_CUTSCENES)
 	{
-		UDialogueView* DialogueView  = (UDialogueView*)gameModeBase->InGameHUD->PushAndGetView(EViews::Dialogue,EUiType::ActiveUi);
-		DialogueView->SetDialogueData(EDialogueTriggers::StartGame);
+		//UDialogueView* DialogueView  = (UDialogueView*)gameModeBase->InGameHUD->PushAndGetView(EViews::Dialogue,EUiType::ActiveUi);
+		//DialogueView->SetDialogueData(EDialogueTriggers::StartGame);
 	}
 	gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::Paladin);
 	if(UGameSettings::DEBUG_MODE)
@@ -44,7 +44,7 @@ void UGameManager::StartGame()
 		gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::DarkKnight);
 	}
 
-	gameModeBase->LoadLevel(TEXT("Floor1"));
+///	gameModeBase->LoadLevel(TEXT("Floor1"));
 }
 
 void UGameManager::ResetPlayerToPreviousPosition()

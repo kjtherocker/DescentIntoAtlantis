@@ -5,10 +5,10 @@
 #include "CombatManager.h"
 #include "EnemyPortraitElement.h"
 #include "EnemyCombatEntity.h"
-#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+#include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
-void UEnemyPortraits::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase)
+void UEnemyPortraits::UiInitialize(AFloorGameMode* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	
@@ -16,7 +16,7 @@ void UEnemyPortraits::UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBas
 	Portraits.Add(EEnemyCombatPositions::Middle,BW_Portrait2);
 	Portraits.Add(EEnemyCombatPositions::Right ,BW_Portrait3);
 	
-	ADesentIntoAtlantisGameModeBase* GameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	AFloorGameMode* GameModeBase = Cast< AFloorGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
 	enemysInCombat = GameModeBase->combatManager->GetEnemysInCombat();
 
 

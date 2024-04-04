@@ -12,7 +12,7 @@
 #include "FloorManager.h"
 #include "GameSettings.h"
 #include "GameFramework/GameModeBase.h"
-#include "DesentIntoAtlantisGameModeBase.generated.h"
+#include "FloorGameMode.generated.h"
 
 class UGameManager;
 class ASoundManager;
@@ -25,10 +25,10 @@ class UCombatManager;
  * 
  */
 UCLASS()
-class DESENTINTOATLANTIS_API ADesentIntoAtlantisGameModeBase : public AGameModeBase
+class DESENTINTOATLANTIS_API AFloorGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
-	ADesentIntoAtlantisGameModeBase();
+	AFloorGameMode();
 
 	
 public:

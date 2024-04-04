@@ -14,7 +14,7 @@ class DESENTINTOATLANTIS_API UDeathView : public UBaseUserWidget
 {
 	GENERATED_BODY()
 public:
-	virtual void UiInitialize(ADesentIntoAtlantisGameModeBase* aGameModeBase) override;
+	virtual void UiInitialize(AFloorGameMode* aGameModeBase) override;
 	void TryFightAgain();
 	void Quit();
 };

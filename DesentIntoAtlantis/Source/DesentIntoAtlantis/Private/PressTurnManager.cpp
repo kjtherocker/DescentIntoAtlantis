@@ -12,10 +12,10 @@
 #include "SkillsData.h"
 #include "SoundManager.h"
 #include "TurnCounterView.h"
-#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+#include "DesentIntoAtlantis/FloorGameMode.h"
 
 
-void UPressTurnManager::Initialize(UCombatManager* aCombatManager, ADesentIntoAtlantisGameModeBase* aGameModeBase)
+void UPressTurnManager::Initialize(UCombatManager* aCombatManager, AFloorGameMode* aGameModeBase)
 {
 	combatManager = aCombatManager;
 	gameModeBase = aGameModeBase;

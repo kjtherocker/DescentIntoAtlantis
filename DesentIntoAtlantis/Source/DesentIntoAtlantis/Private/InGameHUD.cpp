@@ -1,14 +1,19 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "InGameHUD.h"
 #include "CommandBoardView.h"
-#include "DesentIntoAtlantis/DesentIntoAtlantisGameModeBase.h"
+#include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
 
 void AInGameHUD::BeginPlay()
 {
     Super::BeginPlay();
-    gameModeBase = Cast< ADesentIntoAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+    gameModeBase = Cast< AFloorGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+
+    if(gameModeBase == nullptr)
+    {
+        int test = 0;
+    }
 }
 
 void AInGameHUD::Tick(float DeltaSeconds)
