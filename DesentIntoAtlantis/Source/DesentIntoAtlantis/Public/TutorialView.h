@@ -20,7 +20,7 @@ private:
 	FTriggerNextEventStage nextEventStage;
 	EFloorEventStates floorEventToTriggerOnEnd;
 public:
-	virtual void UiInitialize(AFloorGameMode* aGameModeBase) override;
+	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 	void SetupTutorialView(FTutorialData aTutorialData);
 	void SetFloorEvent( FTriggerNextEventStage  aTriggerNextEventStage, EFloorEventStates aTriggerOnEnd);
 	void ContinueToNextEventStage();

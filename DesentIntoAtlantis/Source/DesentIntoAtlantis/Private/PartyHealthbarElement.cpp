@@ -8,7 +8,7 @@
 #include "Components/ProgressBar.h"
 #include "Components/TextBlock.h"
 
-void UPartyHealthbarElement::UiInitialize(AFloorGameMode* aGameModeBase)
+void UPartyHealthbarElement::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 }

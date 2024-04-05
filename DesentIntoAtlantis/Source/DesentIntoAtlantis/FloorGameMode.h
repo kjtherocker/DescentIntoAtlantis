@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "AtlantisGameModeBase.h"
 #include "EnemyFactory.h"
 #include "PartyManager.h"
 #include "SkillFactory.h"
@@ -25,72 +26,17 @@ class UCombatManager;
  * 
  */
 UCLASS()
-class DESENTINTOATLANTIS_API AFloorGameMode : public AGameModeBase
+class DESENTINTOATLANTIS_API AFloorGameMode : public AAtlantisGameModeBase
 {
 	GENERATED_BODY()
 	AFloorGameMode();
 
 	
 public:
-
-
-	virtual void PostInitializeComponents() override;
-	virtual void InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage) override;
-	virtual void BeginPlay() override;
-
+	
 	UFUNCTION()
-	void InitializeLevel();
+	virtual void InitializeLevel() override;
 
-	FString previousLevel;
-	
-	UPROPERTY(EditAnywhere, Category = "Data")
-	TMap<EDataTableTypes,UDataTable*> dataTables;
-	UPROPERTY(EditAnywhere, Category = "Data")
-	TMap<EDataTableClasses,UDataTable*> dataTablesClasses;
 
-	//All actors created at tge start of the game
-	UPROPERTY(EditAnywhere)
-	TSubclassOf<AActor> soundManagerReference;
-	UPROPERTY(EditAnywhere)
-	TSubclassOf<AActor> floorManagerReference;
-	UPROPERTY(EditAnywhere)
-	TSubclassOf<AActor> floorPawnReference;
-	
-	UPROPERTY(EditAnywhere)
-	ASoundManager* soundManager;
-	UPROPERTY(EditAnywhere)
-	AFloorManager* floorManager;
-	UPROPERTY()
-	AFloorPawn* floorPawn;
-	
-
-	UPROPERTY(EditAnywhere)
-	UGameManager* gameManager;
-
-	UPROPERTY(EditAnywhere)
-	UGameSettings* gameSettings;
-	
-	UPROPERTY(EditAnywhere, Category = "Data")
-	TMap<ESkillType,UDataTable*> dataTablesSkills;
-	UPROPERTY()
-	UWorld*             world;	
-	UPROPERTY()
-	USkillFactory*      skillFactory;
-	UPROPERTY()  
-	UEnemyFactory*      enemyFactory;
-	UPROPERTY()  
-	UPartyManager*      partyManager;
-	UPROPERTY()  
-	UCombatManager*     combatManager;
-	UPROPERTY()  
-	AInGameHUD*         InGameHUD;
-	UPROPERTY()
-	UTutorialManager*   tutorialManager;
-	UPROPERTY()
-	UFloorFactory*      floorFactory;
-	UPROPERTY()
-	UFloorEventManager* floorEventManager;
-	UPROPERTY()
-	UDialogueFactory*   dialogueFactory;
 	
 };

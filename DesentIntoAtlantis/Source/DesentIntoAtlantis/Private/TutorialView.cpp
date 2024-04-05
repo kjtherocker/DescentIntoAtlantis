@@ -3,7 +3,7 @@
 
 #include "TutorialView.h"
 
-void UTutorialView::UiInitialize(AFloorGameMode* aGameModeBase)
+void UTutorialView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();

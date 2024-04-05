@@ -15,7 +15,7 @@
 #include "DesentIntoAtlantis/FloorGameMode.h"
 
 
-void UPressTurnManager::Initialize(UCombatManager* aCombatManager, AFloorGameMode* aGameModeBase)
+void UPressTurnManager::Initialize(UCombatManager* aCombatManager, AAtlantisGameModeBase* aGameModeBase)
 {
 	combatManager = aCombatManager;
 	gameModeBase = aGameModeBase;

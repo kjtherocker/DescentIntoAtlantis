@@ -13,7 +13,7 @@
 #include "PlayerCombatEntity.h"
 
 
-void USkillView::UiInitialize(AFloorGameMode* aGameModeBase)
+void USkillView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();

@@ -36,10 +36,9 @@ void EmptyLinkFunctionForGeneratedCodeEDataTableTypes() {}
 	};
 	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_EDataTableTypes_Statics::Enumerators[] = {
 		{ "EDataTableTypes::None", (int64)EDataTableTypes::None },
-		{ "EDataTableTypes::Skills", (int64)EDataTableTypes::Skills },
 		{ "EDataTableTypes::Enemys", (int64)EDataTableTypes::Enemys },
 		{ "EDataTableTypes::EnemyGroups", (int64)EDataTableTypes::EnemyGroups },
-		{ "EDataTableTypes::Party", (int64)EDataTableTypes::Party },
+		{ "EDataTableTypes::PlayerCharacters", (int64)EDataTableTypes::PlayerCharacters },
 		{ "EDataTableTypes::Tutorial", (int64)EDataTableTypes::Tutorial },
 		{ "EDataTableTypes::Floor", (int64)EDataTableTypes::Floor },
 		{ "EDataTableTypes::FloorEvent", (int64)EDataTableTypes::FloorEvent },
@@ -54,8 +53,7 @@ void EmptyLinkFunctionForGeneratedCodeEDataTableTypes() {}
 		{ "FloorEvent.Name", "EDataTableTypes::FloorEvent" },
 		{ "ModuleRelativePath", "Public/EDataTableTypes.h" },
 		{ "None.Name", "EDataTableTypes::None" },
-		{ "Party.Name", "EDataTableTypes::Party" },
-		{ "Skills.Name", "EDataTableTypes::Skills" },
+		{ "PlayerCharacters.Name", "EDataTableTypes::PlayerCharacters" },
 		{ "Tutorial.Name", "EDataTableTypes::Tutorial" },
 	};
 #endif
@@ -142,10 +140,10 @@ void EmptyLinkFunctionForGeneratedCodeEDataTableTypes() {}
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EDataTableTypes_h_Statics::EnumInfo[] = {
-		{ EDataTableTypes_StaticEnum, TEXT("EDataTableTypes"), &Z_Registration_Info_UEnum_EDataTableTypes, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3523004561U) },
+		{ EDataTableTypes_StaticEnum, TEXT("EDataTableTypes"), &Z_Registration_Info_UEnum_EDataTableTypes, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1451724120U) },
 		{ EDataTableClasses_StaticEnum, TEXT("EDataTableClasses"), &Z_Registration_Info_UEnum_EDataTableClasses, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 916432985U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EDataTableTypes_h_3732383378(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EDataTableTypes_h_939355717(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EDataTableTypes_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EDataTableTypes_h_Statics::EnumInfo));

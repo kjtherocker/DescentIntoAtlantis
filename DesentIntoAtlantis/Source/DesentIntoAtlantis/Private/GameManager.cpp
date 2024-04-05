@@ -7,7 +7,7 @@
 #include "TitleView.h"
 #include "Kismet/GameplayStatics.h"
 
-void UGameManager::Initialize(AFloorGameMode* aGameModeBase)
+void UGameManager::Initialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	gameModeBase = aGameModeBase;
 	//gameModeBase->world->OnWorldBeginPlay.AddUObject(this, &UGameManager::SetUpTitleMenu);

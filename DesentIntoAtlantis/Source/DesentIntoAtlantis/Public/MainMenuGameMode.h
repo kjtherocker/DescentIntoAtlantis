@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "AtlantisGameModeBase.h"
 #include "GameFramework/GameModeBase.h"
 #include "MainMenuGameMode.generated.h"
 
@@ -12,23 +13,17 @@ class AInGameHUD;
  */
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FStartGameDelegate);
 UCLASS()
-class DESENTINTOATLANTIS_API AMainMenuGameMode : public AGameModeBase
+class DESENTINTOATLANTIS_API AMainMenuGameMode : public AAtlantisGameModeBase
 {
 	GENERATED_BODY()
 
 	AMainMenuGameMode();
-	
-	
-	virtual void PostInitializeComponents() override;
-	virtual void InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage) override;
-	virtual void BeginPlay() override;
 
+	virtual void InitializeLevel() override;
+	
 	void CreateMainMenu();
 	void StartGame();
 
 private:
 	FStartGameDelegate startGameDelegate;
-
-	UPROPERTY()  
-	AInGameHUD*         InGameHUD;
 };

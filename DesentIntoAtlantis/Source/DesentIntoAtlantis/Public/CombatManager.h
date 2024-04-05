@@ -9,6 +9,7 @@
 #include "UObject/NoExportTypes.h"
 
 #include "CombatManager.generated.h"
+class AAtlantisGameModeBase;
 class USkillFactory;
 enum class ECharactertype;
 class UPlayerCombatEntity;
@@ -73,7 +74,7 @@ public:
 	UPROPERTY()
 	UPressTurnManager* pressTurnManager;
 
-	void Initialize(AFloorGameMode* aGameModeBase,UWorld* aWorld);
+	void Initialize(AAtlantisGameModeBase* aGameModeBase,UWorld* aWorld);
 	void StartCombat(FString aEnemyGroupName);
 	void RemoveDeadPartyMembersFromCombat();
 	void EndCombat(bool aHasWon = true);
@@ -91,6 +92,6 @@ public:
 
 
 	UPROPERTY()
-	AFloorGameMode* gameModeBase;
+	AAtlantisGameModeBase* gameModeBase;
 	
 };

@@ -14,7 +14,7 @@
 #include "Components/Image.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 
-void UCommandBoardView::UiInitialize(AFloorGameMode* aGameModeBase)
+void UCommandBoardView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();

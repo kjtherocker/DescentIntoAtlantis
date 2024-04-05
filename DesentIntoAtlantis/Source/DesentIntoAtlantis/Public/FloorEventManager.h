@@ -44,7 +44,7 @@ class DESENTINTOATLANTIS_API UFloorEventManager : public UObject
 	FTriggerNextEventStage triggerNextEventStage;
 
 	UPROPERTY()
-	AFloorGameMode* gameModeBase;
+	AAtlantisGameModeBase* gameModeBase;
 
 	UPROPERTY()
 	EFloorIdentifier currentFloor;
@@ -53,7 +53,7 @@ public:
 
 	FFloorEventHasBeenTriggered EventHasBeenTriggered;
 
-	void Initialize(AFloorGameMode* aGameBase,UFloorFactory * aFloorFactory,UCombatManager* aCombatManager);
+	void Initialize(AAtlantisGameModeBase* aGameBase,UFloorFactory * aFloorFactory,UCombatManager* aCombatManager);
 
 	void SetFloor(EFloorIdentifier aFloorIdentifier);
 	UFUNCTION()

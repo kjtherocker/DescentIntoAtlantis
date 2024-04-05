@@ -8,7 +8,7 @@
 
 
 
-void UTitleView::UiInitialize(AFloorGameMode* aGameModeBase)
+void UTitleView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();

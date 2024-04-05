@@ -16,7 +16,7 @@ class DESENTINTOATLANTIS_API UTurnCounterView : public UBaseUserWidget
 {
 	GENERATED_BODY()
 
-	virtual void UiInitialize(AFloorGameMode* aGameModeBase) override;
+	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 	
 	TArray<UTurnCounterElement*> TurnCounter;
 

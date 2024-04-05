@@ -10,7 +10,7 @@
 #include "Kismet/GameplayStatics.h"
 
 
-void UDialogueView::UiInitialize(AFloorGameMode* aGameModeBase)
+void UDialogueView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();

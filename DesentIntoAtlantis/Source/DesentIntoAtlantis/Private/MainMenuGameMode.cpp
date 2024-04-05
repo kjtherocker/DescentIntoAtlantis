@@ -16,19 +16,10 @@ AMainMenuGameMode::AMainMenuGameMode()
 	PlayerControllerClass = AFloorPlayerController::StaticClass();
 }
 
-void AMainMenuGameMode::PostInitializeComponents()
+void AMainMenuGameMode::InitializeLevel()
 {
-	Super::PostInitializeComponents();
-}
+	Super::InitializeLevel();
 
-void AMainMenuGameMode::InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage)
-{
-	Super::InitGame(MapName, Options, ErrorMessage);
-}
-
-void AMainMenuGameMode::BeginPlay()
-{
-	Super::BeginPlay();
 	CreateMainMenu();
 }
 

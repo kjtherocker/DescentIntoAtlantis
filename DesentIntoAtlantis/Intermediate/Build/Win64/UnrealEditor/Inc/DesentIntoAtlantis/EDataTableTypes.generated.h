@@ -19,10 +19,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define FOREACH_ENUM_EDATATABLETYPES(op) \
 	op(EDataTableTypes::None) \
-	op(EDataTableTypes::Skills) \
 	op(EDataTableTypes::Enemys) \
 	op(EDataTableTypes::EnemyGroups) \
-	op(EDataTableTypes::Party) \
+	op(EDataTableTypes::PlayerCharacters) \
 	op(EDataTableTypes::Tutorial) \
 	op(EDataTableTypes::Floor) \
 	op(EDataTableTypes::FloorEvent) \

@@ -9,7 +9,7 @@
 #include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
-void UCombatSelectionView::UiInitialize(AFloorGameMode* aGameModeBase)
+void UCombatSelectionView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();

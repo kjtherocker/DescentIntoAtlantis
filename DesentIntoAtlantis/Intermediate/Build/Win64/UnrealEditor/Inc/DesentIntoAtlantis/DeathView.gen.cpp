@@ -78,9 +78,9 @@ void EmptyLinkFunctionForGeneratedCodeDeathView() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DeathView_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UDeathView, UDeathView::StaticClass, TEXT("UDeathView"), &Z_Registration_Info_UClass_UDeathView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDeathView), 928102568U) },
+		{ Z_Construct_UClass_UDeathView, UDeathView::StaticClass, TEXT("UDeathView"), &Z_Registration_Info_UClass_UDeathView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDeathView), 518339748U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DeathView_h_2985309878(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DeathView_h_1894539094(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DeathView_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_DeathView_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -15,10 +15,10 @@ class DESENTINTOATLANTIS_API UGameManager : public UObject
 {
 	GENERATED_BODY()
 	UPROPERTY()
-	AFloorGameMode* gameModeBase;
+	AAtlantisGameModeBase* gameModeBase;
 	FString previousLevel;
 public:
-	void Initialize(AFloorGameMode* aGameModeBase);
+	void Initialize(AAtlantisGameModeBase* aGameModeBase);
 	UFUNCTION()
 	void SetUpTitleMenu();
 

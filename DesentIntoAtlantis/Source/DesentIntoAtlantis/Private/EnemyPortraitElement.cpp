@@ -6,7 +6,7 @@
 #include "Components/HorizontalBox.h"
 #include "Components/Image.h"
 
-void UEnemyPortraitElement::UiInitialize(AFloorGameMode* aGameModeBase)
+void UEnemyPortraitElement::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	

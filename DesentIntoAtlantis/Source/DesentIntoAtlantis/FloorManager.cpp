@@ -18,7 +18,7 @@ AFloorManager::AFloorManager()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
-void AFloorManager::Initialize(AFloorGameMode* aGameModeBase,UFloorEventManager* aFloorEventManager)
+void AFloorManager::Initialize(AAtlantisGameModeBase* aGameModeBase,UFloorEventManager* aFloorEventManager)
 {
 	cardinalPositions.Add(ECardinalNodeDirections::Up,    FVector2D(-1,0));
 	cardinalPositions.Add(ECardinalNodeDirections::Down,  FVector2D(1,0));

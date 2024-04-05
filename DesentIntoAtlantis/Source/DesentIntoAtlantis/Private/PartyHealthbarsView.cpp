@@ -9,7 +9,7 @@
 #include "PlayerCombatEntity.h"
 #include "PartyHealthbarElement.h"
 
-void UPartyHealthbarsView::UiInitialize(AFloorGameMode* aGameModeBase)
+void UPartyHealthbarsView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	

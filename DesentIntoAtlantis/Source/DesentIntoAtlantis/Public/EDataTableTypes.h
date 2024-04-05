@@ -7,14 +7,13 @@ UENUM()
 enum class  EDataTableTypes
 {
 	None             = 0,
-	Skills           = 1,
-	Enemys           = 2,
-	EnemyGroups      = 3,
-	Party            = 4,
-	Tutorial         = 5,
-	Floor            = 6,
-	FloorEvent       = 7,
-	Dialogue         = 8,
+	Enemys           = 1,
+	EnemyGroups      = 2,
+	PlayerCharacters = 3,
+	Tutorial         = 4,
+	Floor            = 5,
+	FloorEvent       = 6,
+	Dialogue         = 7,
 };
 
 

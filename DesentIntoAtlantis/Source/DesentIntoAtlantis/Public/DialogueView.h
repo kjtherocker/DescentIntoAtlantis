@@ -24,7 +24,7 @@ class DESENTINTOATLANTIS_API UDialogueView : public UBaseUserWidget
 	bool reactivatePawnInputOnEnd;
 	FTriggerNextEventStage triggerNextEventStage;
 public:
-	virtual void UiInitialize(AFloorGameMode* aGameModeBase) override;
+	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage*    BW_LeftCharacterPortrait;

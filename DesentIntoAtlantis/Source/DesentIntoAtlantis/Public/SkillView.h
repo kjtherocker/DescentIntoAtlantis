@@ -18,7 +18,7 @@ UCLASS()
 class DESENTINTOATLANTIS_API USkillView : public UBaseUserWidget
 {
 	GENERATED_BODY()
-	virtual void UiInitialize(AFloorGameMode* aGameModeBase) override;
+	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 
 	void CreateSkillbar(FSkillsData aSkill);
 	void SkillSelection(FSkillsData aSkill);

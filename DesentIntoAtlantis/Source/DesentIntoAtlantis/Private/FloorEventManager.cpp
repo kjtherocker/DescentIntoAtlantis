@@ -10,7 +10,7 @@
 #include "TutorialView.h"
 
 
-void UFloorEventManager::Initialize(AFloorGameMode* aGameBase ,UFloorFactory * aFloorFactory,UCombatManager* aCombatManager)
+void UFloorEventManager::Initialize(AAtlantisGameModeBase* aGameBase ,UFloorFactory * aFloorFactory,UCombatManager* aCombatManager)
 {
 	gameModeBase      = aGameBase;
 	floorFactory  = aFloorFactory;

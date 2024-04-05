@@ -8,7 +8,7 @@
 #include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
-void UEnemyPortraits::UiInitialize(AFloorGameMode* aGameModeBase)
+void UEnemyPortraits::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	

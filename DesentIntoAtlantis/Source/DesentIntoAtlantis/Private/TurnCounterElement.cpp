@@ -3,7 +3,7 @@
 
 #include "TurnCounterElement.h"
 
-void UTurnCounterElement::UiInitialize(AFloorGameMode* aGameModeBase)
+void UTurnCounterElement::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 

@@ -6,7 +6,7 @@
 #include "SoundManager.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 
-void UBaseUserWidget::UiInitialize(AFloorGameMode* aGameModeBase)
+void UBaseUserWidget::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	gameModeBase = aGameModeBase;
 }

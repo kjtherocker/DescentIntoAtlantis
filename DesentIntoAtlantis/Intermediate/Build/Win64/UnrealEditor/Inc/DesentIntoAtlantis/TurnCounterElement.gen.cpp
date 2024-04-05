@@ -146,9 +146,9 @@ void EmptyLinkFunctionForGeneratedCodeTurnCounterElement() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TurnCounterElement_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UTurnCounterElement, UTurnCounterElement::StaticClass, TEXT("UTurnCounterElement"), &Z_Registration_Info_UClass_UTurnCounterElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTurnCounterElement), 735597032U) },
+		{ Z_Construct_UClass_UTurnCounterElement, UTurnCounterElement::StaticClass, TEXT("UTurnCounterElement"), &Z_Registration_Info_UClass_UTurnCounterElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTurnCounterElement), 458807368U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TurnCounterElement_h_4072277486(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TurnCounterElement_h_3189581426(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TurnCounterElement_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TurnCounterElement_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

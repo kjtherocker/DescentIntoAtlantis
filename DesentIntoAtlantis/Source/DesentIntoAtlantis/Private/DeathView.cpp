@@ -6,7 +6,7 @@
 #include "GameManager.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 
-void UDeathView::UiInitialize(AFloorGameMode* aGameModeBase)
+void UDeathView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();

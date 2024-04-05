@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "PressTurnManager.generated.h"
 
+class AAtlantisGameModeBase;
 enum class PressTurnReactions;
 class USkillBase;
 enum class ECharactertype;
@@ -22,7 +23,7 @@ class DESENTINTOATLANTIS_API UPressTurn : public UObject
 {
 	GENERATED_BODY()
 public:
-	 int m_Turns;
+	 int turnCount;
 	 bool isEmpowered;
 	 bool wasUsed;
 };
@@ -38,7 +39,7 @@ private:
 	const int AMOUNT_OF_PRESSTURNS = 10;
 
 	UPROPERTY()
-	AFloorGameMode* gameModeBase;
+	AAtlantisGameModeBase* gameModeBase;
 	UPROPERTY()
 	UTurnCounterView* turnCounter;
 	UPROPERTY()
@@ -54,7 +55,7 @@ public:
 
 	UPressTurn* GetInActivePressturns();
 	int         GetNumberOfActivePressTurns();
-	void Initialize(UCombatManager* aCombatManager, AFloorGameMode* aGameModeBase );
+	void Initialize(UCombatManager* aCombatManager, AAtlantisGameModeBase* aGameModeBase );
 
 	void SetAmountOfTurns(int aTurnAmount, ECharactertype aCharacterType );
 	

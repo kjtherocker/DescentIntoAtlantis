@@ -13,6 +13,6 @@ UCLASS()
 class DESENTINTOATLANTIS_API UEndView : public UBaseUserWidget
 {
 	GENERATED_BODY()
-	virtual void UiInitialize(AFloorGameMode* aGameModeBase) override;
+	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 	void Quit();
 };

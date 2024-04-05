@@ -47,7 +47,7 @@ private:
 
 public:
 	virtual void SetStartGameDelegate(FStartGameDelegate aStartGameDelegate);
-	virtual void UiInitialize(AFloorGameMode* aGameModeBase) override;
+	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 	virtual void MoveUp() override;
 	virtual void MoveDown() override;
 	virtual void SetCursorPositionInfo() override;
