@@ -4,14 +4,20 @@
 #include "AtlantisGameModeBase.h"
 
 #include "GameManager.h"
+#include "PersistentGameinstance.h"
+#include "PartyManagerSubsystem.h"
 #include "SoundManager.h"
 #include "TutorialManager.h"
 
 void AAtlantisGameModeBase::InitializeLevel()
 {
 //    //Grabbing Datatables From folder
-//    dataTables.Add(EDataTableTypes::Enemys,
-//        LoadObject<UDataTable>(nullptr, TEXT("DesentIntoAtlantis/Datatables/Atlantis_-_Enemys.uasset'")));
+
+    
+
+  //  UDataTable* asdasd = LoadObject<UDataTable>(nullptr, TEXT("Game/Atlantis_-_Enemys1.uasset"));
+   // dataTables.Add(EDataTableTypes::Enemys,
+     //   LoadObject<UDataTable>(nullptr, TEXT("DataTable'/Game/Datatables/Atlantis_-_Enemys'")));
 //
 //    dataTables.Add(EDataTableTypes::EnemyGroups,
 //        LoadObject<UDataTable>(nullptr, TEXT("DataTable'DesentIntoAtlantis/Content/Datatables/Atlantis_-_EnemyGroup.uasset'")));
@@ -66,6 +72,9 @@ void AAtlantisGameModeBase::InitializeLevel()
     
     skillFactory->InitializeDatabase(dataTablesSkills);
 
+    combatManager = NewObject<UCombatManager>();
+    combatManager->Initialize(this,world);
+
     if(dataTables.Contains(EDataTableTypes::Enemys) &&
        dataTables.Contains(EDataTableTypes::EnemyGroups))
     {
@@ -77,9 +86,6 @@ void AAtlantisGameModeBase::InitializeLevel()
                 dataTables[EDataTableTypes::EnemyGroups]);
         }
     }
-
-    combatManager = NewObject<UCombatManager>();
-    combatManager->Initialize(this,world);
 
     if(dataTables.Contains(EDataTableTypes::PlayerCharacters) &&
        !dataTablesClasses.IsEmpty())
@@ -99,18 +105,7 @@ void AAtlantisGameModeBase::InitializeLevel()
             tutorialManager->InitializeDatabase(dataTables[EDataTableTypes::Tutorial]);
         }
     }
-    if(dataTables.Contains(EDataTableTypes::Floor)
-        && dataTables.Contains(EDataTableTypes::FloorEvent))
-    {
-        if(dataTables[EDataTableTypes::Floor] != nullptr
-            &&dataTables[EDataTableTypes::FloorEvent] != nullptr)
-        {
-            floorFactory = NewObject<UFloorFactory>();
-            floorFactory->InitializeDatabase(dataTables[EDataTableTypes::Floor],dataTables[EDataTableTypes::FloorEvent]);
-            floorEventManager = NewObject<UFloorEventManager>();
-            floorEventManager->Initialize( this,floorFactory,combatManager);
-        }
-    }
+
 
     if(dataTables.Contains(EDataTableTypes::Dialogue))
     {
@@ -120,12 +115,18 @@ void AAtlantisGameModeBase::InitializeLevel()
             dialogueFactory->InitializeDatabase(dataTables[EDataTableTypes::Dialogue]);
         }
     }
+    UGameInstance* GameInstance = GetGameInstance();
 
-    floorManager = Cast<AFloorManager>(world->SpawnActor<AActor>(floorManagerReference, ActorFinalSpawnPoint, rotator));
-    floorManager->Initialize(this,floorEventManager);
+    // Cast the game instance to your custom game instance class
+    UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>(GameInstance);
 
-    floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, ActorFinalSpawnPoint, rotator));
-    floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
+    
+    UPartyManagerSubsystem* MySubsystem = GameInstance->GetSubsystem<UPartyManagerSubsystem>();
+
+
+    int testo = 0;
+
+
 }
 
 void AAtlantisGameModeBase::BeginPlay()

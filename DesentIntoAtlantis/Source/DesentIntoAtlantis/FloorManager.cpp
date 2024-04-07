@@ -99,6 +99,10 @@ void AFloorManager::SpawnFloorNode(int aRow, int aColumn, int aIndex)
 
 	floorNode = Cast<AFloorNode>(GetWorld()->SpawnActor<AActor>(floorNodeReference, ActorFinalSpawnPoint, rotator));
 	floorNode->SetPositionInGrid(PositionInGrid);
+	USceneComponent* ParentRootComponent = this->GetRootComponent();
+
+	floorNode->AttachToComponent(ParentRootComponent,FAttachmentTransformRules::KeepRelativeTransform);
+
 
 	floorNodes[aIndex] = floorNode;
 }
@@ -231,9 +235,14 @@ void AFloorManager::SpawnFloorEnemyPawn(FVector2D aPositionInGrid)
 	
 	FActorSpawnParameters ActorSpawnParameters;
 	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	ActorSpawnParameters.Owner = this;
 	
 	 AFloorEnemyPawn* floorPawn;
 	floorPawn = Cast<AFloorEnemyPawn>(GetWorld()->SpawnActor<AActor>(floorEnemyPawnReference, ActorFinalSpawnPoint, rotator,ActorSpawnParameters));
+
+	USceneComponent* ParentRootComponent = this->GetRootComponent();
+
+	floorPawn->AttachToComponent(ParentRootComponent,FAttachmentTransformRules::KeepRelativeTransform);
 
 	if (floorPawn)
 	{

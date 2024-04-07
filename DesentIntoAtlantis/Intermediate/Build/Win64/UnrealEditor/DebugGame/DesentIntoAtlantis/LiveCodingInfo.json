@@ -52,6 +52,7 @@
 			"PartyHealthbarElement.cpp.obj",
 			"PartyHealthbarsView.cpp.obj",
 			"PartyManager.cpp.obj",
+			"PartyManagerSubsystem.cpp.obj",
 			"PersistentGameinstance.cpp.obj",
 			"PlayerCombatEntity.cpp.obj",
 			"PressTurnManager.cpp.obj",
@@ -122,12 +123,13 @@
 			"PartyHealthbarElement.gen.cpp.obj",
 			"PartyHealthbarsView.gen.cpp.obj",
 			"PartyManager.gen.cpp.obj",
+			"PartyManagerSubsystem.gen.cpp.obj",
 			"PersistentGameinstance.gen.cpp.obj",
-			"PlayerCombatEntity.gen.cpp.obj"
+			"PlayerCombatEntity.gen.cpp.obj",
+			"PressTurnManager.gen.cpp.obj",
+			"SkillBarElement.gen.cpp.obj"
 		],
 		"Module.DesentIntoAtlantis.gen.3_of_3.cpp.obj": [
-			"PressTurnManager.gen.cpp.obj",
-			"SkillBarElement.gen.cpp.obj",
 			"SkillFactory.gen.cpp.obj",
 			"SkillsData.gen.cpp.obj",
 			"SkillView.gen.cpp.obj",

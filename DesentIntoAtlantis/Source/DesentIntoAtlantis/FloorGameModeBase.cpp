@@ -24,5 +24,30 @@ AFloorGameMode::AFloorGameMode()
 void AFloorGameMode::InitializeLevel()
 {
     Super::InitializeLevel();
+   
+    world = GetWorld();
+    FVector ActorFinalSpawnPoint;
+    FRotator rotator;
+    
+
+    if(dataTables.Contains(EDataTableTypes::Floor)
+    && dataTables.Contains(EDataTableTypes::FloorEvent))
+    {
+        if(dataTables[EDataTableTypes::Floor] != nullptr
+            &&dataTables[EDataTableTypes::FloorEvent] != nullptr)
+        {
+            floorFactory = NewObject<UFloorFactory>();
+            floorFactory->InitializeDatabase(dataTables[EDataTableTypes::Floor],dataTables[EDataTableTypes::FloorEvent]);
+            floorEventManager = NewObject<UFloorEventManager>();
+            floorEventManager->Initialize( this,floorFactory,combatManager);
+        }
+    }
+    
+    floorManager = Cast<AFloorManager>(world->SpawnActor<AActor>(floorManagerReference, ActorFinalSpawnPoint, rotator));
+    floorManager->Initialize(this,floorEventManager);
+
+    floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, ActorFinalSpawnPoint, rotator));
+    floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
+    
     gameManager->StartGame();
 }

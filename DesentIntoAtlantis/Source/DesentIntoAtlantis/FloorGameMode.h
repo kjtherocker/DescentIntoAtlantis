@@ -37,6 +37,4 @@ public:
 	UFUNCTION()
 	virtual void InitializeLevel() override;
 
-
-	
 };

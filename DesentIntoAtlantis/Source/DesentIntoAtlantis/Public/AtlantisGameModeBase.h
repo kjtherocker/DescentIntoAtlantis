@@ -53,10 +53,16 @@ public:
 	
 	UPROPERTY(EditAnywhere)
 	ASoundManager* soundManager;
+	
 	UPROPERTY(EditAnywhere)
 	AFloorManager* floorManager;
 	UPROPERTY()
 	AFloorPawn* floorPawn;
+
+	UPROPERTY()
+	UFloorFactory*      floorFactory;
+	UPROPERTY()
+	UFloorEventManager* floorEventManager;
 	
 
 	UPROPERTY(EditAnywhere)
@@ -80,10 +86,7 @@ public:
 	AInGameHUD*         InGameHUD;
 	UPROPERTY()
 	UTutorialManager*   tutorialManager;
-	UPROPERTY()
-	UFloorFactory*      floorFactory;
-	UPROPERTY()
-	UFloorEventManager* floorEventManager;
+
 	UPROPERTY()
 	UDialogueFactory*   dialogueFactory;
 	

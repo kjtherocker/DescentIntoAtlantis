@@ -20,7 +20,7 @@ void UPartyManager::InitializeDataTable (USkillFactory* aSkillFactory,UDataTable
 	UDataTable* datatable = aDataTable;
 	for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
 	{
-		playerEntityData.Add(*datatable->FindRow<FPlayerEntityData>(FName(FString::FromInt(i)),FString("Searching for seres"),true));
+		playerEntityData.Add(*datatable->FindRow<FPlayerEntityData>(FName(FString::FromInt(i)),FString("Searching for Players"),true));
 	}
 
 	
