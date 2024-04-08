@@ -1,14 +1,14 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "CombatEntity.h"
 #include "CombatManager.h"
-#include "SkillFactory.h"
+#include "SkillFactorySubsystem.h"
 #include "SkillsData.h"
 
 
 
 
 
-void UCombatEntity::SetTacticsEntity(USkillFactory* aSkillFactory)
+void UCombatEntity::SetTacticsEntity(USkillFactorySubsystem* aSkillFactory)
 {
     abilityScoreMap.Add(EAbilityScoreTypes::Strength,  NewObject<UCombatAbilityStats>());
     abilityScoreMap.Add(EAbilityScoreTypes::Magic,     NewObject<UCombatAbilityStats>());

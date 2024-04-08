@@ -13,6 +13,10 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UPersistentGameinstance();
 	ENGINE_API UClass* Z_Construct_UClass_UGameInstance();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
+	ENGINE_API UClass* Z_Construct_UClass_UDataTable_NoRegister();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EDataTableTypes();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ESkillType();
 // End Cross Module References
 	DEFINE_FUNCTION(UPersistentGameinstance::execLoadPreSetLevel)
 	{
@@ -145,6 +149,28 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_dataTables_ValueProp;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_dataTables_Key_KeyProp_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_dataTables_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_dataTables_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_dataTables;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_dataTablesClasses_ValueProp;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_dataTablesClasses_Key_KeyProp_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_dataTablesClasses_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_dataTablesClasses_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_dataTablesClasses;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_dataTablesSkills_ValueProp;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_dataTablesSkills_Key_KeyProp_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_dataTablesSkills_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_dataTablesSkills_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_dataTablesSkills;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
@@ -164,6 +190,50 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 		{ "ModuleRelativePath", "Public/PersistentGameinstance.h" },
 	};
 #endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTables_ValueProp = { "dataTables", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_UDataTable_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTables_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTables_Key_KeyProp = { "dataTables_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EDataTableTypes, METADATA_PARAMS(nullptr, 0) }; // 1451724120
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTables_MetaData[] = {
+		{ "Category", "Data" },
+		{ "ModuleRelativePath", "Public/PersistentGameinstance.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTables = { "dataTables", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPersistentGameinstance, dataTables), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTables_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTables_MetaData)) }; // 1451724120
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesClasses_ValueProp = { "dataTablesClasses", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_UDataTable_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesClasses_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesClasses_Key_KeyProp = { "dataTablesClasses_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses, METADATA_PARAMS(nullptr, 0) }; // 916432985
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesClasses_MetaData[] = {
+		{ "Category", "Data" },
+		{ "ModuleRelativePath", "Public/PersistentGameinstance.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesClasses = { "dataTablesClasses", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPersistentGameinstance, dataTablesClasses), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesClasses_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesClasses_MetaData)) }; // 916432985
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesSkills_ValueProp = { "dataTablesSkills", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_UDataTable_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesSkills_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesSkills_Key_KeyProp = { "dataTablesSkills_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_ESkillType, METADATA_PARAMS(nullptr, 0) }; // 2088220918
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesSkills_MetaData[] = {
+		{ "Category", "Data" },
+		{ "ModuleRelativePath", "Public/PersistentGameinstance.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesSkills = { "dataTablesSkills", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPersistentGameinstance, dataTablesSkills), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesSkills_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesSkills_MetaData)) }; // 2088220918
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UPersistentGameinstance_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTables_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTables_Key_KeyProp_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTables_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTables,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesClasses_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesClasses_Key_KeyProp_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesClasses_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesClasses,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesSkills_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesSkills_Key_KeyProp_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesSkills_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTablesSkills,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UPersistentGameinstance_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UPersistentGameinstance>::IsAbstract,
 	};
@@ -173,11 +243,11 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		FuncInfo,
-		nullptr,
+		Z_Construct_UClass_UPersistentGameinstance_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_UPersistentGameinstance_Statics::PropPointers),
 		0,
 		0x009000A8u,
 		METADATA_PARAMS(Z_Construct_UClass_UPersistentGameinstance_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UPersistentGameinstance_Statics::Class_MetaDataParams))
@@ -200,9 +270,9 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPersistentGameinstance, UPersistentGameinstance::StaticClass, TEXT("UPersistentGameinstance"), &Z_Registration_Info_UClass_UPersistentGameinstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPersistentGameinstance), 160284810U) },
+		{ Z_Construct_UClass_UPersistentGameinstance, UPersistentGameinstance::StaticClass, TEXT("UPersistentGameinstance"), &Z_Registration_Info_UClass_UPersistentGameinstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPersistentGameinstance), 4232999042U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_1690106080(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_446621337(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

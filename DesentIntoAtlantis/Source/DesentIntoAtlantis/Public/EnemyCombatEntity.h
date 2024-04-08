@@ -60,7 +60,7 @@ class DESENTINTOATLANTIS_API UEnemyCombatEntity : public UCombatEntity
 private:
 public:
 	void SetAbilityScores();
-	void SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactory * skillFactory,EEnemyCombatPositions aPortraitPosition);
+	void SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactorySubsystem * skillFactory,EEnemyCombatPositions aPortraitPosition);
 	virtual void Death() override;
 	virtual float GetHealthPercentage() override;
 	virtual PressTurnReactions DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill) override;

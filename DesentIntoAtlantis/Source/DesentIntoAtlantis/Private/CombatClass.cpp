@@ -2,7 +2,7 @@
 #include "CombatClass.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
-#include "SkillFactory.h"
+#include "SkillFactorySubsystem.h"
 #include "CombatEntity.h"
 #include "PlayerCombatEntity.h"
 
@@ -11,7 +11,7 @@
 
 
 
-void UCombatClass::InitializeDataTable(UDataTable* aClassDataTable, USkillFactory* aSkillFactory, UPlayerCombatEntity* aCombatEntity,int aInitialLevel)
+void UCombatClass::InitializeDataTable(UDataTable* aClassDataTable, USkillFactorySubsystem* aSkillFactory, UPlayerCombatEntity* aCombatEntity,int aInitialLevel)
 {
 	UDataTable* datatable = aClassDataTable;
 

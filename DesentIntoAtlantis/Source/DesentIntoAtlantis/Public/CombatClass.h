@@ -10,7 +10,7 @@
 #include "CombatClass.generated.h"
 
 class UPlayerCombatEntity;
-class USkillFactory;
+class USkillFactorySubsystem;
 class UCombatEntity;
 
 /**
@@ -48,7 +48,7 @@ private:
 
 public:
 
-	void InitializeDataTable(UDataTable* aClassDataTable,USkillFactory* aSkillFactory, UPlayerCombatEntity * combatEntity,int aInitialLevel);
+	void InitializeDataTable(UDataTable* aClassDataTable,USkillFactorySubsystem* aSkillFactory, UPlayerCombatEntity * combatEntity,int aInitialLevel);
 	ConstructorHelpers::FObjectFinder<UObject> ReturnFoundClass(FString aClassExcelSheet);
 
 	UPROPERTY()
@@ -62,7 +62,7 @@ public:
 	UPROPERTY()
 	TArray<USkillBase*> classSkills;
 	UPROPERTY()
-	USkillFactory* skillFactory;
+	USkillFactorySubsystem* skillFactory;
 	
 	bool AddExperience(int aExperience);
 	FClassData Levelup();

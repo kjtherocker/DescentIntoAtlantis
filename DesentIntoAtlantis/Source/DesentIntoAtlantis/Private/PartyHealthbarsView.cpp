@@ -13,7 +13,7 @@ void UPartyHealthbarsView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	
-	UPartyManager* PartyManager =  gameModeBase->partyManager;
+	UPartyManagerSubsystem* PartyManager =  gameModeBase->partyManager;
 
 	TArray<UPlayerCombatEntity*> activeParty = PartyManager->ReturnActiveParty();
 	

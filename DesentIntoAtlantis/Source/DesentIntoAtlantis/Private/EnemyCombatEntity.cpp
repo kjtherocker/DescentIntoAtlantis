@@ -6,9 +6,9 @@
 #include "EnemyBehaviour.h"
 #include "EnemyPortraitElement.h"
 #include "CombatManager.h"
-#include "SkillFactory.h"
+#include "SkillFactorySubsystem.h"
 
-void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactory * skillFactory,EEnemyCombatPositions aPortraitPosition)
+void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactorySubsystem * skillFactory,EEnemyCombatPositions aPortraitPosition)
 {
 	characterType   = ECharactertype::Enemy;
 	enemyEntityData = AEnemyEntityData;

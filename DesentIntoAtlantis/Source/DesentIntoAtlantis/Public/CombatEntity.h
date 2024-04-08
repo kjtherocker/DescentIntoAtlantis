@@ -13,7 +13,7 @@
 struct FSkillsData;
 class UCombatManager;
 class UEnemyPortraitElement;
-class USkillFactory;
+class USkillFactorySubsystem;
 /**
  * 
  */
@@ -165,7 +165,8 @@ public:
 	FWasKilled                        wasKilled;
 	FWasDamaged					      wasDamaged;
 	FHasHealthOrManaValuesChanged     hasHealthOrManaValuesChanged;
-	virtual void SetTacticsEntity(USkillFactory*  aSkillFactory);
+	virtual void SetTacticsEntity(USkillFactorySubsystem*  aSkillFactory);
+	
 	virtual void SetTacticsEvents(UCombatManager* aCombatManager);
 
 	UFUNCTION()

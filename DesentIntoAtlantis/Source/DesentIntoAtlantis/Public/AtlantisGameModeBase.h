@@ -5,8 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
 #include "EnemyFactory.h"
-#include "PartyManager.h"
-#include "SkillFactory.h"
+#include "PartyManagerSubsystem.h"
+#include "SkillFactorySubsystem.h"
 #include "Views.h"
 #include "EDataTableTypes.h"
 #include "FloorFactory.h"
@@ -75,11 +75,11 @@ public:
 	UPROPERTY()
 	UWorld*             world;	
 	UPROPERTY()
-	USkillFactory*      skillFactory;
+	USkillFactorySubsystem*      skillFactory;
 	UPROPERTY()  
 	UEnemyFactory*      enemyFactory;
 	UPROPERTY()  
-	UPartyManager*      partyManager;
+	UPartyManagerSubsystem*      partyManager;
 	UPROPERTY()  
 	UCombatManager*     combatManager;
 	UPROPERTY()  

@@ -6,6 +6,10 @@
 #include "Engine/GameInstance.h"
 #include "PersistentGameinstance.generated.h"
 
+enum class ESkillType;
+enum class EDataTableClasses;
+class UDataTable;
+enum class EDataTableTypes;
 /**
  * 
  */
@@ -29,6 +33,13 @@ public:
 	
 	void GetCurrentLevelName(FString aLevelName);
 	
+	UPROPERTY(EditAnywhere, Category = "Data")
+	TMap<EDataTableTypes,UDataTable*> dataTables;
+	UPROPERTY(EditAnywhere, Category = "Data")
+	TMap<EDataTableClasses,UDataTable*> dataTablesClasses;
+	UPROPERTY(EditAnywhere, Category = "Data")
+	TMap<ESkillType,UDataTable*> dataTablesSkills;
+
 
 private:
 	FString currentLevelName;

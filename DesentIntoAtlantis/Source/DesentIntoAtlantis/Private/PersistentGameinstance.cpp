@@ -14,6 +14,19 @@ UPersistentGameinstance::UPersistentGameinstance()
 void UPersistentGameinstance::Init()
 {
 	Super::Init();
+
+	UPartyManagerSubsystem* partyManagerSubsystem = GetSubsystem<UPartyManagerSubsystem>();
+	USkillFactorySubsystem* skillFactorySubsystem = GetSubsystem<USkillFactorySubsystem>();
+
+	skillFactorySubsystem->InitializeDatabase(dataTablesSkills);
+	if(dataTables.Contains(EDataTableTypes::PlayerCharacters) &&
+	 !dataTablesClasses.IsEmpty())
+	{
+		if(dataTables[EDataTableTypes::PlayerCharacters] != nullptr)
+		{
+			partyManagerSubsystem->InitializeDataTable(dataTables[EDataTableTypes::PlayerCharacters], dataTablesClasses);
+		}
+	}
 }
 
 

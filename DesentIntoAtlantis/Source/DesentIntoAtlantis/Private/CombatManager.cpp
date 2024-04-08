@@ -11,7 +11,7 @@
 #include "EnemyCombatEntity.h"
 #include "PlayerCombatEntity.h"
 #include "PartyHealthbarElement.h"
-#include "SkillFactory.h"
+#include "SkillFactorySubsystem.h"
 #include "SoundManager.h"
 #include "Blueprint/UserWidget.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
@@ -49,6 +49,11 @@ void UCombatManager::StartCombat(FString aEnemyGroupName)
 	GameHUD = gameModeBase->InGameHUD;
 
 	partyMembersInCombat       = gameModeBase->partyManager->ReturnActiveParty();
+
+	for(int i = 0 ; i < partyMembersInCombat.Num();i++)
+	{
+		partyMembersInCombat[i]->SetTacticsEvents(this);
+	}
 	  
 	currentActivePartyMember   = partyMembersInCombat[0];
 	currentTurnType            = ECharactertype::Ally;

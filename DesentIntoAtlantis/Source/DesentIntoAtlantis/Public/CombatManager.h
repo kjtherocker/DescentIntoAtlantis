@@ -10,7 +10,7 @@
 
 #include "CombatManager.generated.h"
 class AAtlantisGameModeBase;
-class USkillFactory;
+class USkillFactorySubsystem;
 enum class ECharactertype;
 class UPlayerCombatEntity;
 class UEnemyCombatEntity;
@@ -49,7 +49,7 @@ private:
 	AInGameHUD * GameHUD;
 	
 	UPROPERTY()
-	USkillFactory * skillFactory;
+	USkillFactorySubsystem * skillFactory;
 	
 	UPROPERTY()
 	UWorld* world;
