@@ -7,7 +7,13 @@
 #include "PersistentGameinstance.h"
 #include "PartyManagerSubsystem.h"
 #include "SoundManager.h"
-#include "TutorialManager.h"
+#include "TutorialManagerSubsystem.h"
+
+AAtlantisGameModeBase::AAtlantisGameModeBase()
+{
+	
+	int testo = 0;
+}
 
 void AAtlantisGameModeBase::InitializeLevel()
 {
@@ -16,13 +22,12 @@ void AAtlantisGameModeBase::InitializeLevel()
 
     // Cast the game instance to your custom game instance class
     UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>(GameInstance);
-
     
-    UPartyManagerSubsystem* partyManagerSubsystem = persistentGameInstance->GetSubsystem<UPartyManagerSubsystem>();
-    partyManager = partyManagerSubsystem;
-
-    USkillFactorySubsystem* skillFactorySubsystem = persistentGameInstance->GetSubsystem<USkillFactorySubsystem>();
-    skillFactory = skillFactorySubsystem;
+    partyManager = persistentGameInstance->partyManagerSubsystem;
+    
+    skillFactory = persistentGameInstance->skillFactorySubsystem;
+    
+    enemyFactory =  persistentGameInstance->enemyFactorySubSystem;
 
     
     world = GetWorld();
@@ -40,43 +45,18 @@ void AAtlantisGameModeBase::InitializeLevel()
     combatManager = NewObject<UCombatManager>();
     combatManager->Initialize(this,world);
 
-    if(dataTables.Contains(EDataTableTypes::Enemys) &&
-       dataTables.Contains(EDataTableTypes::EnemyGroups))
-    {
-        if(dataTables[EDataTableTypes::Enemys] != nullptr
-            && dataTables[EDataTableTypes::EnemyGroups] != nullptr)
-        {
-            enemyFactory = NewObject<UEnemyFactory>();
-            enemyFactory->InitializeDatabase(dataTables[EDataTableTypes::Enemys],
-                dataTables[EDataTableTypes::EnemyGroups]);
-        }
-    }
+	if(floorPawnReference == nullptr)
+	{
+		UE_LOG(LogTemp, Error, TEXT("FLOOR PAWN NEEDS A REFERENCE IN THERE GAME BASE"));
+	}
+	else
+	{
+		floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, ActorFinalSpawnPoint, rotator));
+		floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
 
-  
-
-    if(dataTables.Contains(EDataTableTypes::Tutorial))
-    {
-        if(dataTables[EDataTableTypes::Tutorial] != nullptr)
-        {
-            tutorialManager = NewObject<UTutorialManager>();
-            tutorialManager->InitializeDatabase(dataTables[EDataTableTypes::Tutorial]);
-        }
-    }
-
-
-    if(dataTables.Contains(EDataTableTypes::Dialogue))
-    {
-        if(dataTables[EDataTableTypes::Dialogue] != nullptr)
-        {
-            dialogueFactory = NewObject<UDialogueFactory>();
-            dialogueFactory->InitializeDatabase(dataTables[EDataTableTypes::Dialogue]);
-        }
-    }
-
-
-
-    int testo = 0;
-
+		InGameHUD = (AInGameHUD*)GetWorld()->GetFirstPlayerController()->GetHUD();
+		InGameHUD->gameModeBase = this;
+	}
 
 }
 

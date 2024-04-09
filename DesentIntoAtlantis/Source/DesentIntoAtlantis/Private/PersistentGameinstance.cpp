@@ -3,6 +3,11 @@
 
 #include "PersistentGameinstance.h"
 
+#include "EnemyFactorySubSystem.h"
+#include "SkillFactorySubsystem.h"
+#include "PartyManagerSubsystem.h"
+#include "TutorialManagerSubsystem.h"
+#include "DialogueFactorySubsystem.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -15,10 +20,25 @@ void UPersistentGameinstance::Init()
 {
 	Super::Init();
 
-	UPartyManagerSubsystem* partyManagerSubsystem = GetSubsystem<UPartyManagerSubsystem>();
-	USkillFactorySubsystem* skillFactorySubsystem = GetSubsystem<USkillFactorySubsystem>();
+	partyManagerSubsystem    = GetSubsystem<UPartyManagerSubsystem>();
+	skillFactorySubsystem    = GetSubsystem<USkillFactorySubsystem>();
+	enemyFactorySubSystem    = GetSubsystem<UEnemyFactorySubSystem>();
+	tutorialManagerSubsystem = GetSubsystem<UTutorialManagerSubsystem>();
+	dialogueManagerSubsystem = GetSubsystem<UDialogueFactorySubsystem>();
 
 	skillFactorySubsystem->InitializeDatabase(dataTablesSkills);
+
+	if(dataTables.Contains(EDataTableTypes::Enemys) &&
+   dataTables.Contains(EDataTableTypes::EnemyGroups))
+	{
+		if(dataTables[EDataTableTypes::Enemys] != nullptr
+			&& dataTables[EDataTableTypes::EnemyGroups] != nullptr)
+		{
+			enemyFactorySubSystem->InitializeDatabase(dataTables[EDataTableTypes::Enemys],
+				dataTables[EDataTableTypes::EnemyGroups]);
+		}
+	}
+	
 	if(dataTables.Contains(EDataTableTypes::PlayerCharacters) &&
 	 !dataTablesClasses.IsEmpty())
 	{
@@ -27,6 +47,24 @@ void UPersistentGameinstance::Init()
 			partyManagerSubsystem->InitializeDataTable(dataTables[EDataTableTypes::PlayerCharacters], dataTablesClasses);
 		}
 	}
+
+	if(dataTables.Contains(EDataTableTypes::Tutorial))
+	{
+		if(dataTables[EDataTableTypes::Tutorial] != nullptr)
+		{
+			tutorialManagerSubsystem->InitializeDatabase(dataTables[EDataTableTypes::Tutorial]);
+		}
+	}
+
+
+	if(dataTables.Contains(EDataTableTypes::Dialogue))
+	{
+		if(dataTables[EDataTableTypes::Dialogue] != nullptr)
+		{
+			dialogueManagerSubsystem->InitializeDatabase(dataTables[EDataTableTypes::Dialogue]);
+		}
+	}
+
 }
 
 

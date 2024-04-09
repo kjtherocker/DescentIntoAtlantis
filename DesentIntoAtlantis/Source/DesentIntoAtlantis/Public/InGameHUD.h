@@ -22,14 +22,15 @@ class DESENTINTOATLANTIS_API AInGameHUD : public AHUD
 
 private:
 	UPROPERTY()
-	AAtlantisGameModeBase* gameModeBase;
-	UPROPERTY()
 	TArray<UBaseUserWidget*> persistentViewStack;
 	UPROPERTY()
 	TArray<UBaseUserWidget*> activeViewStack;
 	UPROPERTY()
 	TArray<UBaseUserWidget*>inactiveViewStack;
 public:
+
+	UPROPERTY()
+	AAtlantisGameModeBase* gameModeBase;
 	
     virtual void BeginPlay() override;
     virtual void Tick(float DeltaSeconds) override;

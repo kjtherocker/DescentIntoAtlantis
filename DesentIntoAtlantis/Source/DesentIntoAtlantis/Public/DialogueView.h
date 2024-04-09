@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
-#include "DialogueFactory.h"
+#include "DialogueFactorySubsystem.h"
 #include "Components/TextBlock.h"
 #include "DialogueView.generated.h"
 

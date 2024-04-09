@@ -8,12 +8,6 @@
 void AInGameHUD::BeginPlay()
 {
     Super::BeginPlay();
-    gameModeBase = Cast< AAtlantisGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
-
-    if(gameModeBase == nullptr)
-    {
-        int test = 0;
-    }
 }
 
 void AInGameHUD::Tick(float DeltaSeconds)
@@ -23,9 +17,6 @@ void AInGameHUD::Tick(float DeltaSeconds)
 
 void AInGameHUD::PushView(EViews aView, EUiType aUiType)
 {
-
-    UWorld* testo = GetWorld();
-    
     UBaseUserWidget* newView = CreateWidget<UBaseUserWidget>(GetWorld(),userWidgets[aView]);
     if(newView)
     {

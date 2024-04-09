@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AtlantisGameModeBase.h"
-#include "EnemyFactory.h"
+#include "EnemyFactorySubSystem.h"
 #include "PartyManagerSubsystem.h"
 #include "SkillFactorySubsystem.h"
 #include "Views.h"
@@ -18,7 +18,7 @@
 class UGameManager;
 class ASoundManager;
 class UFloorEventManager;
-class UTutorialManager;
+class UTutorialManagerSubsystem;
 class AInGameHUD;
 class UCombatManager;
 

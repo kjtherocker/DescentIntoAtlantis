@@ -3,9 +3,15 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
 #include "Engine/GameInstance.h"
 #include "PersistentGameinstance.generated.h"
 
+class UEnemyFactorySubSystem;
+class USkillFactorySubsystem;
+class UPartyManagerSubsystem;
+class UTutorialManagerSubsystem;
+class UDialogueFactorySubsystem;
 enum class ESkillType;
 enum class EDataTableClasses;
 class UDataTable;
@@ -40,6 +46,16 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Data")
 	TMap<ESkillType,UDataTable*> dataTablesSkills;
 
+	UPROPERTY()
+	UPartyManagerSubsystem* partyManagerSubsystem;
+	UPROPERTY()
+	USkillFactorySubsystem* skillFactorySubsystem;
+	UPROPERTY()
+	UEnemyFactorySubSystem* enemyFactorySubSystem;
+	UPROPERTY()
+	UTutorialManagerSubsystem* tutorialManagerSubsystem;
+	UPROPERTY()
+	UDialogueFactorySubsystem* dialogueManagerSubsystem;
 
 private:
 	FString currentLevelName;

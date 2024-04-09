@@ -8,7 +8,8 @@
 #include "SoundManager.h"
 #include "InGameHUD.h"
 #include "GameManager.h"
-#include "TutorialManager.h"
+#include "TitleView.h"
+#include "TutorialManagerSubsystem.h"
 #include "Kismet/GameplayStatics.h"
 
 AFloorGameMode::AFloorGameMode()
@@ -46,8 +47,10 @@ void AFloorGameMode::InitializeLevel()
     floorManager = Cast<AFloorManager>(world->SpawnActor<AActor>(floorManagerReference, ActorFinalSpawnPoint, rotator));
     floorManager->Initialize(this,floorEventManager);
 
-    floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, ActorFinalSpawnPoint, rotator));
-    floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
+  
+
+    
     
     gameManager->StartGame();
+
 }

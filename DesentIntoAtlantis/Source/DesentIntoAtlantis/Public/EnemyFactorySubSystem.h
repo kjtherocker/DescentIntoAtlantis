@@ -3,10 +3,31 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "SkillsData.h"
+#include "EnemyCombatEntity.h"
+#include "UObject/NoExportTypes.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "EnemyFactorySubSystem.generated.h"
 
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FEnemyGroupData :public  FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	
+	UPROPERTY( EditAnywhere )
+	FString GroupName;
+
+	UPROPERTY( EditAnywhere )
+	FString EnemyName1;
+
+	UPROPERTY( EditAnywhere )
+	FString EnemyName2;
+
+	UPROPERTY( EditAnywhere )
+	FString EnemyName3;
+
+	
+};
 
 
 class UDataTable;
@@ -17,27 +38,27 @@ UCLASS()
 class DESENTINTOATLANTIS_API UEnemyFactorySubSystem : public UGameInstanceSubsystem
 {
 	GENERATED_BODY()
-		
 	
 	UPROPERTY()
-	TArray<USkillBase*> allSkills;
-
+	TArray<FEnemyEntityData>  allEnemys;
 	UPROPERTY()
-	TArray<FSkillsData> attackSkillsData;
-
+	TArray<FEnemyGroupData>   allEnemysGroups;
 	UPROPERTY()
-	TArray<FSkillsData> healSkillsData;
-
+	TMap<FString,FEnemyEntityData> enemyMap;
+	TMap<FString,TArray<FString>>   enemyGroupMap;
 	UPROPERTY()
-	TArray<FSkillsData> buffSkillsData;
-
-	UPROPERTY()
-	TArray<FSkillsData> debuffData;
-	
-	UPROPERTY()
-	TMap<FString,USkillBase*> skillMap;
+	TMap<FString,UEnemyBestiaryData*>  enemyBestiaryData;
 public:
-	void InitializeDatabase(TMap<ESkillType,UDataTable*>  aSkillDataTable);
-	USkillBase* GetSkill(FString aSkillName);
+	void InitializeDatabase(UDataTable* aEnemys, UDataTable* aEnemyGroups);
+
+	UEnemyBestiaryData* GetBestiaryEntry(FString aCharacterName);
+	
+	void InitializeBestiary(FEnemyEntityData aEnemy);
+	
+	FEnemyEntityData ReturnEnemyEntityData(FString enemyName);
+
+	TArray<FString>   ReturnEnemyGroupData(FString groupName);
+
+	TArray<FEnemyGroupData> allEnemyGroupData;
 
 };

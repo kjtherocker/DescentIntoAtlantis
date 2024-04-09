@@ -22,6 +22,7 @@ class DESENTINTOATLANTIS_API AMainMenuGameMode : public AAtlantisGameModeBase
 	virtual void InitializeLevel() override;
 	
 	void CreateMainMenu();
+	UFUNCTION()
 	void StartGame();
 
 private:

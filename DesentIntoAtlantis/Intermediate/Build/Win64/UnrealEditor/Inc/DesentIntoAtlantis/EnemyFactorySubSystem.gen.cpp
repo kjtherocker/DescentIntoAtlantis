@@ -10,13 +10,120 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeEnemyFactorySubSystem() {}
 // Cross Module References
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FEnemyGroupData();
+	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
+	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEnemyFactorySubSystem_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEnemyFactorySubSystem();
 	ENGINE_API UClass* Z_Construct_UClass_UGameInstanceSubsystem();
-	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
-	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkillBase_NoRegister();
-	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FSkillsData();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FEnemyEntityData();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEnemyBestiaryData_NoRegister();
 // End Cross Module References
+
+static_assert(std::is_polymorphic<FEnemyGroupData>() == std::is_polymorphic<FTableRowBase>(), "USTRUCT FEnemyGroupData cannot be polymorphic unless super FTableRowBase is polymorphic");
+
+	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_EnemyGroupData;
+class UScriptStruct* FEnemyGroupData::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_EnemyGroupData.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_EnemyGroupData.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FEnemyGroupData, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("EnemyGroupData"));
+	}
+	return Z_Registration_Info_UScriptStruct_EnemyGroupData.OuterSingleton;
+}
+template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FEnemyGroupData>()
+{
+	return FEnemyGroupData::StaticStruct();
+}
+	struct Z_Construct_UScriptStruct_FEnemyGroupData_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_GroupName_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_GroupName;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_EnemyName1_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_EnemyName1;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_EnemyName2_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_EnemyName2;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_EnemyName3_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_EnemyName3;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UECodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEnemyGroupData_Statics::Struct_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/EnemyFactorySubSystem.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FEnemyGroupData>();
+	}
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_GroupName_MetaData[] = {
+		{ "Category", "EnemyGroupData" },
+		{ "ModuleRelativePath", "Public/EnemyFactorySubSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_GroupName = { "GroupName", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FEnemyGroupData, GroupName), METADATA_PARAMS(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_GroupName_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_GroupName_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName1_MetaData[] = {
+		{ "Category", "EnemyGroupData" },
+		{ "ModuleRelativePath", "Public/EnemyFactorySubSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName1 = { "EnemyName1", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FEnemyGroupData, EnemyName1), METADATA_PARAMS(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName1_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName1_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName2_MetaData[] = {
+		{ "Category", "EnemyGroupData" },
+		{ "ModuleRelativePath", "Public/EnemyFactorySubSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName2 = { "EnemyName2", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FEnemyGroupData, EnemyName2), METADATA_PARAMS(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName2_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName2_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName3_MetaData[] = {
+		{ "Category", "EnemyGroupData" },
+		{ "ModuleRelativePath", "Public/EnemyFactorySubSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName3 = { "EnemyName3", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FEnemyGroupData, EnemyName3), METADATA_PARAMS(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName3_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName3_MetaData)) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FEnemyGroupData_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_GroupName,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName1,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName2,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewProp_EnemyName3,
+	};
+	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FEnemyGroupData_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		Z_Construct_UScriptStruct_FTableRowBase,
+		&NewStructOps,
+		"EnemyGroupData",
+		sizeof(FEnemyGroupData),
+		alignof(FEnemyGroupData),
+		Z_Construct_UScriptStruct_FEnemyGroupData_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::PropPointers),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000201),
+		METADATA_PARAMS(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyGroupData_Statics::Struct_MetaDataParams))
+	};
+	UScriptStruct* Z_Construct_UScriptStruct_FEnemyGroupData()
+	{
+		if (!Z_Registration_Info_UScriptStruct_EnemyGroupData.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_EnemyGroupData.InnerSingleton, Z_Construct_UScriptStruct_FEnemyGroupData_Statics::ReturnStructParams);
+		}
+		return Z_Registration_Info_UScriptStruct_EnemyGroupData.InnerSingleton;
+	}
 	void UEnemyFactorySubSystem::StaticRegisterNativesUEnemyFactorySubSystem()
 	{
 	}
@@ -31,37 +138,28 @@ void EmptyLinkFunctionForGeneratedCodeEnemyFactorySubSystem() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_allSkills_Inner;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_allEnemys_Inner;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_allSkills_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_allEnemys_MetaData[];
 #endif
-		static const UECodeGen_Private::FArrayPropertyParams NewProp_allSkills;
-		static const UECodeGen_Private::FStructPropertyParams NewProp_attackSkillsData_Inner;
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_allEnemys;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_allEnemysGroups_Inner;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_attackSkillsData_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_allEnemysGroups_MetaData[];
 #endif
-		static const UECodeGen_Private::FArrayPropertyParams NewProp_attackSkillsData;
-		static const UECodeGen_Private::FStructPropertyParams NewProp_healSkillsData_Inner;
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_allEnemysGroups;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_enemyMap_ValueProp;
+		static const UECodeGen_Private::FStrPropertyParams NewProp_enemyMap_Key_KeyProp;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_healSkillsData_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_enemyMap_MetaData[];
 #endif
-		static const UECodeGen_Private::FArrayPropertyParams NewProp_healSkillsData;
-		static const UECodeGen_Private::FStructPropertyParams NewProp_buffSkillsData_Inner;
+		static const UECodeGen_Private::FMapPropertyParams NewProp_enemyMap;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_enemyBestiaryData_ValueProp;
+		static const UECodeGen_Private::FStrPropertyParams NewProp_enemyBestiaryData_Key_KeyProp;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_buffSkillsData_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_enemyBestiaryData_MetaData[];
 #endif
-		static const UECodeGen_Private::FArrayPropertyParams NewProp_buffSkillsData;
-		static const UECodeGen_Private::FStructPropertyParams NewProp_debuffData_Inner;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_debuffData_MetaData[];
-#endif
-		static const UECodeGen_Private::FArrayPropertyParams NewProp_debuffData;
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_skillMap_ValueProp;
-		static const UECodeGen_Private::FStrPropertyParams NewProp_skillMap_Key_KeyProp;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_skillMap_MetaData[];
-#endif
-		static const UECodeGen_Private::FMapPropertyParams NewProp_skillMap;
+		static const UECodeGen_Private::FMapPropertyParams NewProp_enemyBestiaryData;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -77,63 +175,47 @@ void EmptyLinkFunctionForGeneratedCodeEnemyFactorySubSystem() {}
 		{ "ModuleRelativePath", "Public/EnemyFactorySubSystem.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allSkills_Inner = { "allSkills", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_USkillBase_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allEnemys_Inner = { "allEnemys", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FEnemyEntityData, METADATA_PARAMS(nullptr, 0) }; // 2803085815
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allSkills_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allEnemys_MetaData[] = {
 		{ "ModuleRelativePath", "Public/EnemyFactorySubSystem.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allSkills = { "allSkills", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UEnemyFactorySubSystem, allSkills), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allSkills_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allSkills_MetaData)) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_attackSkillsData_Inner = { "attackSkillsData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FSkillsData, METADATA_PARAMS(nullptr, 0) }; // 4122081891
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allEnemys = { "allEnemys", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UEnemyFactorySubSystem, allEnemys), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allEnemys_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allEnemys_MetaData)) }; // 2803085815
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allEnemysGroups_Inner = { "allEnemysGroups", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FEnemyGroupData, METADATA_PARAMS(nullptr, 0) }; // 2318146838
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_attackSkillsData_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allEnemysGroups_MetaData[] = {
 		{ "ModuleRelativePath", "Public/EnemyFactorySubSystem.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_attackSkillsData = { "attackSkillsData", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UEnemyFactorySubSystem, attackSkillsData), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_attackSkillsData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_attackSkillsData_MetaData)) }; // 4122081891
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_healSkillsData_Inner = { "healSkillsData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FSkillsData, METADATA_PARAMS(nullptr, 0) }; // 4122081891
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allEnemysGroups = { "allEnemysGroups", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UEnemyFactorySubSystem, allEnemysGroups), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allEnemysGroups_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allEnemysGroups_MetaData)) }; // 2318146838
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyMap_ValueProp = { "enemyMap", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UScriptStruct_FEnemyEntityData, METADATA_PARAMS(nullptr, 0) }; // 2803085815
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyMap_Key_KeyProp = { "enemyMap_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_healSkillsData_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyMap_MetaData[] = {
 		{ "ModuleRelativePath", "Public/EnemyFactorySubSystem.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_healSkillsData = { "healSkillsData", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UEnemyFactorySubSystem, healSkillsData), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_healSkillsData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_healSkillsData_MetaData)) }; // 4122081891
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_buffSkillsData_Inner = { "buffSkillsData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FSkillsData, METADATA_PARAMS(nullptr, 0) }; // 4122081891
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyMap = { "enemyMap", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UEnemyFactorySubSystem, enemyMap), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyMap_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyMap_MetaData)) }; // 2803085815
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData_ValueProp = { "enemyBestiaryData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_UEnemyBestiaryData_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData_Key_KeyProp = { "enemyBestiaryData_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_buffSkillsData_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData_MetaData[] = {
 		{ "ModuleRelativePath", "Public/EnemyFactorySubSystem.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_buffSkillsData = { "buffSkillsData", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UEnemyFactorySubSystem, buffSkillsData), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_buffSkillsData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_buffSkillsData_MetaData)) }; // 4122081891
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_debuffData_Inner = { "debuffData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FSkillsData, METADATA_PARAMS(nullptr, 0) }; // 4122081891
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_debuffData_MetaData[] = {
-		{ "ModuleRelativePath", "Public/EnemyFactorySubSystem.h" },
-	};
-#endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_debuffData = { "debuffData", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UEnemyFactorySubSystem, debuffData), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_debuffData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_debuffData_MetaData)) }; // 4122081891
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_skillMap_ValueProp = { "skillMap", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_USkillBase_NoRegister, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_skillMap_Key_KeyProp = { "skillMap_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_skillMap_MetaData[] = {
-		{ "ModuleRelativePath", "Public/EnemyFactorySubSystem.h" },
-	};
-#endif
-	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_skillMap = { "skillMap", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UEnemyFactorySubSystem, skillMap), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_skillMap_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_skillMap_MetaData)) };
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData = { "enemyBestiaryData", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UEnemyFactorySubSystem, enemyBestiaryData), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UEnemyFactorySubSystem_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allSkills_Inner,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allSkills,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_attackSkillsData_Inner,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_attackSkillsData,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_healSkillsData_Inner,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_healSkillsData,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_buffSkillsData_Inner,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_buffSkillsData,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_debuffData_Inner,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_debuffData,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_skillMap_ValueProp,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_skillMap_Key_KeyProp,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_skillMap,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allEnemys_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allEnemys,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allEnemysGroups_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allEnemysGroups,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyMap_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyMap_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyMap,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UEnemyFactorySubSystem_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UEnemyFactorySubSystem>::IsAbstract,
@@ -168,13 +250,17 @@ void EmptyLinkFunctionForGeneratedCodeEnemyFactorySubSystem() {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UEnemyFactorySubSystem);
 	struct Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactorySubSystem_h_Statics
 	{
+		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactorySubSystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UEnemyFactorySubSystem, UEnemyFactorySubSystem::StaticClass, TEXT("UEnemyFactorySubSystem"), &Z_Registration_Info_UClass_UEnemyFactorySubSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEnemyFactorySubSystem), 4269842127U) },
+	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactorySubSystem_h_Statics::ScriptStructInfo[] = {
+		{ FEnemyGroupData::StaticStruct, Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewStructOps, TEXT("EnemyGroupData"), &Z_Registration_Info_UScriptStruct_EnemyGroupData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEnemyGroupData), 2318146838U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactorySubSystem_h_3378701950(TEXT("/Script/DesentIntoAtlantis"),
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactorySubSystem_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UEnemyFactorySubSystem, UEnemyFactorySubSystem::StaticClass, TEXT("UEnemyFactorySubSystem"), &Z_Registration_Info_UClass_UEnemyFactorySubSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEnemyFactorySubSystem), 1252311653U) },
+	};
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactorySubSystem_h_2748368415(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactorySubSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactorySubSystem_h_Statics::ClassInfo),
-		nullptr, 0,
+		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactorySubSystem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyFactorySubSystem_h_Statics::ScriptStructInfo),
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

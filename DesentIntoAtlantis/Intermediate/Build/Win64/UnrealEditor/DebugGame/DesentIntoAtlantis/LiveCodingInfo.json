@@ -19,7 +19,7 @@
 			"CombatSelectionView.cpp.obj",
 			"CommandBoardView.cpp.obj",
 			"DeathView.cpp.obj",
-			"DialogueFactory.cpp.obj",
+			"DialogueFactorySubsystem.cpp.obj",
 			"DialogueView.cpp.obj",
 			"EDataTableTypes.cpp.obj",
 			"EElementalType.cpp.obj",
@@ -27,7 +27,6 @@
 			"EnemyBeastiaryData.cpp.obj",
 			"EnemyBehaviour.cpp.obj",
 			"EnemyCombatEntity.cpp.obj",
-			"EnemyFactory.cpp.obj",
 			"EnemyFactorySubSystem.cpp.obj",
 			"EnemyPortraitElement.cpp.obj",
 			"EnemyPortraits.cpp.obj",
@@ -65,7 +64,7 @@
 			"TitleView.cpp.obj",
 			"TurnCounterElement.cpp.obj",
 			"TurnCounterView.cpp.obj",
-			"TutorialManager.cpp.obj",
+			"TutorialManagerSubsystem.cpp.obj",
 			"TutorialView.cpp.obj",
 			"Views.cpp.obj"
 		],
@@ -81,7 +80,7 @@
 			"CommandBoardView.gen.cpp.obj",
 			"DeathView.gen.cpp.obj",
 			"DesentIntoAtlantis.init.gen.cpp.obj",
-			"DialogueFactory.gen.cpp.obj",
+			"DialogueFactorySubsystem.gen.cpp.obj",
 			"DialogueView.gen.cpp.obj",
 			"ECardinalDirections.gen.cpp.obj",
 			"EDataTableTypes.gen.cpp.obj",
@@ -91,18 +90,17 @@
 			"EnemyBeastiaryData.gen.cpp.obj",
 			"EnemyBehaviour.gen.cpp.obj",
 			"EnemyCombatEntity.gen.cpp.obj",
-			"EnemyFactory.gen.cpp.obj",
 			"EnemyFactorySubSystem.gen.cpp.obj",
 			"EnemyPortraitElement.gen.cpp.obj",
 			"EnemyPortraits.gen.cpp.obj",
 			"EnemySelectionElement.gen.cpp.obj",
 			"EnemySelectionView.gen.cpp.obj",
-			"EnemySkillView.gen.cpp.obj"
-		],
-		"Module.DesentIntoAtlantis.gen.2_of_3.cpp.obj": [
+			"EnemySkillView.gen.cpp.obj",
 			"FloorBase.gen.cpp.obj",
 			"FloorEnemyPawn.gen.cpp.obj",
-			"FloorEnum.gen.cpp.obj",
+			"FloorEnum.gen.cpp.obj"
+		],
+		"Module.DesentIntoAtlantis.gen.2_of_3.cpp.obj": [
 			"FloorEventManager.gen.cpp.obj",
 			"FloorFactory.gen.cpp.obj",
 			"FloorGameMode.gen.cpp.obj",
@@ -121,14 +119,14 @@
 			"MapButtonElement.gen.cpp.obj",
 			"MapEventEditorView.gen.cpp.obj",
 			"MapNodeEditorView.gen.cpp.obj",
-			"PartyHealthbarElement.gen.cpp.obj"
-		],
-		"Module.DesentIntoAtlantis.gen.3_of_3.cpp.obj": [
+			"PartyHealthbarElement.gen.cpp.obj",
 			"PartyHealthbarsView.gen.cpp.obj",
 			"PartyManagerSubsystem.gen.cpp.obj",
 			"PersistentGameinstance.gen.cpp.obj",
 			"PlayerCombatEntity.gen.cpp.obj",
-			"PressTurnManager.gen.cpp.obj",
+			"PressTurnManager.gen.cpp.obj"
+		],
+		"Module.DesentIntoAtlantis.gen.3_of_3.cpp.obj": [
 			"SkillBarElement.gen.cpp.obj",
 			"SkillFactorySubsystem.gen.cpp.obj",
 			"SkillsData.gen.cpp.obj",
@@ -138,7 +136,7 @@
 			"TitleView.gen.cpp.obj",
 			"TurnCounterElement.gen.cpp.obj",
 			"TurnCounterView.gen.cpp.obj",
-			"TutorialManager.gen.cpp.obj",
+			"TutorialManagerSubsystem.gen.cpp.obj",
 			"TutorialView.gen.cpp.obj",
 			"Views.gen.cpp.obj"
 		]

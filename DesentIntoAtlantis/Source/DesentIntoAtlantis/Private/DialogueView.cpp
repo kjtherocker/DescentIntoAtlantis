@@ -3,7 +3,7 @@
 
 #include "DialogueView.h"
 
-#include "DialogueFactory.h"
+#include "DialogueFactorySubsystem.h"
 #include "FloorEventManager.h"
 #include "SoundManager.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"

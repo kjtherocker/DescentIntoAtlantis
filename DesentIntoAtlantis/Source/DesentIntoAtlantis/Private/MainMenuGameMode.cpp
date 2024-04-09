@@ -19,7 +19,6 @@ AMainMenuGameMode::AMainMenuGameMode()
 void AMainMenuGameMode::InitializeLevel()
 {
 	Super::InitializeLevel();
-
 	CreateMainMenu();
 }
 

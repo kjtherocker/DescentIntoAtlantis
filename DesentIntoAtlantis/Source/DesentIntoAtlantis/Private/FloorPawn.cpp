@@ -24,8 +24,8 @@ void AFloorPawn::BeginPlay()
 	Super::BeginPlay();
 
 	gameModeBase = Cast< AFloorGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
-	AInGameHUD * hud = (AInGameHUD*)GetWorld()->GetFirstPlayerController()->GetHUD();
-	gameModeBase->InGameHUD = hud;
+//	AInGameHUD * hud = (AInGameHUD*)GetWorld()->GetFirstPlayerController()->GetHUD();
+//	gameModeBase->InGameHUD = hud;
 }
 
 void AFloorPawn::Initialize()

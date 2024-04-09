@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "EnemyFactory.h"
+#include "EnemyFactorySubSystem.h"
 #include "PartyManagerSubsystem.h"
 #include "SkillFactorySubsystem.h"
 #include "Views.h"
@@ -18,7 +18,7 @@
 class UGameManager;
 class ASoundManager;
 class UFloorEventManager;
-class UTutorialManager;
+class UTutorialManagerSubsystem;
 class AInGameHUD;
 class UCombatManager;
 
@@ -31,6 +31,7 @@ class DESENTINTOATLANTIS_API AAtlantisGameModeBase : public AGameModeBase
 	GENERATED_BODY()
 
 public:
+	AAtlantisGameModeBase();
 	void virtual InitializeLevel();
 	virtual void BeginPlay() override;
 
@@ -38,10 +39,6 @@ public:
 	
 	UPROPERTY(EditAnywhere, Category = "Data")
 	TMap<EDataTableTypes,UDataTable*> dataTables;
-	UPROPERTY(EditAnywhere, Category = "Data")
-	TMap<EDataTableClasses,UDataTable*> dataTablesClasses;
-	UPROPERTY(EditAnywhere, Category = "Data")
-	TMap<ESkillType,UDataTable*> dataTablesSkills;
 
 	//All actors created at tge start of the game
 	UPROPERTY(EditAnywhere)
@@ -77,7 +74,7 @@ public:
 	UPROPERTY()
 	USkillFactorySubsystem*      skillFactory;
 	UPROPERTY()  
-	UEnemyFactory*      enemyFactory;
+	UEnemyFactorySubSystem*      enemyFactory;
 	UPROPERTY()  
 	UPartyManagerSubsystem*      partyManager;
 	UPROPERTY()  
@@ -85,9 +82,9 @@ public:
 	UPROPERTY()  
 	AInGameHUD*         InGameHUD;
 	UPROPERTY()
-	UTutorialManager*   tutorialManager;
+	UTutorialManagerSubsystem*   tutorialManager;
 
 	UPROPERTY()
-	UDialogueFactory*   dialogueFactory;
+	UDialogueFactorySubsystem*   dialogueFactory;
 	
 };

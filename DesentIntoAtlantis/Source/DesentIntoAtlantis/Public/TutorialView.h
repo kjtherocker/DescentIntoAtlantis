@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
-#include "TutorialManager.h"
+#include "TutorialManagerSubsystem.h"
 #include "Components/Image.h"
 #include "Components/TextBlock.h"
 #include "TutorialView.generated.h"

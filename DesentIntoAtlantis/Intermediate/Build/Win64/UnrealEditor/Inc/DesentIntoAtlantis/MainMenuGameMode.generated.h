@@ -21,8 +21,16 @@ static inline void FStartGameDelegate_DelegateWrapper(const FMulticastScriptDele
 
 
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MainMenuGameMode_h_18_SPARSE_DATA
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MainMenuGameMode_h_18_RPC_WRAPPERS
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MainMenuGameMode_h_18_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MainMenuGameMode_h_18_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execStartGame);
+
+
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MainMenuGameMode_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execStartGame);
+
+
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MainMenuGameMode_h_18_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMainMenuGameMode(); \

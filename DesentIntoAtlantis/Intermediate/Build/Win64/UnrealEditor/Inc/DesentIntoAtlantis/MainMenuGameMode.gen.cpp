@@ -38,8 +38,42 @@ void EmptyLinkFunctionForGeneratedCodeMainMenuGameMode() {}
 		}
 		return ReturnFunction;
 	}
+	DEFINE_FUNCTION(AMainMenuGameMode::execStartGame)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->StartGame();
+		P_NATIVE_END;
+	}
 	void AMainMenuGameMode::StaticRegisterNativesAMainMenuGameMode()
 	{
+		UClass* Class = AMainMenuGameMode::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "StartGame", &AMainMenuGameMode::execStartGame },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AMainMenuGameMode_StartGame_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMainMenuGameMode_StartGame_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/MainMenuGameMode.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMainMenuGameMode_StartGame_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMainMenuGameMode, nullptr, "StartGame", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMainMenuGameMode_StartGame_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMainMenuGameMode_StartGame_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMainMenuGameMode_StartGame()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMainMenuGameMode_StartGame_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AMainMenuGameMode);
 	UClass* Z_Construct_UClass_AMainMenuGameMode_NoRegister()
@@ -49,6 +83,7 @@ void EmptyLinkFunctionForGeneratedCodeMainMenuGameMode() {}
 	struct Z_Construct_UClass_AMainMenuGameMode_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -58,6 +93,9 @@ void EmptyLinkFunctionForGeneratedCodeMainMenuGameMode() {}
 	UObject* (*const Z_Construct_UClass_AMainMenuGameMode_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_AAtlantisGameModeBase,
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_AMainMenuGameMode_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AMainMenuGameMode_StartGame, "StartGame" }, // 1695021036
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMainMenuGameMode_Statics::Class_MetaDataParams[] = {
@@ -75,11 +113,11 @@ void EmptyLinkFunctionForGeneratedCodeMainMenuGameMode() {}
 		"Game",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		nullptr,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		0,
 		0,
 		0x009002ACu,
@@ -103,9 +141,9 @@ void EmptyLinkFunctionForGeneratedCodeMainMenuGameMode() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MainMenuGameMode_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMainMenuGameMode, AMainMenuGameMode::StaticClass, TEXT("AMainMenuGameMode"), &Z_Registration_Info_UClass_AMainMenuGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMainMenuGameMode), 3050511686U) },
+		{ Z_Construct_UClass_AMainMenuGameMode, AMainMenuGameMode::StaticClass, TEXT("AMainMenuGameMode"), &Z_Registration_Info_UClass_AMainMenuGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMainMenuGameMode), 3010638810U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MainMenuGameMode_h_3717620035(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MainMenuGameMode_h_3008099433(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MainMenuGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_MainMenuGameMode_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

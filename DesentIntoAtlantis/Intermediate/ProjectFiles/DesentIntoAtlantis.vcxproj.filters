@@ -1491,9 +1491,6 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EnemyCombatEntity.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EnemyFactory.cpp">
-      <Filter>Source\DesentIntoAtlantis\Private</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EnemyFactorySubSystem.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
@@ -1669,9 +1666,6 @@
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EnemyCombatEntity.h">
-      <Filter>Source\DesentIntoAtlantis\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EnemyFactory.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EnemyFactorySubSystem.h">
