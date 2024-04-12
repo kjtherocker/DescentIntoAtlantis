@@ -55,6 +55,7 @@
 			"PersistentGameinstance.cpp.obj",
 			"PlayerCombatEntity.cpp.obj",
 			"PressTurnManager.cpp.obj",
+			"SaveGameData.cpp.obj",
 			"SkillBarElement.cpp.obj",
 			"SkillFactorySubsystem.cpp.obj",
 			"SkillsData.cpp.obj",
@@ -127,6 +128,7 @@
 			"PressTurnManager.gen.cpp.obj"
 		],
 		"Module.DesentIntoAtlantis.gen.3_of_3.cpp.obj": [
+			"SaveGameData.gen.cpp.obj",
 			"SkillBarElement.gen.cpp.obj",
 			"SkillFactorySubsystem.gen.cpp.obj",
 			"SkillsData.gen.cpp.obj",

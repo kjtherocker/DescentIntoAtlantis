@@ -85,7 +85,7 @@ void AFloorManager::SpawnFloorNode(int aRow, int aColumn, int aIndex)
 	//Setting new Positon
 	FVector PositionOffset;
 	PositionOffset.Set(200 * aRow, 200 * aColumn, 0);
-	FVector ActorFinalSpawnPoint = GetActorLocation() + PositionOffset;
+	FVector ActorFinalSpawnPoint = PositionOffset;
 	
 	FVector2D PositionInGrid;
 	PositionInGrid.Set(aRow,aColumn);

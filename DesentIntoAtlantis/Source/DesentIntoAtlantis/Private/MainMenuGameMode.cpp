@@ -5,6 +5,8 @@
 
 #include "FloorPlayerController.h"
 #include "PersistentGameinstance.h"
+#include "SaveGameData.h"
+#include "Kismet/GameplayStatics.h"
 #include "TitleView.h"
 
 AMainMenuGameMode::AMainMenuGameMode()
@@ -27,6 +29,8 @@ void AMainMenuGameMode::CreateMainMenu()
 	UTitleView* titleView  = (UTitleView*)InGameHUD->PushAndGetView(EViews::Title,EUiType::ActiveUi);
 	startGameDelegate.AddDynamic(this,&AMainMenuGameMode::StartGame);
 	titleView->SetStartGameDelegate(startGameDelegate);
+
+
 }
 
 void AMainMenuGameMode::StartGame()
@@ -40,4 +44,7 @@ void AMainMenuGameMode::StartGame()
 	{
 		persistentGameInstance->LoadLevel(TEXT("Floor1"));
 	}
+
+
+	
 }

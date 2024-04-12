@@ -8,8 +8,10 @@
 #include "SoundManager.h"
 #include "InGameHUD.h"
 #include "GameManager.h"
+#include "SaveGameData.h"
 #include "TitleView.h"
 #include "TutorialManagerSubsystem.h"
+#include "Engine/LevelStreaming.h"
 #include "Kismet/GameplayStatics.h"
 
 AFloorGameMode::AFloorGameMode()
@@ -47,10 +49,40 @@ void AFloorGameMode::InitializeLevel()
     floorManager = Cast<AFloorManager>(world->SpawnActor<AActor>(floorManagerReference, ActorFinalSpawnPoint, rotator));
     floorManager->Initialize(this,floorEventManager);
 
-  
+
+   floorManager->CreateFloor(EFloorIdentifier::Floor2);
+
+    if(UGameSettings::DISABLE_CUTSCENES)
+    {
+        //UDialogueView* DialogueView  = (UDialogueView*)gameModeBase->InGameHUD->PushAndGetView(EViews::Dialogue,EUiType::ActiveUi);
+        //DialogueView->SetDialogueData(EDialogueTriggers::StartGame);
+    }
+    partyManager->AddPlayerToActiveParty(EDataTableClasses::Paladin);
+    if(UGameSettings::DEBUG_MODE)
+    {
+       partyManager->AddPlayerToActiveParty(EDataTableClasses::Dancer);
+       partyManager->AddPlayerToActiveParty(EDataTableClasses::SoulEater);
+       partyManager->AddPlayerToActiveParty(EDataTableClasses::DarkKnight);
+    }
+    
 
     
+    //gameManager->StartGame();
+
+
     
-    gameManager->StartGame();
+  //  USaveGameData* SaveGameObject = Cast<USaveGameData>(UGameplayStatics::CreateSaveGameObject(USaveGameData::StaticClass()));
+  //  SaveGameObject->SetTest(999);
+  //  SaveGameObject->SetFloorPawn(floorPawn);
+  //  //
+  //  //
+  //  UGameplayStatics::SaveGameToSlot(SaveGameObject,TEXT("SaveSlot1"), 0);
+//
+
+   // USaveGameData* LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
+
+    int testo23 = 0;
+
+    
 
 }

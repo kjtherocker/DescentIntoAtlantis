@@ -8,6 +8,7 @@
 #include "PartyManagerSubsystem.h"
 #include "TutorialManagerSubsystem.h"
 #include "DialogueFactorySubsystem.h"
+#include "SaveGameData.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -65,6 +66,13 @@ void UPersistentGameinstance::Init()
 		}
 	}
 
+
+	
+	
+//
+	//LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
+	//
+	//int testo1 = 0;
 }
 
 
