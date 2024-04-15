@@ -27,9 +27,7 @@ void UGameManager::SetUpTitleMenu()
 void UGameManager::StartGame()
 {
 	
-
 	
-	gameModeBase->floorManager->CreateFloor(EFloorIdentifier::Floor2);
 
 	if(UGameSettings::DISABLE_CUTSCENES)
 	{

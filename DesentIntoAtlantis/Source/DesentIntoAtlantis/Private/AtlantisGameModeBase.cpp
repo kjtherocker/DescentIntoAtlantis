@@ -39,7 +39,7 @@ void AAtlantisGameModeBase::InitializeLevel()
 
     gameSettings = NewObject<UGameSettings>();
     
-    soundManager = Cast<ASoundManager>(world->SpawnActor<AActor>(soundManagerReference, ActorFinalSpawnPoint, rotator));
+    soundManager = Cast<ASoundManager>(world->SpawnActor<AActor>(soundManagerReference, FVector(0,0,0), rotator));
     
 
     combatManager = NewObject<UCombatManager>();
@@ -51,7 +51,7 @@ void AAtlantisGameModeBase::InitializeLevel()
 	}
 	else
 	{
-		floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, ActorFinalSpawnPoint, rotator));
+		floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, FVector(0,0,0), rotator));
 		floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
 
 		InGameHUD = (AInGameHUD*)GetWorld()->GetFirstPlayerController()->GetHUD();

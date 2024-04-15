@@ -7,6 +7,7 @@
 #include "Engine/GameInstance.h"
 #include "PersistentGameinstance.generated.h"
 
+class AFloorPawn;
 class UEnemyFactorySubSystem;
 class USkillFactorySubsystem;
 class UPartyManagerSubsystem;
@@ -32,6 +33,12 @@ public:
 	void UnloadLevel(FString aLevelName);
 	UFUNCTION()
 	void LoadLevel(FString aLevelName);
+
+	UFUNCTION()
+	void SaveFloorPawn(AFloorPawn* aFloorPawn);
+
+	UFUNCTION()
+	AFloorPawn* LoadFloorPawnPosition();
 
 	UFUNCTION()
 	void LoadPreSetLevel();

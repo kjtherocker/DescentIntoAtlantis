@@ -92,6 +92,24 @@ void UPersistentGameinstance::LoadLevel(FString aLevelName)
 	UGameplayStatics::OpenLevel(GetWorld(), FName(*LevelName), true);
 }
 
+void UPersistentGameinstance::SaveFloorPawn(AFloorPawn* aFloorPawn)
+{
+	USaveGameData* SaveGameObject = Cast<USaveGameData>(UGameplayStatics::CreateSaveGameObject(USaveGameData::StaticClass()));
+
+	SaveGameObject->SetFloorPawn(aFloorPawn);
+	SaveGameObject->SetTest(2421);
+
+	UGameplayStatics::SaveGameToSlot(SaveGameObject,TEXT("SaveSlot1"), 0);
+
+}
+
+AFloorPawn* UPersistentGameinstance::LoadFloorPawnPosition()
+{
+	USaveGameData* LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
+
+	return LoadedSaveGameObject->testo2;
+}
+
 void UPersistentGameinstance::LoadPreSetLevel()
 {
 	LoadLevel(preSetLevelName);

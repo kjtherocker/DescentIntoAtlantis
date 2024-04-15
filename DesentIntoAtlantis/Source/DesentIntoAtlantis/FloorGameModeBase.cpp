@@ -8,6 +8,7 @@
 #include "SoundManager.h"
 #include "InGameHUD.h"
 #include "GameManager.h"
+#include "PersistentGameinstance.h"
 #include "SaveGameData.h"
 #include "TitleView.h"
 #include "TutorialManagerSubsystem.h"
@@ -50,7 +51,7 @@ void AFloorGameMode::InitializeLevel()
     floorManager->Initialize(this,floorEventManager);
 
 
-   floorManager->CreateFloor(EFloorIdentifier::Floor2);
+   floorManager->CreateFloor(EFloorIdentifier::Floor2,false);
 
     if(UGameSettings::DISABLE_CUTSCENES)
     {
@@ -68,20 +69,6 @@ void AFloorGameMode::InitializeLevel()
 
     
     //gameManager->StartGame();
-
-
-    
-  //  USaveGameData* SaveGameObject = Cast<USaveGameData>(UGameplayStatics::CreateSaveGameObject(USaveGameData::StaticClass()));
-  //  SaveGameObject->SetTest(999);
-  //  SaveGameObject->SetFloorPawn(floorPawn);
-  //  //
-  //  //
-  //  UGameplayStatics::SaveGameToSlot(SaveGameObject,TEXT("SaveSlot1"), 0);
-//
-
-   // USaveGameData* LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
-
-    int testo23 = 0;
 
     
 

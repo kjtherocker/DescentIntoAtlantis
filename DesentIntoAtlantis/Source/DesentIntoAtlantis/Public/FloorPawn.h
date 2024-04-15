@@ -17,6 +17,9 @@ public:
 	// Sets default values for this pawn's properties
 	AFloorPawn();
 
+	UPROPERTY()
+	FVector2D currentNodePositionInGrid;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -49,6 +52,7 @@ protected:
 
 	UPROPERTY()
 	AFloorNode* currentNodePlayerIsOn;
+
 public:
 
 	UPROPERTY()
@@ -59,7 +63,7 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	void SpawnFloorPawn(AFloorNode* aFloorNode);
+	void PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode);
 	void RotatePawn(float aDeltatime);
 	void MovePawn(float aDeltaTime);
 	void AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections aDirection,FVector2D aDirectionPosition,FRotator aRotation);

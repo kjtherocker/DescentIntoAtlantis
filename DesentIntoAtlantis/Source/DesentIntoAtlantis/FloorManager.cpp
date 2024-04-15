@@ -6,6 +6,7 @@
 #include "FloorGameMode.h"
 #include "EFloorIdentifier.h"
 #include "FloorPlayerController.h"
+#include "PersistentGameinstance.h"
 #include "SkillsData.h"
 #include "Engine/DataTable.h"
 #include "Kismet/GameplayStatics.h"
@@ -65,16 +66,35 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 
 }
 
-void AFloorManager::CreateFloor(EFloorIdentifier aFloorIdentifier)
+void AFloorManager::CreateFloor(EFloorIdentifier aFloorIdentifier,bool aWillPlayerStartAtEntrance)
 {
 	currentFloorIdentifier = aFloorIdentifier;
 	floorEventManager->SetFloor(currentFloorIdentifier);
 	floorDictionary = gameModeBase->floorFactory->floorDictionary;
 	
-	if(floorDictionary[aFloorIdentifier] != nullptr)
+	if(floorDictionary[currentFloorIdentifier] != nullptr)
 	{
-		SpawnFloor(floorDictionary[aFloorIdentifier]);
-		InitalizePlayerPosition(floorDictionary[aFloorIdentifier]->floorData.startPosition);
+		SpawnFloor(floorDictionary[currentFloorIdentifier]);
+		if(aWillPlayerStartAtEntrance)
+		{
+			PlacePlayerAtFloorStartingNode();
+		}
+		else
+		{
+			UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+
+			if(persistentGameInstance == nullptr)
+			{
+				int testo2 = 0;
+			}
+			else
+			{
+				AFloorPawn* floorPawn = persistentGameInstance->LoadFloorPawnPosition();
+				PlacePlayerFloorPawn(floorPawn->currentNodePositionInGrid);
+			}
+			
+		}
+		//PlacePlayerFloorPawn(floorDictionary[currentFloorIdentifier]->floorData.startPosition);
 	}
 	
 }
@@ -164,7 +184,7 @@ void AFloorManager::MovePlayerToPreviousNode()
 {
 	AFloorPawn* floorPawn = gameModeBase->floorPawn;
 	FVector2D previousPosition = floorPawn->previousNodePlayerWasOn->positionInGrid;
-	InitalizePlayerPosition(previousPosition);
+	PlacePlayerFloorPawn(previousPosition);
 }
 
 
@@ -198,7 +218,7 @@ void AFloorManager::SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes)
 	}
 }
 
-void AFloorManager::InitalizePlayerPosition(FVector2D aStartPositionInGrid)
+void AFloorManager::PlacePlayerFloorPawn(FVector2D aStartPositionInGrid)
 {
 	AFloorPlayerController * playerController;
 	playerController = Cast<AFloorPlayerController>(GetWorld()->GetFirstPlayerController());
@@ -207,6 +227,14 @@ void AFloorManager::InitalizePlayerPosition(FVector2D aStartPositionInGrid)
 	{
 		int startPositionIndex = currentFloor->GetIndex( aStartPositionInGrid.X,aStartPositionInGrid.Y) ;
 		//Setting new Positon
+
+		if(floorNodes[startPositionIndex] == nullptr)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("PLAYER SPAWN POSITION IS NULL AT INDEX"), *aStartPositionInGrid.ToString());
+			return;
+		}
+
+		
 		FVector PositionOffset = FVector(0,0,300);
 		FVector ActorFinalSpawnPoint = floorNodes[startPositionIndex]->GetActorLocation() + PositionOffset;
 
@@ -215,13 +243,17 @@ void AFloorManager::InitalizePlayerPosition(FVector2D aStartPositionInGrid)
 	
 		//Spawn
 		AFloorPawn* floorPawn = gameModeBase->floorPawn;
-		floorPawn->SpawnFloorPawn(floorNodes[startPositionIndex]);
+		floorPawn->PlaceAndInitializieFloorPawn(floorNodes[startPositionIndex]);
 		floorPawn->SetActorLocation(ActorFinalSpawnPoint);
 		floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
-	//	gameModeBase->InGameHUD->PushAndGetView(EViews::Healthbars,  EUiType::PersistentUi);
 		playerController->SetPawn(floorPawn);
 	}
 
+}
+
+void AFloorManager::PlacePlayerAtFloorStartingNode()
+{
+	PlacePlayerFloorPawn(floorDictionary[currentFloorIdentifier]->floorData.startPosition);
 }
 
 void AFloorManager::SpawnFloorEnemyPawn(FVector2D aPositionInGrid)

@@ -5,6 +5,7 @@
 
 #include "CombatManager.h"
 #include "InGameHUD.h"
+#include "PersistentGameinstance.h"
 #include "SoundManager.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 #include "DesentIntoAtlantis/FloorNode.h"
@@ -26,6 +27,7 @@ void AFloorPawn::BeginPlay()
 	gameModeBase = Cast< AFloorGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
 //	AInGameHUD * hud = (AInGameHUD*)GetWorld()->GetFirstPlayerController()->GetHUD();
 //	gameModeBase->InGameHUD = hud;
+	
 }
 
 void AFloorPawn::Initialize()
@@ -75,7 +77,7 @@ void AFloorPawn::MoveForward()
 		return;
 	} 
 
-	gameModeBase->InGameHUD->PushView(EViews::Healthbars,    EUiType::PersistentUi);
+	//gameModeBase->InGameHUD->PushView(EViews::Healthbars,    EUiType::PersistentUi);
 
 
 	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Footsteps);
@@ -127,11 +129,15 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 	
 	if(FVector::Dist(GetActorLocation(), nodeToMoveTowardsPostion) < 20.5f )
 	{
-		hasRotationFinished     = true;
-		previousNodePlayerWasOn = currentNodePlayerIsOn;
-		currentNodePlayerIsOn   = nodeToMoveTowards;
+		hasRotationFinished       = true;
+		previousNodePlayerWasOn   = currentNodePlayerIsOn;
+		currentNodePlayerIsOn     = nodeToMoveTowards;
 		currentNodePlayerIsOn->PlayerIsOnTopOfNode();
-		nodeToMoveTowards       = nullptr;
+		currentNodePositionInGrid = currentNodePlayerIsOn->positionInGrid;
+		nodeToMoveTowards         = nullptr;
+		UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+		persistentGameInstance->SaveFloorPawn(this);
+		
 		return;
 	}
 
@@ -233,7 +239,7 @@ void AFloorPawn::AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirectio
 
 }
 
-void AFloorPawn::SpawnFloorPawn(AFloorNode* aFloorNode)
+void AFloorPawn::PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode)
 {
 	Initialize();
 

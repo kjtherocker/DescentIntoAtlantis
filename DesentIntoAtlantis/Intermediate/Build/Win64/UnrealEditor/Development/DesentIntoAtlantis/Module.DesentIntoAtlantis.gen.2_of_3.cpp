@@ -19,6 +19,7 @@
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/MapNodeEditorView.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/PartyHealthbarElement.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/PartyHealthbarsView.gen.cpp"
-#include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/PartyManager.gen.cpp"
+#include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/PartyManagerSubsystem.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/PersistentGameinstance.gen.cpp"
 #include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/PlayerCombatEntity.gen.cpp"
+#include "C:/Users/kylej/Documents/PortfolioSSd/DescentIntoAtlantis/DesentIntoAtlantis/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/PressTurnManager.gen.cpp"

@@ -27,11 +27,11 @@ public:
 	void Initialize(AAtlantisGameModeBase* aGameModeBase,UFloorEventManager* aFloorEventManager);
 	
 	void CreateGrid(UFloorBase* aFloor);
-	void CreateFloor(EFloorIdentifier aFloorIdentifier);
+	void CreateFloor(EFloorIdentifier aFloorIdentifier,bool aWillPlayerStartAtEntrance);
 	void SpawnFloorNode(int aRow, int aColumn,int aIndex);
 	void SpawnFloorEnemyPawn(FVector2D aPositionInGrid);
 	void SpawnFloor(UFloorBase* aFloorBase);
-
+	void PlacePlayerFloorPawn(FVector2D aStartPositionInGrid);
 	void MovePlayerToPreviousNode();
 	
 	AFloorNode* GetNodeInDirection(FVector2D CurrentPosition,ECardinalNodeDirections TargetDirection);
@@ -61,7 +61,8 @@ protected:
 private:
 	const double FLOOR_EVENT_HEIGHT_OFFSET = 240;
 	void SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes);
-	void InitalizePlayerPosition(FVector2D aStartPositionInGrid);
+
+	void PlacePlayerAtFloorStartingNode();
 	UPROPERTY()
 	UFloorEventManager* floorEventManager;
 	AAtlantisGameModeBase* gameModeBase;
