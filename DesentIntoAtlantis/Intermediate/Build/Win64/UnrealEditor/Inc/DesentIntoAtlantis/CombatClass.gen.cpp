@@ -57,6 +57,11 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FClassData>()
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_newlyObtainedSkill_MetaData[];
 #endif
 		static const UECodeGen_Private::FStrPropertyParams NewProp_newlyObtainedSkill;
+		static const UECodeGen_Private::FStrPropertyParams NewProp_classSkills_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_classSkills_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_classSkills;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -99,11 +104,21 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FClassData>()
 	};
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FClassData_Statics::NewProp_newlyObtainedSkill = { "newlyObtainedSkill", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FClassData, newlyObtainedSkill), METADATA_PARAMS(Z_Construct_UScriptStruct_FClassData_Statics::NewProp_newlyObtainedSkill_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FClassData_Statics::NewProp_newlyObtainedSkill_MetaData)) };
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classSkills_Inner = { "classSkills", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classSkills_MetaData[] = {
+		{ "Category", "ClassData" },
+		{ "ModuleRelativePath", "Public/CombatClass.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classSkills = { "classSkills", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FClassData, classSkills), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classSkills_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classSkills_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FClassData_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FClassData_Statics::NewProp_className,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classLevelID,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FClassData_Statics::NewProp_expToNextClassLevel,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FClassData_Statics::NewProp_newlyObtainedSkill,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classSkills_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classSkills,
 	};
 	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FClassData_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
@@ -162,6 +177,10 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FClassData>()
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_skillFactory_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_skillFactory;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentClassIndex_MetaData[];
+#endif
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_currentClassIndex;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -187,14 +206,14 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FClassData>()
 		{ "ModuleRelativePath", "Public/CombatClass.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassLevel = { "currentClassLevel", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatClass, currentClassLevel), Z_Construct_UScriptStruct_FClassData, METADATA_PARAMS(Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassLevel_MetaData)) }; // 331772979
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_classLevels_Inner = { "classLevels", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FClassData, METADATA_PARAMS(nullptr, 0) }; // 331772979
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassLevel = { "currentClassLevel", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatClass, currentClassLevel), Z_Construct_UScriptStruct_FClassData, METADATA_PARAMS(Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassLevel_MetaData)) }; // 155088484
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_classLevels_Inner = { "classLevels", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FClassData, METADATA_PARAMS(nullptr, 0) }; // 155088484
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatClass_Statics::NewProp_classLevels_MetaData[] = {
 		{ "ModuleRelativePath", "Public/CombatClass.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_classLevels = { "classLevels", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatClass, classLevels), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UCombatClass_Statics::NewProp_classLevels_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatClass_Statics::NewProp_classLevels_MetaData)) }; // 331772979
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_classLevels = { "classLevels", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatClass, classLevels), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UCombatClass_Statics::NewProp_classLevels_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatClass_Statics::NewProp_classLevels_MetaData)) }; // 155088484
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_classSkills_Inner = { "classSkills", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_USkillBase_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatClass_Statics::NewProp_classSkills_MetaData[] = {
@@ -208,6 +227,12 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FClassData>()
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_skillFactory = { "skillFactory", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatClass, skillFactory), Z_Construct_UClass_USkillFactorySubsystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCombatClass_Statics::NewProp_skillFactory_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatClass_Statics::NewProp_skillFactory_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassIndex_MetaData[] = {
+		{ "ModuleRelativePath", "Public/CombatClass.h" },
+	};
+#endif
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassIndex = { "currentClassIndex", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatClass, currentClassIndex), METADATA_PARAMS(Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassIndex_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassIndex_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCombatClass_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatClass_Statics::NewProp_attachedCombatEntity,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassLevel,
@@ -216,6 +241,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FClassData>()
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatClass_Statics::NewProp_classSkills_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatClass_Statics::NewProp_classSkills,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatClass_Statics::NewProp_skillFactory,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassIndex,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UCombatClass_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UCombatClass>::IsAbstract,
@@ -254,12 +280,12 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FClassData>()
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ScriptStructInfo[] = {
-		{ FClassData::StaticStruct, Z_Construct_UScriptStruct_FClassData_Statics::NewStructOps, TEXT("ClassData"), &Z_Registration_Info_UScriptStruct_ClassData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FClassData), 331772979U) },
+		{ FClassData::StaticStruct, Z_Construct_UScriptStruct_FClassData_Statics::NewStructOps, TEXT("ClassData"), &Z_Registration_Info_UScriptStruct_ClassData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FClassData), 155088484U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCombatClass, UCombatClass::StaticClass, TEXT("UCombatClass"), &Z_Registration_Info_UClass_UCombatClass, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatClass), 4030093738U) },
+		{ Z_Construct_UClass_UCombatClass, UCombatClass::StaticClass, TEXT("UCombatClass"), &Z_Registration_Info_UClass_UCombatClass, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatClass), 1342807467U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h_2391651968(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h_2531572837(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ScriptStructInfo),
 		nullptr, 0);

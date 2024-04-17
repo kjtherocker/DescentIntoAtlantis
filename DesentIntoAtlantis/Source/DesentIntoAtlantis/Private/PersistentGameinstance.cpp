@@ -11,6 +11,7 @@
 #include "SaveGameData.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
+#include "Serialization/ObjectAndNameAsStringProxyArchive.h"
 
 
 UPersistentGameinstance::UPersistentGameinstance()
@@ -67,7 +68,7 @@ void UPersistentGameinstance::Init()
 	}
 
 
-	
+	SessionSaveGameObject = Cast<USaveGameData>(UGameplayStatics::CreateSaveGameObject(USaveGameData::StaticClass()));
 	
 //
 	//LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
@@ -94,20 +95,24 @@ void UPersistentGameinstance::LoadLevel(FString aLevelName)
 
 void UPersistentGameinstance::SaveFloorPawn(AFloorPawn* aFloorPawn)
 {
-	USaveGameData* SaveGameObject = Cast<USaveGameData>(UGameplayStatics::CreateSaveGameObject(USaveGameData::StaticClass()));
+//USaveGameData* SaveGameObject = Cast<USaveGameData>(UGameplayStatics::CreateSaveGameObject(USaveGameData::StaticClass()));
+//SaveGameObject->SetFloorPawn(aFloorPawn);
+//SaveGameObject->SetTest(2421);
 
-	SaveGameObject->SetFloorPawn(aFloorPawn);
-	SaveGameObject->SetTest(2421);
-
-	UGameplayStatics::SaveGameToSlot(SaveGameObject,TEXT("SaveSlot1"), 0);
+//UGameplayStatics::SaveGameToSlot(SaveGameObject,TEXT("SaveSlot1"), 0);
 
 }
 
-AFloorPawn* UPersistentGameinstance::LoadFloorPawnPosition()
+void UPersistentGameinstance::SaveSessionData()
+{
+	UGameplayStatics::SaveGameToSlot(SessionSaveGameObject,TEXT("SaveSlot1"), 0);
+}
+
+FVector2D UPersistentGameinstance::LoadFloorPawnPosition()
 {
 	USaveGameData* LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
 
-	return LoadedSaveGameObject->testo2;
+	return LoadedSaveGameObject->playerPosition;
 }
 
 void UPersistentGameinstance::LoadPreSetLevel()
@@ -115,8 +120,22 @@ void UPersistentGameinstance::LoadPreSetLevel()
 	LoadLevel(preSetLevelName);
 }
 
+void UPersistentGameinstance::LoadSaveDataAndTransitionToMap(FString aLevelName)
+{
+	isGameSaveBeingLoaded = true;
+	LoadLevel(aLevelName);
+}
+
 
 void UPersistentGameinstance::GetCurrentLevelName(FString aLevelName)
 {
 	currentLevelName = aLevelName;
+}
+
+bool UPersistentGameinstance::ConsumeGameSaveLoadingFlag()
+{
+	bool bIsLoading = isGameSaveBeingLoaded;
+	// Once checked, reset the flag
+	isGameSaveBeingLoaded = false;
+	return bIsLoading;
 }

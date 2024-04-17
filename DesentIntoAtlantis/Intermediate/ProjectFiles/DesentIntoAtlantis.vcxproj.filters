@@ -1467,7 +1467,7 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\DeathView.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\DialogueFactory.cpp">
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\DialogueFactorySubsystem.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\DialogueView.cpp">
@@ -1575,6 +1575,9 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\PressTurnManager.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\SaveGameData.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\SkillBarElement.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
@@ -1602,7 +1605,7 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\TurnCounterView.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\TutorialManager.cpp">
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\TutorialManagerSubsystem.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\TutorialView.cpp">
@@ -1644,7 +1647,7 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\DeathView.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\DialogueFactory.h">
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\DialogueFactorySubsystem.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\DialogueView.h">
@@ -1755,6 +1758,9 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PressTurnManager.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SaveGameData.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SkillBarElement.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
@@ -1782,7 +1788,7 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\TurnCounterView.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\TutorialManager.h">
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\TutorialManagerSubsystem.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\TutorialView.h">

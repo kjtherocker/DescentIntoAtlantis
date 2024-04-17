@@ -6,23 +6,36 @@
 #include "PartyHealthbarElement.h"
 
 
-void UPlayerCombatEntity::SetPlayerEntity(FPlayerEntityData aPlayerEntityData)
+void UPlayerCombatEntity::LoadSavedPlayerCombatEntity(FPlayerCompleteDataSet aPlayerCompleteDataSet)
 {
-	playerEntityData = aPlayerEntityData;
+	playerEntityData = aPlayerCompleteDataSet.playerEntityData;
+	baseClass->LoadAndReplaceClass(aPlayerCompleteDataSet.playerClassData);
+}
+
+void UPlayerCombatEntity::SetPlayerEntity(FPlayerIdentityData aPlayerEntityData)
+{
+	playerCompleteDataSet.playerEntityData = aPlayerEntityData;
+	playerEntityData                       = aPlayerEntityData;
 }
 
 void UPlayerCombatEntity::SetTacticsEntity(USkillFactorySubsystem* aSkillFactory)
 {
 	Super::SetTacticsEntity(aSkillFactory);
 	characterType = ECharactertype::Ally;
-	skillFactory = aSkillFactory;
+	skillFactory  = aSkillFactory;
 }
 
 
-void UPlayerCombatEntity::SetPlayerClass(UDataTable*  EDataTableClasses)
+void UPlayerCombatEntity::InitializePlayerClass(UDataTable*  EDataTableClasses, bool isOverWriteWithSaveData)
 {
 	baseClass = NewObject<UCombatClass>(); 
-	baseClass->InitializeDataTable(EDataTableClasses, skillFactory,this,playerEntityData.initialLevel);
+	baseClass->InitializeDataTable(EDataTableClasses, skillFactory,this);
+	if(!isOverWriteWithSaveData)
+	{
+		baseClass->SetClassLevelToInitalLevel(playerEntityData.initialLevel);
+	}
+	
+	playerCompleteDataSet.playerClassData = baseClass->currentClassLevel;
 	
 	ElementalStrength = baseClass->currentClassLevel.ElementalStrength;
 	ElementalWeakness = baseClass->currentClassLevel.ElementalWeakness;

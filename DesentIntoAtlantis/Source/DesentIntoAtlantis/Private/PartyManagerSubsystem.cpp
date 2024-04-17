@@ -24,7 +24,7 @@ void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aDataTable, TMap<E
 	UDataTable* datatable = aDataTable;
 	for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
 	{
-		playerEntityData.Add(*datatable->FindRow<FPlayerEntityData>(FName(FString::FromInt(i)),FString("Searching for Players"),true));
+		playerEntityData.Add(*datatable->FindRow<FPlayerIdentityData>(FName(FString::FromInt(i)),FString("Searching for Players"),true));
 	}
 
 	
@@ -36,7 +36,7 @@ void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aDataTable, TMap<E
 
 		PlayerCombatEntity->SetPlayerEntity(playerEntityData[i]);
 		PlayerCombatEntity->SetTacticsEntity(skillFactory);
-		PlayerCombatEntity->SetPlayerClass(aClassDataTable[classTable]);
+		PlayerCombatEntity->InitializePlayerClass(aClassDataTable[classTable],false);
 		
 
 		playerCombatEntity.Add(PlayerCombatEntity);

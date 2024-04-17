@@ -124,10 +124,10 @@
 			"PartyHealthbarsView.gen.cpp.obj",
 			"PartyManagerSubsystem.gen.cpp.obj",
 			"PersistentGameinstance.gen.cpp.obj",
-			"PlayerCombatEntity.gen.cpp.obj",
-			"PressTurnManager.gen.cpp.obj"
+			"PlayerCombatEntity.gen.cpp.obj"
 		],
 		"Module.DesentIntoAtlantis.gen.3_of_3.cpp.obj": [
+			"PressTurnManager.gen.cpp.obj",
 			"SaveGameData.gen.cpp.obj",
 			"SkillBarElement.gen.cpp.obj",
 			"SkillFactorySubsystem.gen.cpp.obj",

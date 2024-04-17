@@ -34,6 +34,9 @@ struct DESENTINTOATLANTIS_API FClassData :public  FCombatEntityData
 
 	UPROPERTY( EditAnywhere )
 	FString newlyObtainedSkill;
+	
+	UPROPERTY( EditAnywhere )
+	TArray<FString> classSkills;
 };
 
 
@@ -48,9 +51,9 @@ private:
 
 public:
 
-	void InitializeDataTable(UDataTable* aClassDataTable,USkillFactorySubsystem* aSkillFactory, UPlayerCombatEntity * combatEntity,int aInitialLevel);
-	ConstructorHelpers::FObjectFinder<UObject> ReturnFoundClass(FString aClassExcelSheet);
+	void InitializeDataTable(UDataTable* aClassDataTable,USkillFactorySubsystem* aSkillFactory, UPlayerCombatEntity * combatEntity);
 
+	void LoadAndReplaceClass(FClassData aLoadedClass);
 	UPROPERTY()
 	UPlayerCombatEntity* attachedCombatEntity;
 
@@ -63,8 +66,13 @@ public:
 	TArray<USkillBase*> classSkills;
 	UPROPERTY()
 	USkillFactorySubsystem* skillFactory;
+
+	UPROPERTY()
+	int currentClassIndex;
 	
 	bool AddExperience(int aExperience);
+	void CreateAllClassSkillsForLevel(FClassData currentClass);
+	void SetClassLevelToInitalLevel(int aInitalLevel);
 	FClassData Levelup();
 	int experience;
 };

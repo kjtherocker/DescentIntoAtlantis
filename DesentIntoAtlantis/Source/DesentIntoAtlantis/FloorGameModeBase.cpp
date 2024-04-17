@@ -50,9 +50,16 @@ void AFloorGameMode::InitializeLevel()
     floorManager = Cast<AFloorManager>(world->SpawnActor<AActor>(floorManagerReference, ActorFinalSpawnPoint, rotator));
     floorManager->Initialize(this,floorEventManager);
 
-
-   floorManager->CreateFloor(EFloorIdentifier::Floor2,false);
-
+    UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+ 
+    if(persistentGameInstance->ConsumeGameSaveLoadingFlag())
+    {
+        floorManager->CreateFloor(EFloorIdentifier::Floor2,false);
+    }
+    else
+    {
+        floorManager->CreateFloor(EFloorIdentifier::Floor2,true);
+    }
     if(UGameSettings::DISABLE_CUTSCENES)
     {
         //UDialogueView* DialogueView  = (UDialogueView*)gameModeBase->InGameHUD->PushAndGetView(EViews::Dialogue,EUiType::ActiveUi);
@@ -65,9 +72,14 @@ void AFloorGameMode::InitializeLevel()
        partyManager->AddPlayerToActiveParty(EDataTableClasses::SoulEater);
        partyManager->AddPlayerToActiveParty(EDataTableClasses::DarkKnight);
     }
-    
 
-    
+    persistentGameInstance->SessionSaveGameObject->combatEntityDataTest = partyManager->playerCombatEntity[0]->baseClass->currentClassLevel;
+    persistentGameInstance->SessionSaveGameObject->playerEntityDataTest = partyManager->playerCombatEntity[0];
+    persistentGameInstance->SessionSaveGameObject->playerCompleteDataSet = partyManager->playerCombatEntity[0]->playerCompleteDataSet;
+    persistentGameInstance->SessionSaveGameObject->playerPosition = floorPawn->currentNodePositionInGrid;
+    persistentGameInstance->SaveSessionData();
+
+    InGameHUD->PushView(EViews::Healthbars,    EUiType::PersistentUi);
     //gameManager->StartGame();
 
     

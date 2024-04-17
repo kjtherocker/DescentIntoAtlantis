@@ -72,6 +72,8 @@ public:
 
 	void SetRotation(TArray<UFloorPawnPositionInfo*> aDirectionalModel, double aDirection );
 
+	void WriteSaveGame();
+
 	UPROPERTY()
 	TArray<UFloorPawnPositionInfo*>   directionModel;
 };

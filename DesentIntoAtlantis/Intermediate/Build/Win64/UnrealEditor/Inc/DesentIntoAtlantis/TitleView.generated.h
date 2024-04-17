@@ -13,20 +13,24 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define DESENTINTOATLANTIS_TitleView_generated_h
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_26_SPARSE_DATA
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_26_RPC_WRAPPERS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_28_SPARSE_DATA
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_28_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execExitGame); \
+	DECLARE_FUNCTION(execOpenSettings); \
+	DECLARE_FUNCTION(execLoadGame); \
 	DECLARE_FUNCTION(execStartGame);
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execExitGame); \
+	DECLARE_FUNCTION(execOpenSettings); \
+	DECLARE_FUNCTION(execLoadGame); \
 	DECLARE_FUNCTION(execStartGame);
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_26_INCLASS_NO_PURE_DECLS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_28_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUTitleView(); \
 	friend struct Z_Construct_UClass_UTitleView_Statics; \
@@ -35,7 +39,7 @@ public: \
 	DECLARE_SERIALIZER(UTitleView)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_26_INCLASS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_28_INCLASS \
 private: \
 	static void StaticRegisterNativesUTitleView(); \
 	friend struct Z_Construct_UClass_UTitleView_Statics; \
@@ -44,7 +48,7 @@ public: \
 	DECLARE_SERIALIZER(UTitleView)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_26_STANDARD_CONSTRUCTORS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_28_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UTitleView(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UTitleView) \
@@ -57,7 +61,7 @@ private: \
 public:
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_26_ENHANCED_CONSTRUCTORS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_28_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UTitleView(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -70,25 +74,25 @@ public: \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UTitleView)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_23_PROLOG
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_26_GENERATED_BODY_LEGACY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_25_PROLOG
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_28_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_26_SPARSE_DATA \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_26_RPC_WRAPPERS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_26_INCLASS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_26_STANDARD_CONSTRUCTORS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_28_SPARSE_DATA \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_28_RPC_WRAPPERS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_28_INCLASS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_28_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_26_GENERATED_BODY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_28_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_26_SPARSE_DATA \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_26_INCLASS_NO_PURE_DECLS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_26_ENHANCED_CONSTRUCTORS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_28_SPARSE_DATA \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_28_INCLASS_NO_PURE_DECLS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_28_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -101,6 +105,8 @@ template<> DESENTINTOATLANTIS_API UClass* StaticClass<class UTitleView>();
 
 #define FOREACH_ENUM_ETITLESTATES(op) \
 	op(ETitleStates::Start) \
+	op(ETitleStates::Load) \
+	op(ETitleStates::Settings) \
 	op(ETitleStates::Exit) 
 
 enum class ETitleStates;

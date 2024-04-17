@@ -3,6 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CombatClass.h"
+#include "CombatEntity.h"
+#include "PlayerCombatEntity.h"
 #include "GameFramework/SaveGame.h"
 #include "SaveGameData.generated.h"
 
@@ -23,7 +26,18 @@ public:
 	int test;
 
 	UPROPERTY()
-	AFloorPawn* testo2 ;
+	FVector2D playerPosition;
+
+	UPROPERTY()
+	FClassData combatEntityDataTest;
+
+	UPROPERTY()
+	UPlayerCombatEntity* playerEntityDataTest;
+
+	UPROPERTY()
+	 FPlayerCompleteDataSet playerCompleteDataSet;
+
+
 	
 	
 };

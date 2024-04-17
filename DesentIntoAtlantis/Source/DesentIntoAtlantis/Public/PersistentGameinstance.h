@@ -7,6 +7,7 @@
 #include "Engine/GameInstance.h"
 #include "PersistentGameinstance.generated.h"
 
+class USaveGameData;
 class AFloorPawn;
 class UEnemyFactorySubSystem;
 class USkillFactorySubsystem;
@@ -38,13 +39,21 @@ public:
 	void SaveFloorPawn(AFloorPawn* aFloorPawn);
 
 	UFUNCTION()
-	AFloorPawn* LoadFloorPawnPosition();
+	void SaveSessionData();
+
+	UFUNCTION()
+	FVector2D LoadFloorPawnPosition();
 
 	UFUNCTION()
 	void LoadPreSetLevel();
 
+	UFUNCTION()
+	void LoadSaveDataAndTransitionToMap(FString aLevelName);
+
 	
 	void GetCurrentLevelName(FString aLevelName);
+
+	bool ConsumeGameSaveLoadingFlag();
 	
 	UPROPERTY(EditAnywhere, Category = "Data")
 	TMap<EDataTableTypes,UDataTable*> dataTables;
@@ -64,7 +73,12 @@ public:
 	UPROPERTY()
 	UDialogueFactorySubsystem* dialogueManagerSubsystem;
 
+	UPROPERTY()
+	USaveGameData* SessionSaveGameObject;
+
 private:
+
+	bool isGameSaveBeingLoaded;
 	FString currentLevelName;
 	FString preSetLevelName;
 

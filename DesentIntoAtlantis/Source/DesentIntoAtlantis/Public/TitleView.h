@@ -15,8 +15,10 @@ class UBorder;
 UENUM()
 enum class ETitleStates
 {
-	Start = 0,
-	Exit  = 1,
+	Start    = 0,
+	Load     = 1,
+	Settings = 2,
+	Exit     = 3,
 };
 
 
@@ -36,6 +38,14 @@ class DESENTINTOATLANTIS_API UTitleView : public UBaseUserWidget
 private:
 	UFUNCTION()
 	virtual void StartGame();
+
+	UFUNCTION()
+	virtual void LoadGame();
+
+	UFUNCTION()
+	virtual void OpenSettings();
+
+	
 	UFUNCTION()
 	virtual void ExitGame();
 	
@@ -44,6 +54,8 @@ private:
 	TArray<UBorder*> titleSelections;
 
 	FStartGameDelegate startGameDelegate;
+
+	void CreateAndBindDelegateOption(ETitleStates aTitleState,typename TMemFunPtrType<false, UTitleView, void()>::Type InFunc, const FName& FuncName );
 
 public:
 	virtual void SetStartGameDelegate(FStartGameDelegate aStartGameDelegate);
@@ -54,6 +66,13 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UBorder* BW_StartGame;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UBorder* BW_LoadGame;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UBorder* BW_Setting;
+	
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UBorder* BW_Exit;

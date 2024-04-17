@@ -76,10 +76,7 @@ void AFloorPawn::MoveForward()
 	{
 		return;
 	} 
-
-	//gameModeBase->InGameHUD->PushView(EViews::Healthbars,    EUiType::PersistentUi);
-
-
+	
 	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Footsteps);
 
 	
@@ -135,6 +132,7 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 		currentNodePlayerIsOn->PlayerIsOnTopOfNode();
 		currentNodePositionInGrid = currentNodePlayerIsOn->positionInGrid;
 		nodeToMoveTowards         = nullptr;
+		
 		UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
 		persistentGameInstance->SaveFloorPawn(this);
 		
@@ -199,6 +197,10 @@ void AFloorPawn::SetRotation(TArray<UFloorPawnPositionInfo*> aDirectionalModel, 
 	rotationDirection = aDirection;
 
 	hasRotationFinished = false;
+}
+
+void AFloorPawn::WriteSaveGame()
+{
 }
 
 void AFloorPawn::RotatePawn(float aDeltatime)

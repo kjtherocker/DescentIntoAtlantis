@@ -3,6 +3,8 @@
 
 #include "SaveGameData.h"
 
+#include "FloorPawn.h"
+
 void USaveGameData::SetTest(int Atest)
 {
 	test = Atest;
@@ -10,5 +12,5 @@ void USaveGameData::SetTest(int Atest)
 
 void USaveGameData::SetFloorPawn(AFloorPawn* Atest)
 {
-	testo2 = Atest;
+	playerPosition = Atest->currentNodePositionInGrid;
 }

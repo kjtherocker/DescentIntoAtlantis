@@ -15,7 +15,7 @@ class UPartyHealthbarElement;
  */
 
 USTRUCT()
-struct DESENTINTOATLANTIS_API FPlayerEntityData
+struct DESENTINTOATLANTIS_API FPlayerIdentityData :public  FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 	UPROPERTY( EditAnywhere )
@@ -33,6 +33,27 @@ struct DESENTINTOATLANTIS_API FPlayerEntityData
 	int initialLevel;
 };
 
+USTRUCT()
+struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
+{
+	GENERATED_USTRUCT_BODY()
+	UPROPERTY()
+	FPlayerIdentityData playerEntityData;
+
+	UPROPERTY()
+	FClassData playerClassData;
+
+	UPROPERTY()
+	TArray<FString> skillSlots;
+
+	UPROPERTY()
+	int currentHP;
+	UPROPERTY()
+	int currentMP;
+};
+
+
+
 UCLASS()
 class DESENTINTOATLANTIS_API UPlayerCombatEntity : public UCombatEntity
 {
@@ -45,17 +66,20 @@ public:
 	
 	UPROPERTY()
 	UCombatClass* baseClass;
+
+	UPROPERTY()
+	FPlayerCompleteDataSet playerCompleteDataSet;
 	
 	UPROPERTY()
-	FPlayerEntityData playerEntityData;
+	FPlayerIdentityData playerEntityData;
 	UPROPERTY()
 	UPartyHealthbarElement* partyHealthbarElement;
 
-
-	virtual void SetPlayerEntity(FPlayerEntityData aPlayerEntityData);
+	virtual void LoadSavedPlayerCombatEntity(FPlayerCompleteDataSet aPlayerCompleteDataSet);
+	virtual void SetPlayerEntity(FPlayerIdentityData aPlayerEntityData);
 	virtual void SetTacticsEntity(USkillFactorySubsystem* aSkillFactory) override;
 	
-	virtual void SetPlayerClass(UDataTable*EDataTableClasses);
+	virtual void InitializePlayerClass(UDataTable*EDataTableClasses, bool isOverWriteWithSaveData);
 	virtual void Reset() override;
 	virtual void SetToDefaultState() override;
 

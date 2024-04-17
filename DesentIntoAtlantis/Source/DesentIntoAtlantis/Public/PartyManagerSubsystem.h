@@ -11,7 +11,7 @@
 #include "PartyManagerSubsystem.generated.h"
 
 class UCombatManager;
-struct FPlayerEntityData;
+struct FPlayerIdentityData;
 enum class EDataTableClasses;
 class UPlayerCombatEntity;
 class UCombatEntity;
@@ -41,7 +41,7 @@ public:
 
 	TMap<EDataTableClasses,UPlayerCombatEntity*> playerCombatEntityInfo;
 	UPROPERTY()
-	TArray<FPlayerEntityData> playerEntityData;
+	TArray<FPlayerIdentityData> playerEntityData;
 	UPROPERTY()
 	TArray<UPlayerCombatEntity*> playerCombatEntity;
 	UPROPERTY()

@@ -11,7 +11,7 @@
 
 
 
-void UCombatClass::InitializeDataTable(UDataTable* aClassDataTable, USkillFactorySubsystem* aSkillFactory, UPlayerCombatEntity* aCombatEntity,int aInitialLevel)
+void UCombatClass::InitializeDataTable(UDataTable* aClassDataTable, USkillFactorySubsystem* aSkillFactory, UPlayerCombatEntity* aCombatEntity)
 {
 	UDataTable* datatable = aClassDataTable;
 
@@ -22,12 +22,20 @@ void UCombatClass::InitializeDataTable(UDataTable* aClassDataTable, USkillFactor
 	
 	skillFactory = aSkillFactory;
 	attachedCombatEntity = aCombatEntity;
-	for(int i = 0 ; i < aInitialLevel;i++)
-	{
-		Levelup();
-	}
 }
 
+void UCombatClass::LoadAndReplaceClass(FClassData aLoadedClass)
+{
+	currentClassLevel = aLoadedClass;
+
+
+	CreateAllClassSkillsForLevel(currentClassLevel);
+	
+
+	attachedCombatEntity->currentHealth = currentClassLevel.maxHealth;
+	attachedCombatEntity->currentMana   = currentClassLevel.maxMana;
+	attachedCombatEntity->SetAbilityScores();
+}
 
 
 bool UCombatClass::AddExperience(int aExperience)
@@ -43,16 +51,41 @@ bool UCombatClass::AddExperience(int aExperience)
 	return false;
 }
 
+void UCombatClass::CreateAllClassSkillsForLevel(FClassData currentClass)
+{
+	for(int i = 0 ; i < currentClass.classSkills.Num();i++)
+	{
+		USkillBase* newSkill = skillFactory->GetSkill(currentClassLevel.classSkills[i]);
+		classSkills.Add(newSkill);
+		attachedCombatEntity->playerCompleteDataSet.skillSlots.Add(currentClassLevel.classSkills[i]);
+	}
+}
+
+void UCombatClass::SetClassLevelToInitalLevel(int aInitalLevel)
+{
+	currentClassIndex = aInitalLevel - 1;
+
+	currentClassLevel = classLevels[currentClassIndex];
+
+	CreateAllClassSkillsForLevel(currentClassLevel);
+
+	attachedCombatEntity->currentHealth = currentClassLevel.maxHealth;
+	attachedCombatEntity->currentMana   = currentClassLevel.maxMana;
+	attachedCombatEntity->SetAbilityScores();
+}
+
 FClassData UCombatClass::Levelup()
 {
-	currentClassLevel = classLevels[0];
+	currentClassLevel = classLevels[currentClassIndex +1];
+
 	USkillBase* newSkill = skillFactory->GetSkill(currentClassLevel.newlyObtainedSkill);
 
 	classSkills.Add(newSkill);
 	attachedCombatEntity->currentHealth = currentClassLevel.maxHealth;
 	attachedCombatEntity->currentMana   = currentClassLevel.maxMana;
 	attachedCombatEntity->SetAbilityScores();
-	
-	classLevels.RemoveAt(0);
+
+	attachedCombatEntity->playerCompleteDataSet.skillSlots.Add(currentClassLevel.newlyObtainedSkill);
+
 	return currentClassLevel;
 }

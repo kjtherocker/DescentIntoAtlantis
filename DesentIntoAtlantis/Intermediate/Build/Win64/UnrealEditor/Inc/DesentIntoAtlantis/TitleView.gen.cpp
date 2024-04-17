@@ -40,6 +40,8 @@ void EmptyLinkFunctionForGeneratedCodeTitleView() {}
 	};
 	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_ETitleStates_Statics::Enumerators[] = {
 		{ "ETitleStates::Start", (int64)ETitleStates::Start },
+		{ "ETitleStates::Load", (int64)ETitleStates::Load },
+		{ "ETitleStates::Settings", (int64)ETitleStates::Settings },
 		{ "ETitleStates::Exit", (int64)ETitleStates::Exit },
 	};
 #if WITH_METADATA
@@ -47,7 +49,11 @@ void EmptyLinkFunctionForGeneratedCodeTitleView() {}
 		{ "Comment", "/**\n * \n */" },
 		{ "Exit.Comment", "/**\n * \n */" },
 		{ "Exit.Name", "ETitleStates::Exit" },
+		{ "Load.Comment", "/**\n * \n */" },
+		{ "Load.Name", "ETitleStates::Load" },
 		{ "ModuleRelativePath", "Public/TitleView.h" },
+		{ "Settings.Comment", "/**\n * \n */" },
+		{ "Settings.Name", "ETitleStates::Settings" },
 		{ "Start.Comment", "/**\n * \n */" },
 		{ "Start.Name", "ETitleStates::Start" },
 	};
@@ -79,6 +85,20 @@ void EmptyLinkFunctionForGeneratedCodeTitleView() {}
 		P_THIS->ExitGame();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UTitleView::execOpenSettings)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OpenSettings();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UTitleView::execLoadGame)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->LoadGame();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UTitleView::execStartGame)
 	{
 		P_FINISH;
@@ -91,6 +111,8 @@ void EmptyLinkFunctionForGeneratedCodeTitleView() {}
 		UClass* Class = UTitleView::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "ExitGame", &UTitleView::execExitGame },
+			{ "LoadGame", &UTitleView::execLoadGame },
+			{ "OpenSettings", &UTitleView::execOpenSettings },
 			{ "StartGame", &UTitleView::execStartGame },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -114,6 +136,50 @@ void EmptyLinkFunctionForGeneratedCodeTitleView() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UTitleView_ExitGame_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UTitleView_LoadGame_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UTitleView_LoadGame_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/TitleView.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UTitleView_LoadGame_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UTitleView, nullptr, "LoadGame", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UTitleView_LoadGame_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UTitleView_LoadGame_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UTitleView_LoadGame()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UTitleView_LoadGame_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UTitleView_OpenSettings_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UTitleView_OpenSettings_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/TitleView.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UTitleView_OpenSettings_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UTitleView, nullptr, "OpenSettings", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UTitleView_OpenSettings_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UTitleView_OpenSettings_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UTitleView_OpenSettings()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UTitleView_OpenSettings_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -168,6 +234,14 @@ void EmptyLinkFunctionForGeneratedCodeTitleView() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_StartGame;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_LoadGame_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_LoadGame;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_Setting_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_Setting;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_Exit_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_Exit;
@@ -181,6 +255,8 @@ void EmptyLinkFunctionForGeneratedCodeTitleView() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UTitleView_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UTitleView_ExitGame, "ExitGame" }, // 3529397680
+		{ &Z_Construct_UFunction_UTitleView_LoadGame, "LoadGame" }, // 4092890096
+		{ &Z_Construct_UFunction_UTitleView_OpenSettings, "OpenSettings" }, // 3779804540
 		{ &Z_Construct_UFunction_UTitleView_StartGame, "StartGame" }, // 4155036162
 	};
 #if WITH_METADATA
@@ -191,13 +267,13 @@ void EmptyLinkFunctionForGeneratedCodeTitleView() {}
 #endif
 	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_ValueProp = { "commandboardSelections", nullptr, (EPropertyFlags)0x0000000000080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UDelegateFunction_DesentIntoAtlantis_ViewSelection__DelegateSignature, METADATA_PARAMS(nullptr, 0) }; // 59533382
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_Key_KeyProp = { "commandboardSelections_Key", nullptr, (EPropertyFlags)0x0000000000080000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_ETitleStates, METADATA_PARAMS(nullptr, 0) }; // 184536045
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_Key_KeyProp = { "commandboardSelections_Key", nullptr, (EPropertyFlags)0x0000000000080000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_ETitleStates, METADATA_PARAMS(nullptr, 0) }; // 255603517
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_MetaData[] = {
 		{ "ModuleRelativePath", "Public/TitleView.h" },
 	};
 #endif
-	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections = { "commandboardSelections", nullptr, (EPropertyFlags)0x0040008000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTitleView, commandboardSelections), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_MetaData)) }; // 184536045 59533382
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections = { "commandboardSelections", nullptr, (EPropertyFlags)0x0040008000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTitleView, commandboardSelections), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTitleView_Statics::NewProp_commandboardSelections_MetaData)) }; // 255603517 59533382
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTitleView_Statics::NewProp_titleSelections_Inner = { "titleSelections", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_UBorder_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTitleView_Statics::NewProp_titleSelections_MetaData[] = {
@@ -216,6 +292,24 @@ void EmptyLinkFunctionForGeneratedCodeTitleView() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTitleView_Statics::NewProp_BW_StartGame = { "BW_StartGame", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTitleView, BW_StartGame), Z_Construct_UClass_UBorder_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTitleView_Statics::NewProp_BW_StartGame_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTitleView_Statics::NewProp_BW_StartGame_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTitleView_Statics::NewProp_BW_LoadGame_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "TitleView" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/TitleView.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTitleView_Statics::NewProp_BW_LoadGame = { "BW_LoadGame", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTitleView, BW_LoadGame), Z_Construct_UClass_UBorder_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTitleView_Statics::NewProp_BW_LoadGame_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTitleView_Statics::NewProp_BW_LoadGame_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTitleView_Statics::NewProp_BW_Setting_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "TitleView" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/TitleView.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTitleView_Statics::NewProp_BW_Setting = { "BW_Setting", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UTitleView, BW_Setting), Z_Construct_UClass_UBorder_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UTitleView_Statics::NewProp_BW_Setting_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UTitleView_Statics::NewProp_BW_Setting_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTitleView_Statics::NewProp_BW_Exit_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "Category", "TitleView" },
@@ -232,6 +326,8 @@ void EmptyLinkFunctionForGeneratedCodeTitleView() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTitleView_Statics::NewProp_titleSelections_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTitleView_Statics::NewProp_titleSelections,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTitleView_Statics::NewProp_BW_StartGame,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTitleView_Statics::NewProp_BW_LoadGame,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTitleView_Statics::NewProp_BW_Setting,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTitleView_Statics::NewProp_BW_Exit,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UTitleView_Statics::StaticCppClassTypeInfo = {
@@ -271,12 +367,12 @@ void EmptyLinkFunctionForGeneratedCodeTitleView() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_Statics::EnumInfo[] = {
-		{ ETitleStates_StaticEnum, TEXT("ETitleStates"), &Z_Registration_Info_UEnum_ETitleStates, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 184536045U) },
+		{ ETitleStates_StaticEnum, TEXT("ETitleStates"), &Z_Registration_Info_UEnum_ETitleStates, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 255603517U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UTitleView, UTitleView::StaticClass, TEXT("UTitleView"), &Z_Registration_Info_UClass_UTitleView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTitleView), 975198695U) },
+		{ Z_Construct_UClass_UTitleView, UTitleView::StaticClass, TEXT("UTitleView"), &Z_Registration_Info_UClass_UTitleView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTitleView), 2573822670U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_454098002(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_1952622473(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_TitleView_h_Statics::EnumInfo));

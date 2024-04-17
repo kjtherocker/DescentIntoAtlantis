@@ -144,7 +144,7 @@ void UCombatManager::EndCombat(bool aHasWon)
 		enemyCombatEntities.RemoveAt(i);
 	}
 
-	gameModeBase->partyManager->ResetActivePartyToDefaultState();
+	//gameModeBase->partyManager->ResetActivePartyToDefaultState();
 	
 	if(aHasWon)
 	{

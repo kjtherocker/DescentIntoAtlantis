@@ -89,8 +89,7 @@ void AFloorManager::CreateFloor(EFloorIdentifier aFloorIdentifier,bool aWillPlay
 			}
 			else
 			{
-				AFloorPawn* floorPawn = persistentGameInstance->LoadFloorPawnPosition();
-				PlacePlayerFloorPawn(floorPawn->currentNodePositionInGrid);
+				PlacePlayerFloorPawn(persistentGameInstance->LoadFloorPawnPosition());
 			}
 			
 		}

@@ -14,16 +14,24 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define DESENTINTOATLANTIS_PlayerCombatEntity_generated_h
 
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_20_GENERATED_BODY \
-	friend struct Z_Construct_UScriptStruct_FPlayerEntityData_Statics; \
+	friend struct Z_Construct_UScriptStruct_FPlayerIdentityData_Statics; \
+	static class UScriptStruct* StaticStruct(); \
+	typedef FTableRowBase Super;
+
+
+template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FPlayerIdentityData>();
+
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_GENERATED_BODY \
+	friend struct Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics; \
 	static class UScriptStruct* StaticStruct();
 
 
-template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FPlayerEntityData>();
+template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FPlayerCompleteDataSet>();
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_SPARSE_DATA
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_RPC_WRAPPERS
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_INCLASS_NO_PURE_DECLS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_60_SPARSE_DATA
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_60_RPC_WRAPPERS
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_60_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_60_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUPlayerCombatEntity(); \
 	friend struct Z_Construct_UClass_UPlayerCombatEntity_Statics; \
@@ -32,7 +40,7 @@ public: \
 	DECLARE_SERIALIZER(UPlayerCombatEntity)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_INCLASS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_60_INCLASS \
 private: \
 	static void StaticRegisterNativesUPlayerCombatEntity(); \
 	friend struct Z_Construct_UClass_UPlayerCombatEntity_Statics; \
@@ -41,7 +49,7 @@ public: \
 	DECLARE_SERIALIZER(UPlayerCombatEntity)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_STANDARD_CONSTRUCTORS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_60_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UPlayerCombatEntity(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UPlayerCombatEntity) \
@@ -54,7 +62,7 @@ private: \
 public:
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_ENHANCED_CONSTRUCTORS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_60_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UPlayerCombatEntity(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -67,25 +75,25 @@ public: \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UPlayerCombatEntity)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_36_PROLOG
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_GENERATED_BODY_LEGACY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_57_PROLOG
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_60_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_SPARSE_DATA \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_RPC_WRAPPERS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_INCLASS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_STANDARD_CONSTRUCTORS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_60_SPARSE_DATA \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_60_RPC_WRAPPERS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_60_INCLASS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_60_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_GENERATED_BODY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_60_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_SPARSE_DATA \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_INCLASS_NO_PURE_DECLS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_39_ENHANCED_CONSTRUCTORS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_60_SPARSE_DATA \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_60_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_60_INCLASS_NO_PURE_DECLS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_60_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
