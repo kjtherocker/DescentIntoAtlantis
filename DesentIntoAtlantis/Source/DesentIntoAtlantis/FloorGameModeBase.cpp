@@ -60,24 +60,14 @@ void AFloorGameMode::InitializeLevel()
     {
         floorManager->CreateFloor(EFloorIdentifier::Floor2,true);
     }
+
+    
     if(UGameSettings::DISABLE_CUTSCENES)
     {
         //UDialogueView* DialogueView  = (UDialogueView*)gameModeBase->InGameHUD->PushAndGetView(EViews::Dialogue,EUiType::ActiveUi);
         //DialogueView->SetDialogueData(EDialogueTriggers::StartGame);
     }
-    partyManager->AddPlayerToActiveParty(EDataTableClasses::Paladin);
-    if(UGameSettings::DEBUG_MODE)
-    {
-       partyManager->AddPlayerToActiveParty(EDataTableClasses::Dancer);
-       partyManager->AddPlayerToActiveParty(EDataTableClasses::SoulEater);
-       partyManager->AddPlayerToActiveParty(EDataTableClasses::DarkKnight);
-    }
-
-    persistentGameInstance->SessionSaveGameObject->combatEntityDataTest = partyManager->playerCombatEntity[0]->baseClass->currentClassLevel;
-    persistentGameInstance->SessionSaveGameObject->playerEntityDataTest = partyManager->playerCombatEntity[0];
-    persistentGameInstance->SessionSaveGameObject->playerCompleteDataSet = partyManager->playerCombatEntity[0]->playerCompleteDataSet;
-    persistentGameInstance->SessionSaveGameObject->playerPosition = floorPawn->currentNodePositionInGrid;
-    persistentGameInstance->SaveSessionData();
+    
 
     InGameHUD->PushView(EViews::Healthbars,    EUiType::PersistentUi);
     //gameManager->StartGame();

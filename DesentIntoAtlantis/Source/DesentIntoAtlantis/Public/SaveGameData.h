@@ -21,6 +21,7 @@ class DESENTINTOATLANTIS_API USaveGameData : public USaveGame
 public:
 	void SetTest(int Atest);
 	void SetFloorPawn(AFloorPawn* Atest);
+	void AddPlayerCompleteDataSet(EPartyMembers aPartyMember,FPlayerCompleteDataSet aPlayerCompleteDataSet);
 
 	UPROPERTY()
 	int test;
@@ -35,7 +36,7 @@ public:
 	UPlayerCombatEntity* playerEntityDataTest;
 
 	UPROPERTY()
-	 FPlayerCompleteDataSet playerCompleteDataSet;
+	 TMap<EPartyMembers, FPlayerCompleteDataSet> playerCompleteDataSet;
 
 
 	

@@ -24,10 +24,10 @@ void USkillView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	InputComponent->BindAction("E"       ,IE_Pressed ,this, &USkillView::ReturnToPreviousScreen  );
 	
 	currentActivePartyMember = gameModeBase->combatManager->GetCurrentActivePartyMember();
-	UCombatClass* combatClass = currentActivePartyMember->baseClass;
+	UCombatClass* combatClass = currentActivePartyMember->mainClass;
 
     BW_CharacterName->SetText(FText(FText::FromString(currentActivePartyMember->playerEntityData.characterName)));
-    BW_ClassName->SetText(FText(FText::FromString(currentActivePartyMember->baseClass->currentClassLevel.className)));
+    BW_ClassName->SetText(FText(FText::FromString(currentActivePartyMember->mainClass->completeClassData.className)));
 	
 	for(int i = 0 ; i < combatClass->classSkills.Num();i++)
 	{
@@ -52,7 +52,7 @@ void USkillView::MoveUp()
 
 	Super::MoveUp();
 	
-	SkillSelection(currentActivePartyMember->baseClass->classSkills[cursorPosition]->skillData);
+	SkillSelection(currentActivePartyMember->mainClass->classSkills[cursorPosition]->skillData);
 	skillBarElements[cursorPosition]->BW_BackgroundHighlight->SetOpacity(1);
 }
 
@@ -62,7 +62,7 @@ void USkillView::MoveDown()
 
 	Super::MoveDown();
 	
-	SkillSelection(currentActivePartyMember->baseClass->classSkills[cursorPosition]->skillData);
+	SkillSelection(currentActivePartyMember->mainClass->classSkills[cursorPosition]->skillData);
 	skillBarElements[cursorPosition]->BW_BackgroundHighlight->SetOpacity(1);
 }
 
@@ -91,7 +91,7 @@ void USkillView::SkillSelection(FSkillsData aSkill)
 
 void USkillView::SelectSkill()
 {
-	UCombatClass* combatClass = currentActivePartyMember->baseClass;
+	UCombatClass* combatClass = currentActivePartyMember->mainClass;
 	int skillCost = combatClass->classSkills[cursorPosition]->skillData.costToUse;
 	
 	if(currentActivePartyMember->currentMana >= skillCost)

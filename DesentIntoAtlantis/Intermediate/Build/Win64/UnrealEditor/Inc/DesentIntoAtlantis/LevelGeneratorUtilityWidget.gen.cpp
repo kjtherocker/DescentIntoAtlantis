@@ -161,7 +161,7 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateEvent_Statics::NewProp_aNewEventData = { "aNewEventData", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LevelGeneratorUtilityWidget_eventCreateEvent_Parms, aNewEventData), Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(nullptr, 0) }; // 1125626717
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateEvent_Statics::NewProp_aNewEventData = { "aNewEventData", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LevelGeneratorUtilityWidget_eventCreateEvent_Parms, aNewEventData), Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(nullptr, 0) }; // 847672033
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateEvent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateEvent_Statics::NewProp_aNewEventData,
 	};
@@ -285,7 +285,7 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentEvent_Statics::NewProp_aFloorEventDataTableIndex = { "aFloorEventDataTableIndex", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LevelGeneratorUtilityWidget_eventSaveCurrentEvent_Parms, aFloorEventDataTableIndex), METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentEvent_Statics::NewProp_aNewEventData = { "aNewEventData", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LevelGeneratorUtilityWidget_eventSaveCurrentEvent_Parms, aNewEventData), Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(nullptr, 0) }; // 1125626717
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentEvent_Statics::NewProp_aNewEventData = { "aNewEventData", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(LevelGeneratorUtilityWidget_eventSaveCurrentEvent_Parms, aNewEventData), Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(nullptr, 0) }; // 847672033
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentEvent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentEvent_Statics::NewProp_aFloorEventDataTableIndex,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentEvent_Statics::NewProp_aNewEventData,
@@ -440,11 +440,11 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor, "ActivateMapNodeEditor" }, // 3599312812
-		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateEvent, "CreateEvent" }, // 2880740076
+		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateEvent, "CreateEvent" }, // 190610066
 		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid, "CreateGrid" }, // 2051181982
 		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_DeleteEvent, "DeleteEvent" }, // 3383572612
 		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_GenerateLevel, "GenerateLevel" }, // 4039593843
-		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentEvent, "SaveCurrentEvent" }, // 3725272116
+		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentEvent, "SaveCurrentEvent" }, // 4094714238
 		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentMap, "SaveCurrentMap" }, // 2668113037
 		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton, "SpawnMapButton" }, // 470812995
 	};
@@ -539,14 +539,14 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_LevelSelector = { "BW_LevelSelector", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ULevelGeneratorUtilityWidget, BW_LevelSelector), Z_Construct_UClass_UComboBoxString_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_LevelSelector_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_BW_LevelSelector_MetaData)) };
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_dataTables_ValueProp = { "dataTables", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_UDataTable_NoRegister, METADATA_PARAMS(nullptr, 0) };
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_dataTables_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_dataTables_Key_KeyProp = { "dataTables_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EDataTableTypes, METADATA_PARAMS(nullptr, 0) }; // 1451724120
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_dataTables_Key_KeyProp = { "dataTables_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EDataTableTypes, METADATA_PARAMS(nullptr, 0) }; // 1504217215
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_dataTables_MetaData[] = {
 		{ "Category", "Data" },
 		{ "ModuleRelativePath", "Public/LevelGeneratorUtilityWidget.h" },
 	};
 #endif
-	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_dataTables = { "dataTables", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ULevelGeneratorUtilityWidget, dataTables), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_dataTables_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_dataTables_MetaData)) }; // 1451724120
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_dataTables = { "dataTables", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ULevelGeneratorUtilityWidget, dataTables), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_dataTables_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_dataTables_MetaData)) }; // 1504217215
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_CurrentFloor,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::NewProp_FloorIdentifier_Underlying,
@@ -601,9 +601,9 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ULevelGeneratorUtilityWidget, ULevelGeneratorUtilityWidget::StaticClass, TEXT("ULevelGeneratorUtilityWidget"), &Z_Registration_Info_UClass_ULevelGeneratorUtilityWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelGeneratorUtilityWidget), 2911725918U) },
+		{ Z_Construct_UClass_ULevelGeneratorUtilityWidget, ULevelGeneratorUtilityWidget::StaticClass, TEXT("ULevelGeneratorUtilityWidget"), &Z_Registration_Info_UClass_ULevelGeneratorUtilityWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelGeneratorUtilityWidget), 2950171379U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_249218737(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_1144614962(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

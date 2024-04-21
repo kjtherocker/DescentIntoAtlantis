@@ -4,17 +4,19 @@
 #include "PlayerCombatEntity.h"
 #include "CombatManager.h"
 #include "PartyHealthbarElement.h"
+#include "PersistentGameinstance.h"
+#include "SaveGameData.h"
 
 
-void UPlayerCombatEntity::LoadSavedPlayerCombatEntity(FPlayerCompleteDataSet aPlayerCompleteDataSet)
+void UPlayerCombatEntity::LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet)
 {
-	playerEntityData = aPlayerCompleteDataSet.playerEntityData;
-	baseClass->LoadAndReplaceClass(aPlayerCompleteDataSet.playerClassData);
+	currentHealth = aPlayerCompleteDataSet.currentHP;
+	currentMana   = aPlayerCompleteDataSet.currentMP;
 }
 
 void UPlayerCombatEntity::SetPlayerEntity(FPlayerIdentityData aPlayerEntityData)
 {
-	playerCompleteDataSet.playerEntityData = aPlayerEntityData;
+	playerCompleteDataSet.playerIdentityData = aPlayerEntityData;
 	playerEntityData                       = aPlayerEntityData;
 }
 
@@ -25,23 +27,31 @@ void UPlayerCombatEntity::SetTacticsEntity(USkillFactorySubsystem* aSkillFactory
 	skillFactory  = aSkillFactory;
 }
 
-
-void UPlayerCombatEntity::InitializePlayerClass(UDataTable*  EDataTableClasses, bool isOverWriteWithSaveData)
+void UPlayerCombatEntity::InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData, int aClassLevel)
 {
-	baseClass = NewObject<UCombatClass>(); 
-	baseClass->InitializeDataTable(EDataTableClasses, skillFactory,this);
-	if(!isOverWriteWithSaveData)
-	{
-		baseClass->SetClassLevelToInitalLevel(playerEntityData.initialLevel);
-	}
+	UCombatClass* newClass = NewObject<UCombatClass>();
+	newClass->InitializeDependencys(skillFactory,this );
+	newClass->CreateClass(aCompleteClassData,aClassLevel);
+	playerCompleteDataSet.unlockedPlayerClasses.Add(newClass->completeClassData);
+	unlockedClasses.Add(aCompleteClassData.classIdentifer,newClass);
+}
+
+
+void UPlayerCombatEntity::SetMainClass(EClasses aClass)
+{
+	mainClass = unlockedClasses[aClass];
+	mainClass->SetClassAttributes();
+
+	currentHealth = mainClass->completeClassData.currentLevelClassData.maxHealth;
+	currentMana   = mainClass->completeClassData.currentLevelClassData.maxMana;
 	
-	playerCompleteDataSet.playerClassData = baseClass->currentClassLevel;
-	
-	ElementalStrength = baseClass->currentClassLevel.ElementalStrength;
-	ElementalWeakness = baseClass->currentClassLevel.ElementalWeakness;
+	elementalStrength = mainClass->completeClassData.ElementalStrength;
+	elementalWeakness = mainClass->completeClassData.ElementalWeakness;
 	
 	SetAbilityScores();
 	SetToDefaultState();
+	playerCompleteDataSet.mainClass = mainClass->completeClassData;
+	playerCompleteDataSet.currentMainClassLevel = mainClass->completeClassData.currentLevelClassData;
 }
 
 void UPlayerCombatEntity::Reset()
@@ -53,9 +63,9 @@ void UPlayerCombatEntity::Reset()
 void UPlayerCombatEntity::SetToDefaultState()
 {
 	Super::SetToDefaultState();
-	maxHealth         = baseClass->currentClassLevel.maxHealth;
+	maxHealth         =  mainClass->completeClassData.currentLevelClassData.maxHealth;
 	currentHealth     = maxHealth;
-	maxMana           = baseClass->currentClassLevel.maxMana;
+	maxMana           =  mainClass->completeClassData.currentLevelClassData.maxMana;
 	currentMana       = maxMana;
     isMarkedForDeath  = false;
 	for (TTuple<EAbilityScoreTypes, UCombatAbilityStats*> abilityStats : abilityScoreMap)
@@ -66,20 +76,20 @@ void UPlayerCombatEntity::SetToDefaultState()
 
 void UPlayerCombatEntity::SetAbilityScores()
 {
-	abilityScoreMap[EAbilityScoreTypes::Strength]->base   = baseClass->currentClassLevel.baseStrength;
-	abilityScoreMap[EAbilityScoreTypes::Magic]->base      = baseClass->currentClassLevel.baseMagic;
-	abilityScoreMap[EAbilityScoreTypes::Hit]->base        = baseClass->currentClassLevel.baseHit;
-	abilityScoreMap[EAbilityScoreTypes::Evasion]->base    = baseClass->currentClassLevel.baseEvasion;
-	abilityScoreMap[EAbilityScoreTypes::Defence]->base    = baseClass->currentClassLevel.baseDefence;
-	abilityScoreMap[EAbilityScoreTypes::Resistance]->base = baseClass->currentClassLevel.baseResistance;
+	abilityScoreMap[EAbilityScoreTypes::Strength]->base   =  mainClass->completeClassData.currentLevelClassData.baseStrength;
+	abilityScoreMap[EAbilityScoreTypes::Magic]->base      =  mainClass->completeClassData.currentLevelClassData.baseMagic;
+	abilityScoreMap[EAbilityScoreTypes::Hit]->base        =  mainClass->completeClassData.currentLevelClassData.baseHit;
+	abilityScoreMap[EAbilityScoreTypes::Evasion]->base    =  mainClass->completeClassData.currentLevelClassData.baseEvasion;
+	abilityScoreMap[EAbilityScoreTypes::Defence]->base    =  mainClass->completeClassData.currentLevelClassData.baseDefence;
+	abilityScoreMap[EAbilityScoreTypes::Resistance]->base =  mainClass->completeClassData.currentLevelClassData.baseResistance;
 }
 
 float UPlayerCombatEntity::GetHealthPercentage()
 {
-	return  (float)currentHealth /  (float)baseClass->currentClassLevel.maxHealth;
+	return  (float)currentHealth /  (float)mainClass->completeClassData.currentLevelClassData.maxHealth;
 }
 
 float UPlayerCombatEntity::GetManaPercentage()
 {
-	return (float)currentMana / (float)baseClass->currentClassLevel.maxMana;
+	return (float)currentMana / (float)mainClass->completeClassData.currentLevelClassData.maxMana;
 }

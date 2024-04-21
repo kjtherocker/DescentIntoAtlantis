@@ -48,11 +48,11 @@ int UCombatEntity::CalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
     int magicAllStats    =  aAttacker->abilityScoreMap[EAbilityScoreTypes::Magic]->GetAllStats()    / ABILITYSCORE_CONVERSION_RATIO;
     decementBy += aSkill.skillDamageType == ESkillDamageType::Strength ? strengthAllStats : magicAllStats;
 	
-    if (aSkill.elementalType == ElementalWeakness)
+    if (aSkill.elementalType == elementalWeakness)
     {
         decementBy = decementBy * WEAK_DAMAGE_INCREASE;
     }
-    if (aSkill.elementalType == ElementalStrength)
+    if (aSkill.elementalType == elementalStrength)
     {
         decementBy = decementBy * STRONG_DAMAGE_REDUCTION;
     }
@@ -73,11 +73,11 @@ PressTurnReactions UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSki
 {
     PressTurnReactions reaction = PressTurnReactions::Normal;
 	    
-    if (aSkill.elementalType == ElementalWeakness)
+    if (aSkill.elementalType == elementalWeakness)
     {
         reaction =  PressTurnReactions::Weak;
     }
-    if (aSkill.elementalType ==  ElementalStrength)
+    if (aSkill.elementalType ==  elementalStrength)
     {
         reaction =  PressTurnReactions::Strong;
     }

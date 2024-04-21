@@ -64,7 +64,7 @@ void UMapEventEditorView::SaveEvent()
 	floorEventData.tutorialTriggerOnStart = (ETutorialTriggers)BW_TutorialOnStart->GetSelectedIndex();
 	floorEventData.tutorialTriggerOnEnd   = (ETutorialTriggers)BW_TutorialOnEnd->GetSelectedIndex();
 	floorEventData.viewPushedOnEnd        = (EViews)BW_ViewOnEnd->GetSelectedIndex();
-	floorEventData.partyMemberGainedOnEnd = (EDataTableClasses)BW_AllyGained->GetSelectedIndex();
+	floorEventData.partyMemberGainedOnEnd = (EPartyMembers)BW_AllyGained->GetSelectedIndex();
 	
 	if(currentMapButtonElement->currentFloorEventData.floorIdentifier == EFloorIdentifier::None)
 	{

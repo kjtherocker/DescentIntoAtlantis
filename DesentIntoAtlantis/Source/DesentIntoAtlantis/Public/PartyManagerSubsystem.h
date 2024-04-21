@@ -4,15 +4,17 @@
 
 
 #include "CoreMinimal.h"
+#include "PlayerCombatEntity.h"
 
 #include "Engine/DataTable.h"
 
 #include "UObject/NoExportTypes.h"
 #include "PartyManagerSubsystem.generated.h"
 
+class UPersistentGameinstance;
 class UCombatManager;
 struct FPlayerIdentityData;
-enum class EDataTableClasses;
+enum class EClasses;
 class UPlayerCombatEntity;
 class UCombatEntity;
 class USkillFactorySubsystem;
@@ -29,17 +31,23 @@ class DESENTINTOATLANTIS_API UPartyManagerSubsystem : public UGameInstanceSubsys
 	UPROPERTY()
 	USkillFactorySubsystem* skillFactory;
 
-	
+	TMap<EClasses,FCompleteClassData> classDataTables;
+	UPersistentGameinstance* persistentGameInstance ;
 public:
 	
-	void InitializeDataTable(UDataTable* aDataTable,TMap<EDataTableClasses,UDataTable*> aClassDataTable);
+	void InitializeDataTable(UDataTable* aDataTable,UDataTable* aClassDataTable);
+	void CreatePlayerEntitys(EPartyMembers aPlayer);
+	void AddPlayerToActiveParty(EPartyMembers aPlayer);
 
-	void AddPlayerToActiveParty(EDataTableClasses aClasses);
+	void SavePlayerEntitys();
+
+	void LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, FPlayerCompleteDataSet> aPlayerCompleteDataSets);
 	void ResetActivePartyToDefaultState();
 	
 	TArray<UPlayerCombatEntity*> ReturnActiveParty();
 
-	TMap<EDataTableClasses,UPlayerCombatEntity*> playerCombatEntityInfo;
+	TMap<EPartyMembers,FPlayerIdentityData> playerIdenityMap;
+	TMap<EPartyMembers,UPlayerCombatEntity*> playerCombatEntityInfo;
 	UPROPERTY()
 	TArray<FPlayerIdentityData> playerEntityData;
 	UPROPERTY()

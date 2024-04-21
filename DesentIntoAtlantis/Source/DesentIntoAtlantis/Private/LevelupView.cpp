@@ -22,21 +22,26 @@ void ULevelupView::InitializeCombatEntitysToLevelUp(TArray<UPlayerCombatEntity*>
 
 void ULevelupView::SetupLevelupView(UPlayerCombatEntity* aPlayerCombatEntity)
 {
-	FClassData currentClassLevel = aPlayerCombatEntity->baseClass->currentClassLevel;
-	FClassData nextClassLevel    = aPlayerCombatEntity->baseClass->Levelup();
+	FCompleteClassData completeClassData = aPlayerCombatEntity->mainClass->completeClassData;
+	FClassData currentClassLevel = aPlayerCombatEntity->mainClass->completeClassData.currentLevelClassData;
+	FClassData nextClassLevel    = aPlayerCombatEntity->mainClass->Levelup();
 	
 	AFloorGameMode* GameModeBase = Cast< AFloorGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
-	
-	FSkillsData newSKill = GameModeBase->skillFactory->GetSkill(nextClassLevel.newlyObtainedSkill)->skillData;
-	
-	BW_Skillbar->SetSkill(newSKill);
 
-	BW_LevelupConversationalText->SetText(FText(FText::FromString(newSKill.skillDescription)));
+	if(completeClassData.unlockableSkillByLevel.Contains(completeClassData.currentLevel))
+	{
+		FString newSkillName = completeClassData.unlockableSkillByLevel[completeClassData.currentLevel];
+		FSkillsData newSKill = GameModeBase->skillFactory->GetSkill(newSkillName)->skillData;
+		BW_Skillbar->SetSkill(newSKill);
+
+		BW_LevelupConversationalText->SetText(FText(FText::FromString(newSKill.skillDescription)));
+	}
+
 	
 	BW_CharacterPortrait->SetBrushFromTexture(aPlayerCombatEntity->playerEntityData.fullBodyCharacterPortrait);
 	
-	BW_PreviousLevelNumber->SetText(FText(FText::FromString(currentClassLevel.classLevelID)));
-	BW_CurrentLevelNumber->SetText(FText(FText::FromString(nextClassLevel.classLevelID)));
+	BW_PreviousLevelNumber->SetText(FText(FText::AsNumber(completeClassData.currentLevel -1)));
+	BW_CurrentLevelNumber->SetText(FText(FText::AsNumber(completeClassData.currentLevel)));
 	
 	BW_StrengthLevelpanel->SetLevelupPanelElement(FString("Str"),
 		FString::FromInt(currentClassLevel.baseStrength),

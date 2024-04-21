@@ -10,40 +10,26 @@
 //"DataTable'/Game/Skills/AtlantisSkills.AtlantisSkills'"
 
 
-
-void UCombatClass::InitializeDataTable(UDataTable* aClassDataTable, USkillFactorySubsystem* aSkillFactory, UPlayerCombatEntity* aCombatEntity)
+void UCombatClass::InitializeDependencys(USkillFactorySubsystem* aSkillFactory, UPlayerCombatEntity* aCombatEntity)
 {
-	UDataTable* datatable = aClassDataTable;
-
-	for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
-	{
-		classLevels.Add(*datatable->FindRow<FClassData>(FName(FString::FromInt(i)),FString("Searching for class levels"),true));
-	}
-	
 	skillFactory = aSkillFactory;
 	attachedCombatEntity = aCombatEntity;
 }
 
-void UCombatClass::LoadAndReplaceClass(FClassData aLoadedClass)
+void UCombatClass::CreateClass(FCompleteClassData aLoadedClass,int aClassLevel)
 {
-	currentClassLevel = aLoadedClass;
-
-
-	CreateAllClassSkillsForLevel(currentClassLevel);
-	
-
-	attachedCombatEntity->currentHealth = currentClassLevel.maxHealth;
-	attachedCombatEntity->currentMana   = currentClassLevel.maxMana;
-	attachedCombatEntity->SetAbilityScores();
+	completeClassData = aLoadedClass;
+	completeClassData.currentLevel = aClassLevel;
+	completeClassData.currentLevelClassData = completeClassData.classLevels[aClassLevel];
+	CreateAllClassSkillsForLevel(completeClassData);
 }
-
 
 bool UCombatClass::AddExperience(int aExperience)
 {
 	experience += aExperience;
-	if(classLevels.Num() > 0)
+	if(completeClassData.classLevels.Num() > 0)
 	{
-		if(experience > currentClassLevel.expToNextClassLevel)
+		if(experience > completeClassData.currentLevelClassData.expToNextClassLevel)
 		{
 			return true;
 		}
@@ -51,41 +37,64 @@ bool UCombatClass::AddExperience(int aExperience)
 	return false;
 }
 
-void UCombatClass::CreateAllClassSkillsForLevel(FClassData currentClass)
+void UCombatClass::CreateAllClassSkillsForLevel(FCompleteClassData aCompleteClassData)
 {
-	for(int i = 0 ; i < currentClass.classSkills.Num();i++)
+	for (TTuple<int, FString> skillByLevel : aCompleteClassData.unlockableSkillByLevel)
 	{
-		USkillBase* newSkill = skillFactory->GetSkill(currentClassLevel.classSkills[i]);
-		classSkills.Add(newSkill);
-		attachedCombatEntity->playerCompleteDataSet.skillSlots.Add(currentClassLevel.classSkills[i]);
+		int skillLevel = skillByLevel.Key;
+		if(skillLevel <= aCompleteClassData.currentLevel)
+		{
+			FString skillName = skillByLevel.Value;
+			if(!skillName.IsEmpty())
+			{
+				USkillBase* newSkill = skillFactory->GetSkill(skillName);
+				classSkills.Add(newSkill);
+				attachedCombatEntity->playerCompleteDataSet.skillSlots.Add(skillName);
+			}
+		}
 	}
 }
 
-void UCombatClass::SetClassLevelToInitalLevel(int aInitalLevel)
+void UCombatClass::SetClassLevel(int aInitalLevel)
 {
 	currentClassIndex = aInitalLevel - 1;
+	completeClassData.currentLevel = currentClassIndex;
 
-	currentClassLevel = classLevels[currentClassIndex];
+	completeClassData.currentLevelClassData = completeClassData.classLevels[currentClassIndex];
 
-	CreateAllClassSkillsForLevel(currentClassLevel);
+	CreateAllClassSkillsForLevel(completeClassData);
 
-	attachedCombatEntity->currentHealth = currentClassLevel.maxHealth;
-	attachedCombatEntity->currentMana   = currentClassLevel.maxMana;
+	attachedCombatEntity->currentHealth = completeClassData.currentLevelClassData.maxHealth;
+	attachedCombatEntity->currentMana   = completeClassData.currentLevelClassData.maxMana;
 	attachedCombatEntity->SetAbilityScores();
 }
 
+void UCombatClass::SetClassAttributes()
+{
+	attachedCombatEntity->currentHealth = completeClassData.currentLevelClassData.maxHealth;
+	attachedCombatEntity->currentMana   = completeClassData.currentLevelClassData.maxMana;
+	attachedCombatEntity->SetAbilityScores();
+}
+
+
+
 FClassData UCombatClass::Levelup()
 {
-	currentClassLevel = classLevels[currentClassIndex +1];
+	completeClassData.currentLevelClassData = completeClassData.classLevels[currentClassIndex +1];
+	completeClassData.currentLevel = currentClassIndex +1;
 
-	USkillBase* newSkill = skillFactory->GetSkill(currentClassLevel.newlyObtainedSkill);
-
-	classSkills.Add(newSkill);
-	attachedCombatEntity->currentHealth = currentClassLevel.maxHealth;
-	attachedCombatEntity->currentMana   = currentClassLevel.maxMana;
+	if(completeClassData.unlockableSkillByLevel.Contains(completeClassData.currentLevel))
+	{
+		FString skillName = completeClassData.unlockableSkillByLevel[completeClassData.currentLevel];
+		USkillBase* newSkill = skillFactory->GetSkill(skillName);
+		attachedCombatEntity->playerCompleteDataSet.skillSlots.Add(skillName);
+		classSkills.Add(newSkill);
+	}
+	
+	attachedCombatEntity->currentHealth = completeClassData.currentLevelClassData.maxHealth;
+	attachedCombatEntity->currentMana   = completeClassData.currentLevelClassData.maxMana;
 	attachedCombatEntity->SetAbilityScores();
 
-	attachedCombatEntity->playerCompleteDataSet.skillSlots.Add(currentClassLevel.newlyObtainedSkill);
 
-	return currentClassLevel;
+	return completeClassData.currentLevelClassData;
 }

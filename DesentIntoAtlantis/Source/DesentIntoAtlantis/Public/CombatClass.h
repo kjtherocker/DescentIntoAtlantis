@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "CombatEntity.h"
+#include "EDataTableTypes.h"
 #include "Engine/DataTable.h"
 #include "UObject/NoExportTypes.h"
 #include "SkillsData.h"
@@ -21,22 +22,46 @@ USTRUCT(Atomic)
 struct DESENTINTOATLANTIS_API FClassData :public  FCombatEntityData
 {
 	GENERATED_USTRUCT_BODY()
-
-	
-	UPROPERTY( EditAnywhere )
-	FString className;
-
-	UPROPERTY( EditAnywhere )
-	FString classLevelID;
 	
 	UPROPERTY( EditAnywhere )
 	int expToNextClassLevel;
+};
+
+USTRUCT(Atomic)
+struct DESENTINTOATLANTIS_API FCompleteClassData  :public  FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY( EditAnywhere )
-	FString newlyObtainedSkill;
+	FString className;
 	
 	UPROPERTY( EditAnywhere )
-	TArray<FString> classSkills;
+	EClasses classIdentifer;
+
+	UPROPERTY( EditAnywhere )
+	TArray<FClassData> classLevels;
+
+	UPROPERTY( EditAnywhere )
+
+	TMap<int,FString> unlockableSkillByLevel;
+
+	
+	UPROPERTY()
+	EPartyMembers attachedEntityIdentifier;
+
+
+	UPROPERTY()
+	FClassData currentLevelClassData;
+	
+	UPROPERTY()
+	int currentLevel;
+
+	UPROPERTY( EditAnywhere )
+	EElementalType ElementalStrength;
+	
+	UPROPERTY( EditAnywhere )
+	EElementalType ElementalWeakness;
+
 };
 
 
@@ -51,17 +76,16 @@ private:
 
 public:
 
-	void InitializeDataTable(UDataTable* aClassDataTable,USkillFactorySubsystem* aSkillFactory, UPlayerCombatEntity * combatEntity);
+	void InitializeDependencys(USkillFactorySubsystem* aSkillFactory, UPlayerCombatEntity* aCombatEntity);
 
-	void LoadAndReplaceClass(FClassData aLoadedClass);
+
+	void CreateClass(FCompleteClassData aLoadedClass,int aClassLevel);
 	UPROPERTY()
 	UPlayerCombatEntity* attachedCombatEntity;
 
 	UPROPERTY()
-	FClassData currentClassLevel;
-
-	UPROPERTY()
-	TArray<FClassData> classLevels;
+	FCompleteClassData completeClassData;
+	
 	UPROPERTY()
 	TArray<USkillBase*> classSkills;
 	UPROPERTY()
@@ -71,8 +95,9 @@ public:
 	int currentClassIndex;
 	
 	bool AddExperience(int aExperience);
-	void CreateAllClassSkillsForLevel(FClassData currentClass);
-	void SetClassLevelToInitalLevel(int aInitalLevel);
+	void CreateAllClassSkillsForLevel(FCompleteClassData aCompleteClassData);
+	void SetClassLevel(int aInitalLevel);
+	void SetClassAttributes();
 	FClassData Levelup();
 	int experience;
 };

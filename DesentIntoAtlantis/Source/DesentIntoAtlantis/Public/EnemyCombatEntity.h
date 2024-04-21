@@ -40,6 +40,12 @@ struct DESENTINTOATLANTIS_API FEnemyEntityData :public  FCombatEntityData
 	FString Behaviour;
 
 	UPROPERTY( EditAnywhere )
+	EElementalType ElementalStrength;
+	
+	UPROPERTY( EditAnywhere )
+	EElementalType ElementalWeakness;
+
+	UPROPERTY( EditAnywhere )
 	FString Skill1;
 	UPROPERTY( EditAnywhere )
 	FString Skill2;

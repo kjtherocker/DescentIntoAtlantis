@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnum() {}
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EDialogueTriggers();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ETutorialTriggers();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FFloorEventData();
-	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EViews();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FTutorialData();
 	ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
@@ -601,7 +601,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FFloorEventData>()
 		{ "ModuleRelativePath", "Public/FloorEnum.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_partyMemberGainedOnEnd = { "partyMemberGainedOnEnd", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FFloorEventData, partyMemberGainedOnEnd), Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses, METADATA_PARAMS(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_partyMemberGainedOnEnd_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_partyMemberGainedOnEnd_MetaData)) }; // 916432985
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_partyMemberGainedOnEnd = { "partyMemberGainedOnEnd", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FFloorEventData, partyMemberGainedOnEnd), Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers, METADATA_PARAMS(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_partyMemberGainedOnEnd_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_partyMemberGainedOnEnd_MetaData)) }; // 2655185645
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_viewPushedOnEnd_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFloorEventData_Statics::NewProp_viewPushedOnEnd_MetaData[] = {
@@ -818,10 +818,10 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FTutorialData>()
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::ScriptStructInfo[] = {
 		{ FFloorData::StaticStruct, Z_Construct_UScriptStruct_FFloorData_Statics::NewStructOps, TEXT("FloorData"), &Z_Registration_Info_UScriptStruct_FloorData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FFloorData), 2424167347U) },
-		{ FFloorEventData::StaticStruct, Z_Construct_UScriptStruct_FFloorEventData_Statics::NewStructOps, TEXT("FloorEventData"), &Z_Registration_Info_UScriptStruct_FloorEventData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FFloorEventData), 1125626717U) },
+		{ FFloorEventData::StaticStruct, Z_Construct_UScriptStruct_FFloorEventData_Statics::NewStructOps, TEXT("FloorEventData"), &Z_Registration_Info_UScriptStruct_FloorEventData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FFloorEventData), 847672033U) },
 		{ FTutorialData::StaticStruct, Z_Construct_UScriptStruct_FTutorialData_Statics::NewStructOps, TEXT("TutorialData"), &Z_Registration_Info_UScriptStruct_TutorialData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FTutorialData), 2681244502U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_1004801874(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_944713283(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::EnumInfo));

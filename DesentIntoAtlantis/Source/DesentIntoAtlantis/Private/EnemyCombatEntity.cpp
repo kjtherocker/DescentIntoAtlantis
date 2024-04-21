@@ -19,8 +19,8 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,US
 
 	portraitPosition = aPortraitPosition;
 
-	ElementalStrength = AEnemyEntityData.ElementalStrength;
-	ElementalWeakness = AEnemyEntityData.ElementalWeakness;
+	elementalStrength = AEnemyEntityData.ElementalStrength;
+	elementalWeakness = AEnemyEntityData.ElementalWeakness;
 
 	enemyBehaviour = NewObject<UEnemyBehaviour>();
 	enemyBehaviour->Initialize(this);

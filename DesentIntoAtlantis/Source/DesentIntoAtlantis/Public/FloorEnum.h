@@ -108,7 +108,7 @@ struct DESENTINTOATLANTIS_API FFloorEventData : public FTableRowBase
 	EDialogueTriggers dialogueTriggerOnEnd;
 
 	UPROPERTY( EditAnywhere )
-	EDataTableClasses partyMemberGainedOnEnd;
+	EPartyMembers partyMemberGainedOnEnd;
 	
 	UPROPERTY( EditAnywhere )
 	EViews viewPushedOnEnd;

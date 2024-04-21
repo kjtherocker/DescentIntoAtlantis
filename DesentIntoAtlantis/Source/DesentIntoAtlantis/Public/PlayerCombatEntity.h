@@ -8,7 +8,7 @@
 #include "CombatClass.h"
 #include "PlayerCombatEntity.generated.h"
 
-enum class EDataTableClasses;
+enum class EClasses;
 class UPartyHealthbarElement;
 /**
  * 
@@ -18,8 +18,12 @@ USTRUCT()
 struct DESENTINTOATLANTIS_API FPlayerIdentityData :public  FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
+
+	UPROPERTY(EditAnywhere)
+	EPartyMembers characterIdentifier;
+		
 	UPROPERTY( EditAnywhere )
-	EDataTableClasses DataTableClass;
+	EClasses initalClass;
 	
 	UPROPERTY( EditAnywhere )
 	FString characterName;
@@ -38,10 +42,16 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 {
 	GENERATED_USTRUCT_BODY()
 	UPROPERTY()
-	FPlayerIdentityData playerEntityData;
+	FPlayerIdentityData playerIdentityData;
 
 	UPROPERTY()
-	FClassData playerClassData;
+	FCompleteClassData mainClass;
+
+	UPROPERTY()
+	FClassData currentMainClassLevel;
+	
+	UPROPERTY()
+	TArray<FCompleteClassData> unlockedPlayerClasses;
 
 	UPROPERTY()
 	TArray<FString> skillSlots;
@@ -65,7 +75,10 @@ private:
 public:
 	
 	UPROPERTY()
-	UCombatClass* baseClass;
+	UCombatClass* mainClass;
+
+	UPROPERTY()
+	TMap<EClasses,UCombatClass*> unlockedClasses;
 
 	UPROPERTY()
 	FPlayerCompleteDataSet playerCompleteDataSet;
@@ -75,11 +88,12 @@ public:
 	UPROPERTY()
 	UPartyHealthbarElement* partyHealthbarElement;
 
-	virtual void LoadSavedPlayerCombatEntity(FPlayerCompleteDataSet aPlayerCompleteDataSet);
+	virtual void LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet);
 	virtual void SetPlayerEntity(FPlayerIdentityData aPlayerEntityData);
 	virtual void SetTacticsEntity(USkillFactorySubsystem* aSkillFactory) override;
 	
-	virtual void InitializePlayerClass(UDataTable*EDataTableClasses, bool isOverWriteWithSaveData);
+	virtual void InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData, int aClassLevel);
+	virtual void SetMainClass(EClasses aClass);
 	virtual void Reset() override;
 	virtual void SetToDefaultState() override;
 

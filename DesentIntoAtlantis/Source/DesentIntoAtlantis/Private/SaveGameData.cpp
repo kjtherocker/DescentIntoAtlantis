@@ -14,3 +14,8 @@ void USaveGameData::SetFloorPawn(AFloorPawn* Atest)
 {
 	playerPosition = Atest->currentNodePositionInGrid;
 }
+
+void USaveGameData::AddPlayerCompleteDataSet(EPartyMembers aPartyMember,FPlayerCompleteDataSet aPlayerCompleteDataSet)
+{
+	playerCompleteDataSet.Add(aPartyMember,aPlayerCompleteDataSet);
+}

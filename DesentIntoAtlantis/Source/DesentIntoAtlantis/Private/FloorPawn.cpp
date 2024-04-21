@@ -6,6 +6,7 @@
 #include "CombatManager.h"
 #include "InGameHUD.h"
 #include "PersistentGameinstance.h"
+#include "SaveGameData.h"
 #include "SoundManager.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 #include "DesentIntoAtlantis/FloorNode.h"
@@ -132,15 +133,17 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 		currentNodePlayerIsOn->PlayerIsOnTopOfNode();
 		currentNodePositionInGrid = currentNodePlayerIsOn->positionInGrid;
 		nodeToMoveTowards         = nullptr;
-		
 		UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
-		persistentGameInstance->SaveFloorPawn(this);
-		
+		persistentGameInstance->SessionSaveGameObject->SetFloorPawn(this);
+		persistentGameInstance->partyManagerSubsystem->SavePlayerEntitys();
+		persistentGameInstance->SaveSessionData();
 		return;
 	}
 
 
 	FVector currentPostion  = GetActorLocation();
+
+
 	
 	float deltaX = nodeToMoveTowardsPostion.X - currentPostion.X;
 	float deltaY = nodeToMoveTowardsPostion.Y - currentPostion.Y;

@@ -25,19 +25,30 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	op(EDataTableTypes::Tutorial) \
 	op(EDataTableTypes::Floor) \
 	op(EDataTableTypes::FloorEvent) \
-	op(EDataTableTypes::Dialogue) 
+	op(EDataTableTypes::Dialogue) \
+	op(EDataTableTypes::Classes) 
 
 enum class EDataTableTypes;
 template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EDataTableTypes>();
 
-#define FOREACH_ENUM_EDATATABLECLASSES(op) \
-	op(EDataTableClasses::None) \
-	op(EDataTableClasses::Paladin) \
-	op(EDataTableClasses::DarkKnight) \
-	op(EDataTableClasses::Dancer) \
-	op(EDataTableClasses::SoulEater) 
+#define FOREACH_ENUM_ECLASSES(op) \
+	op(EClasses::None) \
+	op(EClasses::GraveKnight) \
+	op(EClasses::WaterShaper) \
+	op(EClasses::Thief) \
+	op(EClasses::HydroArcher) 
 
-enum class EDataTableClasses;
-template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EDataTableClasses>();
+enum class EClasses;
+template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EClasses>();
+
+#define FOREACH_ENUM_EPARTYMEMBERS(op) \
+	op(EPartyMembers::None) \
+	op(EPartyMembers::Fide) \
+	op(EPartyMembers::Rain) \
+	op(EPartyMembers::Fienne) \
+	op(EPartyMembers::Gram) 
+
+enum class EPartyMembers;
+template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EPartyMembers>();
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

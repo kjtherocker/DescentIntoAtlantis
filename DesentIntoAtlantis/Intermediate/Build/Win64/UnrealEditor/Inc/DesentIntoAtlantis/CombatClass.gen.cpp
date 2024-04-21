@@ -12,6 +12,11 @@ void EmptyLinkFunctionForGeneratedCodeCombatClass() {}
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FClassData();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCombatEntityData();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCompleteClassData();
+	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EClasses();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EElementalType();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatClass_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatClass();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
@@ -42,26 +47,9 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FClassData>()
 #endif
 		static void* NewStructOps();
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_className_MetaData[];
-#endif
-		static const UECodeGen_Private::FStrPropertyParams NewProp_className;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_classLevelID_MetaData[];
-#endif
-		static const UECodeGen_Private::FStrPropertyParams NewProp_classLevelID;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_expToNextClassLevel_MetaData[];
 #endif
 		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_expToNextClassLevel;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_newlyObtainedSkill_MetaData[];
-#endif
-		static const UECodeGen_Private::FStrPropertyParams NewProp_newlyObtainedSkill;
-		static const UECodeGen_Private::FStrPropertyParams NewProp_classSkills_Inner;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_classSkills_MetaData[];
-#endif
-		static const UECodeGen_Private::FArrayPropertyParams NewProp_classSkills;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -77,48 +65,14 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FClassData>()
 		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FClassData>();
 	}
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FClassData_Statics::NewProp_className_MetaData[] = {
-		{ "Category", "ClassData" },
-		{ "ModuleRelativePath", "Public/CombatClass.h" },
-	};
-#endif
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FClassData_Statics::NewProp_className = { "className", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FClassData, className), METADATA_PARAMS(Z_Construct_UScriptStruct_FClassData_Statics::NewProp_className_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FClassData_Statics::NewProp_className_MetaData)) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classLevelID_MetaData[] = {
-		{ "Category", "ClassData" },
-		{ "ModuleRelativePath", "Public/CombatClass.h" },
-	};
-#endif
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classLevelID = { "classLevelID", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FClassData, classLevelID), METADATA_PARAMS(Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classLevelID_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classLevelID_MetaData)) };
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FClassData_Statics::NewProp_expToNextClassLevel_MetaData[] = {
 		{ "Category", "ClassData" },
 		{ "ModuleRelativePath", "Public/CombatClass.h" },
 	};
 #endif
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FClassData_Statics::NewProp_expToNextClassLevel = { "expToNextClassLevel", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FClassData, expToNextClassLevel), METADATA_PARAMS(Z_Construct_UScriptStruct_FClassData_Statics::NewProp_expToNextClassLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FClassData_Statics::NewProp_expToNextClassLevel_MetaData)) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FClassData_Statics::NewProp_newlyObtainedSkill_MetaData[] = {
-		{ "Category", "ClassData" },
-		{ "ModuleRelativePath", "Public/CombatClass.h" },
-	};
-#endif
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FClassData_Statics::NewProp_newlyObtainedSkill = { "newlyObtainedSkill", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FClassData, newlyObtainedSkill), METADATA_PARAMS(Z_Construct_UScriptStruct_FClassData_Statics::NewProp_newlyObtainedSkill_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FClassData_Statics::NewProp_newlyObtainedSkill_MetaData)) };
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classSkills_Inner = { "classSkills", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classSkills_MetaData[] = {
-		{ "Category", "ClassData" },
-		{ "ModuleRelativePath", "Public/CombatClass.h" },
-	};
-#endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classSkills = { "classSkills", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FClassData, classSkills), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classSkills_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classSkills_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FClassData_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FClassData_Statics::NewProp_className,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classLevelID,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FClassData_Statics::NewProp_expToNextClassLevel,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FClassData_Statics::NewProp_newlyObtainedSkill,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classSkills_Inner,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FClassData_Statics::NewProp_classSkills,
 	};
 	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FClassData_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
@@ -141,6 +95,189 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FClassData>()
 		}
 		return Z_Registration_Info_UScriptStruct_ClassData.InnerSingleton;
 	}
+
+static_assert(std::is_polymorphic<FCompleteClassData>() == std::is_polymorphic<FTableRowBase>(), "USTRUCT FCompleteClassData cannot be polymorphic unless super FTableRowBase is polymorphic");
+
+	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_CompleteClassData;
+class UScriptStruct* FCompleteClassData::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_CompleteClassData.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_CompleteClassData.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FCompleteClassData, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("CompleteClassData"));
+	}
+	return Z_Registration_Info_UScriptStruct_CompleteClassData.OuterSingleton;
+}
+template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCompleteClassData>()
+{
+	return FCompleteClassData::StaticStruct();
+}
+	struct Z_Construct_UScriptStruct_FCompleteClassData_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_className_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_className;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_classIdentifer_Underlying;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_classIdentifer_MetaData[];
+#endif
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_classIdentifer;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_classLevels_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_classLevels_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_classLevels;
+		static const UECodeGen_Private::FStrPropertyParams NewProp_unlockableSkillByLevel_ValueProp;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_unlockableSkillByLevel_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_unlockableSkillByLevel_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_unlockableSkillByLevel;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_attachedEntityIdentifier_Underlying;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_attachedEntityIdentifier_MetaData[];
+#endif
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_attachedEntityIdentifier;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentLevelClassData_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_currentLevelClassData;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentLevel_MetaData[];
+#endif
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_currentLevel;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_ElementalStrength_Underlying;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ElementalStrength_MetaData[];
+#endif
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_ElementalStrength;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_ElementalWeakness_Underlying;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ElementalWeakness_MetaData[];
+#endif
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_ElementalWeakness;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UECodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCompleteClassData_Statics::Struct_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CombatClass.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FCompleteClassData>();
+	}
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_className_MetaData[] = {
+		{ "Category", "CompleteClassData" },
+		{ "ModuleRelativePath", "Public/CombatClass.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_className = { "className", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCompleteClassData, className), METADATA_PARAMS(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_className_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_className_MetaData)) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_classIdentifer_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_classIdentifer_MetaData[] = {
+		{ "Category", "CompleteClassData" },
+		{ "ModuleRelativePath", "Public/CombatClass.h" },
+	};
+#endif
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_classIdentifer = { "classIdentifer", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCompleteClassData, classIdentifer), Z_Construct_UEnum_DesentIntoAtlantis_EClasses, METADATA_PARAMS(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_classIdentifer_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_classIdentifer_MetaData)) }; // 1578382135
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_classLevels_Inner = { "classLevels", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FClassData, METADATA_PARAMS(nullptr, 0) }; // 1140000353
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_classLevels_MetaData[] = {
+		{ "Category", "CompleteClassData" },
+		{ "ModuleRelativePath", "Public/CombatClass.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_classLevels = { "classLevels", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCompleteClassData, classLevels), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_classLevels_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_classLevels_MetaData)) }; // 1140000353
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_unlockableSkillByLevel_ValueProp = { "unlockableSkillByLevel", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_unlockableSkillByLevel_Key_KeyProp = { "unlockableSkillByLevel_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_unlockableSkillByLevel_MetaData[] = {
+		{ "Category", "CompleteClassData" },
+		{ "ModuleRelativePath", "Public/CombatClass.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_unlockableSkillByLevel = { "unlockableSkillByLevel", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCompleteClassData, unlockableSkillByLevel), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_unlockableSkillByLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_unlockableSkillByLevel_MetaData)) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_attachedEntityIdentifier_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_attachedEntityIdentifier_MetaData[] = {
+		{ "ModuleRelativePath", "Public/CombatClass.h" },
+	};
+#endif
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_attachedEntityIdentifier = { "attachedEntityIdentifier", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCompleteClassData, attachedEntityIdentifier), Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers, METADATA_PARAMS(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_attachedEntityIdentifier_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_attachedEntityIdentifier_MetaData)) }; // 2655185645
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_currentLevelClassData_MetaData[] = {
+		{ "ModuleRelativePath", "Public/CombatClass.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_currentLevelClassData = { "currentLevelClassData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCompleteClassData, currentLevelClassData), Z_Construct_UScriptStruct_FClassData, METADATA_PARAMS(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_currentLevelClassData_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_currentLevelClassData_MetaData)) }; // 1140000353
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_currentLevel_MetaData[] = {
+		{ "ModuleRelativePath", "Public/CombatClass.h" },
+	};
+#endif
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_currentLevel = { "currentLevel", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCompleteClassData, currentLevel), METADATA_PARAMS(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_currentLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_currentLevel_MetaData)) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_ElementalStrength_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_ElementalStrength_MetaData[] = {
+		{ "Category", "CompleteClassData" },
+		{ "ModuleRelativePath", "Public/CombatClass.h" },
+	};
+#endif
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_ElementalStrength = { "ElementalStrength", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCompleteClassData, ElementalStrength), Z_Construct_UEnum_DesentIntoAtlantis_EElementalType, METADATA_PARAMS(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_ElementalStrength_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_ElementalStrength_MetaData)) }; // 928806472
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_ElementalWeakness_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_ElementalWeakness_MetaData[] = {
+		{ "Category", "CompleteClassData" },
+		{ "ModuleRelativePath", "Public/CombatClass.h" },
+	};
+#endif
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_ElementalWeakness = { "ElementalWeakness", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCompleteClassData, ElementalWeakness), Z_Construct_UEnum_DesentIntoAtlantis_EElementalType, METADATA_PARAMS(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_ElementalWeakness_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_ElementalWeakness_MetaData)) }; // 928806472
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FCompleteClassData_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_className,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_classIdentifer_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_classIdentifer,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_classLevels_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_classLevels,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_unlockableSkillByLevel_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_unlockableSkillByLevel_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_unlockableSkillByLevel,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_attachedEntityIdentifier_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_attachedEntityIdentifier,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_currentLevelClassData,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_currentLevel,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_ElementalStrength_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_ElementalStrength,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_ElementalWeakness_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_ElementalWeakness,
+	};
+	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		Z_Construct_UScriptStruct_FTableRowBase,
+		&NewStructOps,
+		"CompleteClassData",
+		sizeof(FCompleteClassData),
+		alignof(FCompleteClassData),
+		Z_Construct_UScriptStruct_FCompleteClassData_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteClassData_Statics::PropPointers),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000211),
+		METADATA_PARAMS(Z_Construct_UScriptStruct_FCompleteClassData_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteClassData_Statics::Struct_MetaDataParams))
+	};
+	UScriptStruct* Z_Construct_UScriptStruct_FCompleteClassData()
+	{
+		if (!Z_Registration_Info_UScriptStruct_CompleteClassData.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_CompleteClassData.InnerSingleton, Z_Construct_UScriptStruct_FCompleteClassData_Statics::ReturnStructParams);
+		}
+		return Z_Registration_Info_UScriptStruct_CompleteClassData.InnerSingleton;
+	}
 	void UCombatClass::StaticRegisterNativesUCombatClass()
 	{
 	}
@@ -160,14 +297,9 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FClassData>()
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_attachedCombatEntity;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentClassLevel_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_completeClassData_MetaData[];
 #endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_currentClassLevel;
-		static const UECodeGen_Private::FStructPropertyParams NewProp_classLevels_Inner;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_classLevels_MetaData[];
-#endif
-		static const UECodeGen_Private::FArrayPropertyParams NewProp_classLevels;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_completeClassData;
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_classSkills_Inner;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_classSkills_MetaData[];
@@ -202,18 +334,11 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FClassData>()
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_attachedCombatEntity = { "attachedCombatEntity", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatClass, attachedCombatEntity), Z_Construct_UClass_UPlayerCombatEntity_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UCombatClass_Statics::NewProp_attachedCombatEntity_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatClass_Statics::NewProp_attachedCombatEntity_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassLevel_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatClass_Statics::NewProp_completeClassData_MetaData[] = {
 		{ "ModuleRelativePath", "Public/CombatClass.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassLevel = { "currentClassLevel", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatClass, currentClassLevel), Z_Construct_UScriptStruct_FClassData, METADATA_PARAMS(Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassLevel_MetaData)) }; // 155088484
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_classLevels_Inner = { "classLevels", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FClassData, METADATA_PARAMS(nullptr, 0) }; // 155088484
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatClass_Statics::NewProp_classLevels_MetaData[] = {
-		{ "ModuleRelativePath", "Public/CombatClass.h" },
-	};
-#endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_classLevels = { "classLevels", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatClass, classLevels), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UCombatClass_Statics::NewProp_classLevels_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatClass_Statics::NewProp_classLevels_MetaData)) }; // 155088484
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_completeClassData = { "completeClassData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatClass, completeClassData), Z_Construct_UScriptStruct_FCompleteClassData, METADATA_PARAMS(Z_Construct_UClass_UCombatClass_Statics::NewProp_completeClassData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatClass_Statics::NewProp_completeClassData_MetaData)) }; // 1458813227
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_classSkills_Inner = { "classSkills", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_USkillBase_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatClass_Statics::NewProp_classSkills_MetaData[] = {
@@ -235,9 +360,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FClassData>()
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassIndex = { "currentClassIndex", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UCombatClass, currentClassIndex), METADATA_PARAMS(Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassIndex_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassIndex_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCombatClass_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatClass_Statics::NewProp_attachedCombatEntity,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatClass_Statics::NewProp_currentClassLevel,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatClass_Statics::NewProp_classLevels_Inner,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatClass_Statics::NewProp_classLevels,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatClass_Statics::NewProp_completeClassData,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatClass_Statics::NewProp_classSkills_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatClass_Statics::NewProp_classSkills,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatClass_Statics::NewProp_skillFactory,
@@ -280,12 +403,13 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FClassData>()
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ScriptStructInfo[] = {
-		{ FClassData::StaticStruct, Z_Construct_UScriptStruct_FClassData_Statics::NewStructOps, TEXT("ClassData"), &Z_Registration_Info_UScriptStruct_ClassData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FClassData), 155088484U) },
+		{ FClassData::StaticStruct, Z_Construct_UScriptStruct_FClassData_Statics::NewStructOps, TEXT("ClassData"), &Z_Registration_Info_UScriptStruct_ClassData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FClassData), 1140000353U) },
+		{ FCompleteClassData::StaticStruct, Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewStructOps, TEXT("CompleteClassData"), &Z_Registration_Info_UScriptStruct_CompleteClassData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCompleteClassData), 1458813227U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCombatClass, UCombatClass::StaticClass, TEXT("UCombatClass"), &Z_Registration_Info_UClass_UCombatClass, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatClass), 1342807467U) },
+		{ Z_Construct_UClass_UCombatClass, UCombatClass::StaticClass, TEXT("UCombatClass"), &Z_Registration_Info_UClass_UCombatClass, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatClass), 4186237795U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h_2531572837(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h_3187174510(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ScriptStructInfo),
 		nullptr, 0);

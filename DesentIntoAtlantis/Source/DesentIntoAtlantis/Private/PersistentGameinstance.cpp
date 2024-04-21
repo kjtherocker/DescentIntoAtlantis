@@ -42,11 +42,11 @@ void UPersistentGameinstance::Init()
 	}
 	
 	if(dataTables.Contains(EDataTableTypes::PlayerCharacters) &&
-	 !dataTablesClasses.IsEmpty())
+	dataTables.Contains(EDataTableTypes::Classes))
 	{
 		if(dataTables[EDataTableTypes::PlayerCharacters] != nullptr)
 		{
-			partyManagerSubsystem->InitializeDataTable(dataTables[EDataTableTypes::PlayerCharacters], dataTablesClasses);
+			partyManagerSubsystem->InitializeDataTable(dataTables[EDataTableTypes::PlayerCharacters], dataTables[EDataTableTypes::Classes]);
 		}
 	}
 
@@ -123,6 +123,8 @@ void UPersistentGameinstance::LoadPreSetLevel()
 void UPersistentGameinstance::LoadSaveDataAndTransitionToMap(FString aLevelName)
 {
 	isGameSaveBeingLoaded = true;
+	USaveGameData* LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
+	partyManagerSubsystem->LoadAndCreateAllPlayerEntitys(LoadedSaveGameObject->playerCompleteDataSet);
 	LoadLevel(aLevelName);
 }
 

@@ -11,7 +11,8 @@ void EmptyLinkFunctionForGeneratedCodeEDataTableTypes() {}
 // Cross Module References
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EDataTableTypes();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
-	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EClasses();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers();
 // End Cross Module References
 	static FEnumRegistrationInfo Z_Registration_Info_UEnum_EDataTableTypes;
 	static UEnum* EDataTableTypes_StaticEnum()
@@ -43,9 +44,11 @@ void EmptyLinkFunctionForGeneratedCodeEDataTableTypes() {}
 		{ "EDataTableTypes::Floor", (int64)EDataTableTypes::Floor },
 		{ "EDataTableTypes::FloorEvent", (int64)EDataTableTypes::FloorEvent },
 		{ "EDataTableTypes::Dialogue", (int64)EDataTableTypes::Dialogue },
+		{ "EDataTableTypes::Classes", (int64)EDataTableTypes::Classes },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EDataTableTypes_Statics::Enum_MetaDataParams[] = {
+		{ "Classes.Name", "EDataTableTypes::Classes" },
 		{ "Dialogue.Name", "EDataTableTypes::Dialogue" },
 		{ "EnemyGroups.Name", "EDataTableTypes::EnemyGroups" },
 		{ "Enemys.Name", "EDataTableTypes::Enemys" },
@@ -77,20 +80,20 @@ void EmptyLinkFunctionForGeneratedCodeEDataTableTypes() {}
 		}
 		return Z_Registration_Info_UEnum_EDataTableTypes.InnerSingleton;
 	}
-	static FEnumRegistrationInfo Z_Registration_Info_UEnum_EDataTableClasses;
-	static UEnum* EDataTableClasses_StaticEnum()
+	static FEnumRegistrationInfo Z_Registration_Info_UEnum_EClasses;
+	static UEnum* EClasses_StaticEnum()
 	{
-		if (!Z_Registration_Info_UEnum_EDataTableClasses.OuterSingleton)
+		if (!Z_Registration_Info_UEnum_EClasses.OuterSingleton)
 		{
-			Z_Registration_Info_UEnum_EDataTableClasses.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("EDataTableClasses"));
+			Z_Registration_Info_UEnum_EClasses.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_DesentIntoAtlantis_EClasses, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("EClasses"));
 		}
-		return Z_Registration_Info_UEnum_EDataTableClasses.OuterSingleton;
+		return Z_Registration_Info_UEnum_EClasses.OuterSingleton;
 	}
-	template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EDataTableClasses>()
+	template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EClasses>()
 	{
-		return EDataTableClasses_StaticEnum();
+		return EClasses_StaticEnum();
 	}
-	struct Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses_Statics
+	struct Z_Construct_UEnum_DesentIntoAtlantis_EClasses_Statics
 	{
 		static const UECodeGen_Private::FEnumeratorParam Enumerators[];
 #if WITH_METADATA
@@ -98,52 +101,111 @@ void EmptyLinkFunctionForGeneratedCodeEDataTableTypes() {}
 #endif
 		static const UECodeGen_Private::FEnumParams EnumParams;
 	};
-	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses_Statics::Enumerators[] = {
-		{ "EDataTableClasses::None", (int64)EDataTableClasses::None },
-		{ "EDataTableClasses::Paladin", (int64)EDataTableClasses::Paladin },
-		{ "EDataTableClasses::DarkKnight", (int64)EDataTableClasses::DarkKnight },
-		{ "EDataTableClasses::Dancer", (int64)EDataTableClasses::Dancer },
-		{ "EDataTableClasses::SoulEater", (int64)EDataTableClasses::SoulEater },
+	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_EClasses_Statics::Enumerators[] = {
+		{ "EClasses::None", (int64)EClasses::None },
+		{ "EClasses::GraveKnight", (int64)EClasses::GraveKnight },
+		{ "EClasses::WaterShaper", (int64)EClasses::WaterShaper },
+		{ "EClasses::Thief", (int64)EClasses::Thief },
+		{ "EClasses::HydroArcher", (int64)EClasses::HydroArcher },
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses_Statics::Enum_MetaDataParams[] = {
-		{ "Dancer.Name", "EDataTableClasses::Dancer" },
-		{ "DarkKnight.Name", "EDataTableClasses::DarkKnight" },
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EClasses_Statics::Enum_MetaDataParams[] = {
+		{ "GraveKnight.Name", "EClasses::GraveKnight" },
+		{ "HydroArcher.Name", "EClasses::HydroArcher" },
 		{ "ModuleRelativePath", "Public/EDataTableTypes.h" },
-		{ "None.Name", "EDataTableClasses::None" },
-		{ "Paladin.Name", "EDataTableClasses::Paladin" },
-		{ "SoulEater.Name", "EDataTableClasses::SoulEater" },
+		{ "None.Name", "EClasses::None" },
+		{ "Thief.Name", "EClasses::Thief" },
+		{ "WaterShaper.Name", "EClasses::WaterShaper" },
 	};
 #endif
-	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses_Statics::EnumParams = {
+	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_DesentIntoAtlantis_EClasses_Statics::EnumParams = {
 		(UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
 		nullptr,
-		"EDataTableClasses",
-		"EDataTableClasses",
-		Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses_Statics::Enumerators,
-		UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses_Statics::Enumerators),
+		"EClasses",
+		"EClasses",
+		Z_Construct_UEnum_DesentIntoAtlantis_EClasses_Statics::Enumerators,
+		UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EClasses_Statics::Enumerators),
 		RF_Public|RF_Transient|RF_MarkAsNative,
 		EEnumFlags::None,
 		(uint8)UEnum::ECppForm::EnumClass,
-		METADATA_PARAMS(Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses_Statics::Enum_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses_Statics::Enum_MetaDataParams))
+		METADATA_PARAMS(Z_Construct_UEnum_DesentIntoAtlantis_EClasses_Statics::Enum_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EClasses_Statics::Enum_MetaDataParams))
 	};
-	UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses()
+	UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EClasses()
 	{
-		if (!Z_Registration_Info_UEnum_EDataTableClasses.InnerSingleton)
+		if (!Z_Registration_Info_UEnum_EClasses.InnerSingleton)
 		{
-			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_EDataTableClasses.InnerSingleton, Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses_Statics::EnumParams);
+			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_EClasses.InnerSingleton, Z_Construct_UEnum_DesentIntoAtlantis_EClasses_Statics::EnumParams);
 		}
-		return Z_Registration_Info_UEnum_EDataTableClasses.InnerSingleton;
+		return Z_Registration_Info_UEnum_EClasses.InnerSingleton;
+	}
+	static FEnumRegistrationInfo Z_Registration_Info_UEnum_EPartyMembers;
+	static UEnum* EPartyMembers_StaticEnum()
+	{
+		if (!Z_Registration_Info_UEnum_EPartyMembers.OuterSingleton)
+		{
+			Z_Registration_Info_UEnum_EPartyMembers.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("EPartyMembers"));
+		}
+		return Z_Registration_Info_UEnum_EPartyMembers.OuterSingleton;
+	}
+	template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EPartyMembers>()
+	{
+		return EPartyMembers_StaticEnum();
+	}
+	struct Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers_Statics
+	{
+		static const UECodeGen_Private::FEnumeratorParam Enumerators[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FEnumParams EnumParams;
+	};
+	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers_Statics::Enumerators[] = {
+		{ "EPartyMembers::None", (int64)EPartyMembers::None },
+		{ "EPartyMembers::Fide", (int64)EPartyMembers::Fide },
+		{ "EPartyMembers::Rain", (int64)EPartyMembers::Rain },
+		{ "EPartyMembers::Fienne", (int64)EPartyMembers::Fienne },
+		{ "EPartyMembers::Gram", (int64)EPartyMembers::Gram },
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers_Statics::Enum_MetaDataParams[] = {
+		{ "Fide.Name", "EPartyMembers::Fide" },
+		{ "Fienne.Name", "EPartyMembers::Fienne" },
+		{ "Gram.Name", "EPartyMembers::Gram" },
+		{ "ModuleRelativePath", "Public/EDataTableTypes.h" },
+		{ "None.Name", "EPartyMembers::None" },
+		{ "Rain.Name", "EPartyMembers::Rain" },
+	};
+#endif
+	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers_Statics::EnumParams = {
+		(UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		nullptr,
+		"EPartyMembers",
+		"EPartyMembers",
+		Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers_Statics::Enumerators,
+		UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers_Statics::Enumerators),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EEnumFlags::None,
+		(uint8)UEnum::ECppForm::EnumClass,
+		METADATA_PARAMS(Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers_Statics::Enum_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers_Statics::Enum_MetaDataParams))
+	};
+	UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers()
+	{
+		if (!Z_Registration_Info_UEnum_EPartyMembers.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_EPartyMembers.InnerSingleton, Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers_Statics::EnumParams);
+		}
+		return Z_Registration_Info_UEnum_EPartyMembers.InnerSingleton;
 	}
 	struct Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EDataTableTypes_h_Statics
 	{
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EDataTableTypes_h_Statics::EnumInfo[] = {
-		{ EDataTableTypes_StaticEnum, TEXT("EDataTableTypes"), &Z_Registration_Info_UEnum_EDataTableTypes, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1451724120U) },
-		{ EDataTableClasses_StaticEnum, TEXT("EDataTableClasses"), &Z_Registration_Info_UEnum_EDataTableClasses, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 916432985U) },
+		{ EDataTableTypes_StaticEnum, TEXT("EDataTableTypes"), &Z_Registration_Info_UEnum_EDataTableTypes, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1504217215U) },
+		{ EClasses_StaticEnum, TEXT("EClasses"), &Z_Registration_Info_UEnum_EClasses, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1578382135U) },
+		{ EPartyMembers_StaticEnum, TEXT("EPartyMembers"), &Z_Registration_Info_UEnum_EPartyMembers, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2655185645U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EDataTableTypes_h_939355717(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EDataTableTypes_h_3726918360(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EDataTableTypes_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EDataTableTypes_h_Statics::EnumInfo));

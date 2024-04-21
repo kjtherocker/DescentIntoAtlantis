@@ -34,13 +34,13 @@ void UGameManager::StartGame()
 		//UDialogueView* DialogueView  = (UDialogueView*)gameModeBase->InGameHUD->PushAndGetView(EViews::Dialogue,EUiType::ActiveUi);
 		//DialogueView->SetDialogueData(EDialogueTriggers::StartGame);
 	}
-	gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::Paladin);
-	if(UGameSettings::DEBUG_MODE)
-	{
-		gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::Dancer);
-		gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::SoulEater);
-		gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::DarkKnight);
-	}
+	//gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::Paladin);
+	//if(UGameSettings::DEBUG_MODE)
+	//{
+	//	gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::Dancer);
+	//	gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::SoulEater);
+	//	gameModeBase->partyManager->AddPlayerToActiveParty(EDataTableClasses::DarkKnight);
+	//}
 
 ///	gameModeBase->LoadLevel(TEXT("Floor1"));
 }

@@ -39,12 +39,13 @@ void AMainMenuGameMode::StartGame()
 
 	// Cast the game instance to your custom game instance class
 	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>(GameInstance);
+	partyManager->AddPlayerToActiveParty(EPartyMembers::Fide);
 	
 	if (persistentGameInstance)
 	{
 		persistentGameInstance->LoadLevel(TEXT("Floor1"));
 	}
 
-
+	
 	
 }

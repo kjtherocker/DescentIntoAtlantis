@@ -65,6 +65,7 @@ void UTitleView::StartGame()
 {
 	InGameHUD->PopMostRecentActiveView();
 	startGameDelegate.Broadcast();
+	
 }
 
 void UTitleView::LoadGame()

@@ -12,9 +12,11 @@ void EmptyLinkFunctionForGeneratedCodePlayerCombatEntity() {}
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FPlayerIdentityData();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
-	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EClasses();
 	ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FPlayerCompleteDataSet();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCompleteClassData();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FClassData();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UPlayerCombatEntity_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UPlayerCombatEntity();
@@ -45,11 +47,16 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FPlayerIdentityDat
 		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
 #endif
 		static void* NewStructOps();
-		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_DataTableClass_Underlying;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_characterIdentifier_Underlying;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_DataTableClass_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_characterIdentifier_MetaData[];
 #endif
-		static const UECodeGen_Private::FEnumPropertyParams NewProp_DataTableClass;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_characterIdentifier;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_initalClass_Underlying;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_initalClass_MetaData[];
+#endif
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_initalClass;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_characterName_MetaData[];
 #endif
@@ -79,14 +86,22 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FPlayerIdentityDat
 	{
 		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FPlayerIdentityData>();
 	}
-	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_DataTableClass_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_characterIdentifier_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_DataTableClass_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_characterIdentifier_MetaData[] = {
 		{ "Category", "PlayerIdentityData" },
 		{ "ModuleRelativePath", "Public/PlayerCombatEntity.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_DataTableClass = { "DataTableClass", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FPlayerIdentityData, DataTableClass), Z_Construct_UEnum_DesentIntoAtlantis_EDataTableClasses, METADATA_PARAMS(Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_DataTableClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_DataTableClass_MetaData)) }; // 916432985
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_characterIdentifier = { "characterIdentifier", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FPlayerIdentityData, characterIdentifier), Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers, METADATA_PARAMS(Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_characterIdentifier_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_characterIdentifier_MetaData)) }; // 2655185645
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_initalClass_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_initalClass_MetaData[] = {
+		{ "Category", "PlayerIdentityData" },
+		{ "ModuleRelativePath", "Public/PlayerCombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_initalClass = { "initalClass", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FPlayerIdentityData, initalClass), Z_Construct_UEnum_DesentIntoAtlantis_EClasses, METADATA_PARAMS(Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_initalClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_initalClass_MetaData)) }; // 1578382135
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_characterName_MetaData[] = {
 		{ "Category", "PlayerIdentityData" },
@@ -116,8 +131,10 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FPlayerIdentityDat
 #endif
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_initialLevel = { "initialLevel", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FPlayerIdentityData, initialLevel), METADATA_PARAMS(Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_initialLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_initialLevel_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_DataTableClass_Underlying,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_DataTableClass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_characterIdentifier_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_characterIdentifier,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_initalClass_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_initalClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_characterName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_characterPortrait,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewProp_fullBodyCharacterPortrait,
@@ -164,13 +181,22 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FPlayerCompleteDat
 #endif
 		static void* NewStructOps();
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_playerEntityData_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_playerIdentityData_MetaData[];
 #endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_playerEntityData;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_playerIdentityData;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_playerClassData_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mainClass_MetaData[];
 #endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_playerClassData;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_mainClass;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentMainClassLevel_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_currentMainClassLevel;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_unlockedPlayerClasses_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_unlockedPlayerClasses_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_unlockedPlayerClasses;
 		static const UECodeGen_Private::FStrPropertyParams NewProp_skillSlots_Inner;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_skillSlots_MetaData[];
@@ -197,17 +223,30 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FPlayerCompleteDat
 		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FPlayerCompleteDataSet>();
 	}
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_playerEntityData_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_playerIdentityData_MetaData[] = {
 		{ "ModuleRelativePath", "Public/PlayerCombatEntity.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_playerEntityData = { "playerEntityData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FPlayerCompleteDataSet, playerEntityData), Z_Construct_UScriptStruct_FPlayerIdentityData, METADATA_PARAMS(Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_playerEntityData_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_playerEntityData_MetaData)) }; // 928835577
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_playerIdentityData = { "playerIdentityData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FPlayerCompleteDataSet, playerIdentityData), Z_Construct_UScriptStruct_FPlayerIdentityData, METADATA_PARAMS(Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_playerIdentityData_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_playerIdentityData_MetaData)) }; // 3872126719
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_playerClassData_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_mainClass_MetaData[] = {
 		{ "ModuleRelativePath", "Public/PlayerCombatEntity.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_playerClassData = { "playerClassData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FPlayerCompleteDataSet, playerClassData), Z_Construct_UScriptStruct_FClassData, METADATA_PARAMS(Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_playerClassData_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_playerClassData_MetaData)) }; // 155088484
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_mainClass = { "mainClass", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FPlayerCompleteDataSet, mainClass), Z_Construct_UScriptStruct_FCompleteClassData, METADATA_PARAMS(Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_mainClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_mainClass_MetaData)) }; // 1458813227
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_currentMainClassLevel_MetaData[] = {
+		{ "ModuleRelativePath", "Public/PlayerCombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_currentMainClassLevel = { "currentMainClassLevel", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FPlayerCompleteDataSet, currentMainClassLevel), Z_Construct_UScriptStruct_FClassData, METADATA_PARAMS(Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_currentMainClassLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_currentMainClassLevel_MetaData)) }; // 1140000353
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_unlockedPlayerClasses_Inner = { "unlockedPlayerClasses", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FCompleteClassData, METADATA_PARAMS(nullptr, 0) }; // 1458813227
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_unlockedPlayerClasses_MetaData[] = {
+		{ "ModuleRelativePath", "Public/PlayerCombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_unlockedPlayerClasses = { "unlockedPlayerClasses", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FPlayerCompleteDataSet, unlockedPlayerClasses), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_unlockedPlayerClasses_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_unlockedPlayerClasses_MetaData)) }; // 1458813227
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_skillSlots_Inner = { "skillSlots", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_skillSlots_MetaData[] = {
@@ -228,8 +267,11 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FPlayerCompleteDat
 #endif
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_currentMP = { "currentMP", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FPlayerCompleteDataSet, currentMP), METADATA_PARAMS(Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_currentMP_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_currentMP_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_playerEntityData,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_playerClassData,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_playerIdentityData,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_mainClass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_currentMainClassLevel,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_unlockedPlayerClasses_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_unlockedPlayerClasses,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_skillSlots_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_skillSlots,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewProp_currentHP,
@@ -275,9 +317,16 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FPlayerCompleteDat
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_skillFactory;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_baseClass_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mainClass_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_baseClass;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_mainClass;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_unlockedClasses_ValueProp;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_unlockedClasses_Key_KeyProp_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_unlockedClasses_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_unlockedClasses_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_unlockedClasses;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_playerCompleteDataSet_MetaData[];
 #endif
@@ -311,23 +360,32 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FPlayerCompleteDat
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_skillFactory = { "skillFactory", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerCombatEntity, skillFactory), Z_Construct_UClass_USkillFactorySubsystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_skillFactory_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_skillFactory_MetaData)) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_baseClass_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_mainClass_MetaData[] = {
 		{ "ModuleRelativePath", "Public/PlayerCombatEntity.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_baseClass = { "baseClass", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerCombatEntity, baseClass), Z_Construct_UClass_UCombatClass_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_baseClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_baseClass_MetaData)) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_mainClass = { "mainClass", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerCombatEntity, mainClass), Z_Construct_UClass_UCombatClass_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_mainClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_mainClass_MetaData)) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_unlockedClasses_ValueProp = { "unlockedClasses", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_UCombatClass_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_unlockedClasses_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_unlockedClasses_Key_KeyProp = { "unlockedClasses_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EClasses, METADATA_PARAMS(nullptr, 0) }; // 1578382135
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_unlockedClasses_MetaData[] = {
+		{ "ModuleRelativePath", "Public/PlayerCombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_unlockedClasses = { "unlockedClasses", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerCombatEntity, unlockedClasses), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_unlockedClasses_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_unlockedClasses_MetaData)) }; // 1578382135
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_playerCompleteDataSet_MetaData[] = {
 		{ "ModuleRelativePath", "Public/PlayerCombatEntity.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_playerCompleteDataSet = { "playerCompleteDataSet", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerCombatEntity, playerCompleteDataSet), Z_Construct_UScriptStruct_FPlayerCompleteDataSet, METADATA_PARAMS(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_playerCompleteDataSet_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_playerCompleteDataSet_MetaData)) }; // 1697093680
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_playerCompleteDataSet = { "playerCompleteDataSet", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerCombatEntity, playerCompleteDataSet), Z_Construct_UScriptStruct_FPlayerCompleteDataSet, METADATA_PARAMS(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_playerCompleteDataSet_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_playerCompleteDataSet_MetaData)) }; // 1389956930
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_playerEntityData_MetaData[] = {
 		{ "ModuleRelativePath", "Public/PlayerCombatEntity.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_playerEntityData = { "playerEntityData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerCombatEntity, playerEntityData), Z_Construct_UScriptStruct_FPlayerIdentityData, METADATA_PARAMS(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_playerEntityData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_playerEntityData_MetaData)) }; // 928835577
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_playerEntityData = { "playerEntityData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerCombatEntity, playerEntityData), Z_Construct_UScriptStruct_FPlayerIdentityData, METADATA_PARAMS(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_playerEntityData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_playerEntityData_MetaData)) }; // 3872126719
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_partyHealthbarElement_MetaData[] = {
 		{ "EditInline", "true" },
@@ -337,7 +395,11 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FPlayerCompleteDat
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_partyHealthbarElement = { "partyHealthbarElement", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPlayerCombatEntity, partyHealthbarElement), Z_Construct_UClass_UPartyHealthbarElement_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_partyHealthbarElement_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_partyHealthbarElement_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UPlayerCombatEntity_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_skillFactory,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_baseClass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_mainClass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_unlockedClasses_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_unlockedClasses_Key_KeyProp_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_unlockedClasses_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_unlockedClasses,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_playerCompleteDataSet,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_playerEntityData,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPlayerCombatEntity_Statics::NewProp_partyHealthbarElement,
@@ -379,13 +441,13 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FPlayerCompleteDat
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_Statics::ScriptStructInfo[] = {
-		{ FPlayerIdentityData::StaticStruct, Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewStructOps, TEXT("PlayerIdentityData"), &Z_Registration_Info_UScriptStruct_PlayerIdentityData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FPlayerIdentityData), 928835577U) },
-		{ FPlayerCompleteDataSet::StaticStruct, Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewStructOps, TEXT("PlayerCompleteDataSet"), &Z_Registration_Info_UScriptStruct_PlayerCompleteDataSet, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FPlayerCompleteDataSet), 1697093680U) },
+		{ FPlayerIdentityData::StaticStruct, Z_Construct_UScriptStruct_FPlayerIdentityData_Statics::NewStructOps, TEXT("PlayerIdentityData"), &Z_Registration_Info_UScriptStruct_PlayerIdentityData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FPlayerIdentityData), 3872126719U) },
+		{ FPlayerCompleteDataSet::StaticStruct, Z_Construct_UScriptStruct_FPlayerCompleteDataSet_Statics::NewStructOps, TEXT("PlayerCompleteDataSet"), &Z_Registration_Info_UScriptStruct_PlayerCompleteDataSet, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FPlayerCompleteDataSet), 1389956930U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPlayerCombatEntity, UPlayerCombatEntity::StaticClass, TEXT("UPlayerCombatEntity"), &Z_Registration_Info_UClass_UPlayerCombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerCombatEntity), 2107284703U) },
+		{ Z_Construct_UClass_UPlayerCombatEntity, UPlayerCombatEntity::StaticClass, TEXT("UPlayerCombatEntity"), &Z_Registration_Info_UClass_UPlayerCombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerCombatEntity), 4121227761U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_2306245282(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_2576265773(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PlayerCombatEntity_h_Statics::ScriptStructInfo),
 		nullptr, 0);

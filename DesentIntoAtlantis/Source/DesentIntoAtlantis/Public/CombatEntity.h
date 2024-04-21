@@ -58,12 +58,6 @@ struct DESENTINTOATLANTIS_API FCombatEntityData :public  FTableRowBase
 
 	UPROPERTY( EditAnywhere )
 	int baseResistance;
-
-	UPROPERTY( EditAnywhere )
-	EElementalType ElementalStrength;
-	
-	UPROPERTY( EditAnywhere )
-	EElementalType ElementalWeakness;
 	
 };
 
@@ -196,9 +190,9 @@ public:
 	bool GetIsMarkedForDeath();
 
 	
-	EElementalType ElementalStrength;
+	EElementalType elementalStrength;
 	
-	EElementalType ElementalWeakness;
+	EElementalType elementalWeakness;
 	
 	ECharactertype characterType;
 	

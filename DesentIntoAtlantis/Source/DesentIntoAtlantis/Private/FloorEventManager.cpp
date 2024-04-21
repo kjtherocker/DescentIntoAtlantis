@@ -90,7 +90,7 @@ void UFloorEventManager::TriggerNextFloorEventStep(EFloorEventStates aFloorEvent
 		}
 	case EFloorEventStates::Completed: 
 		{
-			if(currentEvent.partyMemberGainedOnEnd != EDataTableClasses::None )
+			if(currentEvent.partyMemberGainedOnEnd != EPartyMembers::None )
 			{
 				gameModeBase->partyManager->AddPlayerToActiveParty(currentEvent.partyMemberGainedOnEnd);
 			}
@@ -162,7 +162,7 @@ void UFloorEventManager::TriggerLevelupMenu(EFloorEventStates aTriggerOnEnd)
 	TArray<UPlayerCombatEntity*> partyMembersInCombat = combatManager->GetPlayersInCombat();
 	for(int i = 0 ; i < partyMembersInCombat.Num();i++)
 	{
-		if(partyMembersInCombat[i]->baseClass->AddExperience( combatManager->GetEXP()))
+		if(partyMembersInCombat[i]->mainClass->AddExperience( combatManager->GetEXP()))
 		{
 			combatEntitysToLevelup.Add(partyMembersInCombat[i]);
 		}
