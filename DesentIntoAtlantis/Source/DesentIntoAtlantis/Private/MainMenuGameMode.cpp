@@ -35,10 +35,6 @@ void AMainMenuGameMode::CreateMainMenu()
 
 void AMainMenuGameMode::StartGame()
 {
-	UGameInstance* GameInstance = GetGameInstance();
-
-	// Cast the game instance to your custom game instance class
-	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>(GameInstance);
 	partyManager->AddPlayerToActiveParty(EPartyMembers::Fide);
 	
 	if (persistentGameInstance)

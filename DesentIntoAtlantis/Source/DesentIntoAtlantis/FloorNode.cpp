@@ -1,6 +1,6 @@
 #include "FloorNode.h"
 
-#include "CombatManager.h"
+#include "CombatGameModeBase.h"
 #include "FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 

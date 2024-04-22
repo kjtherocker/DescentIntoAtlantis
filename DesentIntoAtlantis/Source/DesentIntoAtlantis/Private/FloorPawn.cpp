@@ -3,7 +3,7 @@
 
 #include "FloorPawn.h"
 
-#include "CombatManager.h"
+#include "CombatGameModeBase.h"
 #include "InGameHUD.h"
 #include "PersistentGameinstance.h"
 #include "SaveGameData.h"

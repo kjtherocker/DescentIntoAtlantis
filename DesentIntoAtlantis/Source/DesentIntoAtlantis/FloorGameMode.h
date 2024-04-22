@@ -17,10 +17,10 @@
 
 class UGameManager;
 class ASoundManager;
-class UFloorEventManager;
+class UEventManagerSubSystem;
 class UTutorialManagerSubsystem;
 class AInGameHUD;
-class UCombatManager;
+class ACombatGameModeBase;
 
 /**
  * 

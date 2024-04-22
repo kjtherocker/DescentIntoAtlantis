@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
+#include "CombatGameModeBase.h"
 #include "Components/Image.h"
 #include "EnemyPortraits.generated.h"
 
@@ -36,6 +37,8 @@ public:
 	TMap<EEnemyCombatPositions,UEnemyPortraitElement*> Portraits;
 	
 	void SetEnemyPortraits(UEnemyPortraitElement* aImage , UEnemyCombatEntity* AEnemyCombatEntity);
+
+	void InitializePortraits(ACombatGameModeBase* aCombatGameModeBase);
 	
 	
 	

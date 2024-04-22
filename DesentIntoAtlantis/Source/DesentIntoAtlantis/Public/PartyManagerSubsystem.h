@@ -12,7 +12,7 @@
 #include "PartyManagerSubsystem.generated.h"
 
 class UPersistentGameinstance;
-class UCombatManager;
+class ACombatGameModeBase;
 struct FPlayerIdentityData;
 enum class EClasses;
 class UPlayerCombatEntity;

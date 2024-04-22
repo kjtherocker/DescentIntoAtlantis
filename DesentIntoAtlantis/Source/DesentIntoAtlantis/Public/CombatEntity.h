@@ -11,7 +11,7 @@
 #include "CombatEntity.generated.h"
 
 struct FSkillsData;
-class UCombatManager;
+class ACombatGameModeBase;
 class UEnemyPortraitElement;
 class USkillFactorySubsystem;
 /**
@@ -161,7 +161,7 @@ public:
 	FHasHealthOrManaValuesChanged     hasHealthOrManaValuesChanged;
 	virtual void SetTacticsEntity(USkillFactorySubsystem*  aSkillFactory);
 	
-	virtual void SetTacticsEvents(UCombatManager* aCombatManager);
+	virtual void SetTacticsEvents(ACombatGameModeBase* aCombatManager);
 
 	UFUNCTION()
 	virtual void EndTurn();

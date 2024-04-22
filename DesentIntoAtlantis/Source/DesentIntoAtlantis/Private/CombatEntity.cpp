@@ -1,6 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "CombatEntity.h"
-#include "CombatManager.h"
+#include "CombatGameModeBase.h"
 #include "SkillFactorySubsystem.h"
 #include "SkillsData.h"
 
@@ -19,7 +19,7 @@ void UCombatEntity::SetTacticsEntity(USkillFactorySubsystem* aSkillFactory)
     
 }
 
-void UCombatEntity::SetTacticsEvents(UCombatManager* aCombatManager)
+void UCombatEntity::SetTacticsEvents(ACombatGameModeBase* aCombatManager)
 {
     aCombatManager->OnRoundEndDelegate.AddDynamic(this,&UCombatEntity::EndTurn);
 }

@@ -17,10 +17,10 @@
 
 class UGameManager;
 class ASoundManager;
-class UFloorEventManager;
+class UEventManagerSubSystem;
 class UTutorialManagerSubsystem;
 class AInGameHUD;
-class UCombatManager;
+class ACombatGameModeBase;
 
 /**
  * 
@@ -59,7 +59,7 @@ public:
 	UPROPERTY()
 	UFloorFactory*      floorFactory;
 	UPROPERTY()
-	UFloorEventManager* floorEventManager;
+	UEventManagerSubSystem* floorEventManager;
 	
 
 	UPROPERTY(EditAnywhere)
@@ -78,7 +78,7 @@ public:
 	UPROPERTY()  
 	UPartyManagerSubsystem*      partyManager;
 	UPROPERTY()  
-	UCombatManager*     combatManager;
+	ACombatGameModeBase*     combatManager;
 	UPROPERTY()  
 	AInGameHUD*         InGameHUD;
 	UPROPERTY()
@@ -86,5 +86,8 @@ public:
 
 	UPROPERTY()
 	UDialogueFactorySubsystem*   dialogueFactory;
-	
+protected:
+
+	UPersistentGameinstance* persistentGameInstance;
+
 };

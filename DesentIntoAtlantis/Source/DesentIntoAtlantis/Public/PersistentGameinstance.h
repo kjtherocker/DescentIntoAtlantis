@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "EventManagerSubSystem.h"
 
 #include "Engine/GameInstance.h"
 #include "PersistentGameinstance.generated.h"
@@ -50,10 +51,16 @@ public:
 	UFUNCTION()
 	void LoadSaveDataAndTransitionToMap(FString aLevelName);
 
+	UFUNCTION()
+	void LoadCombatLevel(FString aEnemyGroupName,ECombatArena aCombatArena);
+
 	
 	void GetCurrentLevelName(FString aLevelName);
 
 	bool ConsumeGameSaveLoadingFlag();
+	FCombatArenaData ConsumeArenaDataFlag();
+
+	
 	
 	UPROPERTY(EditAnywhere, Category = "Data")
 	TMap<EDataTableTypes,UDataTable*> dataTables;
@@ -63,24 +70,30 @@ public:
 	TMap<ESkillType,UDataTable*> dataTablesSkills;
 
 	UPROPERTY()
-	UPartyManagerSubsystem* partyManagerSubsystem;
+	UPartyManagerSubsystem*    partyManagerSubsystem;
 	UPROPERTY()
-	USkillFactorySubsystem* skillFactorySubsystem;
+	USkillFactorySubsystem*    skillFactorySubsystem;
 	UPROPERTY()
-	UEnemyFactorySubSystem* enemyFactorySubSystem;
+	UEnemyFactorySubSystem*    enemyFactorySubSystem;
 	UPROPERTY()
 	UTutorialManagerSubsystem* tutorialManagerSubsystem;
 	UPROPERTY()
 	UDialogueFactorySubsystem* dialogueManagerSubsystem;
+	UPROPERTY()
+	UEventManagerSubSystem*    EventManagerSubSystem;
 
+	
+	UPROPERTY()
+	UFloorFactory*      floorFactory;
+	
 	UPROPERTY()
 	USaveGameData* SessionSaveGameObject;
 
 private:
-
+	FCombatArenaData aCombatArenaData;
 	bool isGameSaveBeingLoaded;
 	FString currentLevelName;
 	FString preSetLevelName;
-
+	
 	
 };

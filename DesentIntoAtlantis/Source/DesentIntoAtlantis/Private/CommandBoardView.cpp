@@ -4,7 +4,7 @@
 #include "CommandBoardView.h"
 
 #include "CombatEntity.h"
-#include "CombatManager.h"
+#include "CombatGameModeBase.h"
 #include "CombatSelectionView.h"
 #include "EngineUtils.h"
 #include "GameManager.h"
@@ -23,7 +23,12 @@ void UCommandBoardView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &UCommandBoardView::MoveDown  );
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UCommandBoardView::ActivateCommandboardFunction  );
 	
-	combatManager =  gameModeBase->combatManager;
+	
+}
+
+void UCommandBoardView::SetCommandBoard(ACombatGameModeBase* aCombatGameModeBase)
+{
+	combatManager =  aCombatGameModeBase;
 	currentActivePartyMember = combatManager->GetCurrentActivePartyMember();
 	defaultAttack = static_cast<USkillAttack*>(gameModeBase->skillFactory->GetSkill("DefaultAttack"));
 	BW_FullBodyPortrait->SetBrushFromTexture(currentActivePartyMember->playerIdentityData.fullBodyCharacterPortrait);
@@ -91,7 +96,8 @@ void UCommandBoardView::ActivateCommandboardFunction()
 void UCommandBoardView::Attack()
 {
 	InGameHUD->PopMostRecentActiveView();
-	UCombatSelectionView* SelectionView = (UCombatSelectionView*)InGameHUD->PushAndGetView(EViews::CombatSelection,EUiType::ActiveUi);
+	UCombatSelectionView* SelectionView = (UCombatSelectionView*)InGameHUD->PushAndGetView(EViews::CombatSelection,  EUiType::ActiveUi);
+	SelectionView->SetCombatGameMode(combatManager);
 	SelectionView->SetSkill(defaultAttack);
 }
 

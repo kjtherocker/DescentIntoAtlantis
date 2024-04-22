@@ -2,7 +2,7 @@
 
 
 #include "PlayerCombatEntity.h"
-#include "CombatManager.h"
+#include "CombatGameModeBase.h"
 #include "PartyHealthbarElement.h"
 #include "PersistentGameinstance.h"
 #include "SaveGameData.h"

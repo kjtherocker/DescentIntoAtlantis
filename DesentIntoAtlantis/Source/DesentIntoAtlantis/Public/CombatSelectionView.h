@@ -10,7 +10,7 @@
 #include "CombatSelectionView.generated.h"
 
 class UPlayerCombatEntity;
-class UCombatManager;
+class ACombatGameModeBase;
 /**
  * 
  */
@@ -21,7 +21,7 @@ class DESENTINTOATLANTIS_API UCombatSelectionView : public UBaseUserWidget
 
 private:
 	UPROPERTY()
-	UCombatManager* combatManager;
+	ACombatGameModeBase* combatManager;
 	UPROPERTY()
 	USkillBase* currentSkill;
 
@@ -37,6 +37,7 @@ public:
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 
 	void InitializeEnemySelectionElements(TArray<UEnemyCombatEntity*> aEnemysInCombat);
+	void SetCombatGameMode(ACombatGameModeBase* aCombatGameMode);
 	void SetSkill(USkillBase* aSkill);
 	virtual void ReturnToPreviousScreen() override;
 	void ActivateSkill();

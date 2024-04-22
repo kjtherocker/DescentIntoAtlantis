@@ -3,7 +3,7 @@
 
 #include "CombatSelectionView.h"
 
-#include "CombatManager.h"
+#include "CombatGameModeBase.h"
 #include "PartyHealthbarElement.h"
 #include "Components/TextBlock.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
@@ -27,10 +27,12 @@ void UCombatSelectionView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 		enemyUiElement.Value->SetRenderOpacity(NO_OPACITY);
 	}
 	
-	
-	combatManager =  gameModeBase->combatManager;
+}
+
+void UCombatSelectionView::SetCombatGameMode(ACombatGameModeBase* aCombatGameMode)
+{
+	combatManager = aCombatGameMode;
 	enemysInCombat = combatManager->GetEnemysInCombat();
-	
 }
 
 void UCombatSelectionView::ActivateSkill()

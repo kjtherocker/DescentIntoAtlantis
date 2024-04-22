@@ -15,6 +15,7 @@
 #include "FloorManager.generated.h"
 
 
+class UEventManagerSubSystem;
 struct FSkillsData;
 UCLASS()
 class DESENTINTOATLANTIS_API AFloorManager : public AActor
@@ -24,12 +25,12 @@ class DESENTINTOATLANTIS_API AFloorManager : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AFloorManager();
-	void Initialize(AAtlantisGameModeBase* aGameModeBase,UFloorEventManager* aFloorEventManager);
+	void Initialize(AAtlantisGameModeBase* aGameModeBase,UEventManagerSubSystem* aFloorEventManager);
 	
 	void CreateGrid(UFloorBase* aFloor);
 	void CreateFloor(EFloorIdentifier aFloorIdentifier,bool aWillPlayerStartAtEntrance);
 	void SpawnFloorNode(int aRow, int aColumn,int aIndex);
-	void SpawnFloorEnemyPawn(FVector2D aPositionInGrid);
+	void SpawnFloorEventTriggers(FVector2D aPositionInGrid);
 	void SpawnFloor(UFloorBase* aFloorBase);
 	void PlacePlayerFloorPawn(FVector2D aStartPositionInGrid);
 	void MovePlayerToPreviousNode();
@@ -47,6 +48,9 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	UPROPERTY()
+	UEventManagerSubSystem* eventManagerSubSystem;
 	
 	UPROPERTY()
 	TMap<EFloorIdentifier,UFloorBase*> floorDictionary;
@@ -64,7 +68,7 @@ private:
 
 	void PlacePlayerAtFloorStartingNode();
 	UPROPERTY()
-	UFloorEventManager* floorEventManager;
+	UEventManagerSubSystem* floorEventManager;
 	AAtlantisGameModeBase* gameModeBase;
 public:	
 	// Called every frame

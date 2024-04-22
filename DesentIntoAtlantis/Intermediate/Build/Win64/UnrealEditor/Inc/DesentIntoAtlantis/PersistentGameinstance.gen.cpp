@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UPersistentGameinstance();
 	ENGINE_API UClass* Z_Construct_UClass_UGameInstance();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloorPawn_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UDataTable_NoRegister();
@@ -24,8 +25,19 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEnemyFactorySubSystem_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UTutorialManagerSubsystem_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UDialogueFactorySubsystem_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEventManagerSubSystem_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UFloorFactory_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USaveGameData_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(UPersistentGameinstance::execLoadCombatLevel)
+	{
+		P_GET_PROPERTY(FStrProperty,Z_Param_aEnemyGroupName);
+		P_GET_ENUM(ECombatArena,Z_Param_aCombatArena);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->LoadCombatLevel(Z_Param_aEnemyGroupName,ECombatArena(Z_Param_aCombatArena));
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UPersistentGameinstance::execLoadSaveDataAndTransitionToMap)
 	{
 		P_GET_PROPERTY(FStrProperty,Z_Param_aLevelName);
@@ -83,6 +95,7 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 	{
 		UClass* Class = UPersistentGameinstance::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "LoadCombatLevel", &UPersistentGameinstance::execLoadCombatLevel },
 			{ "LoadFloorPawnPosition", &UPersistentGameinstance::execLoadFloorPawnPosition },
 			{ "LoadLevel", &UPersistentGameinstance::execLoadLevel },
 			{ "LoadPreSetLevel", &UPersistentGameinstance::execLoadPreSetLevel },
@@ -92,6 +105,45 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 			{ "UnloadLevel", &UPersistentGameinstance::execUnloadLevel },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel_Statics
+	{
+		struct PersistentGameinstance_eventLoadCombatLevel_Parms
+		{
+			FString aEnemyGroupName;
+			ECombatArena aCombatArena;
+		};
+		static const UECodeGen_Private::FStrPropertyParams NewProp_aEnemyGroupName;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_aCombatArena_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_aCombatArena;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel_Statics::NewProp_aEnemyGroupName = { "aEnemyGroupName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(PersistentGameinstance_eventLoadCombatLevel_Parms, aEnemyGroupName), METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel_Statics::NewProp_aCombatArena_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel_Statics::NewProp_aCombatArena = { "aCombatArena", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(PersistentGameinstance_eventLoadCombatLevel_Parms, aCombatArena), Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena, METADATA_PARAMS(nullptr, 0) }; // 1257681889
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel_Statics::NewProp_aEnemyGroupName,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel_Statics::NewProp_aCombatArena_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel_Statics::NewProp_aCombatArena,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/PersistentGameinstance.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPersistentGameinstance, nullptr, "LoadCombatLevel", nullptr, nullptr, sizeof(Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel_Statics::PersistentGameinstance_eventLoadCombatLevel_Parms), Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UPersistentGameinstance_LoadFloorPawnPosition_Statics
 	{
@@ -351,6 +403,14 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_dialogueManagerSubsystem;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_EventManagerSubSystem_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_EventManagerSubSystem;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_floorFactory_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_floorFactory;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SessionSaveGameObject_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_SessionSaveGameObject;
@@ -363,6 +423,7 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UPersistentGameinstance_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel, "LoadCombatLevel" }, // 2703588697
 		{ &Z_Construct_UFunction_UPersistentGameinstance_LoadFloorPawnPosition, "LoadFloorPawnPosition" }, // 4266054491
 		{ &Z_Construct_UFunction_UPersistentGameinstance_LoadLevel, "LoadLevel" }, // 1981422177
 		{ &Z_Construct_UFunction_UPersistentGameinstance_LoadPreSetLevel, "LoadPreSetLevel" }, // 1560762952
@@ -439,6 +500,18 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dialogueManagerSubsystem = { "dialogueManagerSubsystem", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPersistentGameinstance, dialogueManagerSubsystem), Z_Construct_UClass_UDialogueFactorySubsystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dialogueManagerSubsystem_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dialogueManagerSubsystem_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_EventManagerSubSystem_MetaData[] = {
+		{ "ModuleRelativePath", "Public/PersistentGameinstance.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_EventManagerSubSystem = { "EventManagerSubSystem", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPersistentGameinstance, EventManagerSubSystem), Z_Construct_UClass_UEventManagerSubSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_EventManagerSubSystem_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_EventManagerSubSystem_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_floorFactory_MetaData[] = {
+		{ "ModuleRelativePath", "Public/PersistentGameinstance.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_floorFactory = { "floorFactory", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UPersistentGameinstance, floorFactory), Z_Construct_UClass_UFloorFactory_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_floorFactory_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_floorFactory_MetaData)) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_SessionSaveGameObject_MetaData[] = {
 		{ "ModuleRelativePath", "Public/PersistentGameinstance.h" },
 	};
@@ -462,6 +535,8 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_enemyFactorySubSystem,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_tutorialManagerSubsystem,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dialogueManagerSubsystem,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_EventManagerSubSystem,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_floorFactory,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_SessionSaveGameObject,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UPersistentGameinstance_Statics::StaticCppClassTypeInfo = {
@@ -500,9 +575,9 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPersistentGameinstance, UPersistentGameinstance::StaticClass, TEXT("UPersistentGameinstance"), &Z_Registration_Info_UClass_UPersistentGameinstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPersistentGameinstance), 769609971U) },
+		{ Z_Construct_UClass_UPersistentGameinstance, UPersistentGameinstance::StaticClass, TEXT("UPersistentGameinstance"), &Z_Registration_Info_UClass_UPersistentGameinstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPersistentGameinstance), 1745083096U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_3915277384(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_753122326(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

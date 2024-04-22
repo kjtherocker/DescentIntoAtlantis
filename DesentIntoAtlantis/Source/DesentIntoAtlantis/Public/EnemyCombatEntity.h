@@ -10,7 +10,7 @@
 class UEnemyBestiaryData;
 class UEnemyBehaviour;
 class UEnemyPortraitElement;
-class UCombatManager;
+class ACombatGameModeBase;
 struct FEnemyEntityData;
 
 UENUM()

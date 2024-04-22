@@ -5,7 +5,7 @@
 #include "EnemyBeastiaryData.h"
 #include "EnemyBehaviour.h"
 #include "EnemyPortraitElement.h"
-#include "CombatManager.h"
+#include "CombatGameModeBase.h"
 #include "SkillFactorySubsystem.h"
 
 void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactorySubsystem * skillFactory,EEnemyCombatPositions aPortraitPosition)

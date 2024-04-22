@@ -12,6 +12,7 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnum() {}
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EFloorEventStates();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EFloorGimmicks();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_FloorEventHasBeenTriggered__DelegateSignature();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_TriggerNextEventStage__DelegateSignature();
@@ -23,6 +24,7 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnum() {}
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FFloorEventData();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EViews();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCombatArenaData();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FTutorialData();
 	ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
 // End Cross Module References
@@ -52,7 +54,7 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnum() {}
 		{ "EFloorEventStates::DialogueOnStart", (int64)EFloorEventStates::DialogueOnStart },
 		{ "EFloorEventStates::TutorialOnStart", (int64)EFloorEventStates::TutorialOnStart },
 		{ "EFloorEventStates::Combat", (int64)EFloorEventStates::Combat },
-		{ "EFloorEventStates::Levelup", (int64)EFloorEventStates::Levelup },
+		{ "EFloorEventStates::PostCombatLevelSwap", (int64)EFloorEventStates::PostCombatLevelSwap },
 		{ "EFloorEventStates::DialogueOnEnd", (int64)EFloorEventStates::DialogueOnEnd },
 		{ "EFloorEventStates::TutorialOnEnd", (int64)EFloorEventStates::TutorialOnEnd },
 		{ "EFloorEventStates::Completed", (int64)EFloorEventStates::Completed },
@@ -63,9 +65,9 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnum() {}
 		{ "Completed.Name", "EFloorEventStates::Completed" },
 		{ "DialogueOnEnd.Name", "EFloorEventStates::DialogueOnEnd" },
 		{ "DialogueOnStart.Name", "EFloorEventStates::DialogueOnStart" },
-		{ "Levelup.Name", "EFloorEventStates::Levelup" },
 		{ "ModuleRelativePath", "Public/FloorEnum.h" },
 		{ "None.Name", "EFloorEventStates::None" },
+		{ "PostCombatLevelSwap.Name", "EFloorEventStates::PostCombatLevelSwap" },
 		{ "TutorialOnEnd.Name", "EFloorEventStates::TutorialOnEnd" },
 		{ "TutorialOnStart.Name", "EFloorEventStates::TutorialOnStart" },
 	};
@@ -152,6 +154,58 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnum() {}
 		}
 		return Z_Registration_Info_UEnum_EFloorGimmicks.InnerSingleton;
 	}
+	static FEnumRegistrationInfo Z_Registration_Info_UEnum_ECombatArena;
+	static UEnum* ECombatArena_StaticEnum()
+	{
+		if (!Z_Registration_Info_UEnum_ECombatArena.OuterSingleton)
+		{
+			Z_Registration_Info_UEnum_ECombatArena.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("ECombatArena"));
+		}
+		return Z_Registration_Info_UEnum_ECombatArena.OuterSingleton;
+	}
+	template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<ECombatArena>()
+	{
+		return ECombatArena_StaticEnum();
+	}
+	struct Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena_Statics
+	{
+		static const UECodeGen_Private::FEnumeratorParam Enumerators[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FEnumParams EnumParams;
+	};
+	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena_Statics::Enumerators[] = {
+		{ "ECombatArena::None", (int64)ECombatArena::None },
+		{ "ECombatArena::Water", (int64)ECombatArena::Water },
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena_Statics::Enum_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+		{ "None.Name", "ECombatArena::None" },
+		{ "Water.Name", "ECombatArena::Water" },
+	};
+#endif
+	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena_Statics::EnumParams = {
+		(UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		nullptr,
+		"ECombatArena",
+		"ECombatArena",
+		Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena_Statics::Enumerators,
+		UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena_Statics::Enumerators),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EEnumFlags::None,
+		(uint8)UEnum::ECppForm::EnumClass,
+		METADATA_PARAMS(Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena_Statics::Enum_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena_Statics::Enum_MetaDataParams))
+	};
+	UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena()
+	{
+		if (!Z_Registration_Info_UEnum_ECombatArena.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_ECombatArena.InnerSingleton, Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena_Statics::EnumParams);
+		}
+		return Z_Registration_Info_UEnum_ECombatArena.InnerSingleton;
+	}
 	struct Z_Construct_UDelegateFunction_DesentIntoAtlantis_FloorEventHasBeenTriggered__DelegateSignature_Statics
 	{
 		struct _Script_DesentIntoAtlantis_eventFloorEventHasBeenTriggered_Parms
@@ -199,7 +253,7 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnum() {}
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_TriggerNextEventStage__DelegateSignature_Statics::NewProp_aFloorEventStates_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_TriggerNextEventStage__DelegateSignature_Statics::NewProp_aFloorEventStates = { "aFloorEventStates", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_DesentIntoAtlantis_eventTriggerNextEventStage_Parms, aFloorEventStates), Z_Construct_UEnum_DesentIntoAtlantis_EFloorEventStates, METADATA_PARAMS(nullptr, 0) }; // 2475026128
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_TriggerNextEventStage__DelegateSignature_Statics::NewProp_aFloorEventStates = { "aFloorEventStates", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(_Script_DesentIntoAtlantis_eventTriggerNextEventStage_Parms, aFloorEventStates), Z_Construct_UEnum_DesentIntoAtlantis_EFloorEventStates, METADATA_PARAMS(nullptr, 0) }; // 2766553892
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_DesentIntoAtlantis_TriggerNextEventStage__DelegateSignature_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_DesentIntoAtlantis_TriggerNextEventStage__DelegateSignature_Statics::NewProp_aFloorEventStates_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_DesentIntoAtlantis_TriggerNextEventStage__DelegateSignature_Statics::NewProp_aFloorEventStates,
@@ -650,6 +704,87 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FFloorEventData>()
 		return Z_Registration_Info_UScriptStruct_FloorEventData.InnerSingleton;
 	}
 
+static_assert(std::is_polymorphic<FCombatArenaData>() == std::is_polymorphic<FTableRowBase>(), "USTRUCT FCombatArenaData cannot be polymorphic unless super FTableRowBase is polymorphic");
+
+	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_CombatArenaData;
+class UScriptStruct* FCombatArenaData::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_CombatArenaData.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_CombatArenaData.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FCombatArenaData, Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("CombatArenaData"));
+	}
+	return Z_Registration_Info_UScriptStruct_CombatArenaData.OuterSingleton;
+}
+template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatArenaData>()
+{
+	return FCombatArenaData::StaticStruct();
+}
+	struct Z_Construct_UScriptStruct_FCombatArenaData_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_levelName_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_levelName;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_enemyGroupName_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_enemyGroupName;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UECodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCombatArenaData_Statics::Struct_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FCombatArenaData_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FCombatArenaData>();
+	}
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCombatArenaData_Statics::NewProp_levelName_MetaData[] = {
+		{ "Category", "CombatArenaData" },
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FCombatArenaData_Statics::NewProp_levelName = { "levelName", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCombatArenaData, levelName), METADATA_PARAMS(Z_Construct_UScriptStruct_FCombatArenaData_Statics::NewProp_levelName_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCombatArenaData_Statics::NewProp_levelName_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCombatArenaData_Statics::NewProp_enemyGroupName_MetaData[] = {
+		{ "Category", "CombatArenaData" },
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FCombatArenaData_Statics::NewProp_enemyGroupName = { "enemyGroupName", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FCombatArenaData, enemyGroupName), METADATA_PARAMS(Z_Construct_UScriptStruct_FCombatArenaData_Statics::NewProp_enemyGroupName_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCombatArenaData_Statics::NewProp_enemyGroupName_MetaData)) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FCombatArenaData_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCombatArenaData_Statics::NewProp_levelName,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCombatArenaData_Statics::NewProp_enemyGroupName,
+	};
+	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FCombatArenaData_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		Z_Construct_UScriptStruct_FTableRowBase,
+		&NewStructOps,
+		"CombatArenaData",
+		sizeof(FCombatArenaData),
+		alignof(FCombatArenaData),
+		Z_Construct_UScriptStruct_FCombatArenaData_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCombatArenaData_Statics::PropPointers),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000201),
+		METADATA_PARAMS(Z_Construct_UScriptStruct_FCombatArenaData_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCombatArenaData_Statics::Struct_MetaDataParams))
+	};
+	UScriptStruct* Z_Construct_UScriptStruct_FCombatArenaData()
+	{
+		if (!Z_Registration_Info_UScriptStruct_CombatArenaData.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_CombatArenaData.InnerSingleton, Z_Construct_UScriptStruct_FCombatArenaData_Statics::ReturnStructParams);
+		}
+		return Z_Registration_Info_UScriptStruct_CombatArenaData.InnerSingleton;
+	}
+
 static_assert(std::is_polymorphic<FTutorialData>() == std::is_polymorphic<FTableRowBase>(), "USTRUCT FTutorialData cannot be polymorphic unless super FTableRowBase is polymorphic");
 
 	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_TutorialData;
@@ -811,17 +946,19 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FTutorialData>()
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::EnumInfo[] = {
-		{ EFloorEventStates_StaticEnum, TEXT("EFloorEventStates"), &Z_Registration_Info_UEnum_EFloorEventStates, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2475026128U) },
+		{ EFloorEventStates_StaticEnum, TEXT("EFloorEventStates"), &Z_Registration_Info_UEnum_EFloorEventStates, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2766553892U) },
 		{ EFloorGimmicks_StaticEnum, TEXT("EFloorGimmicks"), &Z_Registration_Info_UEnum_EFloorGimmicks, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1890970634U) },
+		{ ECombatArena_StaticEnum, TEXT("ECombatArena"), &Z_Registration_Info_UEnum_ECombatArena, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1257681889U) },
 		{ EDialogueTriggers_StaticEnum, TEXT("EDialogueTriggers"), &Z_Registration_Info_UEnum_EDialogueTriggers, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3835709850U) },
 		{ ETutorialTriggers_StaticEnum, TEXT("ETutorialTriggers"), &Z_Registration_Info_UEnum_ETutorialTriggers, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4028792989U) },
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::ScriptStructInfo[] = {
 		{ FFloorData::StaticStruct, Z_Construct_UScriptStruct_FFloorData_Statics::NewStructOps, TEXT("FloorData"), &Z_Registration_Info_UScriptStruct_FloorData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FFloorData), 2424167347U) },
 		{ FFloorEventData::StaticStruct, Z_Construct_UScriptStruct_FFloorEventData_Statics::NewStructOps, TEXT("FloorEventData"), &Z_Registration_Info_UScriptStruct_FloorEventData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FFloorEventData), 847672033U) },
+		{ FCombatArenaData::StaticStruct, Z_Construct_UScriptStruct_FCombatArenaData_Statics::NewStructOps, TEXT("CombatArenaData"), &Z_Registration_Info_UScriptStruct_CombatArenaData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatArenaData), 3365617918U) },
 		{ FTutorialData::StaticStruct, Z_Construct_UScriptStruct_FTutorialData_Statics::NewStructOps, TEXT("TutorialData"), &Z_Registration_Info_UScriptStruct_TutorialData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FTutorialData), 2681244502U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_944713283(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_2578570614(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::EnumInfo));

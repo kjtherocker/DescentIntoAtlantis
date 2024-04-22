@@ -8,7 +8,7 @@
 #include "Blueprint/UserWidget.h"
 #include "CommandBoardView.generated.h"
 
-class UCombatManager;
+class ACombatGameModeBase;
 class UImage;
 class UBorder;
 class UCombatEntity;
@@ -30,9 +30,12 @@ class DESENTINTOATLANTIS_API UCommandBoardView : public UBaseUserWidget
 {
 	GENERATED_BODY()
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
+public:
+	virtual void SetCommandBoard(ACombatGameModeBase* aCombatGameModeBase);
+
 private:
 	UPROPERTY()
-	UCombatManager* combatManager;
+	ACombatGameModeBase* combatManager;
 	TMap<ECommandBoardStates,FViewSelection > commandboardSelections;
 	FViewSelection commandBoardSelectionAttack;
 	FViewSelection commandBoardSelectionSkill;

@@ -8,15 +8,17 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+enum class ECombatArena : int32;
 class AFloorPawn;
 #ifdef DESENTINTOATLANTIS_PersistentGameinstance_generated_h
 #error "PersistentGameinstance.generated.h already included, missing '#pragma once' in PersistentGameinstance.h"
 #endif
 #define DESENTINTOATLANTIS_PersistentGameinstance_generated_h
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_27_SPARSE_DATA
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_27_RPC_WRAPPERS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_28_SPARSE_DATA
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_28_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execLoadCombatLevel); \
 	DECLARE_FUNCTION(execLoadSaveDataAndTransitionToMap); \
 	DECLARE_FUNCTION(execLoadPreSetLevel); \
 	DECLARE_FUNCTION(execLoadFloorPawnPosition); \
@@ -26,8 +28,9 @@ class AFloorPawn;
 	DECLARE_FUNCTION(execUnloadLevel);
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execLoadCombatLevel); \
 	DECLARE_FUNCTION(execLoadSaveDataAndTransitionToMap); \
 	DECLARE_FUNCTION(execLoadPreSetLevel); \
 	DECLARE_FUNCTION(execLoadFloorPawnPosition); \
@@ -37,7 +40,7 @@ class AFloorPawn;
 	DECLARE_FUNCTION(execUnloadLevel);
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_27_INCLASS_NO_PURE_DECLS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_28_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUPersistentGameinstance(); \
 	friend struct Z_Construct_UClass_UPersistentGameinstance_Statics; \
@@ -46,7 +49,7 @@ public: \
 	DECLARE_SERIALIZER(UPersistentGameinstance)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_27_INCLASS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_28_INCLASS \
 private: \
 	static void StaticRegisterNativesUPersistentGameinstance(); \
 	friend struct Z_Construct_UClass_UPersistentGameinstance_Statics; \
@@ -55,7 +58,7 @@ public: \
 	DECLARE_SERIALIZER(UPersistentGameinstance)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_27_STANDARD_CONSTRUCTORS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_28_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UPersistentGameinstance(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UPersistentGameinstance) \
@@ -68,7 +71,7 @@ private: \
 public:
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_27_ENHANCED_CONSTRUCTORS \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_28_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API UPersistentGameinstance(UPersistentGameinstance&&); \
@@ -79,25 +82,25 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UPersistentGameinstance)
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_24_PROLOG
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_27_GENERATED_BODY_LEGACY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_25_PROLOG
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_28_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_27_SPARSE_DATA \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_27_RPC_WRAPPERS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_27_INCLASS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_27_STANDARD_CONSTRUCTORS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_28_SPARSE_DATA \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_28_RPC_WRAPPERS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_28_INCLASS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_28_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_27_GENERATED_BODY \
+#define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_28_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_27_SPARSE_DATA \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_27_INCLASS_NO_PURE_DECLS \
-	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_27_ENHANCED_CONSTRUCTORS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_28_SPARSE_DATA \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_28_INCLASS_NO_PURE_DECLS \
+	FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_28_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

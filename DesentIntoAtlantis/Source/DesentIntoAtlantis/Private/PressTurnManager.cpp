@@ -6,19 +6,20 @@
 #include "CombatEntity.h"
 #include "EnemyCombatEntity.h"
 #include "PlayerCombatEntity.h"
-#include "CombatManager.h"
+#include "CombatGameModeBase.h"
 #include "InGameHUD.h"
 #include "UObject/NoExportTypes.h"
 #include "SkillsData.h"
 #include "SoundManager.h"
+#include "CombatGameModeBase.h"
 #include "TurnCounterView.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 
 
-void UPressTurnManager::Initialize(UCombatManager* aCombatManager, AAtlantisGameModeBase* aGameModeBase)
+void UPressTurnManager::Initialize(ACombatGameModeBase* aCombatManager)
 {
 	combatManager = aCombatManager;
-	gameModeBase = aGameModeBase;
+	gameModeBase = aCombatManager;
 	
 	
 	for(int i = 0 ; i < AMOUNT_OF_PRESSTURNS; i++)

@@ -21,7 +21,7 @@ void AAtlantisGameModeBase::InitializeLevel()
     UGameInstance* GameInstance = GetGameInstance();
 
     // Cast the game instance to your custom game instance class
-    UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>(GameInstance);
+    persistentGameInstance = Cast<UPersistentGameinstance>(GameInstance);
     
     partyManager = persistentGameInstance->partyManagerSubsystem;
     
@@ -29,7 +29,12 @@ void AAtlantisGameModeBase::InitializeLevel()
     
     enemyFactory =  persistentGameInstance->enemyFactorySubSystem;
 
-    
+	floorFactory = persistentGameInstance->floorFactory;
+
+	floorEventManager = persistentGameInstance->EventManagerSubSystem;
+	
+	persistentGameInstance->EventManagerSubSystem->SetDefaultGameMode(this);
+	
     world = GetWorld();
     FVector ActorFinalSpawnPoint;
     FRotator rotator;
@@ -40,10 +45,6 @@ void AAtlantisGameModeBase::InitializeLevel()
     gameSettings = NewObject<UGameSettings>();
     
     soundManager = Cast<ASoundManager>(world->SpawnActor<AActor>(soundManagerReference, FVector(0,0,0), rotator));
-    
-
-    combatManager = NewObject<UCombatManager>();
-    combatManager->Initialize(this,world);
 
 	if(floorPawnReference == nullptr)
 	{

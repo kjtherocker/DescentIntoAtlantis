@@ -12,14 +12,14 @@
 UENUM()
 enum class EFloorEventStates
 {
-	None            = 0,
-	DialogueOnStart = 1,
-	TutorialOnStart = 2,
-	Combat          = 3,
-	Levelup         = 4,
-	DialogueOnEnd   = 5,
-	TutorialOnEnd   = 6,
-	Completed       = 7,
+	None                  = 0,
+	DialogueOnStart       = 1,
+	TutorialOnStart       = 2,
+	Combat                = 3,
+	PostCombatLevelSwap   = 4,
+	DialogueOnEnd         = 5,
+	TutorialOnEnd         = 6,
+	Completed             = 7,
 };
 
 UENUM()
@@ -32,6 +32,13 @@ enum class EFloorGimmicks
 	Lava            = 4,
 	Teleporter      = 5,
 	Stairs          = 6,
+};
+
+UENUM()
+enum class ECombatArena
+{
+	None            = 0,
+	Water            = 1,
 };
 
 
@@ -113,6 +120,18 @@ struct DESENTINTOATLANTIS_API FFloorEventData : public FTableRowBase
 	UPROPERTY( EditAnywhere )
 	EViews viewPushedOnEnd;
 	
+};
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FCombatArenaData : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+
+	UPROPERTY( EditAnywhere )
+	FString levelName;
+	
+	UPROPERTY( EditAnywhere )
+	FString enemyGroupName;
 };
 
 USTRUCT()

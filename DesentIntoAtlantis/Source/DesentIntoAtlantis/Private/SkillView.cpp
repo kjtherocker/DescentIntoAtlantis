@@ -8,7 +8,7 @@
 #include "SkillBarElement.h"
 #include "CombatClass.h"
 #include "Components/TextBlock.h"
-#include "CombatManager.h"
+#include "CombatGameModeBase.h"
 #include "CombatSelectionView.h"
 #include "PlayerCombatEntity.h"
 

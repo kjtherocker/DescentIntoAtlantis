@@ -9,6 +9,7 @@
 #include "PersistentGameinstance.h"
 #include "SkillsData.h"
 #include "Engine/DataTable.h"
+#include "EventManagerSubSystem.h"
 #include "Kismet/GameplayStatics.h"
 
 
@@ -19,7 +20,7 @@ AFloorManager::AFloorManager()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
-void AFloorManager::Initialize(AAtlantisGameModeBase* aGameModeBase,UFloorEventManager* aFloorEventManager)
+void AFloorManager::Initialize(AAtlantisGameModeBase* aGameModeBase,UEventManagerSubSystem* aFloorEventManager)
 {
 	cardinalPositions.Add(ECardinalNodeDirections::Up,    FVector2D(-1,0));
 	cardinalPositions.Add(ECardinalNodeDirections::Down,  FVector2D(1,0));
@@ -33,6 +34,9 @@ void AFloorManager::Initialize(AAtlantisGameModeBase* aGameModeBase,UFloorEventM
 	gimmickMap.Add(EFloorGimmicks::Movement,   NewObject<UGimmick_Base>());
 	gimmickMap.Add(EFloorGimmicks::Stairs,     NewObject<UGimmick_Base>());
 
+	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+	eventManagerSubSystem =  persistentGameInstance->EventManagerSubSystem;
+	
 	floorEventManager = aFloorEventManager;
 	gameModeBase = aGameModeBase;
 }
@@ -57,8 +61,8 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 			if(aFloor->floorEventData.Contains(positionInGrid))
 			{
 				floorNodes[LevelIndex]->hasFloorEvent = true;
-				floorNodes[LevelIndex]->floorEventHasBeenTriggeredEvent = gameModeBase->floorEventManager->EventHasBeenTriggered;
-				SpawnFloorEnemyPawn(positionInGrid);
+				floorNodes[LevelIndex]->floorEventHasBeenTriggeredEvent = eventManagerSubSystem->EventHasBeenTriggered;
+				SpawnFloorEventTriggers(positionInGrid);
 			}
 		}
 	}
@@ -255,7 +259,7 @@ void AFloorManager::PlacePlayerAtFloorStartingNode()
 	PlacePlayerFloorPawn(floorDictionary[currentFloorIdentifier]->floorData.startPosition);
 }
 
-void AFloorManager::SpawnFloorEnemyPawn(FVector2D aPositionInGrid)
+void AFloorManager::SpawnFloorEventTriggers(FVector2D aPositionInGrid)
 {
 	FVector PositionOffset = FVector(0,0,FLOOR_EVENT_HEIGHT_OFFSET);
 

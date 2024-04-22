@@ -231,6 +231,9 @@
             "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\combatbackground.generated.h",
             "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\combatclass.gen.cpp",
             "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\combatentity.gen.cpp",
+            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\combatgamemodebase.gen.cpp",
+            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\source\\desentintoatlantis\\public\\combatgamemodebase.h",
+            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\combatgamemodebase.generated.h",
             "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\combatmanager.gen.cpp",
             "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\combatselectionview.gen.cpp",
             "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\source\\desentintoatlantis\\public\\combatselectionview.h",
@@ -277,10 +280,7 @@
             "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\enemyselectionview.generated.h",
             "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\enemyskillview.gen.cpp",
             "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\source\\desentintoatlantis\\public\\enemyskillview.h",
-            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\enemyskillview.generated.h",
-            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\floorbase.gen.cpp",
-            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\floorenemypawn.gen.cpp",
-            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\floorenum.gen.cpp"
+            "c:\\users\\kylej\\documents\\portfoliossd\\descentintoatlantis\\desentintoatlantis\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\enemyskillview.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

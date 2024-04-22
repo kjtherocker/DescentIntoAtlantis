@@ -2,8 +2,8 @@
 
 
 #include "FloorGameMode.h"
-#include "CombatManager.h"
-#include "FloorEventManager.h"
+#include "CombatGameModeBase.h"
+#include "EventManagerSubSystem.h"
 #include "FloorPlayerController.h"
 #include "SoundManager.h"
 #include "InGameHUD.h"
@@ -34,23 +34,12 @@ void AFloorGameMode::InitializeLevel()
     FRotator rotator(0.0f,0.0f,0.0f);
     
 
-    if(dataTables.Contains(EDataTableTypes::Floor)
-    && dataTables.Contains(EDataTableTypes::FloorEvent))
-    {
-        if(dataTables[EDataTableTypes::Floor] != nullptr
-            &&dataTables[EDataTableTypes::FloorEvent] != nullptr)
-        {
-            floorFactory = NewObject<UFloorFactory>();
-            floorFactory->InitializeDatabase(dataTables[EDataTableTypes::Floor],dataTables[EDataTableTypes::FloorEvent]);
-            floorEventManager = NewObject<UFloorEventManager>();
-            floorEventManager->Initialize( this,floorFactory,combatManager);
-        }
-    }
+
     
     floorManager = Cast<AFloorManager>(world->SpawnActor<AActor>(floorManagerReference, FVector::Zero(), rotator));
     floorManager->Initialize(this,floorEventManager);
 
-    UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+  
  
     if(persistentGameInstance->ConsumeGameSaveLoadingFlag())
     {

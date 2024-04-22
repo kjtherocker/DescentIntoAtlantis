@@ -27,6 +27,7 @@ void UPersistentGameinstance::Init()
 	enemyFactorySubSystem    = GetSubsystem<UEnemyFactorySubSystem>();
 	tutorialManagerSubsystem = GetSubsystem<UTutorialManagerSubsystem>();
 	dialogueManagerSubsystem = GetSubsystem<UDialogueFactorySubsystem>();
+	EventManagerSubSystem    = GetSubsystem<UEventManagerSubSystem>();
 
 	skillFactorySubsystem->InitializeDatabase(dataTablesSkills);
 
@@ -67,6 +68,18 @@ void UPersistentGameinstance::Init()
 		}
 	}
 
+	if(dataTables.Contains(EDataTableTypes::Floor)
+	&& dataTables.Contains(EDataTableTypes::FloorEvent))
+	{
+		if(dataTables[EDataTableTypes::Floor] != nullptr
+			&&dataTables[EDataTableTypes::FloorEvent] != nullptr)
+		{
+			floorFactory = NewObject<UFloorFactory>();
+			floorFactory->InitializeDatabase(dataTables[EDataTableTypes::Floor],dataTables[EDataTableTypes::FloorEvent]);
+			EventManagerSubSystem->Initialize(floorFactory);
+		}
+	}
+
 
 	SessionSaveGameObject = Cast<USaveGameData>(UGameplayStatics::CreateSaveGameObject(USaveGameData::StaticClass()));
 	
@@ -89,8 +102,15 @@ void UPersistentGameinstance::UnloadLevel(FString aLevelName)
 void UPersistentGameinstance::LoadLevel(FString aLevelName)
 {
 	FString LevelName = aLevelName;
+	if(currentLevelName != LevelName)
+	{
+		UGameplayStatics::OpenLevel(GetWorld(), FName(*LevelName), true);
+	}
+	else
+	{
+		//We are calling the same scene multiple times
+	}
 	currentLevelName  = LevelName;
-	UGameplayStatics::OpenLevel(GetWorld(), FName(*LevelName), true);
 }
 
 void UPersistentGameinstance::SaveFloorPawn(AFloorPawn* aFloorPawn)
@@ -128,6 +148,12 @@ void UPersistentGameinstance::LoadSaveDataAndTransitionToMap(FString aLevelName)
 	LoadLevel(aLevelName);
 }
 
+void UPersistentGameinstance::LoadCombatLevel(FString aEnemyGroupName, ECombatArena aCombatArena)
+{
+	aCombatArenaData.enemyGroupName = aEnemyGroupName;
+	LoadLevel("WaterCombat");
+}
+
 
 void UPersistentGameinstance::GetCurrentLevelName(FString aLevelName)
 {
@@ -141,3 +167,10 @@ bool UPersistentGameinstance::ConsumeGameSaveLoadingFlag()
 	isGameSaveBeingLoaded = false;
 	return bIsLoading;
 }
+
+FCombatArenaData UPersistentGameinstance::ConsumeArenaDataFlag()
+{
+	return aCombatArenaData;
+}
+
+
