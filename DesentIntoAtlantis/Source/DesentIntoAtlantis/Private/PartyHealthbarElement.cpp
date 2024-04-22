@@ -27,9 +27,9 @@ void UPartyHealthbarElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 	aCombatEntity->wasKilled.AddDynamic(this,
 		&UPartyHealthbarElement::TriggerGreyScale);
 	
-	characterName = playerCombatEntity->playerEntityData.characterName;
+	characterName = playerCombatEntity->playerIdentityData.characterName;
 	
-	BW_CharacterPortrait->SetBrushFromTexture(playerCombatEntity->playerEntityData.characterPortrait);
+	BW_CharacterPortrait->SetBrushFromTexture(playerCombatEntity->playerIdentityData.characterPortrait);
 	UpdateHealthbarElements();
 	
 }

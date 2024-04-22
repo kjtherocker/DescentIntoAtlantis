@@ -26,7 +26,7 @@ void UCommandBoardView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	combatManager =  gameModeBase->combatManager;
 	currentActivePartyMember = combatManager->GetCurrentActivePartyMember();
 	defaultAttack = static_cast<USkillAttack*>(gameModeBase->skillFactory->GetSkill("DefaultAttack"));
-	BW_FullBodyPortrait->SetBrushFromTexture(currentActivePartyMember->playerEntityData.fullBodyCharacterPortrait);
+	BW_FullBodyPortrait->SetBrushFromTexture(currentActivePartyMember->playerIdentityData.fullBodyCharacterPortrait);
 	
 	commandBoards.Add(BW_Attack);
 	commandBoards.Add(BW_Skill);

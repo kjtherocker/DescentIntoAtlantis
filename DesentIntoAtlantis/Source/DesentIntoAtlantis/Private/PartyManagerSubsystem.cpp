@@ -52,9 +52,11 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembers aPlayer)
 	PlayerCombatEntity->SetTacticsEntity(skillFactory);
 
 	EClasses initalClass = playerIdenityMap[aPlayer].initalClass;
-	PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[initalClass],PlayerCombatEntity->playerEntityData.initialLevel);
-	PlayerCombatEntity->SetMainClass(initalClass);
-
+	if(classDataTables.Contains(initalClass))
+	{
+		PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[initalClass],PlayerCombatEntity->playerIdentityData.initialLevel);
+		PlayerCombatEntity->SetMainClass(initalClass);
+	}
 	playerCombatEntity.Add(PlayerCombatEntity);
 	playerCombatEntityInfo.Add(aPlayer,PlayerCombatEntity);
 }
@@ -96,16 +98,16 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 		PlayerCombatEntity->SetPlayerEntity(playerIdenityMap[partyMember]);
 		PlayerCombatEntity->SetTacticsEntity(skillFactory);
 
-		TArray<FCompleteClassData> allCompleteClassData = playerCompleteData.unlockedPlayerClasses;
+		TMap<EClasses, FCompleteClassData> allCompleteClassData = playerCompleteData.unlockedPlayerClasses;
 		
-		for (FCompleteClassData playerClass : allCompleteClassData)
+		for (TTuple<EClasses, FCompleteClassData> playerClass : allCompleteClassData)
 		{
-			EClasses classIdentifier =  playerClass.classIdentifer;
-			int level = playerClass.currentLevel;
+			EClasses classIdentifier = playerClass.Key;
+			int level = playerClass.Value.currentLevel;
 			PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[classIdentifier],level);
 		}
 
-		EClasses mainClassIdentifier = playerCompleteData.mainClass.classIdentifer;
+		EClasses mainClassIdentifier = playerCompleteData.mainClassData.classIdentifer;
 		PlayerCombatEntity->SetMainClass(mainClassIdentifier);
 		playerCombatEntity.Add(PlayerCombatEntity);
 		

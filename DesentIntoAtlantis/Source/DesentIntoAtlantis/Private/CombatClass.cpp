@@ -80,8 +80,9 @@ void UCombatClass::SetClassAttributes()
 
 FClassData UCombatClass::Levelup()
 {
-	completeClassData.currentLevelClassData = completeClassData.classLevels[currentClassIndex +1];
-	completeClassData.currentLevel = currentClassIndex +1;
+	currentClassIndex += 1;
+	completeClassData.currentLevelClassData = completeClassData.classLevels[currentClassIndex];
+	completeClassData.currentLevel = currentClassIndex;
 
 	if(completeClassData.unlockableSkillByLevel.Contains(completeClassData.currentLevel))
 	{
@@ -91,8 +92,10 @@ FClassData UCombatClass::Levelup()
 		classSkills.Add(newSkill);
 	}
 	
+	
 	attachedCombatEntity->currentHealth = completeClassData.currentLevelClassData.maxHealth;
 	attachedCombatEntity->currentMana   = completeClassData.currentLevelClassData.maxMana;
+	attachedCombatEntity->GatherAndSavePlayerCompleteDataSet();
 	attachedCombatEntity->SetAbilityScores();
 
 

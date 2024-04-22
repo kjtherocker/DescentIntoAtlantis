@@ -30,7 +30,7 @@ void ULevelupView::SetupLevelupView(UPlayerCombatEntity* aPlayerCombatEntity)
 
 	if(completeClassData.unlockableSkillByLevel.Contains(completeClassData.currentLevel))
 	{
-		FString newSkillName = completeClassData.unlockableSkillByLevel[completeClassData.currentLevel];
+		FString newSkillName = completeClassData.unlockableSkillByLevel[completeClassData.currentLevel + 1];
 		FSkillsData newSKill = GameModeBase->skillFactory->GetSkill(newSkillName)->skillData;
 		BW_Skillbar->SetSkill(newSKill);
 
@@ -38,10 +38,10 @@ void ULevelupView::SetupLevelupView(UPlayerCombatEntity* aPlayerCombatEntity)
 	}
 
 	
-	BW_CharacterPortrait->SetBrushFromTexture(aPlayerCombatEntity->playerEntityData.fullBodyCharacterPortrait);
+	BW_CharacterPortrait->SetBrushFromTexture(aPlayerCombatEntity->playerIdentityData.fullBodyCharacterPortrait);
 	
-	BW_PreviousLevelNumber->SetText(FText(FText::AsNumber(completeClassData.currentLevel -1)));
-	BW_CurrentLevelNumber->SetText(FText(FText::AsNumber(completeClassData.currentLevel)));
+	BW_PreviousLevelNumber->SetText(FText(FText::AsNumber(completeClassData.currentLevel )));
+	BW_CurrentLevelNumber->SetText(FText(FText::AsNumber(completeClassData.currentLevel + 1)));
 	
 	BW_StrengthLevelpanel->SetLevelupPanelElement(FString("Str"),
 		FString::FromInt(currentClassLevel.baseStrength),

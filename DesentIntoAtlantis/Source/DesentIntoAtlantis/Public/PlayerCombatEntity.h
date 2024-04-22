@@ -45,13 +45,13 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 	FPlayerIdentityData playerIdentityData;
 
 	UPROPERTY()
-	FCompleteClassData mainClass;
+	FCompleteClassData mainClassData;
 
 	UPROPERTY()
 	FClassData currentMainClassLevel;
 	
 	UPROPERTY()
-	TArray<FCompleteClassData> unlockedPlayerClasses;
+	TMap<EClasses,FCompleteClassData> unlockedPlayerClasses;
 
 	UPROPERTY()
 	TArray<FString> skillSlots;
@@ -84,7 +84,7 @@ public:
 	FPlayerCompleteDataSet playerCompleteDataSet;
 	
 	UPROPERTY()
-	FPlayerIdentityData playerEntityData;
+	FPlayerIdentityData playerIdentityData;
 	UPROPERTY()
 	UPartyHealthbarElement* partyHealthbarElement;
 
@@ -96,6 +96,8 @@ public:
 	virtual void SetMainClass(EClasses aClass);
 	virtual void Reset() override;
 	virtual void SetToDefaultState() override;
+
+	virtual void GatherAndSavePlayerCompleteDataSet();
 
 	void SetAbilityScores();
 	

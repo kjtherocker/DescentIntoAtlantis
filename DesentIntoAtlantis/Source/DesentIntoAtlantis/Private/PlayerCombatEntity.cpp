@@ -17,7 +17,7 @@ void UPlayerCombatEntity::LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerComplet
 void UPlayerCombatEntity::SetPlayerEntity(FPlayerIdentityData aPlayerEntityData)
 {
 	playerCompleteDataSet.playerIdentityData = aPlayerEntityData;
-	playerEntityData                       = aPlayerEntityData;
+	playerIdentityData                       = aPlayerEntityData;
 }
 
 void UPlayerCombatEntity::SetTacticsEntity(USkillFactorySubsystem* aSkillFactory)
@@ -32,7 +32,7 @@ void UPlayerCombatEntity::InitializeAndUnlockCombatClassFromDataTable(FCompleteC
 	UCombatClass* newClass = NewObject<UCombatClass>();
 	newClass->InitializeDependencys(skillFactory,this );
 	newClass->CreateClass(aCompleteClassData,aClassLevel);
-	playerCompleteDataSet.unlockedPlayerClasses.Add(newClass->completeClassData);
+	playerCompleteDataSet.unlockedPlayerClasses.Add(aCompleteClassData.classIdentifer,newClass->completeClassData);
 	unlockedClasses.Add(aCompleteClassData.classIdentifer,newClass);
 }
 
@@ -50,7 +50,7 @@ void UPlayerCombatEntity::SetMainClass(EClasses aClass)
 	
 	SetAbilityScores();
 	SetToDefaultState();
-	playerCompleteDataSet.mainClass = mainClass->completeClassData;
+	playerCompleteDataSet.mainClassData = mainClass->completeClassData;
 	playerCompleteDataSet.currentMainClassLevel = mainClass->completeClassData.currentLevelClassData;
 }
 
@@ -72,6 +72,18 @@ void UPlayerCombatEntity::SetToDefaultState()
 	{
 		abilityStats.Value->ResetAbilityscore();
 	}
+}
+
+void UPlayerCombatEntity::GatherAndSavePlayerCompleteDataSet()
+{
+	playerCompleteDataSet.playerIdentityData    = playerIdentityData;
+	playerCompleteDataSet.mainClassData         = mainClass->completeClassData;
+	playerCompleteDataSet.currentMainClassLevel = mainClass->completeClassData.currentLevelClassData;
+
+	playerCompleteDataSet.unlockedPlayerClasses.Add(mainClass->completeClassData.classIdentifer,mainClass->completeClassData);
+
+	playerCompleteDataSet.currentHP = currentHealth;
+	playerCompleteDataSet.currentMP = currentMana;
 }
 
 void UPlayerCombatEntity::SetAbilityScores()

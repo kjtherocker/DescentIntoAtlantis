@@ -26,7 +26,7 @@ void USkillView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	currentActivePartyMember = gameModeBase->combatManager->GetCurrentActivePartyMember();
 	UCombatClass* combatClass = currentActivePartyMember->mainClass;
 
-    BW_CharacterName->SetText(FText(FText::FromString(currentActivePartyMember->playerEntityData.characterName)));
+    BW_CharacterName->SetText(FText(FText::FromString(currentActivePartyMember->playerIdentityData.characterName)));
     BW_ClassName->SetText(FText(FText::FromString(currentActivePartyMember->mainClass->completeClassData.className)));
 	
 	for(int i = 0 ; i < combatClass->classSkills.Num();i++)

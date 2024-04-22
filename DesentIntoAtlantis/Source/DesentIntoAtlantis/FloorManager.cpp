@@ -110,7 +110,7 @@ void AFloorManager::SpawnFloorNode(int aRow, int aColumn, int aIndex)
 	PositionInGrid.Set(aRow,aColumn);
 	
 	//Rotation
-	FRotator rotator = GetActorRotation();
+	const FRotator rotator(0.0f,0.0f,0.0f);
 	
 	//Spawn
 	AFloorNode* floorNode;

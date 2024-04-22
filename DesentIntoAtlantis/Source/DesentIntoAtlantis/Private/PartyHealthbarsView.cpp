@@ -41,7 +41,7 @@ void UPartyHealthbarsView::SetHighlightHealthbar(UPlayerCombatEntity* aPlayerCom
 {
 	for(int i = 0 ; i < healthBars.Num();i++)
 	{
-		if(healthBars[i]->characterName == aPlayerCombatEntity->playerEntityData.characterName)
+		if(healthBars[i]->characterName == aPlayerCombatEntity->playerIdentityData.characterName)
 		{
 			healthBars[i]->BW_BackgroundHighlight->SetOpacity(aOpacity);	
 		}

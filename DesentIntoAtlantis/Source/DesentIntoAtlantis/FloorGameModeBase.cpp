@@ -30,8 +30,8 @@ void AFloorGameMode::InitializeLevel()
     Super::InitializeLevel();
    
     world = GetWorld();
-    FVector ActorFinalSpawnPoint;
-    FRotator rotator;
+    FVector ActorFinalSpawnPoint(0,0,0);
+    FRotator rotator(0.0f,0.0f,0.0f);
     
 
     if(dataTables.Contains(EDataTableTypes::Floor)
@@ -47,7 +47,7 @@ void AFloorGameMode::InitializeLevel()
         }
     }
     
-    floorManager = Cast<AFloorManager>(world->SpawnActor<AActor>(floorManagerReference, ActorFinalSpawnPoint, rotator));
+    floorManager = Cast<AFloorManager>(world->SpawnActor<AActor>(floorManagerReference, FVector::Zero(), rotator));
     floorManager->Initialize(this,floorEventManager);
 
     UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
