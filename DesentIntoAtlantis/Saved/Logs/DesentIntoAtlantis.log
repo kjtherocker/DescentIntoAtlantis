@@ -1977,3 +1977,19 @@ LogConfig: CVar [[QualityLevelMapping:high]] deferred - dummy variable created
 [2024.04.23-16.02.12:020][376]MaterialEditorStats: Texture Lookups (Est.): VS(0), PS(3)
 [2024.04.23-16.02.12:020][376]MaterialEditorStats: User interpolators: 2/4 Scalars (1/4 Vectors) (TexCoords: 2, Custom: 0)
 [2024.04.23-16.02.12:020][376]MaterialEditorStats: Shader Count: 4
+[2024.04.23-16.12.10:902][302]LogSlate: Window 'Message' being destroyed
+[2024.04.23-16.12.17:848][302]LogSlate: Window 'Message' being destroyed
+[2024.04.23-16.12.17:908][302]Message dialog closed, result: No, title: Message, text: Would you like to apply the changes of the modified material to the original material?
+/Game/Materials/Characters/Material_EventCombat_Base.Material_EventCombat_Base
+(Selecting 'No' will cause all changes to be lost!)
+[2024.04.23-16.12.17:959][302]LogSlate: Window 'MaterialCollection_Combat' being destroyed
+[2024.04.23-16.12.17:962][302]LogSlate: Window 'MaterialCollection_Combat' being destroyed
+[2024.04.23-16.12.17:962][302]Message dialog closed, result: Cancel, title: Message, text: Would you like to apply the changes of the modified material to the original material?
+/Game/Materials/Characters/Material_EventCombat_Base.Material_EventCombat_Base
+(Selecting 'No' will cause all changes to be lost!)
+[2024.04.23-16.12.18:002][302]LogWorld: UWorld::CleanupWorld for World_6, bSessionEnded=true, bCleanupResources=true
+[2024.04.23-16.12.18:003][302]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.04.23-16.12.18:080][302]LogWorld: UWorld::CleanupWorld for World_9, bSessionEnded=true, bCleanupResources=true
+[2024.04.23-16.12.18:081][302]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.04.23-16.12.18:108][302]LogWorld: UWorld::CleanupWorld for World_11, bSessionEnded=true, bCleanupResources=true
+[2024.04.23-16.12.18:108][302]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated

@@ -26,9 +26,6 @@ void AEnemyPortraitElement::SetCombatEntity(UEnemyCombatEntity* aCombatEntity)
 	{
 		PlaneMeshComponent->SetMaterial(0, currentEnemyMaterialInterface);
 	}
-
-	UMaterialParameterCollectionInstance* Instance = World-&gt;GetParameterCollectionInstance(Collection);
-	Instance-&gt;SetScalarParameterValue(ParameterName, ParameterValue);
 }
 
 void AEnemyPortraitElement::Tick(float DeltaTime)
@@ -49,26 +46,6 @@ void AEnemyPortraitElement::Tick(float DeltaTime)
 	}
 }
 
-AEnemyPortraitElement* AEnemyPortraitElement::GetMaterialCollection(UMaterialInterface* Material)
-{
-	if (Material)
-	{
-		// If the material is a MaterialInstanceDynamic, get the parent material
-		if (UMaterialInstanceDynamic* DynamicMaterial = Cast<UMaterialInstanceDynamic>(Material))
-		{
-			Material = DynamicMaterial->Parent;
-		}
-        
-		// Check if the material has a material collection
-		if (Material->GetMaterialCollection())
-		{
-			return Material->GetMaterialCollection();
-		}
-	}
-
-	// Return nullptr if no material collection found
-	return nullptr;
-}
 
 
 void AEnemyPortraitElement::HitEffect(float DeltaTime)
@@ -81,8 +58,8 @@ void AEnemyPortraitElement::HitEffect(float DeltaTime)
 	}
 	
 	hitEffectTimer += DeltaTime *2;	
-	currentEnemyMaterialInterface->
-	BW_Portrait->SetColorAndOpacity(FLinearColor(1,hitEffectTimer,hitEffectTimer,1));
+//	currentEnemyMaterialInterface->
+//	BW_Portrait->SetColorAndOpacity(FLinearColor(1,hitEffectTimer,hitEffectTimer,1));
 }
 
 
