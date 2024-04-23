@@ -12,7 +12,7 @@
 
 struct FSkillsData;
 class ACombatGameModeBase;
-class UEnemyPortraitElement;
+class AEnemyPortraitElement;
 class USkillFactorySubsystem;
 /**
  * 

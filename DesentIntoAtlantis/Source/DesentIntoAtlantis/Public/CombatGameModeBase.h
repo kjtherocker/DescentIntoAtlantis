@@ -40,6 +40,7 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	UTurnCounterView*     turnCounter;
 	UPROPERTY()
 	UPartyHealthbarsView* partyHealthbars;
+
 	
 	const float FULL_OPACITY    = 100;
 	const int   ENEMY_TURN_TIME = 2;
@@ -57,12 +58,26 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	UPROPERTY()
 	UPlayerCombatEntity* currentActivePartyMember;
 	UPROPERTY()
-	TArray<UEnemyCombatEntity*> enemyCombatEntities;
+	TArray<UEnemyCombatEntity*> enemysInCombat;
+
+	UPROPERTY()
+	TMap<EEnemyCombatPositions,AEnemyPortraitElement*> Portraits;
+
+	UPROPERTY()
+	TMap<EEnemyCombatPositions,FVector3d> portraitsLocations;
 	
+	void CreateEnemyPortraits();
 public:
 	UPROPERTY(BlueprintAssignable, Category = "Test")
 	FRoundEndDelegate OnRoundEndDelegate;
 
+	
+	const FVector3d ENEMY_POSITION1 = FVector3d(3622,1779,449);
+	const FVector3d ENEMY_POSITION2 = FVector3d(3622,2127,449);
+	const FVector3d ENEMY_POSITION3 = FVector3d(3622,2463,449);
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> enemyPortraitElementReference;
 	
 	FTriggerNextEventStage triggerNextEventStage;
 	

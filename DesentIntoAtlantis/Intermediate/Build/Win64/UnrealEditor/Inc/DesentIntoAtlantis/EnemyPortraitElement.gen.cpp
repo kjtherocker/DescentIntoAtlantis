@@ -9,36 +9,37 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeEnemyPortraitElement() {}
 // Cross Module References
-	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEnemyPortraitElement_NoRegister();
-	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEnemyPortraitElement();
-	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UBaseUserWidget();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AEnemyPortraitElement_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AEnemyPortraitElement();
+	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
+	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
 // End Cross Module References
-	DEFINE_FUNCTION(UEnemyPortraitElement::execTriggerDisappear)
+	DEFINE_FUNCTION(AEnemyPortraitElement::execTriggerDisappear)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->TriggerDisappear();
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(UEnemyPortraitElement::execTriggerHitEffect)
+	DEFINE_FUNCTION(AEnemyPortraitElement::execTriggerHitEffect)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->TriggerHitEffect();
 		P_NATIVE_END;
 	}
-	void UEnemyPortraitElement::StaticRegisterNativesUEnemyPortraitElement()
+	void AEnemyPortraitElement::StaticRegisterNativesAEnemyPortraitElement()
 	{
-		UClass* Class = UEnemyPortraitElement::StaticClass();
+		UClass* Class = AEnemyPortraitElement::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "TriggerDisappear", &UEnemyPortraitElement::execTriggerDisappear },
-			{ "TriggerHitEffect", &UEnemyPortraitElement::execTriggerHitEffect },
+			{ "TriggerDisappear", &AEnemyPortraitElement::execTriggerDisappear },
+			{ "TriggerHitEffect", &AEnemyPortraitElement::execTriggerHitEffect },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
-	struct Z_Construct_UFunction_UEnemyPortraitElement_TriggerDisappear_Statics
+	struct Z_Construct_UFunction_AEnemyPortraitElement_TriggerDisappear_Statics
 	{
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -46,21 +47,21 @@ void EmptyLinkFunctionForGeneratedCodeEnemyPortraitElement() {}
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UEnemyPortraitElement_TriggerDisappear_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AEnemyPortraitElement_TriggerDisappear_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Public/EnemyPortraitElement.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UEnemyPortraitElement_TriggerDisappear_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UEnemyPortraitElement, nullptr, "TriggerDisappear", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UEnemyPortraitElement_TriggerDisappear_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UEnemyPortraitElement_TriggerDisappear_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_UEnemyPortraitElement_TriggerDisappear()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AEnemyPortraitElement_TriggerDisappear_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AEnemyPortraitElement, nullptr, "TriggerDisappear", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AEnemyPortraitElement_TriggerDisappear_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemyPortraitElement_TriggerDisappear_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AEnemyPortraitElement_TriggerDisappear()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UEnemyPortraitElement_TriggerDisappear_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AEnemyPortraitElement_TriggerDisappear_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_UEnemyPortraitElement_TriggerHitEffect_Statics
+	struct Z_Construct_UFunction_AEnemyPortraitElement_TriggerHitEffect_Statics
 	{
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -68,32 +69,36 @@ void EmptyLinkFunctionForGeneratedCodeEnemyPortraitElement() {}
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UEnemyPortraitElement_TriggerHitEffect_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AEnemyPortraitElement_TriggerHitEffect_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Public/EnemyPortraitElement.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UEnemyPortraitElement_TriggerHitEffect_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UEnemyPortraitElement, nullptr, "TriggerHitEffect", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UEnemyPortraitElement_TriggerHitEffect_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UEnemyPortraitElement_TriggerHitEffect_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_UEnemyPortraitElement_TriggerHitEffect()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AEnemyPortraitElement_TriggerHitEffect_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AEnemyPortraitElement, nullptr, "TriggerHitEffect", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AEnemyPortraitElement_TriggerHitEffect_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemyPortraitElement_TriggerHitEffect_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AEnemyPortraitElement_TriggerHitEffect()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UEnemyPortraitElement_TriggerHitEffect_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AEnemyPortraitElement_TriggerHitEffect_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
-	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UEnemyPortraitElement);
-	UClass* Z_Construct_UClass_UEnemyPortraitElement_NoRegister()
+	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AEnemyPortraitElement);
+	UClass* Z_Construct_UClass_AEnemyPortraitElement_NoRegister()
 	{
-		return UEnemyPortraitElement::StaticClass();
+		return AEnemyPortraitElement::StaticClass();
 	}
-	struct Z_Construct_UClass_UEnemyPortraitElement_Statics
+	struct Z_Construct_UClass_AEnemyPortraitElement_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
 		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_PlaneMeshComponent_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_PlaneMeshComponent;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_Portrait_MetaData[];
 #endif
@@ -102,72 +107,81 @@ void EmptyLinkFunctionForGeneratedCodeEnemyPortraitElement() {}
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
-	UObject* (*const Z_Construct_UClass_UEnemyPortraitElement_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_UBaseUserWidget,
+	UObject* (*const Z_Construct_UClass_AEnemyPortraitElement_Statics::DependentSingletons[])() = {
+		(UObject* (*)())Z_Construct_UClass_AActor,
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
 	};
-	const FClassFunctionLinkInfo Z_Construct_UClass_UEnemyPortraitElement_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UEnemyPortraitElement_TriggerDisappear, "TriggerDisappear" }, // 908368172
-		{ &Z_Construct_UFunction_UEnemyPortraitElement_TriggerHitEffect, "TriggerHitEffect" }, // 45656715
+	const FClassFunctionLinkInfo Z_Construct_UClass_AEnemyPortraitElement_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AEnemyPortraitElement_TriggerDisappear, "TriggerDisappear" }, // 4006198406
+		{ &Z_Construct_UFunction_AEnemyPortraitElement_TriggerHitEffect, "TriggerHitEffect" }, // 134901772
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEnemyPortraitElement_Statics::Class_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AEnemyPortraitElement_Statics::Class_MetaDataParams[] = {
 		{ "Comment", "/**\n * \n */" },
 		{ "IncludePath", "EnemyPortraitElement.h" },
 		{ "ModuleRelativePath", "Public/EnemyPortraitElement.h" },
 	};
 #endif
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEnemyPortraitElement_Statics::NewProp_BW_Portrait_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_PlaneMeshComponent_MetaData[] = {
+		{ "Category", "EnemyPortraitElement" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/EnemyPortraitElement.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_PlaneMeshComponent = { "PlaneMeshComponent", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AEnemyPortraitElement, PlaneMeshComponent), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_PlaneMeshComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_PlaneMeshComponent_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_BW_Portrait_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "Category", "EnemyPortraitElement" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/EnemyPortraitElement.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEnemyPortraitElement_Statics::NewProp_BW_Portrait = { "BW_Portrait", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UEnemyPortraitElement, BW_Portrait), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UEnemyPortraitElement_Statics::NewProp_BW_Portrait_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UEnemyPortraitElement_Statics::NewProp_BW_Portrait_MetaData)) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UEnemyPortraitElement_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyPortraitElement_Statics::NewProp_BW_Portrait,
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_BW_Portrait = { "BW_Portrait", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AEnemyPortraitElement, BW_Portrait), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_BW_Portrait_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_BW_Portrait_MetaData)) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AEnemyPortraitElement_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_PlaneMeshComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_BW_Portrait,
 	};
-	const FCppClassTypeInfoStatic Z_Construct_UClass_UEnemyPortraitElement_Statics::StaticCppClassTypeInfo = {
-		TCppClassTypeTraits<UEnemyPortraitElement>::IsAbstract,
+	const FCppClassTypeInfoStatic Z_Construct_UClass_AEnemyPortraitElement_Statics::StaticCppClassTypeInfo = {
+		TCppClassTypeTraits<AEnemyPortraitElement>::IsAbstract,
 	};
-	const UECodeGen_Private::FClassParams Z_Construct_UClass_UEnemyPortraitElement_Statics::ClassParams = {
-		&UEnemyPortraitElement::StaticClass,
-		nullptr,
+	const UECodeGen_Private::FClassParams Z_Construct_UClass_AEnemyPortraitElement_Statics::ClassParams = {
+		&AEnemyPortraitElement::StaticClass,
+		"Engine",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		FuncInfo,
-		Z_Construct_UClass_UEnemyPortraitElement_Statics::PropPointers,
+		Z_Construct_UClass_AEnemyPortraitElement_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
-		UE_ARRAY_COUNT(Z_Construct_UClass_UEnemyPortraitElement_Statics::PropPointers),
+		UE_ARRAY_COUNT(Z_Construct_UClass_AEnemyPortraitElement_Statics::PropPointers),
 		0,
-		0x00B010A0u,
-		METADATA_PARAMS(Z_Construct_UClass_UEnemyPortraitElement_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UEnemyPortraitElement_Statics::Class_MetaDataParams))
+		0x009000A4u,
+		METADATA_PARAMS(Z_Construct_UClass_AEnemyPortraitElement_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_AEnemyPortraitElement_Statics::Class_MetaDataParams))
 	};
-	UClass* Z_Construct_UClass_UEnemyPortraitElement()
+	UClass* Z_Construct_UClass_AEnemyPortraitElement()
 	{
-		if (!Z_Registration_Info_UClass_UEnemyPortraitElement.OuterSingleton)
+		if (!Z_Registration_Info_UClass_AEnemyPortraitElement.OuterSingleton)
 		{
-			UECodeGen_Private::ConstructUClass(Z_Registration_Info_UClass_UEnemyPortraitElement.OuterSingleton, Z_Construct_UClass_UEnemyPortraitElement_Statics::ClassParams);
+			UECodeGen_Private::ConstructUClass(Z_Registration_Info_UClass_AEnemyPortraitElement.OuterSingleton, Z_Construct_UClass_AEnemyPortraitElement_Statics::ClassParams);
 		}
-		return Z_Registration_Info_UClass_UEnemyPortraitElement.OuterSingleton;
+		return Z_Registration_Info_UClass_AEnemyPortraitElement.OuterSingleton;
 	}
-	template<> DESENTINTOATLANTIS_API UClass* StaticClass<UEnemyPortraitElement>()
+	template<> DESENTINTOATLANTIS_API UClass* StaticClass<AEnemyPortraitElement>()
 	{
-		return UEnemyPortraitElement::StaticClass();
+		return AEnemyPortraitElement::StaticClass();
 	}
-	DEFINE_VTABLE_PTR_HELPER_CTOR(UEnemyPortraitElement);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(AEnemyPortraitElement);
 	struct Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UEnemyPortraitElement, UEnemyPortraitElement::StaticClass, TEXT("UEnemyPortraitElement"), &Z_Registration_Info_UClass_UEnemyPortraitElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEnemyPortraitElement), 3162452932U) },
+		{ Z_Construct_UClass_AEnemyPortraitElement, AEnemyPortraitElement::StaticClass, TEXT("AEnemyPortraitElement"), &Z_Registration_Info_UClass_AEnemyPortraitElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemyPortraitElement), 1154307905U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_1987189129(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_3485942536(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

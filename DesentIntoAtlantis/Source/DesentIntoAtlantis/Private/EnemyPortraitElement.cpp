@@ -6,24 +6,35 @@
 #include "Components/HorizontalBox.h"
 #include "Components/Image.h"
 
-void UEnemyPortraitElement::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
+void AEnemyPortraitElement::SetCombatEntity(UEnemyCombatEntity* aCombatEntity)
 {
-	Super::UiInitialize(aGameModeBase);
+	//BW_Portrait->SetBrushFromTexture(aCombatEntity->enemyEntityData.fullBodyCharacterPortrait);
+	aCombatEntity->wasDamaged.AddDynamic(this,&AEnemyPortraitElement::TriggerHitEffect);
+	aCombatEntity->wasKilled.AddDynamic(this,&AEnemyPortraitElement::TriggerDisappear);
 	
+	currentEnemyMaterialInterface = aCombatEntity->enemyEntityData.fullBodyCharacterPortrait;;
+	TArray<AActor*> ChildActorArray;
+	GetAllChildActors(ChildActorArray);
+	
+	PlaneMeshComponent = nullptr ;
+	TArray<UStaticMeshComponent*> Components; GetComponents<UStaticMeshComponent>(Components);
+	for( int32 i=0; i<Components.Num(); i++ )
+	{
+		 PlaneMeshComponent = Components[i];
+	}
+	if(PlaneMeshComponent != nullptr)
+	{
+		PlaneMeshComponent->SetMaterial(0, currentEnemyMaterialInterface);
+	}
+
+	UMaterialParameterCollectionInstance* Instance = World-&gt;GetParameterCollectionInstance(Collection);
+	Instance-&gt;SetScalarParameterValue(ParameterName, ParameterValue);
 }
 
-void UEnemyPortraitElement::SetCombatEntity(UEnemyCombatEntity* aCombatEntity)
+void AEnemyPortraitElement::Tick(float DeltaTime)
 {
-	BW_Portrait->SetBrushFromTexture(aCombatEntity->enemyEntityData.fullBodyCharacterPortrait);
-	aCombatEntity->wasDamaged.AddDynamic(this,&UEnemyPortraitElement::TriggerHitEffect);
-	aCombatEntity->wasKilled.AddDynamic(this,&UEnemyPortraitElement::TriggerDisappear);
-}
-
-void UEnemyPortraitElement::NativeTick(const FGeometry& MyGeometry, float DeltaTime)
-{
-	Super::NativeTick(MyGeometry, DeltaTime);
-
-
+	Super::Tick(DeltaTime);
+	
 	if(!isTriggeringDisappear)
 	{
 		if(isTriggeringHitEffect)
@@ -38,7 +49,29 @@ void UEnemyPortraitElement::NativeTick(const FGeometry& MyGeometry, float DeltaT
 	}
 }
 
-void UEnemyPortraitElement::HitEffect(float DeltaTime)
+AEnemyPortraitElement* AEnemyPortraitElement::GetMaterialCollection(UMaterialInterface* Material)
+{
+	if (Material)
+	{
+		// If the material is a MaterialInstanceDynamic, get the parent material
+		if (UMaterialInstanceDynamic* DynamicMaterial = Cast<UMaterialInstanceDynamic>(Material))
+		{
+			Material = DynamicMaterial->Parent;
+		}
+        
+		// Check if the material has a material collection
+		if (Material->GetMaterialCollection())
+		{
+			return Material->GetMaterialCollection();
+		}
+	}
+
+	// Return nullptr if no material collection found
+	return nullptr;
+}
+
+
+void AEnemyPortraitElement::HitEffect(float DeltaTime)
 {
 	if(hitEffectTimer >= 1)
 	{
@@ -48,11 +81,12 @@ void UEnemyPortraitElement::HitEffect(float DeltaTime)
 	}
 	
 	hitEffectTimer += DeltaTime *2;	
-	
+	currentEnemyMaterialInterface->
 	BW_Portrait->SetColorAndOpacity(FLinearColor(1,hitEffectTimer,hitEffectTimer,1));
 }
 
-void UEnemyPortraitElement::Disappear(float DeltaTime)
+
+void AEnemyPortraitElement::Disappear(float DeltaTime)
 {
 	if(disappearTimer <= 0)
 	{
@@ -66,12 +100,12 @@ void UEnemyPortraitElement::Disappear(float DeltaTime)
 	BW_Portrait->SetOpacity(0);
 }
 
-void UEnemyPortraitElement::TriggerHitEffect()
+void AEnemyPortraitElement::TriggerHitEffect()
 {
 	isTriggeringHitEffect = true;
 }
 
-void UEnemyPortraitElement::TriggerDisappear()
+void AEnemyPortraitElement::TriggerDisappear()
 {
 	isTriggeringDisappear = true;
 }

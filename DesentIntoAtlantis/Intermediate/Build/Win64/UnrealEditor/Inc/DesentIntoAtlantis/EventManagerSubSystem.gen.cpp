@@ -179,13 +179,13 @@ void EmptyLinkFunctionForGeneratedCodeEventManagerSubSystem() {}
 		((UEventManagerSubSystem*)Obj)->isEventRunning = 1;
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_isEventRunning = { "isEventRunning", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UEventManagerSubSystem), &Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_isEventRunning_SetBit, METADATA_PARAMS(Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_isEventRunning_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_isEventRunning_MetaData)) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_completedFloorEventData_Inner = { "completedFloorEventData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(nullptr, 0) }; // 847672033
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_completedFloorEventData_Inner = { "completedFloorEventData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(nullptr, 0) }; // 3635940602
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_completedFloorEventData_MetaData[] = {
 		{ "ModuleRelativePath", "Public/EventManagerSubSystem.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_completedFloorEventData = { "completedFloorEventData", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UEventManagerSubSystem, completedFloorEventData), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_completedFloorEventData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_completedFloorEventData_MetaData)) }; // 847672033
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_completedFloorEventData = { "completedFloorEventData", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UEventManagerSubSystem, completedFloorEventData), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_completedFloorEventData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_completedFloorEventData_MetaData)) }; // 3635940602
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_floorEnemyEvents_ValueProp = { "floorEnemyEvents", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_AFloorEnemyPawn_NoRegister, METADATA_PARAMS(nullptr, 0) };
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_floorEnemyEvents_Key_KeyProp = { "floorEnemyEvents_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
@@ -254,9 +254,9 @@ void EmptyLinkFunctionForGeneratedCodeEventManagerSubSystem() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EventManagerSubSystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UEventManagerSubSystem, UEventManagerSubSystem::StaticClass, TEXT("UEventManagerSubSystem"), &Z_Registration_Info_UClass_UEventManagerSubSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEventManagerSubSystem), 2750885079U) },
+		{ Z_Construct_UClass_UEventManagerSubSystem, UEventManagerSubSystem::StaticClass, TEXT("UEventManagerSubSystem"), &Z_Registration_Info_UClass_UEventManagerSubSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEventManagerSubSystem), 4161389452U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EventManagerSubSystem_h_1531275641(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EventManagerSubSystem_h_574670519(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EventManagerSubSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EventManagerSubSystem_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

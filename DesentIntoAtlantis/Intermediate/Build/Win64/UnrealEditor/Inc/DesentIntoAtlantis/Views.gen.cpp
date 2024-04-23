@@ -42,7 +42,6 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 		{ "EViews::CombatBackground", (int64)EViews::CombatBackground },
 		{ "EViews::CombatSelection", (int64)EViews::CombatSelection },
 		{ "EViews::Skill", (int64)EViews::Skill },
-		{ "EViews::EnemyPortraits", (int64)EViews::EnemyPortraits },
 		{ "EViews::TurnCounter", (int64)EViews::TurnCounter },
 		{ "EViews::Dialogue", (int64)EViews::Dialogue },
 		{ "EViews::EnemySkill", (int64)EViews::EnemySkill },
@@ -62,7 +61,6 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 		{ "Death.Name", "EViews::Death" },
 		{ "Dialogue.Name", "EViews::Dialogue" },
 		{ "Ending.Name", "EViews::Ending" },
-		{ "EnemyPortraits.Name", "EViews::EnemyPortraits" },
 		{ "EnemySkill.Name", "EViews::EnemySkill" },
 		{ "Healthbars.Name", "EViews::Healthbars" },
 		{ "Levelup.Name", "EViews::Levelup" },
@@ -211,11 +209,11 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo[] = {
-		{ EViews_StaticEnum, TEXT("EViews"), &Z_Registration_Info_UEnum_EViews, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1076360099U) },
+		{ EViews_StaticEnum, TEXT("EViews"), &Z_Registration_Info_UEnum_EViews, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4164368479U) },
 		{ EUiType_StaticEnum, TEXT("EUiType"), &Z_Registration_Info_UEnum_EUiType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4223346555U) },
 		{ EViewElements_StaticEnum, TEXT("EViewElements"), &Z_Registration_Info_UEnum_EViewElements, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3583364803U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_167917356(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_1956003672(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo));

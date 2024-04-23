@@ -14,7 +14,6 @@ enum class  EViews
 	CombatBackground  = 3,
 	CombatSelection   = 4,
 	Skill             = 5,
-	EnemyPortraits    = 6,
 	TurnCounter       = 7,
 	Dialogue          = 8,
 	EnemySkill        = 9,

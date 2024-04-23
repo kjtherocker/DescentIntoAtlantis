@@ -28,46 +28,46 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_17_INCLASS_NO_PURE_DECLS \
 private: \
-	static void StaticRegisterNativesUEnemyPortraitElement(); \
-	friend struct Z_Construct_UClass_UEnemyPortraitElement_Statics; \
+	static void StaticRegisterNativesAEnemyPortraitElement(); \
+	friend struct Z_Construct_UClass_AEnemyPortraitElement_Statics; \
 public: \
-	DECLARE_CLASS(UEnemyPortraitElement, UBaseUserWidget, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/DesentIntoAtlantis"), NO_API) \
-	DECLARE_SERIALIZER(UEnemyPortraitElement)
+	DECLARE_CLASS(AEnemyPortraitElement, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/DesentIntoAtlantis"), NO_API) \
+	DECLARE_SERIALIZER(AEnemyPortraitElement)
 
 
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_17_INCLASS \
 private: \
-	static void StaticRegisterNativesUEnemyPortraitElement(); \
-	friend struct Z_Construct_UClass_UEnemyPortraitElement_Statics; \
+	static void StaticRegisterNativesAEnemyPortraitElement(); \
+	friend struct Z_Construct_UClass_AEnemyPortraitElement_Statics; \
 public: \
-	DECLARE_CLASS(UEnemyPortraitElement, UBaseUserWidget, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/DesentIntoAtlantis"), NO_API) \
-	DECLARE_SERIALIZER(UEnemyPortraitElement)
+	DECLARE_CLASS(AEnemyPortraitElement, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/DesentIntoAtlantis"), NO_API) \
+	DECLARE_SERIALIZER(AEnemyPortraitElement)
 
 
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_17_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UEnemyPortraitElement(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UEnemyPortraitElement) \
-	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UEnemyPortraitElement); \
-	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UEnemyPortraitElement); \
+	NO_API AEnemyPortraitElement(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AEnemyPortraitElement) \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AEnemyPortraitElement); \
+	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AEnemyPortraitElement); \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
-	NO_API UEnemyPortraitElement(UEnemyPortraitElement&&); \
-	NO_API UEnemyPortraitElement(const UEnemyPortraitElement&); \
+	NO_API AEnemyPortraitElement(AEnemyPortraitElement&&); \
+	NO_API AEnemyPortraitElement(const AEnemyPortraitElement&); \
 public:
 
 
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_17_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UEnemyPortraitElement(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
+	NO_API AEnemyPortraitElement(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
-	NO_API UEnemyPortraitElement(UEnemyPortraitElement&&); \
-	NO_API UEnemyPortraitElement(const UEnemyPortraitElement&); \
+	NO_API AEnemyPortraitElement(AEnemyPortraitElement&&); \
+	NO_API AEnemyPortraitElement(const AEnemyPortraitElement&); \
 public: \
-	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UEnemyPortraitElement); \
-	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UEnemyPortraitElement); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UEnemyPortraitElement)
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AEnemyPortraitElement); \
+	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AEnemyPortraitElement); \
+	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AEnemyPortraitElement)
 
 
 #define FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_14_PROLOG
@@ -93,7 +93,7 @@ private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-template<> DESENTINTOATLANTIS_API UClass* StaticClass<class UEnemyPortraitElement>();
+template<> DESENTINTOATLANTIS_API UClass* StaticClass<class AEnemyPortraitElement>();
 
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h

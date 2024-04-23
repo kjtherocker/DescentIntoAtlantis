@@ -9,7 +9,7 @@
 
 class UEnemyBestiaryData;
 class UEnemyBehaviour;
-class UEnemyPortraitElement;
+class AEnemyPortraitElement;
 class ACombatGameModeBase;
 struct FEnemyEntityData;
 
@@ -27,7 +27,7 @@ struct DESENTINTOATLANTIS_API FEnemyEntityData :public  FCombatEntityData
 	GENERATED_USTRUCT_BODY()
 	
 	UPROPERTY( EditAnywhere )
-	UTexture2D* fullBodyCharacterPortrait;
+	UMaterialInterface* fullBodyCharacterPortrait;
 	
 
 	UPROPERTY( EditAnywhere )

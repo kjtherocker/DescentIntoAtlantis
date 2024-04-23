@@ -12,7 +12,7 @@ class UImage;
  * 
  */
 UCLASS()
-class DESENTINTOATLANTIS_API UEnemyPortraitElement : public UBaseUserWidget
+class DESENTINTOATLANTIS_API AEnemyPortraitElement : public AActor
 {
 	GENERATED_BODY()
 
@@ -25,13 +25,20 @@ private:
 	void Disappear(float DeltaTime);
 	
 public:
-	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
-	void SetCombatEntity(UEnemyCombatEntity* aCombatEntity);
-	virtual void NativeTick(const FGeometry& MyGeometry, float DeltaTime) override;
 
-	
+	void SetCombatEntity(UEnemyCombatEntity* aCombatEntity);
+	virtual void Tick(float DeltaTime) override;
+
+	AEnemyPortraitElement* GetMaterialCollection(UMaterialInterface* Material);
 	UFUNCTION()
 	void TriggerHitEffect();
+	
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent* PlaneMeshComponent;
+
+	UPROPERTY()
+	UMaterialInterface* currentEnemyMaterialInterface;
+	
 	UFUNCTION()
 	void TriggerDisappear();
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))

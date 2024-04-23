@@ -19,6 +19,11 @@ void EmptyLinkFunctionForGeneratedCodeCombatGameModeBase() {}
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECharactertype();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UPlayerCombatEntity_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEnemyCombatEntity_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AEnemyPortraitElement_NoRegister();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EEnemyCombatPositions();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector3d();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UPressTurnManager_NoRegister();
 // End Cross Module References
 	struct Z_Construct_UDelegateFunction_DesentIntoAtlantis_RoundEndDelegate__DelegateSignature_Statics
@@ -120,15 +125,33 @@ void EmptyLinkFunctionForGeneratedCodeCombatGameModeBase() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentActivePartyMember_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_currentActivePartyMember;
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_enemyCombatEntities_Inner;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_enemysInCombat_Inner;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_enemyCombatEntities_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_enemysInCombat_MetaData[];
 #endif
-		static const UECodeGen_Private::FArrayPropertyParams NewProp_enemyCombatEntities;
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_enemysInCombat;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_Portraits_ValueProp;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_Portraits_Key_KeyProp_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_Portraits_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Portraits_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_Portraits;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_portraitsLocations_ValueProp;
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_portraitsLocations_Key_KeyProp_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_portraitsLocations_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_portraitsLocations_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_portraitsLocations;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_OnRoundEndDelegate_MetaData[];
 #endif
 		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnRoundEndDelegate;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_enemyPortraitElementReference_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_enemyPortraitElementReference;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_pressTurnManager_MetaData[];
 #endif
@@ -193,13 +216,31 @@ void EmptyLinkFunctionForGeneratedCodeCombatGameModeBase() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_currentActivePartyMember = { "currentActivePartyMember", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACombatGameModeBase, currentActivePartyMember), Z_Construct_UClass_UPlayerCombatEntity_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_currentActivePartyMember_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_currentActivePartyMember_MetaData)) };
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemyCombatEntities_Inner = { "enemyCombatEntities", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_UEnemyCombatEntity_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemysInCombat_Inner = { "enemysInCombat", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_UEnemyCombatEntity_NoRegister, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemyCombatEntities_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemysInCombat_MetaData[] = {
 		{ "ModuleRelativePath", "Public/CombatGameModeBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemyCombatEntities = { "enemyCombatEntities", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACombatGameModeBase, enemyCombatEntities), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemyCombatEntities_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemyCombatEntities_MetaData)) };
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemysInCombat = { "enemysInCombat", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACombatGameModeBase, enemysInCombat), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemysInCombat_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemysInCombat_MetaData)) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_Portraits_ValueProp = { "Portraits", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UClass_AEnemyPortraitElement_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_Portraits_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_Portraits_Key_KeyProp = { "Portraits_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EEnemyCombatPositions, METADATA_PARAMS(nullptr, 0) }; // 3890971794
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_Portraits_MetaData[] = {
+		{ "ModuleRelativePath", "Public/CombatGameModeBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_Portraits = { "Portraits", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACombatGameModeBase, Portraits), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_Portraits_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_Portraits_MetaData)) }; // 3890971794
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_portraitsLocations_ValueProp = { "portraitsLocations", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, 1, Z_Construct_UScriptStruct_FVector3d, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_portraitsLocations_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_portraitsLocations_Key_KeyProp = { "portraitsLocations_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EEnemyCombatPositions, METADATA_PARAMS(nullptr, 0) }; // 3890971794
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_portraitsLocations_MetaData[] = {
+		{ "ModuleRelativePath", "Public/CombatGameModeBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_portraitsLocations = { "portraitsLocations", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACombatGameModeBase, portraitsLocations), EMapPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_portraitsLocations_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_portraitsLocations_MetaData)) }; // 3890971794
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_OnRoundEndDelegate_MetaData[] = {
 		{ "Category", "Test" },
@@ -207,6 +248,13 @@ void EmptyLinkFunctionForGeneratedCodeCombatGameModeBase() {}
 	};
 #endif
 	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_OnRoundEndDelegate = { "OnRoundEndDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACombatGameModeBase, OnRoundEndDelegate), Z_Construct_UDelegateFunction_DesentIntoAtlantis_RoundEndDelegate__DelegateSignature, METADATA_PARAMS(Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_OnRoundEndDelegate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_OnRoundEndDelegate_MetaData)) }; // 914321917
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemyPortraitElementReference_MetaData[] = {
+		{ "Category", "CombatGameModeBase" },
+		{ "ModuleRelativePath", "Public/CombatGameModeBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemyPortraitElementReference = { "enemyPortraitElementReference", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACombatGameModeBase, enemyPortraitElementReference), Z_Construct_UClass_AActor_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemyPortraitElementReference_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemyPortraitElementReference_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_pressTurnManager_MetaData[] = {
 		{ "ModuleRelativePath", "Public/CombatGameModeBase.h" },
@@ -223,9 +271,18 @@ void EmptyLinkFunctionForGeneratedCodeCombatGameModeBase() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_partyMembersDead_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_partyMembersDead,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_currentActivePartyMember,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemyCombatEntities_Inner,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemyCombatEntities,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemysInCombat_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemysInCombat,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_Portraits_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_Portraits_Key_KeyProp_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_Portraits_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_Portraits,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_portraitsLocations_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_portraitsLocations_Key_KeyProp_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_portraitsLocations_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_portraitsLocations,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_OnRoundEndDelegate,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_enemyPortraitElementReference,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACombatGameModeBase_Statics::NewProp_pressTurnManager,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACombatGameModeBase_Statics::StaticCppClassTypeInfo = {
@@ -264,9 +321,9 @@ void EmptyLinkFunctionForGeneratedCodeCombatGameModeBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatGameModeBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACombatGameModeBase, ACombatGameModeBase::StaticClass, TEXT("ACombatGameModeBase"), &Z_Registration_Info_UClass_ACombatGameModeBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACombatGameModeBase), 1970047598U) },
+		{ Z_Construct_UClass_ACombatGameModeBase, ACombatGameModeBase::StaticClass, TEXT("ACombatGameModeBase"), &Z_Registration_Info_UClass_ACombatGameModeBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACombatGameModeBase), 3303833216U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatGameModeBase_h_3913654196(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatGameModeBase_h_130895178(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatGameModeBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DesentIntoAtlantis_Source_DesentIntoAtlantis_Public_CombatGameModeBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

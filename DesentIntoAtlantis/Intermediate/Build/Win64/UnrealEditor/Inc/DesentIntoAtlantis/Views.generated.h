@@ -24,7 +24,6 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	op(EViews::CombatBackground) \
 	op(EViews::CombatSelection) \
 	op(EViews::Skill) \
-	op(EViews::EnemyPortraits) \
 	op(EViews::TurnCounter) \
 	op(EViews::Dialogue) \
 	op(EViews::EnemySkill) \
