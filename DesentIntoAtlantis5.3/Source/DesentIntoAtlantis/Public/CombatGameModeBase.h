@@ -81,9 +81,9 @@ public:
 	FRoundEndDelegate OnRoundEndDelegate;
 
 	
-	const FVector3d ENEMY_POSITION1 = FVector3d(500,-350,20);
-	const FVector3d ENEMY_POSITION2 = FVector3d(500,0,20);
-	const FVector3d ENEMY_POSITION3 = FVector3d(500,350,20);
+	const FVector3d ENEMY_POSITION1 = FVector3d(850,-500,43.0);
+	const FVector3d ENEMY_POSITION2 = FVector3d(850,0,43.0);
+	const FVector3d ENEMY_POSITION3 = FVector3d(850,500,43.0);
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> enemyPortraitElementReference;
