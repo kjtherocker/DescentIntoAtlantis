@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "DesentIntoAtlantis",
+			"Path": "..\\Source\\DesentIntoAtlantis.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "DesentIntoAtlantisEditor",
+			"Path": "..\\Source\\DesentIntoAtlantisEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
