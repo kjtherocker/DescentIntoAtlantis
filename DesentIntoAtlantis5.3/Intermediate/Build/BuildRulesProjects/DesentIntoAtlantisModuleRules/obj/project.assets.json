@@ -8047,11 +8047,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Intermediate\\Build\\BuildRulesProjects\\DesentIntoAtlantisModuleRules\\DesentIntoAtlantisModuleRules.csproj",
+      "projectUniqueName": "C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Intermediate\\Build\\BuildRulesProjects\\DesentIntoAtlantisModuleRules\\DesentIntoAtlantisModuleRules.csproj",
       "projectName": "DesentIntoAtlantisModuleRules",
-      "projectPath": "C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Intermediate\\Build\\BuildRulesProjects\\DesentIntoAtlantisModuleRules\\DesentIntoAtlantisModuleRules.csproj",
+      "projectPath": "C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Intermediate\\Build\\BuildRulesProjects\\DesentIntoAtlantisModuleRules\\DesentIntoAtlantisModuleRules.csproj",
       "packagesPath": "C:\\Users\\kylej\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Intermediate\\Build\\BuildRulesProjects\\DesentIntoAtlantisModuleRules\\obj\\",
+      "outputPath": "C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Intermediate\\Build\\BuildRulesProjects\\DesentIntoAtlantisModuleRules\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kylej\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1163,6 +1163,11 @@
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CombatCameraPawn.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CombatClass.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
@@ -1437,6 +1442,7 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\BaseUserWidget.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CameraFilterView.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatBackground.h"/>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatCameraPawn.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatClass.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatEntity.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatGameModeBase.h"/>

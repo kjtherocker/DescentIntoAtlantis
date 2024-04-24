@@ -1,0 +1,37 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Ui/uiTextures/Event/Material_EvenTrigger_Base_Ethel.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/CodeObjects/EventTriggers/EventTrigger_Enemy1.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Ui/uiTextures/Characters/4096x4096_Ethel.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/CodeObjects/EventTriggers/EventTrigger_SharkFiend1.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/CodeObjects/BP_FloorManager.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Map/MainMenu.umap",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/__ExternalActors__/Map/Floor1/8/6M/7CF078I3XWI1O2639OF3F0.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Map/Floor1.umap",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Map/WaterCombat.umap",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/GameMode/BP_CombatGameMode.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Datatables/Atlantis_-_EnemyGroup.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/CodeObjects/BP_CombatCameraPawn.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Materials/Characters/Material_EventCombat_Base.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Materials/Characters/Material_EventCombat_undine.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/CodeObjects/BP_EnemyPortraitElement.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Datatables/Atlantis_-_Enemys.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Materials/Characters/Material_EventCombat_Rain.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Ui/uiTextures/EnemyTextures/4096x4096_rain.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Ui/uiTextures/Characters/2048x2048_Rain.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Ui/uiTextures/EnemyTextures/4096x4096_Test.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Ui/uiTextures/EnemyTextures/2048x2048_test.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Ui/uiTextures/EnemyTextures/4096x4096_Lorolei.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Ui/uiTextures/EnemyTextures/4096x4096_Test2.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Ui/uiTextures/EnemyTextures/Sharkfiend2.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Ui/uiTextures/Characters/Ethel.uasset",
+				"C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/CodeObjects/CombatCamera.uasset"
+			]
+		}
+	]
+}

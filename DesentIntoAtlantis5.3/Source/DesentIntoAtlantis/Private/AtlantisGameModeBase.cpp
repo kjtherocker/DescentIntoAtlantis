@@ -36,7 +36,6 @@ void AAtlantisGameModeBase::InitializeLevel()
 	persistentGameInstance->EventManagerSubSystem->SetDefaultGameMode(this);
 	
     world = GetWorld();
-    FVector ActorFinalSpawnPoint;
     FRotator rotator;
 
     gameManager = NewObject<UGameManager>();
@@ -52,8 +51,6 @@ void AAtlantisGameModeBase::InitializeLevel()
 	}
 	else
 	{
-		floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, FVector(0,0,0), rotator));
-		floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
 
 		InGameHUD = (AInGameHUD*)GetWorld()->GetFirstPlayerController()->GetHUD();
 		InGameHUD->gameModeBase = this;

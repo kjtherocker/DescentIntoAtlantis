@@ -1,16 +1,16 @@
 {
 	"SourceFiles": [
-		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Source\\DesentIntoAtlantis\\DesentIntoAtlantis.Build.cs",
-		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Plugins\\Developer\\RiderLink\\Source\\RD\\RD.Build.cs",
-		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Plugins\\Developer\\RiderLink\\Source\\RiderBlueprint\\RiderBlueprint.Build.cs",
-		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Plugins\\Developer\\RiderLink\\Source\\RiderDebuggerSupport\\RiderDebuggerSupport.Build.cs",
-		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Plugins\\Developer\\RiderLink\\Source\\RiderGameControl\\RiderGameControl.Build.cs",
-		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Plugins\\Developer\\RiderLink\\Source\\RiderLC\\RiderLC.Build.cs",
-		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Plugins\\Developer\\RiderLink\\Source\\RiderLink\\RiderLink.Build.cs",
-		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Plugins\\Developer\\RiderLink\\Source\\RiderLogging\\RiderLogging.Build.cs",
-		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Plugins\\Developer\\RiderLink\\Source\\RiderShaderInfo\\RiderShaderInfo.Build.cs",
-		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Source\\DesentIntoAtlantis.Target.cs",
-		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Source\\DesentIntoAtlantisEditor.Target.cs"
+		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Source\\DesentIntoAtlantis\\DesentIntoAtlantis.Build.cs",
+		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Plugins\\Developer\\RiderLink\\Source\\RD\\RD.Build.cs",
+		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Plugins\\Developer\\RiderLink\\Source\\RiderBlueprint\\RiderBlueprint.Build.cs",
+		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Plugins\\Developer\\RiderLink\\Source\\RiderDebuggerSupport\\RiderDebuggerSupport.Build.cs",
+		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Plugins\\Developer\\RiderLink\\Source\\RiderGameControl\\RiderGameControl.Build.cs",
+		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Plugins\\Developer\\RiderLink\\Source\\RiderLC\\RiderLC.Build.cs",
+		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Plugins\\Developer\\RiderLink\\Source\\RiderLink\\RiderLink.Build.cs",
+		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Plugins\\Developer\\RiderLink\\Source\\RiderLogging\\RiderLogging.Build.cs",
+		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Plugins\\Developer\\RiderLink\\Source\\RiderShaderInfo\\RiderShaderInfo.Build.cs",
+		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Source\\DesentIntoAtlantis.Target.cs",
+		"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Source\\DesentIntoAtlantisEditor.Target.cs"
 	],
 	"EngineVersion": "5.3.2"
 }

@@ -3,17 +3,12 @@
 
 #include "FloorGameMode.h"
 #include "CombatGameModeBase.h"
-#include "EventManagerSubSystem.h"
 #include "FloorPlayerController.h"
-#include "SoundManager.h"
 #include "InGameHUD.h"
-#include "GameManager.h"
+
 #include "PersistentGameinstance.h"
-#include "SaveGameData.h"
-#include "TitleView.h"
-#include "TutorialManagerSubsystem.h"
+
 #include "Engine/LevelStreaming.h"
-#include "Kismet/GameplayStatics.h"
 
 AFloorGameMode::AFloorGameMode()
 {
@@ -33,7 +28,8 @@ void AFloorGameMode::InitializeLevel()
     FVector ActorFinalSpawnPoint(0,0,0);
     FRotator rotator(0.0f,0.0f,0.0f);
     
-
+    floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, FVector(0,0,0), rotator));
+    floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
 
     
     floorManager = Cast<AFloorManager>(world->SpawnActor<AActor>(floorManagerReference, FVector::Zero(), rotator));

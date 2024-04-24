@@ -12,6 +12,7 @@
 #include "PersistentGameinstance.h"
 #include "CombatGameModeBase.h"
 
+#include "CombatCameraPawn.h"
 #include "CommandBoardView.h"
 #include "EnemyPortraitElement.h"
 #include "PlayerCombatEntity.h"
@@ -22,6 +23,25 @@
 void ACombatGameModeBase::InitializeLevel()
 {
 	Super::InitializeLevel();
+	;
+	FActorSpawnParameters ActorSpawnParameters;
+	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	ActorSpawnParameters.Owner = this;
+
+	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
+	ACombatCameraPawn* combatCamera = Cast<ACombatCameraPawn>(GetWorld()->SpawnActor<AActor>(cameraReference, CAMERA_POSITION, CAMERA_ROTATION,ActorSpawnParameters));
+
+	if (PlayerController->GetPawn()) // If the player controller has a pawn
+	{
+		PlayerController->UnPossess(); // Unpossess the current pawn
+	}
+
+	PlayerController->Possess(combatCamera); // Possess the new pawn
+	combatCamera->AutoPossessPlayer = EAutoReceiveInput::Player0;
+	combatCamera->PrimaryActorTick.bCanEverTick = true;
+	combatCamera->PossessedBy(PlayerController);
+	combatCamera->AutoPossessPlayer = EAutoReceiveInput::Player0;
+	
 	pressTurnManager = NewObject<UPressTurnManager>();
 	pressTurnManager->Initialize(this);
 	FCombatArenaData arenaData = persistentGameInstance->ConsumeArenaDataFlag();
@@ -32,10 +52,10 @@ void ACombatGameModeBase::InitializeLevel()
 	portraitsLocations.Add(EEnemyCombatPositions::Right,ENEMY_POSITION3);
 	
 	StartCombat(arenaData.enemyGroupName);
-	floorPawn->SetActorLocation(FVector3d(3082.0,2121.0,407.0));
-	FRotator rotator;
-	rotator.Yaw = 180;
-	floorPawn->SetActorRotation(rotator);
+	
+	//floorPawn->bBlockInput = true;
+	//floorPawn->SetFloorPawnInput(false);
+
 }
 
 void ACombatGameModeBase::CreateEnemyPortraits()
@@ -77,6 +97,12 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 	for(int i = 0 ; i < partyMembersInCombat.Num();i++)
 	{
 		partyMembersInCombat[i]->SetTacticsEvents(this);
+	}
+
+	if(partyMembersInCombat.Num() == 0)
+	{
+		partyManager->AddPlayerToActiveParty(EPartyMembers::Fide);
+		partyMembersInCombat       = partyManager->ReturnActiveParty();
 	}
 	  
 	currentActivePartyMember   = partyMembersInCombat[0];

@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Intermediate\\Build\\BuildRulesProjects\\DesentIntoAtlantisModuleRules\\DesentIntoAtlantisModuleRules.csproj": {}
+    "C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Intermediate\\Build\\BuildRulesProjects\\DesentIntoAtlantisModuleRules\\DesentIntoAtlantisModuleRules.csproj": {}
   },
   "projects": {
     "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Intermediate\\Build\\BuildRulesProjects\\UE5ProgramRules\\UE5ProgramRules.csproj": {
@@ -941,14 +941,14 @@
         }
       }
     },
-    "C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Intermediate\\Build\\BuildRulesProjects\\DesentIntoAtlantisModuleRules\\DesentIntoAtlantisModuleRules.csproj": {
+    "C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Intermediate\\Build\\BuildRulesProjects\\DesentIntoAtlantisModuleRules\\DesentIntoAtlantisModuleRules.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Intermediate\\Build\\BuildRulesProjects\\DesentIntoAtlantisModuleRules\\DesentIntoAtlantisModuleRules.csproj",
+        "projectUniqueName": "C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Intermediate\\Build\\BuildRulesProjects\\DesentIntoAtlantisModuleRules\\DesentIntoAtlantisModuleRules.csproj",
         "projectName": "DesentIntoAtlantisModuleRules",
-        "projectPath": "C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Intermediate\\Build\\BuildRulesProjects\\DesentIntoAtlantisModuleRules\\DesentIntoAtlantisModuleRules.csproj",
+        "projectPath": "C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Intermediate\\Build\\BuildRulesProjects\\DesentIntoAtlantisModuleRules\\DesentIntoAtlantisModuleRules.csproj",
         "packagesPath": "C:\\Users\\kylej\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Intermediate\\Build\\BuildRulesProjects\\DesentIntoAtlantisModuleRules\\obj\\",
+        "outputPath": "C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Intermediate\\Build\\BuildRulesProjects\\DesentIntoAtlantisModuleRules\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kylej\\AppData\\Roaming\\NuGet\\NuGet.Config",

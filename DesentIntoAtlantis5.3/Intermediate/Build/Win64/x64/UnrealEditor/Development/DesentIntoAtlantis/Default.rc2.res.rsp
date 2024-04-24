@@ -71,9 +71,9 @@
 /DORIGINAL_FILE_NAME="UnrealEditor-DesentIntoAtlantis.dll"
 /DBUILT_FROM_CHANGELIST=29314046
 /DBUILD_VERSION=++UE5+Release-5.3-CL-29314046
-/DBUILD_ICON_FILE_NAME="\"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis 5.1 5.2 5.3\\Build\\Windows\\Application.ico\""
+/DBUILD_ICON_FILE_NAME="\"C:\\Users\\kylej\\Desktop\\DescentIntoAtlantis\\DesentIntoAtlantis5.3\\Build\\Windows\\Application.ico\""
 /DPROJECT_COPYRIGHT_STRING="Fill out your copyright notice in the Description page of Project Settings."
 /DPROJECT_PRODUCT_NAME=DescentIntoAtlantis
 /DPROJECT_PRODUCT_IDENTIFIER=DesentIntoAtlantis
-/fo "C:\Users\kylej\Desktop\DescentIntoAtlantis\DesentIntoAtlantis 5.1 5.2 5.3\Intermediate\Build\Win64\x64\UnrealEditor\Development\DesentIntoAtlantis\Default.rc2.res"
+/fo "C:\Users\kylej\Desktop\DescentIntoAtlantis\DesentIntoAtlantis5.3\Intermediate\Build\Win64\x64\UnrealEditor\Development\DesentIntoAtlantis\Default.rc2.res"
 "..\Build\Windows\Resources\Default.rc2"

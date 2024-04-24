@@ -51,6 +51,12 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	UPROPERTY()
 	ECharactertype currentTurnType;
 
+	UPROPERTY(EditAnywhere)
+	FVector3d CAMERA_POSITION;
+	UPROPERTY(EditAnywhere)
+	FRotator CAMERA_ROTATION;
+	
+		
 	UPROPERTY()
 	TArray<UPlayerCombatEntity*> partyMembersInCombat;
 	UPROPERTY()
@@ -59,6 +65,9 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	UPlayerCombatEntity* currentActivePartyMember;
 	UPROPERTY()
 	TArray<UEnemyCombatEntity*> enemysInCombat;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<APawn> cameraReference;
 
 	UPROPERTY()
 	TMap<EEnemyCombatPositions,AEnemyPortraitElement*> Portraits;
@@ -72,9 +81,9 @@ public:
 	FRoundEndDelegate OnRoundEndDelegate;
 
 	
-	const FVector3d ENEMY_POSITION1 = FVector3d(3622,1779,449);
-	const FVector3d ENEMY_POSITION2 = FVector3d(3622,2127,449);
-	const FVector3d ENEMY_POSITION3 = FVector3d(3622,2463,449);
+	const FVector3d ENEMY_POSITION1 = FVector3d(500,-350,20);
+	const FVector3d ENEMY_POSITION2 = FVector3d(500,0,20);
+	const FVector3d ENEMY_POSITION3 = FVector3d(500,350,20);
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> enemyPortraitElementReference;

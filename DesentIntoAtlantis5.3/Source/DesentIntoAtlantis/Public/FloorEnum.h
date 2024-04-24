@@ -54,10 +54,10 @@ struct DESENTINTOATLANTIS_API FFloorData : public FTableRowBase
 	TArray<int> floorBlueprint;
 	
 	UPROPERTY( EditAnywhere )
-	EFloorIdentifier floorIdentifier;
+	EFloorIdentifier floorIdentifier = EFloorIdentifier::None;
 	
 	UPROPERTY( EditAnywhere )
-	FVector2D startPosition;
+	FVector2D startPosition = FVector2d::Zero();
 	
 	UPROPERTY( EditAnywhere )
 	TMap<FVector2D, EFloorGimmicks> floorGimmicks;
@@ -94,31 +94,31 @@ struct DESENTINTOATLANTIS_API FFloorEventData : public FTableRowBase
 	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY( EditAnywhere )
-	EFloorIdentifier floorIdentifier;
+	EFloorIdentifier floorIdentifier = EFloorIdentifier::None;
 	
 	UPROPERTY( EditAnywhere )
-	FVector2D positionInGrid;
+	FVector2D positionInGrid = FVector2d::Zero();
 
 	UPROPERTY( EditAnywhere )
-	FString enemyGroupName;
+	FString enemyGroupName  = "DefaultTest";
 
 	UPROPERTY( EditAnywhere )
-	ETutorialTriggers tutorialTriggerOnStart;
+	ETutorialTriggers tutorialTriggerOnStart = ETutorialTriggers::None;
 
 	UPROPERTY( EditAnywhere )
-	ETutorialTriggers tutorialTriggerOnEnd;
+	ETutorialTriggers tutorialTriggerOnEnd   = ETutorialTriggers::None;
 	
 	UPROPERTY( EditAnywhere )
-	EDialogueTriggers dialogueTriggerOnStart;
+	EDialogueTriggers dialogueTriggerOnStart = EDialogueTriggers::None;
 
 	UPROPERTY( EditAnywhere )
-	EDialogueTriggers dialogueTriggerOnEnd;
+	EDialogueTriggers dialogueTriggerOnEnd   = EDialogueTriggers::None;
 
 	UPROPERTY( EditAnywhere )
-	EPartyMembers partyMemberGainedOnEnd;
+	EPartyMembers partyMemberGainedOnEnd     = EPartyMembers::None;
 	
 	UPROPERTY( EditAnywhere )
-	EViews viewPushedOnEnd;
+	EViews viewPushedOnEnd = EViews::None;
 	
 };
 
@@ -128,10 +128,10 @@ struct DESENTINTOATLANTIS_API FCombatArenaData : public FTableRowBase
 	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY( EditAnywhere )
-	FString levelName;
+	FString levelName      = "Uninitialized";
 	
 	UPROPERTY( EditAnywhere )
-	FString enemyGroupName;
+	FString enemyGroupName = "Uninitialized";
 };
 
 USTRUCT()
@@ -140,25 +140,25 @@ struct DESENTINTOATLANTIS_API FTutorialData : public FTableRowBase
 	GENERATED_USTRUCT_BODY()
 	
 	UPROPERTY( EditAnywhere )
-	ETutorialTriggers tutorialTrigger;
+	ETutorialTriggers tutorialTrigger = ETutorialTriggers::None;
 	
 	UPROPERTY( EditAnywhere )
-	FString classTitle;
+	FString classTitle = "Uninitialized";
 
 	UPROPERTY( EditAnywhere )
-	FString characterName;
+	FString characterName = "Uninitialized";
 
 	UPROPERTY( EditAnywhere )
-	FString classDescription;
+	FString classDescription= "Uninitialized";
 
 	UPROPERTY( EditAnywhere )
-	FString bulletPoint1;
+	FString bulletPoint1 = "Uninitialized";
 
 	UPROPERTY( EditAnywhere )
-	FString bulletPoint2;
+	FString bulletPoint2 = "Uninitialized";
 
 	UPROPERTY( EditAnywhere )
-	FString bulletPoint3;
+	FString bulletPoint3 = "Uninitialized";
 	
 	UPROPERTY( EditAnywhere )
 	UTexture2D* characterPortrait;
