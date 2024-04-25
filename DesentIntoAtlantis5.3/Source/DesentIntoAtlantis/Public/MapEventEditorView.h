@@ -24,7 +24,7 @@ class DESENTINTOATLANTIS_API UMapEventEditorView : public UUserWidget
 
 	const FString TUTORIAL_ENUM = TEXT("ETutorialTriggers");
 	const FString DIALOGUE_ENUM = TEXT("EDialogueTriggers");
-	const FString ALLY_ENUM     = TEXT("EDataTableClasses");
+	const FString ALLY_ENUM     = TEXT("EPartyMembers");
 	const FString VIEW_ENUM     = TEXT("EViews");
 
 	UMapButtonElement* currentMapButtonElement;

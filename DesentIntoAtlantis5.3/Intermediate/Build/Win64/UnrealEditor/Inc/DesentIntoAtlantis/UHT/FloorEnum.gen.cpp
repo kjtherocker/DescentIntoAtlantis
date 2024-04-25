@@ -178,11 +178,13 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnum() {}
 	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena_Statics::Enumerators[] = {
 		{ "ECombatArena::None", (int64)ECombatArena::None },
 		{ "ECombatArena::Water", (int64)ECombatArena::Water },
+		{ "ECombatArena::Prison", (int64)ECombatArena::Prison },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena_Statics::Enum_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Public/FloorEnum.h" },
 		{ "None.Name", "ECombatArena::None" },
+		{ "Prison.Name", "ECombatArena::Prison" },
 		{ "Water.Name", "ECombatArena::Water" },
 	};
 #endif
@@ -976,7 +978,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FTutorialData>()
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::EnumInfo[] = {
 		{ EFloorEventStates_StaticEnum, TEXT("EFloorEventStates"), &Z_Registration_Info_UEnum_EFloorEventStates, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1281561784U) },
 		{ EFloorGimmicks_StaticEnum, TEXT("EFloorGimmicks"), &Z_Registration_Info_UEnum_EFloorGimmicks, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3664590536U) },
-		{ ECombatArena_StaticEnum, TEXT("ECombatArena"), &Z_Registration_Info_UEnum_ECombatArena, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1732030331U) },
+		{ ECombatArena_StaticEnum, TEXT("ECombatArena"), &Z_Registration_Info_UEnum_ECombatArena, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3825271882U) },
 		{ EDialogueTriggers_StaticEnum, TEXT("EDialogueTriggers"), &Z_Registration_Info_UEnum_EDialogueTriggers, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 587835333U) },
 		{ ETutorialTriggers_StaticEnum, TEXT("ETutorialTriggers"), &Z_Registration_Info_UEnum_ETutorialTriggers, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2742774201U) },
 	};
@@ -986,7 +988,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FTutorialData>()
 		{ FCombatArenaData::StaticStruct, Z_Construct_UScriptStruct_FCombatArenaData_Statics::NewStructOps, TEXT("CombatArenaData"), &Z_Registration_Info_UScriptStruct_CombatArenaData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatArenaData), 3277251417U) },
 		{ FTutorialData::StaticStruct, Z_Construct_UScriptStruct_FTutorialData_Statics::NewStructOps, TEXT("TutorialData"), &Z_Registration_Info_UScriptStruct_TutorialData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FTutorialData), 1079114697U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_998384675(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_2317903993(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::EnumInfo));

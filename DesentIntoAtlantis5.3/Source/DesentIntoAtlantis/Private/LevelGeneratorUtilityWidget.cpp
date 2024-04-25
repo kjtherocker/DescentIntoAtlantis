@@ -208,13 +208,28 @@ TArray<FName> ULevelGeneratorUtilityWidget::GetAllEnumNames(UEnum* EnumType)
 
 void ULevelGeneratorUtilityWidget::InitializeComboBox(UComboBoxString* aCombobox,FString aEnumName)
 {
-	UEnum* EnumType = FindObject<UEnum>(GetOuter(), *aEnumName, true);
-	TArray<FName> enumNames = GetAllEnumNames(EnumType);
-	
-	for (int32 i = 0; i < enumNames.Num(); ++i)
+	UEnum* EnumType = FindObject<UEnum>(ANY_PACKAGE, *aEnumName, true); // Changed from GetOuter() to ANY_PACKAGE
+    
+	if (EnumType) // Check if EnumType is not nullptr
 	{
-		FString EnumName = enumNames[i].ToString();
-		aCombobox->AddOption(EnumName);
+		TArray<FName> enumNames = GetAllEnumNames(EnumType);
+
+		if (enumNames.Num() > 0) // Check if enumNames is not empty
+		{
+			for (int32 i = 0; i < enumNames.Num(); ++i)
+			{
+				FString EnumName = enumNames[i].ToString();
+				aCombobox->AddOption(EnumName);
+			}
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("enumNames array is empty. Enum Type may not exist or is defined incorrectly."));
+		}
+	} 
+	else 
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Failed to find enum type: %s"), *aEnumName);
 	}
 	
 }

@@ -38,7 +38,8 @@ UENUM()
 enum class ECombatArena
 {
 	None            = 0,
-	Water            = 1,
+	Water           = 1,
+	Prison          = 2,
 };
 
 

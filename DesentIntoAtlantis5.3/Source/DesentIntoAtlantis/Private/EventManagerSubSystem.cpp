@@ -76,7 +76,7 @@ void UEventManagerSubSystem::TriggerNextFloorEventStep(EFloorEventStates aFloorE
 			if(!currentEvent.enemyGroupName.IsEmpty())
 			{
 				UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
-				persistentGameInstance->LoadCombatLevel(currentEvent.enemyGroupName,ECombatArena::Water);
+				persistentGameInstance->LoadCombatLevel(currentEvent.enemyGroupName,ECombatArena::Prison);
 			}
 			else
 			{

@@ -151,7 +151,7 @@ void UPersistentGameinstance::LoadSaveDataAndTransitionToMap(FString aLevelName)
 void UPersistentGameinstance::LoadCombatLevel(FString aEnemyGroupName, ECombatArena aCombatArena)
 {
 	aCombatArenaData.enemyGroupName = aEnemyGroupName;
-	LoadLevel("WaterCombat");
+	LoadLevel("PrisonCombat");
 }
 
 
