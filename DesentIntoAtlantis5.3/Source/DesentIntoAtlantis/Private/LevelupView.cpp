@@ -5,6 +5,7 @@
 #include "PlayerCombatEntity.h"
 #include "Components/TextBlock.h"
 #include "LevelupPanelElement.h"
+#include "PersistentGameinstance.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "SkillBarElement.h"
@@ -27,11 +28,12 @@ void ULevelupView::SetupLevelupView(UPlayerCombatEntity* aPlayerCombatEntity)
 	FClassData nextClassLevel    = aPlayerCombatEntity->mainClass->Levelup();
 	
 	AFloorGameMode* GameModeBase = Cast< AFloorGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
+	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
 
 	if(completeClassData.unlockableSkillByLevel.Contains(completeClassData.currentLevel))
 	{
 		FString newSkillName = completeClassData.unlockableSkillByLevel[completeClassData.currentLevel + 1];
-		FSkillsData newSKill = GameModeBase->skillFactory->GetSkill(newSkillName)->skillData;
+		FSkillsData newSKill = persistentGameInstance->skillFactorySubsystem->GetSkill(newSkillName)->skillData;
 		BW_Skillbar->SetSkill(newSKill);
 
 		BW_LevelupConversationalText->SetText(FText(FText::FromString(newSKill.skillDescription)));

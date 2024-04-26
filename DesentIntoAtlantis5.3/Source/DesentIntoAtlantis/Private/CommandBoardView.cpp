@@ -8,6 +8,7 @@
 #include "CombatSelectionView.h"
 #include "EngineUtils.h"
 #include "GameManager.h"
+#include "SkillView.h"
 #include "SoundManager.h"
 #include "Components/TextBlock.h"
 #include "Components/Border.h"
@@ -104,7 +105,8 @@ void UCommandBoardView::Attack()
 void UCommandBoardView::Skill()
 {
 	InGameHUD->PopMostRecentActiveView();
-	InGameHUD->PushView(EViews::Skill,EUiType::ActiveUi);
+	USkillView* SelectionView = (USkillView*)InGameHUD->PushAndGetView(EViews::Skill,  EUiType::ActiveUi);
+	SelectionView->InitializeSkills(combatManager);
 }
 void UCommandBoardView::Escape()
 {

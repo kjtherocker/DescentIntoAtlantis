@@ -23,11 +23,16 @@ void USkillView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &USkillView::MoveDown  );
 	InputComponent->BindAction("E"       ,IE_Pressed ,this, &USkillView::ReturnToPreviousScreen  );
 	
-	currentActivePartyMember = gameModeBase->combatManager->GetCurrentActivePartyMember();
+}
+
+void USkillView::InitializeSkills(ACombatGameModeBase* aCombatGameMode)
+{
+	combatGameMode = aCombatGameMode;
+	currentActivePartyMember = aCombatGameMode->GetCurrentActivePartyMember();
 	UCombatClass* combatClass = currentActivePartyMember->mainClass;
 
-    BW_CharacterName->SetText(FText(FText::FromString(currentActivePartyMember->playerIdentityData.characterName)));
-    BW_ClassName->SetText(FText(FText::FromString(currentActivePartyMember->mainClass->completeClassData.className)));
+	BW_CharacterName->SetText(FText(FText::FromString(currentActivePartyMember->playerIdentityData.characterName)));
+	BW_ClassName->SetText(FText(FText::FromString(currentActivePartyMember->mainClass->completeClassData.className)));
 	
 	for(int i = 0 ; i < combatClass->classSkills.Num();i++)
 	{
@@ -38,6 +43,7 @@ void USkillView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	SkillSelection(combatClass->classSkills[cursorPosition]->skillData);
 	SetCursorPositionInfo();
 }
+
 void USkillView::SetCursorPositionInfo()
 {
 	Super::SetCursorPositionInfo();
@@ -97,7 +103,8 @@ void USkillView::SelectSkill()
 	if(currentActivePartyMember->currentMana >= skillCost)
 	{
 		InGameHUD->PopMostRecentActiveView();
-		UCombatSelectionView* SelectionView = (UCombatSelectionView*)InGameHUD->PushAndGetView(EViews::CombatSelection,EUiType::ActiveUi);
+		UCombatSelectionView* SelectionView = (UCombatSelectionView*)InGameHUD->PushAndGetView(EViews::CombatSelection,  EUiType::ActiveUi);
+		SelectionView->SetCombatGameMode(combatGameMode);
 		
 		SelectionView->SetSkill(combatClass->classSkills[cursorPosition]);
 	}

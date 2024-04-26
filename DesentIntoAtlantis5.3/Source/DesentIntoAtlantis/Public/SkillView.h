@@ -19,14 +19,19 @@ class DESENTINTOATLANTIS_API USkillView : public UBaseUserWidget
 {
 	GENERATED_BODY()
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
-
 	void CreateSkillbar(FSkillsData aSkill);
 	void SkillSelection(FSkillsData aSkill);
 	void SelectSkill();
 	virtual void MoveUp() override;
 	virtual void MoveDown() override;
 	virtual void SetCursorPositionInfo() override;
+
+	ACombatGameModeBase* combatGameMode;
 public:
+	
+	void InitializeSkills(ACombatGameModeBase* aCombatGameMode);
+
+	
 
 	UPROPERTY()
 	UPlayerCombatEntity* currentActivePartyMember;

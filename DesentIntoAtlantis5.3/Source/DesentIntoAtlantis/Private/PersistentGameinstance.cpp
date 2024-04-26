@@ -110,7 +110,12 @@ void UPersistentGameinstance::LoadLevel(FString aLevelName)
 	{
 		//We are calling the same scene multiple times
 	}
+	previousLevelName = currentLevelName;
 	currentLevelName  = LevelName;
+}
+
+void UPersistentGameinstance::ReturnToPreviousLevel()
+{
 }
 
 void UPersistentGameinstance::SaveFloorPawn(AFloorPawn* aFloorPawn)

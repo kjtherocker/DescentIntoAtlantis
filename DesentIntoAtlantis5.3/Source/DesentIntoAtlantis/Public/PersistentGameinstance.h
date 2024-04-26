@@ -37,6 +37,9 @@ public:
 	void LoadLevel(FString aLevelName);
 
 	UFUNCTION()
+	void ReturnToPreviousLevel();
+
+	UFUNCTION()
 	void SaveFloorPawn(AFloorPawn* aFloorPawn);
 
 	UFUNCTION()
@@ -93,6 +96,7 @@ private:
 	FCombatArenaData aCombatArenaData;
 	bool isGameSaveBeingLoaded;
 	FString currentLevelName;
+	FString previousLevelName;
 	FString preSetLevelName;
 	
 	
