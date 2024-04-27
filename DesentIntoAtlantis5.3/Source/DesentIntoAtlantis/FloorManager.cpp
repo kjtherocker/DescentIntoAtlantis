@@ -58,7 +58,8 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 			SpawnFloorNode(x , y,LevelIndex );
 			floorNodes[LevelIndex]->SetWalkableDirections(aFloor->floorData.floorBlueprint[LevelIndex]);
 			FVector2D positionInGrid = FVector2D(x,y);
-			if(aFloor->floorEventData.Contains(positionInGrid))
+	
+			if(aFloor->floorEventData.Contains(positionInGrid) && !eventManagerSubSystem->isEventCompleted(positionInGrid))
 			{
 				floorNodes[LevelIndex]->hasFloorEvent = true;
 				floorNodes[LevelIndex]->floorEventHasBeenTriggeredEvent = eventManagerSubSystem->EventHasBeenTriggered;

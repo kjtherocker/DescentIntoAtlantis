@@ -9,6 +9,7 @@
 #include "TutorialManagerSubsystem.h"
 #include "DialogueFactorySubsystem.h"
 #include "SaveGameData.h"
+#include "SaveManagerSubsystem.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "Serialization/ObjectAndNameAsStringProxyArchive.h"
@@ -28,6 +29,7 @@ void UPersistentGameinstance::Init()
 	tutorialManagerSubsystem = GetSubsystem<UTutorialManagerSubsystem>();
 	dialogueManagerSubsystem = GetSubsystem<UDialogueFactorySubsystem>();
 	EventManagerSubSystem    = GetSubsystem<UEventManagerSubSystem>();
+	saveManagerSubsystem     = GetSubsystem<USaveManagerSubsystem>();
 
 	skillFactorySubsystem->InitializeDatabase(dataTablesSkills);
 
@@ -76,12 +78,13 @@ void UPersistentGameinstance::Init()
 		{
 			floorFactory = NewObject<UFloorFactory>();
 			floorFactory->InitializeDatabase(dataTables[EDataTableTypes::Floor],dataTables[EDataTableTypes::FloorEvent]);
-			EventManagerSubSystem->InitializeEventManager(floorFactory);
+			EventManagerSubSystem->InitializeEventManager(floorFactory,this);
 		}
 	}
 
+	saveManagerSubsystem->InitializeSubsystem(this);
 
-	SessionSaveGameObject = Cast<USaveGameData>(UGameplayStatics::CreateSaveGameObject(USaveGameData::StaticClass()));
+
 	
 //
 	//LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
@@ -114,6 +117,11 @@ void UPersistentGameinstance::LoadLevel(FString aLevelName)
 	currentLevelName  = LevelName;
 }
 
+void UPersistentGameinstance::LoadPreviousLevel()
+{
+	LoadLevel(previousLevelName);
+}
+
 void UPersistentGameinstance::ReturnToPreviousLevel()
 {
 }
@@ -128,10 +136,6 @@ void UPersistentGameinstance::SaveFloorPawn(AFloorPawn* aFloorPawn)
 
 }
 
-void UPersistentGameinstance::SaveSessionData()
-{
-	UGameplayStatics::SaveGameToSlot(SessionSaveGameObject,TEXT("SaveSlot1"), 0);
-}
 
 FVector2D UPersistentGameinstance::LoadFloorPawnPosition()
 {

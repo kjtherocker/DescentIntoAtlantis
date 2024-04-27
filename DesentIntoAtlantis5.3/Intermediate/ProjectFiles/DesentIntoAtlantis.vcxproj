@@ -1378,6 +1378,11 @@
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\SaveManagerSubsystem.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\SkillBarElement.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
@@ -1486,6 +1491,7 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PlayerCombatEntity.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PressTurnManager.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SaveGameData.h"/>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SaveManagerSubsystem.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SkillBarElement.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SkillFactorySubsystem.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SkillsData.h"/>

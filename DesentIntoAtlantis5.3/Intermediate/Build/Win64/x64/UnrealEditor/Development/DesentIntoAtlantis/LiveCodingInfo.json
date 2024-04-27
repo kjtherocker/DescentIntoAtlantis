@@ -61,6 +61,7 @@
 			"PlayerCombatEntity.gen.cpp.obj",
 			"PressTurnManager.gen.cpp.obj",
 			"SaveGameData.gen.cpp.obj",
+			"SaveManagerSubsystem.gen.cpp.obj",
 			"SkillBarElement.gen.cpp.obj",
 			"SkillFactorySubsystem.gen.cpp.obj",
 			"SkillsData.gen.cpp.obj",
@@ -86,10 +87,10 @@
 			"CombatBackground.cpp.obj",
 			"CombatCameraPawn.cpp.obj",
 			"CombatClass.cpp.obj",
-			"CombatEntity.cpp.obj",
-			"CombatGameModeBase.cpp.obj"
+			"CombatEntity.cpp.obj"
 		],
 		"Module.DesentIntoAtlantis.4.cpp.obj": [
+			"CombatGameModeBase.cpp.obj",
 			"CombatSelectionView.cpp.obj",
 			"CommandBoardView.cpp.obj",
 			"DeathView.cpp.obj",
@@ -129,6 +130,7 @@
 			"PlayerCombatEntity.cpp.obj",
 			"PressTurnManager.cpp.obj",
 			"SaveGameData.cpp.obj",
+			"SaveManagerSubsystem.cpp.obj",
 			"SkillBarElement.cpp.obj",
 			"SkillFactorySubsystem.cpp.obj",
 			"SkillsData.cpp.obj",

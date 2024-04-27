@@ -9,11 +9,19 @@
 #include "FloorEnum.h"
 #include "EventManagerSubSystem.generated.h"
 
+class UPersistentGameinstance;
 class ACombatGameModeBase;
 class UPlayerCombatEntity;
 class UFloorFactory;
 
-
+USTRUCT()
+struct DESENTINTOATLANTIS_API FEventManagerData :public  FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	UPROPERTY( EditAnywhere )
+	TArray<FFloorEventData> completedFloorEventData;
+	
+};
 
 
 /**
@@ -32,6 +40,8 @@ class DESENTINTOATLANTIS_API UEventManagerSubSystem : public UGameInstanceSubsys
 
 	FFloorEventData currentEvent;
 
+	FEventManagerData eventManagerData;
+
 	UPROPERTY()
 	TArray<FFloorEventData> completedFloorEventData;
 
@@ -45,12 +55,15 @@ class DESENTINTOATLANTIS_API UEventManagerSubSystem : public UGameInstanceSubsys
 
 	UPROPERTY()
 	AAtlantisGameModeBase* gameMode;
+	UPROPERTY()
+	UPersistentGameinstance* persistentGameInstance;
 	
 public:
 
 	FFloorEventHasBeenTriggered EventHasBeenTriggered;
-
-	void InitializeEventManager(UFloorFactory * aFloorFactory);
+	void LoadSavedFloorEventData(FEventManagerData aEventManagerData );
+	void InitializeEventManager(UFloorFactory * aFloorFactory, UPersistentGameinstance* aPersistentGameInstance);
+	bool isEventCompleted(FVector2D aEventPosition);
 
 	void SetFloor(EFloorIdentifier aFloorIdentifier);
 	void SetCombatGameMode(ACombatGameModeBase* aCombatGameMode);

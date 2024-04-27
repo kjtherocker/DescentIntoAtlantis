@@ -6,6 +6,7 @@
 #include "PersistentGameinstance.h"
 #include "PlayerCombatEntity.h"
 #include "SaveGameData.h"
+#include "SaveManagerSubsystem.h"
 
 
 UPartyManagerSubsystem::UPartyManagerSubsystem()
@@ -70,7 +71,7 @@ void UPartyManagerSubsystem::AddPlayerToActiveParty(EPartyMembers aPlayer)
 	
 	if(!activePartyEntityData.Contains(playerCombatEntityInfo[aPlayer]))
 	{
-		persistentGameInstance->SessionSaveGameObject->AddPlayerCompleteDataSet(aPlayer,playerCombatEntityInfo[aPlayer]->playerCompleteDataSet);
+		persistentGameInstance->saveManagerSubsystem->SessionSaveGameObject->AddPlayerCompleteDataSet(aPlayer,playerCombatEntityInfo[aPlayer]->playerCompleteDataSet);
 		activePartyEntityData.Add(playerCombatEntityInfo[aPlayer]);
 	}
 }
@@ -79,7 +80,7 @@ void UPartyManagerSubsystem::SavePlayerEntitys()
 {
 	for(int i = 0 ; i < activePartyEntityData.Num();i++)
 	{
-		persistentGameInstance->SessionSaveGameObject->AddPlayerCompleteDataSet(activePartyEntityData[i]->playerCompleteDataSet.playerIdentityData.characterIdentifier,
+		persistentGameInstance->saveManagerSubsystem->SessionSaveGameObject->AddPlayerCompleteDataSet(activePartyEntityData[i]->playerCompleteDataSet.playerIdentityData.characterIdentifier,
 			activePartyEntityData[i]->playerCompleteDataSet); activePartyEntityData[i]->playerCompleteDataSet;
 	}
 }

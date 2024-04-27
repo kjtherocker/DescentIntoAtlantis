@@ -7,6 +7,7 @@
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/PlayerCombatEntity.gen.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/PressTurnManager.gen.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/SaveGameData.gen.cpp"
+#include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/SaveManagerSubsystem.gen.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/SkillBarElement.gen.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/SkillFactorySubsystem.gen.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/SkillsData.gen.cpp"
@@ -33,4 +34,3 @@
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/CombatCameraPawn.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/CombatClass.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/CombatEntity.cpp"
-#include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/CombatGameModeBase.cpp"

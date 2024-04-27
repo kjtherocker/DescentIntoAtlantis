@@ -4,6 +4,7 @@
 #include "TitleView.h"
 
 #include "PersistentGameinstance.h"
+#include "SaveManagerSubsystem.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 #include "SoundManager.h"
 #include "Components/Border.h"
@@ -74,7 +75,7 @@ void UTitleView::LoadGame()
 	
 	if (persistentGameInstance)
 	{
-		persistentGameInstance->LoadSaveDataAndTransitionToMap(TEXT("Floor1"));
+		persistentGameInstance->saveManagerSubsystem->LoadSaveDataAndTransitionToMap(TEXT("Floor1"));
 	}
 }
 

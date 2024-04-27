@@ -9,15 +9,38 @@
 #include "FloorFactory.h"
 #include "LevelupView.h"
 #include "PersistentGameinstance.h"
+#include "SaveManagerSubsystem.h"
 #include "TutorialView.h"
 
 
-void UEventManagerSubSystem::InitializeEventManager(UFloorFactory * aFloorFactory)
+void UEventManagerSubSystem::LoadSavedFloorEventData(FEventManagerData aEventManagerData)
+{
+	completedFloorEventData = aEventManagerData.completedFloorEventData;
+	eventManagerData        = aEventManagerData;
+}
+
+void UEventManagerSubSystem::InitializeEventManager(UFloorFactory * aFloorFactory, UPersistentGameinstance* aPersistentGameInstance)
 {
 	floorFactory = aFloorFactory;
 	EventHasBeenTriggered.AddDynamic(this, &UEventManagerSubSystem::PlayerHasTriggeredFloorEvent);
 	triggerNextEventStage.AddDynamic(this, &UEventManagerSubSystem::TriggerNextFloorEventStep);
+	persistentGameInstance = aPersistentGameInstance;
+}
 
+bool UEventManagerSubSystem::isEventCompleted(FVector2D aEventPosition)
+{
+	UFloorBase* floorBase = floorFactory->floorDictionary[currentFloor];
+	FFloorEventData checkedEvent = floorBase->floorEventData[aEventPosition];
+	for ( FFloorEventData item : completedFloorEventData) 
+	{
+		if (item.floorIdentifier == checkedEvent.floorIdentifier
+			&& item.positionInGrid == checkedEvent.positionInGrid) 
+		{
+			return true;
+		}
+	}
+
+	return false;
 }
 
 void UEventManagerSubSystem::SetFloor(EFloorIdentifier aFloorIdentifier)
@@ -75,7 +98,7 @@ void UEventManagerSubSystem::TriggerNextFloorEventStep(EFloorEventStates aFloorE
 		{
 			if(!currentEvent.enemyGroupName.IsEmpty())
 			{
-				UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+				persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
 				persistentGameInstance->LoadCombatLevel(currentEvent.enemyGroupName,ECombatArena::Prison);
 			}
 			else
@@ -101,22 +124,23 @@ void UEventManagerSubSystem::TriggerNextFloorEventStep(EFloorEventStates aFloorE
 		}
 	case EFloorEventStates::Completed: 
 		{
-			//if(currentEvent.partyMemberGainedOnEnd != EPartyMembers::None )
-			//{
+			if(currentEvent.partyMemberGainedOnEnd != EPartyMembers::None )
+			{
 			//	gameModeBase->partyManager->AddPlayerToActiveParty(currentEvent.partyMemberGainedOnEnd);
-			//}
-			//completedFloorEventData.Add(currentEvent);
+			}
 			//gameModeBase->floorManager->GetNode(currentEvent.positionInGrid)->hasFloorEvent = false;
 			//floorEnemyEvents[currentEvent.positionInGrid]->DeleteEnemyPawn();
-			//isEventRunning = false;
-			//if(currentEvent.viewPushedOnEnd == EViews::None)
-			//{
+			isEventRunning = false;
+
+			
+			if(currentEvent.viewPushedOnEnd == EViews::None)
+			{
 			//	gameModeBase->floorPawn->SetFloorPawnInput(true);
-			//}
-			//else
-			//{
+			}
+			else
+			{
 			//	gameModeBase->InGameHUD->PushAndGetView(currentEvent.viewPushedOnEnd ,EUiType::ActiveUi);
-			//}
+			}
 			break;
 		}
 	default:
@@ -170,6 +194,11 @@ void UEventManagerSubSystem::TriggerTutorial(ETutorialTriggers aTutorialTrigger,
 void UEventManagerSubSystem::TriggerPostCombatLevelSwap()
 {
 	//
+	persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+	completedFloorEventData.Add(currentEvent);
+	eventManagerData.completedFloorEventData.Add(currentEvent);
+	persistentGameInstance->saveManagerSubsystem->SetEventManagerData(eventManagerData);
+	persistentGameInstance->LoadPreviousLevel();
 }
 
 void UEventManagerSubSystem::EventNotCompleted()

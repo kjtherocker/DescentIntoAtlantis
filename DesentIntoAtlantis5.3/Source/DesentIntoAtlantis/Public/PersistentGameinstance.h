@@ -8,6 +8,7 @@
 #include "Engine/GameInstance.h"
 #include "PersistentGameinstance.generated.h"
 
+class USaveManagerSubsystem;
 class USaveGameData;
 class AFloorPawn;
 class UEnemyFactorySubSystem;
@@ -35,15 +36,14 @@ public:
 	void UnloadLevel(FString aLevelName);
 	UFUNCTION()
 	void LoadLevel(FString aLevelName);
+	UFUNCTION()
+	void LoadPreviousLevel();
 
 	UFUNCTION()
 	void ReturnToPreviousLevel();
 
 	UFUNCTION()
 	void SaveFloorPawn(AFloorPawn* aFloorPawn);
-
-	UFUNCTION()
-	void SaveSessionData();
 
 	UFUNCTION()
 	FVector2D LoadFloorPawnPosition();
@@ -84,13 +84,12 @@ public:
 	UDialogueFactorySubsystem* dialogueManagerSubsystem;
 	UPROPERTY()
 	UEventManagerSubSystem*    EventManagerSubSystem;
+	UPROPERTY()
+	USaveManagerSubsystem*    saveManagerSubsystem;
 
 	
 	UPROPERTY()
 	UFloorFactory*      floorFactory;
-	
-	UPROPERTY()
-	USaveGameData* SessionSaveGameObject;
 
 private:
 	FCombatArenaData aCombatArenaData;

@@ -30,6 +30,7 @@
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/BaseUserWidget.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/CameraFilterView.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/CombatBackground.cpp"
+#include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/CombatCameraPawn.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/CombatClass.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/CombatEntity.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/CombatGameModeBase.cpp"

@@ -6,6 +6,7 @@
 			"BaseUserWidget.gen.cpp.obj",
 			"CameraFilterView.gen.cpp.obj",
 			"CombatBackground.gen.cpp.obj",
+			"CombatCameraPawn.gen.cpp.obj",
 			"CombatClass.gen.cpp.obj",
 			"CombatEntity.gen.cpp.obj",
 			"CombatGameModeBase.gen.cpp.obj",
@@ -25,10 +26,10 @@
 			"EnemyCombatEntity.gen.cpp.obj",
 			"EnemyFactorySubSystem.gen.cpp.obj",
 			"EnemyPortraitElement.gen.cpp.obj",
-			"EnemySelectionElement.gen.cpp.obj",
-			"EnemySelectionView.gen.cpp.obj"
+			"EnemySelectionElement.gen.cpp.obj"
 		],
 		"Module.DesentIntoAtlantis.2.cpp.obj": [
+			"EnemySelectionView.gen.cpp.obj",
 			"EnemySkillView.gen.cpp.obj",
 			"EventManagerSubSystem.gen.cpp.obj",
 			"FloorBase.gen.cpp.obj",
@@ -83,6 +84,7 @@
 			"BaseUserWidget.cpp.obj",
 			"CameraFilterView.cpp.obj",
 			"CombatBackground.cpp.obj",
+			"CombatCameraPawn.cpp.obj",
 			"CombatClass.cpp.obj",
 			"CombatEntity.cpp.obj",
 			"CombatGameModeBase.cpp.obj"
