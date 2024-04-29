@@ -4,6 +4,8 @@
 #include "DeathView.h"
 
 #include "GameManager.h"
+#include "PersistentGameinstance.h"
+#include "SaveManagerSubsystem.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 
 void UDeathView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
@@ -17,7 +19,8 @@ void UDeathView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 
 void UDeathView::TryFightAgain()
 {
-	gameModeBase->gameManager->ResetPlayerToPreviousPosition();
+	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+	persistentGameInstance->saveManagerSubsystem->LoadSaveDataAndTransitionToMap(TEXT("Floor1"));
 }
 
 void UDeathView::Quit()

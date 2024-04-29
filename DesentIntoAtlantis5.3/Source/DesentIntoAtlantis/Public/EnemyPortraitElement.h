@@ -23,9 +23,11 @@ private:
 	bool isTriggeringHitEffect;
 	void HitEffect(float DeltaTime);
 	void Disappear(float DeltaTime);
+	UMaterialInstanceDynamic* materialInstanceDynamic;
 	
 public:
 
+	AEnemyPortraitElement();	
 	void SetCombatEntity(UEnemyCombatEntity* aCombatEntity);
 	virtual void Tick(float DeltaTime) override;
 

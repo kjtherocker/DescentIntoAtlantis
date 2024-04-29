@@ -43,24 +43,13 @@ public:
 	void ReturnToPreviousLevel();
 
 	UFUNCTION()
-	void SaveFloorPawn(AFloorPawn* aFloorPawn);
-
-	UFUNCTION()
-	FVector2D LoadFloorPawnPosition();
-
-	UFUNCTION()
 	void LoadPreSetLevel();
-
-	UFUNCTION()
-	void LoadSaveDataAndTransitionToMap(FString aLevelName);
 
 	UFUNCTION()
 	void LoadCombatLevel(FString aEnemyGroupName,ECombatArena aCombatArena);
 
 	
 	void GetCurrentLevelName(FString aLevelName);
-
-	bool ConsumeGameSaveLoadingFlag();
 	FCombatArenaData ConsumeArenaDataFlag();
 
 	
@@ -90,6 +79,8 @@ public:
 	
 	UPROPERTY()
 	UFloorFactory*      floorFactory;
+
+	bool hasRecentlyFinishedCombat = false;
 
 private:
 	FCombatArenaData aCombatArenaData;

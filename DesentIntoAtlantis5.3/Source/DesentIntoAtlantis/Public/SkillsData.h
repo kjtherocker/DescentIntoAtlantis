@@ -27,6 +27,19 @@ enum class ESkillType
 };
 
 UENUM()
+enum class EStatusAilments
+{
+	None,
+	Poison,
+	Blind,
+	Bleed,
+	Freeze,
+	Charm,
+	Doom,
+	Necrotic
+};
+
+UENUM()
 enum class ESkillUsage
 {
 	Comrades,
@@ -122,6 +135,17 @@ class USkillAttack : public USkillBase
 {
 	GENERATED_BODY()
 
+	virtual PressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	
+};
+
+
+UCLASS()
+class USkillAliment : public USkillBase
+{
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere)
+	EStatusAilments statusAilments;
 	virtual PressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
 	
 };

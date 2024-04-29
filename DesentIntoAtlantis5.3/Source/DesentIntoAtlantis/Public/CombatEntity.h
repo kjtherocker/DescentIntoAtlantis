@@ -10,6 +10,7 @@
 #include "Engine/DataTable.h"
 #include "CombatEntity.generated.h"
 
+class USkillAliment;
 struct FSkillsData;
 class ACombatGameModeBase;
 class AEnemyPortraitElement;
@@ -60,6 +61,8 @@ struct DESENTINTOATLANTIS_API FCombatEntityData :public  FTableRowBase
 	int baseResistance;
 	
 };
+
+
 
 UCLASS()
 class DESENTINTOATLANTIS_API UCombatAbilityStats : public UObject
@@ -154,6 +157,8 @@ protected:
 	inline static const float WEAK_DAMAGE_INCREASE          = 1.5f;
 	
 	bool isMarkedForDeath = false;
+
+	TArray<USkillAliment*> skillAliments;
 	
 public:
 	FWasKilled                        wasKilled;
@@ -164,14 +169,18 @@ public:
 	virtual void SetTacticsEvents(ACombatGameModeBase* aCombatManager);
 
 	UFUNCTION()
+	virtual void StartTurn();
+	UFUNCTION()
 	virtual void EndTurn();
 
 	//SetStatusEffect(StatusEffects aStatusEffect);
 
 	virtual void SetHealth(int aHealth);
+	virtual void InflictAilment(USkillAliment* aAliment);
 	
 	virtual int CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
 	virtual void Reset();
+	virtual void AlimentDecrementHealth(int aDamage);
 	virtual PressTurnReactions DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill);
 	virtual PressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
 	virtual PressTurnReactions ApplyBuff(      UCombatEntity* aBuffer,   FSkillsData aSkill);
@@ -195,6 +204,7 @@ public:
 	EElementalType elementalWeakness;
 	
 	ECharactertype characterType;
+	
 	
 
 	int maxHealth;

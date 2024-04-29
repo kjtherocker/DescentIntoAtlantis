@@ -12,6 +12,7 @@
  * 
  */
 
+class UPersistentGameinstance;
 enum class EFloorEventStates;
 struct FDialogueData;
 class UImage;
@@ -23,6 +24,7 @@ class DESENTINTOATLANTIS_API UDialogueView : public UBaseUserWidget
 
 	bool reactivatePawnInputOnEnd;
 	FTriggerNextEventStage triggerNextEventStage;
+	UPersistentGameinstance* persistentGameInstance;
 public:
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 

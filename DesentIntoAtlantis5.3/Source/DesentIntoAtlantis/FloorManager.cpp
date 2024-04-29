@@ -10,6 +10,7 @@
 #include "SkillsData.h"
 #include "Engine/DataTable.h"
 #include "EventManagerSubSystem.h"
+#include "SaveManagerSubsystem.h"
 #include "Kismet/GameplayStatics.h"
 
 
@@ -71,7 +72,7 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 
 }
 
-void AFloorManager::CreateFloor(EFloorIdentifier aFloorIdentifier,bool aWillPlayerStartAtEntrance)
+void AFloorManager::CreateFloor(EFloorIdentifier aFloorIdentifier)
 {
 	currentFloorIdentifier = aFloorIdentifier;
 	floorEventManager->SetFloor(currentFloorIdentifier);
@@ -80,27 +81,7 @@ void AFloorManager::CreateFloor(EFloorIdentifier aFloorIdentifier,bool aWillPlay
 	if(floorDictionary[currentFloorIdentifier] != nullptr)
 	{
 		SpawnFloor(floorDictionary[currentFloorIdentifier]);
-		if(aWillPlayerStartAtEntrance)
-		{
-			PlacePlayerAtFloorStartingNode();
-		}
-		else
-		{
-			UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
-
-			if(persistentGameInstance == nullptr)
-			{
-				int testo2 = 0;
-			}
-			else
-			{
-				PlacePlayerFloorPawn(persistentGameInstance->LoadFloorPawnPosition());
-			}
-			
-		}
-		//PlacePlayerFloorPawn(floorDictionary[currentFloorIdentifier]->floorData.startPosition);
 	}
-	
 }
 
 

@@ -7,6 +7,7 @@
 #include "InGameHUD.h"
 
 #include "PersistentGameinstance.h"
+#include "SaveManagerSubsystem.h"
 
 #include "Engine/LevelStreaming.h"
 
@@ -36,14 +37,15 @@ void AFloorGameMode::InitializeLevel()
     floorManager->Initialize(this,floorEventManager);
 
   
- 
-    if(persistentGameInstance->ConsumeGameSaveLoadingFlag())
+    floorManager->CreateFloor(EFloorIdentifier::Floor2);
+    
+    if(persistentGameInstance->saveManagerSubsystem->ConsumeGameSaveLoadingFlag() || persistentGameInstance->hasRecentlyFinishedCombat)
     {
-        floorManager->CreateFloor(EFloorIdentifier::Floor2,false);
+        floorManager->PlacePlayerFloorPawn(persistentGameInstance->saveManagerSubsystem->LoadFloorPawnPosition());
     }
     else
     {
-        floorManager->CreateFloor(EFloorIdentifier::Floor2,true);
+        floorManager->PlacePlayerAtFloorStartingNode();
     }
 
     

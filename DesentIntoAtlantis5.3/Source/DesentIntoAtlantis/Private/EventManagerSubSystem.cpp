@@ -98,7 +98,7 @@ void UEventManagerSubSystem::TriggerNextFloorEventStep(EFloorEventStates aFloorE
 		{
 			if(!currentEvent.enemyGroupName.IsEmpty())
 			{
-				persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+				
 				persistentGameInstance->LoadCombatLevel(currentEvent.enemyGroupName,ECombatArena::Prison);
 			}
 			else
@@ -126,7 +126,7 @@ void UEventManagerSubSystem::TriggerNextFloorEventStep(EFloorEventStates aFloorE
 		{
 			if(currentEvent.partyMemberGainedOnEnd != EPartyMembers::None )
 			{
-			//	gameModeBase->partyManager->AddPlayerToActiveParty(currentEvent.partyMemberGainedOnEnd);
+				persistentGameInstance->partyManagerSubsystem->AddPlayerToActiveParty(currentEvent.partyMemberGainedOnEnd);
 			}
 			//gameModeBase->floorManager->GetNode(currentEvent.positionInGrid)->hasFloorEvent = false;
 			//floorEnemyEvents[currentEvent.positionInGrid]->DeleteEnemyPawn();
@@ -198,7 +198,9 @@ void UEventManagerSubSystem::TriggerPostCombatLevelSwap()
 	completedFloorEventData.Add(currentEvent);
 	eventManagerData.completedFloorEventData.Add(currentEvent);
 	persistentGameInstance->saveManagerSubsystem->SetEventManagerData(eventManagerData);
+	TriggerNextFloorEventStep(EFloorEventStates::Completed);
 	persistentGameInstance->LoadPreviousLevel();
+	
 }
 
 void UEventManagerSubSystem::EventNotCompleted()

@@ -87,6 +87,9 @@ void UPartyManagerSubsystem::SavePlayerEntitys()
 
 void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, FPlayerCompleteDataSet> aPlayerCompleteDataSets)
 {
+	playerCombatEntity.Empty();
+	playerCombatEntityInfo.Empty();
+	activePartyEntityData.Empty();
 	for (auto& playerCompleteDataSet : aPlayerCompleteDataSets)
 	{
 		FPlayerCompleteDataSet playerCompleteData  = playerCompleteDataSet.Value;

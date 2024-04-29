@@ -190,7 +190,6 @@ void EmptyLinkFunctionForGeneratedCodeEnemyPortraitElement() {}
 	{
 		return AEnemyPortraitElement::StaticClass();
 	}
-	AEnemyPortraitElement::AEnemyPortraitElement(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AEnemyPortraitElement);
 	AEnemyPortraitElement::~AEnemyPortraitElement() {}
 	struct Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_Statics

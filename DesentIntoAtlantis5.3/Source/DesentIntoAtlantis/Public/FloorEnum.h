@@ -68,15 +68,15 @@ struct DESENTINTOATLANTIS_API FFloorData : public FTableRowBase
 UENUM()
 enum class EDialogueTriggers
 {
-	None,
-	StartGame,
-	Combat1Start,
-	Combat1End,
-	ArdusJoin,
-	SeresFightStart,
-	SeresFightEnd,
-	FinalBossStart,
-	FinalBossEnd
+	None            = 0,
+	StartGame       = 1,
+	Combat1Start    = 2,
+	Combat1End      = 3,
+	ArdusJoin       = 4,
+	SeresFightStart = 5,
+	SeresFightEnd   = 6,
+	FinalBossStart  = 7,
+	FinalBossEnd    = 8
 };
 UENUM()
 enum class ETutorialTriggers

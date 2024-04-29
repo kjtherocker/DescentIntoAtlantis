@@ -52,7 +52,7 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	ECharactertype currentTurnType;
 
 	UPROPERTY(EditAnywhere)
-	FVector3d CAMERA_POSITION;
+	FVector3d CAMERA_POSITION = FVector3d(0,-50,0);
 	UPROPERTY(EditAnywhere)
 	FRotator CAMERA_ROTATION;
 	

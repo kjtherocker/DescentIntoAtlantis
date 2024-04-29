@@ -20,16 +20,7 @@ void USaveManagerSubsystem::ReturnToPreviousLevel()
 
 void USaveManagerSubsystem::SaveFloorPawn(AFloorPawn* aFloorPawn)
 {
-	//USaveGameData* SaveGameObject = Cast<USaveGameData>(UGameplayStatics::CreateSaveGameObject(USaveGameData::StaticClass()));
-	//SaveGameObject->SetFloorPawn(aFloorPawn);
-	//SaveGameObject->SetTest(2421);
-
-	//UGameplayStatics::SaveGameToSlot(SaveGameObject,TEXT("SaveSlot1"), 0);
-
-	persistentGameinstance->LoadPreSetLevel();
-
-
-	
+	SessionSaveGameObject->SetFloorPawn(aFloorPawn);
 }
 
 
@@ -45,9 +36,7 @@ void USaveManagerSubsystem::SaveSessionData()
 
 FVector2D USaveManagerSubsystem::LoadFloorPawnPosition()
 {
-	USaveGameData* LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
-
-	return LoadedSaveGameObject->playerPosition;
+	return SessionSaveGameObject->playerPosition;
 }
 
 void USaveManagerSubsystem::LoadPreSetLevel()
@@ -59,11 +48,21 @@ void USaveManagerSubsystem::LoadSaveDataAndTransitionToMap(FString aLevelName)
 {
 	isGameSaveBeingLoaded = true;
 	USaveGameData* LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
+	SessionSaveGameObject = LoadedSaveGameObject;
+	
 	persistentGameinstance->partyManagerSubsystem->LoadAndCreateAllPlayerEntitys(LoadedSaveGameObject->playerCompleteDataSet);
 	persistentGameinstance->EventManagerSubSystem->LoadSavedFloorEventData(LoadedSaveGameObject->eventManagerData);
 	persistentGameinstance->LoadLevel(aLevelName);
 
-	SessionSaveGameObject = LoadedSaveGameObject;
+	
+}
+
+bool USaveManagerSubsystem::ConsumeGameSaveLoadingFlag()
+{
+	bool bIsLoading = isGameSaveBeingLoaded;
+	// Once checked, reset the flag
+	isGameSaveBeingLoaded = false;
+	return bIsLoading;
 }
 
 void USaveManagerSubsystem::LoadCombatLevel(FString aEnemyGroupName, ECombatArena aCombatArena)

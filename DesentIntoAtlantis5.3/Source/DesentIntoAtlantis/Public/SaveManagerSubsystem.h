@@ -43,6 +43,9 @@ public:
 
 	UFUNCTION()
 	void SetEventManagerData(FEventManagerData aEventManagerData);
+
+	UFUNCTION()
+	bool ConsumeGameSaveLoadingFlag();
 		
 	UPROPERTY()
 	USaveGameData* SessionSaveGameObject;

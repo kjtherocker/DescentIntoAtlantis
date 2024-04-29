@@ -34,8 +34,6 @@ public: \
 
 
 #define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_17_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API AEnemyPortraitElement(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AEnemyPortraitElement(AEnemyPortraitElement&&); \
@@ -43,7 +41,7 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AEnemyPortraitElement); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AEnemyPortraitElement); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AEnemyPortraitElement) \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AEnemyPortraitElement) \
 	NO_API virtual ~AEnemyPortraitElement();
 
 

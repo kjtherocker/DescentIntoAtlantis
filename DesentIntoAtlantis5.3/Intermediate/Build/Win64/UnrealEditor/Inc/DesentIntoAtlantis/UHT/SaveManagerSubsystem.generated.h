@@ -23,6 +23,7 @@ struct FEventManagerData;
 #define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveManagerSubsystem_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveManagerSubsystem_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execConsumeGameSaveLoadingFlag); \
 	DECLARE_FUNCTION(execSetEventManagerData); \
 	DECLARE_FUNCTION(execLoadCombatLevel); \
 	DECLARE_FUNCTION(execLoadSaveDataAndTransitionToMap); \

@@ -9,7 +9,6 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class AFloorPawn;
 enum class ECombatArena : int32;
 #ifdef DESENTINTOATLANTIS_PersistentGameinstance_generated_h
 #error "PersistentGameinstance.generated.h already included, missing '#pragma once' in PersistentGameinstance.h"
@@ -22,10 +21,7 @@ enum class ECombatArena : int32;
 #define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_29_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execLoadCombatLevel); \
-	DECLARE_FUNCTION(execLoadSaveDataAndTransitionToMap); \
 	DECLARE_FUNCTION(execLoadPreSetLevel); \
-	DECLARE_FUNCTION(execLoadFloorPawnPosition); \
-	DECLARE_FUNCTION(execSaveFloorPawn); \
 	DECLARE_FUNCTION(execReturnToPreviousLevel); \
 	DECLARE_FUNCTION(execLoadPreviousLevel); \
 	DECLARE_FUNCTION(execLoadLevel); \

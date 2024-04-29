@@ -531,11 +531,19 @@ void FHasHealthOrManaValuesChanged_DelegateWrapper(const FMulticastScriptDelegat
 		P_THIS->EndTurn();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UCombatEntity::execStartTurn)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->StartTurn();
+		P_NATIVE_END;
+	}
 	void UCombatEntity::StaticRegisterNativesUCombatEntity()
 	{
 		UClass* Class = UCombatEntity::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "EndTurn", &UCombatEntity::execEndTurn },
+			{ "StartTurn", &UCombatEntity::execStartTurn },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -558,6 +566,28 @@ void FHasHealthOrManaValuesChanged_DelegateWrapper(const FMulticastScriptDelegat
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCombatEntity_EndTurn_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UCombatEntity_StartTurn_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCombatEntity_StartTurn_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCombatEntity_StartTurn_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCombatEntity, nullptr, "StartTurn", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatEntity_StartTurn_Statics::Function_MetaDataParams), Z_Construct_UFunction_UCombatEntity_StartTurn_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_UCombatEntity_StartTurn()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCombatEntity_StartTurn_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -591,6 +621,7 @@ void FHasHealthOrManaValuesChanged_DelegateWrapper(const FMulticastScriptDelegat
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UCombatEntity_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCombatEntity_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UCombatEntity_EndTurn, "EndTurn" }, // 2800789503
+		{ &Z_Construct_UFunction_UCombatEntity_StartTurn, "StartTurn" }, // 1314967389
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UCombatEntity_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -664,9 +695,9 @@ void FHasHealthOrManaValuesChanged_DelegateWrapper(const FMulticastScriptDelegat
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UCombatAbilityStats, UCombatAbilityStats::StaticClass, TEXT("UCombatAbilityStats"), &Z_Registration_Info_UClass_UCombatAbilityStats, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatAbilityStats), 2849591881U) },
-		{ Z_Construct_UClass_UCombatEntity, UCombatEntity::StaticClass, TEXT("UCombatEntity"), &Z_Registration_Info_UClass_UCombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatEntity), 807521356U) },
+		{ Z_Construct_UClass_UCombatEntity, UCombatEntity::StaticClass, TEXT("UCombatEntity"), &Z_Registration_Info_UClass_UCombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatEntity), 2094559971U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_1173827232(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_1859936442(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::EnumInfo));

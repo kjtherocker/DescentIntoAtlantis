@@ -5,6 +5,7 @@
 
 #include "DialogueFactorySubsystem.h"
 #include "EventManagerSubSystem.h"
+#include "PersistentGameinstance.h"
 #include "SoundManager.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
@@ -16,12 +17,13 @@ void UDialogueView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	InitializeInputComponent();
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UDialogueView::ActivateNextDialogue);
 	InputComponent->BindAction("Tab"  ,IE_Pressed ,this, &UDialogueView::DialogueFinished);
-	
+
+	persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
 }
 
 void UDialogueView::SetFloorEventDialogueData(EDialogueTriggers aDialogueData, EFloorEventStates aTriggerOnEnd, FTriggerNextEventStage aTriggerNextEventStage)
 {
-	dialogueData = gameModeBase->dialogueFactory->GetDialogueDataByTrigger(aDialogueData);
+	dialogueData = persistentGameInstance->dialogueManagerSubsystem->GetDialogueDataByTrigger(aDialogueData);
 	triggerOnEnd = aTriggerOnEnd;
 	triggerNextEventStage = aTriggerNextEventStage;
 	SetNextDialogue(false);
@@ -30,7 +32,7 @@ void UDialogueView::SetFloorEventDialogueData(EDialogueTriggers aDialogueData, E
 void UDialogueView::SetDialogueData(EDialogueTriggers aDialogueData)
 {
 	reactivatePawnInputOnEnd = true;
-	dialogueData = gameModeBase->dialogueFactory->GetDialogueDataByTrigger(aDialogueData);
+	dialogueData =  persistentGameInstance->dialogueManagerSubsystem->GetDialogueDataByTrigger(aDialogueData);
 	SetNextDialogue(false);
 }
 

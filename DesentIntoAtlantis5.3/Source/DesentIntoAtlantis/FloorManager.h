@@ -28,7 +28,7 @@ public:
 	void Initialize(AAtlantisGameModeBase* aGameModeBase,UEventManagerSubSystem* aFloorEventManager);
 	
 	void CreateGrid(UFloorBase* aFloor);
-	void CreateFloor(EFloorIdentifier aFloorIdentifier,bool aWillPlayerStartAtEntrance);
+	void CreateFloor(EFloorIdentifier aFloorIdentifier);
 	void SpawnFloorNode(int aRow, int aColumn,int aIndex);
 	void SpawnFloorEventTriggers(FVector2D aPositionInGrid);
 	void SpawnFloor(UFloorBase* aFloorBase);
@@ -62,16 +62,21 @@ protected:
 	TMap<ECardinalNodeDirections, FVector2D>  cardinalPositions;
 
 	TMap<EFloorGimmicks,UGimmick_Base*> gimmickMap;
+	
+	
 private:
 	const double FLOOR_EVENT_HEIGHT_OFFSET = 240;
 	void SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes);
 
-	void PlacePlayerAtFloorStartingNode();
+
 	UPROPERTY()
 	UEventManagerSubSystem* floorEventManager;
 	AAtlantisGameModeBase* gameModeBase;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION()
+	void PlacePlayerAtFloorStartingNode();
 
 };

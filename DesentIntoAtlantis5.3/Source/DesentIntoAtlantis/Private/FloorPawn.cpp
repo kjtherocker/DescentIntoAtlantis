@@ -135,7 +135,7 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 		currentNodePositionInGrid = currentNodePlayerIsOn->positionInGrid;
 		nodeToMoveTowards         = nullptr;
 		UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
-		persistentGameInstance->saveManagerSubsystem->SessionSaveGameObject->SetFloorPawn(this);
+		persistentGameInstance->saveManagerSubsystem->SaveFloorPawn(this);
 		persistentGameInstance->partyManagerSubsystem->SavePlayerEntitys();
 		persistentGameInstance->saveManagerSubsystem->SaveSessionData();
 		return;

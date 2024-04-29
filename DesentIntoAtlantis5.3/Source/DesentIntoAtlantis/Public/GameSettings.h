@@ -17,6 +17,6 @@ class DESENTINTOATLANTIS_API UGameSettings : public UObject
 public:
 	inline bool static AUDIO_OFF         = true;
 	inline bool static DEBUG_MODE        = true;
-	inline bool static DISABLE_CUTSCENES = true;
+	inline bool static DISABLE_CUTSCENES = false;
 	inline bool static DISABLE_TUTORIAL  = true;
 };

@@ -257,6 +257,7 @@ void ACombatGameModeBase::TurnFinished()
 		
 		currentActivePartyMember = partyMembersInCombat[currentActivePosition];
 		partyHealthbars->SetHighlightHealthbar(currentActivePartyMember,FULL_OPACITY);
+		currentActivePartyMember->StartTurn();
 	
 		InGameHUD->PopAllActiveViews();
 		UCommandBoardView* commandBoard = (UCommandBoardView*)InGameHUD->PushAndGetView(EViews::CommandBoard,  EUiType::ActiveUi);
@@ -283,6 +284,7 @@ void ACombatGameModeBase::AllyStartTurn()
 	currentActivePosition = 0;
 	currentActivePartyMember = partyMembersInCombat[currentActivePosition];
 	partyHealthbars->SetHighlightHealthbar(currentActivePartyMember,FULL_OPACITY);
+	currentActivePartyMember->StartTurn();
 	UCommandBoardView* commandBoard = (UCommandBoardView*)InGameHUD->PushAndGetView(EViews::CommandBoard,  EUiType::ActiveUi);
 	commandBoard->SetCommandBoard(this);
 }

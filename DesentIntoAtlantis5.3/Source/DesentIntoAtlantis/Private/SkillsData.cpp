@@ -20,6 +20,12 @@ PressTurnReactions USkillAttack::UseSkill(UCombatEntity* aAttacker, UCombatEntit
 	return aVictim->DecrementHealth(aAttacker,skillData);
 }
 
+PressTurnReactions USkillAliment::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+{
+	aVictim->InflictAilment(this);
+	return PressTurnReactions::Normal;
+}
+
 PressTurnReactions USkillHeal::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
 	return aVictim->IncrementHealth(aAttacker, skillData);

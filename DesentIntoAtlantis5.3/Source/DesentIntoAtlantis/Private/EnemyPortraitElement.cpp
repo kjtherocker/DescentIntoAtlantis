@@ -6,26 +6,41 @@
 #include "Components/HorizontalBox.h"
 #include "Components/Image.h"
 
+AEnemyPortraitElement::AEnemyPortraitElement()
+{
+	
+	PrimaryActorTick.bCanEverTick = true;
+}
+
 void AEnemyPortraitElement::SetCombatEntity(UEnemyCombatEntity* aCombatEntity)
 {
 	//BW_Portrait->SetBrushFromTexture(aCombatEntity->enemyEntityData.fullBodyCharacterPortrait);
 	aCombatEntity->wasDamaged.AddDynamic(this,&AEnemyPortraitElement::TriggerHitEffect);
 	aCombatEntity->wasKilled.AddDynamic(this,&AEnemyPortraitElement::TriggerDisappear);
+
 	
 	currentEnemyMaterialInterface = aCombatEntity->enemyEntityData.fullBodyCharacterPortrait;;
 	TArray<AActor*> ChildActorArray;
 	GetAllChildActors(ChildActorArray);
 	
 	PlaneMeshComponent = nullptr ;
-	TArray<UStaticMeshComponent*> Components; GetComponents<UStaticMeshComponent>(Components);
-	for( int32 i=0; i<Components.Num(); i++ )
+	
+	TArray<UStaticMeshComponent*> Components;
+	GetComponents<UStaticMeshComponent>(Components);
+
+	for(UStaticMeshComponent* MeshComponent : Components)
 	{
-		 PlaneMeshComponent = Components[i];
+		UMaterialInterface* CurrentMaterial = currentEnemyMaterialInterface;
+		materialInstanceDynamic = UMaterialInstanceDynamic::Create(CurrentMaterial, this);
+
+		if (materialInstanceDynamic != nullptr) 
+		{
+			//materialInstanceDynamic->SetScalarParameterValue(FName("Red"), 1);
+			
+			MeshComponent->SetMaterial(0, materialInstanceDynamic);
+		}
 	}
-	if(PlaneMeshComponent != nullptr)
-	{
-		PlaneMeshComponent->SetMaterial(0, currentEnemyMaterialInterface);
-	}
+	
 }
 
 void AEnemyPortraitElement::Tick(float DeltaTime)
@@ -50,16 +65,16 @@ void AEnemyPortraitElement::Tick(float DeltaTime)
 
 void AEnemyPortraitElement::HitEffect(float DeltaTime)
 {
-	if(hitEffectTimer >= 1)
+	if(hitEffectTimer >= 0.5f)
 	{
 		hitEffectTimer = 0;
+		materialInstanceDynamic->SetScalarParameterValue(FName("Red"), hitEffectTimer);
 		isTriggeringHitEffect = false;
 		return;
 	}
 	
-	hitEffectTimer += DeltaTime *2;	
-//	currentEnemyMaterialInterface->
-//	BW_Portrait->SetColorAndOpacity(FLinearColor(1,hitEffectTimer,hitEffectTimer,1));
+	hitEffectTimer += DeltaTime;
+	materialInstanceDynamic->SetScalarParameterValue(FName("Red"), hitEffectTimer);
 }
 
 
@@ -68,13 +83,15 @@ void AEnemyPortraitElement::Disappear(float DeltaTime)
 	if(disappearTimer <= 0)
 	{
 		disappearTimer = 1;
+		materialInstanceDynamic->SetScalarParameterValue(FName("Opacity"), 0);
 		isTriggeringDisappear = false;
 		return;
 	}
 	
-	disappearTimer -= DeltaTime * 2;	
-	
-	BW_Portrait->SetOpacity(0);
+	disappearTimer -= DeltaTime * 3;	
+
+	materialInstanceDynamic->SetScalarParameterValue(FName("Opacity"), disappearTimer);
+	//BW_Portrait->SetOpacity(0);
 }
 
 void AEnemyPortraitElement::TriggerHitEffect()

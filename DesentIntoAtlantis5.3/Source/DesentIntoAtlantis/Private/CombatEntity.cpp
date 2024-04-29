@@ -24,6 +24,12 @@ void UCombatEntity::SetTacticsEvents(ACombatGameModeBase* aCombatManager)
     aCombatManager->OnRoundEndDelegate.AddDynamic(this,&UCombatEntity::EndTurn);
 }
 
+void UCombatEntity::StartTurn()
+{
+    //int test = maxHealth / 8;
+   // AlimentDecrementHealth(test);
+}
+
 void UCombatEntity::EndTurn()
 {
     for (TTuple<EAbilityScoreTypes, UCombatAbilityStats*> abilityScore : abilityScoreMap)
@@ -37,6 +43,12 @@ void UCombatEntity::EndTurn()
 void UCombatEntity::SetHealth(int aHealth)
 {
 //    currentHealth = currentClass->currentClassLevel->maxHealth;
+}
+
+void UCombatEntity::InflictAilment(USkillAliment* aAliment)
+{
+    
+    skillAliments.Add(aAliment);
 }
 
 int UCombatEntity::CalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
@@ -67,6 +79,21 @@ int UCombatEntity::CalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
 void UCombatEntity::Reset()
 {
     
+}
+
+void UCombatEntity::AlimentDecrementHealth(int aDamage)
+{
+    currentHealth -= aDamage;
+    DeathCheck();
+    if(currentHealth < 0)
+    {
+        currentHealth = 0;
+    }
+    hasHealthOrManaValuesChanged.Broadcast();
+    if(!isMarkedForDeath)
+    {
+        ActivateDamageHitEffect();
+    }
 }
 
 PressTurnReactions UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)

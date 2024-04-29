@@ -119,6 +119,7 @@ void UPersistentGameinstance::LoadLevel(FString aLevelName)
 
 void UPersistentGameinstance::LoadPreviousLevel()
 {
+	hasRecentlyFinishedCombat = true;
 	LoadLevel(previousLevelName);
 }
 
@@ -126,36 +127,11 @@ void UPersistentGameinstance::ReturnToPreviousLevel()
 {
 }
 
-void UPersistentGameinstance::SaveFloorPawn(AFloorPawn* aFloorPawn)
-{
-//USaveGameData* SaveGameObject = Cast<USaveGameData>(UGameplayStatics::CreateSaveGameObject(USaveGameData::StaticClass()));
-//SaveGameObject->SetFloorPawn(aFloorPawn);
-//SaveGameObject->SetTest(2421);
-
-//UGameplayStatics::SaveGameToSlot(SaveGameObject,TEXT("SaveSlot1"), 0);
-
-}
-
-
-FVector2D UPersistentGameinstance::LoadFloorPawnPosition()
-{
-	USaveGameData* LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
-
-	return LoadedSaveGameObject->playerPosition;
-}
-
 void UPersistentGameinstance::LoadPreSetLevel()
 {
 	LoadLevel(preSetLevelName);
 }
 
-void UPersistentGameinstance::LoadSaveDataAndTransitionToMap(FString aLevelName)
-{
-	isGameSaveBeingLoaded = true;
-	USaveGameData* LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
-	partyManagerSubsystem->LoadAndCreateAllPlayerEntitys(LoadedSaveGameObject->playerCompleteDataSet);
-	LoadLevel(aLevelName);
-}
 
 void UPersistentGameinstance::LoadCombatLevel(FString aEnemyGroupName, ECombatArena aCombatArena)
 {
@@ -169,13 +145,7 @@ void UPersistentGameinstance::GetCurrentLevelName(FString aLevelName)
 	currentLevelName = aLevelName;
 }
 
-bool UPersistentGameinstance::ConsumeGameSaveLoadingFlag()
-{
-	bool bIsLoading = isGameSaveBeingLoaded;
-	// Once checked, reset the flag
-	isGameSaveBeingLoaded = false;
-	return bIsLoading;
-}
+
 
 FCombatArenaData UPersistentGameinstance::ConsumeArenaDataFlag()
 {
