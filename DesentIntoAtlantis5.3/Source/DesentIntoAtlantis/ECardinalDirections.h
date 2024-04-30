@@ -24,4 +24,5 @@ enum class  ECardinalNodeDirections
     UpLeftDown = 13,
     UpRightDown = 14,
     DownLeftRight = 15,
+	BeyondMap     = 16,
 };

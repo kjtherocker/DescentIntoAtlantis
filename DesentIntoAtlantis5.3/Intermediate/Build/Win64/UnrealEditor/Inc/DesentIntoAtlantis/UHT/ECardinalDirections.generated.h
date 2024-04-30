@@ -35,7 +35,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	op(ECardinalNodeDirections::UpLeftRight) \
 	op(ECardinalNodeDirections::UpLeftDown) \
 	op(ECardinalNodeDirections::UpRightDown) \
-	op(ECardinalNodeDirections::DownLeftRight) 
+	op(ECardinalNodeDirections::DownLeftRight) \
+	op(ECardinalNodeDirections::BeyondMap) 
 
 enum class ECardinalNodeDirections;
 template<> struct TIsUEnumClass<ECardinalNodeDirections> { enum { Value = true }; };

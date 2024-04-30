@@ -50,10 +50,12 @@ void EmptyLinkFunctionForGeneratedCodeECardinalDirections() {}
 		{ "ECardinalNodeDirections::UpLeftDown", (int64)ECardinalNodeDirections::UpLeftDown },
 		{ "ECardinalNodeDirections::UpRightDown", (int64)ECardinalNodeDirections::UpRightDown },
 		{ "ECardinalNodeDirections::DownLeftRight", (int64)ECardinalNodeDirections::DownLeftRight },
+		{ "ECardinalNodeDirections::BeyondMap", (int64)ECardinalNodeDirections::BeyondMap },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections_Statics::Enum_MetaDataParams[] = {
 		{ "AllSidesOpen.Name", "ECardinalNodeDirections::AllSidesOpen" },
+		{ "BeyondMap.Name", "ECardinalNodeDirections::BeyondMap" },
 		{ "Down.Name", "ECardinalNodeDirections::Down" },
 		{ "DownLeftRight.Name", "ECardinalNodeDirections::DownLeftRight" },
 		{ "Empty.Name", "ECardinalNodeDirections::Empty" },
@@ -97,9 +99,9 @@ void EmptyLinkFunctionForGeneratedCodeECardinalDirections() {}
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_ECardinalDirections_h_Statics::EnumInfo[] = {
-		{ ECardinalNodeDirections_StaticEnum, TEXT("ECardinalNodeDirections"), &Z_Registration_Info_UEnum_ECardinalNodeDirections, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1737660603U) },
+		{ ECardinalNodeDirections_StaticEnum, TEXT("ECardinalNodeDirections"), &Z_Registration_Info_UEnum_ECardinalNodeDirections, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1177015594U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_ECardinalDirections_h_3049177007(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_ECardinalDirections_h_901898709(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_ECardinalDirections_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_ECardinalDirections_h_Statics::EnumInfo));

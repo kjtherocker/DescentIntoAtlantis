@@ -25,11 +25,12 @@ void UMapView::GenerateLevel(UFloorFactory* aFloorFactory)
 	if(MapButtons.Num() <= 0)
 	{
 		CurrentFloor->Initialize();
-		CreateGrid(CurrentFloor);
+		//CreateFullGrid(CurrentFloor);
+		CreatePlayerGrid(CurrentFloor);
 	}
 }
 
-void UMapView::CreateGrid(UFloorBase* aFloor)
+void UMapView::CreateFullGrid(UFloorBase* aFloor)
 {
 	UMapButtonElement* Object = nullptr;
 	UFloorBase* tempfloor = aFloor;
@@ -84,6 +85,68 @@ void UMapView::CreateGrid(UFloorBase* aFloor)
 	playerIconGridSlot->SetColumn(1);
 }
 
+void UMapView::CreatePlayerGrid(UFloorBase* aFloor)
+{
+	UMapButtonElement* Object = nullptr;
+	currentFloor = aFloor;
+	UFloorBase* tempfloor = aFloor;
+
+
+	
+	
+	MapButtons.Init(Object,tempfloor->GridDimensionX * tempfloor->GridDimensionY );
+	for (int x = 0; x <= MAP_NODE_PLAYER_GRID_SIZE * 2; x++)
+	{
+		for (int y = 0; y <= MAP_NODE_PLAYER_GRID_SIZE * 2; y++)
+		{
+			int LevelIndex = aFloor->GetIndex(x, y);
+			
+			SpawnMapButton(x , y,LevelIndex );
+			MapButtons[LevelIndex]->SetMapIcon(static_cast<ECardinalNodeDirections>(0));
+			MapButtons[LevelIndex]->SetEventIcon(false);
+			//If there is no node then continue
+			if (tempfloor->floorData.floorBlueprint[LevelIndex] == (short)ECardinalNodeDirections::Empty)
+			{
+				continue;
+			}
+			else
+			{
+				
+			}
+
+			// FVector2D positionInGrid = FVector2D(x,y);
+			// if(aFloor->floorEventData.Contains(positionInGrid))
+			// {
+			// 	//floorNodes[LevelIndex]->hasFloorEvent = true;
+			//
+			// }
+		}
+	}
+
+	//setting event icons
+	//for (TPair<int, FFloorEventData>& floorEvent : floorFactory->floorEventData)
+	//{
+	//	FFloorEventData floorEventData = floorEvent.Value;
+	//	if(floorEventData.floorIdentifier == tempfloor->floorData.floorIdentifier)
+	//	{
+	//		int LevelIndex = tempfloor->GetIndex(floorEventData.positionInGrid.X, floorEventData.positionInGrid.Y);
+	//		MapButtons[LevelIndex]->SetEventIcon(true);
+	//		MapButtons[LevelIndex]->SetFloorEvent(floorEventData,floorEvent.Key);
+	//	}
+	//}
+
+	UUserWidget* mapbuttonElement = CreateWidget(this,BP_MapPlayerIconElement );
+
+	mapPlayerIconElement = (UMapPlayerIconElement*)mapbuttonElement;
+	
+	playerIconGridSlot = BW_UniformGrid2->AddChildToUniformGrid(mapPlayerIconElement);
+	int playerX = (MAP_NODE_PLAYER_GRID_SIZE ) ;
+	int playerY = (MAP_NODE_PLAYER_GRID_SIZE ) ;
+	playerIconGridSlot->SetRow(playerX);
+	playerIconGridSlot->SetColumn(playerY);
+
+}
+
 void UMapView::SpawnMapButton(int aRow, int aColumn, int aIndex)
 {
 	FVector2D  PositionOffset;
@@ -109,8 +172,56 @@ void UMapView::SpawnMapButton(int aRow, int aColumn, int aIndex)
 
 void UMapView::SetPlayerPosition(int aRow, int aColumn)
 {
-	playerIconGridSlot->SetRow(aRow);
-	playerIconGridSlot->SetColumn(aColumn);
+	UFloorBase* tempfloor = currentFloor;
+
+	FVector2D playerPosition = FVector2D(aRow,aColumn);
+	
+	int minX = playerPosition.X - MAP_NODE_PLAYER_GRID_SIZE;
+	//if(minX < 0)
+	//{
+	//	minX = 0;
+	//}
+	int minY = playerPosition.Y - MAP_NODE_PLAYER_GRID_SIZE;
+	//if(minY < 0)
+	//{
+	//	minY = 0;
+	//}
+	int maxX = playerPosition.X + MAP_NODE_PLAYER_GRID_SIZE;
+	//if(maxX >= tempfloor->GridDimensionX)
+	//{
+	//	maxX = tempfloor->GridDimensionX;
+	//}
+	int maxY = playerPosition.Y + MAP_NODE_PLAYER_GRID_SIZE;
+	//if(maxY >= tempfloor->GridDimensionY)
+	//{
+	//	maxY = tempfloor->GridDimensionY;
+	//}
+
+	int actualGridPositionX = 0;
+	int actualGridPositionY = 0;
+
+
+	
+	for (int x = minX; x <= maxX; x++)
+	{
+		actualGridPositionY = 0;
+		for (int y = minY; y <= maxY; y++)
+		{
+			if( x < 0 || y < 0)
+			{
+				MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetMapIcon(static_cast<ECardinalNodeDirections>(16));
+				MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetEventIcon(false);
+			}
+			else
+			{
+				int LevelIndex = tempfloor->GetIndex(x, y);
+				MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetMapIcon(static_cast<ECardinalNodeDirections>(tempfloor->floorData.floorBlueprint[LevelIndex]));
+				MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetEventIcon(false);
+			}
+			actualGridPositionY += 1;
+		}
+		actualGridPositionX += 1;
+	}
 }
 
 void UMapView::SetPlayerMovementDelegate(AFloorPawn* aPlayerHasMoved)

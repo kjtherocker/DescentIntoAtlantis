@@ -33,10 +33,12 @@ class DESENTINTOATLANTIS_API UMapView : public UBaseUserWidget
 {
 	GENERATED_BODY()
 	const int MAP_NODE_POSITION_OFFSET = 0;
-	
-	void CreateGrid(UFloorBase* aFloor);
+	const int MAP_NODE_PLAYER_GRID_SIZE = 7;
+	void CreateFullGrid(UFloorBase* aFloor);
+	void CreatePlayerGrid(UFloorBase* aFloor);
 	void SpawnMapButton(int aRow, int aColumn, int aIndex);
 	UUniformGridSlot* playerIconGridSlot;
+	UFloorBase* currentFloor;
 public:
 
 	UFUNCTION()
