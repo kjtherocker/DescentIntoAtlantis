@@ -138,6 +138,10 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 		persistentGameInstance->saveManagerSubsystem->SaveFloorPawn(this);
 		persistentGameInstance->partyManagerSubsystem->SavePlayerEntitys();
 		persistentGameInstance->saveManagerSubsystem->SaveSessionData();
+		playerhasMovedDelegate.Broadcast(currentNodePositionInGrid.X,currentNodePositionInGrid.Y);
+
+	
+	
 		return;
 	}
 

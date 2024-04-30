@@ -22,7 +22,8 @@ enum class  EViews
 	Title             = 12,
 	Death             = 13,
 	Ending            = 14,
-	CameraFilter      = 15
+	CameraFilter      = 15,
+	MapView           = 16
 };
 
 

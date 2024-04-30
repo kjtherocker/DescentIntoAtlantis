@@ -8,7 +8,10 @@
 #include "FloorPawn.generated.h"
 
 class UFloorPawnPositionInfo;
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FPlayerHasMoved,int,row,int,column);
 UCLASS()
+
 class DESENTINTOATLANTIS_API AFloorPawn : public APawn
 {
 	GENERATED_BODY()
@@ -19,7 +22,6 @@ public:
 
 	UPROPERTY()
 	FVector2D currentNodePositionInGrid;
-
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -53,6 +55,7 @@ protected:
 	UPROPERTY()
 	AFloorNode* currentNodePlayerIsOn;
 
+
 public:
 
 	UPROPERTY()
@@ -76,6 +79,9 @@ public:
 
 	UPROPERTY()
 	TArray<UFloorPawnPositionInfo*>   directionModel;
+	
+	UPROPERTY()
+	FPlayerHasMoved playerhasMovedDelegate;
 };
 
 

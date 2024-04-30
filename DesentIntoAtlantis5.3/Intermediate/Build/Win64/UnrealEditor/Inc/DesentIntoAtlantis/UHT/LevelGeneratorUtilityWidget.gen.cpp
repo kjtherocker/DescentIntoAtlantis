@@ -164,7 +164,7 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateEvent_Statics::NewProp_aNewEventData = { "aNewEventData", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(LevelGeneratorUtilityWidget_eventCreateEvent_Parms, aNewEventData), Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(0, nullptr) }; // 636752671
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateEvent_Statics::NewProp_aNewEventData = { "aNewEventData", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(LevelGeneratorUtilityWidget_eventCreateEvent_Parms, aNewEventData), Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(0, nullptr) }; // 2978672172
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateEvent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateEvent_Statics::NewProp_aNewEventData,
 	};
@@ -294,7 +294,7 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentEvent_Statics::NewProp_aFloorEventDataTableIndex = { "aFloorEventDataTableIndex", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(LevelGeneratorUtilityWidget_eventSaveCurrentEvent_Parms, aFloorEventDataTableIndex), METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentEvent_Statics::NewProp_aNewEventData = { "aNewEventData", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(LevelGeneratorUtilityWidget_eventSaveCurrentEvent_Parms, aNewEventData), Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(0, nullptr) }; // 636752671
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentEvent_Statics::NewProp_aNewEventData = { "aNewEventData", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(LevelGeneratorUtilityWidget_eventSaveCurrentEvent_Parms, aNewEventData), Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(0, nullptr) }; // 2978672172
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentEvent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentEvent_Statics::NewProp_aFloorEventDataTableIndex,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentEvent_Statics::NewProp_aNewEventData,
@@ -454,11 +454,11 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ULevelGeneratorUtilityWidget_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_ActivateMapNodeEditor, "ActivateMapNodeEditor" }, // 3370765200
-		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateEvent, "CreateEvent" }, // 448355229
+		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateEvent, "CreateEvent" }, // 1190652273
 		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_CreateGrid, "CreateGrid" }, // 4002490269
 		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_DeleteEvent, "DeleteEvent" }, // 980718923
 		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_GenerateLevel, "GenerateLevel" }, // 893876003
-		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentEvent, "SaveCurrentEvent" }, // 2683866995
+		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentEvent, "SaveCurrentEvent" }, // 409822139
 		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SaveCurrentMap, "SaveCurrentMap" }, // 3633803038
 		{ &Z_Construct_UFunction_ULevelGeneratorUtilityWidget_SpawnMapButton, "SpawnMapButton" }, // 327996360
 	};
@@ -621,9 +621,9 @@ void EmptyLinkFunctionForGeneratedCodeLevelGeneratorUtilityWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ULevelGeneratorUtilityWidget, ULevelGeneratorUtilityWidget::StaticClass, TEXT("ULevelGeneratorUtilityWidget"), &Z_Registration_Info_UClass_ULevelGeneratorUtilityWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelGeneratorUtilityWidget), 3736764729U) },
+		{ Z_Construct_UClass_ULevelGeneratorUtilityWidget, ULevelGeneratorUtilityWidget::StaticClass, TEXT("ULevelGeneratorUtilityWidget"), &Z_Registration_Info_UClass_ULevelGeneratorUtilityWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelGeneratorUtilityWidget), 971234990U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_2090512900(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_3932699152(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelGeneratorUtilityWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

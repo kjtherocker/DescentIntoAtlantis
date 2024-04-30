@@ -51,6 +51,7 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 		{ "EViews::Death", (int64)EViews::Death },
 		{ "EViews::Ending", (int64)EViews::Ending },
 		{ "EViews::CameraFilter", (int64)EViews::CameraFilter },
+		{ "EViews::MapView", (int64)EViews::MapView },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EViews_Statics::Enum_MetaDataParams[] = {
@@ -64,6 +65,7 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 		{ "EnemySkill.Name", "EViews::EnemySkill" },
 		{ "Healthbars.Name", "EViews::Healthbars" },
 		{ "Levelup.Name", "EViews::Levelup" },
+		{ "MapView.Name", "EViews::MapView" },
 		{ "ModuleRelativePath", "Public/Views.h" },
 		{ "None.Name", "EViews::None" },
 		{ "Skill.Name", "EViews::Skill" },
@@ -209,11 +211,11 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo[] = {
-		{ EViews_StaticEnum, TEXT("EViews"), &Z_Registration_Info_UEnum_EViews, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3905146525U) },
+		{ EViews_StaticEnum, TEXT("EViews"), &Z_Registration_Info_UEnum_EViews, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1592367656U) },
 		{ EUiType_StaticEnum, TEXT("EUiType"), &Z_Registration_Info_UEnum_EUiType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2742622325U) },
 		{ EViewElements_StaticEnum, TEXT("EViewElements"), &Z_Registration_Info_UEnum_EViewElements, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3061493228U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Views_h_1788945229(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Views_h_7639700(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo));

@@ -1343,6 +1343,16 @@
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\MapPlayerIconElement.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\MapView.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\PartyHealthbarElement.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
@@ -1484,6 +1494,8 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\MapButtonElement.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\MapEventEditorView.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\MapNodeEditorView.h"/>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\MapPlayerIconElement.h"/>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\MapView.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PartyHealthbarElement.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PartyHealthbarsView.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PartyManagerSubsystem.h"/>

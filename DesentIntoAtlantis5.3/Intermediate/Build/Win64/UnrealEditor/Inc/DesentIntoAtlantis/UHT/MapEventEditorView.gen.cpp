@@ -38,7 +38,7 @@ void EmptyLinkFunctionForGeneratedCodeMapEventEditorView() {}
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventDelegate__DelegateSignature_Statics::NewProp_aFloorEventDataTableIndex = { "aFloorEventDataTableIndex", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MapEventEditorView_eventFloorEventDelegate_Parms, aFloorEventDataTableIndex), METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventDelegate__DelegateSignature_Statics::NewProp_aNewEventData = { "aNewEventData", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MapEventEditorView_eventFloorEventDelegate_Parms, aNewEventData), Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(0, nullptr) }; // 636752671
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventDelegate__DelegateSignature_Statics::NewProp_aNewEventData = { "aNewEventData", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MapEventEditorView_eventFloorEventDelegate_Parms, aNewEventData), Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(0, nullptr) }; // 2978672172
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventDelegate__DelegateSignature_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventDelegate__DelegateSignature_Statics::NewProp_aFloorEventDataTableIndex,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventDelegate__DelegateSignature_Statics::NewProp_aNewEventData,
@@ -130,7 +130,7 @@ void UMapEventEditorView::FFloorEventDeletionDelegate_DelegateWrapper(const FMul
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventCreationDelegate__DelegateSignature_Statics::NewProp_aFloorEventData = { "aFloorEventData", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MapEventEditorView_eventFloorEventCreationDelegate_Parms, aFloorEventData), Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(0, nullptr) }; // 636752671
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventCreationDelegate__DelegateSignature_Statics::NewProp_aFloorEventData = { "aFloorEventData", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MapEventEditorView_eventFloorEventCreationDelegate_Parms, aFloorEventData), Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(0, nullptr) }; // 2978672172
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventCreationDelegate__DelegateSignature_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventCreationDelegate__DelegateSignature_Statics::NewProp_aFloorEventData,
 	};
@@ -304,8 +304,8 @@ void UMapEventEditorView::FFloorEventCreationDelegate_DelegateWrapper(const FMul
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMapEventEditorView_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UMapEventEditorView_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UMapEventEditorView_DeleteEvent, "DeleteEvent" }, // 369175286
-		{ &Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventCreationDelegate__DelegateSignature, "FloorEventCreationDelegate__DelegateSignature" }, // 2569668553
-		{ &Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventDelegate__DelegateSignature, "FloorEventDelegate__DelegateSignature" }, // 1889977916
+		{ &Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventCreationDelegate__DelegateSignature, "FloorEventCreationDelegate__DelegateSignature" }, // 1122627297
+		{ &Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventDelegate__DelegateSignature, "FloorEventDelegate__DelegateSignature" }, // 1025918958
 		{ &Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventDeletionDelegate__DelegateSignature, "FloorEventDeletionDelegate__DelegateSignature" }, // 479274772
 		{ &Z_Construct_UFunction_UMapEventEditorView_SaveEvent, "SaveEvent" }, // 3828789533
 	};
@@ -324,7 +324,7 @@ void UMapEventEditorView::FFloorEventCreationDelegate_DelegateWrapper(const FMul
 		{ "ModuleRelativePath", "Public/MapEventEditorView.h" },
 	};
 #endif
-	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventSave = { "onFloorEventSave", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMapEventEditorView, onFloorEventSave), Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventSave_MetaData), Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventSave_MetaData) }; // 1889977916
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventSave = { "onFloorEventSave", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMapEventEditorView, onFloorEventSave), Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventSave_MetaData), Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventSave_MetaData) }; // 1025918958
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventDeletion_MetaData[] = {
 		{ "ModuleRelativePath", "Public/MapEventEditorView.h" },
@@ -336,7 +336,7 @@ void UMapEventEditorView::FFloorEventCreationDelegate_DelegateWrapper(const FMul
 		{ "ModuleRelativePath", "Public/MapEventEditorView.h" },
 	};
 #endif
-	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventCreation = { "onFloorEventCreation", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMapEventEditorView, onFloorEventCreation), Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventCreationDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventCreation_MetaData), Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventCreation_MetaData) }; // 2569668553
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventCreation = { "onFloorEventCreation", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMapEventEditorView, onFloorEventCreation), Z_Construct_UDelegateFunction_UMapEventEditorView_FloorEventCreationDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventCreation_MetaData), Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_onFloorEventCreation_MetaData) }; // 1122627297
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMapEventEditorView_Statics::NewProp_BW_DeleteEventButton_MetaData[] = {
 		{ "BindWidget", "" },
@@ -481,9 +481,9 @@ void UMapEventEditorView::FFloorEventCreationDelegate_DelegateWrapper(const FMul
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MapEventEditorView_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMapEventEditorView, UMapEventEditorView::StaticClass, TEXT("UMapEventEditorView"), &Z_Registration_Info_UClass_UMapEventEditorView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMapEventEditorView), 1193885990U) },
+		{ Z_Construct_UClass_UMapEventEditorView, UMapEventEditorView::StaticClass, TEXT("UMapEventEditorView"), &Z_Registration_Info_UClass_UMapEventEditorView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMapEventEditorView), 4294204449U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MapEventEditorView_h_3605557825(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MapEventEditorView_h_265436627(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MapEventEditorView_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MapEventEditorView_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

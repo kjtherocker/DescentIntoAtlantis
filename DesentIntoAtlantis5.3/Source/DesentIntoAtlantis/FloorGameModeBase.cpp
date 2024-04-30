@@ -5,6 +5,7 @@
 #include "CombatGameModeBase.h"
 #include "FloorPlayerController.h"
 #include "InGameHUD.h"
+#include "MapView.h"
 
 #include "PersistentGameinstance.h"
 #include "SaveManagerSubsystem.h"
@@ -37,7 +38,7 @@ void AFloorGameMode::InitializeLevel()
     floorManager->Initialize(this,floorEventManager);
 
   
-    floorManager->CreateFloor(EFloorIdentifier::Floor2);
+    floorManager->CreateFloor(EFloorIdentifier::Floor1);
     
     if(persistentGameInstance->saveManagerSubsystem->ConsumeGameSaveLoadingFlag() || persistentGameInstance->hasRecentlyFinishedCombat)
     {
@@ -57,6 +58,14 @@ void AFloorGameMode::InitializeLevel()
     
 
     InGameHUD->PushView(EViews::Healthbars,    EUiType::PersistentUi);
+
+
+    InGameHUD->PushAndGetView(EViews::Healthbars,    EUiType::PersistentUi);
+    UMapView* mapView     = (UMapView*)InGameHUD->PushAndGetView(EViews::MapView,         EUiType::PersistentUi);
+    mapView->GenerateLevel(floorFactory);
+    mapView->SetPlayerMovementDelegate(floorPawn);
+    
+    
     //gameManager->StartGame();
 
     

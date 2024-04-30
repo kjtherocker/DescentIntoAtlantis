@@ -54,6 +54,7 @@
 		],
 		"Module.DesentIntoAtlantis.3.cpp.obj": [
 			"MapNodeEditorView.gen.cpp.obj",
+			"Mapview.gen.cpp.obj",
 			"PartyHealthbarElement.gen.cpp.obj",
 			"PartyHealthbarsView.gen.cpp.obj",
 			"PartyManagerSubsystem.gen.cpp.obj",
@@ -61,6 +62,7 @@
 			"PlayerCombatEntity.gen.cpp.obj",
 			"PressTurnManager.gen.cpp.obj",
 			"SaveGameData.gen.cpp.obj",
+			"SaveManagerSubsystem.gen.cpp.obj",
 			"SkillBarElement.gen.cpp.obj",
 			"SkillFactorySubsystem.gen.cpp.obj",
 			"SkillsData.gen.cpp.obj",
@@ -72,7 +74,9 @@
 			"TurnCounterView.gen.cpp.obj",
 			"TutorialManagerSubsystem.gen.cpp.obj",
 			"TutorialView.gen.cpp.obj",
-			"Views.gen.cpp.obj",
+			"Views.gen.cpp.obj"
+		],
+		"Module.DesentIntoAtlantis.4.cpp.obj": [
 			"DesentIntoAtlantis.cpp.obj",
 			"ECardinalDirections.cpp.obj",
 			"EFloorIdentifier.cpp.obj",
@@ -87,9 +91,7 @@
 			"CombatCameraPawn.cpp.obj",
 			"CombatClass.cpp.obj",
 			"CombatEntity.cpp.obj",
-			"CombatGameModeBase.cpp.obj"
-		],
-		"Module.DesentIntoAtlantis.4.cpp.obj": [
+			"CombatGameModeBase.cpp.obj",
 			"CombatSelectionView.cpp.obj",
 			"CommandBoardView.cpp.obj",
 			"DeathView.cpp.obj",
@@ -122,6 +124,7 @@
 			"MapButtonElement.cpp.obj",
 			"MapEventEditorView.cpp.obj",
 			"MapNodeEditorView.cpp.obj",
+			"Mapview.cpp.obj",
 			"PartyHealthbarElement.cpp.obj",
 			"PartyHealthbarsView.cpp.obj",
 			"PartyManagerSubsystem.cpp.obj",
@@ -129,6 +132,7 @@
 			"PlayerCombatEntity.cpp.obj",
 			"PressTurnManager.cpp.obj",
 			"SaveGameData.cpp.obj",
+			"SaveManagerSubsystem.cpp.obj",
 			"SkillBarElement.cpp.obj",
 			"SkillFactorySubsystem.cpp.obj",
 			"SkillsData.cpp.obj",
