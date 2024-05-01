@@ -32,7 +32,10 @@ void AFloorGameMode::InitializeLevel()
     
     floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, FVector(0,0,0), rotator));
     floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
-
+    
+    UMapView* mapView     = (UMapView*)InGameHUD->PushAndGetView(EViews::MapView,         EUiType::PersistentUi);
+    mapView->GenerateLevel(floorFactory);
+    mapView->SetFloorPawnDelegates(floorPawn);
     
     floorManager = Cast<AFloorManager>(world->SpawnActor<AActor>(floorManagerReference, FVector::Zero(), rotator));
     floorManager->Initialize(this,floorEventManager);
@@ -61,9 +64,7 @@ void AFloorGameMode::InitializeLevel()
 
 
     InGameHUD->PushAndGetView(EViews::Healthbars,    EUiType::PersistentUi);
-    UMapView* mapView     = (UMapView*)InGameHUD->PushAndGetView(EViews::MapView,         EUiType::PersistentUi);
-    mapView->GenerateLevel(floorFactory);
-    mapView->SetPlayerMovementDelegate(floorPawn);
+
     
     
     //gameManager->StartGame();

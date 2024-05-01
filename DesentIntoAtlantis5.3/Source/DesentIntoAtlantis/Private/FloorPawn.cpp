@@ -202,8 +202,9 @@ void AFloorPawn::SetRotation(TArray<UFloorPawnPositionInfo*> aDirectionalModel, 
 {
 	directionModel = aDirectionalModel;
 	newRotation = directionModel[0]->rotation.Yaw;
+	playerDirectionHasChanged.Broadcast(directionModel[0]->directions);
 	rotationDirection = aDirection;
-
+	
 	hasRotationFinished = false;
 }
 
@@ -255,9 +256,11 @@ void AFloorPawn::PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode)
 
 	
 	currentNodePlayerIsOn = aFloorNode;
+	currentNodePositionInGrid = currentNodePlayerIsOn->positionInGrid;
+	
 	SetActorRotation(directionModel[0]->rotation);
-
-
+	playerDirectionHasChanged.Broadcast(directionModel[0]->directions);
+	playerhasMovedDelegate.Broadcast(currentNodePositionInGrid.X,currentNodePositionInGrid.Y);
 }
 
 

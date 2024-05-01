@@ -12,6 +12,12 @@ void USaveManagerSubsystem::InitializeSubsystem(UPersistentGameinstance* aPersis
 {
 	persistentGameinstance = aPersistentGameInstance;
 	SessionSaveGameObject = Cast<USaveGameData>(UGameplayStatics::CreateSaveGameObject(USaveGameData::StaticClass()));
+	InitializeSessionSave(SessionSaveGameObject);
+}
+
+void USaveManagerSubsystem::InitializeSessionSave(USaveGameData* aSessionSave)
+{
+	aSessionSave->SubscribeUpdateCompleteProgressionData(persistentGameinstance->levelProgressionSubsystem);
 }
 
 void USaveManagerSubsystem::ReturnToPreviousLevel()
@@ -49,9 +55,10 @@ void USaveManagerSubsystem::LoadSaveDataAndTransitionToMap(FString aLevelName)
 	isGameSaveBeingLoaded = true;
 	USaveGameData* LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
 	SessionSaveGameObject = LoadedSaveGameObject;
-	
+	InitializeSessionSave(SessionSaveGameObject);
 	persistentGameinstance->partyManagerSubsystem->LoadAndCreateAllPlayerEntitys(LoadedSaveGameObject->playerCompleteDataSet);
 	persistentGameinstance->EventManagerSubSystem->LoadSavedFloorEventData(LoadedSaveGameObject->eventManagerData);
+	persistentGameinstance->levelProgressionSubsystem->LoadCompleteProgressionData(LoadedSaveGameObject->completeProgressionData);
 	persistentGameinstance->LoadLevel(aLevelName);
 
 	

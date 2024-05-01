@@ -8,6 +8,7 @@
 #include "Engine/GameInstance.h"
 #include "PersistentGameinstance.generated.h"
 
+class ULevelProgressionSubsystem;
 class USaveManagerSubsystem;
 class USaveGameData;
 class AFloorPawn;
@@ -75,6 +76,8 @@ public:
 	UEventManagerSubSystem*    EventManagerSubSystem;
 	UPROPERTY()
 	USaveManagerSubsystem*    saveManagerSubsystem;
+	UPROPERTY()
+	ULevelProgressionSubsystem*  levelProgressionSubsystem;
 
 	
 	UPROPERTY()

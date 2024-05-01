@@ -5,6 +5,17 @@
 
 #include "FloorPawn.h"
 
+
+void USaveGameData::UpdateCompleteProgressionData(FCompleteProgressionData aCompleteProgressionData)
+{
+	completeProgressionData = aCompleteProgressionData;
+}
+
+void USaveGameData::SubscribeUpdateCompleteProgressionData(ULevelProgressionSubsystem* aLevelProgressionSubsystem)
+{
+	aLevelProgressionSubsystem->mapHasChanged.AddDynamic(this,&USaveGameData::UpdateCompleteProgressionData);
+}
+
 void USaveGameData::SetTest(int Atest)
 {
 	test = Atest;

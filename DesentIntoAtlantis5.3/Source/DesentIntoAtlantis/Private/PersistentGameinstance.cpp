@@ -8,6 +8,7 @@
 #include "PartyManagerSubsystem.h"
 #include "TutorialManagerSubsystem.h"
 #include "DialogueFactorySubsystem.h"
+#include "LevelProgressionSubsystem.h"
 #include "SaveGameData.h"
 #include "SaveManagerSubsystem.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
@@ -23,15 +24,17 @@ void UPersistentGameinstance::Init()
 {
 	Super::Init();
 
-	partyManagerSubsystem    = GetSubsystem<UPartyManagerSubsystem>();
-	skillFactorySubsystem    = GetSubsystem<USkillFactorySubsystem>();
-	enemyFactorySubSystem    = GetSubsystem<UEnemyFactorySubSystem>();
-	tutorialManagerSubsystem = GetSubsystem<UTutorialManagerSubsystem>();
-	dialogueManagerSubsystem = GetSubsystem<UDialogueFactorySubsystem>();
-	EventManagerSubSystem    = GetSubsystem<UEventManagerSubSystem>();
-	saveManagerSubsystem     = GetSubsystem<USaveManagerSubsystem>();
+	partyManagerSubsystem     = GetSubsystem<UPartyManagerSubsystem>();
+	skillFactorySubsystem     = GetSubsystem<USkillFactorySubsystem>();
+	enemyFactorySubSystem     = GetSubsystem<UEnemyFactorySubSystem>();
+	tutorialManagerSubsystem  = GetSubsystem<UTutorialManagerSubsystem>();
+	dialogueManagerSubsystem  = GetSubsystem<UDialogueFactorySubsystem>();
+	EventManagerSubSystem     = GetSubsystem<UEventManagerSubSystem>();
+	saveManagerSubsystem      = GetSubsystem<USaveManagerSubsystem>();
+	levelProgressionSubsystem = GetSubsystem<ULevelProgressionSubsystem>();
 
 	skillFactorySubsystem->InitializeDatabase(dataTablesSkills);
+	levelProgressionSubsystem->InitializeSubsystem(this);
 
 	if(dataTables.Contains(EDataTableTypes::Enemys) &&
    dataTables.Contains(EDataTableTypes::EnemyGroups))
@@ -81,6 +84,7 @@ void UPersistentGameinstance::Init()
 			EventManagerSubSystem->InitializeEventManager(floorFactory,this);
 		}
 	}
+	
 
 	saveManagerSubsystem->InitializeSubsystem(this);
 

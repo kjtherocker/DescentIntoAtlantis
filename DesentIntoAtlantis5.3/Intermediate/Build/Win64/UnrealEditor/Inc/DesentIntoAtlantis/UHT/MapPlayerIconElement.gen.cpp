@@ -12,6 +12,9 @@ void EmptyLinkFunctionForGeneratedCodeMapPlayerIconElement() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UBaseUserWidget();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UMapPlayerIconElement();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UMapPlayerIconElement_NoRegister();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections();
+	ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
 // End Cross Module References
 	void UMapPlayerIconElement::StaticRegisterNativesUMapPlayerIconElement()
@@ -28,6 +31,18 @@ void EmptyLinkFunctionForGeneratedCodeMapPlayerIconElement() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_playerIcons_ValueProp;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_playerIcons_Key_KeyProp_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_playerIcons_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_playerIcons_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_playerIcons;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_PlayerIcon_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_PlayerIcon;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
@@ -45,6 +60,33 @@ void EmptyLinkFunctionForGeneratedCodeMapPlayerIconElement() {}
 		{ "ModuleRelativePath", "Public/MapPlayerIconElement.h" },
 	};
 #endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMapPlayerIconElement_Statics::NewProp_playerIcons_ValueProp = { "playerIcons", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMapPlayerIconElement_Statics::NewProp_playerIcons_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UMapPlayerIconElement_Statics::NewProp_playerIcons_Key_KeyProp = { "playerIcons_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections, METADATA_PARAMS(0, nullptr) }; // 1177015594
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMapPlayerIconElement_Statics::NewProp_playerIcons_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "MapPlayerIconElement" },
+		{ "ModuleRelativePath", "Public/MapPlayerIconElement.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UMapPlayerIconElement_Statics::NewProp_playerIcons = { "playerIcons", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMapPlayerIconElement, playerIcons), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMapPlayerIconElement_Statics::NewProp_playerIcons_MetaData), Z_Construct_UClass_UMapPlayerIconElement_Statics::NewProp_playerIcons_MetaData) }; // 1177015594
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMapPlayerIconElement_Statics::NewProp_BW_PlayerIcon_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "MapPlayerIconElement" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/MapPlayerIconElement.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMapPlayerIconElement_Statics::NewProp_BW_PlayerIcon = { "BW_PlayerIcon", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMapPlayerIconElement, BW_PlayerIcon), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMapPlayerIconElement_Statics::NewProp_BW_PlayerIcon_MetaData), Z_Construct_UClass_UMapPlayerIconElement_Statics::NewProp_BW_PlayerIcon_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMapPlayerIconElement_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapPlayerIconElement_Statics::NewProp_playerIcons_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapPlayerIconElement_Statics::NewProp_playerIcons_Key_KeyProp_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapPlayerIconElement_Statics::NewProp_playerIcons_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapPlayerIconElement_Statics::NewProp_playerIcons,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMapPlayerIconElement_Statics::NewProp_BW_PlayerIcon,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UMapPlayerIconElement_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UMapPlayerIconElement>::IsAbstract,
 	};
@@ -54,15 +96,16 @@ void EmptyLinkFunctionForGeneratedCodeMapPlayerIconElement() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_UMapPlayerIconElement_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_UMapPlayerIconElement_Statics::PropPointers),
 		0,
 		0x00B010A0u,
 		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMapPlayerIconElement_Statics::Class_MetaDataParams), Z_Construct_UClass_UMapPlayerIconElement_Statics::Class_MetaDataParams)
 	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMapPlayerIconElement_Statics::PropPointers) < 2048);
 	UClass* Z_Construct_UClass_UMapPlayerIconElement()
 	{
 		if (!Z_Registration_Info_UClass_UMapPlayerIconElement.OuterSingleton)
@@ -83,9 +126,9 @@ void EmptyLinkFunctionForGeneratedCodeMapPlayerIconElement() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MapPlayerIconElement_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMapPlayerIconElement, UMapPlayerIconElement::StaticClass, TEXT("UMapPlayerIconElement"), &Z_Registration_Info_UClass_UMapPlayerIconElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMapPlayerIconElement), 3617753420U) },
+		{ Z_Construct_UClass_UMapPlayerIconElement, UMapPlayerIconElement::StaticClass, TEXT("UMapPlayerIconElement"), &Z_Registration_Info_UClass_UMapPlayerIconElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMapPlayerIconElement), 300800765U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MapPlayerIconElement_h_1510609826(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MapPlayerIconElement_h_4211169072(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MapPlayerIconElement_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MapPlayerIconElement_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -20,6 +20,7 @@ public:
 	UFUNCTION()
 	void InitializeSubsystem(UPersistentGameinstance* aPersistentGameInstance);
 
+	void InitializeSessionSave(USaveGameData* aSessionSave);
 	UFUNCTION()
 	void ReturnToPreviousLevel();
 

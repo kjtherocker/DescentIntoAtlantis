@@ -6,6 +6,7 @@
 #include "BaseUserWidget.h"
 #include "MapPlayerIconElement.generated.h"
 
+class UImage;
 /**
  * 
  */
@@ -13,5 +14,13 @@ UCLASS()
 class DESENTINTOATLANTIS_API UMapPlayerIconElement : public UBaseUserWidget
 {
 	GENERATED_BODY()
-	
+	UPROPERTY(EditAnywhere,meta=(BindWidget))
+	TMap<ECardinalNodeDirections,UTexture2D*> playerIcons;
+
+	public:
+	void SetPlayedIconBasedOnDirection(ECardinalNodeDirections aDirection);
+
+		
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UImage*  BW_PlayerIcon;
 };

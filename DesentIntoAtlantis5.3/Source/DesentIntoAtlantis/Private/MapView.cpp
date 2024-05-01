@@ -6,8 +6,10 @@
 #include "FloorFactory.h"
 #include "FloorPawn.h"
 #include "LevelGeneratorUtilityWidget.h"
+#include "LevelProgressionSubsystem.h"
 #include "MapButtonElement.h"
 #include "MapPlayerIconElement.h"
+#include "PersistentGameinstance.h"
 #include "Components/UniformGridPanel.h"
 #include "Components/UniformGridSlot.h"
 #include "Components/WrapBox.h"
@@ -20,12 +22,14 @@ void UMapView::GenerateLevel(UFloorFactory* aFloorFactory)
 	{
 		return;
 	}
+	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+	levelProgressionSubsystem = persistentGameInstance->levelProgressionSubsystem;
 	floorFactory = aFloorFactory;
 	CurrentFloor = floorFactory->floorDictionary[FloorIdentifier];
 	if(MapButtons.Num() <= 0)
 	{
 		CurrentFloor->Initialize();
-		//CreateFullGrid(CurrentFloor);
+		levelProgressionSubsystem->SetCurrentMapFogOfWar(CurrentFloor);
 		CreatePlayerGrid(CurrentFloor);
 	}
 }
@@ -147,6 +151,8 @@ void UMapView::CreatePlayerGrid(UFloorBase* aFloor)
 
 }
 
+
+
 void UMapView::SpawnMapButton(int aRow, int aColumn, int aIndex)
 {
 	FVector2D  PositionOffset;
@@ -199,7 +205,9 @@ void UMapView::SetPlayerPosition(int aRow, int aColumn)
 
 	int actualGridPositionX = 0;
 	int actualGridPositionY = 0;
+	int currentPlayerNodeIndex = tempfloor->GetIndex(aRow, aColumn);
 
+	levelProgressionSubsystem->RevealMapNode(currentPlayerNodeIndex);
 
 	
 	for (int x = minX; x <= maxX; x++)
@@ -207,7 +215,7 @@ void UMapView::SetPlayerPosition(int aRow, int aColumn)
 		actualGridPositionY = 0;
 		for (int y = minY; y <= maxY; y++)
 		{
-			if( x < 0 || y < 0)
+			if( x < 0 || y < 0 || x >= tempfloor->GridDimensionX || y >= tempfloor->GridDimensionY)
 			{
 				MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetMapIcon(static_cast<ECardinalNodeDirections>(16));
 				MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetEventIcon(false);
@@ -215,8 +223,16 @@ void UMapView::SetPlayerPosition(int aRow, int aColumn)
 			else
 			{
 				int LevelIndex = tempfloor->GetIndex(x, y);
-				MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetMapIcon(static_cast<ECardinalNodeDirections>(tempfloor->floorData.floorBlueprint[LevelIndex]));
-				MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetEventIcon(false);
+				if(levelProgressionSubsystem->HasNodeBeenRevealed(LevelIndex))
+				{
+					MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetMapIcon(static_cast<ECardinalNodeDirections>(tempfloor->floorData.floorBlueprint[LevelIndex]));
+					MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetEventIcon(false);
+				}
+				else
+				{
+					MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetMapIcon(static_cast<ECardinalNodeDirections>(0));
+					MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetEventIcon(false);
+				}
 			}
 			actualGridPositionY += 1;
 		}
@@ -224,9 +240,15 @@ void UMapView::SetPlayerPosition(int aRow, int aColumn)
 	}
 }
 
-void UMapView::SetPlayerMovementDelegate(AFloorPawn* aPlayerHasMoved)
+void UMapView::SetPlayerRotation(ECardinalNodeDirections aPlayerFacingDirection)
+{
+	mapPlayerIconElement->SetPlayedIconBasedOnDirection(aPlayerFacingDirection);
+}
+
+void UMapView::SetFloorPawnDelegates(AFloorPawn* aPlayerHasMoved)
 {
 	aPlayerHasMoved->playerhasMovedDelegate.AddDynamic(this,&UMapView::SetPlayerPosition);
+	aPlayerHasMoved->playerDirectionHasChanged.AddDynamic(this,&UMapView::SetPlayerRotation);
 
 }
 

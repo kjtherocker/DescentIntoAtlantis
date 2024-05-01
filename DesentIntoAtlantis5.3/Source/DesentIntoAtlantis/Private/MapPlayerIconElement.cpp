@@ -3,3 +3,9 @@
 
 #include "MapPlayerIconElement.h"
 
+#include "Components/Image.h"
+
+void UMapPlayerIconElement::SetPlayedIconBasedOnDirection(ECardinalNodeDirections aDirection)
+{
+	BW_PlayerIcon->SetBrushFromTexture(playerIcons[aDirection]);
+}

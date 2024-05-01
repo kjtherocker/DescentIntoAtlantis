@@ -1313,6 +1313,11 @@
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\LevelProgressionSubsystem.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\LevelupPanelElement.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
@@ -1488,6 +1493,7 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\Gimmick_Base.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\InGameHUD.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\LevelGeneratorUtilityWidget.h"/>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\LevelProgressionSubsystem.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\LevelupPanelElement.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\LevelupView.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\MainMenuGameMode.h"/>

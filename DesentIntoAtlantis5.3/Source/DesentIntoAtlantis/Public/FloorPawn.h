@@ -10,6 +10,7 @@
 class UFloorPawnPositionInfo;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FPlayerHasMoved,int,row,int,column);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerDirectionHasChanged,ECardinalNodeDirections,playerFacingDirection);
 UCLASS()
 
 class DESENTINTOATLANTIS_API AFloorPawn : public APawn
@@ -82,6 +83,9 @@ public:
 	
 	UPROPERTY()
 	FPlayerHasMoved playerhasMovedDelegate;
+
+	UPROPERTY()
+	FPlayerDirectionHasChanged playerDirectionHasChanged;
 };
 
 
