@@ -39,6 +39,7 @@ void EmptyLinkFunctionForGeneratedCodeEFloorIdentifier() {}
 		{ "EFloorIdentifier::Floor1", (int64)EFloorIdentifier::Floor1 },
 		{ "EFloorIdentifier::Floor2", (int64)EFloorIdentifier::Floor2 },
 		{ "EFloorIdentifier::Floor3", (int64)EFloorIdentifier::Floor3 },
+		{ "EFloorIdentifier::PrisonCombat", (int64)EFloorIdentifier::PrisonCombat },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EFloorIdentifier_Statics::Enum_MetaDataParams[] = {
@@ -47,6 +48,7 @@ void EmptyLinkFunctionForGeneratedCodeEFloorIdentifier() {}
 		{ "Floor3.Name", "EFloorIdentifier::Floor3" },
 		{ "ModuleRelativePath", "EFloorIdentifier.h" },
 		{ "None.Name", "EFloorIdentifier::None" },
+		{ "PrisonCombat.Name", "EFloorIdentifier::PrisonCombat" },
 		{ "Test.Name", "EFloorIdentifier::Test" },
 	};
 #endif
@@ -75,9 +77,9 @@ void EmptyLinkFunctionForGeneratedCodeEFloorIdentifier() {}
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_EFloorIdentifier_h_Statics::EnumInfo[] = {
-		{ EFloorIdentifier_StaticEnum, TEXT("EFloorIdentifier"), &Z_Registration_Info_UEnum_EFloorIdentifier, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1497107215U) },
+		{ EFloorIdentifier_StaticEnum, TEXT("EFloorIdentifier"), &Z_Registration_Info_UEnum_EFloorIdentifier, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4214754488U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_EFloorIdentifier_h_3650871462(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_EFloorIdentifier_h_1445571645(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_EFloorIdentifier_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_EFloorIdentifier_h_Statics::EnumInfo));

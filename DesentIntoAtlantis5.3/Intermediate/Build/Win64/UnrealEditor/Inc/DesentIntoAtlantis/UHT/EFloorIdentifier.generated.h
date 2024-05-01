@@ -24,7 +24,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	op(EFloorIdentifier::Test) \
 	op(EFloorIdentifier::Floor1) \
 	op(EFloorIdentifier::Floor2) \
-	op(EFloorIdentifier::Floor3) 
+	op(EFloorIdentifier::Floor3) \
+	op(EFloorIdentifier::PrisonCombat) 
 
 enum class EFloorIdentifier;
 template<> struct TIsUEnumClass<EFloorIdentifier> { enum { Value = true }; };

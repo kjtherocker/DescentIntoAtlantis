@@ -89,7 +89,9 @@ void UPersistentGameinstance::Init()
 	saveManagerSubsystem->InitializeSubsystem(this);
 
 
-	
+	LevelMap.Add(EFloorIdentifier::Floor1,"Prison_Floor1");
+	LevelMap.Add(EFloorIdentifier::Floor2,"Prison_Floor2");
+	LevelMap.Add(EFloorIdentifier::PrisonCombat,"PrisonCombat");
 //
 	//LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
 	//
@@ -106,11 +108,13 @@ void UPersistentGameinstance::UnloadLevel(FString aLevelName)
 	UGameplayStatics::UnloadStreamLevel(GetWorld(), LevelName, LatentInfo, bShouldBlockOnUnload);
 }
 
-void UPersistentGameinstance::LoadLevel(FString aLevelName)
+void UPersistentGameinstance::LoadLevel(EFloorIdentifier aFloorIdentifier)
 {
-	FString LevelName = aLevelName;
-	if(currentLevelName != LevelName)
+	FString LevelName = LevelMap[aFloorIdentifier];
+	if(currentLevelName != aFloorIdentifier)
 	{
+		levelProgressionSubsystem->SetCurrentFloorIdentifier(aFloorIdentifier);
+		levelHasChanged.Broadcast(aFloorIdentifier);
 		UGameplayStatics::OpenLevel(GetWorld(), FName(*LevelName), true);
 	}
 	else
@@ -118,7 +122,7 @@ void UPersistentGameinstance::LoadLevel(FString aLevelName)
 		//We are calling the same scene multiple times
 	}
 	previousLevelName = currentLevelName;
-	currentLevelName  = LevelName;
+	currentLevelName  = aFloorIdentifier;
 }
 
 void UPersistentGameinstance::LoadPreviousLevel()
@@ -140,20 +144,23 @@ void UPersistentGameinstance::LoadPreSetLevel()
 void UPersistentGameinstance::LoadCombatLevel(FString aEnemyGroupName, ECombatArena aCombatArena)
 {
 	aCombatArenaData.enemyGroupName = aEnemyGroupName;
-	LoadLevel("PrisonCombat");
+	LoadLevel(EFloorIdentifier::PrisonCombat);
 }
 
-
-void UPersistentGameinstance::GetCurrentLevelName(FString aLevelName)
-{
-	currentLevelName = aLevelName;
-}
 
 
 
 FCombatArenaData UPersistentGameinstance::ConsumeArenaDataFlag()
 {
 	return aCombatArenaData;
+}
+
+bool UPersistentGameinstance::ConsumeCombatFinishedFlag()
+{
+	bool bIsLoading = hasRecentlyFinishedCombat;
+	// Once checked, reset the flag
+	hasRecentlyFinishedCombat = false;
+	return bIsLoading;
 }
 
 

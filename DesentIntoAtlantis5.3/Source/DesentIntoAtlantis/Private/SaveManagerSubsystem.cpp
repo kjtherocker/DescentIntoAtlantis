@@ -18,6 +18,7 @@ void USaveManagerSubsystem::InitializeSubsystem(UPersistentGameinstance* aPersis
 void USaveManagerSubsystem::InitializeSessionSave(USaveGameData* aSessionSave)
 {
 	aSessionSave->SubscribeUpdateCompleteProgressionData(persistentGameinstance->levelProgressionSubsystem);
+	aSessionSave->SubScribeToUpdateLevelIdentifier(persistentGameinstance);
 }
 
 void USaveManagerSubsystem::ReturnToPreviousLevel()
@@ -50,7 +51,7 @@ void USaveManagerSubsystem::LoadPreSetLevel()
 	//LoadLevel(preSetLevelName);
 }
 
-void USaveManagerSubsystem::LoadSaveDataAndTransitionToMap(FString aLevelName)
+void USaveManagerSubsystem::LoadSaveDataAndTransitionToMap()
 {
 	isGameSaveBeingLoaded = true;
 	USaveGameData* LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
@@ -59,7 +60,7 @@ void USaveManagerSubsystem::LoadSaveDataAndTransitionToMap(FString aLevelName)
 	persistentGameinstance->partyManagerSubsystem->LoadAndCreateAllPlayerEntitys(LoadedSaveGameObject->playerCompleteDataSet);
 	persistentGameinstance->EventManagerSubSystem->LoadSavedFloorEventData(LoadedSaveGameObject->eventManagerData);
 	persistentGameinstance->levelProgressionSubsystem->LoadCompleteProgressionData(LoadedSaveGameObject->completeProgressionData);
-	persistentGameinstance->LoadLevel(aLevelName);
+	persistentGameinstance->LoadLevel(SessionSaveGameObject->currentLevel);
 
 	
 }
@@ -72,8 +73,3 @@ bool USaveManagerSubsystem::ConsumeGameSaveLoadingFlag()
 	return bIsLoading;
 }
 
-void USaveManagerSubsystem::LoadCombatLevel(FString aEnemyGroupName, ECombatArena aCombatArena)
-{
-	aCombatArenaData.enemyGroupName = aEnemyGroupName;
-	persistentGameinstance->LoadLevel("PrisonCombat");
-}

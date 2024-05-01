@@ -60,7 +60,7 @@ class DESENTINTOATLANTIS_API UEventManagerSubSystem : public UGameInstanceSubsys
 	
 public:
 
-	FFloorEventHasBeenTriggered EventHasBeenTriggered;
+	FNodeHasBeenWalkedOn EventHasBeenTriggered;
 	void LoadSavedFloorEventData(FEventManagerData aEventManagerData );
 	void InitializeEventManager(UFloorFactory * aFloorFactory, UPersistentGameinstance* aPersistentGameInstance);
 	bool isEventCompleted(FVector2D aEventPosition);

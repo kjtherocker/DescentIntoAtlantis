@@ -4,6 +4,7 @@
 #include "SaveGameData.h"
 
 #include "FloorPawn.h"
+#include "PersistentGameinstance.h"
 
 
 void USaveGameData::UpdateCompleteProgressionData(FCompleteProgressionData aCompleteProgressionData)
@@ -11,15 +12,21 @@ void USaveGameData::UpdateCompleteProgressionData(FCompleteProgressionData aComp
 	completeProgressionData = aCompleteProgressionData;
 }
 
+void USaveGameData::UpdateCurrentLevelIdentifier(EFloorIdentifier aFloorIdentifier)
+{
+	currentLevel = aFloorIdentifier;
+}
+
 void USaveGameData::SubscribeUpdateCompleteProgressionData(ULevelProgressionSubsystem* aLevelProgressionSubsystem)
 {
 	aLevelProgressionSubsystem->mapHasChanged.AddDynamic(this,&USaveGameData::UpdateCompleteProgressionData);
 }
 
-void USaveGameData::SetTest(int Atest)
+void USaveGameData::SubScribeToUpdateLevelIdentifier(UPersistentGameinstance* aPersistentGameInstance)
 {
-	test = Atest;
+	aPersistentGameInstance->levelHasChanged.AddDynamic(this,&USaveGameData::UpdateCurrentLevelIdentifier);
 }
+
 
 void USaveGameData::SetFloorPawn(AFloorPawn* Atest)
 {

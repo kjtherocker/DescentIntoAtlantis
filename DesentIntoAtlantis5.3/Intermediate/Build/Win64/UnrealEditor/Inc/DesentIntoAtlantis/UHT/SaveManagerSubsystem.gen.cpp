@@ -17,7 +17,6 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USaveGameData_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USaveManagerSubsystem();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USaveManagerSubsystem_NoRegister();
-	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FEventManagerData();
 	ENGINE_API UClass* Z_Construct_UClass_UGameInstanceSubsystem();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
@@ -37,21 +36,11 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 		P_THIS->SetEventManagerData(Z_Param_aEventManagerData);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(USaveManagerSubsystem::execLoadCombatLevel)
-	{
-		P_GET_PROPERTY(FStrProperty,Z_Param_aEnemyGroupName);
-		P_GET_ENUM(ECombatArena,Z_Param_aCombatArena);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->LoadCombatLevel(Z_Param_aEnemyGroupName,ECombatArena(Z_Param_aCombatArena));
-		P_NATIVE_END;
-	}
 	DEFINE_FUNCTION(USaveManagerSubsystem::execLoadSaveDataAndTransitionToMap)
 	{
-		P_GET_PROPERTY(FStrProperty,Z_Param_aLevelName);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->LoadSaveDataAndTransitionToMap(Z_Param_aLevelName);
+		P_THIS->LoadSaveDataAndTransitionToMap();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(USaveManagerSubsystem::execLoadPreSetLevel)
@@ -104,7 +93,6 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "ConsumeGameSaveLoadingFlag", &USaveManagerSubsystem::execConsumeGameSaveLoadingFlag },
 			{ "InitializeSubsystem", &USaveManagerSubsystem::execInitializeSubsystem },
-			{ "LoadCombatLevel", &USaveManagerSubsystem::execLoadCombatLevel },
 			{ "LoadFloorPawnPosition", &USaveManagerSubsystem::execLoadFloorPawnPosition },
 			{ "LoadPreSetLevel", &USaveManagerSubsystem::execLoadPreSetLevel },
 			{ "LoadSaveDataAndTransitionToMap", &USaveManagerSubsystem::execLoadSaveDataAndTransitionToMap },
@@ -188,47 +176,6 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics
-	{
-		struct SaveManagerSubsystem_eventLoadCombatLevel_Parms
-		{
-			FString aEnemyGroupName;
-			ECombatArena aCombatArena;
-		};
-		static const UECodeGen_Private::FStrPropertyParams NewProp_aEnemyGroupName;
-		static const UECodeGen_Private::FIntPropertyParams NewProp_aCombatArena_Underlying;
-		static const UECodeGen_Private::FEnumPropertyParams NewProp_aCombatArena;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics::NewProp_aEnemyGroupName = { "aEnemyGroupName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SaveManagerSubsystem_eventLoadCombatLevel_Parms, aEnemyGroupName), METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics::NewProp_aCombatArena_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics::NewProp_aCombatArena = { "aCombatArena", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SaveManagerSubsystem_eventLoadCombatLevel_Parms, aCombatArena), Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena, METADATA_PARAMS(0, nullptr) }; // 3825271882
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics::NewProp_aEnemyGroupName,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics::NewProp_aCombatArena_Underlying,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics::NewProp_aCombatArena,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/SaveManagerSubsystem.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_USaveManagerSubsystem, nullptr, "LoadCombatLevel", nullptr, nullptr, Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics::PropPointers), sizeof(Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics::SaveManagerSubsystem_eventLoadCombatLevel_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics::Function_MetaDataParams), Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics::PropPointers) < 2048);
-	static_assert(sizeof(Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics::SaveManagerSubsystem_eventLoadCombatLevel_Parms) < MAX_uint16);
-	UFunction* Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
 	struct Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition_Statics
 	{
 		struct SaveManagerSubsystem_eventLoadFloorPawnPosition_Parms
@@ -287,29 +234,17 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 	}
 	struct Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics
 	{
-		struct SaveManagerSubsystem_eventLoadSaveDataAndTransitionToMap_Parms
-		{
-			FString aLevelName;
-		};
-		static const UECodeGen_Private::FStrPropertyParams NewProp_aLevelName;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::NewProp_aLevelName = { "aLevelName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SaveManagerSubsystem_eventLoadSaveDataAndTransitionToMap_Parms, aLevelName), METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::NewProp_aLevelName,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Public/SaveManagerSubsystem.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_USaveManagerSubsystem, nullptr, "LoadSaveDataAndTransitionToMap", nullptr, nullptr, Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::PropPointers), sizeof(Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::SaveManagerSubsystem_eventLoadSaveDataAndTransitionToMap_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::Function_MetaDataParams), Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::PropPointers) < 2048);
-	static_assert(sizeof(Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::SaveManagerSubsystem_eventLoadSaveDataAndTransitionToMap_Parms) < MAX_uint16);
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_USaveManagerSubsystem, nullptr, "LoadSaveDataAndTransitionToMap", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::Function_MetaDataParams), Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::Function_MetaDataParams) };
 	UFunction* Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -410,7 +345,7 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_USaveManagerSubsystem_SetEventManagerData_Statics::NewProp_aEventManagerData = { "aEventManagerData", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SaveManagerSubsystem_eventSetEventManagerData_Parms, aEventManagerData), Z_Construct_UScriptStruct_FEventManagerData, METADATA_PARAMS(0, nullptr) }; // 2264998657
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_USaveManagerSubsystem_SetEventManagerData_Statics::NewProp_aEventManagerData = { "aEventManagerData", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SaveManagerSubsystem_eventSetEventManagerData_Parms, aEventManagerData), Z_Construct_UScriptStruct_FEventManagerData, METADATA_PARAMS(0, nullptr) }; // 2181922929
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_USaveManagerSubsystem_SetEventManagerData_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USaveManagerSubsystem_SetEventManagerData_Statics::NewProp_aEventManagerData,
 	};
@@ -463,14 +398,13 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_USaveManagerSubsystem_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_ConsumeGameSaveLoadingFlag, "ConsumeGameSaveLoadingFlag" }, // 694278786
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_InitializeSubsystem, "InitializeSubsystem" }, // 2530387896
-		{ &Z_Construct_UFunction_USaveManagerSubsystem_LoadCombatLevel, "LoadCombatLevel" }, // 2775205627
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition, "LoadFloorPawnPosition" }, // 1421281692
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_LoadPreSetLevel, "LoadPreSetLevel" }, // 2106330069
-		{ &Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap, "LoadSaveDataAndTransitionToMap" }, // 894547644
+		{ &Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap, "LoadSaveDataAndTransitionToMap" }, // 3688596530
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_ReturnToPreviousLevel, "ReturnToPreviousLevel" }, // 923142100
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_SaveFloorPawn, "SaveFloorPawn" }, // 4031341612
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_SaveSessionData, "SaveSessionData" }, // 1802938065
-		{ &Z_Construct_UFunction_USaveManagerSubsystem_SetEventManagerData, "SetEventManagerData" }, // 1519888507
+		{ &Z_Construct_UFunction_USaveManagerSubsystem_SetEventManagerData, "SetEventManagerData" }, // 3473623364
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_USaveManagerSubsystem_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -537,9 +471,9 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveManagerSubsystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_USaveManagerSubsystem, USaveManagerSubsystem::StaticClass, TEXT("USaveManagerSubsystem"), &Z_Registration_Info_UClass_USaveManagerSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USaveManagerSubsystem), 1100805827U) },
+		{ Z_Construct_UClass_USaveManagerSubsystem, USaveManagerSubsystem::StaticClass, TEXT("USaveManagerSubsystem"), &Z_Registration_Info_UClass_USaveManagerSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USaveManagerSubsystem), 3024457380U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveManagerSubsystem_h_1375787385(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveManagerSubsystem_h_982604807(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveManagerSubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveManagerSubsystem_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

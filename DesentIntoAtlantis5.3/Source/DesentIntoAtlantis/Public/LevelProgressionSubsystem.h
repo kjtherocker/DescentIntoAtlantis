@@ -3,9 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "FloorEnum.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "LevelProgressionSubsystem.generated.h"
 
+class FNodeHasBeenWalkedOn;
 enum class EFloorIdentifier;
 class UFloorBase;
 class UPersistentGameinstance;
@@ -57,9 +59,11 @@ class DESENTINTOATLANTIS_API ULevelProgressionSubsystem : public UGameInstanceSu
 	void CreateNewFogOfWar(UFloorBase* aFloor);
 
 public:
-
+	FNodeHasBeenWalkedOn nodeHasBeenWalkedOn;
 	FMapHasChanged mapHasChanged;
+	void SetCurrentFloorIdentifier(EFloorIdentifier aFloorIdentifier);
 	
+	EFloorIdentifier GetCurrentFlooridentifier();
 	void LoadCompleteProgressionData(FCompleteProgressionData completeProgressionData);
 	void SetCurrentMapFogOfWar(UFloorBase* floorBase);
 

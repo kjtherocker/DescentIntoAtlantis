@@ -15,6 +15,7 @@
 #include "DesentIntoAtlantis/FloorManager.h"
 #include "AtlantisGameModeBase.generated.h"
 
+class ULevelProgressionSubsystem;
 class UGameManager;
 class ASoundManager;
 class UEventManagerSubSystem;
@@ -86,6 +87,8 @@ public:
 
 	UPROPERTY()
 	UDialogueFactorySubsystem*   dialogueFactory;
+	UPROPERTY()
+	ULevelProgressionSubsystem*   levelProgressionSubsystem;
 protected:
 
 	UPersistentGameinstance* persistentGameInstance;

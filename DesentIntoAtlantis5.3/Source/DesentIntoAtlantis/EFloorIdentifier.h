@@ -9,9 +9,10 @@
 UENUM()
 enum class  EFloorIdentifier
 {
-    None,
-    Test,
-    Floor1,
-    Floor2,
-    Floor3,
+    None               =  0,
+    Test               =  1,
+    Floor1             =  2,
+    Floor2             =  3,
+    Floor3             =  4,
+    PrisonCombat       =  5,
 };

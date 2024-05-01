@@ -39,7 +39,7 @@ void AMainMenuGameMode::StartGame()
 	
 	if (persistentGameInstance)
 	{
-		persistentGameInstance->LoadLevel(TEXT("Floor1"));
+		persistentGameInstance->LoadLevel(EFloorIdentifier::Floor1);
 	}
 
 	

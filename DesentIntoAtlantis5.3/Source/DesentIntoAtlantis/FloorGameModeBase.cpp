@@ -5,6 +5,7 @@
 #include "CombatGameModeBase.h"
 #include "FloorPlayerController.h"
 #include "InGameHUD.h"
+#include "LevelProgressionSubsystem.h"
 #include "MapView.h"
 
 #include "PersistentGameinstance.h"
@@ -34,16 +35,16 @@ void AFloorGameMode::InitializeLevel()
     floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
     
     UMapView* mapView     = (UMapView*)InGameHUD->PushAndGetView(EViews::MapView,         EUiType::PersistentUi);
-    mapView->GenerateLevel(floorFactory);
+    mapView->GenerateLevel(floorFactory,levelProgressionSubsystem->GetCurrentFlooridentifier());
     mapView->SetFloorPawnDelegates(floorPawn);
     
     floorManager = Cast<AFloorManager>(world->SpawnActor<AActor>(floorManagerReference, FVector::Zero(), rotator));
     floorManager->Initialize(this,floorEventManager);
 
   
-    floorManager->CreateFloor(EFloorIdentifier::Floor1);
+    floorManager->CreateFloor(levelProgressionSubsystem->GetCurrentFlooridentifier());
     
-    if(persistentGameInstance->saveManagerSubsystem->ConsumeGameSaveLoadingFlag() || persistentGameInstance->hasRecentlyFinishedCombat)
+    if(persistentGameInstance->saveManagerSubsystem->ConsumeGameSaveLoadingFlag() || persistentGameInstance->ConsumeCombatFinishedFlag())
     {
         floorManager->PlacePlayerFloorPawn(persistentGameInstance->saveManagerSubsystem->LoadFloorPawnPosition());
     }

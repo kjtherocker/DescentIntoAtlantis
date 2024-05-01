@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+enum class EFloorIdentifier : int32;
 struct FCompleteProgressionData;
 #ifdef DESENTINTOATLANTIS_SaveGameData_generated_h
 #error "SaveGameData.generated.h already included, missing '#pragma once' in SaveGameData.h"
@@ -20,6 +21,7 @@ struct FCompleteProgressionData;
 #define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveGameData_h_24_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveGameData_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execUpdateCurrentLevelIdentifier); \
 	DECLARE_FUNCTION(execUpdateCompleteProgressionData);
 
 

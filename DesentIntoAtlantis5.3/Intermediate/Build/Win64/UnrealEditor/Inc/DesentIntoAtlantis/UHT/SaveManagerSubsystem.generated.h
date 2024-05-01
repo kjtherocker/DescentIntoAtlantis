@@ -11,7 +11,6 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AFloorPawn;
 class UPersistentGameinstance;
-enum class ECombatArena : int32;
 struct FEventManagerData;
 #ifdef DESENTINTOATLANTIS_SaveManagerSubsystem_generated_h
 #error "SaveManagerSubsystem.generated.h already included, missing '#pragma once' in SaveManagerSubsystem.h"
@@ -25,7 +24,6 @@ struct FEventManagerData;
  \
 	DECLARE_FUNCTION(execConsumeGameSaveLoadingFlag); \
 	DECLARE_FUNCTION(execSetEventManagerData); \
-	DECLARE_FUNCTION(execLoadCombatLevel); \
 	DECLARE_FUNCTION(execLoadSaveDataAndTransitionToMap); \
 	DECLARE_FUNCTION(execLoadPreSetLevel); \
 	DECLARE_FUNCTION(execLoadFloorPawnPosition); \

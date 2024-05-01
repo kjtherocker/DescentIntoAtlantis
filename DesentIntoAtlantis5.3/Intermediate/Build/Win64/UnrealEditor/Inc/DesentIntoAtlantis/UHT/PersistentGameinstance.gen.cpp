@@ -23,11 +23,63 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EClasses();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EDataTableTypes();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EFloorIdentifier();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ESkillType();
+	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature();
 	ENGINE_API UClass* Z_Construct_UClass_UDataTable_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UGameInstance();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
 // End Cross Module References
+	struct Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature_Statics
+	{
+		struct _Script_DesentIntoAtlantis_eventLevelHasChanged_Parms
+		{
+			EFloorIdentifier currentFloor;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_currentFloor_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_currentFloor;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature_Statics::NewProp_currentFloor_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature_Statics::NewProp_currentFloor = { "currentFloor", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_DesentIntoAtlantis_eventLevelHasChanged_Parms, currentFloor), Z_Construct_UEnum_DesentIntoAtlantis_EFloorIdentifier, METADATA_PARAMS(0, nullptr) }; // 4214754488
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature_Statics::NewProp_currentFloor_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature_Statics::NewProp_currentFloor,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature_Statics::Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/**\n * \n */" },
+#endif
+		{ "ModuleRelativePath", "Public/PersistentGameinstance.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis, nullptr, "LevelHasChanged__DelegateSignature", nullptr, nullptr, Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature_Statics::PropPointers), sizeof(Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature_Statics::_Script_DesentIntoAtlantis_eventLevelHasChanged_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature_Statics::Function_MetaDataParams), Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature_Statics::_Script_DesentIntoAtlantis_eventLevelHasChanged_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+void FLevelHasChanged_DelegateWrapper(const FMulticastScriptDelegate& LevelHasChanged, EFloorIdentifier currentFloor)
+{
+	struct _Script_DesentIntoAtlantis_eventLevelHasChanged_Parms
+	{
+		EFloorIdentifier currentFloor;
+	};
+	_Script_DesentIntoAtlantis_eventLevelHasChanged_Parms Parms;
+	Parms.currentFloor=currentFloor;
+	LevelHasChanged.ProcessMulticastDelegate<UObject>(&Parms);
+}
 	DEFINE_FUNCTION(UPersistentGameinstance::execLoadCombatLevel)
 	{
 		P_GET_PROPERTY(FStrProperty,Z_Param_aEnemyGroupName);
@@ -60,10 +112,10 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 	}
 	DEFINE_FUNCTION(UPersistentGameinstance::execLoadLevel)
 	{
-		P_GET_PROPERTY(FStrProperty,Z_Param_aLevelName);
+		P_GET_ENUM(EFloorIdentifier,Z_Param_aFloorIdentifier);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->LoadLevel(Z_Param_aLevelName);
+		P_THIS->LoadLevel(EFloorIdentifier(Z_Param_aFloorIdentifier));
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UPersistentGameinstance::execUnloadLevel)
@@ -132,18 +184,21 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 	{
 		struct PersistentGameinstance_eventLoadLevel_Parms
 		{
-			FString aLevelName;
+			EFloorIdentifier aFloorIdentifier;
 		};
-		static const UECodeGen_Private::FStrPropertyParams NewProp_aLevelName;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_aFloorIdentifier_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_aFloorIdentifier;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UPersistentGameinstance_LoadLevel_Statics::NewProp_aLevelName = { "aLevelName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PersistentGameinstance_eventLoadLevel_Parms, aLevelName), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UPersistentGameinstance_LoadLevel_Statics::NewProp_aFloorIdentifier_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UPersistentGameinstance_LoadLevel_Statics::NewProp_aFloorIdentifier = { "aFloorIdentifier", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PersistentGameinstance_eventLoadLevel_Parms, aFloorIdentifier), Z_Construct_UEnum_DesentIntoAtlantis_EFloorIdentifier, METADATA_PARAMS(0, nullptr) }; // 4214754488
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPersistentGameinstance_LoadLevel_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPersistentGameinstance_LoadLevel_Statics::NewProp_aLevelName,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPersistentGameinstance_LoadLevel_Statics::NewProp_aFloorIdentifier_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPersistentGameinstance_LoadLevel_Statics::NewProp_aFloorIdentifier,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPersistentGameinstance_LoadLevel_Statics::Function_MetaDataParams[] = {
@@ -274,6 +329,10 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_levelHasChanged_MetaData[];
+#endif
+		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_levelHasChanged;
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_dataTables_ValueProp;
 		static const UECodeGen_Private::FIntPropertyParams NewProp_dataTables_Key_KeyProp_Underlying;
 		static const UECodeGen_Private::FEnumPropertyParams NewProp_dataTables_Key_KeyProp;
@@ -342,7 +401,7 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UPersistentGameinstance_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UPersistentGameinstance_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UPersistentGameinstance_LoadCombatLevel, "LoadCombatLevel" }, // 924912187
-		{ &Z_Construct_UFunction_UPersistentGameinstance_LoadLevel, "LoadLevel" }, // 1530815639
+		{ &Z_Construct_UFunction_UPersistentGameinstance_LoadLevel, "LoadLevel" }, // 391337518
 		{ &Z_Construct_UFunction_UPersistentGameinstance_LoadPreSetLevel, "LoadPreSetLevel" }, // 439233011
 		{ &Z_Construct_UFunction_UPersistentGameinstance_LoadPreviousLevel, "LoadPreviousLevel" }, // 1564438389
 		{ &Z_Construct_UFunction_UPersistentGameinstance_ReturnToPreviousLevel, "ReturnToPreviousLevel" }, // 1621186413
@@ -351,13 +410,16 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UPersistentGameinstance_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPersistentGameinstance_Statics::Class_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n * \n */" },
-#endif
 		{ "IncludePath", "PersistentGameinstance.h" },
 		{ "ModuleRelativePath", "Public/PersistentGameinstance.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_levelHasChanged_MetaData[] = {
+		{ "ModuleRelativePath", "Public/PersistentGameinstance.h" },
+	};
+#endif
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_levelHasChanged = { "levelHasChanged", nullptr, (EPropertyFlags)0x0010000000080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UPersistentGameinstance, levelHasChanged), Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_levelHasChanged_MetaData), Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_levelHasChanged_MetaData) }; // 495388279
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTables_ValueProp = { "dataTables", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_UDataTable_NoRegister, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTables_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTables_Key_KeyProp = { "dataTables_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EDataTableTypes, METADATA_PARAMS(0, nullptr) }; // 3334060239
@@ -443,6 +505,7 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_floorFactory = { "floorFactory", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UPersistentGameinstance, floorFactory), Z_Construct_UClass_UFloorFactory_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_floorFactory_MetaData), Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_floorFactory_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UPersistentGameinstance_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_levelHasChanged,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTables_ValueProp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTables_Key_KeyProp_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPersistentGameinstance_Statics::NewProp_dataTables_Key_KeyProp,
@@ -503,9 +566,9 @@ void EmptyLinkFunctionForGeneratedCodePersistentGameinstance() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPersistentGameinstance, UPersistentGameinstance::StaticClass, TEXT("UPersistentGameinstance"), &Z_Registration_Info_UClass_UPersistentGameinstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPersistentGameinstance), 2253343273U) },
+		{ Z_Construct_UClass_UPersistentGameinstance, UPersistentGameinstance::StaticClass, TEXT("UPersistentGameinstance"), &Z_Registration_Info_UClass_UPersistentGameinstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPersistentGameinstance), 3577415430U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_3410964434(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_2173392127(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PersistentGameinstance_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -32,6 +32,12 @@ void UFloorFactory::InitializeDatabase(UDataTable* aFloorDatabase,UDataTable* aF
 	{
 		floorDictionary[floorEventData[i].floorIdentifier]->floorEventData.Add(floorEventData[i].positionInGrid,floorEventData[i]);
 	}
+
+	for (TTuple<EFloorIdentifier, UFloorBase*> Element : floorDictionary)
+	{
+		TArray<FTeleporterGimmick> teleporterGimmick = Element.Value->floorData.teleporterGimmicks;
+		Element.Value->SetTeleporterGimmickData(teleporterGimmick);
+	}
 }
 
 void UFloorFactory::OverwriteFloorMapData(EFloorIdentifier aOverwrittenFloor,TArray<int> aNewMapData)

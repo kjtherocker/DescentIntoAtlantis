@@ -34,7 +34,7 @@ public:
 
 	void SetFloorGimmick(UGimmick_Base* aGimmick);
 
-	FFloorEventHasBeenTriggered floorEventHasBeenTriggeredEvent;
+	FNodeHasBeenWalkedOn nodeHasBeenWalkedOn;
 	
 	UPROPERTY( EditAnywhere )
 	bool hasFloorEvent;
@@ -51,7 +51,7 @@ public:
 
 	TMap<ECardinalNodeDirections,UFloorNodeWallInfo*> floorNodeWallInfos;
 
-	FFloorEventHasBeenTriggered floorEventHasBeenTriggered;
+	FNodeHasBeenWalkedOn floorEventHasBeenTriggered;
 
 private:
 	UGimmick_Base* ActiveNodeGimmick;

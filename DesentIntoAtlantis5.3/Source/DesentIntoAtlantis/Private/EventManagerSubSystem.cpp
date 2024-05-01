@@ -205,8 +205,8 @@ void UEventManagerSubSystem::TriggerPostCombatLevelSwap()
 
 void UEventManagerSubSystem::EventNotCompleted()
 {
-	floorEnemyEvents[currentEvent.positionInGrid]->SetActorHiddenInGame(false);
-	gameMode->floorPawn->EnableInput(gameMode->world->GetFirstPlayerController());
+	//floorEnemyEvents[currentEvent.positionInGrid]->SetActorHiddenInGame(false);
+	//gameMode->floorPawn->EnableInput(gameMode->world->GetFirstPlayerController());
 }
 
 void UEventManagerSubSystem::AddFloorEnemyEvents(FVector2D aPositionInGrid, AFloorEnemyPawn* aFloorEnemyPawn)

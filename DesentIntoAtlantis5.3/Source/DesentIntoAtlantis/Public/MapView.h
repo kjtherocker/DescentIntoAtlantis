@@ -47,7 +47,7 @@ public:
 
 	void SetFloorPawnDelegates(AFloorPawn* aPlayerHasMoved);
 	
-	void GenerateLevel(UFloorFactory* aFloorFactory);
+	void GenerateLevel(UFloorFactory* aFloorFactory,EFloorIdentifier aFloorIdentifier);
 	
 	UPROPERTY()
 	UFloorBase* CurrentFloor;

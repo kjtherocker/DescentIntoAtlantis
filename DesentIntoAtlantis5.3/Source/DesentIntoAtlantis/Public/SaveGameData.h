@@ -25,30 +25,24 @@ class DESENTINTOATLANTIS_API USaveGameData : public USaveGame
 private:
 	UFUNCTION()
 	void UpdateCompleteProgressionData(FCompleteProgressionData aCompleteProgressionData);
+	UFUNCTION()
+	void UpdateCurrentLevelIdentifier(EFloorIdentifier aFloorIdentifier);
 
 public:
 	void SubscribeUpdateCompleteProgressionData(ULevelProgressionSubsystem* aLevelProgressionSubsystem);
+	void SubScribeToUpdateLevelIdentifier(UPersistentGameinstance*  aPersistentGameInstance);
 	
-	void SetTest(int Atest);
 	void SetFloorPawn(AFloorPawn* Atest);
 
 	void AddPlayerCompleteDataSet(EPartyMembers aPartyMember,FPlayerCompleteDataSet aPlayerCompleteDataSet);
 	
 	UPROPERTY()
-	FCompleteProgressionData completeProgressionData;
-	
+	EFloorIdentifier currentLevel;
 	UPROPERTY()
-	int test;
+	FCompleteProgressionData completeProgressionData;
 
 	UPROPERTY()
 	FVector2D playerPosition;
-
-	UPROPERTY()
-	FClassData combatEntityDataTest;
-
-	UPROPERTY()
-	UPlayerCombatEntity* playerEntityDataTest;
-
 	UPROPERTY()
 	 TMap<EPartyMembers, FPlayerCompleteDataSet> playerCompleteDataSet;
 

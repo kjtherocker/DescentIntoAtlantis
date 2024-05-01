@@ -35,11 +35,13 @@ void AFloorManager::Initialize(AAtlantisGameModeBase* aGameModeBase,UEventManage
 	gimmickMap.Add(EFloorGimmicks::Movement,   NewObject<UGimmick_Base>());
 	gimmickMap.Add(EFloorGimmicks::Stairs,     NewObject<UGimmick_Base>());
 
-	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+	persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+
 	eventManagerSubSystem =  persistentGameInstance->EventManagerSubSystem;
+
 	
 	floorEventManager = aFloorEventManager;
-	gameModeBase = aGameModeBase;
+	floorGameModeBase = aGameModeBase;
 }
 
 void AFloorManager::CreateGrid(UFloorBase* aFloor)
@@ -63,8 +65,12 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 			if(aFloor->floorEventData.Contains(positionInGrid) && !eventManagerSubSystem->isEventCompleted(positionInGrid))
 			{
 				floorNodes[LevelIndex]->hasFloorEvent = true;
-				floorNodes[LevelIndex]->floorEventHasBeenTriggeredEvent = eventManagerSubSystem->EventHasBeenTriggered;
+				floorNodes[LevelIndex]->nodeHasBeenWalkedOn = eventManagerSubSystem->EventHasBeenTriggered;
 				SpawnFloorEventTriggers(positionInGrid);
+			}
+			if(aFloor->TeleporterGimmickData.Contains(positionInGrid))
+			{
+				floorNodes[LevelIndex]->nodeHasBeenWalkedOn.AddDynamic(this,&AFloorManager::LoadNextLevel);
 			}
 		}
 	}
@@ -76,10 +82,11 @@ void AFloorManager::CreateFloor(EFloorIdentifier aFloorIdentifier)
 {
 	currentFloorIdentifier = aFloorIdentifier;
 	floorEventManager->SetFloor(currentFloorIdentifier);
-	floorDictionary = gameModeBase->floorFactory->floorDictionary;
+	floorDictionary = floorGameModeBase->floorFactory->floorDictionary;
 	
 	if(floorDictionary[currentFloorIdentifier] != nullptr)
 	{
+	
 		SpawnFloor(floorDictionary[currentFloorIdentifier]);
 	}
 }
@@ -167,9 +174,16 @@ void AFloorManager::SpawnFloor(UFloorBase* aFloorBase)
 
 void AFloorManager::MovePlayerToPreviousNode()
 {
-	AFloorPawn* floorPawn = gameModeBase->floorPawn;
+	AFloorPawn* floorPawn = floorGameModeBase->floorPawn;
 	FVector2D previousPosition = floorPawn->previousNodePlayerWasOn->positionInGrid;
 	PlacePlayerFloorPawn(previousPosition);
+}
+
+void AFloorManager::LoadNextLevel(FVector2D aPositionInGrid)
+{
+	FTeleporterGimmick teleporterGimmick = currentFloor->TeleporterGimmickData[aPositionInGrid];
+
+	persistentGameInstance->LoadLevel(teleporterGimmick.floorIdentifier);
 }
 
 
@@ -227,7 +241,7 @@ void AFloorManager::PlacePlayerFloorPawn(FVector2D aStartPositionInGrid)
 		FRotator rotator = GetActorRotation();
 	
 		//Spawn
-		AFloorPawn* floorPawn = gameModeBase->floorPawn;
+		AFloorPawn* floorPawn = floorGameModeBase->floorPawn;
 		floorPawn->PlaceAndInitializieFloorPawn(floorNodes[startPositionIndex]);
 		floorPawn->SetActorLocation(ActorFinalSpawnPoint);
 		floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
@@ -264,7 +278,7 @@ void AFloorManager::SpawnFloorEventTriggers(FVector2D aPositionInGrid)
 	if (floorPawn)
 	{
 		floorPawn->SetActorLocation(ActorFinalSpawnPoint);
-		gameModeBase->floorEventManager->AddFloorEnemyEvents(aPositionInGrid,floorPawn);
+		floorGameModeBase->floorEventManager->AddFloorEnemyEvents(aPositionInGrid,floorPawn);
 	}
 	else
 	{

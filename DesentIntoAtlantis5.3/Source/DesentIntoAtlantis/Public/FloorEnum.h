@@ -43,8 +43,32 @@ enum class ECombatArena
 };
 
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FFloorEventHasBeenTriggered, FVector2D, aPositionInGrid);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FNodeHasBeenWalkedOn, FVector2D, aPositionInGrid);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTriggerNextEventStage, EFloorEventStates, aFloorEventStates);
+
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FGimmickData : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	
+	UPROPERTY( EditAnywhere )
+	FVector2D positionInGrid;
+
+};
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FTeleporterGimmick : public FGimmickData
+{
+	GENERATED_USTRUCT_BODY()
+	
+	UPROPERTY( EditAnywhere )
+	EFloorIdentifier floorIdentifier = EFloorIdentifier::None;
+
+	UPROPERTY( EditAnywhere )
+	FVector2D nextLevelsSpawnPosition;
+};
+
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FFloorData : public FTableRowBase
@@ -59,9 +83,9 @@ struct DESENTINTOATLANTIS_API FFloorData : public FTableRowBase
 	
 	UPROPERTY( EditAnywhere )
 	FVector2D startPosition = FVector2d::Zero();
-	
-	UPROPERTY( EditAnywhere )
-	TMap<FVector2D, EFloorGimmicks> floorGimmicks;
+
+	UPROPERTY(EditAnywhere)
+	TArray<FTeleporterGimmick> teleporterGimmicks;
 };
 
 

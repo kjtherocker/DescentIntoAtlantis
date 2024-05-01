@@ -29,10 +29,13 @@ public:
 	FFloorData floorData;
 
 	TMap<FVector2d ,FFloorEventData> floorEventData;
+
+	TMap<FVector2d ,FTeleporterGimmick> TeleporterGimmickData;
    
 	FVector2D m_DefaultSpawnPosition;
    
 	void Initialize();
+	void SetTeleporterGimmickData(TArray<FTeleporterGimmick> aTeleporterGimmicks);
 	int GetIndex(int aRow, int aColumn);
 
 };

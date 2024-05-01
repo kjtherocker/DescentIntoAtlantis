@@ -200,10 +200,7 @@ void AFloorNode::SetFloorNodeWallInfo(ECardinalNodeDirections aCardinalDirection
 
 void AFloorNode::PlayerIsOnTopOfNode()
 {
-	if (hasFloorEvent)
-	{
-		floorEventHasBeenTriggeredEvent.Broadcast(positionInGrid);
-	}
+	nodeHasBeenWalkedOn.Broadcast(positionInGrid);
 }
 
 void AFloorNode::SetFloorGimmick(UGimmick_Base* aGimmick)

@@ -34,6 +34,9 @@ public:
 	void SpawnFloor(UFloorBase* aFloorBase);
 	void PlacePlayerFloorPawn(FVector2D aStartPositionInGrid);
 	void MovePlayerToPreviousNode();
+
+	UFUNCTION()
+	void LoadNextLevel(FVector2D aPositionInGrid);
 	
 	AFloorNode* GetNodeInDirection(FVector2D CurrentPosition,ECardinalNodeDirections TargetDirection);
 	AFloorNode* GetNode(FVector2D CurrentPosition);
@@ -44,6 +47,7 @@ public:
 	TSubclassOf<AActor> floorNodeReference;
 	UPROPERTY(EditAnywhere)
     TSubclassOf<AActor> floorEnemyPawnReference;
+	
 
 protected:
 	// Called when the game starts or when spawned
@@ -68,10 +72,10 @@ private:
 	const double FLOOR_EVENT_HEIGHT_OFFSET = 240;
 	void SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes);
 
-
+	UPersistentGameinstance* persistentGameInstance;
 	UPROPERTY()
 	UEventManagerSubSystem* floorEventManager;
-	AAtlantisGameModeBase* gameModeBase;
+	AAtlantisGameModeBase* floorGameModeBase;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

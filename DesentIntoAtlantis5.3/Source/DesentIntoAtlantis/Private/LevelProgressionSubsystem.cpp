@@ -10,6 +10,16 @@ void ULevelProgressionSubsystem::InitializeSubsystem(UPersistentGameinstance* aP
 	persistentGameInstance = aPersistentGameinstance;
 }
 
+void ULevelProgressionSubsystem::SetCurrentFloorIdentifier(EFloorIdentifier aFloorIdentifier)
+{
+	currentFloorIdentifier = aFloorIdentifier;
+}
+
+EFloorIdentifier ULevelProgressionSubsystem::GetCurrentFlooridentifier()
+{
+	return currentFloorIdentifier;
+}
+
 void ULevelProgressionSubsystem::LoadCompleteProgressionData(FCompleteProgressionData completeProgressionData)
 {
 	fogOfWar = completeProgressionData;
@@ -30,7 +40,6 @@ void ULevelProgressionSubsystem::CreateNewFogOfWar(UFloorBase* aFloor)
 
 void ULevelProgressionSubsystem::SetCurrentMapFogOfWar(UFloorBase* floorBase)
 {
-	currentFloorIdentifier = floorBase->floorData.floorIdentifier;
 	if(!fogOfWar.mapProgression.Contains(currentFloorIdentifier))
 	{
 		CreateNewFogOfWar(floorBase);
@@ -39,6 +48,10 @@ void ULevelProgressionSubsystem::SetCurrentMapFogOfWar(UFloorBase* floorBase)
 
 void ULevelProgressionSubsystem::RevealMapNode(int aLevelIndex)
 {
+	if(!fogOfWar.mapProgression.Contains(currentFloorIdentifier))
+	{
+		return;
+	}
 	FMapData* currentMap = &fogOfWar.mapProgression[currentFloorIdentifier];
 	currentMap->revealedNodes[aLevelIndex].hasBeenRevealed = true;
 	mapHasChanged.Broadcast(fogOfWar);
@@ -46,6 +59,11 @@ void ULevelProgressionSubsystem::RevealMapNode(int aLevelIndex)
 
 bool ULevelProgressionSubsystem::HasNodeBeenRevealed(int aLevelIndex)
 {
+	if(!fogOfWar.mapProgression.Contains(currentFloorIdentifier))
+	{
+		return false;
+	}
+	
 	FMapData* currentMap = &fogOfWar.mapProgression[currentFloorIdentifier];
 	return currentMap->revealedNodes[aLevelIndex].hasBeenRevealed;
 }

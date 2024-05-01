@@ -15,9 +15,9 @@
 #include "Components/WrapBox.h"
 #include "DesentIntoAtlantis/EFloorIdentifier.h"
 
-void UMapView::GenerateLevel(UFloorFactory* aFloorFactory)
+void UMapView::GenerateLevel(UFloorFactory* aFloorFactory,EFloorIdentifier aFloorIdentifier)
 {
-	FloorIdentifier = EFloorIdentifier::Floor1;
+	FloorIdentifier = aFloorIdentifier;
 	if(FloorIdentifier == EFloorIdentifier::None)
 	{
 		return;
@@ -26,10 +26,10 @@ void UMapView::GenerateLevel(UFloorFactory* aFloorFactory)
 	levelProgressionSubsystem = persistentGameInstance->levelProgressionSubsystem;
 	floorFactory = aFloorFactory;
 	CurrentFloor = floorFactory->floorDictionary[FloorIdentifier];
+	levelProgressionSubsystem->SetCurrentMapFogOfWar(CurrentFloor);
 	if(MapButtons.Num() <= 0)
 	{
 		CurrentFloor->Initialize();
-		levelProgressionSubsystem->SetCurrentMapFogOfWar(CurrentFloor);
 		CreatePlayerGrid(CurrentFloor);
 	}
 }

@@ -37,10 +37,7 @@ public:
 	void LoadPreSetLevel();
 
 	UFUNCTION()
-	void LoadSaveDataAndTransitionToMap(FString aLevelName);
-
-	UFUNCTION()
-	void LoadCombatLevel(FString aEnemyGroupName,ECombatArena aCombatArena);
+	void LoadSaveDataAndTransitionToMap();
 
 	UFUNCTION()
 	void SetEventManagerData(FEventManagerData aEventManagerData);
@@ -55,7 +52,7 @@ private:
 	UPROPERTY()
 	UPersistentGameinstance* persistentGameinstance;
 	FCombatArenaData aCombatArenaData;
-	bool isGameSaveBeingLoaded;
+	bool isGameSaveBeingLoaded = false;
 	FString currentLevelName;
 	FString previousLevelName;
 	FString preSetLevelName;

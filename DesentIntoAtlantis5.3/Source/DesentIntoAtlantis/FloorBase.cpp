@@ -10,6 +10,15 @@ void UFloorBase::Initialize()
     GridDimensionY = 20;
 }
 
+void UFloorBase::SetTeleporterGimmickData(TArray<FTeleporterGimmick> aTeleporterGimmicks)
+{
+    for(int i = 0 ; i < aTeleporterGimmicks.Num();i++)
+    {
+        FTeleporterGimmick teleporterGimmick = aTeleporterGimmicks[i];
+        TeleporterGimmickData.Add(teleporterGimmick.positionInGrid,teleporterGimmick);
+    }
+}
+
 int UFloorBase::GetIndex(int aRow, int aColumn)
 {
     return aRow * GridDimensionX + aColumn;

@@ -19,8 +19,8 @@ void UDeathView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 
 void UDeathView::TryFightAgain()
 {
-	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
-	persistentGameInstance->saveManagerSubsystem->LoadSaveDataAndTransitionToMap(TEXT("Floor1"));
+	//UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+	//persistentGameInstance->saveManagerSubsystem->LoadSaveDataAndTransitionToMap(TEXT("Floor1"));
 }
 
 void UDeathView::Quit()

@@ -16,14 +16,30 @@ enum class EFloorEventStates : int32;
 #define DESENTINTOATLANTIS_FloorEnum_generated_h
 
 #define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_46_DELEGATE \
-DESENTINTOATLANTIS_API void FFloorEventHasBeenTriggered_DelegateWrapper(const FMulticastScriptDelegate& FloorEventHasBeenTriggered, FVector2D aPositionInGrid);
+DESENTINTOATLANTIS_API void FNodeHasBeenWalkedOn_DelegateWrapper(const FMulticastScriptDelegate& NodeHasBeenWalkedOn, FVector2D aPositionInGrid);
 
 
 #define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_47_DELEGATE \
 DESENTINTOATLANTIS_API void FTriggerNextEventStage_DelegateWrapper(const FMulticastScriptDelegate& TriggerNextEventStage, EFloorEventStates aFloorEventStates);
 
 
-#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_52_GENERATED_BODY \
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_53_GENERATED_BODY \
+	friend struct Z_Construct_UScriptStruct_FGimmickData_Statics; \
+	static class UScriptStruct* StaticStruct(); \
+	typedef FTableRowBase Super;
+
+
+template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FGimmickData>();
+
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_63_GENERATED_BODY \
+	friend struct Z_Construct_UScriptStruct_FTeleporterGimmick_Statics; \
+	static class UScriptStruct* StaticStruct(); \
+	typedef FGimmickData Super;
+
+
+template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FTeleporterGimmick>();
+
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_76_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FFloorData_Statics; \
 	static class UScriptStruct* StaticStruct(); \
 	typedef FTableRowBase Super;
@@ -31,7 +47,7 @@ DESENTINTOATLANTIS_API void FTriggerNextEventStage_DelegateWrapper(const FMultic
 
 template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FFloorData>();
 
-#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_95_GENERATED_BODY \
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_119_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FFloorEventData_Statics; \
 	static class UScriptStruct* StaticStruct(); \
 	typedef FTableRowBase Super;
@@ -39,7 +55,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FFloorData>
 
 template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FFloorEventData>();
 
-#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_129_GENERATED_BODY \
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_153_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FCombatArenaData_Statics; \
 	static class UScriptStruct* StaticStruct(); \
 	typedef FTableRowBase Super;
@@ -47,7 +63,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FFloorEvent
 
 template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<struct FCombatArenaData>();
 
-#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_141_GENERATED_BODY \
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_165_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FTutorialData_Statics; \
 	static class UScriptStruct* StaticStruct(); \
 	typedef FTableRowBase Super;
