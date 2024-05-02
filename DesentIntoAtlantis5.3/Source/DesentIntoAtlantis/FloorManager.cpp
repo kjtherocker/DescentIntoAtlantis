@@ -24,10 +24,10 @@ AFloorManager::AFloorManager()
 
 void AFloorManager::Initialize(AAtlantisGameModeBase* aGameModeBase,UEventManagerSubSystem* aFloorEventManager)
 {
-	cardinalPositions.Add(ECardinalNodeDirections::Up,    FVector2D(-1,0));
-	cardinalPositions.Add(ECardinalNodeDirections::Down,  FVector2D(1,0));
-	cardinalPositions.Add(ECardinalNodeDirections::Left,  FVector2D(0,-1));
-	cardinalPositions.Add(ECardinalNodeDirections::Right, FVector2D(0,1));
+	cardinalPositions.Add(ECardinalNodeDirections::Up,    FVector2D(0,-1));
+	cardinalPositions.Add(ECardinalNodeDirections::Down,  FVector2D(0,1));
+	cardinalPositions.Add(ECardinalNodeDirections::Left,  FVector2D(-1,0));
+	cardinalPositions.Add(ECardinalNodeDirections::Right, FVector2D(1,0));
 
 
 	gimmickMap.Add(EFloorGimmicks::Door,       NewObject<UGimmick_Base>());
@@ -48,20 +48,20 @@ void AFloorManager::Initialize(AAtlantisGameModeBase* aGameModeBase,UEventManage
 void AFloorManager::CreateGrid(UFloorBase* aFloor)
 {
 	UFloorBase* tempfloor = aFloor;
-	for (int x = 0; x < tempfloor->GridDimensionX; x++)
+	for (int Column = 0; Column < tempfloor->GridDimensionX; Column++)
 	{
-		for (int y = 0; y < tempfloor->GridDimensionY; y++)
+		for (int Row = 0; Row < tempfloor->GridDimensionY; Row++)
 		{
-			int LevelIndex = aFloor->GetIndex(x, y);
+			int LevelIndex = aFloor->GetIndex(Row, Column);
 			//If there is no node then continue
 			if (tempfloor->floorData.floorBlueprint[LevelIndex] == (short)ECardinalNodeDirections::Empty)
 			{
 				continue;
 			}
 
-			SpawnFloorNode(x , y,LevelIndex );
+			SpawnFloorNode(Row , Column,LevelIndex );
 			floorNodes[LevelIndex]->SetWalkableDirections(aFloor->floorData.floorBlueprint[LevelIndex]);
-			FVector2D positionInGrid = FVector2D(x,y);
+			FVector2D positionInGrid = FVector2D(Row,Column);
 	
 			if(aFloor->floorEventData.Contains(positionInGrid) && !eventManagerSubSystem->isEventCompleted(positionInGrid))
 			{

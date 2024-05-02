@@ -35,25 +35,25 @@ void AFloorPawn::BeginPlay()
 void AFloorPawn::Initialize()
 {
 	AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections::Up,
-	FVector2D(-1,0), 
-	FRotator(0,0,0));
+	FVector2D(0,1), 
+	FRotator(0,90,0));
 	
-	AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections::Left,
-    FVector2D(0,1), 
-    FRotator(0,90,0));
-	
-	AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections::Down ,
-    FVector2D(1,0), 
+	AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections::Right,
+    FVector2D(-1,0), 
     FRotator(0,180,0));
 	
-	AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections::Right ,
-    FVector2D(-1,0), 
+	AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections::Down ,
+    FVector2D(0,-1), 
     FRotator(0,270,0));
+	
+	AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections::Left ,
+    FVector2D(1,0), 
+    FRotator(0,0,0));
 
 	playerDirectionMatrix.Add(0,ECardinalNodeDirections::Up);
-	playerDirectionMatrix.Add(1,ECardinalNodeDirections::Left);
+	playerDirectionMatrix.Add(1,ECardinalNodeDirections::Right);
 	playerDirectionMatrix.Add(2,ECardinalNodeDirections::Down);
-	playerDirectionMatrix.Add(3,ECardinalNodeDirections::Right);
+	playerDirectionMatrix.Add(3,ECardinalNodeDirections::Left);
 	
 }
 

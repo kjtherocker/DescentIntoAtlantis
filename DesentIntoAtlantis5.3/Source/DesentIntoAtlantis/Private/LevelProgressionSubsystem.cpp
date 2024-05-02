@@ -91,6 +91,8 @@ void ULevelProgressionSubsystem::RevealMapNode(int aLevelIndex)
 
 bool ULevelProgressionSubsystem::HasNodeBeenRevealed(int aLevelIndex)
 {
+
+	return true;
 	if(!fogOfWar.mapProgression.Contains(currentFloorIdentifier))
 	{
 		return false;

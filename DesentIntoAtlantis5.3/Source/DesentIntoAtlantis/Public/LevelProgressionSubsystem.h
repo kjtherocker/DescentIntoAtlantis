@@ -61,7 +61,7 @@ class DESENTINTOATLANTIS_API ULevelProgressionSubsystem : public UGameInstanceSu
 	void CreateNewFogOfWar(UFloorBase* aFloor);
 
 
-	bool lockUpdatesToCompleteFloorData;
+	bool lockUpdatesToCompleteFloorData = false;
 	FCompleteFloorPawnData completeFloorPawnData;
 public:
 	FPlayerHasMoved PlayerHasMoved;

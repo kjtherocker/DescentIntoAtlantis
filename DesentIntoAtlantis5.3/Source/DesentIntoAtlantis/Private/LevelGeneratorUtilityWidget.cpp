@@ -58,12 +58,12 @@ void ULevelGeneratorUtilityWidget::CreateGrid(UFloorBase* aFloor)
 	UFloorBase* tempfloor = aFloor;
 	
 	MapButtons.Init(Object,tempfloor->GridDimensionX * tempfloor->GridDimensionY );
-	for (int x = 0; x < tempfloor->GridDimensionX; x++)
+	for (int Column = 0; Column < tempfloor->GridDimensionX; Column++)
 	{
-		for (int y = 0; y < tempfloor->GridDimensionY; y++)
+		for (int Row = 0; Row < tempfloor->GridDimensionY; Row++)
 		{
-			int LevelIndex = aFloor->GetIndex(x, y);
-			SpawnMapButton(x , y,LevelIndex );
+			int LevelIndex = aFloor->GetIndex(Row, Column);
+			SpawnMapButton(Row , Column,LevelIndex );
 			MapButtons[LevelIndex]->SetMapIcon(static_cast<ECardinalNodeDirections>(aFloor->floorData.floorBlueprint[LevelIndex]));
 			MapButtons[LevelIndex]->SetEventIcon(false);
 			//If there is no node then continue

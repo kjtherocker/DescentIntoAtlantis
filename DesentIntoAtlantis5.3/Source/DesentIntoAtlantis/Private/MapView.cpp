@@ -210,19 +210,19 @@ void UMapView::SetPlayerPosition(FCompleteFloorPawnData aFloorPawnData)
 	levelProgressionSubsystem->RevealMapNode(currentPlayerNodeIndex);
 
 	
-	for (int x = minX; x <= maxX; x++)
+	for (int Column = minY; Column <= maxY; Column++)
 	{
 		actualGridPositionY = 0;
-		for (int y = minY; y <= maxY; y++)
+		for (int Rows = minX; Rows <= maxX; Rows++)
 		{
-			if( x < 0 || y < 0 || x >= tempfloor->GridDimensionX || y >= tempfloor->GridDimensionY)
+			if( Column < 0 || Rows < 0 || Column >= tempfloor->GridDimensionX || Rows >= tempfloor->GridDimensionY)
 			{
 				MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetMapIcon(static_cast<ECardinalNodeDirections>(16));
 				MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetEventIcon(false);
 			}
 			else
 			{
-				int LevelIndex = tempfloor->GetIndex(x, y);
+				int LevelIndex = tempfloor->GetIndex(Rows, Column);
 				if(levelProgressionSubsystem->HasNodeBeenRevealed(LevelIndex))
 				{
 					MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetMapIcon(static_cast<ECardinalNodeDirections>(tempfloor->floorData.floorBlueprint[LevelIndex]));
