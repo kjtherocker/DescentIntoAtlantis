@@ -25,6 +25,7 @@ void EmptyLinkFunctionForGeneratedCodeAtlantisGameModeBase() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UGameSettings_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_ULevelProgressionSubsystem_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UPartyManagerSubsystem_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USaveManagerSubsystem_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkillFactorySubsystem_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UTutorialManagerSubsystem_NoRegister();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EDataTableTypes();
@@ -72,6 +73,10 @@ void EmptyLinkFunctionForGeneratedCodeAtlantisGameModeBase() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_soundManager;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_combatManager_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_combatManager;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_floorManager_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_floorManager;
@@ -96,6 +101,10 @@ void EmptyLinkFunctionForGeneratedCodeAtlantisGameModeBase() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_gameSettings;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_InGameHUD_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_InGameHUD;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_world_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_world;
@@ -112,17 +121,13 @@ void EmptyLinkFunctionForGeneratedCodeAtlantisGameModeBase() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_partyManager;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_combatManager_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_combatManager;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_InGameHUD_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_InGameHUD;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_tutorialManager_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_tutorialManager;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_saveManagerSubsystem_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_saveManagerSubsystem;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_dialogueFactory_MetaData[];
 #endif
@@ -196,6 +201,12 @@ void EmptyLinkFunctionForGeneratedCodeAtlantisGameModeBase() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_soundManager = { "soundManager", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, soundManager), Z_Construct_UClass_ASoundManager_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_soundManager_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_soundManager_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_combatManager_MetaData[] = {
+		{ "ModuleRelativePath", "Public/AtlantisGameModeBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_combatManager = { "combatManager", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, combatManager), Z_Construct_UClass_ACombatGameModeBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_combatManager_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_combatManager_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_floorManager_MetaData[] = {
 		{ "Category", "AtlantisGameModeBase" },
 		{ "ModuleRelativePath", "Public/AtlantisGameModeBase.h" },
@@ -235,6 +246,12 @@ void EmptyLinkFunctionForGeneratedCodeAtlantisGameModeBase() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_gameSettings = { "gameSettings", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, gameSettings), Z_Construct_UClass_UGameSettings_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_gameSettings_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_gameSettings_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_InGameHUD_MetaData[] = {
+		{ "ModuleRelativePath", "Public/AtlantisGameModeBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_InGameHUD = { "InGameHUD", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, InGameHUD), Z_Construct_UClass_AInGameHUD_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_InGameHUD_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_InGameHUD_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_world_MetaData[] = {
 		{ "ModuleRelativePath", "Public/AtlantisGameModeBase.h" },
 	};
@@ -245,49 +262,43 @@ void EmptyLinkFunctionForGeneratedCodeAtlantisGameModeBase() {}
 		{ "ModuleRelativePath", "Public/AtlantisGameModeBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_skillFactory = { "skillFactory", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, skillFactory), Z_Construct_UClass_USkillFactorySubsystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_skillFactory_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_skillFactory_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_skillFactory = { "skillFactory", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, skillFactory), Z_Construct_UClass_USkillFactorySubsystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_skillFactory_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_skillFactory_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_enemyFactory_MetaData[] = {
 		{ "ModuleRelativePath", "Public/AtlantisGameModeBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_enemyFactory = { "enemyFactory", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, enemyFactory), Z_Construct_UClass_UEnemyFactorySubSystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_enemyFactory_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_enemyFactory_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_enemyFactory = { "enemyFactory", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, enemyFactory), Z_Construct_UClass_UEnemyFactorySubSystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_enemyFactory_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_enemyFactory_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_partyManager_MetaData[] = {
 		{ "ModuleRelativePath", "Public/AtlantisGameModeBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_partyManager = { "partyManager", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, partyManager), Z_Construct_UClass_UPartyManagerSubsystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_partyManager_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_partyManager_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_combatManager_MetaData[] = {
-		{ "ModuleRelativePath", "Public/AtlantisGameModeBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_combatManager = { "combatManager", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, combatManager), Z_Construct_UClass_ACombatGameModeBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_combatManager_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_combatManager_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_InGameHUD_MetaData[] = {
-		{ "ModuleRelativePath", "Public/AtlantisGameModeBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_InGameHUD = { "InGameHUD", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, InGameHUD), Z_Construct_UClass_AInGameHUD_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_InGameHUD_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_InGameHUD_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_partyManager = { "partyManager", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, partyManager), Z_Construct_UClass_UPartyManagerSubsystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_partyManager_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_partyManager_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_tutorialManager_MetaData[] = {
 		{ "ModuleRelativePath", "Public/AtlantisGameModeBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_tutorialManager = { "tutorialManager", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, tutorialManager), Z_Construct_UClass_UTutorialManagerSubsystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_tutorialManager_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_tutorialManager_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_tutorialManager = { "tutorialManager", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, tutorialManager), Z_Construct_UClass_UTutorialManagerSubsystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_tutorialManager_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_tutorialManager_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_saveManagerSubsystem_MetaData[] = {
+		{ "ModuleRelativePath", "Public/AtlantisGameModeBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_saveManagerSubsystem = { "saveManagerSubsystem", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, saveManagerSubsystem), Z_Construct_UClass_USaveManagerSubsystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_saveManagerSubsystem_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_saveManagerSubsystem_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_dialogueFactory_MetaData[] = {
 		{ "ModuleRelativePath", "Public/AtlantisGameModeBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_dialogueFactory = { "dialogueFactory", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, dialogueFactory), Z_Construct_UClass_UDialogueFactorySubsystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_dialogueFactory_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_dialogueFactory_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_dialogueFactory = { "dialogueFactory", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, dialogueFactory), Z_Construct_UClass_UDialogueFactorySubsystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_dialogueFactory_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_dialogueFactory_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_levelProgressionSubsystem_MetaData[] = {
 		{ "ModuleRelativePath", "Public/AtlantisGameModeBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_levelProgressionSubsystem = { "levelProgressionSubsystem", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, levelProgressionSubsystem), Z_Construct_UClass_ULevelProgressionSubsystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_levelProgressionSubsystem_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_levelProgressionSubsystem_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_levelProgressionSubsystem = { "levelProgressionSubsystem", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAtlantisGameModeBase, levelProgressionSubsystem), Z_Construct_UClass_ULevelProgressionSubsystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_levelProgressionSubsystem_MetaData), Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_levelProgressionSubsystem_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AAtlantisGameModeBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_dataTables_ValueProp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_dataTables_Key_KeyProp_Underlying,
@@ -297,19 +308,20 @@ void EmptyLinkFunctionForGeneratedCodeAtlantisGameModeBase() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_floorManagerReference,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_floorPawnReference,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_soundManager,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_combatManager,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_floorManager,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_floorPawn,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_floorFactory,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_floorEventManager,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_gameManager,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_gameSettings,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_InGameHUD,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_world,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_skillFactory,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_enemyFactory,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_partyManager,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_combatManager,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_InGameHUD,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_tutorialManager,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_saveManagerSubsystem,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_dialogueFactory,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAtlantisGameModeBase_Statics::NewProp_levelProgressionSubsystem,
 	};
@@ -351,9 +363,9 @@ void EmptyLinkFunctionForGeneratedCodeAtlantisGameModeBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_AtlantisGameModeBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AAtlantisGameModeBase, AAtlantisGameModeBase::StaticClass, TEXT("AAtlantisGameModeBase"), &Z_Registration_Info_UClass_AAtlantisGameModeBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAtlantisGameModeBase), 152760047U) },
+		{ Z_Construct_UClass_AAtlantisGameModeBase, AAtlantisGameModeBase::StaticClass, TEXT("AAtlantisGameModeBase"), &Z_Registration_Info_UClass_AAtlantisGameModeBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAtlantisGameModeBase), 2110684304U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_AtlantisGameModeBase_h_1161755329(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_AtlantisGameModeBase_h_4080411591(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_AtlantisGameModeBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_AtlantisGameModeBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

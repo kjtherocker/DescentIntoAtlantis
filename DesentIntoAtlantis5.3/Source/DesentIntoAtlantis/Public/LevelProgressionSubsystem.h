@@ -4,9 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "FloorEnum.h"
+#include "FloorPawn.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "LevelProgressionSubsystem.generated.h"
 
+class FPlayerHasMoved;
 class FNodeHasBeenWalkedOn;
 enum class EFloorIdentifier;
 class UFloorBase;
@@ -58,9 +60,27 @@ class DESENTINTOATLANTIS_API ULevelProgressionSubsystem : public UGameInstanceSu
 	TArray<FNodeMapData> currentFogOfWar;
 	void CreateNewFogOfWar(UFloorBase* aFloor);
 
+
+	bool lockUpdatesToCompleteFloorData;
+	FCompleteFloorPawnData completeFloorPawnData;
 public:
+	FPlayerHasMoved PlayerHasMoved;
+	FPlayerDirectionHasChanged playerDirectionHasChanged;
+	
 	FNodeHasBeenWalkedOn nodeHasBeenWalkedOn;
 	FMapHasChanged mapHasChanged;
+
+	FVector2D newFloorPlayerSpawnPosition = FVector2D(-1,-1);
+
+	UFUNCTION()
+	void SetCompleteFloorPawnData(FCompleteFloorPawnData aCompleteFloorPawnData);
+
+	void SetCompleteFloorPawnWithLockData(FCompleteFloorPawnData aCompleteFloorPawnData);
+	
+	void SetSubscribeFloorPawnDelegates(AFloorPawn* aFloorPawn);
+	FCompleteFloorPawnData GetCurrentFloorPawnCompleteData();
+
+	void SetNewFloorPlayerSpawnPosition(FVector2D aSpawnPosition);
 	void SetCurrentFloorIdentifier(EFloorIdentifier aFloorIdentifier);
 	
 	EFloorIdentifier GetCurrentFlooridentifier();

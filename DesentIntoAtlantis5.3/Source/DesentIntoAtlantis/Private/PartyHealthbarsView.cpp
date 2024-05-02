@@ -8,12 +8,13 @@
 #include "CombatEntity.h"
 #include "PlayerCombatEntity.h"
 #include "PartyHealthbarElement.h"
+#include "PersistentGameinstance.h"
 
 void UPartyHealthbarsView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	
-	UPartyManagerSubsystem* PartyManager =  gameModeBase->partyManager;
+	UPartyManagerSubsystem* PartyManager = persistentGameinstance->partyManagerSubsystem;
 
 	TArray<UPlayerCombatEntity*> activeParty = PartyManager->ReturnActiveParty();
 	

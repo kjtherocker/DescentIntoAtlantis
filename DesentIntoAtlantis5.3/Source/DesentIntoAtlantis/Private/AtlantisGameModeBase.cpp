@@ -29,6 +29,7 @@ void AAtlantisGameModeBase::InitializeLevel()
 	floorFactory              = persistentGameInstance->floorFactory;
 	floorEventManager         = persistentGameInstance->EventManagerSubSystem;
 	levelProgressionSubsystem = persistentGameInstance->levelProgressionSubsystem;
+	saveManagerSubsystem      = persistentGameInstance->saveManagerSubsystem;
 	
 	persistentGameInstance->EventManagerSubSystem->SetDefaultGameMode(this);
 	

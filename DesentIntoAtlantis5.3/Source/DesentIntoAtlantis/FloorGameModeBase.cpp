@@ -34,6 +34,9 @@ void AFloorGameMode::InitializeLevel()
     floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, FVector(0,0,0), rotator));
     floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
     
+    levelProgressionSubsystem->SetSubscribeFloorPawnDelegates(floorPawn);
+    saveManagerSubsystem->InitializeSessionSavePlayer(floorPawn);
+    
     UMapView* mapView     = (UMapView*)InGameHUD->PushAndGetView(EViews::MapView,         EUiType::PersistentUi);
     mapView->GenerateLevel(floorFactory,levelProgressionSubsystem->GetCurrentFlooridentifier());
     mapView->SetFloorPawnDelegates(floorPawn);
@@ -43,16 +46,19 @@ void AFloorGameMode::InitializeLevel()
 
   
     floorManager->CreateFloor(levelProgressionSubsystem->GetCurrentFlooridentifier());
+
+   FCompleteFloorPawnData completeFloorPawnData = levelProgressionSubsystem->GetCurrentFloorPawnCompleteData();
+    persistentGameInstance->saveManagerSubsystem->ConsumeGameSaveLoadingFlag();
+    persistentGameInstance->ConsumeCombatFinishedFlag();
     
-    if(persistentGameInstance->saveManagerSubsystem->ConsumeGameSaveLoadingFlag() || persistentGameInstance->ConsumeCombatFinishedFlag())
-    {
-        floorManager->PlacePlayerFloorPawn(persistentGameInstance->saveManagerSubsystem->LoadFloorPawnPosition());
-    }
-    else
+    if(completeFloorPawnData.currentNodePositionInGrid == FVector2D(-1,-1))
     {
         floorManager->PlacePlayerAtFloorStartingNode();
     }
-
+    else
+    {
+        floorManager->PlacePlayerFloorPawn(completeFloorPawnData.currentNodePositionInGrid,completeFloorPawnData.currentFacingDirection);
+    }
     
     if(UGameSettings::DISABLE_CUTSCENES)
     {

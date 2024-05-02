@@ -15,6 +15,7 @@
 #include "DesentIntoAtlantis/FloorManager.h"
 #include "AtlantisGameModeBase.generated.h"
 
+class USaveManagerSubsystem;
 class ULevelProgressionSubsystem;
 class UGameManager;
 class ASoundManager;
@@ -51,6 +52,9 @@ public:
 	
 	UPROPERTY(EditAnywhere)
 	ASoundManager* soundManager;
+
+	UPROPERTY()  
+	ACombatGameModeBase*     combatManager;
 	
 	UPROPERTY(EditAnywhere)
 	AFloorManager* floorManager;
@@ -69,28 +73,29 @@ public:
 	UPROPERTY(EditAnywhere)
 	UGameSettings* gameSettings;
 	
-
+	UPROPERTY()  
+	AInGameHUD*         InGameHUD;
+	
 	UPROPERTY()
 	UWorld*             world;	
+
+protected:
+
 	UPROPERTY()
 	USkillFactorySubsystem*      skillFactory;
 	UPROPERTY()  
 	UEnemyFactorySubSystem*      enemyFactory;
 	UPROPERTY()  
 	UPartyManagerSubsystem*      partyManager;
-	UPROPERTY()  
-	ACombatGameModeBase*     combatManager;
-	UPROPERTY()  
-	AInGameHUD*         InGameHUD;
 	UPROPERTY()
 	UTutorialManagerSubsystem*   tutorialManager;
+	UPROPERTY()
+	USaveManagerSubsystem*   saveManagerSubsystem;
 
 	UPROPERTY()
 	UDialogueFactorySubsystem*   dialogueFactory;
 	UPROPERTY()
 	ULevelProgressionSubsystem*   levelProgressionSubsystem;
-protected:
-
 	UPersistentGameinstance* persistentGameInstance;
 
 };

@@ -9,8 +9,19 @@
 
 class UFloorPawnPositionInfo;
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FPlayerHasMoved,int,row,int,column);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerDirectionHasChanged,ECardinalNodeDirections,playerFacingDirection);
+USTRUCT()
+struct DESENTINTOATLANTIS_API FCompleteFloorPawnData:public  FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	UPROPERTY()
+	ECardinalNodeDirections currentFacingDirection = ECardinalNodeDirections::Up; 
+	UPROPERTY()
+	FVector2D currentNodePositionInGrid = FVector2D(-1,-1);
+};
+
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerHasMoved,FCompleteFloorPawnData,floorData);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerDirectionHasChanged,FCompleteFloorPawnData,playerFacingDirection);
 UCLASS()
 
 class DESENTINTOATLANTIS_API AFloorPawn : public APawn
@@ -21,8 +32,7 @@ public:
 	// Sets default values for this pawn's properties
 	AFloorPawn();
 
-	UPROPERTY()
-	FVector2D currentNodePositionInGrid;
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -45,7 +55,7 @@ protected:
 	const float  LEFT_DIRECTION      = -1;
 	
 	bool hasRotationFinished = true;
-	double rotationDirection;
+	double rotationAngle;
 
 	UPROPERTY()
 	AFloorNode* nodeToMoveTowards;
@@ -57,6 +67,16 @@ protected:
 	AFloorNode* currentNodePlayerIsOn;
 
 
+
+	UPROPERTY()
+	int currentMatrixIndex = 0;
+
+	UPROPERTY()
+	TMap<int,ECardinalNodeDirections> playerDirectionMatrix;
+
+	UPROPERTY()
+	FCompleteFloorPawnData completeFloorPawnData;
+
 public:
 
 	UPROPERTY()
@@ -67,19 +87,20 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	void PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode);
+	void PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode, ECardinalNodeDirections aRotation);
+	void SetRotationWithoutAnimation(ECardinalNodeDirections aCardinalNodeDirection);
 	void RotatePawn(float aDeltatime);
 	void MovePawn(float aDeltaTime);
 	void AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections aDirection,FVector2D aDirectionPosition,FRotator aRotation);
 	void SetFloorPawnInput(bool aIsInputActive);
 
 
-	void SetRotation(TArray<UFloorPawnPositionInfo*> aDirectionalModel, double aDirection );
+	void SetToStartRotation(double aDirection );
 
 	void WriteSaveGame();
 
 	UPROPERTY()
-	TArray<UFloorPawnPositionInfo*>   directionModel;
+	TMap<ECardinalNodeDirections,UFloorPawnPositionInfo*>   directionPositionInfo;
 	
 	UPROPERTY()
 	FPlayerHasMoved playerhasMovedDelegate;
@@ -96,7 +117,7 @@ class DESENTINTOATLANTIS_API UFloorPawnPositionInfo : public UObject
 	GENERATED_BODY()
 public:
 
-	ECardinalNodeDirections directions;
+	ECardinalNodeDirections directions ;
 	FVector2D directionPosition;
 	FRotator rotation;
 };

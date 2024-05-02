@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeBaseUserWidget() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AInGameHUD_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UBaseUserWidget();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UBaseUserWidget_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UPersistentGameinstance_NoRegister();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_ViewSelection__DelegateSignature();
 	UMG_API UClass* Z_Construct_UClass_UUserWidget();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
@@ -65,6 +66,10 @@ void FViewSelection_DelegateWrapper(const FMulticastScriptDelegate& ViewSelectio
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_gameModeBase;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_persistentGameinstance_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_persistentGameinstance;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_InGameHUD_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_InGameHUD;
@@ -90,6 +95,12 @@ void FViewSelection_DelegateWrapper(const FMulticastScriptDelegate& ViewSelectio
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBaseUserWidget_Statics::NewProp_gameModeBase = { "gameModeBase", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBaseUserWidget, gameModeBase), Z_Construct_UClass_AAtlantisGameModeBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBaseUserWidget_Statics::NewProp_gameModeBase_MetaData), Z_Construct_UClass_UBaseUserWidget_Statics::NewProp_gameModeBase_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBaseUserWidget_Statics::NewProp_persistentGameinstance_MetaData[] = {
+		{ "ModuleRelativePath", "Public/BaseUserWidget.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBaseUserWidget_Statics::NewProp_persistentGameinstance = { "persistentGameinstance", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBaseUserWidget, persistentGameinstance), Z_Construct_UClass_UPersistentGameinstance_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBaseUserWidget_Statics::NewProp_persistentGameinstance_MetaData), Z_Construct_UClass_UBaseUserWidget_Statics::NewProp_persistentGameinstance_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBaseUserWidget_Statics::NewProp_InGameHUD_MetaData[] = {
 		{ "ModuleRelativePath", "Public/BaseUserWidget.h" },
 	};
@@ -97,6 +108,7 @@ void FViewSelection_DelegateWrapper(const FMulticastScriptDelegate& ViewSelectio
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBaseUserWidget_Statics::NewProp_InGameHUD = { "InGameHUD", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBaseUserWidget, InGameHUD), Z_Construct_UClass_AInGameHUD_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBaseUserWidget_Statics::NewProp_InGameHUD_MetaData), Z_Construct_UClass_UBaseUserWidget_Statics::NewProp_InGameHUD_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UBaseUserWidget_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBaseUserWidget_Statics::NewProp_gameModeBase,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBaseUserWidget_Statics::NewProp_persistentGameinstance,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBaseUserWidget_Statics::NewProp_InGameHUD,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UBaseUserWidget_Statics::StaticCppClassTypeInfo = {
@@ -138,9 +150,9 @@ void FViewSelection_DelegateWrapper(const FMulticastScriptDelegate& ViewSelectio
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_BaseUserWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UBaseUserWidget, UBaseUserWidget::StaticClass, TEXT("UBaseUserWidget"), &Z_Registration_Info_UClass_UBaseUserWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBaseUserWidget), 2997740340U) },
+		{ Z_Construct_UClass_UBaseUserWidget, UBaseUserWidget::StaticClass, TEXT("UBaseUserWidget"), &Z_Registration_Info_UClass_UBaseUserWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBaseUserWidget), 859053611U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_BaseUserWidget_h_3797964639(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_BaseUserWidget_h_3267678187(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_BaseUserWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_BaseUserWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

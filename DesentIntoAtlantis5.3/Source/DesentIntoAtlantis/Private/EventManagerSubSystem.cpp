@@ -25,6 +25,7 @@ void UEventManagerSubSystem::InitializeEventManager(UFloorFactory * aFloorFactor
 	EventHasBeenTriggered.AddDynamic(this, &UEventManagerSubSystem::PlayerHasTriggeredFloorEvent);
 	triggerNextEventStage.AddDynamic(this, &UEventManagerSubSystem::TriggerNextFloorEventStep);
 	persistentGameInstance = aPersistentGameInstance;
+	tutorialManager = persistentGameInstance->tutorialManagerSubsystem;
 }
 
 bool UEventManagerSubSystem::isEventCompleted(FVector2D aEventPosition)
@@ -181,7 +182,7 @@ void UEventManagerSubSystem::TriggerTutorial(ETutorialTriggers aTutorialTrigger,
 	if(aTutorialTrigger != ETutorialTriggers::None)
 	{
 		UTutorialView * tutorialView = (UTutorialView*)gameMode->InGameHUD->PushAndGetView(EViews::Tutorial,EUiType::ActiveUi);
-		tutorialView->SetupTutorialView(gameMode->tutorialManager->tutorialMap[aTutorialTrigger]);
+		tutorialView->SetupTutorialView(tutorialManager->tutorialMap[aTutorialTrigger]);
 		tutorialView->SetFloorEvent(triggerNextEventStage,aTriggerOnEnd);
 	}
 	else

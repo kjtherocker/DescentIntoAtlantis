@@ -176,11 +176,11 @@ void UMapView::SpawnMapButton(int aRow, int aColumn, int aIndex)
 	 
 }
 
-void UMapView::SetPlayerPosition(int aRow, int aColumn)
+void UMapView::SetPlayerPosition(FCompleteFloorPawnData aFloorPawnData)
 {
 	UFloorBase* tempfloor = currentFloor;
 
-	FVector2D playerPosition = FVector2D(aRow,aColumn);
+	FVector2D playerPosition = aFloorPawnData.currentNodePositionInGrid;
 	
 	int minX = playerPosition.X - MAP_NODE_PLAYER_GRID_SIZE;
 	//if(minX < 0)
@@ -205,7 +205,7 @@ void UMapView::SetPlayerPosition(int aRow, int aColumn)
 
 	int actualGridPositionX = 0;
 	int actualGridPositionY = 0;
-	int currentPlayerNodeIndex = tempfloor->GetIndex(aRow, aColumn);
+	int currentPlayerNodeIndex = tempfloor->GetIndex(playerPosition.X, playerPosition.Y);
 
 	levelProgressionSubsystem->RevealMapNode(currentPlayerNodeIndex);
 
@@ -240,9 +240,9 @@ void UMapView::SetPlayerPosition(int aRow, int aColumn)
 	}
 }
 
-void UMapView::SetPlayerRotation(ECardinalNodeDirections aPlayerFacingDirection)
+void UMapView::SetPlayerRotation(FCompleteFloorPawnData aPlayerFacingDirection)
 {
-	mapPlayerIconElement->SetPlayedIconBasedOnDirection(aPlayerFacingDirection);
+	mapPlayerIconElement->SetPlayedIconBasedOnDirection(aPlayerFacingDirection.currentFacingDirection);
 }
 
 void UMapView::SetFloorPawnDelegates(AFloorPawn* aPlayerHasMoved)

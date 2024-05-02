@@ -15,6 +15,7 @@
 #include "FloorManager.generated.h"
 
 
+class ULevelProgressionSubsystem;
 class UEventManagerSubSystem;
 struct FSkillsData;
 UCLASS()
@@ -32,7 +33,7 @@ public:
 	void SpawnFloorNode(int aRow, int aColumn,int aIndex);
 	void SpawnFloorEventTriggers(FVector2D aPositionInGrid);
 	void SpawnFloor(UFloorBase* aFloorBase);
-	void PlacePlayerFloorPawn(FVector2D aStartPositionInGrid);
+	void PlacePlayerFloorPawn(FVector2D aStartPositionInGrid,ECardinalNodeDirections aPlayerFacingDirection);
 	void MovePlayerToPreviousNode();
 
 	UFUNCTION()
@@ -47,6 +48,9 @@ public:
 	TSubclassOf<AActor> floorNodeReference;
 	UPROPERTY(EditAnywhere)
     TSubclassOf<AActor> floorEnemyPawnReference;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> stairsReference;
 	
 
 protected:
@@ -55,6 +59,9 @@ protected:
 
 	UPROPERTY()
 	UEventManagerSubSystem* eventManagerSubSystem;
+
+	UPROPERTY()
+	ULevelProgressionSubsystem* levelProgressionSubsystem;
 	
 	UPROPERTY()
 	TMap<EFloorIdentifier,UFloorBase*> floorDictionary;
@@ -63,13 +70,17 @@ protected:
 	EFloorIdentifier currentFloorIdentifier;
 	UPROPERTY()
 	UFloorBase* currentFloor;
+
+	
 	TMap<ECardinalNodeDirections, FVector2D>  cardinalPositions;
 
 	TMap<EFloorGimmicks,UGimmick_Base*> gimmickMap;
 	
-	
+	void SpawnObjectInGrid(FVector2D aPositionInGrid, TSubclassOf<AActor> objectToSpawn);
+
 private:
 	const double FLOOR_EVENT_HEIGHT_OFFSET = 240;
+	const double SPAWNED_OBJECT_OFFSET = 210;
 	void SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes);
 
 	UPersistentGameinstance* persistentGameInstance;

@@ -21,17 +21,15 @@ public:
 	void InitializeSubsystem(UPersistentGameinstance* aPersistentGameInstance);
 
 	void InitializeSessionSave(USaveGameData* aSessionSave);
+	void InitializeSessionSavePlayer(AFloorPawn* aFloorPawn);
 	UFUNCTION()
 	void ReturnToPreviousLevel();
-
-	UFUNCTION()
-	void SaveFloorPawn(AFloorPawn* aFloorPawn);
 
 	UFUNCTION()
 	void SaveSessionData();
 
 	UFUNCTION()
-	FVector2D LoadFloorPawnPosition();
+	ECardinalNodeDirections LoadFloorPawnRotation();
 
 	UFUNCTION()
 	void LoadPreSetLevel();

@@ -49,7 +49,15 @@ void AFloorPawn::Initialize()
 	AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections::Right ,
     FVector2D(-1,0), 
     FRotator(0,270,0));
+
+	playerDirectionMatrix.Add(0,ECardinalNodeDirections::Up);
+	playerDirectionMatrix.Add(1,ECardinalNodeDirections::Left);
+	playerDirectionMatrix.Add(2,ECardinalNodeDirections::Down);
+	playerDirectionMatrix.Add(3,ECardinalNodeDirections::Right);
+	
 }
+
+
 
 // Called every frame
 void AFloorPawn::Tick(float DeltaTime)
@@ -80,16 +88,14 @@ void AFloorPawn::MoveForward()
 	} 
 	
 	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Footsteps);
-
 	
-	ECardinalNodeDirections currentNodeDirection = directionModel[0]->directions;
 
 	AFloorNode* nodeToMoveTo = nullptr;
 	TMap<ECardinalNodeDirections,AFloorNode*> currentNodeNeightbors = currentNodePlayerIsOn->nodeNeighbors;
 	
-	if(currentNodeNeightbors.Contains(currentNodeDirection))
+	if(currentNodeNeightbors.Contains(completeFloorPawnData.currentFacingDirection))
 	{
-		nodeToMoveTo = currentNodePlayerIsOn->nodeNeighbors[currentNodeDirection];
+		nodeToMoveTo = currentNodePlayerIsOn->nodeNeighbors[completeFloorPawnData.currentFacingDirection];
 	}
 	
 	if(nodeToMoveTo != nullptr)
@@ -132,13 +138,12 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 		previousNodePlayerWasOn   = currentNodePlayerIsOn;
 		currentNodePlayerIsOn     = nodeToMoveTowards;
 		currentNodePlayerIsOn->PlayerIsOnTopOfNode();
-		currentNodePositionInGrid = currentNodePlayerIsOn->positionInGrid;
+		completeFloorPawnData.currentNodePositionInGrid = currentNodePlayerIsOn->positionInGrid;
 		nodeToMoveTowards         = nullptr;
 		UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
-		persistentGameInstance->saveManagerSubsystem->SaveFloorPawn(this);
 		persistentGameInstance->partyManagerSubsystem->SavePlayerEntitys();
 		persistentGameInstance->saveManagerSubsystem->SaveSessionData();
-		playerhasMovedDelegate.Broadcast(currentNodePositionInGrid.X,currentNodePositionInGrid.Y);
+		playerhasMovedDelegate.Broadcast(completeFloorPawnData);
 
 	
 	
@@ -170,14 +175,7 @@ void AFloorPawn::LeftRotation()
 		return;
 	}
 	
-	TArray<UFloorPawnPositionInfo*>   newDirectionModel;
-	newDirectionModel.Add(directionModel[3]); 
-	for(int i = 0 ; i < 3; i++)
-	{
-		newDirectionModel.Add(directionModel[i]);
-	}
-
-	SetRotation(newDirectionModel, LEFT_DIRECTION);
+	SetToStartRotation(LEFT_DIRECTION);
 }
 
 void AFloorPawn::RightRotation()
@@ -186,24 +184,29 @@ void AFloorPawn::RightRotation()
 	{
 		return;
 	}
-
-	TArray<UFloorPawnPositionInfo*>   newDirectionModel;
 	
-	for(int i = 1 ; i < 4; i++)
-	{
-		newDirectionModel.Add(directionModel[i]);
-	}
-	newDirectionModel.Add(directionModel[0]);
-	
-	SetRotation(newDirectionModel, RIGHT_DIRECTION);
+	SetToStartRotation(RIGHT_DIRECTION);
 }
 
-void AFloorPawn::SetRotation(TArray<UFloorPawnPositionInfo*> aDirectionalModel, double aDirection)
+void AFloorPawn::SetToStartRotation(double aDirection)
 {
-	directionModel = aDirectionalModel;
-	newRotation = directionModel[0]->rotation.Yaw;
-	playerDirectionHasChanged.Broadcast(directionModel[0]->directions);
-	rotationDirection = aDirection;
+	if(playerDirectionMatrix.Num() == 0 || directionPositionInfo.Num() == 0)
+	{
+		return;
+	}
+
+	
+	currentMatrixIndex += aDirection;
+	if(currentMatrixIndex < 0)
+	{
+		currentMatrixIndex = 3;
+	}
+	
+	currentMatrixIndex = currentMatrixIndex % 4;
+	completeFloorPawnData.currentFacingDirection = playerDirectionMatrix[currentMatrixIndex];
+	newRotation = directionPositionInfo[completeFloorPawnData.currentFacingDirection]->rotation.Yaw;
+	playerDirectionHasChanged.Broadcast(completeFloorPawnData);
+	rotationAngle = aDirection;
 	
 	hasRotationFinished = false;
 }
@@ -224,7 +227,7 @@ void AFloorPawn::RotatePawn(float aDeltatime)
 	
 	if( FMath::Abs(currentRotationConversion - newRotation) > ROTATION_DIFFERENCE)
 	{
-		double currentPosition = currentRotationConversion + rotationDirection * ( ROTATION_SPEED * aDeltatime);
+		double currentPosition = currentRotationConversion + rotationAngle * ( ROTATION_SPEED * aDeltatime);
 		SetActorRotation(FRotator(0,currentPosition,0));
 	}
 	else
@@ -246,21 +249,40 @@ void AFloorPawn::AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirectio
 	floorPawnPositionInfo->directionPosition = aDirectionPosition;
 	floorPawnPositionInfo->rotation = aRotation;
 	
-	directionModel.Add(floorPawnPositionInfo);
-
+	directionPositionInfo.Add(aDirection,floorPawnPositionInfo);
 }
 
-void AFloorPawn::PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode)
+void AFloorPawn::PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode, ECardinalNodeDirections aRotation)
 {
 	Initialize();
 
 	
 	currentNodePlayerIsOn = aFloorNode;
-	currentNodePositionInGrid = currentNodePlayerIsOn->positionInGrid;
+	completeFloorPawnData.currentNodePositionInGrid = currentNodePlayerIsOn->positionInGrid;
 	
-	SetActorRotation(directionModel[0]->rotation);
-	playerDirectionHasChanged.Broadcast(directionModel[0]->directions);
-	playerhasMovedDelegate.Broadcast(currentNodePositionInGrid.X,currentNodePositionInGrid.Y);
+	SetRotationWithoutAnimation(aRotation);
+	
+	playerhasMovedDelegate.Broadcast(completeFloorPawnData);
+
+	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+	persistentGameInstance->partyManagerSubsystem->SavePlayerEntitys();
+	persistentGameInstance->saveManagerSubsystem->SaveSessionData();
+}
+
+void AFloorPawn::SetRotationWithoutAnimation(ECardinalNodeDirections aCardinalNodeDirection)
+{
+	completeFloorPawnData.currentFacingDirection = aCardinalNodeDirection;
+
+	for (TTuple<int, ECardinalNodeDirections> indexAndDirection : playerDirectionMatrix)
+	{
+		if(indexAndDirection.Value == completeFloorPawnData.currentFacingDirection)
+		{
+			currentMatrixIndex = indexAndDirection.Key;
+			break;
+		}
+	}
+	SetActorRotation(directionPositionInfo[completeFloorPawnData.currentFacingDirection]->rotation);
+	playerDirectionHasChanged.Broadcast(completeFloorPawnData);
 }
 
 

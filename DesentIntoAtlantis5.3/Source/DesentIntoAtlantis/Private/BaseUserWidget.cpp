@@ -3,12 +3,14 @@
 
 #include "BaseUserWidget.h"
 
+#include "PersistentGameinstance.h"
 #include "SoundManager.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 
 void UBaseUserWidget::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	gameModeBase = aGameModeBase;
+	persistentGameinstance = Cast<UPersistentGameinstance>( GetGameInstance());
 }
 
 void UBaseUserWidget::SetViewInfo(EViews aView, EUiType aUiType)

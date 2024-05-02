@@ -42,6 +42,7 @@ private:
 	FViewSelection commandBoardSelectionEscape;
 	FViewSelection commandBoardSelectionPass;
 
+	USkillFactorySubsystem* SkillFactorySubsystem;
 	UPROPERTY()
 	USkillAttack* defaultAttack;
 	protected:

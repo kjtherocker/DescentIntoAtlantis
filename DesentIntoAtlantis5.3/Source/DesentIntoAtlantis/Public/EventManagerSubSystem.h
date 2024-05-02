@@ -9,6 +9,7 @@
 #include "FloorEnum.h"
 #include "EventManagerSubSystem.generated.h"
 
+class UTutorialManagerSubsystem;
 class UPersistentGameinstance;
 class ACombatGameModeBase;
 class UPlayerCombatEntity;
@@ -34,7 +35,7 @@ class DESENTINTOATLANTIS_API UEventManagerSubSystem : public UGameInstanceSubsys
 	UPROPERTY()
 	bool isEventRunning;
 	
-	
+	UTutorialManagerSubsystem* tutorialManager;
 	UFloorFactory* floorFactory;
 	EFloorEventStates currentFloorEventStates;
 

@@ -8,6 +8,7 @@
 #include "CombatSelectionView.h"
 #include "EngineUtils.h"
 #include "GameManager.h"
+#include "PersistentGameinstance.h"
 #include "SkillView.h"
 #include "SoundManager.h"
 #include "Components/TextBlock.h"
@@ -24,14 +25,14 @@ void UCommandBoardView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &UCommandBoardView::MoveDown  );
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UCommandBoardView::ActivateCommandboardFunction  );
 	
-	
+	SkillFactorySubsystem = persistentGameinstance->skillFactorySubsystem;
 }
 
 void UCommandBoardView::SetCommandBoard(ACombatGameModeBase* aCombatGameModeBase)
 {
 	combatManager =  aCombatGameModeBase;
 	currentActivePartyMember = combatManager->GetCurrentActivePartyMember();
-	defaultAttack = static_cast<USkillAttack*>(gameModeBase->skillFactory->GetSkill("DefaultAttack"));
+	defaultAttack = static_cast<USkillAttack*>(SkillFactorySubsystem->GetSkill("DefaultAttack"));
 	BW_FullBodyPortrait->SetBrushFromTexture(currentActivePartyMember->playerIdentityData.fullBodyCharacterPortrait);
 	
 	commandBoards.Add(BW_Attack);

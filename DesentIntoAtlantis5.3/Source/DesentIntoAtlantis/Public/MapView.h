@@ -6,6 +6,7 @@
 #include "BaseUserWidget.h"
 #include "MapView.generated.h"
 
+struct FCompleteFloorPawnData;
 struct FNodeMapData;
 class ULevelProgressionSubsystem;
 enum class ECardinalNodeDirections;
@@ -40,9 +41,9 @@ class DESENTINTOATLANTIS_API UMapView : public UBaseUserWidget
 public:
 
 	UFUNCTION()
-	void SetPlayerPosition(int aRow, int aColumn);
+	void SetPlayerPosition(FCompleteFloorPawnData aFloorPawnData);
 	UFUNCTION()
-	void SetPlayerRotation(ECardinalNodeDirections aPlayerFacingDirection);
+	void SetPlayerRotation(FCompleteFloorPawnData aPlayerFacingDirection);
 
 
 	void SetFloorPawnDelegates(AFloorPawn* aPlayerHasMoved);

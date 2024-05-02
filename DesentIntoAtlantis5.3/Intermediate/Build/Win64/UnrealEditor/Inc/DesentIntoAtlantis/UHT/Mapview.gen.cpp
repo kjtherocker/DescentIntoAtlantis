@@ -6,6 +6,7 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "DesentIntoAtlantis/Public/MapView.h"
+#include "DesentIntoAtlantis/Public/FloorPawn.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMapView() {}
 // Cross Module References
@@ -16,27 +17,26 @@ void EmptyLinkFunctionForGeneratedCodeMapView() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UMapPlayerIconElement_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UMapView();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UMapView_NoRegister();
-	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EFloorIdentifier();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCompleteFloorPawnData();
 	UMG_API UClass* Z_Construct_UClass_UUniformGridPanel_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
 // End Cross Module References
 	DEFINE_FUNCTION(UMapView::execSetPlayerRotation)
 	{
-		P_GET_ENUM(ECardinalNodeDirections,Z_Param_aPlayerFacingDirection);
+		P_GET_STRUCT(FCompleteFloorPawnData,Z_Param_aPlayerFacingDirection);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->SetPlayerRotation(ECardinalNodeDirections(Z_Param_aPlayerFacingDirection));
+		P_THIS->SetPlayerRotation(Z_Param_aPlayerFacingDirection);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UMapView::execSetPlayerPosition)
 	{
-		P_GET_PROPERTY(FIntProperty,Z_Param_aRow);
-		P_GET_PROPERTY(FIntProperty,Z_Param_aColumn);
+		P_GET_STRUCT(FCompleteFloorPawnData,Z_Param_aFloorPawnData);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->SetPlayerPosition(Z_Param_aRow,Z_Param_aColumn);
+		P_THIS->SetPlayerPosition(Z_Param_aFloorPawnData);
 		P_NATIVE_END;
 	}
 	void UMapView::StaticRegisterNativesUMapView()
@@ -52,22 +52,18 @@ void EmptyLinkFunctionForGeneratedCodeMapView() {}
 	{
 		struct MapView_eventSetPlayerPosition_Parms
 		{
-			int32 aRow;
-			int32 aColumn;
+			FCompleteFloorPawnData aFloorPawnData;
 		};
-		static const UECodeGen_Private::FIntPropertyParams NewProp_aRow;
-		static const UECodeGen_Private::FIntPropertyParams NewProp_aColumn;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_aFloorPawnData;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UMapView_SetPlayerPosition_Statics::NewProp_aRow = { "aRow", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MapView_eventSetPlayerPosition_Parms, aRow), METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UMapView_SetPlayerPosition_Statics::NewProp_aColumn = { "aColumn", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MapView_eventSetPlayerPosition_Parms, aColumn), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UMapView_SetPlayerPosition_Statics::NewProp_aFloorPawnData = { "aFloorPawnData", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MapView_eventSetPlayerPosition_Parms, aFloorPawnData), Z_Construct_UScriptStruct_FCompleteFloorPawnData, METADATA_PARAMS(0, nullptr) }; // 1570468568
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMapView_SetPlayerPosition_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMapView_SetPlayerPosition_Statics::NewProp_aRow,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMapView_SetPlayerPosition_Statics::NewProp_aColumn,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMapView_SetPlayerPosition_Statics::NewProp_aFloorPawnData,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMapView_SetPlayerPosition_Statics::Function_MetaDataParams[] = {
@@ -90,20 +86,17 @@ void EmptyLinkFunctionForGeneratedCodeMapView() {}
 	{
 		struct MapView_eventSetPlayerRotation_Parms
 		{
-			ECardinalNodeDirections aPlayerFacingDirection;
+			FCompleteFloorPawnData aPlayerFacingDirection;
 		};
-		static const UECodeGen_Private::FIntPropertyParams NewProp_aPlayerFacingDirection_Underlying;
-		static const UECodeGen_Private::FEnumPropertyParams NewProp_aPlayerFacingDirection;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_aPlayerFacingDirection;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UMapView_SetPlayerRotation_Statics::NewProp_aPlayerFacingDirection_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UMapView_SetPlayerRotation_Statics::NewProp_aPlayerFacingDirection = { "aPlayerFacingDirection", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MapView_eventSetPlayerRotation_Parms, aPlayerFacingDirection), Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections, METADATA_PARAMS(0, nullptr) }; // 1177015594
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UMapView_SetPlayerRotation_Statics::NewProp_aPlayerFacingDirection = { "aPlayerFacingDirection", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MapView_eventSetPlayerRotation_Parms, aPlayerFacingDirection), Z_Construct_UScriptStruct_FCompleteFloorPawnData, METADATA_PARAMS(0, nullptr) }; // 1570468568
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMapView_SetPlayerRotation_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMapView_SetPlayerRotation_Statics::NewProp_aPlayerFacingDirection_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMapView_SetPlayerRotation_Statics::NewProp_aPlayerFacingDirection,
 	};
 #if WITH_METADATA
@@ -179,8 +172,8 @@ void EmptyLinkFunctionForGeneratedCodeMapView() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMapView_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UMapView_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UMapView_SetPlayerPosition, "SetPlayerPosition" }, // 3732736541
-		{ &Z_Construct_UFunction_UMapView_SetPlayerRotation, "SetPlayerRotation" }, // 2252854236
+		{ &Z_Construct_UFunction_UMapView_SetPlayerPosition, "SetPlayerPosition" }, // 609216398
+		{ &Z_Construct_UFunction_UMapView_SetPlayerRotation, "SetPlayerRotation" }, // 3459894246
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMapView_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -303,9 +296,9 @@ void EmptyLinkFunctionForGeneratedCodeMapView() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MapView_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMapView, UMapView::StaticClass, TEXT("UMapView"), &Z_Registration_Info_UClass_UMapView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMapView), 2830852451U) },
+		{ Z_Construct_UClass_UMapView, UMapView::StaticClass, TEXT("UMapView"), &Z_Registration_Info_UClass_UMapView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMapView), 159836200U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MapView_h_1893176766(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MapView_h_3573796712(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MapView_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MapView_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

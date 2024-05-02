@@ -9,8 +9,8 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class AFloorPawn;
 class UPersistentGameinstance;
+enum class ECardinalNodeDirections : int32;
 struct FEventManagerData;
 #ifdef DESENTINTOATLANTIS_SaveManagerSubsystem_generated_h
 #error "SaveManagerSubsystem.generated.h already included, missing '#pragma once' in SaveManagerSubsystem.h"
@@ -26,9 +26,8 @@ struct FEventManagerData;
 	DECLARE_FUNCTION(execSetEventManagerData); \
 	DECLARE_FUNCTION(execLoadSaveDataAndTransitionToMap); \
 	DECLARE_FUNCTION(execLoadPreSetLevel); \
-	DECLARE_FUNCTION(execLoadFloorPawnPosition); \
+	DECLARE_FUNCTION(execLoadFloorPawnRotation); \
 	DECLARE_FUNCTION(execSaveSessionData); \
-	DECLARE_FUNCTION(execSaveFloorPawn); \
 	DECLARE_FUNCTION(execReturnToPreviousLevel); \
 	DECLARE_FUNCTION(execInitializeSubsystem);
 

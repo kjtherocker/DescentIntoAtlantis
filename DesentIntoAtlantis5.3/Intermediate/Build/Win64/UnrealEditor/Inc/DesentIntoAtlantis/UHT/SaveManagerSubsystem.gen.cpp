@@ -11,12 +11,11 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 // Cross Module References
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
-	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloorPawn_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UPersistentGameinstance_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USaveGameData_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USaveManagerSubsystem();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USaveManagerSubsystem_NoRegister();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FEventManagerData();
 	ENGINE_API UClass* Z_Construct_UClass_UGameInstanceSubsystem();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
@@ -50,11 +49,11 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 		P_THIS->LoadPreSetLevel();
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(USaveManagerSubsystem::execLoadFloorPawnPosition)
+	DEFINE_FUNCTION(USaveManagerSubsystem::execLoadFloorPawnRotation)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		*(FVector2D*)Z_Param__Result=P_THIS->LoadFloorPawnPosition();
+		*(ECardinalNodeDirections*)Z_Param__Result=P_THIS->LoadFloorPawnRotation();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(USaveManagerSubsystem::execSaveSessionData)
@@ -62,14 +61,6 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->SaveSessionData();
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(USaveManagerSubsystem::execSaveFloorPawn)
-	{
-		P_GET_OBJECT(AFloorPawn,Z_Param_aFloorPawn);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->SaveFloorPawn(Z_Param_aFloorPawn);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(USaveManagerSubsystem::execReturnToPreviousLevel)
@@ -93,11 +84,10 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "ConsumeGameSaveLoadingFlag", &USaveManagerSubsystem::execConsumeGameSaveLoadingFlag },
 			{ "InitializeSubsystem", &USaveManagerSubsystem::execInitializeSubsystem },
-			{ "LoadFloorPawnPosition", &USaveManagerSubsystem::execLoadFloorPawnPosition },
+			{ "LoadFloorPawnRotation", &USaveManagerSubsystem::execLoadFloorPawnRotation },
 			{ "LoadPreSetLevel", &USaveManagerSubsystem::execLoadPreSetLevel },
 			{ "LoadSaveDataAndTransitionToMap", &USaveManagerSubsystem::execLoadSaveDataAndTransitionToMap },
 			{ "ReturnToPreviousLevel", &USaveManagerSubsystem::execReturnToPreviousLevel },
-			{ "SaveFloorPawn", &USaveManagerSubsystem::execSaveFloorPawn },
 			{ "SaveSessionData", &USaveManagerSubsystem::execSaveSessionData },
 			{ "SetEventManagerData", &USaveManagerSubsystem::execSetEventManagerData },
 		};
@@ -176,37 +166,40 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition_Statics
+	struct Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation_Statics
 	{
-		struct SaveManagerSubsystem_eventLoadFloorPawnPosition_Parms
+		struct SaveManagerSubsystem_eventLoadFloorPawnRotation_Parms
 		{
-			FVector2D ReturnValue;
+			ECardinalNodeDirections ReturnValue;
 		};
-		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_ReturnValue;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SaveManagerSubsystem_eventLoadFloorPawnPosition_Parms, ReturnValue), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition_Statics::NewProp_ReturnValue,
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation_Statics::NewProp_ReturnValue_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SaveManagerSubsystem_eventLoadFloorPawnRotation_Parms, ReturnValue), Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections, METADATA_PARAMS(0, nullptr) }; // 1177015594
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation_Statics::NewProp_ReturnValue_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation_Statics::NewProp_ReturnValue,
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Public/SaveManagerSubsystem.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_USaveManagerSubsystem, nullptr, "LoadFloorPawnPosition", nullptr, nullptr, Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition_Statics::PropPointers), sizeof(Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition_Statics::SaveManagerSubsystem_eventLoadFloorPawnPosition_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00820401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition_Statics::Function_MetaDataParams), Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition_Statics::PropPointers) < 2048);
-	static_assert(sizeof(Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition_Statics::SaveManagerSubsystem_eventLoadFloorPawnPosition_Parms) < MAX_uint16);
-	UFunction* Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_USaveManagerSubsystem, nullptr, "LoadFloorPawnRotation", nullptr, nullptr, Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation_Statics::PropPointers), sizeof(Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation_Statics::SaveManagerSubsystem_eventLoadFloorPawnRotation_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation_Statics::Function_MetaDataParams), Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation_Statics::SaveManagerSubsystem_eventLoadFloorPawnRotation_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -273,40 +266,6 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_USaveManagerSubsystem_ReturnToPreviousLevel_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_USaveManagerSubsystem_SaveFloorPawn_Statics
-	{
-		struct SaveManagerSubsystem_eventSaveFloorPawn_Parms
-		{
-			AFloorPawn* aFloorPawn;
-		};
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_aFloorPawn;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_USaveManagerSubsystem_SaveFloorPawn_Statics::NewProp_aFloorPawn = { "aFloorPawn", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SaveManagerSubsystem_eventSaveFloorPawn_Parms, aFloorPawn), Z_Construct_UClass_AFloorPawn_NoRegister, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_USaveManagerSubsystem_SaveFloorPawn_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USaveManagerSubsystem_SaveFloorPawn_Statics::NewProp_aFloorPawn,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_USaveManagerSubsystem_SaveFloorPawn_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/SaveManagerSubsystem.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_USaveManagerSubsystem_SaveFloorPawn_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_USaveManagerSubsystem, nullptr, "SaveFloorPawn", nullptr, nullptr, Z_Construct_UFunction_USaveManagerSubsystem_SaveFloorPawn_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_USaveManagerSubsystem_SaveFloorPawn_Statics::PropPointers), sizeof(Z_Construct_UFunction_USaveManagerSubsystem_SaveFloorPawn_Statics::SaveManagerSubsystem_eventSaveFloorPawn_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_USaveManagerSubsystem_SaveFloorPawn_Statics::Function_MetaDataParams), Z_Construct_UFunction_USaveManagerSubsystem_SaveFloorPawn_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_USaveManagerSubsystem_SaveFloorPawn_Statics::PropPointers) < 2048);
-	static_assert(sizeof(Z_Construct_UFunction_USaveManagerSubsystem_SaveFloorPawn_Statics::SaveManagerSubsystem_eventSaveFloorPawn_Parms) < MAX_uint16);
-	UFunction* Z_Construct_UFunction_USaveManagerSubsystem_SaveFloorPawn()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_USaveManagerSubsystem_SaveFloorPawn_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -398,11 +357,10 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_USaveManagerSubsystem_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_ConsumeGameSaveLoadingFlag, "ConsumeGameSaveLoadingFlag" }, // 694278786
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_InitializeSubsystem, "InitializeSubsystem" }, // 2530387896
-		{ &Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnPosition, "LoadFloorPawnPosition" }, // 1421281692
+		{ &Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation, "LoadFloorPawnRotation" }, // 2943430020
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_LoadPreSetLevel, "LoadPreSetLevel" }, // 2106330069
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap, "LoadSaveDataAndTransitionToMap" }, // 3688596530
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_ReturnToPreviousLevel, "ReturnToPreviousLevel" }, // 923142100
-		{ &Z_Construct_UFunction_USaveManagerSubsystem_SaveFloorPawn, "SaveFloorPawn" }, // 4031341612
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_SaveSessionData, "SaveSessionData" }, // 1802938065
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_SetEventManagerData, "SetEventManagerData" }, // 3473623364
 	};
@@ -471,9 +429,9 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveManagerSubsystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_USaveManagerSubsystem, USaveManagerSubsystem::StaticClass, TEXT("USaveManagerSubsystem"), &Z_Registration_Info_UClass_USaveManagerSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USaveManagerSubsystem), 3024457380U) },
+		{ Z_Construct_UClass_USaveManagerSubsystem, USaveManagerSubsystem::StaticClass, TEXT("USaveManagerSubsystem"), &Z_Registration_Info_UClass_USaveManagerSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USaveManagerSubsystem), 770083459U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveManagerSubsystem_h_982604807(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveManagerSubsystem_h_1915970955(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveManagerSubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveManagerSubsystem_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

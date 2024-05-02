@@ -27,12 +27,13 @@ private:
 	void UpdateCompleteProgressionData(FCompleteProgressionData aCompleteProgressionData);
 	UFUNCTION()
 	void UpdateCurrentLevelIdentifier(EFloorIdentifier aFloorIdentifier);
+	UFUNCTION()
+	void UpdateFloorPawnData(FCompleteFloorPawnData aCompleteFloorPawn);
 
 public:
+	void SubscribeUpdateFloorPlayerCompleteData(AFloorPawn* aFloorPawn);
 	void SubscribeUpdateCompleteProgressionData(ULevelProgressionSubsystem* aLevelProgressionSubsystem);
 	void SubScribeToUpdateLevelIdentifier(UPersistentGameinstance*  aPersistentGameInstance);
-	
-	void SetFloorPawn(AFloorPawn* Atest);
 
 	void AddPlayerCompleteDataSet(EPartyMembers aPartyMember,FPlayerCompleteDataSet aPlayerCompleteDataSet);
 	
@@ -42,7 +43,9 @@ public:
 	FCompleteProgressionData completeProgressionData;
 
 	UPROPERTY()
-	FVector2D playerPosition;
+	FCompleteFloorPawnData completeFloorPawnData;
+	UPROPERTY()
+	ECardinalNodeDirections playerFloorRotation;
 	UPROPERTY()
 	 TMap<EPartyMembers, FPlayerCompleteDataSet> playerCompleteDataSet;
 

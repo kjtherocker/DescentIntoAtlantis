@@ -10,6 +10,7 @@
 #include "SkillsData.h"
 #include "Engine/DataTable.h"
 #include "EventManagerSubSystem.h"
+#include "LevelProgressionSubsystem.h"
 #include "SaveManagerSubsystem.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -37,8 +38,8 @@ void AFloorManager::Initialize(AAtlantisGameModeBase* aGameModeBase,UEventManage
 
 	persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
 
-	eventManagerSubSystem =  persistentGameInstance->EventManagerSubSystem;
-
+	eventManagerSubSystem     =  persistentGameInstance->EventManagerSubSystem;
+	levelProgressionSubsystem = persistentGameInstance->levelProgressionSubsystem;
 	
 	floorEventManager = aFloorEventManager;
 	floorGameModeBase = aGameModeBase;
@@ -71,6 +72,7 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 			if(aFloor->TeleporterGimmickData.Contains(positionInGrid))
 			{
 				floorNodes[LevelIndex]->nodeHasBeenWalkedOn.AddDynamic(this,&AFloorManager::LoadNextLevel);
+				SpawnObjectInGrid(positionInGrid,stairsReference);
 			}
 		}
 	}
@@ -174,14 +176,19 @@ void AFloorManager::SpawnFloor(UFloorBase* aFloorBase)
 
 void AFloorManager::MovePlayerToPreviousNode()
 {
-	AFloorPawn* floorPawn = floorGameModeBase->floorPawn;
-	FVector2D previousPosition = floorPawn->previousNodePlayerWasOn->positionInGrid;
-	PlacePlayerFloorPawn(previousPosition);
+	//AFloorPawn* floorPawn = floorGameModeBase->floorPawn;
+	//FVector2D previousPosition = floorPawn->previousNodePlayerWasOn->positionInGrid;
+	//PlacePlayerFloorPawn(previousPosition);
 }
 
 void AFloorManager::LoadNextLevel(FVector2D aPositionInGrid)
 {
 	FTeleporterGimmick teleporterGimmick = currentFloor->TeleporterGimmickData[aPositionInGrid];
+	FCompleteFloorPawnData CompleteFloorPawnData;
+	CompleteFloorPawnData.currentFacingDirection    = teleporterGimmick.nextLevelSpawnDirection;
+	CompleteFloorPawnData.currentNodePositionInGrid = teleporterGimmick.nextLevelsSpawnPosition;
+
+	levelProgressionSubsystem->SetCompleteFloorPawnWithLockData(CompleteFloorPawnData);
 
 	persistentGameInstance->LoadLevel(teleporterGimmick.floorIdentifier);
 }
@@ -217,7 +224,7 @@ void AFloorManager::SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes)
 	}
 }
 
-void AFloorManager::PlacePlayerFloorPawn(FVector2D aStartPositionInGrid)
+void AFloorManager::PlacePlayerFloorPawn(FVector2D aStartPositionInGrid,ECardinalNodeDirections aPlayerFacingDirection)
 {
 	AFloorPlayerController * playerController;
 	playerController = Cast<AFloorPlayerController>(GetWorld()->GetFirstPlayerController());
@@ -242,7 +249,7 @@ void AFloorManager::PlacePlayerFloorPawn(FVector2D aStartPositionInGrid)
 	
 		//Spawn
 		AFloorPawn* floorPawn = floorGameModeBase->floorPawn;
-		floorPawn->PlaceAndInitializieFloorPawn(floorNodes[startPositionIndex]);
+		floorPawn->PlaceAndInitializieFloorPawn(floorNodes[startPositionIndex],aPlayerFacingDirection);
 		floorPawn->SetActorLocation(ActorFinalSpawnPoint);
 		floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
 		playerController->SetPawn(floorPawn);
@@ -252,7 +259,8 @@ void AFloorManager::PlacePlayerFloorPawn(FVector2D aStartPositionInGrid)
 
 void AFloorManager::PlacePlayerAtFloorStartingNode()
 {
-	PlacePlayerFloorPawn(floorDictionary[currentFloorIdentifier]->floorData.startPosition);
+	FFloorData floorData = floorDictionary[currentFloorIdentifier]->floorData;
+	PlacePlayerFloorPawn(floorData.startPosition,floorData.startRotation);
 }
 
 void AFloorManager::SpawnFloorEventTriggers(FVector2D aPositionInGrid)
@@ -278,7 +286,7 @@ void AFloorManager::SpawnFloorEventTriggers(FVector2D aPositionInGrid)
 	if (floorPawn)
 	{
 		floorPawn->SetActorLocation(ActorFinalSpawnPoint);
-		floorGameModeBase->floorEventManager->AddFloorEnemyEvents(aPositionInGrid,floorPawn);
+		floorEventManager->AddFloorEnemyEvents(aPositionInGrid,floorPawn);
 	}
 	else
 	{
@@ -287,6 +295,24 @@ void AFloorManager::SpawnFloorEventTriggers(FVector2D aPositionInGrid)
 	}
 
 }
+
+
+void AFloorManager::SpawnObjectInGrid(FVector2D aPositionInGrid, TSubclassOf<AActor> objectToSpawn)
+{
+	FVector PositionOffset = FVector(0,0,SPAWNED_OBJECT_OFFSET);
+
+	FVector ActorFinalSpawnPoint = GetNode(aPositionInGrid)->GetActorLocation() + PositionOffset;
+
+	//Rotation
+	FRotator rotator = GetActorRotation();
+	
+	FActorSpawnParameters ActorSpawnParameters;
+	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	ActorSpawnParameters.Owner = this;
+	
+	AActor* floorPawn = Cast<AFloorEnemyPawn>(GetWorld()->SpawnActor<AActor>(objectToSpawn, ActorFinalSpawnPoint, rotator,ActorSpawnParameters));
+}
+
 
 void AFloorManager::Tick(float DeltaTime)
 {

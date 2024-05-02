@@ -7,6 +7,7 @@
 #include "Blueprint/UserWidget.h"
 #include "BaseUserWidget.generated.h"
 
+class UPersistentGameinstance;
 /**
  * 
  */
@@ -21,6 +22,9 @@ protected:
 	int minCursorPosition;
 	UPROPERTY()
 	AAtlantisGameModeBase* gameModeBase;
+
+	UPROPERTY()
+	UPersistentGameinstance* persistentGameinstance;
 	
 	FLinearColor unhightlighedColor = FLinearColor(0.0,0.0,0.0,1.0);
 	FLinearColor highlightedColor   = FLinearColor(1.0,1.0,1.0,1.0);

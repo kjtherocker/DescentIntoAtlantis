@@ -17,6 +17,16 @@ void USaveGameData::UpdateCurrentLevelIdentifier(EFloorIdentifier aFloorIdentifi
 	currentLevel = aFloorIdentifier;
 }
 
+void USaveGameData::UpdateFloorPawnData(FCompleteFloorPawnData aCompleteFloorPawn)
+{
+	completeFloorPawnData = aCompleteFloorPawn;
+}
+
+void USaveGameData::SubscribeUpdateFloorPlayerCompleteData(AFloorPawn* aFloorPawn)
+{
+	aFloorPawn->playerDirectionHasChanged.AddDynamic(this,&USaveGameData::UpdateFloorPawnData);
+}
+
 void USaveGameData::SubscribeUpdateCompleteProgressionData(ULevelProgressionSubsystem* aLevelProgressionSubsystem)
 {
 	aLevelProgressionSubsystem->mapHasChanged.AddDynamic(this,&USaveGameData::UpdateCompleteProgressionData);
@@ -25,12 +35,6 @@ void USaveGameData::SubscribeUpdateCompleteProgressionData(ULevelProgressionSubs
 void USaveGameData::SubScribeToUpdateLevelIdentifier(UPersistentGameinstance* aPersistentGameInstance)
 {
 	aPersistentGameInstance->levelHasChanged.AddDynamic(this,&USaveGameData::UpdateCurrentLevelIdentifier);
-}
-
-
-void USaveGameData::SetFloorPawn(AFloorPawn* Atest)
-{
-	playerPosition = Atest->currentNodePositionInGrid;
 }
 
 void USaveGameData::AddPlayerCompleteDataSet(EPartyMembers aPartyMember,FPlayerCompleteDataSet aPlayerCompleteDataSet)

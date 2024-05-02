@@ -3,6 +3,7 @@
 #pragma once
 #include "EDataTableTypes.h"
 #include "Views.h"
+#include "DesentIntoAtlantis/ECardinalDirections.h"
 #include "DesentIntoAtlantis/EFloorIdentifier.h"
 #include "Engine/DataTable.h"
 #include "FloorEnum.generated.h"
@@ -65,6 +66,9 @@ struct DESENTINTOATLANTIS_API FTeleporterGimmick : public FGimmickData
 	UPROPERTY( EditAnywhere )
 	EFloorIdentifier floorIdentifier = EFloorIdentifier::None;
 
+	UPROPERTY(EditAnywhere)
+	ECardinalNodeDirections nextLevelSpawnDirection = ECardinalNodeDirections::Empty;
+
 	UPROPERTY( EditAnywhere )
 	FVector2D nextLevelsSpawnPosition;
 };
@@ -83,6 +87,8 @@ struct DESENTINTOATLANTIS_API FFloorData : public FTableRowBase
 	
 	UPROPERTY( EditAnywhere )
 	FVector2D startPosition = FVector2d::Zero();
+	UPROPERTY(EditAnywhere)
+	ECardinalNodeDirections startRotation = ECardinalNodeDirections::Up;
 
 	UPROPERTY(EditAnywhere)
 	TArray<FTeleporterGimmick> teleporterGimmicks;

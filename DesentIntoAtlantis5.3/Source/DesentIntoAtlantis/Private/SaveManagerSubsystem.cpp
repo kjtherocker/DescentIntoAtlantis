@@ -21,14 +21,15 @@ void USaveManagerSubsystem::InitializeSessionSave(USaveGameData* aSessionSave)
 	aSessionSave->SubScribeToUpdateLevelIdentifier(persistentGameinstance);
 }
 
+void USaveManagerSubsystem::InitializeSessionSavePlayer(AFloorPawn* aFloorPawn)
+{
+	SessionSaveGameObject->SubscribeUpdateFloorPlayerCompleteData(aFloorPawn);
+}
+
 void USaveManagerSubsystem::ReturnToPreviousLevel()
 {
 }
 
-void USaveManagerSubsystem::SaveFloorPawn(AFloorPawn* aFloorPawn)
-{
-	SessionSaveGameObject->SetFloorPawn(aFloorPawn);
-}
 
 
 void USaveManagerSubsystem::SetEventManagerData(FEventManagerData aEventManagerData)
@@ -41,10 +42,12 @@ void USaveManagerSubsystem::SaveSessionData()
 	UGameplayStatics::SaveGameToSlot(SessionSaveGameObject,TEXT("SaveSlot1"), 0);
 }
 
-FVector2D USaveManagerSubsystem::LoadFloorPawnPosition()
+ECardinalNodeDirections USaveManagerSubsystem::LoadFloorPawnRotation()
 {
-	return SessionSaveGameObject->playerPosition;
+	return SessionSaveGameObject->playerFloorRotation;
 }
+
+
 
 void USaveManagerSubsystem::LoadPreSetLevel()
 {
@@ -60,6 +63,7 @@ void USaveManagerSubsystem::LoadSaveDataAndTransitionToMap()
 	persistentGameinstance->partyManagerSubsystem->LoadAndCreateAllPlayerEntitys(LoadedSaveGameObject->playerCompleteDataSet);
 	persistentGameinstance->EventManagerSubSystem->LoadSavedFloorEventData(LoadedSaveGameObject->eventManagerData);
 	persistentGameinstance->levelProgressionSubsystem->LoadCompleteProgressionData(LoadedSaveGameObject->completeProgressionData);
+	persistentGameinstance->levelProgressionSubsystem->SetCompleteFloorPawnData(SessionSaveGameObject->completeFloorPawnData);
 	persistentGameinstance->LoadLevel(SessionSaveGameObject->currentLevel);
 
 	

@@ -7,6 +7,7 @@
 #include "UObject/GeneratedCppIncludes.h"
 #include "DesentIntoAtlantis/Public/LevelProgressionSubsystem.h"
 #include "../../Source/Runtime/Engine/Classes/Engine/GameInstance.h"
+#include "DesentIntoAtlantis/Public/FloorPawn.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeLevelProgressionSubsystem() {}
 // Cross Module References
@@ -15,6 +16,7 @@ void EmptyLinkFunctionForGeneratedCodeLevelProgressionSubsystem() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_ULevelProgressionSubsystem_NoRegister();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EFloorIdentifier();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_MapHasChanged__DelegateSignature();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCompleteFloorPawnData();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCompleteProgressionData();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FMapData();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FNodeMapData();
@@ -294,8 +296,55 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 	Parms.playerFacingDirection=playerFacingDirection;
 	MapHasChanged.ProcessMulticastDelegate<UObject>(&Parms);
 }
+	DEFINE_FUNCTION(ULevelProgressionSubsystem::execSetCompleteFloorPawnData)
+	{
+		P_GET_STRUCT(FCompleteFloorPawnData,Z_Param_aCompleteFloorPawnData);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetCompleteFloorPawnData(Z_Param_aCompleteFloorPawnData);
+		P_NATIVE_END;
+	}
 	void ULevelProgressionSubsystem::StaticRegisterNativesULevelProgressionSubsystem()
 	{
+		UClass* Class = ULevelProgressionSubsystem::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "SetCompleteFloorPawnData", &ULevelProgressionSubsystem::execSetCompleteFloorPawnData },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics
+	{
+		struct LevelProgressionSubsystem_eventSetCompleteFloorPawnData_Parms
+		{
+			FCompleteFloorPawnData aCompleteFloorPawnData;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_aCompleteFloorPawnData;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics::NewProp_aCompleteFloorPawnData = { "aCompleteFloorPawnData", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(LevelProgressionSubsystem_eventSetCompleteFloorPawnData_Parms, aCompleteFloorPawnData), Z_Construct_UScriptStruct_FCompleteFloorPawnData, METADATA_PARAMS(0, nullptr) }; // 1570468568
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics::NewProp_aCompleteFloorPawnData,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/LevelProgressionSubsystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ULevelProgressionSubsystem, nullptr, "SetCompleteFloorPawnData", nullptr, nullptr, Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics::PropPointers), sizeof(Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics::LevelProgressionSubsystem_eventSetCompleteFloorPawnData_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics::Function_MetaDataParams), Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics::LevelProgressionSubsystem_eventSetCompleteFloorPawnData_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(ULevelProgressionSubsystem);
 	UClass* Z_Construct_UClass_ULevelProgressionSubsystem_NoRegister()
@@ -305,6 +354,7 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 	struct Z_Construct_UClass_ULevelProgressionSubsystem_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -316,6 +366,10 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::DependentSingletons) < 16);
+	const FClassFunctionLinkInfo Z_Construct_UClass_ULevelProgressionSubsystem_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData, "SetCompleteFloorPawnData" }, // 4269515942
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelProgressionSubsystem_Statics::Class_MetaDataParams[] = {
 		{ "IncludePath", "LevelProgressionSubsystem.h" },
@@ -330,11 +384,11 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 		nullptr,
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		nullptr,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		0,
 		0,
 		0x001000A0u,
@@ -366,9 +420,9 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 		{ FCompleteProgressionData::StaticStruct, Z_Construct_UScriptStruct_FCompleteProgressionData_Statics::NewStructOps, TEXT("CompleteProgressionData"), &Z_Registration_Info_UScriptStruct_CompleteProgressionData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCompleteProgressionData), 3145609198U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ULevelProgressionSubsystem, ULevelProgressionSubsystem::StaticClass, TEXT("ULevelProgressionSubsystem"), &Z_Registration_Info_UClass_ULevelProgressionSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelProgressionSubsystem), 4202407494U) },
+		{ Z_Construct_UClass_ULevelProgressionSubsystem, ULevelProgressionSubsystem::StaticClass, TEXT("ULevelProgressionSubsystem"), &Z_Registration_Info_UClass_ULevelProgressionSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelProgressionSubsystem), 2774447374U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_2714598622(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_1095333985(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ScriptStructInfo),
 		nullptr, 0);

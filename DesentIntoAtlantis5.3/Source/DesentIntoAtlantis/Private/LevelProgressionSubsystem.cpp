@@ -10,6 +10,23 @@ void ULevelProgressionSubsystem::InitializeSubsystem(UPersistentGameinstance* aP
 	persistentGameInstance = aPersistentGameinstance;
 }
 
+void ULevelProgressionSubsystem::SetSubscribeFloorPawnDelegates(AFloorPawn* aFloorPawn)
+{
+	aFloorPawn->playerhasMovedDelegate.AddDynamic(this,&ULevelProgressionSubsystem::SetCompleteFloorPawnData);
+	aFloorPawn->playerDirectionHasChanged.AddDynamic(this,&ULevelProgressionSubsystem::SetCompleteFloorPawnData);
+}
+
+FCompleteFloorPawnData ULevelProgressionSubsystem::GetCurrentFloorPawnCompleteData()
+{
+	lockUpdatesToCompleteFloorData = false;
+	return completeFloorPawnData;
+}
+
+void ULevelProgressionSubsystem::SetNewFloorPlayerSpawnPosition(FVector2D aSpawnPosition)
+{
+	newFloorPlayerSpawnPosition = aSpawnPosition;
+}
+
 void ULevelProgressionSubsystem::SetCurrentFloorIdentifier(EFloorIdentifier aFloorIdentifier)
 {
 	currentFloorIdentifier = aFloorIdentifier;
@@ -36,6 +53,21 @@ void ULevelProgressionSubsystem::CreateNewFogOfWar(UFloorBase* aFloor)
 	FMapData entireMapFogData;
 	entireMapFogData.revealedNodes = newFogOfWar;
 	fogOfWar.mapProgression.Add(aFloor->floorData.floorIdentifier, entireMapFogData);
+}
+
+void ULevelProgressionSubsystem::SetCompleteFloorPawnData(FCompleteFloorPawnData aCompleteFloorPawnData)
+{
+	if(!lockUpdatesToCompleteFloorData)
+	{
+		completeFloorPawnData = aCompleteFloorPawnData;
+	}
+}
+
+void ULevelProgressionSubsystem::SetCompleteFloorPawnWithLockData(FCompleteFloorPawnData aCompleteFloorPawnData)
+{
+	lockUpdatesToCompleteFloorData = false;
+	SetCompleteFloorPawnData(aCompleteFloorPawnData);
+	lockUpdatesToCompleteFloorData = true;
 }
 
 void ULevelProgressionSubsystem::SetCurrentMapFogOfWar(UFloorBase* floorBase)
