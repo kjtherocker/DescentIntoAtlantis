@@ -126,6 +126,9 @@ struct DESENTINTOATLANTIS_API FFloorEventData : public FTableRowBase
 
 	UPROPERTY( EditAnywhere )
 	EFloorIdentifier floorIdentifier = EFloorIdentifier::None;
+
+	UPROPERTY( EditAnywhere )
+	TSubclassOf<AActor> eventActorReference;
 	
 	UPROPERTY( EditAnywhere )
 	FVector2D positionInGrid = FVector2d::Zero();

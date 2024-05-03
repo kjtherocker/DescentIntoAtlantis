@@ -31,7 +31,7 @@ public:
 	void CreateGrid(UFloorBase* aFloor);
 	void CreateFloor(EFloorIdentifier aFloorIdentifier);
 	void SpawnFloorNode(int aRow, int aColumn,int aIndex);
-	void SpawnFloorEventTriggers(FVector2D aPositionInGrid);
+	void SpawnFloorEventTriggers(FFloorEventData AFloorEventData);
 	void SpawnFloor(UFloorBase* aFloorBase);
 	void PlacePlayerFloorPawn(FVector2D aStartPositionInGrid,ECardinalNodeDirections aPlayerFacingDirection);
 	void MovePlayerToPreviousNode();

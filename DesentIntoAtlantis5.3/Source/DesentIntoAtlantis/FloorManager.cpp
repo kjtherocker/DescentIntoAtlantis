@@ -67,7 +67,7 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 			{
 				floorNodes[LevelIndex]->hasFloorEvent = true;
 				floorNodes[LevelIndex]->nodeHasBeenWalkedOn = eventManagerSubSystem->EventHasBeenTriggered;
-				SpawnFloorEventTriggers(positionInGrid);
+				SpawnFloorEventTriggers(aFloor->floorEventData[positionInGrid]);
 			}
 			if(aFloor->TeleporterGimmickData.Contains(positionInGrid))
 			{
@@ -263,11 +263,13 @@ void AFloorManager::PlacePlayerAtFloorStartingNode()
 	PlacePlayerFloorPawn(floorData.startPosition,floorData.startRotation);
 }
 
-void AFloorManager::SpawnFloorEventTriggers(FVector2D aPositionInGrid)
+void AFloorManager::SpawnFloorEventTriggers(FFloorEventData AFloorEventData)
 {
 	FVector PositionOffset = FVector(0,0,FLOOR_EVENT_HEIGHT_OFFSET);
 
-	FVector ActorFinalSpawnPoint = GetNode(aPositionInGrid)->GetActorLocation() + PositionOffset;
+	FVector2D eventPositionInGrid = AFloorEventData.positionInGrid;
+
+	FVector ActorFinalSpawnPoint = GetNode(eventPositionInGrid)->GetActorLocation() + PositionOffset;
 
 	//Rotation
 	FRotator rotator = GetActorRotation();
@@ -277,7 +279,7 @@ void AFloorManager::SpawnFloorEventTriggers(FVector2D aPositionInGrid)
 	ActorSpawnParameters.Owner = this;
 	
 	 AFloorEnemyPawn* floorPawn;
-	floorPawn = Cast<AFloorEnemyPawn>(GetWorld()->SpawnActor<AActor>(floorEnemyPawnReference, ActorFinalSpawnPoint, rotator,ActorSpawnParameters));
+	floorPawn = Cast<AFloorEnemyPawn>(GetWorld()->SpawnActor<AActor>(AFloorEventData.eventActorReference, ActorFinalSpawnPoint, rotator,ActorSpawnParameters));
 
 	USceneComponent* ParentRootComponent = this->GetRootComponent();
 
@@ -286,7 +288,7 @@ void AFloorManager::SpawnFloorEventTriggers(FVector2D aPositionInGrid)
 	if (floorPawn)
 	{
 		floorPawn->SetActorLocation(ActorFinalSpawnPoint);
-		floorEventManager->AddFloorEnemyEvents(aPositionInGrid,floorPawn);
+		floorEventManager->AddFloorEnemyEvents(eventPositionInGrid,floorPawn);
 	}
 	else
 	{
