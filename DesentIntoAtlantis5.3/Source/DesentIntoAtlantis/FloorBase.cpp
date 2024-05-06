@@ -19,6 +19,15 @@ void UFloorBase::SetTeleporterGimmickData(TArray<FTeleporterGimmick> aTeleporter
     }
 }
 
+void UFloorBase::SetForcedMovementGimmickData(TArray<FForcedMovementGimmick> aForcedMovementGimmicks)
+{
+    for(int i = 0 ; i < aForcedMovementGimmicks.Num();i++)
+    {
+        FForcedMovementGimmick forcedMovementGimmick = aForcedMovementGimmicks[i];
+        ForcedMovementGimmickData.Add(forcedMovementGimmick.positionInGrid,forcedMovementGimmick);
+    }
+}
+
 int UFloorBase::GetIndex(int aRow, int aColumn)
 {
     return aRow * GridDimensionX + aColumn;

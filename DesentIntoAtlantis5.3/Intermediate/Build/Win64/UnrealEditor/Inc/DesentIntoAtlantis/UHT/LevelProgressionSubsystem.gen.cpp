@@ -12,8 +12,11 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeLevelProgressionSubsystem() {}
 // Cross Module References
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AAtlantisGameModeBase_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UGimmick_Interactable_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_ULevelProgressionSubsystem();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_ULevelProgressionSubsystem_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UPersistentGameinstance_NoRegister();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EFloorIdentifier();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_MapHasChanged__DelegateSignature();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCompleteFloorPawnData();
@@ -304,13 +307,56 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 		P_THIS->SetCompleteFloorPawnData(Z_Param_aCompleteFloorPawnData);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ULevelProgressionSubsystem::execActivateCurrentNodesInteractableGimmick)
+	{
+		P_GET_STRUCT(FCompleteFloorPawnData,Z_Param_aCompleteFloorPawnData);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ActivateCurrentNodesInteractableGimmick(Z_Param_aCompleteFloorPawnData);
+		P_NATIVE_END;
+	}
 	void ULevelProgressionSubsystem::StaticRegisterNativesULevelProgressionSubsystem()
 	{
 		UClass* Class = ULevelProgressionSubsystem::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "ActivateCurrentNodesInteractableGimmick", &ULevelProgressionSubsystem::execActivateCurrentNodesInteractableGimmick },
 			{ "SetCompleteFloorPawnData", &ULevelProgressionSubsystem::execSetCompleteFloorPawnData },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics
+	{
+		struct LevelProgressionSubsystem_eventActivateCurrentNodesInteractableGimmick_Parms
+		{
+			FCompleteFloorPawnData aCompleteFloorPawnData;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_aCompleteFloorPawnData;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics::NewProp_aCompleteFloorPawnData = { "aCompleteFloorPawnData", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(LevelProgressionSubsystem_eventActivateCurrentNodesInteractableGimmick_Parms, aCompleteFloorPawnData), Z_Construct_UScriptStruct_FCompleteFloorPawnData, METADATA_PARAMS(0, nullptr) }; // 1570468568
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics::NewProp_aCompleteFloorPawnData,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/LevelProgressionSubsystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ULevelProgressionSubsystem, nullptr, "ActivateCurrentNodesInteractableGimmick", nullptr, nullptr, Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics::PropPointers), sizeof(Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics::LevelProgressionSubsystem_eventActivateCurrentNodesInteractableGimmick_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics::Function_MetaDataParams), Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics::LevelProgressionSubsystem_eventActivateCurrentNodesInteractableGimmick_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics
 	{
@@ -358,6 +404,29 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_persistentGameInstance_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_persistentGameInstance;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_fogOfWar_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_fogOfWar;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_gimmickLocation_ValueProp;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_gimmickLocation_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_gimmickLocation_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_gimmickLocation;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentInteractableGimmick_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_currentInteractableGimmick;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_gameMode_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_gameMode;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
@@ -367,6 +436,7 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ULevelProgressionSubsystem_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick, "ActivateCurrentNodesInteractableGimmick" }, // 2044373380
 		{ &Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData, "SetCompleteFloorPawnData" }, // 4269515942
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::FuncInfo) < 2048);
@@ -376,6 +446,47 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 		{ "ModuleRelativePath", "Public/LevelProgressionSubsystem.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_persistentGameInstance_MetaData[] = {
+		{ "ModuleRelativePath", "Public/LevelProgressionSubsystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_persistentGameInstance = { "persistentGameInstance", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULevelProgressionSubsystem, persistentGameInstance), Z_Construct_UClass_UPersistentGameinstance_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_persistentGameInstance_MetaData), Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_persistentGameInstance_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_fogOfWar_MetaData[] = {
+		{ "ModuleRelativePath", "Public/LevelProgressionSubsystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_fogOfWar = { "fogOfWar", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULevelProgressionSubsystem, fogOfWar), Z_Construct_UScriptStruct_FCompleteProgressionData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_fogOfWar_MetaData), Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_fogOfWar_MetaData) }; // 3145609198
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gimmickLocation_ValueProp = { "gimmickLocation", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_UGimmick_Interactable_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gimmickLocation_Key_KeyProp = { "gimmickLocation_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gimmickLocation_MetaData[] = {
+		{ "ModuleRelativePath", "Public/LevelProgressionSubsystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gimmickLocation = { "gimmickLocation", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULevelProgressionSubsystem, gimmickLocation), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gimmickLocation_MetaData), Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gimmickLocation_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_currentInteractableGimmick_MetaData[] = {
+		{ "ModuleRelativePath", "Public/LevelProgressionSubsystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_currentInteractableGimmick = { "currentInteractableGimmick", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULevelProgressionSubsystem, currentInteractableGimmick), Z_Construct_UClass_UGimmick_Interactable_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_currentInteractableGimmick_MetaData), Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_currentInteractableGimmick_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gameMode_MetaData[] = {
+		{ "ModuleRelativePath", "Public/LevelProgressionSubsystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gameMode = { "gameMode", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULevelProgressionSubsystem, gameMode), Z_Construct_UClass_AAtlantisGameModeBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gameMode_MetaData), Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gameMode_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ULevelProgressionSubsystem_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_persistentGameInstance,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_fogOfWar,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gimmickLocation_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gimmickLocation_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gimmickLocation,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_currentInteractableGimmick,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gameMode,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ULevelProgressionSubsystem_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ULevelProgressionSubsystem>::IsAbstract,
 	};
@@ -385,15 +496,16 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		FuncInfo,
-		nullptr,
+		Z_Construct_UClass_ULevelProgressionSubsystem_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::PropPointers),
 		0,
 		0x001000A0u,
 		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::Class_MetaDataParams), Z_Construct_UClass_ULevelProgressionSubsystem_Statics::Class_MetaDataParams)
 	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::PropPointers) < 2048);
 	UClass* Z_Construct_UClass_ULevelProgressionSubsystem()
 	{
 		if (!Z_Registration_Info_UClass_ULevelProgressionSubsystem.OuterSingleton)
@@ -420,9 +532,9 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 		{ FCompleteProgressionData::StaticStruct, Z_Construct_UScriptStruct_FCompleteProgressionData_Statics::NewStructOps, TEXT("CompleteProgressionData"), &Z_Registration_Info_UScriptStruct_CompleteProgressionData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCompleteProgressionData), 3145609198U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ULevelProgressionSubsystem, ULevelProgressionSubsystem::StaticClass, TEXT("ULevelProgressionSubsystem"), &Z_Registration_Info_UClass_ULevelProgressionSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelProgressionSubsystem), 2774447374U) },
+		{ Z_Construct_UClass_ULevelProgressionSubsystem, ULevelProgressionSubsystem::StaticClass, TEXT("ULevelProgressionSubsystem"), &Z_Registration_Info_UClass_ULevelProgressionSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelProgressionSubsystem), 1835577862U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_1095333985(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_1830825318(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ScriptStructInfo),
 		nullptr, 0);

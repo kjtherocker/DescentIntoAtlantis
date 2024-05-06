@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "FloorEnum.h"
 #include "FloorPawn.h"
+#include "Gimmick_Base.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "LevelProgressionSubsystem.generated.h"
 
@@ -51,18 +52,28 @@ UCLASS()
 class DESENTINTOATLANTIS_API ULevelProgressionSubsystem : public UGameInstanceSubsystem
 {
 	GENERATED_BODY()
-
+	UPROPERTY()
 	UPersistentGameinstance* persistentGameInstance;
 	
 	EFloorIdentifier currentFloorIdentifier;
-	
+	UPROPERTY()
 	FCompleteProgressionData fogOfWar;
+
+	UPROPERTY()
+	TMap<FVector2D,UGimmick_Interactable* > gimmickLocation;
+
+	UPROPERTY()
+	UGimmick_Interactable* currentInteractableGimmick;
+	
 	TArray<FNodeMapData> currentFogOfWar;
 	void CreateNewFogOfWar(UFloorBase* aFloor);
 
 
 	bool lockUpdatesToCompleteFloorData = false;
 	FCompleteFloorPawnData completeFloorPawnData;
+
+	UPROPERTY()
+	AAtlantisGameModeBase* gameMode;
 public:
 	FPlayerHasMoved PlayerHasMoved;
 	FPlayerDirectionHasChanged playerDirectionHasChanged;
@@ -71,6 +82,12 @@ public:
 	FMapHasChanged mapHasChanged;
 
 	FVector2D newFloorPlayerSpawnPosition = FVector2D(-1,-1);
+	
+	void SetInteractableGimmick(FVector2D aPositionInGrid,UGimmick_Interactable* aInteractableGimmick);
+	UFUNCTION()
+	void ActivateCurrentNodesInteractableGimmick(FCompleteFloorPawnData aCompleteFloorPawnData);
+	
+	void SetGameMode(AAtlantisGameModeBase* aGameMode);
 
 	UFUNCTION()
 	void SetCompleteFloorPawnData(FCompleteFloorPawnData aCompleteFloorPawnData);

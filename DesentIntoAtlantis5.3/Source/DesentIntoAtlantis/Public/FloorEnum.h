@@ -9,6 +9,7 @@
 #include "FloorEnum.generated.h"
 
 
+class UPersistentGameinstance;
 
 UENUM()
 enum class EFloorEventStates
@@ -28,7 +29,7 @@ enum class EFloorGimmicks
 {
 	None            = 0,
 	Door            = 1,
-	Movement        = 2,
+	ForcedMovement        = 2,
 	Lever           = 3,
 	Lava            = 4,
 	Teleporter      = 5,
@@ -54,8 +55,25 @@ struct DESENTINTOATLANTIS_API FGimmickData : public FTableRowBase
 	GENERATED_USTRUCT_BODY()
 	
 	UPROPERTY( EditAnywhere )
-	FVector2D positionInGrid;
+	FVector2D positionInGrid = FVector2D(-1,-1);
 
+	UPROPERTY(EditAnywhere)
+	bool activateWhenPlayerIsOnNode = true;
+};
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FGimmickInteractableData : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	
+	UPROPERTY( EditAnywhere )
+	FVector2D positionInGrid = FVector2D(-1,-1);
+
+	UPROPERTY( EditAnywhere)
+	ECardinalNodeDirections interactDirection = ECardinalNodeDirections::Empty;
+
+	UPROPERTY(EditAnywhere)
+	bool activateWhenPlayerIsOnNode = true;
 };
 
 USTRUCT()
@@ -71,7 +89,42 @@ struct DESENTINTOATLANTIS_API FTeleporterGimmick : public FGimmickData
 
 	UPROPERTY( EditAnywhere )
 	FVector2D nextLevelsSpawnPosition;
+
+
 };
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FForcedMovementGimmick: public FGimmickData
+{
+	GENERATED_USTRUCT_BODY()
+	
+	UPROPERTY( EditAnywhere )
+	ECardinalNodeDirections movedNodeDirection;
+
+};
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FDoorGimmick: public FGimmickInteractableData
+{
+	GENERATED_USTRUCT_BODY()
+	
+	UPROPERTY( EditAnywhere )
+	ECardinalNodeDirections movedNodeDirection;
+};
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FDoorComplete : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	
+	UPROPERTY( EditAnywhere )
+	FDoorGimmick DoorSpotA;
+
+	UPROPERTY( EditAnywhere )
+	FDoorGimmick DoorSpotB;
+
+};
+
 
 
 USTRUCT()
@@ -92,6 +145,12 @@ struct DESENTINTOATLANTIS_API FFloorData : public FTableRowBase
 
 	UPROPERTY(EditAnywhere)
 	TArray<FTeleporterGimmick> teleporterGimmicks;
+
+	UPROPERTY(EditAnywhere)
+	TArray<FForcedMovementGimmick> forcedMovementGimmick;
+
+	UPROPERTY(EditAnywhere)
+	TArray<FDoorComplete> doorGimmick;
 };
 
 

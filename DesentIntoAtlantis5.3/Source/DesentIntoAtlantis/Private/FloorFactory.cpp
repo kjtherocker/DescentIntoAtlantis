@@ -35,7 +35,11 @@ void UFloorFactory::InitializeDatabase(UDataTable* aFloorDatabase,UDataTable* aF
 
 	for (TTuple<EFloorIdentifier, UFloorBase*> Element : floorDictionary)
 	{
-		TArray<FTeleporterGimmick> teleporterGimmick = Element.Value->floorData.teleporterGimmicks;
+		TArray<FTeleporterGimmick>     teleporterGimmick      = Element.Value->floorData.teleporterGimmicks;
+		TArray<FForcedMovementGimmick> forcedMovementGimmicks = Element.Value->floorData.forcedMovementGimmick;
+		Element.Value->doorGimmicks                           = Element.Value->floorData.doorGimmick;
+		
+		Element.Value->SetForcedMovementGimmickData(forcedMovementGimmicks);
 		Element.Value->SetTeleporterGimmickData(teleporterGimmick);
 	}
 }

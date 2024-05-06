@@ -3,6 +3,8 @@
 
 #include "LevelProgressionSubsystem.h"
 
+#include "AtlantisGameModeBase.h"
+#include "InteractableView.h"
 #include "PersistentGameinstance.h"
 
 void ULevelProgressionSubsystem::InitializeSubsystem(UPersistentGameinstance* aPersistentGameinstance)
@@ -13,6 +15,7 @@ void ULevelProgressionSubsystem::InitializeSubsystem(UPersistentGameinstance* aP
 void ULevelProgressionSubsystem::SetSubscribeFloorPawnDelegates(AFloorPawn* aFloorPawn)
 {
 	aFloorPawn->playerhasMovedDelegate.AddDynamic(this,&ULevelProgressionSubsystem::SetCompleteFloorPawnData);
+	aFloorPawn->playerhasMovedDelegate.AddDynamic(this,&ULevelProgressionSubsystem::ActivateCurrentNodesInteractableGimmick);
 	aFloorPawn->playerDirectionHasChanged.AddDynamic(this,&ULevelProgressionSubsystem::SetCompleteFloorPawnData);
 }
 
@@ -54,6 +57,37 @@ void ULevelProgressionSubsystem::CreateNewFogOfWar(UFloorBase* aFloor)
 	entireMapFogData.revealedNodes = newFogOfWar;
 	fogOfWar.mapProgression.Add(aFloor->floorData.floorIdentifier, entireMapFogData);
 }
+
+void ULevelProgressionSubsystem::SetInteractableGimmick(FVector2D aPositionInGrid,
+	UGimmick_Interactable* aInteractableGimmick)
+{
+	gimmickLocation.Add(aPositionInGrid,aInteractableGimmick);
+}
+
+void ULevelProgressionSubsystem::ActivateCurrentNodesInteractableGimmick(FCompleteFloorPawnData aCompleteFloorPawnData)
+{
+	currentInteractableGimmick = nullptr;
+	FVector2D                currentPlayerPosition = aCompleteFloorPawnData.currentNodePositionInGrid;
+	ECardinalNodeDirections currentPlayerDirection = aCompleteFloorPawnData.currentFacingDirection;
+	
+	if(gimmickLocation.Contains(currentPlayerPosition))
+	{
+		currentInteractableGimmick = gimmickLocation[currentPlayerPosition];
+		if(currentInteractableGimmick->GetCurrentGimmick().interactDirection == currentPlayerDirection)
+		{
+			UInteractableView * interactableView = (UInteractableView*)gameMode->InGameHUD->PushAndGetView(EViews::InteractableView,EUiType::ActiveUi);
+			interactableView->SetGimmick(currentInteractableGimmick);
+		}
+	}
+	
+}
+
+void ULevelProgressionSubsystem::SetGameMode(AAtlantisGameModeBase* aGameMode)
+{
+	gimmickLocation.Empty();
+	gameMode = aGameMode;
+}
+
 
 void ULevelProgressionSubsystem::SetCompleteFloorPawnData(FCompleteFloorPawnData aCompleteFloorPawnData)
 {

@@ -38,9 +38,6 @@ void EmptyLinkFunctionForGeneratedCodeFloorBase() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UFloorBase_Statics::DependentSingletons) < 16);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UFloorBase_Statics::Class_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n * \n */" },
-#endif
 		{ "IncludePath", "FloorBase.h" },
 		{ "ModuleRelativePath", "FloorBase.h" },
 	};
@@ -83,9 +80,9 @@ void EmptyLinkFunctionForGeneratedCodeFloorBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UFloorBase, UFloorBase::StaticClass, TEXT("UFloorBase"), &Z_Registration_Info_UClass_UFloorBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFloorBase), 4099520892U) },
+		{ Z_Construct_UClass_UFloorBase, UFloorBase::StaticClass, TEXT("UFloorBase"), &Z_Registration_Info_UClass_UFloorBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFloorBase), 778462371U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorBase_h_39802669(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorBase_h_3254264846(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

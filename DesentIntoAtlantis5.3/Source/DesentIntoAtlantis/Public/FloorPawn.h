@@ -19,7 +19,7 @@ struct DESENTINTOATLANTIS_API FCompleteFloorPawnData:public  FTableRowBase
 	FVector2D currentNodePositionInGrid = FVector2D(-1,-1);
 };
 
-
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerForcedMovement, ECardinalNodeDirections, direction);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerHasMoved,FCompleteFloorPawnData,floorData);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerDirectionHasChanged,FCompleteFloorPawnData,playerFacingDirection);
 UCLASS()
@@ -32,11 +32,11 @@ public:
 	// Sets default values for this pawn's properties
 	AFloorPawn();
 
-	
+	void Initialize();	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	void Initialize();
+
 	
 	void LeftRotation();
 	void RightRotation();
@@ -87,6 +87,8 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	UFUNCTION()
+	void ForcedMovement(ECardinalNodeDirections directiontoHead);
 	void PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode, ECardinalNodeDirections aRotation);
 	void SetRotationWithoutAnimation(ECardinalNodeDirections aCardinalNodeDirection);
 	void RotatePawn(float aDeltatime);
@@ -107,6 +109,9 @@ public:
 
 	UPROPERTY()
 	FPlayerDirectionHasChanged playerDirectionHasChanged;
+
+	UPROPERTY()
+	FPlayerForcedMovement playerForcedMovement;
 };
 
 

@@ -6,6 +6,7 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "DesentIntoAtlantis/FloorManager.h"
+#include "DesentIntoAtlantis/Public/Gimmick_Base.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeFloorManager() {}
 // Cross Module References
@@ -17,7 +18,9 @@ void EmptyLinkFunctionForGeneratedCodeFloorManager() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEventManagerSubSystem_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UFloorBase_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_ULevelProgressionSubsystem_NoRegister();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EFloorGimmicks();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EFloorIdentifier();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FUGimmickArrayWrapper();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
@@ -155,6 +158,13 @@ void EmptyLinkFunctionForGeneratedCodeFloorManager() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentFloor_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_currentFloor;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_gimmickMap_ValueProp;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_gimmickMap_Key_KeyProp_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_gimmickMap_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_gimmickMap_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_gimmickMap;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_floorEventManager_MetaData[];
 #endif
@@ -241,6 +251,15 @@ void EmptyLinkFunctionForGeneratedCodeFloorManager() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFloorManager_Statics::NewProp_currentFloor = { "currentFloor", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorManager, currentFloor), Z_Construct_UClass_UFloorBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorManager_Statics::NewProp_currentFloor_MetaData), Z_Construct_UClass_AFloorManager_Statics::NewProp_currentFloor_MetaData) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFloorManager_Statics::NewProp_gimmickMap_ValueProp = { "gimmickMap", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UScriptStruct_FUGimmickArrayWrapper, METADATA_PARAMS(0, nullptr) }; // 3718211037
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AFloorManager_Statics::NewProp_gimmickMap_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AFloorManager_Statics::NewProp_gimmickMap_Key_KeyProp = { "gimmickMap_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EFloorGimmicks, METADATA_PARAMS(0, nullptr) }; // 1665822029
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorManager_Statics::NewProp_gimmickMap_MetaData[] = {
+		{ "ModuleRelativePath", "FloorManager.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_AFloorManager_Statics::NewProp_gimmickMap = { "gimmickMap", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorManager, gimmickMap), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorManager_Statics::NewProp_gimmickMap_MetaData), Z_Construct_UClass_AFloorManager_Statics::NewProp_gimmickMap_MetaData) }; // 1665822029 3718211037
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorManager_Statics::NewProp_floorEventManager_MetaData[] = {
 		{ "ModuleRelativePath", "FloorManager.h" },
@@ -262,6 +281,10 @@ void EmptyLinkFunctionForGeneratedCodeFloorManager() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorManager_Statics::NewProp_currentFloorIdentifier_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorManager_Statics::NewProp_currentFloorIdentifier,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorManager_Statics::NewProp_currentFloor,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorManager_Statics::NewProp_gimmickMap_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorManager_Statics::NewProp_gimmickMap_Key_KeyProp_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorManager_Statics::NewProp_gimmickMap_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorManager_Statics::NewProp_gimmickMap,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorManager_Statics::NewProp_floorEventManager,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AFloorManager_Statics::StaticCppClassTypeInfo = {
@@ -302,9 +325,9 @@ void EmptyLinkFunctionForGeneratedCodeFloorManager() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorManager_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFloorManager, AFloorManager::StaticClass, TEXT("AFloorManager"), &Z_Registration_Info_UClass_AFloorManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorManager), 1814409792U) },
+		{ Z_Construct_UClass_AFloorManager, AFloorManager::StaticClass, TEXT("AFloorManager"), &Z_Registration_Info_UClass_AFloorManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorManager), 279189552U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorManager_h_270337153(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorManager_h_1305406608(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorManager_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

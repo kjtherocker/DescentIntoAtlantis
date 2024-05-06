@@ -5,10 +5,10 @@
 #include "CoreMinimal.h"
 #include "ECardinalDirections.h"
 #include "FloorBase.h"
-#include "Gimmick_Base.h"
 #include "GameFramework/Actor.h"
 #include "FloorNode.generated.h"
 
+class UGimmick_Base;
 class UFloorNodeWallInfo;
 UCLASS()
 class DESENTINTOATLANTIS_API AFloorNode : public AActor
@@ -30,9 +30,8 @@ public:
 	void SetFloorNodeWallInfo(ECardinalNodeDirections aCardinalDirection, FVector aWallPosition, FRotator aRotation);
 	//	WalkOntopTriggerTypes m_WalkOnTopTriggerTypes;
 	void PlayerIsOnTopOfNode();
+	void SetAdditionalLockedDirections(ECardinalNodeDirections aCardinalNodeDirections);
 	TArray<ECardinalNodeDirections> walkableDirections;
-
-	void SetFloorGimmick(UGimmick_Base* aGimmick);
 
 	FNodeHasBeenWalkedOn nodeHasBeenWalkedOn;
 	
@@ -45,6 +44,9 @@ public:
 	TMap<ECardinalNodeDirections,AFloorNode*> nodeNeighbors;
 	FVector2D positionInGrid;
 
+	UPROPERTY()
+	TArray<ECardinalNodeDirections> additonalLockedDirections;
+	UPROPERTY()
 	TArray<ECardinalNodeDirections> cardinalNodeDirections;
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> wallReference;
@@ -54,7 +56,7 @@ public:
 	FNodeHasBeenWalkedOn floorEventHasBeenTriggered;
 
 private:
-	UGimmick_Base* ActiveNodeGimmick;
+
 
 };
 

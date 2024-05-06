@@ -203,7 +203,8 @@ void AFloorNode::PlayerIsOnTopOfNode()
 	nodeHasBeenWalkedOn.Broadcast(positionInGrid);
 }
 
-void AFloorNode::SetFloorGimmick(UGimmick_Base* aGimmick)
+void AFloorNode::SetAdditionalLockedDirections(ECardinalNodeDirections aCardinalNodeDirections)
 {
-	ActiveNodeGimmick = aGimmick;
+	additonalLockedDirections.Add(aCardinalNodeDirections);
 }
+

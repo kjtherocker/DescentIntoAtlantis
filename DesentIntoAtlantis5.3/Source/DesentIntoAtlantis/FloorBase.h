@@ -15,6 +15,18 @@ enum class ETutorialTriggers;
  * 
  */
 
+template<typename T>
+struct FTestoData {
+	T Data;
+};
+
+template<typename KeyType, typename ValueType>
+using TGenericMap = TMap<KeyType, ValueType>;
+
+// Define your map of maps with generics
+template<typename KeyType, typename ValueType>
+using TMapOfMaps = TMap<KeyType, TGenericMap<FVector2d, ValueType>>;
+
 UCLASS()
 class DESENTINTOATLANTIS_API UFloorBase : public UObject
 {
@@ -30,12 +42,15 @@ public:
 
 	TMap<FVector2d ,FFloorEventData> floorEventData;
 
+	TArray<FDoorComplete> doorGimmicks;
 	TMap<FVector2d ,FTeleporterGimmick> TeleporterGimmickData;
+	TMap<FVector2d ,FForcedMovementGimmick> ForcedMovementGimmickData;
    
 	FVector2D m_DefaultSpawnPosition;
    
 	void Initialize();
 	void SetTeleporterGimmickData(TArray<FTeleporterGimmick> aTeleporterGimmicks);
+	void SetForcedMovementGimmickData(TArray<FForcedMovementGimmick> aForcedMovementGimmicks);
 	int GetIndex(int aRow, int aColumn);
 
 };

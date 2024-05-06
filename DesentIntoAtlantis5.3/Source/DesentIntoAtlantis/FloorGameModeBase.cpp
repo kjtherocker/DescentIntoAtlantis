@@ -33,8 +33,10 @@ void AFloorGameMode::InitializeLevel()
     
     floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, FVector(0,0,0), rotator));
     floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
-    
+    floorPawn->Initialize();
     levelProgressionSubsystem->SetSubscribeFloorPawnDelegates(floorPawn);
+    levelProgressionSubsystem->SetGameMode(this);
+    
     saveManagerSubsystem->InitializeSessionSavePlayer(floorPawn);
     
     UMapView* mapView     = (UMapView*)InGameHUD->PushAndGetView(EViews::MapView,         EUiType::PersistentUi);

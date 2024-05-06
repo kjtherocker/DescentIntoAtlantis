@@ -12,6 +12,7 @@
 #include "FloorBase.h"
 #include "FloorPawn.h"
 #include "FloorEnemyPawn.h"
+#include "Gimmick_Base.h"
 #include "FloorManager.generated.h"
 
 
@@ -73,8 +74,9 @@ protected:
 
 	
 	TMap<ECardinalNodeDirections, FVector2D>  cardinalPositions;
-
-	TMap<EFloorGimmicks,UGimmick_Base*> gimmickMap;
+	
+	UPROPERTY()
+	TMap<EFloorGimmicks,FUGimmickArrayWrapper> gimmickMap;
 	
 	void SpawnObjectInGrid(FVector2D aPositionInGrid, TSubclassOf<AActor> objectToSpawn);
 

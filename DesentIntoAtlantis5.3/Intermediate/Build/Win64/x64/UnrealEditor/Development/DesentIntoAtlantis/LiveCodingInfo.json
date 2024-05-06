@@ -44,15 +44,16 @@
 			"GameManager.gen.cpp.obj",
 			"GameSettings.gen.cpp.obj",
 			"Gimmick_Base.gen.cpp.obj",
-			"InGameHUD.gen.cpp.obj",
+			"InGameHUD.gen.cpp.obj"
+		],
+		"Module.DesentIntoAtlantis.3.cpp.obj": [
+			"InteractableView.gen.cpp.obj",
 			"LevelGeneratorUtilityWidget.gen.cpp.obj",
 			"LevelProgressionSubsystem.gen.cpp.obj",
 			"LevelupPanelElement.gen.cpp.obj",
 			"LevelupView.gen.cpp.obj",
 			"MainMenuGameMode.gen.cpp.obj",
-			"MapButtonElement.gen.cpp.obj"
-		],
-		"Module.DesentIntoAtlantis.3.cpp.obj": [
+			"MapButtonElement.gen.cpp.obj",
 			"MapEventEditorView.gen.cpp.obj",
 			"MapNodeEditorView.gen.cpp.obj",
 			"MapPlayerIconElement.gen.cpp.obj",
@@ -62,16 +63,16 @@
 			"PartyManagerSubsystem.gen.cpp.obj",
 			"PersistentGameinstance.gen.cpp.obj",
 			"PlayerCombatEntity.gen.cpp.obj",
-			"PressTurnManager.gen.cpp.obj",
+			"PressTurnManager.gen.cpp.obj"
+		],
+		"Module.DesentIntoAtlantis.4.cpp.obj": [
 			"SaveGameData.gen.cpp.obj",
 			"SaveManagerSubsystem.gen.cpp.obj",
 			"SkillBarElement.gen.cpp.obj",
 			"SkillFactorySubsystem.gen.cpp.obj",
 			"SkillsData.gen.cpp.obj",
 			"SkillView.gen.cpp.obj",
-			"SoundManager.gen.cpp.obj"
-		],
-		"Module.DesentIntoAtlantis.4.cpp.obj": [
+			"SoundManager.gen.cpp.obj",
 			"StatusElement.gen.cpp.obj",
 			"TitleView.gen.cpp.obj",
 			"TurnCounterElement.gen.cpp.obj",
@@ -119,6 +120,7 @@
 			"GameSettings.cpp.obj",
 			"Gimmick_Base.cpp.obj",
 			"InGameHUD.cpp.obj",
+			"InteractableView.cpp.obj",
 			"LevelGeneratorUtilityWidget.cpp.obj",
 			"LevelProgressionSubsystem.cpp.obj",
 			"LevelupPanelElement.cpp.obj",
@@ -131,7 +133,9 @@
 			"MapView.cpp.obj",
 			"PartyHealthbarElement.cpp.obj",
 			"PartyHealthbarsView.cpp.obj",
-			"PartyManagerSubsystem.cpp.obj",
+			"PartyManagerSubsystem.cpp.obj"
+		],
+		"Module.DesentIntoAtlantis.5.cpp.obj": [
 			"PersistentGameinstance.cpp.obj",
 			"PlayerCombatEntity.cpp.obj",
 			"PressTurnManager.cpp.obj",

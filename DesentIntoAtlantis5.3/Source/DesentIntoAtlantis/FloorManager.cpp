@@ -10,6 +10,7 @@
 #include "SkillsData.h"
 #include "Engine/DataTable.h"
 #include "EventManagerSubSystem.h"
+#include "Gimmick_Base.h"
 #include "LevelProgressionSubsystem.h"
 #include "SaveManagerSubsystem.h"
 #include "Kismet/GameplayStatics.h"
@@ -29,13 +30,13 @@ void AFloorManager::Initialize(AAtlantisGameModeBase* aGameModeBase,UEventManage
 	cardinalPositions.Add(ECardinalNodeDirections::Left,  FVector2D(-1,0));
 	cardinalPositions.Add(ECardinalNodeDirections::Right, FVector2D(1,0));
 
-
-	gimmickMap.Add(EFloorGimmicks::Door,       NewObject<UGimmick_Base>());
-	gimmickMap.Add(EFloorGimmicks::Lava,       NewObject<UGimmick_Base>());
-	gimmickMap.Add(EFloorGimmicks::Teleporter, NewObject<UGimmick_Base>());
-	gimmickMap.Add(EFloorGimmicks::Movement,   NewObject<UGimmick_Base>());
-	gimmickMap.Add(EFloorGimmicks::Stairs,     NewObject<UGimmick_Base>());
-
+	FUGimmickArrayWrapper teleporter;
+	gimmickMap.Add(EFloorGimmicks::Teleporter,teleporter);
+	FUGimmickArrayWrapper forcedMovement;
+	gimmickMap.Add(EFloorGimmicks::ForcedMovement, forcedMovement);
+	FUGimmickArrayWrapper door;
+	gimmickMap.Add(EFloorGimmicks::Door, door);
+	
 	persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
 
 	eventManagerSubSystem     =  persistentGameInstance->EventManagerSubSystem;
@@ -69,15 +70,50 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 				floorNodes[LevelIndex]->nodeHasBeenWalkedOn = eventManagerSubSystem->EventHasBeenTriggered;
 				SpawnFloorEventTriggers(aFloor->floorEventData[positionInGrid]);
 			}
+			if(aFloor->ForcedMovementGimmickData.Contains(positionInGrid))
+			{
+				FForcedMovementGimmick forcedMovementGimmick = aFloor->ForcedMovementGimmickData[positionInGrid];
+				
+				UGimmick_ForcedMovement* newGimmick = NewObject<UGimmick_ForcedMovement>();
+				newGimmick->InitializeGimmick(persistentGameInstance);
+				newGimmick->SetGimmick(forcedMovementGimmick);
+				newGimmick->SetFloorNodeDelegate(floorNodes[LevelIndex]);
+				newGimmick->SetPlayerForcedMovementDelegate(floorGameModeBase->floorPawn);
+				gimmickMap[EFloorGimmicks::ForcedMovement].GimmickArray.Add(newGimmick);
+				
+				SpawnObjectInGrid(positionInGrid,stairsReference);
+			}
 			if(aFloor->TeleporterGimmickData.Contains(positionInGrid))
 			{
-				floorNodes[LevelIndex]->nodeHasBeenWalkedOn.AddDynamic(this,&AFloorManager::LoadNextLevel);
+				FTeleporterGimmick teleporterGimmick = aFloor->TeleporterGimmickData[positionInGrid];
+				
+				UGimmick_Teleporter* newGimmick = NewObject<UGimmick_Teleporter>();
+				newGimmick->InitializeGimmick(persistentGameInstance);
+				newGimmick->SetGimmick(teleporterGimmick);
+				newGimmick->SetFloorNodeDelegate(floorNodes[LevelIndex]);
+				gimmickMap[EFloorGimmicks::Teleporter].GimmickArray.Add(newGimmick);
+				
 				SpawnObjectInGrid(positionInGrid,stairsReference);
 			}
 		}
 	}
-	
 
+
+	for (FDoorComplete Element : aFloor->doorGimmicks)
+	{
+		FDoorGimmick spotA = Element.DoorSpotA;
+		FDoorGimmick spotB = Element.DoorSpotB;
+		
+		UGimmick_Doors* newGimmickA = NewObject<UGimmick_Doors>();
+		newGimmickA->SetGimmick(spotA);
+		UGimmick_Doors* newGimmickB = NewObject<UGimmick_Doors>();
+		newGimmickB->SetGimmick(spotB);
+
+		newGimmickA->SetPlayerForcedMovementDelegate(floorGameModeBase->floorPawn);
+		newGimmickB->SetPlayerForcedMovementDelegate(floorGameModeBase->floorPawn);
+		levelProgressionSubsystem->SetInteractableGimmick(spotA.positionInGrid,newGimmickA);
+		levelProgressionSubsystem->SetInteractableGimmick(spotB.positionInGrid,newGimmickB);
+	}
 }
 
 void AFloorManager::CreateFloor(EFloorIdentifier aFloorIdentifier)
@@ -183,14 +219,7 @@ void AFloorManager::MovePlayerToPreviousNode()
 
 void AFloorManager::LoadNextLevel(FVector2D aPositionInGrid)
 {
-	FTeleporterGimmick teleporterGimmick = currentFloor->TeleporterGimmickData[aPositionInGrid];
-	FCompleteFloorPawnData CompleteFloorPawnData;
-	CompleteFloorPawnData.currentFacingDirection    = teleporterGimmick.nextLevelSpawnDirection;
-	CompleteFloorPawnData.currentNodePositionInGrid = teleporterGimmick.nextLevelsSpawnPosition;
 
-	levelProgressionSubsystem->SetCompleteFloorPawnWithLockData(CompleteFloorPawnData);
-
-	persistentGameInstance->LoadLevel(teleporterGimmick.floorIdentifier);
 }
 
 

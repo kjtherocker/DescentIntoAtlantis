@@ -1691,6 +1691,9 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\InGameHUD.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\InteractableView.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\LevelGeneratorUtilityWidget.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
@@ -1884,6 +1887,9 @@
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\InGameHUD.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\InteractableView.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\LevelGeneratorUtilityWidget.h">

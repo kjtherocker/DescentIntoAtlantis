@@ -23,7 +23,8 @@ enum class  EViews
 	Death             = 13,
 	Ending            = 14,
 	CameraFilter      = 15,
-	MapView           = 16
+	MapView           = 16,
+	InteractableView  = 17
 };
 
 
