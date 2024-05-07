@@ -14,6 +14,7 @@
 #include "LevelProgressionSubsystem.h"
 #include "SaveManagerSubsystem.h"
 #include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetMathLibrary.h"
 
 
 // Sets default values
@@ -102,15 +103,36 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 	for (FDoorComplete Element : aFloor->doorGimmicks)
 	{
 		FDoorGimmick spotA = Element.DoorSpotA;
+		int LevelIndexA = aFloor->GetIndex(spotA.positionInGrid.X, spotA.positionInGrid.Y);
 		FDoorGimmick spotB = Element.DoorSpotB;
+		int LevelIndexB = aFloor->GetIndex(spotB.positionInGrid.X, spotB.positionInGrid.Y);
 		
 		UGimmick_Doors* newGimmickA = NewObject<UGimmick_Doors>();
 		newGimmickA->SetGimmick(spotA);
 		UGimmick_Doors* newGimmickB = NewObject<UGimmick_Doors>();
 		newGimmickB->SetGimmick(spotB);
+		
+		AFloorNode* floorNodeA = floorNodes[LevelIndexA];
+		floorNodeA->SetAdditionalLockedDirections(spotA.interactDirection);
+		AFloorNode* floorNodeB = floorNodes[LevelIndexB];
+		floorNodeB->SetAdditionalLockedDirections(spotB.interactDirection);
 
+		nodeALocation = floorNodeA->GetActorLocation();
+		nodeBLocation = floorNodeB->GetActorLocation();
+		 MidPoint   = (nodeALocation + nodeBLocation) / 2.0f;
+		
+		FVector PositionOffset = FVector(0,0,SPAWNED_OBJECT_OFFSET);
+		
+	
+		FActorSpawnParameters ActorSpawnParameters;
+		ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+		ActorSpawnParameters.Owner = this;
+	
+		AActor* floorPawn = Cast<AActor>(GetWorld()->SpawnActor<AActor>(DoorReference, MidPoint + PositionOffset, FRotator(0,0,0),ActorSpawnParameters));
+		
 		newGimmickA->SetPlayerForcedMovementDelegate(floorGameModeBase->floorPawn);
 		newGimmickB->SetPlayerForcedMovementDelegate(floorGameModeBase->floorPawn);
+		
 		levelProgressionSubsystem->SetInteractableGimmick(spotA.positionInGrid,newGimmickA);
 		levelProgressionSubsystem->SetInteractableGimmick(spotB.positionInGrid,newGimmickB);
 	}

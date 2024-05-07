@@ -135,6 +135,10 @@ void EmptyLinkFunctionForGeneratedCodeFloorManager() {}
 #endif
 		static const UECodeGen_Private::FClassPropertyParams NewProp_stairsReference;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DoorReference_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_DoorReference;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_eventManagerSubSystem_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_eventManagerSubSystem;
@@ -218,6 +222,13 @@ void EmptyLinkFunctionForGeneratedCodeFloorManager() {}
 #endif
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AFloorManager_Statics::NewProp_stairsReference = { "stairsReference", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorManager, stairsReference), Z_Construct_UClass_UClass, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorManager_Statics::NewProp_stairsReference_MetaData), Z_Construct_UClass_AFloorManager_Statics::NewProp_stairsReference_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorManager_Statics::NewProp_DoorReference_MetaData[] = {
+		{ "Category", "FloorManager" },
+		{ "ModuleRelativePath", "FloorManager.h" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AFloorManager_Statics::NewProp_DoorReference = { "DoorReference", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorManager, DoorReference), Z_Construct_UClass_UClass, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorManager_Statics::NewProp_DoorReference_MetaData), Z_Construct_UClass_AFloorManager_Statics::NewProp_DoorReference_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorManager_Statics::NewProp_eventManagerSubSystem_MetaData[] = {
 		{ "ModuleRelativePath", "FloorManager.h" },
 	};
@@ -272,6 +283,7 @@ void EmptyLinkFunctionForGeneratedCodeFloorManager() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorManager_Statics::NewProp_floorNodeReference,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorManager_Statics::NewProp_floorEnemyPawnReference,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorManager_Statics::NewProp_stairsReference,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorManager_Statics::NewProp_DoorReference,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorManager_Statics::NewProp_eventManagerSubSystem,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorManager_Statics::NewProp_levelProgressionSubsystem,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorManager_Statics::NewProp_floorDictionary_ValueProp,
@@ -325,9 +337,9 @@ void EmptyLinkFunctionForGeneratedCodeFloorManager() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorManager_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFloorManager, AFloorManager::StaticClass, TEXT("AFloorManager"), &Z_Registration_Info_UClass_AFloorManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorManager), 279189552U) },
+		{ Z_Construct_UClass_AFloorManager, AFloorManager::StaticClass, TEXT("AFloorManager"), &Z_Registration_Info_UClass_AFloorManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorManager), 195333075U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorManager_h_1305406608(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorManager_h_3026728993(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorManager_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

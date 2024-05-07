@@ -79,6 +79,7 @@ protected:
 
 public:
 
+	
 	UPROPERTY()
 	AFloorNode* previousNodePlayerWasOn;
 	// Called every frame

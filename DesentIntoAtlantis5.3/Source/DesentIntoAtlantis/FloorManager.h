@@ -53,6 +53,14 @@ public:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> stairsReference;
 	
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> DoorReference;
+
+	FVector MidPoint;
+
+	FVector nodeALocation;
+	FVector nodeBLocation;
+	
 
 protected:
 	// Called when the game starts or when spawned
