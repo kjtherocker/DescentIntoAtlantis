@@ -9,6 +9,7 @@
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "LevelProgressionSubsystem.generated.h"
 
+class UInteractableView;
 class FPlayerHasMoved;
 class FNodeHasBeenWalkedOn;
 enum class EFloorIdentifier;
@@ -64,6 +65,9 @@ class DESENTINTOATLANTIS_API ULevelProgressionSubsystem : public UGameInstanceSu
 
 	UPROPERTY()
 	UGimmick_Interactable* currentInteractableGimmick;
+
+	UPROPERTY()
+	UInteractableView* interactableView;
 	
 	TArray<FNodeMapData> currentFogOfWar;
 	void CreateNewFogOfWar(UFloorBase* aFloor);
@@ -87,7 +91,7 @@ public:
 	UFUNCTION()
 	void ActivateCurrentNodesInteractableGimmick(FCompleteFloorPawnData aCompleteFloorPawnData);
 	
-	void SetGameMode(AAtlantisGameModeBase* aGameMode);
+	void SetGameMode(AAtlantisGameModeBase* aGameMode,UInteractableView* aInteractable);
 
 	UFUNCTION()
 	void SetCompleteFloorPawnData(FCompleteFloorPawnData aCompleteFloorPawnData);

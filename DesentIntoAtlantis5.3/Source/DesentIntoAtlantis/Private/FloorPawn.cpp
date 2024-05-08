@@ -82,6 +82,11 @@ void AFloorPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 
 void AFloorPawn::ForcedMovement(ECardinalNodeDirections directiontoHead)
 {
+	if(!hasRotationFinished || currentNodePlayerIsOn == nullptr)
+	{
+		return;
+	} 
+	
 	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Footsteps);
 	
 	AFloorNode* nodeToMoveTo = nullptr;

@@ -14,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeLevelProgressionSubsystem() {}
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AAtlantisGameModeBase_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UGimmick_Interactable_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UInteractableView_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_ULevelProgressionSubsystem();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_ULevelProgressionSubsystem_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UPersistentGameinstance_NoRegister();
@@ -423,6 +424,10 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_currentInteractableGimmick;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_interactableView_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_interactableView;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_gameMode_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_gameMode;
@@ -473,6 +478,13 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_currentInteractableGimmick = { "currentInteractableGimmick", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULevelProgressionSubsystem, currentInteractableGimmick), Z_Construct_UClass_UGimmick_Interactable_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_currentInteractableGimmick_MetaData), Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_currentInteractableGimmick_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_interactableView_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/LevelProgressionSubsystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_interactableView = { "interactableView", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULevelProgressionSubsystem, interactableView), Z_Construct_UClass_UInteractableView_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_interactableView_MetaData), Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_interactableView_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gameMode_MetaData[] = {
 		{ "ModuleRelativePath", "Public/LevelProgressionSubsystem.h" },
 	};
@@ -485,6 +497,7 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gimmickLocation_Key_KeyProp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gimmickLocation,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_currentInteractableGimmick,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_interactableView,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelProgressionSubsystem_Statics::NewProp_gameMode,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ULevelProgressionSubsystem_Statics::StaticCppClassTypeInfo = {
@@ -502,7 +515,7 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::PropPointers),
 		0,
-		0x001000A0u,
+		0x009000A0u,
 		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::Class_MetaDataParams), Z_Construct_UClass_ULevelProgressionSubsystem_Statics::Class_MetaDataParams)
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::PropPointers) < 2048);
@@ -532,9 +545,9 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 		{ FCompleteProgressionData::StaticStruct, Z_Construct_UScriptStruct_FCompleteProgressionData_Statics::NewStructOps, TEXT("CompleteProgressionData"), &Z_Registration_Info_UScriptStruct_CompleteProgressionData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCompleteProgressionData), 3145609198U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ULevelProgressionSubsystem, ULevelProgressionSubsystem::StaticClass, TEXT("ULevelProgressionSubsystem"), &Z_Registration_Info_UClass_ULevelProgressionSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelProgressionSubsystem), 1835577862U) },
+		{ Z_Construct_UClass_ULevelProgressionSubsystem, ULevelProgressionSubsystem::StaticClass, TEXT("ULevelProgressionSubsystem"), &Z_Registration_Info_UClass_ULevelProgressionSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelProgressionSubsystem), 630262120U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_1830825318(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_3410614684(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ScriptStructInfo),
 		nullptr, 0);

@@ -5,6 +5,7 @@
 #include "CombatGameModeBase.h"
 #include "FloorPlayerController.h"
 #include "InGameHUD.h"
+#include "InteractableView.h"
 #include "LevelProgressionSubsystem.h"
 #include "MapView.h"
 
@@ -35,7 +36,8 @@ void AFloorGameMode::InitializeLevel()
     floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
     floorPawn->Initialize();
     levelProgressionSubsystem->SetSubscribeFloorPawnDelegates(floorPawn);
-    levelProgressionSubsystem->SetGameMode(this);
+    UInteractableView* interactableView = (UInteractableView*)InGameHUD->PushAndGetView(EViews::InteractableView,    EUiType::PersistentUi);
+    levelProgressionSubsystem->SetGameMode(this,interactableView);
     
     saveManagerSubsystem->InitializeSessionSavePlayer(floorPawn);
     

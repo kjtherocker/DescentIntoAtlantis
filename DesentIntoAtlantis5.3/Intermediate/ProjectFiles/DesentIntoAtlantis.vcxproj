@@ -27,7 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3F34F259-DA7C-366E-A4C0-80EB99300193}</ProjectGuid>
+    <ProjectGuid>{8CC24432-60D5-3C73-9438-AD8814CDA2C4}</ProjectGuid>
     <RootNamespace>DesentIntoAtlantis</RootNamespace>
   </PropertyGroup>
   <Import Project="UECommon.props" />

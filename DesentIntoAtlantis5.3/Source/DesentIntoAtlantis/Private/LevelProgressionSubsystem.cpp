@@ -16,7 +16,9 @@ void ULevelProgressionSubsystem::SetSubscribeFloorPawnDelegates(AFloorPawn* aFlo
 {
 	aFloorPawn->playerhasMovedDelegate.AddDynamic(this,&ULevelProgressionSubsystem::SetCompleteFloorPawnData);
 	aFloorPawn->playerhasMovedDelegate.AddDynamic(this,&ULevelProgressionSubsystem::ActivateCurrentNodesInteractableGimmick);
+	
 	aFloorPawn->playerDirectionHasChanged.AddDynamic(this,&ULevelProgressionSubsystem::SetCompleteFloorPawnData);
+	aFloorPawn->playerDirectionHasChanged.AddDynamic(this,&ULevelProgressionSubsystem::ActivateCurrentNodesInteractableGimmick);
 }
 
 FCompleteFloorPawnData ULevelProgressionSubsystem::GetCurrentFloorPawnCompleteData()
@@ -75,18 +77,28 @@ void ULevelProgressionSubsystem::ActivateCurrentNodesInteractableGimmick(FComple
 		currentInteractableGimmick = gimmickLocation[currentPlayerPosition];
 		if(currentInteractableGimmick->GetCurrentGimmick().interactDirection == currentPlayerDirection)
 		{
-			UInteractableView * interactableView = (UInteractableView*)gameMode->InGameHUD->PushAndGetView(EViews::InteractableView,EUiType::ActiveUi);
 			interactableView->SetGimmick(currentInteractableGimmick);
 		}
+		else
+		{
+			interactableView->ResetInteractiveView();
+		}
+	}
+	else
+	{
+		interactableView->ResetInteractiveView();
 	}
 	
 }
 
-void ULevelProgressionSubsystem::SetGameMode(AAtlantisGameModeBase* aGameMode)
+void ULevelProgressionSubsystem::SetGameMode(AAtlantisGameModeBase* aGameMode, UInteractableView* aInteractable)
 {
 	gimmickLocation.Empty();
-	gameMode = aGameMode;
+    gameMode = aGameMode;
+	interactableView = aInteractable;
 }
+
+
 
 
 void ULevelProgressionSubsystem::SetCompleteFloorPawnData(FCompleteFloorPawnData aCompleteFloorPawnData)

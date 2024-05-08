@@ -57,7 +57,7 @@
 			"MapEventEditorView.gen.cpp.obj",
 			"MapNodeEditorView.gen.cpp.obj",
 			"MapPlayerIconElement.gen.cpp.obj",
-			"Mapview.gen.cpp.obj",
+			"MapView.gen.cpp.obj",
 			"PartyHealthbarElement.gen.cpp.obj",
 			"PartyHealthbarsView.gen.cpp.obj",
 			"PartyManagerSubsystem.gen.cpp.obj",

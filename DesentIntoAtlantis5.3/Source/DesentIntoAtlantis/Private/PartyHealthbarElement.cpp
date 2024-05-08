@@ -29,7 +29,7 @@ void UPartyHealthbarElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 	
 	characterName = playerCombatEntity->playerIdentityData.characterName;
 	
-	BW_CharacterPortrait->SetBrushFromTexture(playerCombatEntity->playerIdentityData.characterPortrait);
+	//BW_CharacterPortrait->SetBrushFromTexture(playerCombatEntity->playerIdentityData.characterPortrait);
 	UpdateHealthbarElements();
 	
 }
@@ -62,7 +62,7 @@ void UPartyHealthbarElement::HitEffect(float DeltaTime)
 	
 	movementTimer += DeltaTime *2;	
 	
-	BW_CharacterPortrait->SetColorAndOpacity(FLinearColor(1,movementTimer,movementTimer,1));
+//	BW_CharacterPortrait->SetColorAndOpacity(FLinearColor(1,movementTimer,movementTimer,1));
 }
 
 void UPartyHealthbarElement::TriggerHitEffect()
@@ -73,7 +73,7 @@ void UPartyHealthbarElement::TriggerHitEffect()
 
 void UPartyHealthbarElement::TriggerGreyScale()
 {
-	BW_CharacterPortrait->SetColorAndOpacity(FLinearColor::Black);
+//	BW_CharacterPortrait->SetColorAndOpacity(FLinearColor::Black);
 }
 
 void UPartyHealthbarElement::MoveUp()

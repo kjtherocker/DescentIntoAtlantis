@@ -10,14 +10,25 @@ void UInteractableView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();
 	InputComponent->BindAction("E"       ,IE_Pressed ,this, &UInteractableView::ActivateGimmick  );
+	ResetInteractiveView();
+}
+
+void UInteractableView::ResetInteractiveView()
+{
+	currentInteractableGimmick = nullptr;
+	BW_InteractPanel->SetRenderOpacity(0);
 }
 
 void UInteractableView::ActivateGimmick()
 {
-	currentInteractableGimmick->ActivateGimmick();
+	if(currentInteractableGimmick)
+	{
+		currentInteractableGimmick->ActivateGimmick();
+	}
 }
 
 void UInteractableView::SetGimmick(UGimmick_Interactable*  aInteractableGimmick)
 {
 	currentInteractableGimmick = aInteractableGimmick;
+	BW_InteractPanel->SetRenderOpacity(1);
 }
