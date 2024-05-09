@@ -28,6 +28,14 @@ void UPartyHealthbarElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 		&UPartyHealthbarElement::TriggerGreyScale);
 	
 	characterName = playerCombatEntity->playerIdentityData.characterName;
+
+	if(aCombatEntity->playerIdentityData.characterPortrait)
+	{
+		UMaterialInterface* CurrentMaterial = aCombatEntity->playerIdentityData.characterPortrait;
+		UMaterialInterface*  materialInstanceDynamic = UMaterialInstanceDynamic::Create(CurrentMaterial, this);
+		BW_CharacterPortrait->SetBrushFromMaterial(materialInstanceDynamic);
+	}
+
 	
 	//BW_CharacterPortrait->SetBrushFromTexture(playerCombatEntity->playerIdentityData.characterPortrait);
 	UpdateHealthbarElements();
@@ -62,7 +70,7 @@ void UPartyHealthbarElement::HitEffect(float DeltaTime)
 	
 	movementTimer += DeltaTime *2;	
 	
-//	BW_CharacterPortrait->SetColorAndOpacity(FLinearColor(1,movementTimer,movementTimer,1));
+	BW_CharacterPortrait->SetColorAndOpacity(FLinearColor(1,movementTimer,movementTimer,1));
 }
 
 void UPartyHealthbarElement::TriggerHitEffect()
@@ -73,7 +81,7 @@ void UPartyHealthbarElement::TriggerHitEffect()
 
 void UPartyHealthbarElement::TriggerGreyScale()
 {
-//	BW_CharacterPortrait->SetColorAndOpacity(FLinearColor::Black);
+	BW_CharacterPortrait->SetColorAndOpacity(FLinearColor::Black);
 }
 
 void UPartyHealthbarElement::MoveUp()

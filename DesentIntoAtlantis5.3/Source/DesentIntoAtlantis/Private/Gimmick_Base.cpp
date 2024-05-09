@@ -40,7 +40,10 @@ void UGimmick_Teleporter::ActivateGimmick(FVector2D aPosition)
 {
 	Super::ActivateGimmick(aPosition);
 	
-
+	FCompleteFloorPawnData completeFloorPawnData;
+	completeFloorPawnData.currentNodePositionInGrid = currentActiveGimmick.nextLevelsSpawnPosition;
+	completeFloorPawnData.currentFacingDirection    = currentActiveGimmick.nextLevelSpawnDirection;
+	persistentGameinstance->levelProgressionSubsystem->SetCompleteFloorPawnWithLockData(completeFloorPawnData);
 	persistentGameinstance->LoadLevel(currentActiveGimmick.floorIdentifier);
 }
 

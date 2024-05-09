@@ -29,7 +29,7 @@ struct DESENTINTOATLANTIS_API FPlayerIdentityData :public  FTableRowBase
 	FString characterName;
 	
 	UPROPERTY( EditAnywhere )
-	UTexture2D* characterPortrait;
+	UMaterialInterface*  characterPortrait;
 	UPROPERTY( EditAnywhere )
 	UTexture2D* fullBodyCharacterPortrait;
 
