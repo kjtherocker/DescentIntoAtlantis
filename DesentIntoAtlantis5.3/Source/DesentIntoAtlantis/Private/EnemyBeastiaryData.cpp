@@ -4,12 +4,9 @@
 #include "EnemyCombatEntity.h"
 
 
-
-
-void UEnemyBestiaryData::InitializeEnemyIntoBestariary()
+void FEnemyBestiary::InitializeBestiary()
 {
 	
-
 	enemyElementalInfo.Add(EElementalType::Fire,false);
 	enemyElementalInfo.Add(EElementalType::Ice,false);
 	enemyElementalInfo.Add(EElementalType::Light,false);
@@ -18,19 +15,23 @@ void UEnemyBestiaryData::InitializeEnemyIntoBestariary()
 	enemyElementalInfo.Add(EElementalType::Shadow,false);
 	enemyElementalInfo.Add(EElementalType::Wind,false);
 	enemyElementalInfo.Add(EElementalType::Earth,false);
-
-
 }
 
-void UEnemyBestiaryData::RevealElementalInfo( EElementalType aElementToReveal)
+void FEnemyBestiary::RevealElementalInfo(EElementalType aElementToReveal)
 {
 	enemyElementalInfo[aElementToReveal] = true;
 }
 
-bool UEnemyBestiaryData::GetRevealedElementalType(EElementalType aElementToReveal)
+bool FEnemyBestiary::GetRevealedElementalType(EElementalType aElementToReveal)
 {
 	return enemyElementalInfo[aElementToReveal];
 }
+
+void UEnemyBestiaryData::InitializeEnemyIntoBestariary()
+{
+	enemyBestiary.InitializeBestiary();
+}
+
 
 
 

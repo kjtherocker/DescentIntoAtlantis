@@ -22,6 +22,11 @@ void USaveGameData::UpdateFloorPawnData(FCompleteFloorPawnData aCompleteFloorPaw
 	completeFloorPawnData = aCompleteFloorPawn;
 }
 
+void USaveGameData::UpdateEnemyBestiaryData(TMap<FString, FEnemyBestiary> aEnemyBeastiaryData)
+{
+	enemyBestiaryData = aEnemyBeastiaryData;
+}
+
 void USaveGameData::SubscribeUpdateFloorPlayerCompleteData(AFloorPawn* aFloorPawn)
 {
 	aFloorPawn->playerDirectionHasChanged.AddDynamic(this,&USaveGameData::UpdateFloorPawnData);

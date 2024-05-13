@@ -49,7 +49,7 @@ float UEnemyCombatEntity::GetHealthPercentage()
 
 PressTurnReactions UEnemyCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
-	enemyBestiaryData->RevealElementalInfo(aSkill.elementalType);
+	beastiaryData.RevealElementalInfo(aSkill.elementalType);
 	return UCombatEntity::DecrementHealth(aAttacker, aSkill);
 }
 

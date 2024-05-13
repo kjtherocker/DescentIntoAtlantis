@@ -44,6 +44,7 @@
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/EnemySelectionElement.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/EnemySkillView.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/EventManagerSubSystem.cpp"
+#include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/FloorDoor.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/FloorEnemyPawn.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/FloorEnum.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/FloorFactory.cpp"
@@ -66,4 +67,3 @@
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/MapView.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/PartyHealthbarElement.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/PartyHealthbarsView.cpp"
-#include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/PartyManagerSubsystem.cpp"

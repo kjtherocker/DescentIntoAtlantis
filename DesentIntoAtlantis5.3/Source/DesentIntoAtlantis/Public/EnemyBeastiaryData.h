@@ -6,23 +6,31 @@
 #include "UObject/NoExportTypes.h"
 #include "EnemyBeastiaryData.generated.h"
 
-struct FEnemyEntityData;
 enum class EElementalType;
 /**
  * 
  */
+
+USTRUCT()
+struct FEnemyBestiary
+{
+	GENERATED_BODY()
+	UPROPERTY()
+	TMap<EElementalType,bool> enemyElementalInfo;
+
+	void InitializeBestiary();
+	void RevealElementalInfo(EElementalType aElementToReveal );
+	bool GetRevealedElementalType(EElementalType aElementToReveal );
+};
+
 UCLASS()
 class DESENTINTOATLANTIS_API UEnemyBestiaryData : public UObject
 {
 	GENERATED_BODY()
-	
-	UPROPERTY()
-	TMap<EElementalType,bool> enemyElementalInfo;
+
 public:
+	UPROPERTY()
+	FEnemyBestiary enemyBestiary;
 	
 	void InitializeEnemyIntoBestariary();
-
-	void RevealElementalInfo(EElementalType aElementToReveal );
-
-	bool GetRevealedElementalType(EElementalType aElementToReveal );
 };

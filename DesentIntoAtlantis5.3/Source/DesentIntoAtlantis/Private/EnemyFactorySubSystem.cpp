@@ -48,15 +48,15 @@ void UEnemyFactorySubSystem::InitializeDatabase(UDataTable* aEnemys, UDataTable*
 	}
 }
 
-UEnemyBestiaryData*  UEnemyFactorySubSystem::GetBestiaryEntry(FString aCharacterName)
+FEnemyBestiary  UEnemyFactorySubSystem::GetBestiaryEntry(FString aCharacterName)
 {
 	return enemyBestiaryData[aCharacterName];
 }
 
 void UEnemyFactorySubSystem::InitializeBestiary(FEnemyEntityData aEnemy)
 {
-	UEnemyBestiaryData* BestiaryData = NewObject<UEnemyBestiaryData>();
-	BestiaryData->InitializeEnemyIntoBestariary();
+	FEnemyBestiary BestiaryData;
+	BestiaryData.InitializeBestiary();
 	
 	enemyBestiaryData.Add(aEnemy.characterName, BestiaryData);
 }

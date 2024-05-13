@@ -29,7 +29,7 @@ void UEnemySelectionElement::SetEnemySelectionElement(UEnemyCombatEntity* aEnemy
 void UEnemySelectionElement::SetElementalText(UTextBlock* aElementalText,EElementalType aElementalType ,UEnemyCombatEntity* aEnemyEntityData)
 {
 
-	if(aEnemyEntityData->enemyBestiaryData->GetRevealedElementalType(aElementalType))
+	if(aEnemyEntityData->beastiaryData.GetRevealedElementalType(aElementalType))
 	{
 		if(aEnemyEntityData->enemyEntityData.ElementalStrength == aElementalType)
 		{
@@ -44,7 +44,7 @@ void UEnemySelectionElement::SetElementalText(UTextBlock* aElementalText,EElemen
 
 		aElementalText->SetText(FText(FText::FromString("-")));
 	}
-	else if(!aEnemyEntityData->enemyBestiaryData->GetRevealedElementalType(aElementalType))
+	else if(!aEnemyEntityData->beastiaryData.GetRevealedElementalType(aElementalType))
 	{
 		aElementalText->SetText(FText(FText::FromString("?")));
 	}

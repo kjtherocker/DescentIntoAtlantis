@@ -2,6 +2,8 @@
 
 
 #include "Gimmick_Base.h"
+
+#include "FloorDoor.h"
 #include "FloorPawn.h"
 #include "LevelProgressionSubsystem.h"
 #include "PersistentGameinstance.h"
@@ -74,14 +76,20 @@ void UGimmick_ForcedMovement::SetGimmick(FForcedMovementGimmick aGimmick)
 	currentActiveGimmick = aGimmick;
 }
 
-void UGimmick_Doors::SetPlayerForcedMovementDelegate(AFloorPawn* floorPawn)
+void UGimmick_Doors::SetPlayerForcedMovementDelegate(AFloorPawn* aFloorpawn)
 {
-	playerForcedMovementDelegate = floorPawn->playerForcedMovement;
+	playerForcedMovementDelegate = aFloorpawn->playerForcedMovement;
+}
+
+void UGimmick_Doors::SetDoorOpenDelegate(AFloorDoor* aFloorDoor)
+{
+	openDoorDelegate = aFloorDoor->openDoorDelegate;
 }
 
 void UGimmick_Doors::ActivateGimmick()
 {
 	Super::ActivateGimmick();
+	openDoorDelegate.Broadcast(doorAnimationType);
 	playerForcedMovementDelegate.Broadcast(currentDoorGimmick.interactDirection);
 }
 

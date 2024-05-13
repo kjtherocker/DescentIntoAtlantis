@@ -9,6 +9,7 @@
 #include "FloorEnum.generated.h"
 
 
+class AFloorDoor;
 class UPersistentGameinstance;
 
 UENUM()
@@ -80,7 +81,7 @@ USTRUCT()
 struct DESENTINTOATLANTIS_API FTeleporterGimmick : public FGimmickData
 {
 	GENERATED_USTRUCT_BODY()
-	
+public:
 	UPROPERTY( EditAnywhere )
 	EFloorIdentifier floorIdentifier = EFloorIdentifier::None;
 
@@ -89,7 +90,7 @@ struct DESENTINTOATLANTIS_API FTeleporterGimmick : public FGimmickData
 
 	UPROPERTY( EditAnywhere )
 	FVector2D nextLevelsSpawnPosition;
-
+	
 
 };
 
@@ -110,6 +111,8 @@ struct DESENTINTOATLANTIS_API FDoorGimmick: public FGimmickInteractableData
 	
 	UPROPERTY( EditAnywhere )
 	ECardinalNodeDirections movedNodeDirection;
+	UPROPERTY()
+	AFloorDoor* floorDoor = nullptr;
 };
 
 USTRUCT()

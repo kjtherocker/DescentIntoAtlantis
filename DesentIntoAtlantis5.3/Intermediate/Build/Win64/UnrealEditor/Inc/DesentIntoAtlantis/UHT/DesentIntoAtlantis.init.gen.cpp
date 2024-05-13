@@ -11,6 +11,7 @@ void EmptyLinkFunctionForGeneratedCodeDesentIntoAtlantis_init() {}
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_MapHasChanged__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_NodeHasBeenWalkedOn__DelegateSignature();
+	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_OpenDoor__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerDirectionHasChanged__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerForcedMovement__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerHasMoved__DelegateSignature();
@@ -34,6 +35,7 @@ void EmptyLinkFunctionForGeneratedCodeDesentIntoAtlantis_init() {}
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_MapHasChanged__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_NodeHasBeenWalkedOn__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_OpenDoor__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerDirectionHasChanged__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerForcedMovement__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerHasMoved__DelegateSignature,
@@ -53,13 +55,13 @@ void EmptyLinkFunctionForGeneratedCodeDesentIntoAtlantis_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xA552B2E0,
-				0x904FD563,
+				0x8A64721A,
+				0x534D3058,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_DesentIntoAtlantis.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_DesentIntoAtlantis.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_DesentIntoAtlantis(Z_Construct_UPackage__Script_DesentIntoAtlantis, TEXT("/Script/DesentIntoAtlantis"), Z_Registration_Info_UPackage__Script_DesentIntoAtlantis, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xA552B2E0, 0x904FD563));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_DesentIntoAtlantis(Z_Construct_UPackage__Script_DesentIntoAtlantis, TEXT("/Script/DesentIntoAtlantis"), Z_Registration_Info_UPackage__Script_DesentIntoAtlantis, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x8A64721A, 0x534D3058));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

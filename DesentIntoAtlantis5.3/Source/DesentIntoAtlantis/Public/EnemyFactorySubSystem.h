@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "EnemyBeastiaryData.h"
 #include "EnemyCombatEntity.h"
 #include "UObject/NoExportTypes.h"
 #include "Subsystems/GameInstanceSubsystem.h"
@@ -47,11 +48,11 @@ class DESENTINTOATLANTIS_API UEnemyFactorySubSystem : public UGameInstanceSubsys
 	TMap<FString,FEnemyEntityData> enemyMap;
 	TMap<FString,TArray<FString>>   enemyGroupMap;
 	UPROPERTY()
-	TMap<FString,UEnemyBestiaryData*>  enemyBestiaryData;
+	TMap<FString,FEnemyBestiary>  enemyBestiaryData;
 public:
 	void InitializeDatabase(UDataTable* aEnemys, UDataTable* aEnemyGroups);
 
-	UEnemyBestiaryData* GetBestiaryEntry(FString aCharacterName);
+	FEnemyBestiary GetBestiaryEntry(FString aCharacterName);
 	
 	void InitializeBestiary(FEnemyEntityData aEnemy);
 	

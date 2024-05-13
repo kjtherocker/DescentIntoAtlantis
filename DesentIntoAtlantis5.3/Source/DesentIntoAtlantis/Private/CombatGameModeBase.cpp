@@ -162,7 +162,7 @@ void ACombatGameModeBase::AddEnemyToCombat(FEnemyEntityData AEnemyEntityData,int
 	EnemyCombatEntity->SetTacticsEntity(skillFactory);
 	EnemyCombatEntity->SetTacticsEvents(this);
 	EnemyCombatEntity->SetEnemyEntityData(AEnemyEntityData,skillFactory,static_cast<EEnemyCombatPositions>(aPosition));
-	EnemyCombatEntity->enemyBestiaryData = enemyFactory->GetBestiaryEntry(EnemyCombatEntity->enemyEntityData.characterName);
+	EnemyCombatEntity->beastiaryData = enemyFactory->GetBestiaryEntry(EnemyCombatEntity->enemyEntityData.characterName);
 	enemysInCombat.Add(EnemyCombatEntity);
 
 }

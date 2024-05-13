@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "FloorDoor.h"
 #include "FloorEnum.h"
 #include "FloorPawn.h"
 #include "UObject/NoExportTypes.h"
@@ -116,11 +117,17 @@ class DESENTINTOATLANTIS_API UGimmick_Doors : public UGimmick_Interactable
 public:
 	
 	//const FString hoverOverText = "Do you want to ascend to the next floor";
-	
+	UPROPERTY()
+	EDoorAnimationTypes doorAnimationType;
+	UPROPERTY()
 	FDoorGimmick currentDoorGimmick;
 	FPlayerForcedMovement playerForcedMovementDelegate;
+	FOpenDoor openDoorDelegate;
+	
 	UFUNCTION()
-	virtual void SetPlayerForcedMovementDelegate(AFloorPawn* floorPawn);
+	virtual void SetPlayerForcedMovementDelegate(AFloorPawn* aFloorpawn);
+	UFUNCTION()
+	virtual void SetDoorOpenDelegate(AFloorDoor* aFloorDoor);
 //
 	UFUNCTION()
 	virtual void ActivateGimmick() override;

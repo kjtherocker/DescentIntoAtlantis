@@ -33,6 +33,7 @@
 			"EnemySkillView.gen.cpp.obj",
 			"EventManagerSubSystem.gen.cpp.obj",
 			"FloorBase.gen.cpp.obj",
+			"FloorDoor.gen.cpp.obj",
 			"FloorEnemyPawn.gen.cpp.obj",
 			"FloorEnum.gen.cpp.obj",
 			"FloorFactory.gen.cpp.obj",
@@ -111,6 +112,7 @@
 			"EnemySelectionElement.cpp.obj",
 			"EnemySkillView.cpp.obj",
 			"EventManagerSubSystem.cpp.obj",
+			"FloorDoor.cpp.obj",
 			"FloorEnemyPawn.cpp.obj",
 			"FloorEnum.cpp.obj",
 			"FloorFactory.cpp.obj",
@@ -132,10 +134,10 @@
 			"MapPlayerIconElement.cpp.obj",
 			"MapView.cpp.obj",
 			"PartyHealthbarElement.cpp.obj",
-			"PartyHealthbarsView.cpp.obj",
-			"PartyManagerSubsystem.cpp.obj"
+			"PartyHealthbarsView.cpp.obj"
 		],
 		"Module.DesentIntoAtlantis.5.cpp.obj": [
+			"PartyManagerSubsystem.cpp.obj",
 			"PersistentGameinstance.cpp.obj",
 			"PlayerCombatEntity.cpp.obj",
 			"PressTurnManager.cpp.obj",

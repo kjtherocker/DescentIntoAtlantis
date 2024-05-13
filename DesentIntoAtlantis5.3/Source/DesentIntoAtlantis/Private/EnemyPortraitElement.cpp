@@ -27,6 +27,7 @@ void AEnemyPortraitElement::SetCombatEntity(UEnemyCombatEntity* aCombatEntity)
 	
 	TArray<UStaticMeshComponent*> Components;
 	GetComponents<UStaticMeshComponent>(Components);
+	
 
 	for(UStaticMeshComponent* MeshComponent : Components)
 	{

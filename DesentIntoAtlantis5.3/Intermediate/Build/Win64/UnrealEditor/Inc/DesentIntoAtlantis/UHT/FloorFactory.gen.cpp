@@ -339,13 +339,13 @@ void EmptyLinkFunctionForGeneratedCodeFloorFactory() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UFloorFactory_Statics::NewProp_FloorEventDatabase = { "FloorEventDatabase", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UFloorFactory, FloorEventDatabase), Z_Construct_UClass_UDataTable_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UFloorFactory_Statics::NewProp_FloorEventDatabase_MetaData), Z_Construct_UClass_UFloorFactory_Statics::NewProp_FloorEventDatabase_MetaData) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UFloorFactory_Statics::NewProp_floorData_Inner = { "floorData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FFloorData, METADATA_PARAMS(0, nullptr) }; // 1415317428
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UFloorFactory_Statics::NewProp_floorData_Inner = { "floorData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FFloorData, METADATA_PARAMS(0, nullptr) }; // 2665445193
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UFloorFactory_Statics::NewProp_floorData_MetaData[] = {
 		{ "ModuleRelativePath", "Public/FloorFactory.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UFloorFactory_Statics::NewProp_floorData = { "floorData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UFloorFactory, floorData), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UFloorFactory_Statics::NewProp_floorData_MetaData), Z_Construct_UClass_UFloorFactory_Statics::NewProp_floorData_MetaData) }; // 1415317428
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UFloorFactory_Statics::NewProp_floorData = { "floorData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UFloorFactory, floorData), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UFloorFactory_Statics::NewProp_floorData_MetaData), Z_Construct_UClass_UFloorFactory_Statics::NewProp_floorData_MetaData) }; // 2665445193
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UFloorFactory_Statics::NewProp_floorEventData_ValueProp = { "floorEventData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UScriptStruct_FFloorEventData, METADATA_PARAMS(0, nullptr) }; // 3691470439
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UFloorFactory_Statics::NewProp_floorEventData_Key_KeyProp = { "floorEventData_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
@@ -415,9 +415,9 @@ void EmptyLinkFunctionForGeneratedCodeFloorFactory() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorFactory_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UFloorFactory, UFloorFactory::StaticClass, TEXT("UFloorFactory"), &Z_Registration_Info_UClass_UFloorFactory, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFloorFactory), 2656780424U) },
+		{ Z_Construct_UClass_UFloorFactory, UFloorFactory::StaticClass, TEXT("UFloorFactory"), &Z_Registration_Info_UClass_UFloorFactory, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFloorFactory), 3692341598U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorFactory_h_2279398222(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorFactory_h_3252488372(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorFactory_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorFactory_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

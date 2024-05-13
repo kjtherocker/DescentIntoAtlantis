@@ -5,12 +5,14 @@
 #include "CoreMinimal.h"
 #include "CombatClass.h"
 #include "CombatEntity.h"
+#include "EnemyBeastiaryData.h"
 #include "EventManagerSubSystem.h"
 #include "LevelProgressionSubsystem.h"
 #include "PlayerCombatEntity.h"
 #include "GameFramework/SaveGame.h"
 #include "SaveGameData.generated.h"
 
+class UEnemyBestiaryData;
 struct FCompleteProgressionData;
 class AFloorPawn;
 
@@ -30,18 +32,26 @@ private:
 	UFUNCTION()
 	void UpdateFloorPawnData(FCompleteFloorPawnData aCompleteFloorPawn);
 
+	UFUNCTION()
+	void UpdateEnemyBestiaryData(TMap<FString,FEnemyBestiary> aEnemyBeastiaryData);
+
 public:
 	void SubscribeUpdateFloorPlayerCompleteData(AFloorPawn* aFloorPawn);
 	void SubscribeUpdateCompleteProgressionData(ULevelProgressionSubsystem* aLevelProgressionSubsystem);
 	void SubScribeToUpdateLevelIdentifier(UPersistentGameinstance*  aPersistentGameInstance);
 
+	//void SubScribeToUpdateLevelIdentifier(UPersistentGameinstance*  aPersistentGameInstance);
 	void AddPlayerCompleteDataSet(EPartyMembers aPartyMember,FPlayerCompleteDataSet aPlayerCompleteDataSet);
-	
+
+
+
+	UPROPERTY()
+	TMap<FString,FEnemyBestiary>  enemyBestiaryData;
 	UPROPERTY()
 	EFloorIdentifier currentLevel;
 	UPROPERTY()
 	FCompleteProgressionData completeProgressionData;
-
+	
 	UPROPERTY()
 	FCompleteFloorPawnData completeFloorPawnData;
 	UPROPERTY()

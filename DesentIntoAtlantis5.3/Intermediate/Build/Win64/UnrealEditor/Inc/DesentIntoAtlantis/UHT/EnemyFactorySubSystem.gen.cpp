@@ -7,13 +7,14 @@
 #include "UObject/GeneratedCppIncludes.h"
 #include "DesentIntoAtlantis/Public/EnemyFactorySubSystem.h"
 #include "../../Source/Runtime/Engine/Classes/Engine/GameInstance.h"
+#include "DesentIntoAtlantis/Public/EnemyBeastiaryData.h"
 #include "DesentIntoAtlantis/Public/EnemyCombatEntity.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeEnemyFactorySubSystem() {}
 // Cross Module References
-	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEnemyBestiaryData_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEnemyFactorySubSystem();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEnemyFactorySubSystem_NoRegister();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FEnemyBestiary();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FEnemyEntityData();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FEnemyGroupData();
 	ENGINE_API UClass* Z_Construct_UClass_UGameInstanceSubsystem();
@@ -156,7 +157,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FEnemyGroupData>()
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_enemyMap_MetaData[];
 #endif
 		static const UECodeGen_Private::FMapPropertyParams NewProp_enemyMap;
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_enemyBestiaryData_ValueProp;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_enemyBestiaryData_ValueProp;
 		static const UECodeGen_Private::FStrPropertyParams NewProp_enemyBestiaryData_Key_KeyProp;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_enemyBestiaryData_MetaData[];
@@ -202,14 +203,14 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FEnemyGroupData>()
 	};
 #endif
 	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyMap = { "enemyMap", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEnemyFactorySubSystem, enemyMap), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyMap_MetaData), Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyMap_MetaData) }; // 4276967717
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData_ValueProp = { "enemyBestiaryData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_UEnemyBestiaryData_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData_ValueProp = { "enemyBestiaryData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UScriptStruct_FEnemyBestiary, METADATA_PARAMS(0, nullptr) }; // 3905945748
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData_Key_KeyProp = { "enemyBestiaryData_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData_MetaData[] = {
 		{ "ModuleRelativePath", "Public/EnemyFactorySubSystem.h" },
 	};
 #endif
-	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData = { "enemyBestiaryData", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEnemyFactorySubSystem, enemyBestiaryData), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData_MetaData), Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData_MetaData) };
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData = { "enemyBestiaryData", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEnemyFactorySubSystem, enemyBestiaryData), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData_MetaData), Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_enemyBestiaryData_MetaData) }; // 3905945748
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UEnemyFactorySubSystem_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allEnemys_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEnemyFactorySubSystem_Statics::NewProp_allEnemys,
@@ -265,9 +266,9 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FEnemyGroupData>()
 		{ FEnemyGroupData::StaticStruct, Z_Construct_UScriptStruct_FEnemyGroupData_Statics::NewStructOps, TEXT("EnemyGroupData"), &Z_Registration_Info_UScriptStruct_EnemyGroupData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEnemyGroupData), 967205099U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyFactorySubSystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UEnemyFactorySubSystem, UEnemyFactorySubSystem::StaticClass, TEXT("UEnemyFactorySubSystem"), &Z_Registration_Info_UClass_UEnemyFactorySubSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEnemyFactorySubSystem), 2812928274U) },
+		{ Z_Construct_UClass_UEnemyFactorySubSystem, UEnemyFactorySubSystem::StaticClass, TEXT("UEnemyFactorySubSystem"), &Z_Registration_Info_UClass_UEnemyFactorySubSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEnemyFactorySubSystem), 2397848215U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyFactorySubSystem_h_1051005535(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyFactorySubSystem_h_1405331414(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyFactorySubSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyFactorySubSystem_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyFactorySubSystem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyFactorySubSystem_h_Statics::ScriptStructInfo),
 		nullptr, 0);

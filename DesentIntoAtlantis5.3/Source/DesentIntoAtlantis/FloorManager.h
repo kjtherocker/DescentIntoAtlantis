@@ -50,6 +50,9 @@ public:
 	UPROPERTY(EditAnywhere)
     TSubclassOf<AActor> floorEnemyPawnReference;
 
+	UPROPERTY()
+	TArray<AActor*> spawnedActors;
+	
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> stairsReference;
 	

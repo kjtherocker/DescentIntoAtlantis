@@ -10,6 +10,7 @@
 #include "SkillsData.h"
 #include "Engine/DataTable.h"
 #include "EventManagerSubSystem.h"
+#include "FloorDoor.h"
 #include "Gimmick_Base.h"
 #include "LevelProgressionSubsystem.h"
 #include "SaveManagerSubsystem.h"
@@ -128,10 +129,21 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 		ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 		ActorSpawnParameters.Owner = this;
 	
-		AActor* floorPawn = Cast<AActor>(GetWorld()->SpawnActor<AActor>(DoorReference, MidPoint + PositionOffset, FRotator(0,0,0),ActorSpawnParameters));
+		AFloorDoor* FloorDoor = Cast<AFloorDoor>(GetWorld()->SpawnActor<AActor>(DoorReference, MidPoint + PositionOffset, FRotator(0,0,0),ActorSpawnParameters));
+		spawnedActors.Add(FloorDoor);
 		
+		spotA.floorDoor = FloorDoor;
+		spotB.floorDoor = FloorDoor;
+
 		newGimmickA->SetPlayerForcedMovementDelegate(floorGameModeBase->floorPawn);
 		newGimmickB->SetPlayerForcedMovementDelegate(floorGameModeBase->floorPawn);
+		
+		newGimmickA->SetDoorOpenDelegate(FloorDoor);
+		newGimmickB->SetDoorOpenDelegate(FloorDoor);
+
+		
+		newGimmickA->doorAnimationType = EDoorAnimationTypes::OpenA;
+		newGimmickB->doorAnimationType = EDoorAnimationTypes::OpenB;
 		
 		levelProgressionSubsystem->SetInteractableGimmick(spotA.positionInGrid,newGimmickA);
 		levelProgressionSubsystem->SetInteractableGimmick(spotB.positionInGrid,newGimmickB);

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "CombatEntity.h"
+#include "EnemyBeastiaryData.h"
 #include "UObject/NoExportTypes.h"
 #include "EnemyCombatEntity.generated.h"
 
@@ -79,7 +80,7 @@ public:
 	UPROPERTY()
 	UEnemyBehaviour* enemyBehaviour; 
 	UPROPERTY()
-	UEnemyBestiaryData* enemyBestiaryData;
+	FEnemyBestiary beastiaryData;
 	
 	FEnemyEntityData enemyEntityData;
 };
