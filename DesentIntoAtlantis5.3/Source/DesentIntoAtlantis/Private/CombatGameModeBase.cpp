@@ -115,7 +115,7 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 		
 	for(int i = 0 ; i < EnemyNames.Num();i++)
 	{
-		AddEnemyToCombat(enemyFactory->ReturnEnemyEntityData(EnemyNames[i]),i);
+		AddEnemyToCombat(enemyFactory->FEnemyEntityDataReturnEnemyEntityData(EnemyNames[i]),i);
 	}
 	
 	if(InGameHUD)
@@ -204,7 +204,7 @@ void ACombatGameModeBase::EndCombat(bool aHasWon)
 	}
 
 	//gameModeBase->partyManager->ResetActivePartyToDefaultState();
-	
+	enemyFactory->BestiaryDataHasChangedBroadcast();	
 	if(aHasWon)
 	{
 		TriggerLevelupMenu(partyMembersInCombat, GetEXP());
@@ -214,6 +214,8 @@ void ACombatGameModeBase::EndCombat(bool aHasWon)
 	{
 		floorEventManager->EventNotCompleted();
 	}
+
+
 	soundManager->SetAudioPauseState(EAudioSources::CombatSoundEffect,true);
 	soundManager->SetAudioPauseState(EAudioSources::CombatMusic,true);
 	soundManager->PlayAudio(EAudioSources::OverworldMusic,EAudio::Overword);

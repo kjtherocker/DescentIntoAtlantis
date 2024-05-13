@@ -30,11 +30,23 @@ struct DESENTINTOATLANTIS_API FEnemyGroupData :public  FTableRowBase
 	
 };
 
+USTRUCT()
+struct FCompleteBestiaryData
+{
+	GENERATED_USTRUCT_BODY()
+	
+	UPROPERTY()
+	TMap<FString,FEnemyBestiary>  enemyBestiaryData;
+};
+
 
 class UDataTable;
 /**
  * 
  */
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FBestiaryDataHasChanged,FCompleteBestiaryData,bestiaryData);
+
 UCLASS()
 class DESENTINTOATLANTIS_API UEnemyFactorySubSystem : public UGameInstanceSubsystem
 {
@@ -47,18 +59,24 @@ class DESENTINTOATLANTIS_API UEnemyFactorySubSystem : public UGameInstanceSubsys
 	UPROPERTY()
 	TMap<FString,FEnemyEntityData> enemyMap;
 	TMap<FString,TArray<FString>>   enemyGroupMap;
-	UPROPERTY()
-	TMap<FString,FEnemyBestiary>  enemyBestiaryData;
+
+	FCompleteBestiaryData completeBestiaryData;
 public:
+
+	FBestiaryDataHasChanged bestiaryDataHasChanged;
 	void InitializeDatabase(UDataTable* aEnemys, UDataTable* aEnemyGroups);
 
-	FEnemyBestiary GetBestiaryEntry(FString aCharacterName);
+	void BestiaryDataHasChangedBroadcast();
+
+	FEnemyBestiary* GetBestiaryEntry(FString aCharacterName);
 	
 	void InitializeBestiary(FEnemyEntityData aEnemy);
-	
-	FEnemyEntityData ReturnEnemyEntityData(FString enemyName);
 
-	TArray<FString>   ReturnEnemyGroupData(FString groupName);
+	void LoadSavedBestiary(FCompleteBestiaryData aCompleteBestiaryData);
+	
+	FEnemyEntityData FEnemyEntityDataReturnEnemyEntityData(FString aEnemyName);
+
+	TArray<FString>   ReturnEnemyGroupData(FString aGroupName);
 
 	TArray<FEnemyGroupData> allEnemyGroupData;
 

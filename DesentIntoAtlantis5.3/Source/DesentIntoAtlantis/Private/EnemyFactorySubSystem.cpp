@@ -48,9 +48,14 @@ void UEnemyFactorySubSystem::InitializeDatabase(UDataTable* aEnemys, UDataTable*
 	}
 }
 
-FEnemyBestiary  UEnemyFactorySubSystem::GetBestiaryEntry(FString aCharacterName)
+void UEnemyFactorySubSystem::BestiaryDataHasChangedBroadcast()
 {
-	return enemyBestiaryData[aCharacterName];
+	bestiaryDataHasChanged.Broadcast(completeBestiaryData);
+}
+
+FEnemyBestiary*  UEnemyFactorySubSystem::GetBestiaryEntry(FString aCharacterName)
+{
+	return &completeBestiaryData.enemyBestiaryData[aCharacterName];
 }
 
 void UEnemyFactorySubSystem::InitializeBestiary(FEnemyEntityData aEnemy)
@@ -58,16 +63,21 @@ void UEnemyFactorySubSystem::InitializeBestiary(FEnemyEntityData aEnemy)
 	FEnemyBestiary BestiaryData;
 	BestiaryData.InitializeBestiary();
 	
-	enemyBestiaryData.Add(aEnemy.characterName, BestiaryData);
+	completeBestiaryData.enemyBestiaryData.Add(aEnemy.characterName, BestiaryData);
 }
 
-FEnemyEntityData UEnemyFactorySubSystem::ReturnEnemyEntityData(FString enemyName)
+void UEnemyFactorySubSystem::LoadSavedBestiary(FCompleteBestiaryData aCompleteBestiaryData)
 {
-	return enemyMap.FindRef(enemyName);
+	completeBestiaryData = aCompleteBestiaryData;
 }
 
-TArray<FString> UEnemyFactorySubSystem::ReturnEnemyGroupData(FString groupName)
+FEnemyEntityData UEnemyFactorySubSystem::FEnemyEntityDataReturnEnemyEntityData(FString aEnemyName)
 {
-	return enemyGroupMap.FindRef(groupName);
+	return enemyMap.FindRef(aEnemyName);
+}
+
+TArray<FString> UEnemyFactorySubSystem::ReturnEnemyGroupData(FString aGroupName)
+{
+	return enemyGroupMap.FindRef(aGroupName);
 }
 

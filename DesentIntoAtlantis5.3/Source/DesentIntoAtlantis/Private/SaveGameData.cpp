@@ -22,9 +22,9 @@ void USaveGameData::UpdateFloorPawnData(FCompleteFloorPawnData aCompleteFloorPaw
 	completeFloorPawnData = aCompleteFloorPawn;
 }
 
-void USaveGameData::UpdateEnemyBestiaryData(TMap<FString, FEnemyBestiary> aEnemyBeastiaryData)
+void USaveGameData::UpdateEnemyBestiaryData(FCompleteBestiaryData aCompleteBestiaryData)
 {
-	enemyBestiaryData = aEnemyBeastiaryData;
+	enemyBestiaryData = aCompleteBestiaryData;
 }
 
 void USaveGameData::SubscribeUpdateFloorPlayerCompleteData(AFloorPawn* aFloorPawn)
@@ -40,6 +40,11 @@ void USaveGameData::SubscribeUpdateCompleteProgressionData(ULevelProgressionSubs
 void USaveGameData::SubScribeToUpdateLevelIdentifier(UPersistentGameinstance* aPersistentGameInstance)
 {
 	aPersistentGameInstance->levelHasChanged.AddDynamic(this,&USaveGameData::UpdateCurrentLevelIdentifier);
+}
+
+void USaveGameData::SubScribeToUpdateEnemyBestiary(UEnemyFactorySubSystem* aEnemyFactorySubsystem)
+{
+	aEnemyFactorySubsystem->bestiaryDataHasChanged.AddDynamic(this,&USaveGameData::UpdateEnemyBestiaryData);
 }
 
 void USaveGameData::AddPlayerCompleteDataSet(EPartyMembers aPartyMember,FPlayerCompleteDataSet aPlayerCompleteDataSet)

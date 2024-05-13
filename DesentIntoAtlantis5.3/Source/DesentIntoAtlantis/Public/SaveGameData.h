@@ -6,6 +6,7 @@
 #include "CombatClass.h"
 #include "CombatEntity.h"
 #include "EnemyBeastiaryData.h"
+#include "EnemyFactorySubSystem.h"
 #include "EventManagerSubSystem.h"
 #include "LevelProgressionSubsystem.h"
 #include "PlayerCombatEntity.h"
@@ -33,12 +34,13 @@ private:
 	void UpdateFloorPawnData(FCompleteFloorPawnData aCompleteFloorPawn);
 
 	UFUNCTION()
-	void UpdateEnemyBestiaryData(TMap<FString,FEnemyBestiary> aEnemyBeastiaryData);
+	void UpdateEnemyBestiaryData(FCompleteBestiaryData aCompleteBestiaryData);
 
 public:
 	void SubscribeUpdateFloorPlayerCompleteData(AFloorPawn* aFloorPawn);
 	void SubscribeUpdateCompleteProgressionData(ULevelProgressionSubsystem* aLevelProgressionSubsystem);
 	void SubScribeToUpdateLevelIdentifier(UPersistentGameinstance*  aPersistentGameInstance);
+	void SubScribeToUpdateEnemyBestiary(UEnemyFactorySubSystem*  aEnemyFactorySubsystem);
 
 	//void SubScribeToUpdateLevelIdentifier(UPersistentGameinstance*  aPersistentGameInstance);
 	void AddPlayerCompleteDataSet(EPartyMembers aPartyMember,FPlayerCompleteDataSet aPlayerCompleteDataSet);
@@ -46,7 +48,7 @@ public:
 
 
 	UPROPERTY()
-	TMap<FString,FEnemyBestiary>  enemyBestiaryData;
+	FCompleteBestiaryData  enemyBestiaryData;
 	UPROPERTY()
 	EFloorIdentifier currentLevel;
 	UPROPERTY()

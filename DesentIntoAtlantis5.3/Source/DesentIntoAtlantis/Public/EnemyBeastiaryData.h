@@ -17,7 +17,8 @@ struct FEnemyBestiary
 	GENERATED_BODY()
 	UPROPERTY()
 	TMap<EElementalType,bool> enemyElementalInfo;
-
+	UPROPERTY()
+	bool hasBeenInitialized = false;
 	void InitializeBestiary();
 	void RevealElementalInfo(EElementalType aElementToReveal );
 	bool GetRevealedElementalType(EElementalType aElementToReveal );

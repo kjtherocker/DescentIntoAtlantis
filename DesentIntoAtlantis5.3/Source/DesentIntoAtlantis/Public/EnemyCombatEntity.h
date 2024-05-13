@@ -79,8 +79,7 @@ public:
 
 	UPROPERTY()
 	UEnemyBehaviour* enemyBehaviour; 
-	UPROPERTY()
-	FEnemyBestiary beastiaryData;
+	FEnemyBestiary* beastiaryData;
 	
 	FEnemyEntityData enemyEntityData;
 };

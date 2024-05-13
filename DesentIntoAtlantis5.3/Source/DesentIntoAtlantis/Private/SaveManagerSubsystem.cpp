@@ -19,6 +19,7 @@ void USaveManagerSubsystem::InitializeSessionSave(USaveGameData* aSessionSave)
 {
 	aSessionSave->SubscribeUpdateCompleteProgressionData(persistentGameinstance->levelProgressionSubsystem);
 	aSessionSave->SubScribeToUpdateLevelIdentifier(persistentGameinstance);
+	aSessionSave->SubScribeToUpdateEnemyBestiary(persistentGameinstance->enemyFactorySubSystem);
 }
 
 void USaveManagerSubsystem::InitializeSessionSavePlayer(AFloorPawn* aFloorPawn)
@@ -64,6 +65,7 @@ void USaveManagerSubsystem::LoadSaveDataAndTransitionToMap()
 	persistentGameinstance->EventManagerSubSystem->LoadSavedFloorEventData(LoadedSaveGameObject->eventManagerData);
 	persistentGameinstance->levelProgressionSubsystem->LoadCompleteProgressionData(LoadedSaveGameObject->completeProgressionData);
 	persistentGameinstance->levelProgressionSubsystem->SetCompleteFloorPawnData(SessionSaveGameObject->completeFloorPawnData);
+	persistentGameinstance->enemyFactorySubSystem->LoadSavedBestiary(SessionSaveGameObject->enemyBestiaryData);
 	persistentGameinstance->LoadLevel(SessionSaveGameObject->currentLevel);
 
 	
