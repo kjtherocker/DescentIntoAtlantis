@@ -52,6 +52,9 @@ public:
 	UProgressBar* BW_Health;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UProgressBar* BW_Sync;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_ManaText;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))

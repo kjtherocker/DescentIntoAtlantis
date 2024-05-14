@@ -49,7 +49,9 @@ struct DESENTINTOATLANTIS_API FCompleteClassData  :public  FTableRowBase
 	UPROPERTY()
 	EPartyMembers attachedEntityIdentifier;
 
-
+	UPROPERTY()
+	TArray<FSkillsData> syncSkills;
+	
 	UPROPERTY()
 	FClassData currentLevelClassData;
 	

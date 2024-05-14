@@ -603,6 +603,26 @@ void FHasHealthOrManaValuesChanged_DelegateWrapper(const FMulticastScriptDelegat
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_maxHealth_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_maxHealth;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentHealth_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_currentHealth;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_maxMana_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_maxMana;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentMana_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_currentMana;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentSync_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_currentSync;
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_abilityScoreMap_ValueProp;
 		static const UECodeGen_Private::FIntPropertyParams NewProp_abilityScoreMap_Key_KeyProp_Underlying;
 		static const UECodeGen_Private::FEnumPropertyParams NewProp_abilityScoreMap_Key_KeyProp;
@@ -630,6 +650,36 @@ void FHasHealthOrManaValuesChanged_DelegateWrapper(const FMulticastScriptDelegat
 		{ "ModuleRelativePath", "Public/CombatEntity.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatEntity_Statics::NewProp_maxHealth_MetaData[] = {
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UCombatEntity_Statics::NewProp_maxHealth = { "maxHealth", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCombatEntity, maxHealth), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCombatEntity_Statics::NewProp_maxHealth_MetaData), Z_Construct_UClass_UCombatEntity_Statics::NewProp_maxHealth_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatEntity_Statics::NewProp_currentHealth_MetaData[] = {
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UCombatEntity_Statics::NewProp_currentHealth = { "currentHealth", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCombatEntity, currentHealth), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCombatEntity_Statics::NewProp_currentHealth_MetaData), Z_Construct_UClass_UCombatEntity_Statics::NewProp_currentHealth_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatEntity_Statics::NewProp_maxMana_MetaData[] = {
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UCombatEntity_Statics::NewProp_maxMana = { "maxMana", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCombatEntity, maxMana), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCombatEntity_Statics::NewProp_maxMana_MetaData), Z_Construct_UClass_UCombatEntity_Statics::NewProp_maxMana_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatEntity_Statics::NewProp_currentMana_MetaData[] = {
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UCombatEntity_Statics::NewProp_currentMana = { "currentMana", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCombatEntity, currentMana), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCombatEntity_Statics::NewProp_currentMana_MetaData), Z_Construct_UClass_UCombatEntity_Statics::NewProp_currentMana_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatEntity_Statics::NewProp_currentSync_MetaData[] = {
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCombatEntity_Statics::NewProp_currentSync = { "currentSync", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCombatEntity, currentSync), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCombatEntity_Statics::NewProp_currentSync_MetaData), Z_Construct_UClass_UCombatEntity_Statics::NewProp_currentSync_MetaData) };
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_ValueProp = { "abilityScoreMap", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_UCombatAbilityStats_NoRegister, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_Key_KeyProp = { "abilityScoreMap_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EAbilityScoreTypes, METADATA_PARAMS(0, nullptr) }; // 1539010591
@@ -641,6 +691,11 @@ void FHasHealthOrManaValuesChanged_DelegateWrapper(const FMulticastScriptDelegat
 #endif
 	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap = { "abilityScoreMap", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCombatEntity, abilityScoreMap), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_MetaData), Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_MetaData) }; // 1539010591
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCombatEntity_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatEntity_Statics::NewProp_maxHealth,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatEntity_Statics::NewProp_currentHealth,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatEntity_Statics::NewProp_maxMana,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatEntity_Statics::NewProp_currentMana,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatEntity_Statics::NewProp_currentSync,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_ValueProp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_Key_KeyProp_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_Key_KeyProp,
@@ -695,9 +750,9 @@ void FHasHealthOrManaValuesChanged_DelegateWrapper(const FMulticastScriptDelegat
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UCombatAbilityStats, UCombatAbilityStats::StaticClass, TEXT("UCombatAbilityStats"), &Z_Registration_Info_UClass_UCombatAbilityStats, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatAbilityStats), 2849591881U) },
-		{ Z_Construct_UClass_UCombatEntity, UCombatEntity::StaticClass, TEXT("UCombatEntity"), &Z_Registration_Info_UClass_UCombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatEntity), 2094559971U) },
+		{ Z_Construct_UClass_UCombatEntity, UCombatEntity::StaticClass, TEXT("UCombatEntity"), &Z_Registration_Info_UClass_UCombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatEntity), 2024935847U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_1859936442(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_3255276177(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::EnumInfo));

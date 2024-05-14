@@ -71,7 +71,8 @@ int UPressTurnManager::GetNumberOfActivePressTurns()
 
 void UPressTurnManager::ActivateSkill(UCombatEntity* aAttacker, int aCursorPosition, USkillBase* aSkill)
 {
-
+	gameModeBase->InGameHUD->PushView(EViews::SyncView,EUiType::PersistentUi);
+	
 	TArray<UCombatEntity*>  enemyInCombat    = TArray<UCombatEntity*>(combatManager->GetEnemysInCombat());
 	TArray<UCombatEntity*>  playersInCombat  = TArray<UCombatEntity*>(combatManager->GetPlayersInCombat());
 	

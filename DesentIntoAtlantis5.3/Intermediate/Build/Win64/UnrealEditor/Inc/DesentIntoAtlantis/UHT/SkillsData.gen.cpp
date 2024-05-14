@@ -22,6 +22,8 @@ void EmptyLinkFunctionForGeneratedCodeSkillsData() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkillDebuff_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkillHeal();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkillHeal_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USyncSkill();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USyncSkill_NoRegister();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EAbilityScoreTypes();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EAilment();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EElementalType();
@@ -736,6 +738,67 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FSkillsData>()
 	USkillAttack::USkillAttack(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(USkillAttack);
 	USkillAttack::~USkillAttack() {}
+	void USyncSkill::StaticRegisterNativesUSyncSkill()
+	{
+	}
+	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(USyncSkill);
+	UClass* Z_Construct_UClass_USyncSkill_NoRegister()
+	{
+		return USyncSkill::StaticClass();
+	}
+	struct Z_Construct_UClass_USyncSkill_Statics
+	{
+		static UObject* (*const DependentSingletons[])();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
+#endif
+		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
+		static const UECodeGen_Private::FClassParams ClassParams;
+	};
+	UObject* (*const Z_Construct_UClass_USyncSkill_Statics::DependentSingletons[])() = {
+		(UObject* (*)())Z_Construct_UClass_USkillAttack,
+		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_USyncSkill_Statics::DependentSingletons) < 16);
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USyncSkill_Statics::Class_MetaDataParams[] = {
+		{ "IncludePath", "SkillsData.h" },
+		{ "ModuleRelativePath", "Public/SkillsData.h" },
+	};
+#endif
+	const FCppClassTypeInfoStatic Z_Construct_UClass_USyncSkill_Statics::StaticCppClassTypeInfo = {
+		TCppClassTypeTraits<USyncSkill>::IsAbstract,
+	};
+	const UECodeGen_Private::FClassParams Z_Construct_UClass_USyncSkill_Statics::ClassParams = {
+		&USyncSkill::StaticClass,
+		nullptr,
+		&StaticCppClassTypeInfo,
+		DependentSingletons,
+		nullptr,
+		nullptr,
+		nullptr,
+		UE_ARRAY_COUNT(DependentSingletons),
+		0,
+		0,
+		0,
+		0x000000A0u,
+		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_USyncSkill_Statics::Class_MetaDataParams), Z_Construct_UClass_USyncSkill_Statics::Class_MetaDataParams)
+	};
+	UClass* Z_Construct_UClass_USyncSkill()
+	{
+		if (!Z_Registration_Info_UClass_USyncSkill.OuterSingleton)
+		{
+			UECodeGen_Private::ConstructUClass(Z_Registration_Info_UClass_USyncSkill.OuterSingleton, Z_Construct_UClass_USyncSkill_Statics::ClassParams);
+		}
+		return Z_Registration_Info_UClass_USyncSkill.OuterSingleton;
+	}
+	template<> DESENTINTOATLANTIS_API UClass* StaticClass<USyncSkill>()
+	{
+		return USyncSkill::StaticClass();
+	}
+	USyncSkill::USyncSkill(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
+	DEFINE_VTABLE_PTR_HELPER_CTOR(USyncSkill);
+	USyncSkill::~USyncSkill() {}
 	void USkillAliment::StaticRegisterNativesUSkillAliment()
 	{
 	}
@@ -1019,12 +1082,13 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FSkillsData>()
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_USkillBase, USkillBase::StaticClass, TEXT("USkillBase"), &Z_Registration_Info_UClass_USkillBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillBase), 895219196U) },
 		{ Z_Construct_UClass_USkillAttack, USkillAttack::StaticClass, TEXT("USkillAttack"), &Z_Registration_Info_UClass_USkillAttack, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillAttack), 853687424U) },
+		{ Z_Construct_UClass_USyncSkill, USyncSkill::StaticClass, TEXT("USyncSkill"), &Z_Registration_Info_UClass_USyncSkill, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USyncSkill), 1166268751U) },
 		{ Z_Construct_UClass_USkillAliment, USkillAliment::StaticClass, TEXT("USkillAliment"), &Z_Registration_Info_UClass_USkillAliment, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillAliment), 1019298917U) },
 		{ Z_Construct_UClass_USkillHeal, USkillHeal::StaticClass, TEXT("USkillHeal"), &Z_Registration_Info_UClass_USkillHeal, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillHeal), 486689470U) },
 		{ Z_Construct_UClass_USkillBuff, USkillBuff::StaticClass, TEXT("USkillBuff"), &Z_Registration_Info_UClass_USkillBuff, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillBuff), 391548045U) },
 		{ Z_Construct_UClass_USkillDebuff, USkillDebuff::StaticClass, TEXT("USkillDebuff"), &Z_Registration_Info_UClass_USkillDebuff, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillDebuff), 1880562909U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_2440704138(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_650890055(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::EnumInfo));

@@ -12,6 +12,7 @@ void UPlayerCombatEntity::LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerComplet
 {
 	currentHealth = aPlayerCompleteDataSet.currentHP;
 	currentMana   = aPlayerCompleteDataSet.currentMP;
+	currentSync   = aPlayerCompleteDataSet.currentSync;
 }
 
 void UPlayerCombatEntity::SetPlayerEntity(FPlayerIdentityData aPlayerEntityData)
@@ -104,4 +105,9 @@ float UPlayerCombatEntity::GetHealthPercentage()
 float UPlayerCombatEntity::GetManaPercentage()
 {
 	return (float)currentMana / (float)mainClass->completeClassData.currentLevelClassData.maxMana;
+}
+
+float UPlayerCombatEntity::GetSyncPercentage()
+{
+	return currentSync / MAX_SYNC;
 }

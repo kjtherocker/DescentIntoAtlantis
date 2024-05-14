@@ -139,6 +139,15 @@ class USkillAttack : public USkillBase
 	
 };
 
+UCLASS()
+class USyncSkill : public USkillAttack
+{
+	GENERATED_BODY()
+
+	virtual PressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	
+};
+
 
 UCLASS()
 class USkillAliment : public USkillBase

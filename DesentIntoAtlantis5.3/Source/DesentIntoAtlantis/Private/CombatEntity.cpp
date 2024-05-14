@@ -115,11 +115,14 @@ PressTurnReactions UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSki
     {
         currentHealth = 0;
     }
+    currentSync += 10;
     hasHealthOrManaValuesChanged.Broadcast();
     if(!isMarkedForDeath)
     {
         ActivateDamageHitEffect();
     }
+
+  
     return reaction;
 }
 
@@ -197,6 +200,11 @@ float UCombatEntity::GetPotentialHealthPercentage(int aDamage)
 }
 
 float UCombatEntity::GetManaPercentage()
+{
+    return 0;
+}
+
+float UCombatEntity::GetSyncPercentage()
 {
     return 0;
 }

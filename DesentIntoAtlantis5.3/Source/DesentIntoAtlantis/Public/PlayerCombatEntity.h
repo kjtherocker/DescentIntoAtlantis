@@ -60,6 +60,8 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 	int currentHP;
 	UPROPERTY()
 	int currentMP;
+	UPROPERTY()
+	float currentSync;
 };
 
 
@@ -103,6 +105,7 @@ public:
 	
 	virtual float GetHealthPercentage() override;
 	virtual float GetManaPercentage()   override;
+	virtual float GetSyncPercentage() override;
 };
 
 

@@ -155,6 +155,7 @@ protected:
 	inline static const float ABILITYSCORE_BUFF_MULTIPLIER  = 2;
 	inline static const float STRONG_DAMAGE_REDUCTION       = 0.6f;
 	inline static const float WEAK_DAMAGE_INCREASE          = 1.5f;
+	inline static const float MAX_SYNC                      = 100;
 	
 	bool isMarkedForDeath = false;
 
@@ -195,6 +196,7 @@ public:
 	virtual float GetHealthPercentage();
 	virtual float GetPotentialHealthPercentage(int aDamage);
 	virtual float GetManaPercentage();
+	virtual float GetSyncPercentage();
 
 	bool GetIsMarkedForDeath();
 
@@ -206,11 +208,17 @@ public:
 	ECharactertype characterType;
 	
 	
-
+	UPROPERTY()
 	int maxHealth;
+	UPROPERTY()
 	int currentHealth;
+	UPROPERTY()
 	int maxMana;
+	UPROPERTY()
 	int currentMana;
+
+	UPROPERTY()
+	float currentSync = 100;
 	
 	UPROPERTY( EditAnywhere )
 	TMap< EAbilityScoreTypes,UCombatAbilityStats*> abilityScoreMap;

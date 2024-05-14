@@ -140,6 +140,10 @@ void EmptyLinkFunctionForGeneratedCodePartyHealthbarElement() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_Health;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_Sync_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_Sync;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_BW_ManaText_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_BW_ManaText;
@@ -204,6 +208,15 @@ void EmptyLinkFunctionForGeneratedCodePartyHealthbarElement() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPartyHealthbarElement_Statics::NewProp_BW_Health = { "BW_Health", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UPartyHealthbarElement, BW_Health), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UPartyHealthbarElement_Statics::NewProp_BW_Health_MetaData), Z_Construct_UClass_UPartyHealthbarElement_Statics::NewProp_BW_Health_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPartyHealthbarElement_Statics::NewProp_BW_Sync_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "Category", "PartyHealthbarElement" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/PartyHealthbarElement.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPartyHealthbarElement_Statics::NewProp_BW_Sync = { "BW_Sync", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UPartyHealthbarElement, BW_Sync), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UPartyHealthbarElement_Statics::NewProp_BW_Sync_MetaData), Z_Construct_UClass_UPartyHealthbarElement_Statics::NewProp_BW_Sync_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPartyHealthbarElement_Statics::NewProp_BW_ManaText_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "Category", "PartyHealthbarElement" },
@@ -243,6 +256,7 @@ void EmptyLinkFunctionForGeneratedCodePartyHealthbarElement() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPartyHealthbarElement_Statics::NewProp_playerCombatEntity,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPartyHealthbarElement_Statics::NewProp_BW_Mana,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPartyHealthbarElement_Statics::NewProp_BW_Health,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPartyHealthbarElement_Statics::NewProp_BW_Sync,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPartyHealthbarElement_Statics::NewProp_BW_ManaText,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPartyHealthbarElement_Statics::NewProp_BW_HealthText,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UPartyHealthbarElement_Statics::NewProp_BW_CharacterPortrait,
@@ -287,9 +301,9 @@ void EmptyLinkFunctionForGeneratedCodePartyHealthbarElement() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPartyHealthbarElement, UPartyHealthbarElement::StaticClass, TEXT("UPartyHealthbarElement"), &Z_Registration_Info_UClass_UPartyHealthbarElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPartyHealthbarElement), 1538719602U) },
+		{ Z_Construct_UClass_UPartyHealthbarElement, UPartyHealthbarElement::StaticClass, TEXT("UPartyHealthbarElement"), &Z_Registration_Info_UClass_UPartyHealthbarElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPartyHealthbarElement), 2094615652U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_2452427079(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_17794636(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

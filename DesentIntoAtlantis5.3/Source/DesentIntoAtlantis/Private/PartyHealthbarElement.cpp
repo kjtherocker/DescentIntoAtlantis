@@ -52,11 +52,15 @@ void UPartyHealthbarElement::NativeTick(const FGeometry& MyGeometry, float Delta
 
 void UPartyHealthbarElement::UpdateHealthbarElements()
 {
-	BW_Health->SetPercent(playerCombatEntity->GetHealthPercentage());
+	float healthPercentage = playerCombatEntity->GetHealthPercentage();
+	BW_Health->SetPercent(healthPercentage);
 	BW_HealthText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->currentHealth)));
 	
 	BW_Mana->SetPercent(playerCombatEntity->GetManaPercentage());
 	BW_ManaText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->currentMana)));
+
+	float syncPercentage = playerCombatEntity->GetSyncPercentage(); 
+	BW_Sync->SetPercent(syncPercentage);
 }
 
 void UPartyHealthbarElement::HitEffect(float DeltaTime)

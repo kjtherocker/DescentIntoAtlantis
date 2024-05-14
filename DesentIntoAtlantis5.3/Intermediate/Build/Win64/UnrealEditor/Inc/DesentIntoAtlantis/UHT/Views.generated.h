@@ -36,7 +36,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	op(EViews::Ending) \
 	op(EViews::CameraFilter) \
 	op(EViews::MapView) \
-	op(EViews::InteractableView) 
+	op(EViews::InteractableView) \
+	op(EViews::SyncView) 
 
 enum class EViews;
 template<> struct TIsUEnumClass<EViews> { enum { Value = true }; };

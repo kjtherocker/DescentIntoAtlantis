@@ -24,7 +24,8 @@ enum class  EViews
 	Ending            = 14,
 	CameraFilter      = 15,
 	MapView           = 16,
-	InteractableView  = 17
+	InteractableView  = 17,
+	SyncView          = 18
 };
 
 
