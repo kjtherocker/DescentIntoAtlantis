@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "CombatEntity.h"
 #include "EnemyBeastiaryData.h"
+#include "SkillsData.h"
 #include "UObject/NoExportTypes.h"
 #include "EnemyCombatEntity.generated.h"
 
@@ -46,16 +47,8 @@ struct DESENTINTOATLANTIS_API FEnemyEntityData :public  FCombatEntityData
 	UPROPERTY( EditAnywhere )
 	EElementalType ElementalWeakness;
 
-	UPROPERTY( EditAnywhere )
-	FString Skill1;
-	UPROPERTY( EditAnywhere )
-	FString Skill2;
-	UPROPERTY( EditAnywhere )
-	FString Skill3;
-	UPROPERTY( EditAnywhere )
-	FString Skill4;
-	UPROPERTY( EditAnywhere )
-	FString Skill5;
+	UPROPERTY(EditAnywhere)
+	TArray<ESkillIDS> skillIDS;
 	
 };
 

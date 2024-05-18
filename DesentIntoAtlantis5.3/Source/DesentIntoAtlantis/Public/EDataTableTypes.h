@@ -15,6 +15,7 @@ enum class  EDataTableTypes
 	FloorEvent       = 6,
 	Dialogue         = 7,
 	Classes          = 8,
+	Skills           = 9,
 };
 
 
@@ -22,10 +23,10 @@ UENUM()
 enum class  EClasses
 {
 	None                 = 0,
-	GraveKnight          = 1,
-	WaterShaper          = 2,
-	Thief                = 3,
-	HydroArcher          = 4,
+	Banshee              = 1,
+	AtlantianWarden      = 2,
+	GemThief             = 3,
+	LaidOffExecutioner   = 4,
 };
 
 

@@ -6,6 +6,7 @@
 #include "UObject/NoExportTypes.h"
 #include "EElementalType.h"
 #include "PressTurnManager.h"
+#include "SkillsData.h"
 #include "Components/Image.h"
 #include "Engine/DataTable.h"
 #include "CombatEntity.generated.h"
@@ -159,7 +160,7 @@ protected:
 	
 	bool isMarkedForDeath = false;
 
-	TArray<USkillAliment*> skillAliments;
+	TArray<UAilment*> skillAliments;
 	
 public:
 	FWasKilled                        wasKilled;
@@ -177,7 +178,7 @@ public:
 	//SetStatusEffect(StatusEffects aStatusEffect);
 
 	virtual void SetHealth(int aHealth);
-	virtual void InflictAilment(USkillAliment* aAliment);
+	virtual void InflictAilment(UAilment* aAliment);
 	
 	virtual int CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
 	virtual void Reset();

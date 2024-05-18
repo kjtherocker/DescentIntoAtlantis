@@ -9,6 +9,11 @@ void USkillBase::Initialize(FSkillsData aSkillData)
 	skillData = aSkillData;
 }
 
+void UAilment::ActivateAilment(UCombatEntity* aCombatEntity)
+{
+	aCombatEntity->AlimentDecrementHealth(10);
+}
+
 PressTurnReactions USkillBase::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
 	return PressTurnReactions::Normal;
@@ -27,7 +32,7 @@ PressTurnReactions USyncSkill::UseSkill(UCombatEntity* aAttacker, UCombatEntity*
 
 PressTurnReactions USkillAliment::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
-	aVictim->InflictAilment(this);
+	aVictim->InflictAilment();
 	return PressTurnReactions::Normal;
 }
 

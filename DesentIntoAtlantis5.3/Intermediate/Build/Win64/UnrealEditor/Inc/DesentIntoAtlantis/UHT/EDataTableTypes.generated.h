@@ -28,7 +28,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	op(EDataTableTypes::Floor) \
 	op(EDataTableTypes::FloorEvent) \
 	op(EDataTableTypes::Dialogue) \
-	op(EDataTableTypes::Classes) 
+	op(EDataTableTypes::Classes) \
+	op(EDataTableTypes::Skills) 
 
 enum class EDataTableTypes;
 template<> struct TIsUEnumClass<EDataTableTypes> { enum { Value = true }; };
@@ -36,10 +37,10 @@ template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EDataTableTypes>();
 
 #define FOREACH_ENUM_ECLASSES(op) \
 	op(EClasses::None) \
-	op(EClasses::GraveKnight) \
-	op(EClasses::WaterShaper) \
-	op(EClasses::Thief) \
-	op(EClasses::HydroArcher) 
+	op(EClasses::Banshee) \
+	op(EClasses::AtlantianWarden) \
+	op(EClasses::GemThief) \
+	op(EClasses::LaidOffExecutioner) 
 
 enum class EClasses;
 template<> struct TIsUEnumClass<EClasses> { enum { Value = true }; };

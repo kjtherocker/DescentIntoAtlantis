@@ -39,13 +39,13 @@ bool UCombatClass::AddExperience(int aExperience)
 
 void UCombatClass::CreateAllClassSkillsForLevel(FCompleteClassData aCompleteClassData)
 {
-	for (TTuple<int, FString> skillByLevel : aCompleteClassData.unlockableSkillByLevel)
+	for (TTuple<int, ESkillIDS> skillByLevel : aCompleteClassData.unlockableSkillByLevel)
 	{
 		int skillLevel = skillByLevel.Key;
 		if(skillLevel <= aCompleteClassData.currentLevel)
 		{
-			FString skillName = skillByLevel.Value;
-			if(!skillName.IsEmpty())
+			ESkillIDS skillName = skillByLevel.Value;
+			if(skillName != ESkillIDS::None)
 			{
 				USkillBase* newSkill = skillFactory->GetSkill(skillName);
 				classSkills.Add(newSkill);
@@ -86,7 +86,7 @@ FClassData UCombatClass::Levelup()
 
 	if(completeClassData.unlockableSkillByLevel.Contains(completeClassData.currentLevel))
 	{
-		FString skillName = completeClassData.unlockableSkillByLevel[completeClassData.currentLevel];
+		ESkillIDS skillName = completeClassData.unlockableSkillByLevel[completeClassData.currentLevel];
 		USkillBase* newSkill = skillFactory->GetSkill(skillName);
 		attachedCombatEntity->playerCompleteDataSet.skillSlots.Add(skillName);
 		classSkills.Add(newSkill);

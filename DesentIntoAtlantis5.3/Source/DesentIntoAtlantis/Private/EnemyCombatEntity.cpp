@@ -24,12 +24,11 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,US
 
 	enemyBehaviour = NewObject<UEnemyBehaviour>();
 	enemyBehaviour->Initialize(this);
-	
-	enemySkills.Add(skillFactory->GetSkill(enemyEntityData.Skill1));
-	enemySkills.Add(skillFactory->GetSkill(enemyEntityData.Skill2));
-	enemySkills.Add(skillFactory->GetSkill(enemyEntityData.Skill3));
-	enemySkills.Add(skillFactory->GetSkill(enemyEntityData.Skill4));
-	enemySkills.Add(skillFactory->GetSkill(enemyEntityData.Skill5));
+
+	for(int i = 0 ; i < enemyEntityData.skillIDS.Num();i++)
+	{
+		enemySkills.Add(skillFactory->GetSkill(enemyEntityData.skillIDS[i]));
+	}
 	
 	
 	SetAbilityScores();

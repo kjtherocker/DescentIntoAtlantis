@@ -26,24 +26,13 @@ enum class ESkillType
 
 };
 
-UENUM()
-enum class EStatusAilments
-{
-	None,
-	Poison,
-	Blind,
-	Bleed,
-	Freeze,
-	Charm,
-	Doom,
-	Necrotic
-};
 
 UENUM()
 enum class ESkillUsage
 {
-	Comrades,
-	Opponents
+	None      = 0,
+	Opponents = 1,
+	Comrades  = 2,
 };
 
 
@@ -57,13 +46,14 @@ enum class ESkillDamageType
 
 
 UENUM(BlueprintType)
-enum EAilment
+enum class EStatusAilments
 {
-	None,
-	Poison,
-	Daze,
-	Sleep,
-	Rage,
+	None   = 0,
+	Fear   = 1,
+	Poison = 2,
+	Daze   = 3,
+	Sleep  = 4,
+	Rage   = 5,
 };
 
 UENUM()
@@ -73,10 +63,43 @@ enum class ESkillRange
 	Multi,
 };
 
+UENUM(BlueprintType)
+enum class ESkillIDS : uint8
+{
+	None                   UMETA(DisplayName = "None"),
+	DefaultAttack          UMETA(DisplayName = "Default Attack"),
+	//Banshee
+	Bonk                   UMETA(DisplayName = "Bonk"),
+	Boo                    UMETA(DisplayName = "Boo"),
+	RejuvenatingLink       UMETA(DisplayName = "RejuvenatingLink"),
+	WailingScream          UMETA(DisplayName = "WailingScream"),
+	//Gem Thief
+	Lunge                  UMETA(DisplayName = "Lunge"),
+	SpreadInfection        UMETA(DisplayName = "SpreadInfection"),
+	RustyBlade             UMETA(DisplayName = "RustyBlade"),
+	CoupDeGrace            UMETA(DisplayName = "Coup De Grace"),
+	//Atlantian Warden
+	OceansBalm             UMETA(DisplayName = "Oceans Balm"),
+	BoilInsides            UMETA(DisplayName = "Boil Insides"),
+	WavesSweetRelease      UMETA(DisplayName = "WavesSweetRelease"),
+	EmboldingSpeech        UMETA(DisplayName = "EmboldingSpeech"),
+	//Laid Off Executioner
+	MarkForDeath           UMETA(DisplayName = "MarkForDeath"),
+	MockingTaunt           UMETA(DisplayName = "MockingTaunt"),
+	AbsoluteGuard          UMETA(DisplayName = "AbsoluteGuard"),
+	SelfIndulgentRevenge   UMETA(DisplayName = "SelfIndulgentRevenge"),
+	
+	
+	
+};
+
 USTRUCT()
 struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
+
+	UPROPERTY( EditAnywhere )
+	ESkillIDS skillID;
 	
 	UPROPERTY( EditAnywhere )
 	EElementalType elementalType;
@@ -115,6 +138,30 @@ struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
 	int abilityScoreChangeDuration;
 };
 
+UCLASS()
+class UAilment: public UObject
+{
+	GENERATED_BODY()
+public:
+	
+	EStatusAilments  currentAilment;
+	
+	virtual void Initialize(FSkillsData aSkillData);
+	virtual void ActivateAilment(UCombatEntity* aCombatEntity);
+};
+
+
+UCLASS()
+class UAilment_Fear: public UAilment
+{
+	GENERATED_BODY()
+public:
+	
+	EStatusAilments  currentAilment;
+	
+	virtual void Initialize(FSkillsData aSkillData);
+};
+
 
 UCLASS()
 class USkillBase : public UObject
@@ -150,9 +197,11 @@ class USyncSkill : public USkillAttack
 
 
 UCLASS()
-class USkillAliment : public USkillBase
+class USkillAlimentAttack : public USkillAttack
 {
 	GENERATED_BODY()
+	UPROPERTY(EditAnywhere)
+	UAilment* ailment;
 	UPROPERTY(EditAnywhere)
 	EStatusAilments statusAilments;
 	virtual PressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;

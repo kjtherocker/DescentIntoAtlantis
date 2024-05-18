@@ -26,8 +26,10 @@ void UCombatEntity::SetTacticsEvents(ACombatGameModeBase* aCombatManager)
 
 void UCombatEntity::StartTurn()
 {
-    //int test = maxHealth / 8;
-   // AlimentDecrementHealth(test);
+    for(int i =0 ;i < skillAliments.Num();i++)
+    {
+        skillAliments[i]->ActivateAilment(this);
+    }
 }
 
 void UCombatEntity::EndTurn()
@@ -45,11 +47,11 @@ void UCombatEntity::SetHealth(int aHealth)
 //    currentHealth = currentClass->currentClassLevel->maxHealth;
 }
 
-void UCombatEntity::InflictAilment(USkillAliment* aAliment)
+void UCombatEntity::InflictAilment(UAilment* aAliment)
 {
-    
     skillAliments.Add(aAliment);
 }
+
 
 int UCombatEntity::CalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
 {

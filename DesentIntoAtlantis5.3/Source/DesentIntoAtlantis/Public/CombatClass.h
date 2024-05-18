@@ -43,7 +43,7 @@ struct DESENTINTOATLANTIS_API FCompleteClassData  :public  FTableRowBase
 
 	UPROPERTY( EditAnywhere )
 
-	TMap<int,FString> unlockableSkillByLevel;
+	TMap<int,ESkillIDS> unlockableSkillByLevel;
 
 	
 	UPROPERTY()

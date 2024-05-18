@@ -18,11 +18,16 @@ class DESENTINTOATLANTIS_API USkillFactorySubsystem : public UGameInstanceSubsys
 private:
 	
 	
+		
 	UPROPERTY()
-	TMap<FString,USkillBase*> skillMap;
+	TMap<ESkillIDS,USkillBase*> allSkillsMap;
+
+	UPROPERTY()
+	TMap<EStatusAilments,UAilment*> allAliments;
 public:
-	void InitializeDatabase(TMap<ESkillType,UDataTable*>  aSkillDataTable);
-	USkillBase* GetSkill(FString aSkillName);
+	void InitializeDatabase(UDataTable*  aSkillDataTable);
+	USkillBase* GetSkill(ESkillIDS aSkillID);
+	UAilment* GetAilment(EStatusAilments aAilment);
 
 	
 };

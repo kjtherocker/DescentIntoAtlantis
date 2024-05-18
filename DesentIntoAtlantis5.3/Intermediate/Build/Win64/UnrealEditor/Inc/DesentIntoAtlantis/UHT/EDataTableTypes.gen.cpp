@@ -45,6 +45,7 @@ void EmptyLinkFunctionForGeneratedCodeEDataTableTypes() {}
 		{ "EDataTableTypes::FloorEvent", (int64)EDataTableTypes::FloorEvent },
 		{ "EDataTableTypes::Dialogue", (int64)EDataTableTypes::Dialogue },
 		{ "EDataTableTypes::Classes", (int64)EDataTableTypes::Classes },
+		{ "EDataTableTypes::Skills", (int64)EDataTableTypes::Skills },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EDataTableTypes_Statics::Enum_MetaDataParams[] = {
@@ -57,6 +58,7 @@ void EmptyLinkFunctionForGeneratedCodeEDataTableTypes() {}
 		{ "ModuleRelativePath", "Public/EDataTableTypes.h" },
 		{ "None.Name", "EDataTableTypes::None" },
 		{ "PlayerCharacters.Name", "EDataTableTypes::PlayerCharacters" },
+		{ "Skills.Name", "EDataTableTypes::Skills" },
 		{ "Tutorial.Name", "EDataTableTypes::Tutorial" },
 	};
 #endif
@@ -103,19 +105,19 @@ void EmptyLinkFunctionForGeneratedCodeEDataTableTypes() {}
 	};
 	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_EClasses_Statics::Enumerators[] = {
 		{ "EClasses::None", (int64)EClasses::None },
-		{ "EClasses::GraveKnight", (int64)EClasses::GraveKnight },
-		{ "EClasses::WaterShaper", (int64)EClasses::WaterShaper },
-		{ "EClasses::Thief", (int64)EClasses::Thief },
-		{ "EClasses::HydroArcher", (int64)EClasses::HydroArcher },
+		{ "EClasses::Banshee", (int64)EClasses::Banshee },
+		{ "EClasses::AtlantianWarden", (int64)EClasses::AtlantianWarden },
+		{ "EClasses::GemThief", (int64)EClasses::GemThief },
+		{ "EClasses::LaidOffExecutioner", (int64)EClasses::LaidOffExecutioner },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EClasses_Statics::Enum_MetaDataParams[] = {
-		{ "GraveKnight.Name", "EClasses::GraveKnight" },
-		{ "HydroArcher.Name", "EClasses::HydroArcher" },
+		{ "AtlantianWarden.Name", "EClasses::AtlantianWarden" },
+		{ "Banshee.Name", "EClasses::Banshee" },
+		{ "GemThief.Name", "EClasses::GemThief" },
+		{ "LaidOffExecutioner.Name", "EClasses::LaidOffExecutioner" },
 		{ "ModuleRelativePath", "Public/EDataTableTypes.h" },
 		{ "None.Name", "EClasses::None" },
-		{ "Thief.Name", "EClasses::Thief" },
-		{ "WaterShaper.Name", "EClasses::WaterShaper" },
 	};
 #endif
 	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_DesentIntoAtlantis_EClasses_Statics::EnumParams = {
@@ -201,11 +203,11 @@ void EmptyLinkFunctionForGeneratedCodeEDataTableTypes() {}
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EDataTableTypes_h_Statics::EnumInfo[] = {
-		{ EDataTableTypes_StaticEnum, TEXT("EDataTableTypes"), &Z_Registration_Info_UEnum_EDataTableTypes, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3334060239U) },
-		{ EClasses_StaticEnum, TEXT("EClasses"), &Z_Registration_Info_UEnum_EClasses, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2061419180U) },
+		{ EDataTableTypes_StaticEnum, TEXT("EDataTableTypes"), &Z_Registration_Info_UEnum_EDataTableTypes, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 849449257U) },
+		{ EClasses_StaticEnum, TEXT("EClasses"), &Z_Registration_Info_UEnum_EClasses, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2824778090U) },
 		{ EPartyMembers_StaticEnum, TEXT("EPartyMembers"), &Z_Registration_Info_UEnum_EPartyMembers, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 781165082U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EDataTableTypes_h_1041781989(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EDataTableTypes_h_1646061598(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EDataTableTypes_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EDataTableTypes_h_Statics::EnumInfo));

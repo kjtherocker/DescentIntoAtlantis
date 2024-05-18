@@ -32,7 +32,7 @@ void ULevelupView::SetupLevelupView(UPlayerCombatEntity* aPlayerCombatEntity)
 
 	if(completeClassData.unlockableSkillByLevel.Contains(completeClassData.currentLevel))
 	{
-		FString newSkillName = completeClassData.unlockableSkillByLevel[completeClassData.currentLevel + 1];
+		ESkillIDS newSkillName = completeClassData.unlockableSkillByLevel[completeClassData.currentLevel + 1];
 		FSkillsData newSKill = persistentGameInstance->skillFactorySubsystem->GetSkill(newSkillName)->skillData;
 		BW_Skillbar->SetSkill(newSKill);
 

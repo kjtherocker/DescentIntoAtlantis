@@ -33,7 +33,7 @@ void UPersistentGameinstance::Init()
 	saveManagerSubsystem      = GetSubsystem<USaveManagerSubsystem>();
 	levelProgressionSubsystem = GetSubsystem<ULevelProgressionSubsystem>();
 
-	skillFactorySubsystem->InitializeDatabase(dataTablesSkills);
+	skillFactorySubsystem->InitializeDatabase(dataTables[EDataTableTypes::Skills]);
 	levelProgressionSubsystem->InitializeSubsystem(this);
 
 	if(dataTables.Contains(EDataTableTypes::Enemys) &&

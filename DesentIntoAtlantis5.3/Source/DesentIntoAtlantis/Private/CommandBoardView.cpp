@@ -32,7 +32,7 @@ void UCommandBoardView::SetCommandBoard(ACombatGameModeBase* aCombatGameModeBase
 {
 	combatManager =  aCombatGameModeBase;
 	currentActivePartyMember = combatManager->GetCurrentActivePartyMember();
-	defaultAttack = static_cast<USkillAttack*>(SkillFactorySubsystem->GetSkill("DefaultAttack"));
+	defaultAttack = static_cast<USkillAttack*>(SkillFactorySubsystem->GetSkill(ESkillIDS::DefaultAttack));
 	BW_FullBodyPortrait->SetBrushFromTexture(currentActivePartyMember->playerIdentityData.fullBodyCharacterPortrait);
 	
 	commandBoards.Add(BW_Attack);

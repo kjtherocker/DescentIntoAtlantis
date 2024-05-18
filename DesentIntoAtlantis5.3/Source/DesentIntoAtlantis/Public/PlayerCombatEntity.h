@@ -54,7 +54,7 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 	TMap<EClasses,FCompleteClassData> unlockedPlayerClasses;
 
 	UPROPERTY()
-	TArray<FString> skillSlots;
+	TArray<ESkillIDS> skillSlots;
 
 	UPROPERTY()
 	int currentHP;
@@ -89,6 +89,10 @@ public:
 	FPlayerIdentityData playerIdentityData;
 	UPROPERTY()
 	UPartyHealthbarElement* partyHealthbarElement;
+
+	UPROPERTY()
+	TArray<UAilment*> activeAilments;
+
 
 	virtual void LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet);
 	virtual void SetPlayerEntity(FPlayerIdentityData aPlayerEntityData);

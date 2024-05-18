@@ -48,14 +48,14 @@
             "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\engine\\streamablemanager.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\image.generated.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\combatentity.generated.h",
+            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\skillsdata.h",
+            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\skillsdata.generated.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\enemycombatentity.generated.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\enemyfactorysubsystem.generated.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\partymanagersubsystem.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\playercombatentity.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\combatclass.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\edatatabletypes.h",
-            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\skillsdata.h",
-            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\skillsdata.generated.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\combatclass.generated.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\playercombatentity.generated.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\partymanagersubsystem.generated.h",
@@ -300,8 +300,7 @@
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\enemyfactorysubsystem.gen.cpp",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\enemyportraitelement.gen.cpp",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\enemyportraitelement.h",
-            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\enemyportraitelement.generated.h",
-            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\enemyselectionelement.gen.cpp"
+            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\enemyportraitelement.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
