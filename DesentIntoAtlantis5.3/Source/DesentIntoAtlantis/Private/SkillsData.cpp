@@ -32,7 +32,7 @@ PressTurnReactions USyncSkill::UseSkill(UCombatEntity* aAttacker, UCombatEntity*
 
 PressTurnReactions USkillAliment::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
-	aVictim->InflictAilment();
+	aVictim->InflictAilment(NewObject<UCalculateDamage_Fear>());
 	return PressTurnReactions::Normal;
 }
 

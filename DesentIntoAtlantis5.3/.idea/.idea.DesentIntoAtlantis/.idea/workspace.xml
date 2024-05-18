@@ -9,116 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Skills.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/AssetData/DataTableEditorLayout/Atlantis_-_DarkKnight.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/AssetData/DataTableEditorLayout/Atlantis_-_Paladin.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-4B27B37F40B44B8C7A06DFBE67650A67/CrashReportClient.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-4E790F534B8D5D2E268C39B818AF52A8/CrashReportClient.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-5651CE294C3E4CDBE58B2BADB3192909/CrashReportClient.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-624B8A664421B5AE47534DBD51BEE766/CrashReportClient.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-6E9C5D1C40C36E1A72818AB27A47FB82/CrashReportClient.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-74F194FC4B2B3C9F5F8E00A43E4B2AA0/CrashReportClient.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-7852E9B24730DA6793C224A04509194F/CrashReportClient.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-A1623A304700139AD8DEDA9A4AFA722E/CrashReportClient.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-A4753B79491F08B6B96381BECF85DF9D/CrashReportClient.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-AD905F344A3DF8182DDE4692FC208148/CrashReportClient.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-BAF5EC134A0CE7CBAAC19498F76587B5/CrashReportClient.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-C74BB40541059BDA18AAB2B205845028/CrashReportClient.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-F01969C74E3FE48998D66F8CF1B6C69C/CrashReportClient.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.18-12.08.06.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.18-12.11.20.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.18-12.25.09.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.18-12.32.44.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.18-12.43.36.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.18-12.44.47.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.18-12.46.40.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.18-12.48.33.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.18-12.50.13.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.18-12.51.20.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Logs/WorldPartition/StreamingGeneration-PIE_Prison_Floor1-00000240-2024-05-18T08.52.47.010Z.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Logs/WorldPartition/StreamingGeneration-PIE_Prison_Floor1-00000b40-2024-05-18T08.46.38.159Z.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Logs/WorldPartition/StreamingGeneration-PIE_Prison_Floor1-00004164-2024-05-18T07.56.35.467Z.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Logs/WorldPartition/StreamingGeneration-PIE_Prison_Floor1-00005be4-2024-05-18T08.44.40.772Z.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Saved/Logs/WorldPartition/StreamingGeneration-PIE_Prison_Floor1-00006344-2024-05-18T08.48.30.215Z.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-DesentIntoAtlantis.patch_0.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-DesentIntoAtlantis.patch_0.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-DesentIntoAtlantis.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Binaries/Win64/UnrealEditor-DesentIntoAtlantis.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Classes.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Classes.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Enemys.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Enemys.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_PlayerCharacters.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_PlayerCharacters.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Skills_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Skills_Attack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PersistentObjects/BP_PersistentGameInstance.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PersistentObjects/BP_PersistentGameInstance.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/SourceFileCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/SourceFileCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/AtlantisGameModeBase.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/AtlantisGameModeBase.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/CombatClass.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/CombatClass.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/CombatGameModeBase.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/CombatGameModeBase.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/DesentIntoAtlantis.init.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/DesentIntoAtlantis.init.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EDataTableTypes.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EDataTableTypes.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EDataTableTypes.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EDataTableTypes.generated.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EnemyCombatEntity.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EnemyCombatEntity.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EnemyCombatEntity.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EnemyCombatEntity.generated.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EnemyFactorySubSystem.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EnemyFactorySubSystem.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/FloorGameMode.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/FloorGameMode.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/LevelGeneratorUtilityWidget.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/LevelGeneratorUtilityWidget.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/MainMenuGameMode.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/MainMenuGameMode.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/PartyManagerSubsystem.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/PartyManagerSubsystem.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/PersistentGameinstance.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/PersistentGameinstance.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/PlayerCombatEntity.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/PlayerCombatEntity.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/SaveGameData.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/SaveGameData.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/SkillFactorySubsystem.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/SkillFactorySubsystem.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/SkillsData.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/SkillsData.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/SkillsData.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/SkillsData.generated.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/DesentIntoAtlantisEditor/Development/DependencyCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/DesentIntoAtlantisEditor/Development/DependencyCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/Module.DesentIntoAtlantis.1.cpp.dep.json" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/Module.DesentIntoAtlantis.1.cpp.dep.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/Module.DesentIntoAtlantis.2.cpp.dep.json" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/Module.DesentIntoAtlantis.2.cpp.dep.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/Module.DesentIntoAtlantis.3.cpp.dep.json" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/Module.DesentIntoAtlantis.3.cpp.dep.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/Module.DesentIntoAtlantis.4.cpp.dep.json" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/Module.DesentIntoAtlantis.4.cpp.dep.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/Module.DesentIntoAtlantis.5.cpp.dep.json" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/Module.DesentIntoAtlantis.5.cpp.dep.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/UnrealEditor-DesentIntoAtlantis.exp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/UnrealEditor-DesentIntoAtlantis.exp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/UnrealEditor-DesentIntoAtlantis.lib" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/UnrealEditor-DesentIntoAtlantis.lib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/UnrealEditor-DesentIntoAtlantis.sup.exp" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/UnrealEditor-DesentIntoAtlantis.sup.exp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/UnrealEditor-DesentIntoAtlantis.sup.lib" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/Build/Win64/x64/UnrealEditor/Development/DesentIntoAtlantis/UnrealEditor-DesentIntoAtlantis.sup.lib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Intermediate/CachedAssetRegistry_0.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Intermediate/CachedAssetRegistry_0.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-00EBFA974A3A0B4EFA4F4A952D28DD4E/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-0A9981EB4A691D97A4783B97B766F9DD/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-49F7022E45BCCBC22E5FB08FD296BB6F/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-55C17D3A462496E0D935518CD6992F05/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-79F86EDD4B957A109D4806906320EEEE/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-836ED5064C07665FFDE10C8C09739E37/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-9B15858F40BB40CE56BAC68BD0A4F1CF/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-B44D061D4E0B4A51F7F949BBF5B41298/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-EFF7BC564186CA2608D1CD87A00EDCAA/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-F766773246515D64B0204AB797012D19/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.12-13.58.37.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.12-14.02.38.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.12-14.07.47.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.13-13.14.36.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.13-13.50.28.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.13-13.53.10.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.13-13.59.11.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.13-16.15.32.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.13-18.34.48.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.05.14-14.54.29.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis.log" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/SaveGames/SaveSlot1.sav" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/SaveGames/SaveSlot1.sav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/SourceControl/UncontrolledChangelists.json" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/SourceControl/UncontrolledChangelists.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatClass.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatClass.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatEntity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatEntity.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CommandBoardView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CommandBoardView.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EnemyCombatEntity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EnemyCombatEntity.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/LevelupView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/LevelupView.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PersistentGameinstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PersistentGameinstance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillFactorySubsystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillFactorySubsystem.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillsData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillsData.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatClass.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatClass.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatEntity.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatEntity.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EDataTableTypes.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EDataTableTypes.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EnemyCombatEntity.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EnemyCombatEntity.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PlayerCombatEntity.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PlayerCombatEntity.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillFactorySubsystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillFactorySubsystem.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillsData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillsData.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -600,6 +494,7 @@
       <workItem from="1715370303903" duration="14373000" />
       <workItem from="1715694956944" duration="5611000" />
       <workItem from="1716031791618" duration="6765000" />
+      <workItem from="1716044359553" duration="6353000" />
     </task>
     <servers />
   </component>
