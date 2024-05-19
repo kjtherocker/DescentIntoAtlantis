@@ -10,10 +10,12 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeSkillFactorySubsystem() {}
 // Cross Module References
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UAilment_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkillBase_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkillFactorySubsystem();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkillFactorySubsystem_NoRegister();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ESkillIDS();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments();
 	ENGINE_API UClass* Z_Construct_UClass_UGameInstanceSubsystem();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
 // End Cross Module References
@@ -38,6 +40,13 @@ void EmptyLinkFunctionForGeneratedCodeSkillFactorySubsystem() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_allSkillsMap_MetaData[];
 #endif
 		static const UECodeGen_Private::FMapPropertyParams NewProp_allSkillsMap;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_allAliments_ValueProp;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_allAliments_Key_KeyProp_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_allAliments_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_allAliments_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_allAliments;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -65,11 +74,24 @@ void EmptyLinkFunctionForGeneratedCodeSkillFactorySubsystem() {}
 	};
 #endif
 	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allSkillsMap = { "allSkillsMap", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USkillFactorySubsystem, allSkillsMap), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allSkillsMap_MetaData), Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allSkillsMap_MetaData) }; // 1795072353
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allAliments_ValueProp = { "allAliments", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_UAilment_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allAliments_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allAliments_Key_KeyProp = { "allAliments_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments, METADATA_PARAMS(0, nullptr) }; // 3343534961
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allAliments_MetaData[] = {
+		{ "ModuleRelativePath", "Public/SkillFactorySubsystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allAliments = { "allAliments", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USkillFactorySubsystem, allAliments), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allAliments_MetaData), Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allAliments_MetaData) }; // 3343534961
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_USkillFactorySubsystem_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allSkillsMap_ValueProp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allSkillsMap_Key_KeyProp_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allSkillsMap_Key_KeyProp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allSkillsMap,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allAliments_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allAliments_Key_KeyProp_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allAliments_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillFactorySubsystem_Statics::NewProp_allAliments,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_USkillFactorySubsystem_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<USkillFactorySubsystem>::IsAbstract,
@@ -110,9 +132,9 @@ void EmptyLinkFunctionForGeneratedCodeSkillFactorySubsystem() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillFactorySubsystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_USkillFactorySubsystem, USkillFactorySubsystem::StaticClass, TEXT("USkillFactorySubsystem"), &Z_Registration_Info_UClass_USkillFactorySubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillFactorySubsystem), 3925885830U) },
+		{ Z_Construct_UClass_USkillFactorySubsystem, USkillFactorySubsystem::StaticClass, TEXT("USkillFactorySubsystem"), &Z_Registration_Info_UClass_USkillFactorySubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillFactorySubsystem), 2623382047U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillFactorySubsystem_h_2404430319(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillFactorySubsystem_h_3984003400(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillFactorySubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillFactorySubsystem_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

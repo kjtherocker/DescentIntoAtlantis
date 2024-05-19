@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "SkillsData.h"
 #include "CombatEntity.h"
-
+#include "CombatEntityWrapper.h"
 
 
 void USkillBase::Initialize(FSkillsData aSkillData)
@@ -9,9 +9,18 @@ void USkillBase::Initialize(FSkillsData aSkillData)
 	skillData = aSkillData;
 }
 
+void UAilment::Initialize(FSkillsData aSkillData)
+{
+}
+
 void UAilment::ActivateAilment(UCombatEntity* aCombatEntity)
 {
 	aCombatEntity->AlimentDecrementHealth(10);
+}
+
+void UAilment_Fear::Initialize(FSkillsData aSkillData)
+{
+	Super::Initialize(aSkillData);
 }
 
 PressTurnReactions USkillBase::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
@@ -30,10 +39,11 @@ PressTurnReactions USyncSkill::UseSkill(UCombatEntity* aAttacker, UCombatEntity*
 	return aVictim->DecrementHealth(aAttacker,skillData);
 }
 
-PressTurnReactions USkillAliment::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+
+PressTurnReactions USkillAlimentAttack::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
 	aVictim->InflictAilment(NewObject<UCalculateDamage_Fear>());
-	return PressTurnReactions::Normal;
+	return aVictim->DecrementHealth(aAttacker,skillData);
 }
 
 PressTurnReactions USkillHeal::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)

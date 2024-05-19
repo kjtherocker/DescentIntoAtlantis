@@ -3,14 +3,17 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CombatEntityWrapper.h"
 #include "UObject/NoExportTypes.h"
 #include "EElementalType.h"
 #include "PressTurnManager.h"
-#include "SkillsData.h"
+
 #include "Components/Image.h"
 #include "Engine/DataTable.h"
 #include "CombatEntity.generated.h"
 
+
+class UAilment;
 class USkillAliment;
 struct FSkillsData;
 class ACombatGameModeBase;
@@ -135,63 +138,11 @@ enum class ECharactertype
 	Enemy
 };
 
-//UENUM()
-//class enum ECreaturesAilment
-//{
-//	None,
-//	Poison,
-//	Daze,
-//	Sleep,
-//	Rage,
-//};
-UCLASS()
-class  DESENTINTOATLANTIS_API UAilmentShellTakeOver : public UObject
-{
-	GENERATED_BODY()
-public:
-	
-//	virtual int CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
-};
-
-
-UCLASS()
-class  DESENTINTOATLANTIS_API UCalculateDamage_Base : public UAilmentShellTakeOver
-{
-	GENERATED_BODY()
-public:
-	UPROPERTY()
-	UCombatEntity* AttachedCombatEntity;
-	virtual void SetAttachedCombatEntity(UCombatEntity* aCombatEntity);
-	virtual int CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill) override;
-};
-
-UCLASS()
-class DESENTINTOATLANTIS_API UCalculateDamage_Fear :public  UCalculateDamage_Base
-{
-	GENERATED_BODY()
-public:
-	virtual int CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill) override;
-};
-
-UCLASS()
-class DESENTINTOATLANTIS_API UCombatEntityShell : public UObject
-{
-	GENERATED_BODY()
-public:
-	UPROPERTY()
-	UCalculateDamage_Base* calculateDamage;
-	
-	virtual PressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
-	virtual PressTurnReactions ApplyBuff(      UCombatEntity* aBuffer,   FSkillsData aSkill);
-	virtual void DecrementMana(int aDecrementBy);
-};
-
-
-
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWasDamaged);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWasKilled);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FHasHealthOrManaValuesChanged);
+
 UCLASS()
 class DESENTINTOATLANTIS_API UCombatEntity : public UObject
 {
@@ -201,7 +152,10 @@ protected:
 	bool isMarkedForDeath = false;
 
 	TArray<UAilment*> skillAliments;
-	UCombatEntityShell combatEntityShell;
+	UPROPERTY()
+	UCombatEntityWrapper* inUseCombatWrapper;
+	UPROPERTY()
+	UCombatEntityWrapper* allDefaultCombatWrapper;
 public:
 	inline static const float ABILITYSCORE_CONVERSION_RATIO = 3;
 	inline static const float ABILITYSCORE_BUFF_MULTIPLIER  = 2;
@@ -211,6 +165,10 @@ public:
 	FWasKilled                        wasKilled;
 	FWasDamaged					      wasDamaged;
 	FHasHealthOrManaValuesChanged     hasHealthOrManaValuesChanged;
+	FResetOneWrapperToDefault         resetOneWrapperToDefault;
+
+	UFUNCTION()
+	virtual void SetAWrapperToDefault(ECombatEntityWrapperType aShellType);
 	virtual void SetTacticsEntity(USkillFactorySubsystem*  aSkillFactory);
 	
 	virtual void SetTacticsEvents(ACombatGameModeBase* aCombatManager);

@@ -14,8 +14,10 @@ void EmptyLinkFunctionForGeneratedCodeCombatEntity() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatAbilityStats_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatEntity();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatEntity_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UCombatEntityWrapper_NoRegister();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EAbilityScoreTypes();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECharactertype();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECombatEntityWrapperType();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasHealthOrManaValuesChanged__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasDamaged__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasKilled__DelegateSignature();
@@ -449,13 +451,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCombatEntityData>
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasDamaged__DelegateSignature_Statics::Function_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "//UENUM()\n//class enum ECreaturesAilment\n//{\n//\x09None,\n//\x09Poison,\n//\x09""Daze,\n//\x09Sleep,\n//\x09Rage,\n//};\n" },
-#endif
 		{ "ModuleRelativePath", "Public/CombatEntity.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "UENUM()\nclass enum ECreaturesAilment\n{\n       None,\n       Poison,\n       Daze,\n       Sleep,\n       Rage,\n};" },
-#endif
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasDamaged__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis, nullptr, "WasDamaged__DelegateSignature", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasDamaged__DelegateSignature_Statics::Function_MetaDataParams), Z_Construct_UDelegateFunction_DesentIntoAtlantis_WasDamaged__DelegateSignature_Statics::Function_MetaDataParams) };
@@ -538,11 +534,20 @@ void FHasHealthOrManaValuesChanged_DelegateWrapper(const FMulticastScriptDelegat
 		P_THIS->StartTurn();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UCombatEntity::execSetAWrapperToDefault)
+	{
+		P_GET_ENUM(ECombatEntityWrapperType,Z_Param_aShellType);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetAWrapperToDefault(ECombatEntityWrapperType(Z_Param_aShellType));
+		P_NATIVE_END;
+	}
 	void UCombatEntity::StaticRegisterNativesUCombatEntity()
 	{
 		UClass* Class = UCombatEntity::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "EndTurn", &UCombatEntity::execEndTurn },
+			{ "SetAWrapperToDefault", &UCombatEntity::execSetAWrapperToDefault },
 			{ "StartTurn", &UCombatEntity::execStartTurn },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -566,6 +571,43 @@ void FHasHealthOrManaValuesChanged_DelegateWrapper(const FMulticastScriptDelegat
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCombatEntity_EndTurn_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault_Statics
+	{
+		struct CombatEntity_eventSetAWrapperToDefault_Parms
+		{
+			ECombatEntityWrapperType aShellType;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_aShellType_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_aShellType;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault_Statics::NewProp_aShellType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault_Statics::NewProp_aShellType = { "aShellType", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CombatEntity_eventSetAWrapperToDefault_Parms, aShellType), Z_Construct_UEnum_DesentIntoAtlantis_ECombatEntityWrapperType, METADATA_PARAMS(0, nullptr) }; // 1506590368
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault_Statics::NewProp_aShellType_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault_Statics::NewProp_aShellType,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCombatEntity, nullptr, "SetAWrapperToDefault", nullptr, nullptr, Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault_Statics::PropPointers), sizeof(Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault_Statics::CombatEntity_eventSetAWrapperToDefault_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault_Statics::Function_MetaDataParams), Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault_Statics::CombatEntity_eventSetAWrapperToDefault_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -604,6 +646,14 @@ void FHasHealthOrManaValuesChanged_DelegateWrapper(const FMulticastScriptDelegat
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_inUseCombatWrapper_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_inUseCombatWrapper;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_allDefaultCombatWrapper_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_allDefaultCombatWrapper;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_maxHealth_MetaData[];
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_maxHealth;
@@ -641,6 +691,7 @@ void FHasHealthOrManaValuesChanged_DelegateWrapper(const FMulticastScriptDelegat
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UCombatEntity_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCombatEntity_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UCombatEntity_EndTurn, "EndTurn" }, // 2800789503
+		{ &Z_Construct_UFunction_UCombatEntity_SetAWrapperToDefault, "SetAWrapperToDefault" }, // 3965091741
 		{ &Z_Construct_UFunction_UCombatEntity_StartTurn, "StartTurn" }, // 1314967389
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UCombatEntity_Statics::FuncInfo) < 2048);
@@ -650,6 +701,18 @@ void FHasHealthOrManaValuesChanged_DelegateWrapper(const FMulticastScriptDelegat
 		{ "ModuleRelativePath", "Public/CombatEntity.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatEntity_Statics::NewProp_inUseCombatWrapper_MetaData[] = {
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCombatEntity_Statics::NewProp_inUseCombatWrapper = { "inUseCombatWrapper", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCombatEntity, inUseCombatWrapper), Z_Construct_UClass_UCombatEntityWrapper_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCombatEntity_Statics::NewProp_inUseCombatWrapper_MetaData), Z_Construct_UClass_UCombatEntity_Statics::NewProp_inUseCombatWrapper_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatEntity_Statics::NewProp_allDefaultCombatWrapper_MetaData[] = {
+		{ "ModuleRelativePath", "Public/CombatEntity.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCombatEntity_Statics::NewProp_allDefaultCombatWrapper = { "allDefaultCombatWrapper", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCombatEntity, allDefaultCombatWrapper), Z_Construct_UClass_UCombatEntityWrapper_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCombatEntity_Statics::NewProp_allDefaultCombatWrapper_MetaData), Z_Construct_UClass_UCombatEntity_Statics::NewProp_allDefaultCombatWrapper_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatEntity_Statics::NewProp_maxHealth_MetaData[] = {
 		{ "ModuleRelativePath", "Public/CombatEntity.h" },
@@ -691,6 +754,8 @@ void FHasHealthOrManaValuesChanged_DelegateWrapper(const FMulticastScriptDelegat
 #endif
 	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap = { "abilityScoreMap", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCombatEntity, abilityScoreMap), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_MetaData), Z_Construct_UClass_UCombatEntity_Statics::NewProp_abilityScoreMap_MetaData) }; // 1539010591
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCombatEntity_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatEntity_Statics::NewProp_inUseCombatWrapper,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatEntity_Statics::NewProp_allDefaultCombatWrapper,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatEntity_Statics::NewProp_maxHealth,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatEntity_Statics::NewProp_currentHealth,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCombatEntity_Statics::NewProp_maxMana,
@@ -750,9 +815,9 @@ void FHasHealthOrManaValuesChanged_DelegateWrapper(const FMulticastScriptDelegat
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UCombatAbilityStats, UCombatAbilityStats::StaticClass, TEXT("UCombatAbilityStats"), &Z_Registration_Info_UClass_UCombatAbilityStats, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatAbilityStats), 2849591881U) },
-		{ Z_Construct_UClass_UCombatEntity, UCombatEntity::StaticClass, TEXT("UCombatEntity"), &Z_Registration_Info_UClass_UCombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatEntity), 2024935847U) },
+		{ Z_Construct_UClass_UCombatEntity, UCombatEntity::StaticClass, TEXT("UCombatEntity"), &Z_Registration_Info_UClass_UCombatEntity, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatEntity), 1450300102U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_3255276177(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_321442813(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatEntity_h_Statics::EnumInfo));

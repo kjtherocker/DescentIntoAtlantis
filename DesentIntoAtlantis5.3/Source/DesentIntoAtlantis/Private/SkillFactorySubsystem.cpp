@@ -17,7 +17,7 @@ void USkillFactorySubsystem::InitializeDatabase(UDataTable*  aSkillDataTable)
 
 	allSkillsMap.Add(ESkillIDS::DefaultAttack,NewObject<USkillAttack>());
 	//Banshee
-	allSkillsMap.Add(ESkillIDS::Bonk,NewObject<USkillAttack>());
+	allSkillsMap.Add(ESkillIDS::Bonk,NewObject<USkillAlimentAttack>());
 	allSkillsMap.Add(ESkillIDS::Boo,NewObject<USkillAttack>());
 	allSkillsMap.Add(ESkillIDS::RejuvenatingLink,NewObject<USkillAttack>());
 	allSkillsMap.Add(ESkillIDS::WailingScream,NewObject<USkillAttack>());

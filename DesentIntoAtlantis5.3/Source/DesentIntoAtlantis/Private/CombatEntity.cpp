@@ -1,43 +1,23 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "CombatEntity.h"
+
+#include "CombatEntityWrapper.h"
 #include "CombatGameModeBase.h"
 #include "SkillFactorySubsystem.h"
 #include "SkillsData.h"
 
 
-void UCalculateDamage_Base::SetAttachedCombatEntity(UCombatEntity* aCombatEntity)
+void UCombatEntity::SetAWrapperToDefault(ECombatEntityWrapperType aShellType)
 {
-    AttachedCombatEntity = aCombatEntity;
-}
-
-int UCalculateDamage_Base::CalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
-{
-    int decementBy = aSkill.damage;
-
-    UCombatEntity* attachedCombatEntity = AttachedCombatEntity;
-    int strengthAllStats =  aAttacker->abilityScoreMap[EAbilityScoreTypes::Strength]->GetAllStats() / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
-    int magicAllStats    =  aAttacker->abilityScoreMap[EAbilityScoreTypes::Magic]->GetAllStats()    / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
-    decementBy += aSkill.skillDamageType == ESkillDamageType::Strength ? strengthAllStats : magicAllStats;
-	
-    if (aSkill.elementalType == attachedCombatEntity->elementalWeakness)
+    switch (aShellType)
     {
-        decementBy = decementBy * UCombatEntity::WEAK_DAMAGE_INCREASE;
+        case ECombatEntityWrapperType::None:
+            
+        break;
+        case ECombatEntityWrapperType::CalculateDamage:
+            inUseCombatWrapper->SetCalculateDamageWrapper(allDefaultCombatWrapper->GetCalculateDamageWrapper());
+        break;
     }
-    if (aSkill.elementalType == attachedCombatEntity->elementalStrength)
-    {
-        decementBy = decementBy * UCombatEntity::STRONG_DAMAGE_REDUCTION;
-    }
-
-    decementBy -=  aSkill.skillDamageType == ESkillDamageType::Strength ?
-        attachedCombatEntity->abilityScoreMap[EAbilityScoreTypes::Defence]->GetAllStats()    / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO :
-        attachedCombatEntity->abilityScoreMap[EAbilityScoreTypes::Resistance]->GetAllStats() / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
-	
-    return decementBy;
-}
-
-int UCalculateDamage_Fear::CalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
-{
-    return UCalculateDamage_Base::CalculateDamage(aAttacker, aSkill) * 2;
 }
 
 void UCombatEntity::SetTacticsEntity(USkillFactorySubsystem* aSkillFactory)
@@ -49,8 +29,15 @@ void UCombatEntity::SetTacticsEntity(USkillFactorySubsystem* aSkillFactory)
     abilityScoreMap.Add(EAbilityScoreTypes::Defence,   NewObject<UCombatAbilityStats>());
     abilityScoreMap.Add(EAbilityScoreTypes::Resistance,NewObject<UCombatAbilityStats>());
 
-    combatEntityShell.calculateDamage = NewObject<UCalculateDamage_Base>();
-    combatEntityShell.calculateDamage->AttachedCombatEntity(this);
+    resetOneWrapperToDefault.AddDynamic(this,&UCombatEntity::SetAWrapperToDefault);
+    inUseCombatWrapper      = NewObject<UCombatEntityWrapper>();
+    allDefaultCombatWrapper = NewObject<UCombatEntityWrapper>();
+    allDefaultCombatWrapper->SetAttachedCombatEntity(this);
+    allDefaultCombatWrapper->SetCalculateDamageWrapper(NewObject<UCalculateDamage_Base>());
+    
+    inUseCombatWrapper->SetAttachedCombatEntity(this);
+    inUseCombatWrapper->SetCalculateDamageWrapper(allDefaultCombatWrapper->GetCalculateDamageWrapper());
+
     
 }
 
@@ -73,6 +60,7 @@ void UCombatEntity::EndTurn()
     {
         abilityScore.Value->TurnEnd();
     }
+    inUseCombatWrapper->TurnEnd();
 }
 
 
@@ -84,14 +72,14 @@ void UCombatEntity::SetHealth(int aHealth)
 
 void UCombatEntity::InflictAilment(UAilmentShellTakeOver* aAliment)
 {
-    combatEntityShell.calculateDamage = NewObject<UCalculateDamage_Fear>();
-    skillAliments.Add(aAliment);
+    inUseCombatWrapper->SetCalculateDamageWrapper( NewObject<UCalculateDamage_Fear>());
+   // skillAliments.Add(aAliment);
 }
 
 
 int UCombatEntity::CalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
-    return combatEntityShell.calculateDamage->CalculateDamage(aAttacker,aSkill);
+    return inUseCombatWrapper->ExecuteCalculateDamage(aAttacker,aSkill);
 }
 
 void UCombatEntity::Reset()
@@ -231,3 +219,7 @@ bool UCombatEntity::GetIsMarkedForDeath()
 {
     return isMarkedForDeath;
 }
+
+//Related But not combatentity
+
+

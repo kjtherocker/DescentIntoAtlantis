@@ -6,6 +6,7 @@
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/CombatCameraPawn.gen.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/CombatClass.gen.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/CombatEntity.gen.cpp"
+#include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/CombatEntityWrapper.gen.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/CombatGameModeBase.gen.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/CombatSelectionView.gen.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/CommandBoardView.gen.cpp"
@@ -22,4 +23,3 @@
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EnemyBehaviour.gen.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EnemyCombatEntity.gen.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EnemyFactorySubSystem.gen.cpp"
-#include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EnemyPortraitElement.gen.cpp"

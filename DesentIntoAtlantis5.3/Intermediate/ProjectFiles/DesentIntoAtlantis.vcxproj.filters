@@ -1613,6 +1613,9 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CombatEntity.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CombatEntityWrapper.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CombatGameModeBase.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
@@ -1812,6 +1815,9 @@
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatEntity.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatEntityWrapper.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatGameModeBase.h">

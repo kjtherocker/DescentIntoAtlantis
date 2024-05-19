@@ -93,6 +93,7 @@ enum class ESkillIDS : uint8
 	
 };
 
+
 USTRUCT()
 struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
 {

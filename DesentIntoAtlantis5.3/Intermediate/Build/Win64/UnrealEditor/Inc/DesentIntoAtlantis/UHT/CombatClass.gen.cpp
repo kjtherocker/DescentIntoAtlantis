@@ -226,13 +226,13 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCompleteClassData
 	};
 #endif
 	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_attachedEntityIdentifier = { "attachedEntityIdentifier", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FCompleteClassData, attachedEntityIdentifier), Z_Construct_UEnum_DesentIntoAtlantis_EPartyMembers, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_attachedEntityIdentifier_MetaData), Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_attachedEntityIdentifier_MetaData) }; // 781165082
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_syncSkills_Inner = { "syncSkills", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FSkillsData, METADATA_PARAMS(0, nullptr) }; // 3406219720
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_syncSkills_Inner = { "syncSkills", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FSkillsData, METADATA_PARAMS(0, nullptr) }; // 1980275096
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_syncSkills_MetaData[] = {
 		{ "ModuleRelativePath", "Public/CombatClass.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_syncSkills = { "syncSkills", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FCompleteClassData, syncSkills), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_syncSkills_MetaData), Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_syncSkills_MetaData) }; // 3406219720
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_syncSkills = { "syncSkills", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FCompleteClassData, syncSkills), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_syncSkills_MetaData), Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_syncSkills_MetaData) }; // 1980275096
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewProp_currentLevelClassData_MetaData[] = {
 		{ "ModuleRelativePath", "Public/CombatClass.h" },
@@ -365,7 +365,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCompleteClassData
 		{ "ModuleRelativePath", "Public/CombatClass.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_completeClassData = { "completeClassData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCombatClass, completeClassData), Z_Construct_UScriptStruct_FCompleteClassData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCombatClass_Statics::NewProp_completeClassData_MetaData), Z_Construct_UClass_UCombatClass_Statics::NewProp_completeClassData_MetaData) }; // 3402981448
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_completeClassData = { "completeClassData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCombatClass, completeClassData), Z_Construct_UScriptStruct_FCompleteClassData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCombatClass_Statics::NewProp_completeClassData_MetaData), Z_Construct_UClass_UCombatClass_Statics::NewProp_completeClassData_MetaData) }; // 1590545692
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCombatClass_Statics::NewProp_classSkills_Inner = { "classSkills", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_USkillBase_NoRegister, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCombatClass_Statics::NewProp_classSkills_MetaData[] = {
@@ -434,12 +434,12 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCompleteClassData
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ScriptStructInfo[] = {
 		{ FClassData::StaticStruct, Z_Construct_UScriptStruct_FClassData_Statics::NewStructOps, TEXT("ClassData"), &Z_Registration_Info_UScriptStruct_ClassData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FClassData), 254550064U) },
-		{ FCompleteClassData::StaticStruct, Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewStructOps, TEXT("CompleteClassData"), &Z_Registration_Info_UScriptStruct_CompleteClassData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCompleteClassData), 3402981448U) },
+		{ FCompleteClassData::StaticStruct, Z_Construct_UScriptStruct_FCompleteClassData_Statics::NewStructOps, TEXT("CompleteClassData"), &Z_Registration_Info_UScriptStruct_CompleteClassData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCompleteClassData), 1590545692U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCombatClass, UCombatClass::StaticClass, TEXT("UCombatClass"), &Z_Registration_Info_UClass_UCombatClass, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatClass), 1728448798U) },
+		{ Z_Construct_UClass_UCombatClass, UCombatClass::StaticClass, TEXT("UCombatClass"), &Z_Registration_Info_UClass_UCombatClass, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatClass), 3627482822U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatClass_h_2158822459(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatClass_h_3589359327(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_CombatClass_h_Statics::ScriptStructInfo),
 		nullptr, 0);
