@@ -16,6 +16,7 @@
 class UAilment;
 class USkillAliment;
 struct FSkillsData;
+enum class EStatusAilments;
 class ACombatGameModeBase;
 class AEnemyPortraitElement;
 class USkillFactorySubsystem;
@@ -162,11 +163,14 @@ public:
 	inline static const float STRONG_DAMAGE_REDUCTION       = 0.6f;
 	inline static const float WEAK_DAMAGE_INCREASE          = 1.5f;
 	inline static const float MAX_SYNC                      = 100;
-	FWasKilled                        wasKilled;
-	FWasDamaged					      wasDamaged;
-	FHasHealthOrManaValuesChanged     hasHealthOrManaValuesChanged;
-	FResetOneWrapperToDefault         resetOneWrapperToDefault;
-
+	
+	FOnStatusAilmentStart              onStatusAilmentStart;
+	FOnStatusAilmentEnd                onStatusAilmentEnd;
+	FWasKilled                         wasKilled;
+	FWasDamaged					       wasDamaged;
+	FHasHealthOrManaValuesChanged      hasHealthOrManaValuesChanged;
+	FResetOneWrapperToDefault          resetOneWrapperToDefault;
+ 
 	UFUNCTION()
 	virtual void SetAWrapperToDefault(ECombatEntityWrapperType aShellType);
 	virtual void SetTacticsEntity(USkillFactorySubsystem*  aSkillFactory);
@@ -181,7 +185,7 @@ public:
 	//SetStatusEffect(StatusEffects aStatusEffect);
 
 	virtual void SetHealth(int aHealth);
-	virtual void InflictAilment(UAilmentShellTakeOver* aAliment);
+	virtual void InflictAilment(UAilmentShellTakeOver* aAliment,ECombatEntityWrapperType aCombatEntityWrapperType);
 	
 	virtual int CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
 	virtual void Reset();

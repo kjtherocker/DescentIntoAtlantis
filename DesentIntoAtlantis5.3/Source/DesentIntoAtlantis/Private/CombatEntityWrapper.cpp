@@ -9,8 +9,8 @@
 
 void UAilmentShellTakeOver::Initialize(UCombatEntity* aAttachedEntity,ECombatEntityWrapperType aWrapperType)
 {
-    resetShellToDefault     = aAttachedEntity->resetOneWrapperToDefault;
-    combatEntityWrapperType = aWrapperType;
+    ailmentInfo.resetShellToDefault     = aAttachedEntity->resetOneWrapperToDefault;
+    ailmentInfo.combatEntityWrapperType = aWrapperType;
 }
 
 int UAilmentShellTakeOver::CalculateDamage(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill)
@@ -20,16 +20,16 @@ int UAilmentShellTakeOver::CalculateDamage(UCombatEntity* aAttachedEntity,UComba
 
 void UAilmentShellTakeOver::SetAilmentTurnLength(int aActiveTurnLength)
 {
-    ailmentLength = aActiveTurnLength;
+    ailmentInfo.ailmentLength = aActiveTurnLength;
 }
 
 void UAilmentShellTakeOver::TurnEnd()
 {
-    ailmentLength--;
-    if(ailmentLength <= 0)
+    ailmentInfo.ailmentLength--;
+    if(ailmentInfo.ailmentLength <= 0)
     {
-        resetShellToDefault.Broadcast(combatEntityWrapperType);
-        ailmentLength = 0;
+        ailmentInfo.resetShellToDefault.Broadcast(ailmentInfo.combatEntityWrapperType);
+        ailmentInfo.ailmentLength = 0;
     }
     
 }
@@ -61,6 +61,12 @@ int UCalculateDamage_Base::CalculateDamage(UCombatEntity* aAttachedEntity,UComba
 
 void UCalculateDamage_Base::TurnEnd()
 {
+    ailmentInfo.ailmentLength--;
+    if(ailmentInfo.ailmentLength <= 0)
+    {
+        ailmentInfo.resetShellToDefault.Broadcast(ailmentInfo.combatEntityWrapperType);
+        ailmentInfo.ailmentLength = 0;
+    }
 }
 
 int UCalculateDamage_Fear::CalculateDamage(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill)
@@ -68,16 +74,53 @@ int UCalculateDamage_Fear::CalculateDamage(UCombatEntity* aAttachedEntity,UComba
     return UCalculateDamage_Base::CalculateDamage(aAttachedEntity,aAttacker, aSkill) * 2;
 }
 
+void UCalculateDamage_Fear::TurnEnd()
+{
+    Super::TurnEnd();
+}
+
+void UCombatEntityWrapper::Initialize()
+{
+    //allPossibleAilments.Add(EStatusAilments::Fear,NewObject<UCalculateDamage_Fear>());
+}
+
+void UCombatEntityWrapper::RemoveAilment(ECombatEntityWrapperType aCombatEntityWrapperType)
+{
+    completeEntityWrapperInfo.ailments.Remove(aCombatEntityWrapperType);
+}
+
+void UCombatEntityWrapper::SetAilment(UAilmentShellTakeOver* aAilment, ECombatEntityWrapperType aCombatEntityWrapperType)
+{
+    completeEntityWrapperInfo.ailments.Add(aCombatEntityWrapperType,&aAilment->ailmentInfo);
+    switch (aCombatEntityWrapperType)
+    {
+    case ECombatEntityWrapperType::None:
+        break;
+    case ECombatEntityWrapperType::CalculateDamage:
+        SetCalculateDamageAilment( aAilment);
+        break;
+    }
+}
+
 void UCombatEntityWrapper::SetAttachedCombatEntity(UCombatEntity* aCombatEntity)
 {
+   aCombatEntity->resetOneWrapperToDefault.AddDynamic(this,&UCombatEntityWrapper::RemoveAilment);
     AttachedCombatEntity = aCombatEntity;
 }
 
-void UCombatEntityWrapper::SetCalculateDamageWrapper(UCalculateDamage_Base* aCalculateDamageWrapper)
+void UCombatEntityWrapper::SetCalculateDamageDefault(UAilmentShellTakeOver* aCalculateDamageWrapper)
 {
-    UCalculateDamage_Base* calculateDamageTemp = aCalculateDamageWrapper;
+    UAilmentShellTakeOver* calculateDamageTemp = aCalculateDamageWrapper;
+    AttachedCombatEntity->onStatusAilmentEnd.Broadcast(calculateDamage->ailmentInfo.statusAilment);
     calculateDamageTemp->Initialize(AttachedCombatEntity,ECombatEntityWrapperType::CalculateDamage);
-    calculateDamageTemp->SetAilmentTurnLength(2);
+    calculateDamage = calculateDamageTemp;
+}
+
+void UCombatEntityWrapper::SetCalculateDamageAilment(UAilmentShellTakeOver* aCalculateDamageWrapper)
+{
+    UAilmentShellTakeOver* calculateDamageTemp = aCalculateDamageWrapper;
+    calculateDamageTemp->Initialize(AttachedCombatEntity,ECombatEntityWrapperType::CalculateDamage);
+    calculateDamageTemp->SetAilmentTurnLength(3);
     calculateDamage = calculateDamageTemp;
 }
 
@@ -87,7 +130,7 @@ int UCombatEntityWrapper::ExecuteCalculateDamage(UCombatEntity* aAttacker, FSkil
     return calculateDamage->CalculateDamage(AttachedCombatEntity,aAttacker,aSkill);
 }
 
-UCalculateDamage_Base* UCombatEntityWrapper::GetCalculateDamageWrapper()
+UAilmentShellTakeOver* UCombatEntityWrapper::GetCalculateDamageWrapper()
 {
     return calculateDamage;
 }

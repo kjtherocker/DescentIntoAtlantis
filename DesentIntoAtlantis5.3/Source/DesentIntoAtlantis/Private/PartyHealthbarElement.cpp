@@ -88,6 +88,25 @@ void UPartyHealthbarElement::TriggerGreyScale()
 	BW_CharacterPortrait->SetColorAndOpacity(FLinearColor::Black);
 }
 
+void UPartyHealthbarElement::TriggerAilmentEffect(EStatusAilments aStatusAilment)
+{
+	switch (aStatusAilment) {
+	case EStatusAilments::None:
+		break;
+	case EStatusAilments::Fear:
+		BW_CharacterPortrait->SetColorAndOpacity(FLinearColor::Blue);
+		break;
+	case EStatusAilments::Poison:
+		break;
+	case EStatusAilments::Daze:
+		break;
+	case EStatusAilments::Sleep:
+		break;
+	case EStatusAilments::Rage:
+		break;
+	}
+}
+
 void UPartyHealthbarElement::MoveUp()
 {
 	SetRenderTranslation(FVector2d(0,MOVEUP_TRANSLATION_OFFSET));

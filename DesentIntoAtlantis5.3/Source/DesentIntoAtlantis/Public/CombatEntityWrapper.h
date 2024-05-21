@@ -3,15 +3,27 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "UObject/NoExportTypes.h"
 #include "CombatEntityWrapper.generated.h"
 
 /**
  * 
  */
-
 struct FSkillsData;
+
 class UCombatEntity;
+
+UENUM(BlueprintType)
+enum class EStatusAilments
+{
+	None   = 0,
+	Fear   = 1,
+	Poison = 2,
+	Daze   = 3,
+	Sleep  = 4,
+	Rage   = 5,
+};
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnStatusAilmentStart,EStatusAilments,statusAilemnt);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnStatusAilmentEnd,EStatusAilments,statusAilemnt);
 
 UENUM()
 enum class ECombatEntityWrapperType
@@ -32,18 +44,38 @@ enum class ECombatEntityWrapperType
 //};
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FResetOneWrapperToDefault,ECombatEntityWrapperType,shelltype);
+USTRUCT()
+struct DESENTINTOATLANTIS_API FAilmentInfo
+{
+	GENERATED_BODY()
+	//UPROPERTY()
+	EStatusAilments statusAilment;
+	UPROPERTY()
+	FResetOneWrapperToDefault resetShellToDefault;
+	UPROPERTY()
+	ECombatEntityWrapperType  combatEntityWrapperType;
+	UPROPERTY()
+	int ailmentLength = 0;
+	
+};
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FCompleteEntityWrapperInfo
+{
+	GENERATED_BODY()
+
+	TMap<ECombatEntityWrapperType,FAilmentInfo*> ailments;
+
+};
+
 UCLASS()
 class  DESENTINTOATLANTIS_API UAilmentShellTakeOver : public UObject
 {
 	GENERATED_BODY()
 public:
-	FResetOneWrapperToDefault resetShellToDefault;
-	ECombatEntityWrapperType  combatEntityWrapperType;
-
+	FAilmentInfo ailmentInfo;
 	virtual void Initialize(UCombatEntity* aAttachedEntity,ECombatEntityWrapperType aWrapperType);
 	virtual int CalculateDamage(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker,FSkillsData aSkill);
-	
-	int ailmentLength = 0;
 	virtual void SetAilmentTurnLength(int aActiveTurnLength);
 	virtual void TurnEnd();
 };
@@ -66,6 +98,7 @@ class DESENTINTOATLANTIS_API UCalculateDamage_Fear :public  UCalculateDamage_Bas
 	GENERATED_BODY()
 public:
 	virtual int CalculateDamage(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker,FSkillsData aSkill) override;
+	virtual void TurnEnd() override;
 };
 
 UCLASS()
@@ -75,20 +108,32 @@ class DESENTINTOATLANTIS_API UCombatEntityWrapper : public UObject
 
 private:
 	UPROPERTY()
-	UCalculateDamage_Base* calculateDamage;
+	UAilmentShellTakeOver* calculateDamage;
 	FResetOneWrapperToDefault resetOneWrapperToDefault;
 public:
 	UPROPERTY()
 	UCombatEntity* AttachedCombatEntity;
+	UPROPERTY()
+	FCompleteEntityWrapperInfo completeEntityWrapperInfo;
 
+
+	//TMap<EStatusAilments,UAilmentShellTakeOver*> allPossibleAilments;
+
+	virtual void Initialize();
+	UFUNCTION()
+	virtual void RemoveAilment(ECombatEntityWrapperType aCombatEntityWrapperType);
+
+	virtual void SetAilment(UAilmentShellTakeOver* aAilment,ECombatEntityWrapperType aCombatEntityWrapperType);
 	virtual void SetAttachedCombatEntity(UCombatEntity* aCombatEntity);
-	virtual void SetCalculateDamageWrapper(UCalculateDamage_Base* aCalculateDamageWrapper);
+	virtual void SetCalculateDamageDefault(UAilmentShellTakeOver* aCalculateDamageWrapper);
+	virtual void SetCalculateDamageAilment(UAilmentShellTakeOver* aCalculateDamageWrapper);
 	virtual int ExecuteCalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
-	virtual UCalculateDamage_Base* GetCalculateDamageWrapper();
+	virtual UAilmentShellTakeOver* GetCalculateDamageWrapper();
 	virtual void TurnEnd();
 	//virtual PressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
 	//virtual PressTurnReactions ApplyBuff(      UCombatEntity* aBuffer,   FSkillsData aSkill);
 	//virtual void DecrementMana(int aDecrementBy);
 };
+
 
 

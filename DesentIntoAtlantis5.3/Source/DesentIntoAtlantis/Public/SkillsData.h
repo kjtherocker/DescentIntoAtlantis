@@ -45,17 +45,6 @@ enum class ESkillDamageType
 };
 
 
-UENUM(BlueprintType)
-enum class EStatusAilments
-{
-	None   = 0,
-	Fear   = 1,
-	Poison = 2,
-	Daze   = 3,
-	Sleep  = 4,
-	Rage   = 5,
-};
-
 UENUM()
 enum class ESkillRange
 {
@@ -205,6 +194,14 @@ class USkillAlimentAttack : public USkillAttack
 	UAilment* ailment;
 	UPROPERTY(EditAnywhere)
 	EStatusAilments statusAilments;
+	virtual PressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	
+};
+
+UCLASS()
+class USkillAlimentAttackFear: public USkillAttack
+{
+	GENERATED_BODY()
 	virtual PressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
 	
 };

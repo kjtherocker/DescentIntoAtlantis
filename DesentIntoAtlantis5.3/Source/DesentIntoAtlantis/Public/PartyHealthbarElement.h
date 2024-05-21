@@ -8,6 +8,7 @@
 #include "Components/Image.h"
 #include "PartyHealthbarElement.generated.h"
 
+enum class EStatusAilments;
 class UPlayerCombatEntity;
 class UTextBlock;
 class UProgressBar;
@@ -40,6 +41,9 @@ public:
 	void TriggerHitEffect();
 	UFUNCTION()
 	void TriggerGreyScale();
+
+	UFUNCTION()
+	void TriggerAilmentEffect(EStatusAilments aStatusAilment);
 	
 	void MoveUp();
 	void ResetTranslation();

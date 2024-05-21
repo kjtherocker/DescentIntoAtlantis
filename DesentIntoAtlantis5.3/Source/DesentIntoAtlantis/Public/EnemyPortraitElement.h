@@ -6,6 +6,7 @@
 #include "BaseUserWidget.h"
 #include "EnemyPortraitElement.generated.h"
 
+enum class EStatusAilments;
 class UEnemyCombatEntity;
 class UImage;
 /**
@@ -31,7 +32,15 @@ public:
 	void SetCombatEntity(UEnemyCombatEntity* aCombatEntity);
 	virtual void Tick(float DeltaTime) override;
 
-	AEnemyPortraitElement* GetMaterialCollection(UMaterialInterface* Material);
+	//AEnemyPortraitElement* GetMaterialCollection(UMaterialInterface* Material);
+	
+	UFUNCTION()
+	void TriggerAilmentEffect(EStatusAilments aStatusAilment);
+
+	UFUNCTION()
+	void TurnOffAilmentEffect(EStatusAilments aStatusAilment);
+
+	
 	UFUNCTION()
 	void TriggerHitEffect();
 	

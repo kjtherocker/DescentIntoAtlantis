@@ -13,11 +13,20 @@ void EmptyLinkFunctionForGeneratedCodePartyHealthbarElement() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UPartyHealthbarElement();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UPartyHealthbarElement_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UPlayerCombatEntity_NoRegister();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments();
 	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UProgressBar_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
 // End Cross Module References
+	DEFINE_FUNCTION(UPartyHealthbarElement::execTriggerAilmentEffect)
+	{
+		P_GET_ENUM(EStatusAilments,Z_Param_aStatusAilment);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->TriggerAilmentEffect(EStatusAilments(Z_Param_aStatusAilment));
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UPartyHealthbarElement::execTriggerGreyScale)
 	{
 		P_FINISH;
@@ -43,11 +52,49 @@ void EmptyLinkFunctionForGeneratedCodePartyHealthbarElement() {}
 	{
 		UClass* Class = UPartyHealthbarElement::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "TriggerAilmentEffect", &UPartyHealthbarElement::execTriggerAilmentEffect },
 			{ "TriggerGreyScale", &UPartyHealthbarElement::execTriggerGreyScale },
 			{ "TriggerHitEffect", &UPartyHealthbarElement::execTriggerHitEffect },
 			{ "UpdateHealthbarElements", &UPartyHealthbarElement::execUpdateHealthbarElements },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect_Statics
+	{
+		struct PartyHealthbarElement_eventTriggerAilmentEffect_Parms
+		{
+			EStatusAilments aStatusAilment;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_aStatusAilment_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_aStatusAilment;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect_Statics::NewProp_aStatusAilment_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect_Statics::NewProp_aStatusAilment = { "aStatusAilment", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PartyHealthbarElement_eventTriggerAilmentEffect_Parms, aStatusAilment), Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments, METADATA_PARAMS(0, nullptr) }; // 3625441548
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect_Statics::NewProp_aStatusAilment_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect_Statics::NewProp_aStatusAilment,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/PartyHealthbarElement.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPartyHealthbarElement, nullptr, "TriggerAilmentEffect", nullptr, nullptr, Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect_Statics::PropPointers), sizeof(Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect_Statics::PartyHealthbarElement_eventTriggerAilmentEffect_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect_Statics::Function_MetaDataParams), Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect_Statics::PartyHealthbarElement_eventTriggerAilmentEffect_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UPartyHealthbarElement_TriggerGreyScale_Statics
 	{
@@ -169,6 +216,7 @@ void EmptyLinkFunctionForGeneratedCodePartyHealthbarElement() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UPartyHealthbarElement_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UPartyHealthbarElement_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UPartyHealthbarElement_TriggerAilmentEffect, "TriggerAilmentEffect" }, // 3478331093
 		{ &Z_Construct_UFunction_UPartyHealthbarElement_TriggerGreyScale, "TriggerGreyScale" }, // 572766645
 		{ &Z_Construct_UFunction_UPartyHealthbarElement_TriggerHitEffect, "TriggerHitEffect" }, // 250159482
 		{ &Z_Construct_UFunction_UPartyHealthbarElement_UpdateHealthbarElements, "UpdateHealthbarElements" }, // 3631271418
@@ -301,9 +349,9 @@ void EmptyLinkFunctionForGeneratedCodePartyHealthbarElement() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPartyHealthbarElement, UPartyHealthbarElement::StaticClass, TEXT("UPartyHealthbarElement"), &Z_Registration_Info_UClass_UPartyHealthbarElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPartyHealthbarElement), 2094615652U) },
+		{ Z_Construct_UClass_UPartyHealthbarElement, UPartyHealthbarElement::StaticClass, TEXT("UPartyHealthbarElement"), &Z_Registration_Info_UClass_UPartyHealthbarElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPartyHealthbarElement), 983964559U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_17794636(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_2842664686(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PartyHealthbarElement_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

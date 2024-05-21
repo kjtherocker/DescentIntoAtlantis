@@ -15,7 +15,7 @@ void UCombatEntity::SetAWrapperToDefault(ECombatEntityWrapperType aShellType)
             
         break;
         case ECombatEntityWrapperType::CalculateDamage:
-            inUseCombatWrapper->SetCalculateDamageWrapper(allDefaultCombatWrapper->GetCalculateDamageWrapper());
+            inUseCombatWrapper->SetCalculateDamageDefault(allDefaultCombatWrapper->GetCalculateDamageWrapper());
         break;
     }
 }
@@ -33,10 +33,10 @@ void UCombatEntity::SetTacticsEntity(USkillFactorySubsystem* aSkillFactory)
     inUseCombatWrapper      = NewObject<UCombatEntityWrapper>();
     allDefaultCombatWrapper = NewObject<UCombatEntityWrapper>();
     allDefaultCombatWrapper->SetAttachedCombatEntity(this);
-    allDefaultCombatWrapper->SetCalculateDamageWrapper(NewObject<UCalculateDamage_Base>());
+    allDefaultCombatWrapper->SetCalculateDamageAilment(NewObject<UCalculateDamage_Base>());
     
     inUseCombatWrapper->SetAttachedCombatEntity(this);
-    inUseCombatWrapper->SetCalculateDamageWrapper(allDefaultCombatWrapper->GetCalculateDamageWrapper());
+    inUseCombatWrapper->SetCalculateDamageAilment(allDefaultCombatWrapper->GetCalculateDamageWrapper());
 
     
 }
@@ -70,10 +70,10 @@ void UCombatEntity::SetHealth(int aHealth)
 //    currentHealth = currentClass->currentClassLevel->maxHealth;
 }
 
-void UCombatEntity::InflictAilment(UAilmentShellTakeOver* aAliment)
+void UCombatEntity::InflictAilment(UAilmentShellTakeOver* aAliment,ECombatEntityWrapperType aCombatEntityWrapperType)
 {
-    inUseCombatWrapper->SetCalculateDamageWrapper( NewObject<UCalculateDamage_Fear>());
-   // skillAliments.Add(aAliment);
+    onStatusAilmentStart.Broadcast(aAliment->ailmentInfo.statusAilment);
+    inUseCombatWrapper->SetAilment(aAliment,aCombatEntityWrapperType);
 }
 
 

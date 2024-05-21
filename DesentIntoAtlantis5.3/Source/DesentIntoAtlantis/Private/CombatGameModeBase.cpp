@@ -263,7 +263,7 @@ void ACombatGameModeBase::TurnFinished()
 	
 		InGameHUD->PopAllActiveViews();
 		UCommandBoardView* commandBoard = (UCommandBoardView*)InGameHUD->PushAndGetView(EViews::CommandBoard,  EUiType::ActiveUi);
-		commandBoard->SetCommandBoard(this);
+	
 	}
 
 	if(currentTurnType == ECharactertype::Enemy)
@@ -288,7 +288,7 @@ void ACombatGameModeBase::AllyStartTurn()
 	partyHealthbars->SetHighlightHealthbar(currentActivePartyMember,FULL_OPACITY);
 	currentActivePartyMember->StartTurn();
 	UCommandBoardView* commandBoard = (UCommandBoardView*)InGameHUD->PushAndGetView(EViews::CommandBoard,  EUiType::ActiveUi);
-	commandBoard->SetCommandBoard(this);
+
 }
 
 

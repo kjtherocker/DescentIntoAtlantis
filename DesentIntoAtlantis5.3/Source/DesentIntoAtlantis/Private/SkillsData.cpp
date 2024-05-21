@@ -42,7 +42,15 @@ PressTurnReactions USyncSkill::UseSkill(UCombatEntity* aAttacker, UCombatEntity*
 
 PressTurnReactions USkillAlimentAttack::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
-	aVictim->InflictAilment(NewObject<UCalculateDamage_Fear>());
+	aVictim->InflictAilment(NewObject<UCalculateDamage_Fear>(),ECombatEntityWrapperType::CalculateDamage);
+	return aVictim->DecrementHealth(aAttacker,skillData);
+}
+
+PressTurnReactions USkillAlimentAttackFear::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+{
+	UCalculateDamage_Fear* calculateDamageFear = NewObject<UCalculateDamage_Fear>();
+	calculateDamageFear->ailmentInfo.statusAilment = EStatusAilments::Fear;
+	aVictim->InflictAilment(calculateDamageFear,ECombatEntityWrapperType::CalculateDamage);
 	return aVictim->DecrementHealth(aAttacker,skillData);
 }
 

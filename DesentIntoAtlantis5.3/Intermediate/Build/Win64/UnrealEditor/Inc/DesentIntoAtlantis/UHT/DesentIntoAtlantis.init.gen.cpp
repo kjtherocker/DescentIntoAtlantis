@@ -12,6 +12,8 @@ void EmptyLinkFunctionForGeneratedCodeDesentIntoAtlantis_init() {}
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_MapHasChanged__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_NodeHasBeenWalkedOn__DelegateSignature();
+	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_OnStatusAilmentEnd__DelegateSignature();
+	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_OnStatusAilmentStart__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_OpenDoor__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerDirectionHasChanged__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerForcedMovement__DelegateSignature();
@@ -38,6 +40,8 @@ void EmptyLinkFunctionForGeneratedCodeDesentIntoAtlantis_init() {}
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_MapHasChanged__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_NodeHasBeenWalkedOn__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_OnStatusAilmentEnd__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_OnStatusAilmentStart__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_OpenDoor__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerDirectionHasChanged__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerForcedMovement__DelegateSignature,
@@ -59,13 +63,13 @@ void EmptyLinkFunctionForGeneratedCodeDesentIntoAtlantis_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xC899B5EB,
-				0xF43D5431,
+				0xC759154D,
+				0x1D20567D,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_DesentIntoAtlantis.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_DesentIntoAtlantis.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_DesentIntoAtlantis(Z_Construct_UPackage__Script_DesentIntoAtlantis, TEXT("/Script/DesentIntoAtlantis"), Z_Registration_Info_UPackage__Script_DesentIntoAtlantis, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xC899B5EB, 0xF43D5431));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_DesentIntoAtlantis(Z_Construct_UPackage__Script_DesentIntoAtlantis, TEXT("/Script/DesentIntoAtlantis"), Z_Registration_Info_UPackage__Script_DesentIntoAtlantis, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xC759154D, 0x1D20567D));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

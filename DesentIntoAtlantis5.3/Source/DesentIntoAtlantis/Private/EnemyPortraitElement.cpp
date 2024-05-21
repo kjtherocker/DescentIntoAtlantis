@@ -17,7 +17,8 @@ void AEnemyPortraitElement::SetCombatEntity(UEnemyCombatEntity* aCombatEntity)
 	//BW_Portrait->SetBrushFromTexture(aCombatEntity->enemyEntityData.fullBodyCharacterPortrait);
 	aCombatEntity->wasDamaged.AddDynamic(this,&AEnemyPortraitElement::TriggerHitEffect);
 	aCombatEntity->wasKilled.AddDynamic(this,&AEnemyPortraitElement::TriggerDisappear);
-
+	aCombatEntity->onStatusAilmentStart.AddDynamic(this,&AEnemyPortraitElement::TriggerAilmentEffect);
+	aCombatEntity->onStatusAilmentEnd.AddDynamic(this,&AEnemyPortraitElement::TurnOffAilmentEffect);
 	
 	currentEnemyMaterialInterface = aCombatEntity->enemyEntityData.fullBodyCharacterPortrait;;
 	TArray<AActor*> ChildActorArray;
@@ -28,7 +29,6 @@ void AEnemyPortraitElement::SetCombatEntity(UEnemyCombatEntity* aCombatEntity)
 	TArray<UStaticMeshComponent*> Components;
 	GetComponents<UStaticMeshComponent>(Components);
 	
-
 	for(UStaticMeshComponent* MeshComponent : Components)
 	{
 		UMaterialInterface* CurrentMaterial = currentEnemyMaterialInterface;
@@ -62,6 +62,43 @@ void AEnemyPortraitElement::Tick(float DeltaTime)
 	}
 }
 
+void AEnemyPortraitElement::TriggerAilmentEffect(EStatusAilments aStatusAilment)
+{
+	switch (aStatusAilment) {
+	case EStatusAilments::None:
+		break;
+	case EStatusAilments::Fear:
+		materialInstanceDynamic->SetScalarParameterValue(FName("Fear"), 5);
+		break;
+	case EStatusAilments::Poison:
+		break;
+	case EStatusAilments::Daze:
+		break;
+	case EStatusAilments::Sleep:
+		break;
+	case EStatusAilments::Rage:
+		break;
+	}
+}
+
+void AEnemyPortraitElement::TurnOffAilmentEffect(EStatusAilments aStatusAilment)
+{
+	switch (aStatusAilment) {
+	case EStatusAilments::None:
+		break;
+	case EStatusAilments::Fear:
+		materialInstanceDynamic->SetScalarParameterValue(FName("Fear"), 0);
+		break;
+	case EStatusAilments::Poison:
+		break;
+	case EStatusAilments::Daze:
+		break;
+	case EStatusAilments::Sleep:
+		break;
+	case EStatusAilments::Rage:
+		break;
+	}
+}
 
 
 void AEnemyPortraitElement::HitEffect(float DeltaTime)

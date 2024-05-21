@@ -11,6 +11,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemyPortraitElement() {}
 // Cross Module References
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AEnemyPortraitElement();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AEnemyPortraitElement_NoRegister();
+	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	ENGINE_API UClass* Z_Construct_UClass_UMaterialInterface_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
@@ -31,14 +32,75 @@ void EmptyLinkFunctionForGeneratedCodeEnemyPortraitElement() {}
 		P_THIS->TriggerHitEffect();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AEnemyPortraitElement::execTurnOffAilmentEffect)
+	{
+		P_GET_ENUM(EStatusAilments,Z_Param_aStatusAilment);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->TurnOffAilmentEffect(EStatusAilments(Z_Param_aStatusAilment));
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AEnemyPortraitElement::execTriggerAilmentEffect)
+	{
+		P_GET_ENUM(EStatusAilments,Z_Param_aStatusAilment);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->TriggerAilmentEffect(EStatusAilments(Z_Param_aStatusAilment));
+		P_NATIVE_END;
+	}
 	void AEnemyPortraitElement::StaticRegisterNativesAEnemyPortraitElement()
 	{
 		UClass* Class = AEnemyPortraitElement::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "TriggerAilmentEffect", &AEnemyPortraitElement::execTriggerAilmentEffect },
 			{ "TriggerDisappear", &AEnemyPortraitElement::execTriggerDisappear },
 			{ "TriggerHitEffect", &AEnemyPortraitElement::execTriggerHitEffect },
+			{ "TurnOffAilmentEffect", &AEnemyPortraitElement::execTurnOffAilmentEffect },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect_Statics
+	{
+		struct EnemyPortraitElement_eventTriggerAilmentEffect_Parms
+		{
+			EStatusAilments aStatusAilment;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_aStatusAilment_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_aStatusAilment;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect_Statics::NewProp_aStatusAilment_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect_Statics::NewProp_aStatusAilment = { "aStatusAilment", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(EnemyPortraitElement_eventTriggerAilmentEffect_Parms, aStatusAilment), Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments, METADATA_PARAMS(0, nullptr) }; // 3625441548
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect_Statics::NewProp_aStatusAilment_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect_Statics::NewProp_aStatusAilment,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect_Statics::Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//AEnemyPortraitElement* GetMaterialCollection(UMaterialInterface* Material);\n" },
+#endif
+		{ "ModuleRelativePath", "Public/EnemyPortraitElement.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "AEnemyPortraitElement* GetMaterialCollection(UMaterialInterface* Material);" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AEnemyPortraitElement, nullptr, "TriggerAilmentEffect", nullptr, nullptr, Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect_Statics::PropPointers), sizeof(Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect_Statics::EnemyPortraitElement_eventTriggerAilmentEffect_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect_Statics::Function_MetaDataParams), Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect_Statics::EnemyPortraitElement_eventTriggerAilmentEffect_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_AEnemyPortraitElement_TriggerDisappear_Statics
 	{
@@ -84,6 +146,43 @@ void EmptyLinkFunctionForGeneratedCodeEnemyPortraitElement() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect_Statics
+	{
+		struct EnemyPortraitElement_eventTurnOffAilmentEffect_Parms
+		{
+			EStatusAilments aStatusAilment;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_aStatusAilment_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_aStatusAilment;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect_Statics::NewProp_aStatusAilment_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect_Statics::NewProp_aStatusAilment = { "aStatusAilment", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(EnemyPortraitElement_eventTurnOffAilmentEffect_Parms, aStatusAilment), Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments, METADATA_PARAMS(0, nullptr) }; // 3625441548
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect_Statics::NewProp_aStatusAilment_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect_Statics::NewProp_aStatusAilment,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/EnemyPortraitElement.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AEnemyPortraitElement, nullptr, "TurnOffAilmentEffect", nullptr, nullptr, Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect_Statics::PropPointers), sizeof(Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect_Statics::EnemyPortraitElement_eventTurnOffAilmentEffect_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect_Statics::Function_MetaDataParams), Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect_Statics::EnemyPortraitElement_eventTurnOffAilmentEffect_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AEnemyPortraitElement);
 	UClass* Z_Construct_UClass_AEnemyPortraitElement_NoRegister()
 	{
@@ -118,8 +217,10 @@ void EmptyLinkFunctionForGeneratedCodeEnemyPortraitElement() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AEnemyPortraitElement_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AEnemyPortraitElement_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AEnemyPortraitElement_TriggerAilmentEffect, "TriggerAilmentEffect" }, // 2000564085
 		{ &Z_Construct_UFunction_AEnemyPortraitElement_TriggerDisappear, "TriggerDisappear" }, // 1599765012
 		{ &Z_Construct_UFunction_AEnemyPortraitElement_TriggerHitEffect, "TriggerHitEffect" }, // 3463453210
+		{ &Z_Construct_UFunction_AEnemyPortraitElement_TurnOffAilmentEffect, "TurnOffAilmentEffect" }, // 1565336214
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AEnemyPortraitElement_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -197,9 +298,9 @@ void EmptyLinkFunctionForGeneratedCodeEnemyPortraitElement() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AEnemyPortraitElement, AEnemyPortraitElement::StaticClass, TEXT("AEnemyPortraitElement"), &Z_Registration_Info_UClass_AEnemyPortraitElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemyPortraitElement), 1671010136U) },
+		{ Z_Construct_UClass_AEnemyPortraitElement, AEnemyPortraitElement::StaticClass, TEXT("AEnemyPortraitElement"), &Z_Registration_Info_UClass_AEnemyPortraitElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemyPortraitElement), 2934820068U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_1446306318(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_2336914312(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

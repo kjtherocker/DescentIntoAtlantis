@@ -32,7 +32,8 @@ class DESENTINTOATLANTIS_API UPartyManagerSubsystem : public UGameInstanceSubsys
 	USkillFactorySubsystem* skillFactory;
 
 	TMap<EClasses,FCompleteClassData> classDataTables;
-	UPersistentGameinstance* persistentGameInstance ;
+	UPROPERTY()
+	UPersistentGameinstance* persistentGameInstance;
 public:
 	
 	void InitializeDataTable(UDataTable* aDataTable,UDataTable* aClassDataTable);
@@ -47,6 +48,7 @@ public:
 	TArray<UPlayerCombatEntity*> ReturnActiveParty();
 
 	TMap<EPartyMembers,FPlayerIdentityData> playerIdenityMap;
+	UPROPERTY()
 	TMap<EPartyMembers,UPlayerCombatEntity*> playerCombatEntityInfo;
 	UPROPERTY()
 	TArray<FPlayerIdentityData> playerEntityData;

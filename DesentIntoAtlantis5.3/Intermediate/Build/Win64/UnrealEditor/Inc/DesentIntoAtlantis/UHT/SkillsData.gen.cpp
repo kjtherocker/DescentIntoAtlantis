@@ -16,6 +16,8 @@ void EmptyLinkFunctionForGeneratedCodeSkillsData() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UAilment_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkillAlimentAttack();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkillAlimentAttack_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkillAlimentAttackFear();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkillAlimentAttackFear_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkillAttack();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkillAttack_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USkillBase();
@@ -220,67 +222,6 @@ void EmptyLinkFunctionForGeneratedCodeSkillsData() {}
 			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_ESkillDamageType.InnerSingleton, Z_Construct_UEnum_DesentIntoAtlantis_ESkillDamageType_Statics::EnumParams);
 		}
 		return Z_Registration_Info_UEnum_ESkillDamageType.InnerSingleton;
-	}
-	static FEnumRegistrationInfo Z_Registration_Info_UEnum_EStatusAilments;
-	static UEnum* EStatusAilments_StaticEnum()
-	{
-		if (!Z_Registration_Info_UEnum_EStatusAilments.OuterSingleton)
-		{
-			Z_Registration_Info_UEnum_EStatusAilments.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments, (UObject*)Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("EStatusAilments"));
-		}
-		return Z_Registration_Info_UEnum_EStatusAilments.OuterSingleton;
-	}
-	template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EStatusAilments>()
-	{
-		return EStatusAilments_StaticEnum();
-	}
-	struct Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments_Statics
-	{
-		static const UECodeGen_Private::FEnumeratorParam Enumerators[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FEnumParams EnumParams;
-	};
-	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments_Statics::Enumerators[] = {
-		{ "EStatusAilments::None", (int64)EStatusAilments::None },
-		{ "EStatusAilments::Fear", (int64)EStatusAilments::Fear },
-		{ "EStatusAilments::Poison", (int64)EStatusAilments::Poison },
-		{ "EStatusAilments::Daze", (int64)EStatusAilments::Daze },
-		{ "EStatusAilments::Sleep", (int64)EStatusAilments::Sleep },
-		{ "EStatusAilments::Rage", (int64)EStatusAilments::Rage },
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments_Statics::Enum_MetaDataParams[] = {
-		{ "BlueprintType", "true" },
-		{ "Daze.Name", "EStatusAilments::Daze" },
-		{ "Fear.Name", "EStatusAilments::Fear" },
-		{ "ModuleRelativePath", "Public/SkillsData.h" },
-		{ "None.Name", "EStatusAilments::None" },
-		{ "Poison.Name", "EStatusAilments::Poison" },
-		{ "Rage.Name", "EStatusAilments::Rage" },
-		{ "Sleep.Name", "EStatusAilments::Sleep" },
-	};
-#endif
-	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments_Statics::EnumParams = {
-		(UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
-		nullptr,
-		"EStatusAilments",
-		"EStatusAilments",
-		Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments_Statics::Enumerators,
-		RF_Public|RF_Transient|RF_MarkAsNative,
-		UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments_Statics::Enumerators),
-		EEnumFlags::None,
-		(uint8)UEnum::ECppForm::EnumClass,
-		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments_Statics::Enum_MetaDataParams), Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments_Statics::Enum_MetaDataParams)
-	};
-	UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments()
-	{
-		if (!Z_Registration_Info_UEnum_EStatusAilments.InnerSingleton)
-		{
-			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_EStatusAilments.InnerSingleton, Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments_Statics::EnumParams);
-		}
-		return Z_Registration_Info_UEnum_EStatusAilments.InnerSingleton;
 	}
 	static FEnumRegistrationInfo Z_Registration_Info_UEnum_ESkillRange;
 	static UEnum* ESkillRange_StaticEnum()
@@ -1043,7 +984,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FSkillsData>()
 		{ "ModuleRelativePath", "Public/SkillsData.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_USkillAlimentAttack_Statics::NewProp_statusAilments = { "statusAilments", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USkillAlimentAttack, statusAilments), Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_USkillAlimentAttack_Statics::NewProp_statusAilments_MetaData), Z_Construct_UClass_USkillAlimentAttack_Statics::NewProp_statusAilments_MetaData) }; // 3343534961
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_USkillAlimentAttack_Statics::NewProp_statusAilments = { "statusAilments", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USkillAlimentAttack, statusAilments), Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_USkillAlimentAttack_Statics::NewProp_statusAilments_MetaData), Z_Construct_UClass_USkillAlimentAttack_Statics::NewProp_statusAilments_MetaData) }; // 3625441548
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_USkillAlimentAttack_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillAlimentAttack_Statics::NewProp_ailment,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USkillAlimentAttack_Statics::NewProp_statusAilments_Underlying,
@@ -1083,6 +1024,67 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FSkillsData>()
 	USkillAlimentAttack::USkillAlimentAttack(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(USkillAlimentAttack);
 	USkillAlimentAttack::~USkillAlimentAttack() {}
+	void USkillAlimentAttackFear::StaticRegisterNativesUSkillAlimentAttackFear()
+	{
+	}
+	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(USkillAlimentAttackFear);
+	UClass* Z_Construct_UClass_USkillAlimentAttackFear_NoRegister()
+	{
+		return USkillAlimentAttackFear::StaticClass();
+	}
+	struct Z_Construct_UClass_USkillAlimentAttackFear_Statics
+	{
+		static UObject* (*const DependentSingletons[])();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
+#endif
+		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
+		static const UECodeGen_Private::FClassParams ClassParams;
+	};
+	UObject* (*const Z_Construct_UClass_USkillAlimentAttackFear_Statics::DependentSingletons[])() = {
+		(UObject* (*)())Z_Construct_UClass_USkillAttack,
+		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_USkillAlimentAttackFear_Statics::DependentSingletons) < 16);
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USkillAlimentAttackFear_Statics::Class_MetaDataParams[] = {
+		{ "IncludePath", "SkillsData.h" },
+		{ "ModuleRelativePath", "Public/SkillsData.h" },
+	};
+#endif
+	const FCppClassTypeInfoStatic Z_Construct_UClass_USkillAlimentAttackFear_Statics::StaticCppClassTypeInfo = {
+		TCppClassTypeTraits<USkillAlimentAttackFear>::IsAbstract,
+	};
+	const UECodeGen_Private::FClassParams Z_Construct_UClass_USkillAlimentAttackFear_Statics::ClassParams = {
+		&USkillAlimentAttackFear::StaticClass,
+		nullptr,
+		&StaticCppClassTypeInfo,
+		DependentSingletons,
+		nullptr,
+		nullptr,
+		nullptr,
+		UE_ARRAY_COUNT(DependentSingletons),
+		0,
+		0,
+		0,
+		0x000000A0u,
+		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_USkillAlimentAttackFear_Statics::Class_MetaDataParams), Z_Construct_UClass_USkillAlimentAttackFear_Statics::Class_MetaDataParams)
+	};
+	UClass* Z_Construct_UClass_USkillAlimentAttackFear()
+	{
+		if (!Z_Registration_Info_UClass_USkillAlimentAttackFear.OuterSingleton)
+		{
+			UECodeGen_Private::ConstructUClass(Z_Registration_Info_UClass_USkillAlimentAttackFear.OuterSingleton, Z_Construct_UClass_USkillAlimentAttackFear_Statics::ClassParams);
+		}
+		return Z_Registration_Info_UClass_USkillAlimentAttackFear.OuterSingleton;
+	}
+	template<> DESENTINTOATLANTIS_API UClass* StaticClass<USkillAlimentAttackFear>()
+	{
+		return USkillAlimentAttackFear::StaticClass();
+	}
+	USkillAlimentAttackFear::USkillAlimentAttackFear(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
+	DEFINE_VTABLE_PTR_HELPER_CTOR(USkillAlimentAttackFear);
+	USkillAlimentAttackFear::~USkillAlimentAttackFear() {}
 	void USkillHeal::StaticRegisterNativesUSkillHeal()
 	{
 	}
@@ -1276,7 +1278,6 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FSkillsData>()
 		{ ESkillType_StaticEnum, TEXT("ESkillType"), &Z_Registration_Info_UEnum_ESkillType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1735734487U) },
 		{ ESkillUsage_StaticEnum, TEXT("ESkillUsage"), &Z_Registration_Info_UEnum_ESkillUsage, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3875339856U) },
 		{ ESkillDamageType_StaticEnum, TEXT("ESkillDamageType"), &Z_Registration_Info_UEnum_ESkillDamageType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2848366532U) },
-		{ EStatusAilments_StaticEnum, TEXT("EStatusAilments"), &Z_Registration_Info_UEnum_EStatusAilments, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3343534961U) },
 		{ ESkillRange_StaticEnum, TEXT("ESkillRange"), &Z_Registration_Info_UEnum_ESkillRange, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 346620054U) },
 		{ ESkillIDS_StaticEnum, TEXT("ESkillIDS"), &Z_Registration_Info_UEnum_ESkillIDS, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1795072353U) },
 	};
@@ -1289,12 +1290,13 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FSkillsData>()
 		{ Z_Construct_UClass_USkillBase, USkillBase::StaticClass, TEXT("USkillBase"), &Z_Registration_Info_UClass_USkillBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillBase), 895219196U) },
 		{ Z_Construct_UClass_USkillAttack, USkillAttack::StaticClass, TEXT("USkillAttack"), &Z_Registration_Info_UClass_USkillAttack, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillAttack), 853687424U) },
 		{ Z_Construct_UClass_USyncSkill, USyncSkill::StaticClass, TEXT("USyncSkill"), &Z_Registration_Info_UClass_USyncSkill, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USyncSkill), 1166268751U) },
-		{ Z_Construct_UClass_USkillAlimentAttack, USkillAlimentAttack::StaticClass, TEXT("USkillAlimentAttack"), &Z_Registration_Info_UClass_USkillAlimentAttack, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillAlimentAttack), 344717462U) },
+		{ Z_Construct_UClass_USkillAlimentAttack, USkillAlimentAttack::StaticClass, TEXT("USkillAlimentAttack"), &Z_Registration_Info_UClass_USkillAlimentAttack, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillAlimentAttack), 2070615978U) },
+		{ Z_Construct_UClass_USkillAlimentAttackFear, USkillAlimentAttackFear::StaticClass, TEXT("USkillAlimentAttackFear"), &Z_Registration_Info_UClass_USkillAlimentAttackFear, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillAlimentAttackFear), 1646929791U) },
 		{ Z_Construct_UClass_USkillHeal, USkillHeal::StaticClass, TEXT("USkillHeal"), &Z_Registration_Info_UClass_USkillHeal, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillHeal), 486689470U) },
 		{ Z_Construct_UClass_USkillBuff, USkillBuff::StaticClass, TEXT("USkillBuff"), &Z_Registration_Info_UClass_USkillBuff, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillBuff), 391548045U) },
 		{ Z_Construct_UClass_USkillDebuff, USkillDebuff::StaticClass, TEXT("USkillDebuff"), &Z_Registration_Info_UClass_USkillDebuff, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillDebuff), 1880562909U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_1496119072(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_688706216(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::EnumInfo));

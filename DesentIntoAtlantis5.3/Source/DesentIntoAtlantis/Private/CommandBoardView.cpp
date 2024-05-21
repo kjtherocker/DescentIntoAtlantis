@@ -26,6 +26,9 @@ void UCommandBoardView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UCommandBoardView::ActivateCommandboardFunction  );
 	
 	SkillFactorySubsystem = persistentGameinstance->skillFactorySubsystem;
+
+
+	SetCommandBoard((ACombatGameModeBase*)aGameModeBase);
 }
 
 void UCommandBoardView::SetCommandBoard(ACombatGameModeBase* aCombatGameModeBase)
@@ -107,7 +110,6 @@ void UCommandBoardView::Skill()
 {
 	InGameHUD->PopMostRecentActiveView();
 	USkillView* SelectionView = (USkillView*)InGameHUD->PushAndGetView(EViews::Skill,  EUiType::ActiveUi);
-	SelectionView->InitializeSkills(combatManager);
 }
 void UCommandBoardView::Escape()
 {
