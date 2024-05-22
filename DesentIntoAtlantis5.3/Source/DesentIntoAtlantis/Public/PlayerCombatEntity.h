@@ -32,6 +32,8 @@ struct DESENTINTOATLANTIS_API FPlayerIdentityData :public  FTableRowBase
 	UMaterialInterface*  characterPortrait;
 	UPROPERTY( EditAnywhere )
 	UTexture2D* fullBodyCharacterPortrait;
+	UPROPERTY( EditAnywhere )
+	UTexture2D* halfBodyCharacterPortrait;
 
 	UPROPERTY(EditAnywhere)
 	int initialLevel;
@@ -110,6 +112,7 @@ public:
 	virtual float GetHealthPercentage() override;
 	virtual float GetManaPercentage()   override;
 	virtual float GetSyncPercentage() override;
+	virtual float GetMainClassEXPPercentage();
 };
 
 

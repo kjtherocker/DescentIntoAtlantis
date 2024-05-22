@@ -47,3 +47,9 @@ void UBaseUserWidget::ReturnToPreviousScreen()
 {
 	InGameHUD->ReturnToPreviousActiveView();
 }
+
+void UBaseUserWidget::PopMostActiveView()
+{
+	InGameHUD->PopMostRecentActiveView();
+}
+

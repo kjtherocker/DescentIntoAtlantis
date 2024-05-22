@@ -111,3 +111,11 @@ float UPlayerCombatEntity::GetSyncPercentage()
 {
 	return currentSync / MAX_SYNC;
 }
+
+float UPlayerCombatEntity::GetMainClassEXPPercentage()
+{
+	float expCurrent    = mainClass->experience;
+	float expNextLevel  = mainClass->completeClassData.currentLevelClassData.expToNextClassLevel;
+	float expPercentage = expCurrent / expNextLevel;
+	return expPercentage;
+}

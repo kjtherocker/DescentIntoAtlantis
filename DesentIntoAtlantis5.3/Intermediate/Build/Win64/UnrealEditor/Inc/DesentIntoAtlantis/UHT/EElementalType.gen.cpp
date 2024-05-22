@@ -35,6 +35,7 @@ void EmptyLinkFunctionForGeneratedCodeEElementalType() {}
 		static const UECodeGen_Private::FEnumParams EnumParams;
 	};
 	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_DesentIntoAtlantis_EElementalType_Statics::Enumerators[] = {
+		{ "EElementalType::None", (int64)EElementalType::None },
 		{ "EElementalType::Null", (int64)EElementalType::Null },
 		{ "EElementalType::Fire", (int64)EElementalType::Fire },
 		{ "EElementalType::Ice", (int64)EElementalType::Ice },
@@ -52,6 +53,7 @@ void EmptyLinkFunctionForGeneratedCodeEElementalType() {}
 		{ "Light.Name", "EElementalType::Light" },
 		{ "Lighting.Name", "EElementalType::Lighting" },
 		{ "ModuleRelativePath", "Public/EElementalType.h" },
+		{ "None.Name", "EElementalType::None" },
 		{ "Null.Name", "EElementalType::Null" },
 		{ "Shadow.Name", "EElementalType::Shadow" },
 		{ "Wind.Name", "EElementalType::Wind" },
@@ -142,10 +144,10 @@ void EmptyLinkFunctionForGeneratedCodeEElementalType() {}
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EElementalType_h_Statics::EnumInfo[] = {
-		{ EElementalType_StaticEnum, TEXT("EElementalType"), &Z_Registration_Info_UEnum_EElementalType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3306458094U) },
+		{ EElementalType_StaticEnum, TEXT("EElementalType"), &Z_Registration_Info_UEnum_EElementalType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3743192891U) },
 		{ PressTurnReactions_StaticEnum, TEXT("PressTurnReactions"), &Z_Registration_Info_UEnum_PressTurnReactions, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2902110177U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EElementalType_h_234294681(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EElementalType_h_1868133314(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EElementalType_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EElementalType_h_Statics::EnumInfo));

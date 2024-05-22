@@ -37,7 +37,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	op(EViews::CameraFilter) \
 	op(EViews::MapView) \
 	op(EViews::InteractableView) \
-	op(EViews::SyncView) 
+	op(EViews::SyncView) \
+	op(EViews::MainMenu) 
 
 enum class EViews;
 template<> struct TIsUEnumClass<EViews> { enum { Value = true }; };
@@ -57,7 +58,8 @@ template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EUiType>();
 	op(EViewElements::PartyStatusHealthbar) \
 	op(EViewElements::SkillBar) \
 	op(EViewElements::EnemySelectionElement) \
-	op(EViewElements::TurnCounterElement) 
+	op(EViewElements::TurnCounterElement) \
+	op(EViewElements::MainMenuStatusElement) 
 
 enum class EViewElements;
 template<> struct TIsUEnumClass<EViewElements> { enum { Value = true }; };

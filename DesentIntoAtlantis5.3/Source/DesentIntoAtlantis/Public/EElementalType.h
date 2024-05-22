@@ -6,14 +6,15 @@
 UENUM()
 enum class EElementalType
 {
-	Null     = 0,
-	Fire     = 1,
-	Ice      = 2,
-	Wind     = 3,
-	Lighting = 4,
-	Shadow   = 5,
-	Light    = 6,
-	Earth    = 7
+	None     = 0,
+	Null     = 1,
+	Fire     = 2,
+	Ice      = 3,
+	Wind     = 4,
+	Lighting = 5,
+	Shadow   = 6,
+	Light    = 7,
+	Earth    = 8
 };
 
 UENUM()

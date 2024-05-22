@@ -104,13 +104,13 @@ void EmptyLinkFunctionForGeneratedCodePartyManagerSubsystem() {}
 	};
 #endif
 	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UPartyManagerSubsystem_Statics::NewProp_playerCombatEntityInfo = { "playerCombatEntityInfo", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UPartyManagerSubsystem, playerCombatEntityInfo), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UPartyManagerSubsystem_Statics::NewProp_playerCombatEntityInfo_MetaData), Z_Construct_UClass_UPartyManagerSubsystem_Statics::NewProp_playerCombatEntityInfo_MetaData) }; // 781165082
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UPartyManagerSubsystem_Statics::NewProp_playerEntityData_Inner = { "playerEntityData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FPlayerIdentityData, METADATA_PARAMS(0, nullptr) }; // 2763006836
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UPartyManagerSubsystem_Statics::NewProp_playerEntityData_Inner = { "playerEntityData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FPlayerIdentityData, METADATA_PARAMS(0, nullptr) }; // 140939070
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPartyManagerSubsystem_Statics::NewProp_playerEntityData_MetaData[] = {
 		{ "ModuleRelativePath", "Public/PartyManagerSubsystem.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UPartyManagerSubsystem_Statics::NewProp_playerEntityData = { "playerEntityData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UPartyManagerSubsystem, playerEntityData), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UPartyManagerSubsystem_Statics::NewProp_playerEntityData_MetaData), Z_Construct_UClass_UPartyManagerSubsystem_Statics::NewProp_playerEntityData_MetaData) }; // 2763006836
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UPartyManagerSubsystem_Statics::NewProp_playerEntityData = { "playerEntityData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UPartyManagerSubsystem, playerEntityData), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UPartyManagerSubsystem_Statics::NewProp_playerEntityData_MetaData), Z_Construct_UClass_UPartyManagerSubsystem_Statics::NewProp_playerEntityData_MetaData) }; // 140939070
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UPartyManagerSubsystem_Statics::NewProp_playerCombatEntity_Inner = { "playerCombatEntity", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UPlayerCombatEntity_NoRegister, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPartyManagerSubsystem_Statics::NewProp_playerCombatEntity_MetaData[] = {
@@ -177,9 +177,9 @@ void EmptyLinkFunctionForGeneratedCodePartyManagerSubsystem() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PartyManagerSubsystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPartyManagerSubsystem, UPartyManagerSubsystem::StaticClass, TEXT("UPartyManagerSubsystem"), &Z_Registration_Info_UClass_UPartyManagerSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPartyManagerSubsystem), 3363716768U) },
+		{ Z_Construct_UClass_UPartyManagerSubsystem, UPartyManagerSubsystem::StaticClass, TEXT("UPartyManagerSubsystem"), &Z_Registration_Info_UClass_UPartyManagerSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPartyManagerSubsystem), 591668032U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PartyManagerSubsystem_h_1682615994(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PartyManagerSubsystem_h_1877339048(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PartyManagerSubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_PartyManagerSubsystem_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

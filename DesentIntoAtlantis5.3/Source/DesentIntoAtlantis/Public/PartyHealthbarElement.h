@@ -19,7 +19,8 @@ UCLASS()
 class DESENTINTOATLANTIS_API UPartyHealthbarElement : public UBaseUserWidget
 {
 	GENERATED_BODY()
-	
+
+protected:
 	float movementTimer = 0;
 	UPROPERTY()
 	UPlayerCombatEntity*  playerCombatEntity;
@@ -30,23 +31,23 @@ public:
 
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 
-	void SetCombatEntity(UPlayerCombatEntity* aCombatEntity);
+	virtual void SetCombatEntity(UPlayerCombatEntity* aCombatEntity);
 	
 	bool isTriggeringHitEffect;
 	virtual void NativeTick(const FGeometry& MyGeometry, float DeltaTime) override;
 	UFUNCTION()
-	void UpdateHealthbarElements();
-	void HitEffect(float DeltaTime);
+	virtual void UpdateHealthbarElements();
+	virtual void HitEffect(float DeltaTime);
 	UFUNCTION()
-	void TriggerHitEffect();
+	virtual void TriggerHitEffect();
 	UFUNCTION()
-	void TriggerGreyScale();
+	virtual void TriggerGreyScale();
 
 	UFUNCTION()
-	void TriggerAilmentEffect(EStatusAilments aStatusAilment);
+	virtual void TriggerAilmentEffect(EStatusAilments aStatusAilment);
 	
-	void MoveUp();
-	void ResetTranslation();
+	virtual void MoveUp();
+	virtual void ResetTranslation();
 	FString characterName;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))

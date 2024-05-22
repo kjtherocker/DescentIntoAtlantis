@@ -81,6 +81,8 @@ public:
 	UPROPERTY()
 	ULevelProgressionSubsystem*  levelProgressionSubsystem;
 
+	UPROPERTY(EditAnywhere)
+	TMap<EElementalType,UTexture2D*> elementalIcons;
 	
 	UPROPERTY()
 	UFloorFactory*      floorFactory;

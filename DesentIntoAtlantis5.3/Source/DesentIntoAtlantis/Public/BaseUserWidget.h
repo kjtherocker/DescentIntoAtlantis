@@ -26,8 +26,9 @@ protected:
 	UPROPERTY()
 	UPersistentGameinstance* persistentGameinstance;
 	
-	FLinearColor unhightlighedColor = FLinearColor(0.0,0.0,0.0,1.0);
-	FLinearColor highlightedColor   = FLinearColor(1.0,1.0,1.0,1.0);
+	FLinearColor unhightlighedColor        = FLinearColor(0.0,0.0,0.0,1.0);
+	FLinearColor unhightlighedColorNoAlpha = FLinearColor(0.0,0.0,0.0,0.0);
+	FLinearColor highlightedColor          = FLinearColor(1.0,1.0,1.0,1.0);
 	const int MAX_OPACITY = 100;
 	const int NO_OPACITY  = 0;
 public:
@@ -37,6 +38,7 @@ public:
 	virtual void MoveUp();
 	virtual void MoveDown();
 	virtual void ReturnToPreviousScreen();
+	virtual void PopMostActiveView();
 	
 	UPROPERTY()
 	AInGameHUD* InGameHUD;

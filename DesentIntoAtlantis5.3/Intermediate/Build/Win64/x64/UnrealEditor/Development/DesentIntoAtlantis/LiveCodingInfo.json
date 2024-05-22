@@ -23,11 +23,11 @@
 			"EFloorIdentifier.gen.cpp.obj",
 			"EndView.gen.cpp.obj",
 			"EnemyBeastiaryData.gen.cpp.obj",
-			"EnemyBehaviour.gen.cpp.obj",
-			"EnemyCombatEntity.gen.cpp.obj",
-			"EnemyFactorySubSystem.gen.cpp.obj"
+			"EnemyBehaviour.gen.cpp.obj"
 		],
 		"Module.DesentIntoAtlantis.2.cpp.obj": [
+			"EnemyCombatEntity.gen.cpp.obj",
+			"EnemyFactorySubSystem.gen.cpp.obj",
 			"EnemyPortraitElement.gen.cpp.obj",
 			"EnemySelectionElement.gen.cpp.obj",
 			"EnemySelectionView.gen.cpp.obj",
@@ -41,12 +41,12 @@
 			"FloorGameMode.gen.cpp.obj",
 			"FloorManager.gen.cpp.obj",
 			"FloorNode.gen.cpp.obj",
-			"FloorPawn.gen.cpp.obj",
-			"FloorPlayerController.gen.cpp.obj",
-			"GameManager.gen.cpp.obj",
-			"GameSettings.gen.cpp.obj"
+			"FloorPawn.gen.cpp.obj"
 		],
 		"Module.DesentIntoAtlantis.3.cpp.obj": [
+			"FloorPlayerController.gen.cpp.obj",
+			"GameManager.gen.cpp.obj",
+			"GameSettings.gen.cpp.obj",
 			"Gimmick_Base.gen.cpp.obj",
 			"InGameHUD.gen.cpp.obj",
 			"InteractableView.gen.cpp.obj",
@@ -55,17 +55,18 @@
 			"LevelupPanelElement.gen.cpp.obj",
 			"LevelupView.gen.cpp.obj",
 			"MainMenuGameMode.gen.cpp.obj",
+			"MainMenuView.gen.cpp.obj",
 			"MapButtonElement.gen.cpp.obj",
 			"MapEventEditorView.gen.cpp.obj",
 			"MapNodeEditorView.gen.cpp.obj",
 			"MapPlayerIconElement.gen.cpp.obj",
 			"MapView.gen.cpp.obj",
-			"PartyHealthbarElement.gen.cpp.obj",
-			"PartyHealthbarsView.gen.cpp.obj",
-			"PartyManagerSubsystem.gen.cpp.obj",
-			"PersistentGameinstance.gen.cpp.obj"
+			"PartyHealthbarElement.gen.cpp.obj"
 		],
 		"Module.DesentIntoAtlantis.4.cpp.obj": [
+			"PartyHealthbarsView.gen.cpp.obj",
+			"PartyManagerSubsystem.gen.cpp.obj",
+			"PersistentGameinstance.gen.cpp.obj",
 			"PlayerCombatEntity.gen.cpp.obj",
 			"PressTurnManager.gen.cpp.obj",
 			"SaveGameData.gen.cpp.obj",
@@ -76,11 +77,14 @@
 			"SkillView.gen.cpp.obj",
 			"SoundManager.gen.cpp.obj",
 			"StatusElement.gen.cpp.obj",
+			"StatusMainMenuElement.gen.cpp.obj",
 			"SyncView.gen.cpp.obj",
 			"TitleView.gen.cpp.obj",
 			"TurnCounterElement.gen.cpp.obj",
 			"TurnCounterView.gen.cpp.obj",
-			"TutorialManagerSubsystem.gen.cpp.obj",
+			"TutorialManagerSubsystem.gen.cpp.obj"
+		],
+		"Module.DesentIntoAtlantis.5.cpp.obj": [
 			"TutorialView.gen.cpp.obj",
 			"Views.gen.cpp.obj",
 			"DesentIntoAtlantis.cpp.obj",
@@ -99,9 +103,7 @@
 			"CombatEntity.cpp.obj",
 			"CombatEntityWrapper.cpp.obj",
 			"CombatGameModeBase.cpp.obj",
-			"CombatSelectionView.cpp.obj"
-		],
-		"Module.DesentIntoAtlantis.5.cpp.obj": [
+			"CombatSelectionView.cpp.obj",
 			"CommandBoardView.cpp.obj",
 			"DeathView.cpp.obj",
 			"DialogueFactorySubsystem.cpp.obj",
@@ -133,6 +135,7 @@
 			"LevelupPanelElement.cpp.obj",
 			"LevelupView.cpp.obj",
 			"MainMenuGameMode.cpp.obj",
+			"MainMenuView.cpp.obj",
 			"MapButtonElement.cpp.obj",
 			"MapEventEditorView.cpp.obj",
 			"MapNodeEditorView.cpp.obj",
@@ -152,6 +155,7 @@
 			"SkillView.cpp.obj",
 			"SoundManager.cpp.obj",
 			"StatusElement.cpp.obj",
+			"StatusMainMenuElement.cpp.obj",
 			"SyncView.cpp.obj",
 			"TitleView.cpp.obj",
 			"TurnCounterElement.cpp.obj",

@@ -494,7 +494,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FSkillsData>()
 		{ "ModuleRelativePath", "Public/SkillsData.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FSkillsData_Statics::NewProp_elementalType = { "elementalType", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FSkillsData, elementalType), Z_Construct_UEnum_DesentIntoAtlantis_EElementalType, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FSkillsData_Statics::NewProp_elementalType_MetaData), Z_Construct_UScriptStruct_FSkillsData_Statics::NewProp_elementalType_MetaData) }; // 3306458094
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FSkillsData_Statics::NewProp_elementalType = { "elementalType", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FSkillsData, elementalType), Z_Construct_UEnum_DesentIntoAtlantis_EElementalType, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FSkillsData_Statics::NewProp_elementalType_MetaData), Z_Construct_UScriptStruct_FSkillsData_Statics::NewProp_elementalType_MetaData) }; // 3743192891
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FSkillsData_Statics::NewProp_skillDamageType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FSkillsData_Statics::NewProp_skillDamageType_MetaData[] = {
@@ -1282,7 +1282,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FSkillsData>()
 		{ ESkillIDS_StaticEnum, TEXT("ESkillIDS"), &Z_Registration_Info_UEnum_ESkillIDS, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1795072353U) },
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::ScriptStructInfo[] = {
-		{ FSkillsData::StaticStruct, Z_Construct_UScriptStruct_FSkillsData_Statics::NewStructOps, TEXT("SkillsData"), &Z_Registration_Info_UScriptStruct_SkillsData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FSkillsData), 1980275096U) },
+		{ FSkillsData::StaticStruct, Z_Construct_UScriptStruct_FSkillsData_Statics::NewStructOps, TEXT("SkillsData"), &Z_Registration_Info_UScriptStruct_SkillsData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FSkillsData), 2951074955U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UAilment, UAilment::StaticClass, TEXT("UAilment"), &Z_Registration_Info_UClass_UAilment, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAilment), 685973840U) },
@@ -1296,7 +1296,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FSkillsData>()
 		{ Z_Construct_UClass_USkillBuff, USkillBuff::StaticClass, TEXT("USkillBuff"), &Z_Registration_Info_UClass_USkillBuff, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillBuff), 391548045U) },
 		{ Z_Construct_UClass_USkillDebuff, USkillDebuff::StaticClass, TEXT("USkillDebuff"), &Z_Registration_Info_UClass_USkillDebuff, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USkillDebuff), 1880562909U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_688706216(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_1355364414(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SkillsData_h_Statics::EnumInfo));

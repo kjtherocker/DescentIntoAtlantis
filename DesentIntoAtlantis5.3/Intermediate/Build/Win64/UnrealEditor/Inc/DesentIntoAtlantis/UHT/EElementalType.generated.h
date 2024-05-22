@@ -20,6 +20,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 
 #define FOREACH_ENUM_EELEMENTALTYPE(op) \
+	op(EElementalType::None) \
 	op(EElementalType::Null) \
 	op(EElementalType::Fire) \
 	op(EElementalType::Ice) \

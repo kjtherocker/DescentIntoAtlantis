@@ -25,5 +25,5 @@ void UDeathView::TryFightAgain()
 
 void UDeathView::Quit()
 {
-	FPlatformMisc::RequestExit(false);
+	//FPlatformMisc::RequestExit(false);
 }

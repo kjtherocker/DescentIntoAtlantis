@@ -25,7 +25,8 @@ enum class  EViews
 	CameraFilter      = 15,
 	MapView           = 16,
 	InteractableView  = 17,
-	SyncView          = 18
+	SyncView          = 18,
+	MainMenu          = 19
 };
 
 
@@ -47,5 +48,6 @@ enum class  EViewElements
 	PartyStatusHealthbar     = 1,
 	SkillBar                 = 2,
 	EnemySelectionElement    = 3,
-	TurnCounterElement       = 4
+	TurnCounterElement       = 4,
+	MainMenuStatusElement    = 5,
 };

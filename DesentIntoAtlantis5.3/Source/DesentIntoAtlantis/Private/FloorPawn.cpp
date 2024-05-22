@@ -75,9 +75,10 @@ void AFloorPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 	//InputComponent->BindAxis("LeftRight", this, &AFloorPawn::RotatePawn);
-	InputComponent->BindAction("Left" ,IE_Pressed ,this, &AFloorPawn::LeftRotation );
-	InputComponent->BindAction("Right",IE_Pressed ,this, &AFloorPawn::RightRotation);
-	InputComponent->BindAction("Up"   ,IE_Pressed ,this, &AFloorPawn::MoveForward  );
+	InputComponent->BindAction("Left"     ,IE_Pressed ,this, &AFloorPawn::LeftRotation );
+	InputComponent->BindAction("Right"    ,IE_Pressed ,this, &AFloorPawn::RightRotation);
+	InputComponent->BindAction("Up"       ,IE_Pressed ,this, &AFloorPawn::MoveForward  );
+	InputComponent->BindAction("Escape"   ,IE_Pressed ,this, &AFloorPawn::ActivateMainMenu  );
 }
 
 void AFloorPawn::ForcedMovement(ECardinalNodeDirections directiontoHead)
@@ -128,6 +129,11 @@ void AFloorPawn::MoveForward()
 		nodeToMoveTowards = nodeToMoveTo;
 		currentNodePlayerIsOn = nullptr;
 	}
+}
+
+void AFloorPawn::ActivateMainMenu()
+{
+	gameModeBase->InGameHUD->PushView(EViews::MainMenu,    EUiType::ActiveUi);
 }
 
 void AFloorPawn::SetFloorPawnInput(bool aIsInputActive)

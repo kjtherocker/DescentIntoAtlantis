@@ -41,6 +41,7 @@ protected:
 	void LeftRotation();
 	void RightRotation();
 	void MoveForward();
+	void ActivateMainMenu();
 	TSubclassOf<AActor> commandBoardTest;
 
 	double newRotation;

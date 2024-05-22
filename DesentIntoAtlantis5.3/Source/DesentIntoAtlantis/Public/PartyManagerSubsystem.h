@@ -35,6 +35,7 @@ class DESENTINTOATLANTIS_API UPartyManagerSubsystem : public UGameInstanceSubsys
 	UPROPERTY()
 	UPersistentGameinstance* persistentGameInstance;
 public:
+
 	
 	void InitializeDataTable(UDataTable* aDataTable,UDataTable* aClassDataTable);
 	void CreatePlayerEntitys(EPartyMembers aPlayer);
