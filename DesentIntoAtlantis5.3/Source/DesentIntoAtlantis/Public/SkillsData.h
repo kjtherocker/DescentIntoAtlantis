@@ -8,6 +8,7 @@
 #include "EElementalType.h"
 #include "SkillsData.generated.h"
 
+enum class EStatusAilments;
 enum class EAbilityScoreTypes;
 class UCombatEntity;
 /**

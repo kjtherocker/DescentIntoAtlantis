@@ -27,7 +27,8 @@ struct FEventManagerData;
 	DECLARE_FUNCTION(execLoadSaveDataAndTransitionToMap); \
 	DECLARE_FUNCTION(execLoadPreSetLevel); \
 	DECLARE_FUNCTION(execLoadFloorPawnRotation); \
-	DECLARE_FUNCTION(execSaveSessionData); \
+	DECLARE_FUNCTION(execSaveGameInSlot); \
+	DECLARE_FUNCTION(execAutoSave); \
 	DECLARE_FUNCTION(execReturnToPreviousLevel); \
 	DECLARE_FUNCTION(execInitializeSubsystem);
 

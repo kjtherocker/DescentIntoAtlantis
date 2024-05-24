@@ -115,7 +115,7 @@ void UPersistentGameinstance::LoadLevel(EFloorIdentifier aFloorIdentifier)
 	{
 		levelProgressionSubsystem->SetCurrentFloorIdentifier(aFloorIdentifier);
 		levelHasChanged.Broadcast(aFloorIdentifier);
-		saveManagerSubsystem->SaveSessionData();
+		saveManagerSubsystem->AutoSave();
 		UGameplayStatics::OpenLevel(GetWorld(), FName(*LevelName), true);
 	}
 	else

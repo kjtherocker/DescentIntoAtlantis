@@ -75,7 +75,7 @@ void UTitleView::LoadGame()
 	
 	if (persistentGameInstance)
 	{
-		persistentGameInstance->saveManagerSubsystem->LoadSaveDataAndTransitionToMap();
+		persistentGameInstance->saveManagerSubsystem->LoadSaveDataAndTransitionToMap(1);
 	}
 }
 

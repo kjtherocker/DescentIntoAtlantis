@@ -173,7 +173,7 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 		
 		UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
 		persistentGameInstance->partyManagerSubsystem->SavePlayerEntitys();
-		persistentGameInstance->saveManagerSubsystem->SaveSessionData();
+		persistentGameInstance->saveManagerSubsystem->AutoSave();
 		
 		completeFloorPawnData.currentNodePositionInGrid = currentNodePlayerIsOn->positionInGrid;
 		currentNodePlayerIsOn->PlayerIsOnTopOfNode();
@@ -299,7 +299,7 @@ void AFloorPawn::PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode, ECardinalN
 
 	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
 	persistentGameInstance->partyManagerSubsystem->SavePlayerEntitys();
-	persistentGameInstance->saveManagerSubsystem->SaveSessionData();
+	persistentGameInstance->saveManagerSubsystem->AutoSave();
 }
 
 void AFloorPawn::SetRotationWithoutAnimation(ECardinalNodeDirections aCardinalNodeDirection)

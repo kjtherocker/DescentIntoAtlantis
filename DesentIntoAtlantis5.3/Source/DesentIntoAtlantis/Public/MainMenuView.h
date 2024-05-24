@@ -6,6 +6,7 @@
 #include "BaseUserWidget.h"
 #include "MainMenuView.generated.h"
 
+class UPlayerCombatEntity;
 class UStatusMainMenuElement;
 class UHorizontalBox;
 class UBorder;
@@ -28,7 +29,7 @@ class DESENTINTOATLANTIS_API UMainMenuView : public UBaseUserWidget
 {
 	GENERATED_BODY()
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
-	void CreateAndBindDelegateOption(EMainMenuStates aTitleState,typename TMemFunPtrType<false, UMainMenuView, void()>::Type InFunc, const FName& FuncName);
+	void CreateAndBindDelegateOption(typename TMemFunPtrType<false, UMainMenuView, void()>::Type InFunc, const FName& FuncName);
 
 	void SpawnMainMenuStatusElement(UPlayerCombatEntity* aCombatEntity);
 	
@@ -52,7 +53,7 @@ class DESENTINTOATLANTIS_API UMainMenuView : public UBaseUserWidget
 public:
 	virtual void SetCursorPositionInfo() override;
 	UPROPERTY()
-	TMap<EMainMenuStates,FViewSelection > MainMenuSelection;
+	TArray<FViewSelection > MainMenuSelection;
 
 	UPROPERTY()
 	TArray<UBorder*> menuSelections;

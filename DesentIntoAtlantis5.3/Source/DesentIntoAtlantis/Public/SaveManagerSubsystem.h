@@ -26,7 +26,10 @@ public:
 	void ReturnToPreviousLevel();
 
 	UFUNCTION()
-	void SaveSessionData();
+	void AutoSave();
+
+	UFUNCTION()
+	void SaveGameInSlot(int aSlot);
 
 	UFUNCTION()
 	ECardinalNodeDirections LoadFloorPawnRotation();
@@ -35,7 +38,7 @@ public:
 	void LoadPreSetLevel();
 
 	UFUNCTION()
-	void LoadSaveDataAndTransitionToMap();
+	void LoadSaveDataAndTransitionToMap(int aSaveSlot);
 
 	UFUNCTION()
 	void SetEventManagerData(FEventManagerData aEventManagerData);
@@ -45,6 +48,9 @@ public:
 		
 	UPROPERTY()
 	USaveGameData* SessionSaveGameObject;
+
+	UPROPERTY()
+	USaveGameData* AutoSaveGameObject;
 	
 private:
 	UPROPERTY()

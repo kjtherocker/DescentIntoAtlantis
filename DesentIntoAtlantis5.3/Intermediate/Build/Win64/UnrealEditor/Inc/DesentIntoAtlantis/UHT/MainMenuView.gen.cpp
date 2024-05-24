@@ -262,13 +262,11 @@ void EmptyLinkFunctionForGeneratedCodeMainMenuView() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_statusMainMenuElements_MetaData[];
 #endif
 		static const UECodeGen_Private::FArrayPropertyParams NewProp_statusMainMenuElements;
-		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_MainMenuSelection_ValueProp;
-		static const UECodeGen_Private::FIntPropertyParams NewProp_MainMenuSelection_Key_KeyProp_Underlying;
-		static const UECodeGen_Private::FEnumPropertyParams NewProp_MainMenuSelection_Key_KeyProp;
+		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_MainMenuSelection_Inner;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_MainMenuSelection_MetaData[];
 #endif
-		static const UECodeGen_Private::FMapPropertyParams NewProp_MainMenuSelection;
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_MainMenuSelection;
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_menuSelections_Inner;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_menuSelections_MetaData[];
@@ -329,15 +327,13 @@ void EmptyLinkFunctionForGeneratedCodeMainMenuView() {}
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UMainMenuView_Statics::NewProp_statusMainMenuElements = { "statusMainMenuElements", nullptr, (EPropertyFlags)0x0040008000000008, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMainMenuView, statusMainMenuElements), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMainMenuView_Statics::NewProp_statusMainMenuElements_MetaData), Z_Construct_UClass_UMainMenuView_Statics::NewProp_statusMainMenuElements_MetaData) };
-	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UMainMenuView_Statics::NewProp_MainMenuSelection_ValueProp = { "MainMenuSelection", nullptr, (EPropertyFlags)0x0000000000080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UDelegateFunction_DesentIntoAtlantis_ViewSelection__DelegateSignature, METADATA_PARAMS(0, nullptr) }; // 2159621065
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMainMenuView_Statics::NewProp_MainMenuSelection_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UMainMenuView_Statics::NewProp_MainMenuSelection_Key_KeyProp = { "MainMenuSelection_Key", nullptr, (EPropertyFlags)0x0000000000080000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_EMainMenuStates, METADATA_PARAMS(0, nullptr) }; // 3716113619
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UMainMenuView_Statics::NewProp_MainMenuSelection_Inner = { "MainMenuSelection", nullptr, (EPropertyFlags)0x0000000000080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UDelegateFunction_DesentIntoAtlantis_ViewSelection__DelegateSignature, METADATA_PARAMS(0, nullptr) }; // 2159621065
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMainMenuView_Statics::NewProp_MainMenuSelection_MetaData[] = {
 		{ "ModuleRelativePath", "Public/MainMenuView.h" },
 	};
 #endif
-	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UMainMenuView_Statics::NewProp_MainMenuSelection = { "MainMenuSelection", nullptr, (EPropertyFlags)0x0010008000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMainMenuView, MainMenuSelection), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMainMenuView_Statics::NewProp_MainMenuSelection_MetaData), Z_Construct_UClass_UMainMenuView_Statics::NewProp_MainMenuSelection_MetaData) }; // 3716113619 2159621065
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UMainMenuView_Statics::NewProp_MainMenuSelection = { "MainMenuSelection", nullptr, (EPropertyFlags)0x0010008000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMainMenuView, MainMenuSelection), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMainMenuView_Statics::NewProp_MainMenuSelection_MetaData), Z_Construct_UClass_UMainMenuView_Statics::NewProp_MainMenuSelection_MetaData) }; // 2159621065
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMainMenuView_Statics::NewProp_menuSelections_Inner = { "menuSelections", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UBorder_NoRegister, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMainMenuView_Statics::NewProp_menuSelections_MetaData[] = {
@@ -403,9 +399,7 @@ void EmptyLinkFunctionForGeneratedCodeMainMenuView() {}
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMainMenuView_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainMenuView_Statics::NewProp_statusMainMenuElements_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainMenuView_Statics::NewProp_statusMainMenuElements,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainMenuView_Statics::NewProp_MainMenuSelection_ValueProp,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainMenuView_Statics::NewProp_MainMenuSelection_Key_KeyProp_Underlying,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainMenuView_Statics::NewProp_MainMenuSelection_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainMenuView_Statics::NewProp_MainMenuSelection_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainMenuView_Statics::NewProp_MainMenuSelection,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainMenuView_Statics::NewProp_menuSelections_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainMenuView_Statics::NewProp_menuSelections,
@@ -459,9 +453,9 @@ void EmptyLinkFunctionForGeneratedCodeMainMenuView() {}
 		{ EMainMenuStates_StaticEnum, TEXT("EMainMenuStates"), &Z_Registration_Info_UEnum_EMainMenuStates, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3716113619U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MainMenuView_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMainMenuView, UMainMenuView::StaticClass, TEXT("UMainMenuView"), &Z_Registration_Info_UClass_UMainMenuView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMainMenuView), 128861696U) },
+		{ Z_Construct_UClass_UMainMenuView, UMainMenuView::StaticClass, TEXT("UMainMenuView"), &Z_Registration_Info_UClass_UMainMenuView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMainMenuView), 304307935U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MainMenuView_h_1936634339(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MainMenuView_h_3661272258(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MainMenuView_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MainMenuView_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MainMenuView_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_MainMenuView_h_Statics::EnumInfo));

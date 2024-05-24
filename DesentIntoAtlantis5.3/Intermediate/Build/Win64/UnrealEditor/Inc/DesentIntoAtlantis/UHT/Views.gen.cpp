@@ -55,6 +55,14 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 		{ "EViews::InteractableView", (int64)EViews::InteractableView },
 		{ "EViews::SyncView", (int64)EViews::SyncView },
 		{ "EViews::MainMenu", (int64)EViews::MainMenu },
+		{ "EViews::ItemView", (int64)EViews::ItemView },
+		{ "EViews::MainMenuSkillView", (int64)EViews::MainMenuSkillView },
+		{ "EViews::MainMenuClassView", (int64)EViews::MainMenuClassView },
+		{ "EViews::MainMenuStatusView", (int64)EViews::MainMenuStatusView },
+		{ "EViews::OptionView", (int64)EViews::OptionView },
+		{ "EViews::SaveView", (int64)EViews::SaveView },
+		{ "EViews::LoadView", (int64)EViews::LoadView },
+		{ "EViews::SettingView", (int64)EViews::SettingView },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EViews_Statics::Enum_MetaDataParams[] = {
@@ -68,11 +76,19 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 		{ "EnemySkill.Name", "EViews::EnemySkill" },
 		{ "Healthbars.Name", "EViews::Healthbars" },
 		{ "InteractableView.Name", "EViews::InteractableView" },
+		{ "ItemView.Name", "EViews::ItemView" },
 		{ "Levelup.Name", "EViews::Levelup" },
+		{ "LoadView.Name", "EViews::LoadView" },
 		{ "MainMenu.Name", "EViews::MainMenu" },
+		{ "MainMenuClassView.Name", "EViews::MainMenuClassView" },
+		{ "MainMenuSkillView.Name", "EViews::MainMenuSkillView" },
+		{ "MainMenuStatusView.Name", "EViews::MainMenuStatusView" },
 		{ "MapView.Name", "EViews::MapView" },
 		{ "ModuleRelativePath", "Public/Views.h" },
 		{ "None.Name", "EViews::None" },
+		{ "OptionView.Name", "EViews::OptionView" },
+		{ "SaveView.Name", "EViews::SaveView" },
+		{ "SettingView.Name", "EViews::SettingView" },
 		{ "Skill.Name", "EViews::Skill" },
 		{ "SyncView.Name", "EViews::SyncView" },
 		{ "Title.Name", "EViews::Title" },
@@ -182,6 +198,8 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 		{ "EViewElements::EnemySelectionElement", (int64)EViewElements::EnemySelectionElement },
 		{ "EViewElements::TurnCounterElement", (int64)EViewElements::TurnCounterElement },
 		{ "EViewElements::MainMenuStatusElement", (int64)EViewElements::MainMenuStatusElement },
+		{ "EViewElements::SaveSlotElement", (int64)EViewElements::SaveSlotElement },
+		{ "EViewElements::SavePortraitElement", (int64)EViewElements::SavePortraitElement },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_DesentIntoAtlantis_EViewElements_Statics::Enum_MetaDataParams[] = {
@@ -190,6 +208,8 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 		{ "ModuleRelativePath", "Public/Views.h" },
 		{ "None.Name", "EViewElements::None" },
 		{ "PartyStatusHealthbar.Name", "EViewElements::PartyStatusHealthbar" },
+		{ "SavePortraitElement.Name", "EViewElements::SavePortraitElement" },
+		{ "SaveSlotElement.Name", "EViewElements::SaveSlotElement" },
 		{ "SkillBar.Name", "EViewElements::SkillBar" },
 		{ "TurnCounterElement.Name", "EViewElements::TurnCounterElement" },
 	};
@@ -219,11 +239,11 @@ void EmptyLinkFunctionForGeneratedCodeViews() {}
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo[] = {
-		{ EViews_StaticEnum, TEXT("EViews"), &Z_Registration_Info_UEnum_EViews, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2152164902U) },
+		{ EViews_StaticEnum, TEXT("EViews"), &Z_Registration_Info_UEnum_EViews, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 142043138U) },
 		{ EUiType_StaticEnum, TEXT("EUiType"), &Z_Registration_Info_UEnum_EUiType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2742622325U) },
-		{ EViewElements_StaticEnum, TEXT("EViewElements"), &Z_Registration_Info_UEnum_EViewElements, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4149613741U) },
+		{ EViewElements_StaticEnum, TEXT("EViewElements"), &Z_Registration_Info_UEnum_EViewElements, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2950317272U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Views_h_1453111324(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Views_h_3882410293(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Views_h_Statics::EnumInfo));

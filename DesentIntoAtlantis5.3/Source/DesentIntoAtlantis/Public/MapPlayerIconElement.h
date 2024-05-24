@@ -6,6 +6,7 @@
 #include "BaseUserWidget.h"
 #include "MapPlayerIconElement.generated.h"
 
+enum class ECardinalNodeDirections;
 class UImage;
 /**
  * 

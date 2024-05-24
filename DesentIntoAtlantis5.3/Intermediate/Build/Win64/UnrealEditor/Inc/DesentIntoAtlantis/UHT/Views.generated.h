@@ -38,7 +38,15 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	op(EViews::MapView) \
 	op(EViews::InteractableView) \
 	op(EViews::SyncView) \
-	op(EViews::MainMenu) 
+	op(EViews::MainMenu) \
+	op(EViews::ItemView) \
+	op(EViews::MainMenuSkillView) \
+	op(EViews::MainMenuClassView) \
+	op(EViews::MainMenuStatusView) \
+	op(EViews::OptionView) \
+	op(EViews::SaveView) \
+	op(EViews::LoadView) \
+	op(EViews::SettingView) 
 
 enum class EViews;
 template<> struct TIsUEnumClass<EViews> { enum { Value = true }; };
@@ -59,7 +67,9 @@ template<> DESENTINTOATLANTIS_API UEnum* StaticEnum<EUiType>();
 	op(EViewElements::SkillBar) \
 	op(EViewElements::EnemySelectionElement) \
 	op(EViewElements::TurnCounterElement) \
-	op(EViewElements::MainMenuStatusElement) 
+	op(EViewElements::MainMenuStatusElement) \
+	op(EViewElements::SaveSlotElement) \
+	op(EViewElements::SavePortraitElement) 
 
 enum class EViewElements;
 template<> struct TIsUEnumClass<EViewElements> { enum { Value = true }; };

@@ -255,9 +255,15 @@
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\floormanager.generated.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\atlantisgamemodebase.generated.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\baseuserwidget.gen.cpp",
+            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\baseuserwidgetmovingbuttons.gen.cpp",
+            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\baseuserwidgetmovingbuttons.h",
+            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\baseuserwidgetmovingbuttons.generated.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\camerafilterview.gen.cpp",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\camerafilterview.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\camerafilterview.generated.h",
+            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\classview.gen.cpp",
+            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\classview.h",
+            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\classview.generated.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\combatbackground.gen.cpp",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\combatbackground.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\combatbackground.generated.h",
@@ -295,10 +301,7 @@
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\endview.gen.cpp",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\endview.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\endview.generated.h",
-            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\enemybeastiarydata.gen.cpp",
-            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\enemybehaviour.gen.cpp",
-            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\enemybehaviour.h",
-            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\enemybehaviour.generated.h"
+            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\enemybeastiarydata.gen.cpp"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

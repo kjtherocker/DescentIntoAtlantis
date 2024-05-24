@@ -325,7 +325,7 @@ void EmptyLinkFunctionForGeneratedCodeSaveGameData() {}
 		{ "ModuleRelativePath", "Public/SaveGameData.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_USaveGameData_Statics::NewProp_eventManagerData = { "eventManagerData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USaveGameData, eventManagerData), Z_Construct_UScriptStruct_FEventManagerData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_USaveGameData_Statics::NewProp_eventManagerData_MetaData), Z_Construct_UClass_USaveGameData_Statics::NewProp_eventManagerData_MetaData) }; // 99566737
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_USaveGameData_Statics::NewProp_eventManagerData = { "eventManagerData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USaveGameData, eventManagerData), Z_Construct_UScriptStruct_FEventManagerData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_USaveGameData_Statics::NewProp_eventManagerData_MetaData), Z_Construct_UClass_USaveGameData_Statics::NewProp_eventManagerData_MetaData) }; // 1602187977
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_USaveGameData_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USaveGameData_Statics::NewProp_enemyBestiaryData,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USaveGameData_Statics::NewProp_currentLevel_Underlying,
@@ -379,9 +379,9 @@ void EmptyLinkFunctionForGeneratedCodeSaveGameData() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveGameData_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_USaveGameData, USaveGameData::StaticClass, TEXT("USaveGameData"), &Z_Registration_Info_UClass_USaveGameData, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USaveGameData), 1942977235U) },
+		{ Z_Construct_UClass_USaveGameData, USaveGameData::StaticClass, TEXT("USaveGameData"), &Z_Registration_Info_UClass_USaveGameData, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USaveGameData), 3395331375U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveGameData_h_1960104177(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveGameData_h_1630386303(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveGameData_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveGameData_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

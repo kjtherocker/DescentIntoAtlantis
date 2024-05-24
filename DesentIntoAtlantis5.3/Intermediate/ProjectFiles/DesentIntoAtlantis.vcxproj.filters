@@ -1598,7 +1598,13 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\BaseUserWidget.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\BaseUserWidgetMovingButtons.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CameraFilterView.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\ClassView.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\CombatBackground.cpp">
@@ -1700,6 +1706,9 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\InteractableView.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\ItemView.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\LevelGeneratorUtilityWidget.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
@@ -1713,6 +1722,9 @@
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\MainMenuGameMode.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\MainMenuSkillView.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\MainMenuView.cpp">
@@ -1731,6 +1743,9 @@
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\MapView.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\OptionView.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\PartyHealthbarElement.cpp">
@@ -1755,6 +1770,18 @@
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\SaveManagerSubsystem.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\SaveSlotElement.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\SaveSlotPortraitElement.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\SaveView.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\SavingView.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\SkillBarElement.cpp">
@@ -1808,7 +1835,13 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\BaseUserWidget.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\BaseUserWidgetMovingButtons.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CameraFilterView.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\ClassView.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\CombatBackground.h">
@@ -1913,6 +1946,9 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\InteractableView.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\ItemView.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\LevelGeneratorUtilityWidget.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
@@ -1926,6 +1962,9 @@
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\MainMenuGameMode.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\MainMenuSkillView.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\MainMenuView.h">
@@ -1944,6 +1983,9 @@
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\MapView.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\OptionView.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PartyHealthbarElement.h">
@@ -1968,6 +2010,18 @@
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SaveManagerSubsystem.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SaveSlotElement.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SaveSlotPortraitElement.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SaveView.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SavingView.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SkillBarElement.h">

@@ -21,11 +21,11 @@ void UMainMenuView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UMainMenuView::ActivateMenuSelection  );
 	InputComponent->BindAction("Escape"   ,IE_Pressed ,this, &UMainMenuView::PopMostActiveView  );
 
-	CreateAndBindDelegateOption(EMainMenuStates::Item      ,&UMainMenuView::Item        ,TEXT("Item"));
-	CreateAndBindDelegateOption(EMainMenuStates::Skills    ,&UMainMenuView::Skills       ,TEXT("Skills"));
-	CreateAndBindDelegateOption(EMainMenuStates::Class     ,&UMainMenuView::Class        ,TEXT("Class"));
-	CreateAndBindDelegateOption(EMainMenuStates::Status    ,&UMainMenuView::Status       ,TEXT("Status"));
-	CreateAndBindDelegateOption(EMainMenuStates::Option    ,&UMainMenuView::Option       ,TEXT("Option"));
+	CreateAndBindDelegateOption(&UMainMenuView::Item        ,TEXT("Item"));
+	CreateAndBindDelegateOption(&UMainMenuView::Skills       ,TEXT("Skills"));
+	CreateAndBindDelegateOption(&UMainMenuView::Class        ,TEXT("Class"));
+	CreateAndBindDelegateOption(&UMainMenuView::Status       ,TEXT("Status"));
+	CreateAndBindDelegateOption(&UMainMenuView::Option       ,TEXT("Option"));
 
 	menuSelections.Add(BW_Item);
 	menuSelections.Add(BW_Skills);
@@ -35,7 +35,7 @@ void UMainMenuView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 
 	for(int i = 0 ; i < menuSelections.Num();i++)
 	{
-		menuSelections[i]->SetBrushColor(unhightlighedColor);
+		menuSelections[i]->SetBrushColor(unhightlighedColorNoAlpha);
 	}
 
 	SetCursorPositionInfo();
@@ -59,11 +59,11 @@ void UMainMenuView::SetCursorPositionInfo()
 	maxCursorPosition = menuSelections.Num()-1;
 }
 
-void UMainMenuView::CreateAndBindDelegateOption(EMainMenuStates aTitleState,typename TMemFunPtrType<false, UMainMenuView, void()>::Type InFunc, const FName& FuncName)
+void UMainMenuView::CreateAndBindDelegateOption(typename TMemFunPtrType<false, UMainMenuView, void()>::Type InFunc, const FName& FuncName)
 {
 	FViewSelection newViewSelection;
 	newViewSelection.__Internal_AddDynamic(this,InFunc,FuncName);
-	MainMenuSelection.Add(aTitleState,newViewSelection );
+	MainMenuSelection.Add(newViewSelection );
 }
 
 void UMainMenuView::SpawnMainMenuStatusElement(UPlayerCombatEntity* aCombatEntity)
@@ -97,6 +97,7 @@ void UMainMenuView::MoveDown()
 
 void UMainMenuView::ActivateMenuSelection()
 {
+	MainMenuSelection[cursorPosition].Broadcast();
 }
 
 void UMainMenuView::Item()
@@ -113,10 +114,12 @@ void UMainMenuView::Class()
 
 void UMainMenuView::Status()
 {
+	//gameModeBase->InGameHUD->PushView(EViews::OptionView,    EUiType::ActiveUi);
 }
 
 void UMainMenuView::Option()
 {
+	gameModeBase->InGameHUD->PushView(EViews::OptionView,    EUiType::ActiveUi);
 }
 
 
