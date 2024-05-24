@@ -322,6 +322,11 @@
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\levelupview.gen.cpp",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\levelupview.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\levelupview.generated.h",
+            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\loadview.gen.cpp",
+            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\loadview.h",
+            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\baseuserwidgetmovingbuttons.h",
+            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\baseuserwidgetmovingbuttons.generated.h",
+            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\loadview.generated.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\mainmenugamemode.gen.cpp",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\mainmenugamemode.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\mainmenugamemode.generated.h",
@@ -332,8 +337,7 @@
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\source\\desentintoatlantis\\public\\mainmenuview.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\mainmenuview.generated.h",
             "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\mapbuttonelement.gen.cpp",
-            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\mapeventeditorview.gen.cpp",
-            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\mapnodeeditorview.gen.cpp"
+            "c:\\users\\kylej\\desktop\\descentintoatlantis\\desentintoatlantis5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\desentintoatlantis\\uht\\mapeventeditorview.gen.cpp"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

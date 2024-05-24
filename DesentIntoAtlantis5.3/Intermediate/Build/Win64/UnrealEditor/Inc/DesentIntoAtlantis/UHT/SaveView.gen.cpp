@@ -10,6 +10,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeSaveView() {}
 // Cross Module References
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UBaseUserWidgetMovingButtons();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USaveGameData_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USaveManagerSubsystem_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USaveSlotElement_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_USaveView();
@@ -96,6 +97,11 @@ void EmptyLinkFunctionForGeneratedCodeSaveView() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_SaveGameDatas_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SaveGameDatas_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_SaveGameDatas;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SaveManagerSubsystem_MetaData[];
 #endif
@@ -132,6 +138,13 @@ void EmptyLinkFunctionForGeneratedCodeSaveView() {}
 		{ "ModuleRelativePath", "Public/SaveView.h" },
 	};
 #endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_USaveView_Statics::NewProp_SaveGameDatas_Inner = { "SaveGameDatas", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_USaveGameData_NoRegister, METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USaveView_Statics::NewProp_SaveGameDatas_MetaData[] = {
+		{ "ModuleRelativePath", "Public/SaveView.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_USaveView_Statics::NewProp_SaveGameDatas = { "SaveGameDatas", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USaveView, SaveGameDatas), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_USaveView_Statics::NewProp_SaveGameDatas_MetaData), Z_Construct_UClass_USaveView_Statics::NewProp_SaveGameDatas_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USaveView_Statics::NewProp_SaveManagerSubsystem_MetaData[] = {
 		{ "ModuleRelativePath", "Public/SaveView.h" },
@@ -156,6 +169,8 @@ void EmptyLinkFunctionForGeneratedCodeSaveView() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_USaveView_Statics::NewProp_BW_VerticalBox = { "BW_VerticalBox", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USaveView, BW_VerticalBox), Z_Construct_UClass_UVerticalBox_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_USaveView_Statics::NewProp_BW_VerticalBox_MetaData), Z_Construct_UClass_USaveView_Statics::NewProp_BW_VerticalBox_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_USaveView_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USaveView_Statics::NewProp_SaveGameDatas_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USaveView_Statics::NewProp_SaveGameDatas,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USaveView_Statics::NewProp_SaveManagerSubsystem,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USaveView_Statics::NewProp_SaveSlots_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USaveView_Statics::NewProp_SaveSlots,
@@ -200,9 +215,9 @@ void EmptyLinkFunctionForGeneratedCodeSaveView() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveView_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_USaveView, USaveView::StaticClass, TEXT("USaveView"), &Z_Registration_Info_UClass_USaveView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USaveView), 2703980324U) },
+		{ Z_Construct_UClass_USaveView, USaveView::StaticClass, TEXT("USaveView"), &Z_Registration_Info_UClass_USaveView, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USaveView), 3917849305U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveView_h_2939968380(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveView_h_55494147(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveView_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveView_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

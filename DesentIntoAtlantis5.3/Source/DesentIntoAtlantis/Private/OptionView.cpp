@@ -35,6 +35,8 @@ void UOptionView::CreateAndBindDelegateOption(
 
 void UOptionView::Load()
 {
+	gameModeBase->InGameHUD->PopAllActiveViews();
+	gameModeBase->InGameHUD->PushView(EViews::LoadView,    EUiType::ActiveUi);
 }
 
 void UOptionView::Save()

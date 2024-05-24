@@ -111,14 +111,14 @@ void UPersistentGameinstance::UnloadLevel(FString aLevelName)
 void UPersistentGameinstance::LoadLevel(EFloorIdentifier aFloorIdentifier)
 {
 	FString LevelName = LevelMap[aFloorIdentifier];
-	if(currentLevelName != aFloorIdentifier)
+	//if(currentLevelName != aFloorIdentifier)
 	{
 		levelProgressionSubsystem->SetCurrentFloorIdentifier(aFloorIdentifier);
 		levelHasChanged.Broadcast(aFloorIdentifier);
 		saveManagerSubsystem->AutoSave();
 		UGameplayStatics::OpenLevel(GetWorld(), FName(*LevelName), true);
 	}
-	else
+	//else
 	{
 		//We are calling the same scene multiple times
 	}

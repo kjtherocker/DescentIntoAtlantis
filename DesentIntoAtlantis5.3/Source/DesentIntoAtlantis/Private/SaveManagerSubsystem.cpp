@@ -44,10 +44,9 @@ void USaveManagerSubsystem::AutoSave()
 	UGameplayStatics::SaveGameToSlot(AutoSaveGameObject,TEXT("AutoSave"), 0);
 }
 
-void USaveManagerSubsystem::SaveGameInSlot(int aSlot)
+void USaveManagerSubsystem::SaveGameInSlot(FString saveGameName)
 {
-	FString slotName = FString::FromInt(aSlot);
-	UGameplayStatics::SaveGameToSlot(SessionSaveGameObject,slotName, 0);
+	UGameplayStatics::SaveGameToSlot(SessionSaveGameObject,saveGameName, 0);
 }
 
 ECardinalNodeDirections USaveManagerSubsystem::LoadFloorPawnRotation()
@@ -63,11 +62,10 @@ void USaveManagerSubsystem::LoadPreSetLevel()
 }
 
 
-void USaveManagerSubsystem::LoadSaveDataAndTransitionToMap(int aSaveSlot)
+void USaveManagerSubsystem::LoadSaveDataAndTransitionToMap(FString saveGameName)
 {
-	FString slotName = FString::FromInt(aSaveSlot);
 	isGameSaveBeingLoaded = true;
-	USaveGameData* LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(slotName,0));
+	USaveGameData* LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(saveGameName,0));
 	SessionSaveGameObject = LoadedSaveGameObject;
 	InitializeSessionSave(SessionSaveGameObject);
 	persistentGameinstance->partyManagerSubsystem->LoadAndCreateAllPlayerEntitys(LoadedSaveGameObject->playerCompleteDataSet);

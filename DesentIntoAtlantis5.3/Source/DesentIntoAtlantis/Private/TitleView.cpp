@@ -71,12 +71,7 @@ void UTitleView::StartGame()
 
 void UTitleView::LoadGame()
 {
-	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>(GetGameInstance());
-	
-	if (persistentGameInstance)
-	{
-		persistentGameInstance->saveManagerSubsystem->LoadSaveDataAndTransitionToMap(1);
-	}
+	gameModeBase->InGameHUD->PushView(EViews::LoadView,EUiType::ActiveUi);
 }
 
 void UTitleView::OpenSettings()

@@ -60,6 +60,7 @@
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/LevelProgressionSubsystem.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/LevelupPanelElement.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/LevelupView.cpp"
+#include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/LoadView.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/MainMenuGameMode.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/MainMenuSkillView.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Source/DesentIntoAtlantis/Private/MainMenuView.cpp"

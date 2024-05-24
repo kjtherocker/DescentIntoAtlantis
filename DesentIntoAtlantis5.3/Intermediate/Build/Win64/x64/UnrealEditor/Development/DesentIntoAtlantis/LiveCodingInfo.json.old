@@ -82,10 +82,10 @@
 			"SavingView.gen.cpp.obj",
 			"SkillBarElement.gen.cpp.obj",
 			"SkillFactorySubsystem.gen.cpp.obj",
-			"SkillsData.gen.cpp.obj",
-			"SkillView.gen.cpp.obj"
+			"SkillsData.gen.cpp.obj"
 		],
 		"Module.DesentIntoAtlantis.5.cpp.obj": [
+			"SkillView.gen.cpp.obj",
 			"SoundManager.gen.cpp.obj",
 			"StatusElement.gen.cpp.obj",
 			"StatusMainMenuElement.gen.cpp.obj",

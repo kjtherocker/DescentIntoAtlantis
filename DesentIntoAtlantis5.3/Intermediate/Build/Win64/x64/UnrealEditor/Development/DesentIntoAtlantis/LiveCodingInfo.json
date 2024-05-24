@@ -57,14 +57,15 @@
 			"LevelProgressionSubsystem.gen.cpp.obj",
 			"LevelupPanelElement.gen.cpp.obj",
 			"LevelupView.gen.cpp.obj",
+			"LoadView.gen.cpp.obj",
 			"MainMenuGameMode.gen.cpp.obj",
 			"MainMenuSkillView.gen.cpp.obj",
 			"MainMenuView.gen.cpp.obj",
 			"MapButtonElement.gen.cpp.obj",
-			"MapEventEditorView.gen.cpp.obj",
-			"MapNodeEditorView.gen.cpp.obj"
+			"MapEventEditorView.gen.cpp.obj"
 		],
 		"Module.DesentIntoAtlantis.4.cpp.obj": [
+			"MapNodeEditorView.gen.cpp.obj",
 			"MapPlayerIconElement.gen.cpp.obj",
 			"MapView.gen.cpp.obj",
 			"OptionView.gen.cpp.obj",
@@ -146,6 +147,7 @@
 			"LevelProgressionSubsystem.cpp.obj",
 			"LevelupPanelElement.cpp.obj",
 			"LevelupView.cpp.obj",
+			"LoadView.cpp.obj",
 			"MainMenuGameMode.cpp.obj",
 			"MainMenuSkillView.cpp.obj",
 			"MainMenuView.cpp.obj",

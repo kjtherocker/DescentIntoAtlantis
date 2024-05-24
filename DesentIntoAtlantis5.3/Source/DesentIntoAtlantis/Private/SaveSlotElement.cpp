@@ -12,17 +12,18 @@
 
 class USaveSlotPortraitElement;
 
-void USaveSlotElement::SetupSaveSlot(USaveGameData* aSaveGameData, int aSaveSlotNumber)
+void USaveSlotElement::SetupSaveSlot(USaveGameData* aSaveGameData,FString aSlotName)
 {
-	int saveSlotNumber = SAVESLOT_NUMBER_OFFSET + aSaveSlotNumber;
-	BW_SaveSlotNumber->SetText(FText::FromString(FString::FromInt(saveSlotNumber)));
+	saveSlotName = aSlotName;
+	BW_SaveSlotNumber->SetText(FText::FromString(saveSlotName));
 	if(aSaveGameData == nullptr)
 	{
 		BW_Location->SetText(FText::FromString(""));
-		BW_Time->SetText(FText::FromString("00:00:00"));
+		BW_Time->SetText(FText::FromString(""));
 	}
 	else
 	{
+		BW_Time->SetText(FText::FromString(""));
 		TMap<EPartyMembers, FPlayerCompleteDataSet> playerCompleteDataSet = aSaveGameData->playerCompleteDataSet;
 		for (TTuple<EPartyMembers, FPlayerCompleteDataSet> partyMember : playerCompleteDataSet)
 		{
@@ -49,4 +50,14 @@ void USaveSlotElement::SpawnPlayerPortraits(FPlayerCompleteDataSet aCompleteData
 	BW_HorizontalBox->AddChild(baseUserWidget);
 	portraitElements.Add(baseUserWidget);
 
+}
+
+void USaveSlotElement::MoveSlotRight()
+{
+	SetRenderTranslation(FVector2d(MOVE_SLOT_RIGHT_OFFSET,0));
+}
+
+void USaveSlotElement::ResetTranslation()
+{
+	SetRenderTranslation(FVector2d(0,0));
 }

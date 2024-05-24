@@ -29,6 +29,7 @@ void USaveGameData::UpdateEnemyBestiaryData(FCompleteBestiaryData aCompleteBesti
 
 void USaveGameData::SubscribeUpdateFloorPlayerCompleteData(AFloorPawn* aFloorPawn)
 {
+	aFloorPawn->playerhasMovedDelegate.AddDynamic(this,&USaveGameData::UpdateFloorPawnData);
 	aFloorPawn->playerDirectionHasChanged.AddDynamic(this,&USaveGameData::UpdateFloorPawnData);
 }
 

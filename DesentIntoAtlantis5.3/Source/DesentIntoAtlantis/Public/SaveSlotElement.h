@@ -19,11 +19,17 @@ class DESENTINTOATLANTIS_API USaveSlotElement : public UBaseUserWidget
 	GENERATED_BODY()
 
 	const int SAVESLOT_NUMBER_OFFSET = 1;
+	const int MOVE_SLOT_RIGHT_OFFSET = 50;
+
+
 public:
-	void SetupSaveSlot(USaveGameData* aSaveGameData, int aSaveSlotNumber);
+	FString saveSlotName;
+	void SetupSaveSlot(USaveGameData* aSaveGameData, FString aSlotName);
 
 	void SpawnPlayerPortraits(FPlayerCompleteDataSet aCompleteDataSet);
 
+	void MoveSlotRight();
+	void ResetTranslation();
 	UPROPERTY()
 	TArray<USaveSlotPortraitElement*> portraitElements;
 

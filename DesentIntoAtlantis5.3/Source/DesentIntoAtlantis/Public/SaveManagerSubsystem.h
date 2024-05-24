@@ -29,7 +29,7 @@ public:
 	void AutoSave();
 
 	UFUNCTION()
-	void SaveGameInSlot(int aSlot);
+	void SaveGameInSlot(FString saveGameName);
 
 	UFUNCTION()
 	ECardinalNodeDirections LoadFloorPawnRotation();
@@ -38,7 +38,7 @@ public:
 	void LoadPreSetLevel();
 
 	UFUNCTION()
-	void LoadSaveDataAndTransitionToMap(int aSaveSlot);
+	void LoadSaveDataAndTransitionToMap(FString saveGameName);
 
 	UFUNCTION()
 	void SetEventManagerData(FEventManagerData aEventManagerData);

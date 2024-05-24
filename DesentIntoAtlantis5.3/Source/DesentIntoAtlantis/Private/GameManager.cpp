@@ -47,8 +47,8 @@ void UGameManager::StartGame()
 
 void UGameManager::ResetPlayerToPreviousPosition()
 {
-	gameModeBase->floorManager->MovePlayerToPreviousNode();
-	gameModeBase->combatManager->EndCombat(false);
+	//gameModeBase->floorManager->MovePlayerToPreviousNode();
+	//gameModeBase->combatManager->EndCombat(false);
 }
 
 

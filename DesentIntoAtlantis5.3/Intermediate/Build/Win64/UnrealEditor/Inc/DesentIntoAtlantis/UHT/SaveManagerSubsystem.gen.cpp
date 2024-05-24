@@ -37,10 +37,10 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 	}
 	DEFINE_FUNCTION(USaveManagerSubsystem::execLoadSaveDataAndTransitionToMap)
 	{
-		P_GET_PROPERTY(FIntProperty,Z_Param_aSaveSlot);
+		P_GET_PROPERTY(FStrProperty,Z_Param_saveGameName);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->LoadSaveDataAndTransitionToMap(Z_Param_aSaveSlot);
+		P_THIS->LoadSaveDataAndTransitionToMap(Z_Param_saveGameName);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(USaveManagerSubsystem::execLoadPreSetLevel)
@@ -59,10 +59,10 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 	}
 	DEFINE_FUNCTION(USaveManagerSubsystem::execSaveGameInSlot)
 	{
-		P_GET_PROPERTY(FIntProperty,Z_Param_aSlot);
+		P_GET_PROPERTY(FStrProperty,Z_Param_saveGameName);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->SaveGameInSlot(Z_Param_aSlot);
+		P_THIS->SaveGameInSlot(Z_Param_saveGameName);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(USaveManagerSubsystem::execAutoSave)
@@ -261,18 +261,18 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 	{
 		struct SaveManagerSubsystem_eventLoadSaveDataAndTransitionToMap_Parms
 		{
-			int32 aSaveSlot;
+			FString saveGameName;
 		};
-		static const UECodeGen_Private::FIntPropertyParams NewProp_aSaveSlot;
+		static const UECodeGen_Private::FStrPropertyParams NewProp_saveGameName;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::NewProp_aSaveSlot = { "aSaveSlot", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SaveManagerSubsystem_eventLoadSaveDataAndTransitionToMap_Parms, aSaveSlot), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::NewProp_saveGameName = { "saveGameName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SaveManagerSubsystem_eventLoadSaveDataAndTransitionToMap_Parms, saveGameName), METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::NewProp_aSaveSlot,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::NewProp_saveGameName,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap_Statics::Function_MetaDataParams[] = {
@@ -317,18 +317,18 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 	{
 		struct SaveManagerSubsystem_eventSaveGameInSlot_Parms
 		{
-			int32 aSlot;
+			FString saveGameName;
 		};
-		static const UECodeGen_Private::FIntPropertyParams NewProp_aSlot;
+		static const UECodeGen_Private::FStrPropertyParams NewProp_saveGameName;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_USaveManagerSubsystem_SaveGameInSlot_Statics::NewProp_aSlot = { "aSlot", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SaveManagerSubsystem_eventSaveGameInSlot_Parms, aSlot), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_USaveManagerSubsystem_SaveGameInSlot_Statics::NewProp_saveGameName = { "saveGameName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SaveManagerSubsystem_eventSaveGameInSlot_Parms, saveGameName), METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_USaveManagerSubsystem_SaveGameInSlot_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USaveManagerSubsystem_SaveGameInSlot_Statics::NewProp_aSlot,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USaveManagerSubsystem_SaveGameInSlot_Statics::NewProp_saveGameName,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_USaveManagerSubsystem_SaveGameInSlot_Statics::Function_MetaDataParams[] = {
@@ -420,9 +420,9 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_InitializeSubsystem, "InitializeSubsystem" }, // 2530387896
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_LoadFloorPawnRotation, "LoadFloorPawnRotation" }, // 2943430020
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_LoadPreSetLevel, "LoadPreSetLevel" }, // 2106330069
-		{ &Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap, "LoadSaveDataAndTransitionToMap" }, // 3328263660
+		{ &Z_Construct_UFunction_USaveManagerSubsystem_LoadSaveDataAndTransitionToMap, "LoadSaveDataAndTransitionToMap" }, // 1999108319
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_ReturnToPreviousLevel, "ReturnToPreviousLevel" }, // 923142100
-		{ &Z_Construct_UFunction_USaveManagerSubsystem_SaveGameInSlot, "SaveGameInSlot" }, // 2211341445
+		{ &Z_Construct_UFunction_USaveManagerSubsystem_SaveGameInSlot, "SaveGameInSlot" }, // 1351023929
 		{ &Z_Construct_UFunction_USaveManagerSubsystem_SetEventManagerData, "SetEventManagerData" }, // 2024542876
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_USaveManagerSubsystem_Statics::FuncInfo) < 2048);
@@ -497,9 +497,9 @@ void EmptyLinkFunctionForGeneratedCodeSaveManagerSubsystem() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveManagerSubsystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_USaveManagerSubsystem, USaveManagerSubsystem::StaticClass, TEXT("USaveManagerSubsystem"), &Z_Registration_Info_UClass_USaveManagerSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USaveManagerSubsystem), 177306244U) },
+		{ Z_Construct_UClass_USaveManagerSubsystem, USaveManagerSubsystem::StaticClass, TEXT("USaveManagerSubsystem"), &Z_Registration_Info_UClass_USaveManagerSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USaveManagerSubsystem), 3991924468U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveManagerSubsystem_h_1956302935(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveManagerSubsystem_h_3983778998(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveManagerSubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveManagerSubsystem_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
