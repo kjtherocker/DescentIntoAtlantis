@@ -68,7 +68,10 @@ void UEnemyFactorySubSystem::InitializeBestiary(FEnemyEntityData aEnemy)
 
 void UEnemyFactorySubSystem::LoadSavedBestiary(FCompleteBestiaryData aCompleteBestiaryData)
 {
-	completeBestiaryData = aCompleteBestiaryData;
+	for (TTuple<FString, FEnemyBestiary> Element : aCompleteBestiaryData.enemyBestiaryData)
+	{
+		completeBestiaryData.enemyBestiaryData[Element.Key].enemyElementalInfo = Element.Value.enemyElementalInfo;
+	}
 }
 
 FEnemyEntityData UEnemyFactorySubSystem::FEnemyEntityDataReturnEnemyEntityData(FString aEnemyName)
