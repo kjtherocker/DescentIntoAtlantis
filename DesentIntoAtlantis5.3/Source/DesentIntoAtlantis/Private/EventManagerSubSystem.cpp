@@ -210,7 +210,7 @@ void UEventManagerSubSystem::EventNotCompleted()
 	//gameMode->floorPawn->EnableInput(gameMode->world->GetFirstPlayerController());
 }
 
-void UEventManagerSubSystem::AddFloorEnemyEvents(FVector2D aPositionInGrid, AFloorEnemyPawn* aFloorEnemyPawn)
+void UEventManagerSubSystem::AddFloorEnemyEvents(FVector2D aPositionInGrid, AFloorEventMarker* aFloorEnemyPawn)
 {
 	floorEnemyEvents.Add(aPositionInGrid,aFloorEnemyPawn);
 }

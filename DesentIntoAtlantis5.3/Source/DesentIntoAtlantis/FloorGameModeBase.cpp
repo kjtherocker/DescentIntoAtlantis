@@ -32,7 +32,7 @@ void AFloorGameMode::InitializeLevel()
     FVector ActorFinalSpawnPoint(0,0,0);
     FRotator rotator(0.0f,0.0f,0.0f);
     
-    floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, FVector(0,0,0), rotator));
+    floorPawn = Cast<AFloorPlayerPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, FVector(0,0,0), rotator));
     floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
     floorPawn->Initialize();
     levelProgressionSubsystem->SetSubscribeFloorPawnDelegates(floorPawn);

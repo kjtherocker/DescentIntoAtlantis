@@ -11,7 +11,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AFloorDoor;
 class AFloorNode;
-class AFloorPawn;
+class AFloorPlayerPawn;
 #ifdef DESENTINTOATLANTIS_Gimmick_Base_generated_h
 #error "Gimmick_Base.generated.h already included, missing '#pragma once' in Gimmick_Base.h"
 #endif

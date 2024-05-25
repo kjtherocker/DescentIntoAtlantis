@@ -11,7 +11,7 @@
 class ULevelProgressionSubsystem;
 class USaveManagerSubsystem;
 class USaveGameData;
-class AFloorPawn;
+class AFloorPlayerPawn;
 class UEnemyFactorySubSystem;
 class USkillFactorySubsystem;
 class UPartyManagerSubsystem;

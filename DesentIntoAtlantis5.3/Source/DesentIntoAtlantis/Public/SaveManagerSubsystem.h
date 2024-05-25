@@ -21,7 +21,7 @@ public:
 	void InitializeSubsystem(UPersistentGameinstance* aPersistentGameInstance);
 
 	void InitializeSessionSave(USaveGameData* aSessionSave);
-	void InitializeSessionSavePlayer(AFloorPawn* aFloorPawn);
+	void InitializeSessionSavePlayer(AFloorPlayerPawn* aFloorPawn);
 	UFUNCTION()
 	void ReturnToPreviousLevel();
 

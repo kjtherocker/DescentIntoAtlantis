@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "FloorEnemyPawn.h"
+#include "FloorEventMarker.h"
 #include "DesentIntoAtlantis/FloorBase.h"
 #include "UObject/NoExportTypes.h"
 #include "FloorEnum.h"
@@ -47,7 +47,7 @@ class DESENTINTOATLANTIS_API UEventManagerSubSystem : public UGameInstanceSubsys
 	TArray<FFloorEventData> completedFloorEventData;
 
 	UPROPERTY()
-	TMap<FVector2D , AFloorEnemyPawn*> floorEnemyEvents;
+	TMap<FVector2D , AFloorEventMarker*> floorEnemyEvents;
 	
 	FTriggerNextEventStage triggerNextEventStage;
 
@@ -80,5 +80,5 @@ public:
 
 	void EventNotCompleted();
 
-	void AddFloorEnemyEvents(FVector2D aPositionInGrid, AFloorEnemyPawn* aFloorEnemyPawn);
+	void AddFloorEnemyEvents(FVector2D aPositionInGrid, AFloorEventMarker* aFloorEnemyPawn);
 };

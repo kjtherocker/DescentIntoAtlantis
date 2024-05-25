@@ -3,7 +3,7 @@
 
 #include "SaveGameData.h"
 
-#include "FloorPawn.h"
+#include "FloorPlayerPawn.h"
 #include "PersistentGameinstance.h"
 
 
@@ -27,7 +27,7 @@ void USaveGameData::UpdateEnemyBestiaryData(FCompleteBestiaryData aCompleteBesti
 	enemyBestiaryData = aCompleteBestiaryData;
 }
 
-void USaveGameData::SubscribeUpdateFloorPlayerCompleteData(AFloorPawn* aFloorPawn)
+void USaveGameData::SubscribeUpdateFloorPlayerCompleteData(AFloorPlayerPawn* aFloorPawn)
 {
 	aFloorPawn->playerhasMovedDelegate.AddDynamic(this,&USaveGameData::UpdateFloorPawnData);
 	aFloorPawn->playerDirectionHasChanged.AddDynamic(this,&USaveGameData::UpdateFloorPawnData);

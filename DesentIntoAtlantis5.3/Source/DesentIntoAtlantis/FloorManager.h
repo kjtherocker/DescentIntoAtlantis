@@ -10,8 +10,8 @@
 #include "GameFramework/Actor.h"
 #include "FloorNode.h"
 #include "FloorBase.h"
-#include "FloorPawn.h"
-#include "FloorEnemyPawn.h"
+#include "FloorPlayerPawn.h"
+#include "FloorEventMarker.h"
 #include "Gimmick_Base.h"
 #include "FloorManager.generated.h"
 

@@ -12,7 +12,7 @@ void ULevelProgressionSubsystem::InitializeSubsystem(UPersistentGameinstance* aP
 	persistentGameInstance = aPersistentGameinstance;
 }
 
-void ULevelProgressionSubsystem::SetSubscribeFloorPawnDelegates(AFloorPawn* aFloorPawn)
+void ULevelProgressionSubsystem::SetSubscribeFloorPawnDelegates(AFloorPlayerPawn* aFloorPawn)
 {
 	aFloorPawn->playerhasMovedDelegate.AddDynamic(this,&ULevelProgressionSubsystem::SetCompleteFloorPawnData);
 	aFloorPawn->playerhasMovedDelegate.AddDynamic(this,&ULevelProgressionSubsystem::ActivateCurrentNodesInteractableGimmick);

@@ -59,7 +59,7 @@ public:
 	UPROPERTY(EditAnywhere)
 	AFloorManager* floorManager;
 	UPROPERTY()
-	AFloorPawn* floorPawn;
+	AFloorPlayerPawn* floorPawn;
 
 	UPROPERTY()
 	UFloorFactory*      floorFactory;

@@ -15,7 +15,7 @@
 
 class UEnemyBestiaryData;
 struct FCompleteProgressionData;
-class AFloorPawn;
+class AFloorPlayerPawn;
 
 /**
  * 
@@ -37,7 +37,7 @@ private:
 	void UpdateEnemyBestiaryData(FCompleteBestiaryData aCompleteBestiaryData);
 
 public:
-	void SubscribeUpdateFloorPlayerCompleteData(AFloorPawn* aFloorPawn);
+	void SubscribeUpdateFloorPlayerCompleteData(AFloorPlayerPawn* aFloorPawn);
 	void SubscribeUpdateCompleteProgressionData(ULevelProgressionSubsystem* aLevelProgressionSubsystem);
 	void SubScribeToUpdateLevelIdentifier(UPersistentGameinstance*  aPersistentGameInstance);
 	void SubScribeToUpdateEnemyBestiary(UEnemyFactorySubSystem*  aEnemyFactorySubsystem);

@@ -10,7 +10,7 @@ struct FCompleteFloorPawnData;
 struct FNodeMapData;
 class ULevelProgressionSubsystem;
 enum class ECardinalNodeDirections;
-class AFloorPawn;
+class AFloorPlayerPawn;
 class UUniformGridSlot;
 class FPlayerHasMoved;
 class UMapPlayerIconElement;
@@ -46,7 +46,7 @@ public:
 	void SetPlayerRotation(FCompleteFloorPawnData aPlayerFacingDirection);
 
 
-	void SetFloorPawnDelegates(AFloorPawn* aPlayerHasMoved);
+	void SetFloorPawnDelegates(AFloorPlayerPawn* aPlayerHasMoved);
 	
 	void GenerateLevel(UFloorFactory* aFloorFactory,EFloorIdentifier aFloorIdentifier);
 	

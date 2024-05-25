@@ -4,7 +4,7 @@
 #include "Gimmick_Base.h"
 
 #include "FloorDoor.h"
-#include "FloorPawn.h"
+#include "FloorPlayerPawn.h"
 #include "LevelProgressionSubsystem.h"
 #include "PersistentGameinstance.h"
 
@@ -59,7 +59,7 @@ void UGimmick_ForcedMovement::SetFloorNodeDelegate(AFloorNode* aFloorNode)
 	aFloorNode->nodeHasBeenWalkedOn.AddDynamic(this,&UGimmick_ForcedMovement::ActivateGimmick);
 }
 
-void UGimmick_ForcedMovement::SetPlayerForcedMovementDelegate(AFloorPawn* floorPawn)
+void UGimmick_ForcedMovement::SetPlayerForcedMovementDelegate(AFloorPlayerPawn* floorPawn)
 {
 	playerForcedMovementDelegate = floorPawn->playerForcedMovement;
 }
@@ -76,7 +76,7 @@ void UGimmick_ForcedMovement::SetGimmick(FForcedMovementGimmick aGimmick)
 	currentActiveGimmick = aGimmick;
 }
 
-void UGimmick_Doors::SetPlayerForcedMovementDelegate(AFloorPawn* aFloorpawn)
+void UGimmick_Doors::SetPlayerForcedMovementDelegate(AFloorPlayerPawn* aFloorpawn)
 {
 	playerForcedMovementDelegate = aFloorpawn->playerForcedMovement;
 }

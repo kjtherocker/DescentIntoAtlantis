@@ -11,7 +11,7 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnemyPawn() {}
 // Cross Module References
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloorEnemyPawn();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloorEnemyPawn_NoRegister();
-	ENGINE_API UClass* Z_Construct_UClass_APawn();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloorPawn();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
 // End Cross Module References
 	void AFloorEnemyPawn::StaticRegisterNativesAFloorEnemyPawn()
@@ -32,12 +32,15 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnemyPawn() {}
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
 	UObject* (*const Z_Construct_UClass_AFloorEnemyPawn_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_APawn,
+		(UObject* (*)())Z_Construct_UClass_AFloorPawn,
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorEnemyPawn_Statics::DependentSingletons) < 16);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorEnemyPawn_Statics::Class_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/**\n * \n */" },
+#endif
 		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "FloorEnemyPawn.h" },
 		{ "ModuleRelativePath", "Public/FloorEnemyPawn.h" },
@@ -73,6 +76,7 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnemyPawn() {}
 	{
 		return AFloorEnemyPawn::StaticClass();
 	}
+	AFloorEnemyPawn::AFloorEnemyPawn() {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AFloorEnemyPawn);
 	AFloorEnemyPawn::~AFloorEnemyPawn() {}
 	struct Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnemyPawn_h_Statics
@@ -80,9 +84,9 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnemyPawn() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnemyPawn_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFloorEnemyPawn, AFloorEnemyPawn::StaticClass, TEXT("AFloorEnemyPawn"), &Z_Registration_Info_UClass_AFloorEnemyPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorEnemyPawn), 1822858399U) },
+		{ Z_Construct_UClass_AFloorEnemyPawn, AFloorEnemyPawn::StaticClass, TEXT("AFloorEnemyPawn"), &Z_Registration_Info_UClass_AFloorEnemyPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorEnemyPawn), 798417669U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnemyPawn_h_2323129560(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnemyPawn_h_2908643888(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnemyPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnemyPawn_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

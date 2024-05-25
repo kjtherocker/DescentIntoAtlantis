@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "FloorDoor.h"
 #include "FloorEnum.h"
-#include "FloorPawn.h"
+#include "FloorPlayerPawn.h"
 #include "UObject/NoExportTypes.h"
 #include "Gimmick_Base.generated.h"
 
@@ -13,7 +13,7 @@ class FPlayerForcedMovement;
 class AFloorNode;
 class FPlayerHasMoved;
 struct FGimmickData;
-class AFloorPawn;
+class AFloorPlayerPawn;
 /**
  * 
  */
@@ -101,7 +101,7 @@ public:
 	UFUNCTION()
 	virtual void SetFloorNodeDelegate(AFloorNode* aFloorNode);
 	UFUNCTION()
-	virtual void SetPlayerForcedMovementDelegate(AFloorPawn* floorPawn);
+	virtual void SetPlayerForcedMovementDelegate(AFloorPlayerPawn* floorPawn);
 
 	UFUNCTION()
 	virtual void ActivateGimmick(FVector2D aPosition) override;
@@ -125,7 +125,7 @@ public:
 	FOpenDoor openDoorDelegate;
 	
 	UFUNCTION()
-	virtual void SetPlayerForcedMovementDelegate(AFloorPawn* aFloorpawn);
+	virtual void SetPlayerForcedMovementDelegate(AFloorPlayerPawn* aFloorpawn);
 	UFUNCTION()
 	virtual void SetDoorOpenDelegate(AFloorDoor* aFloorDoor);
 //

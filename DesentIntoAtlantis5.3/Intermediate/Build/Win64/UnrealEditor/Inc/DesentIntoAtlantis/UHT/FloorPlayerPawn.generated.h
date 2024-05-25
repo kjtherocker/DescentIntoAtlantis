@@ -1,0 +1,128 @@
+// Copyright Epic Games, Inc. All Rights Reserved.
+/*===========================================================================
+	Generated code exported from UnrealHeaderTool.
+	DO NOT modify this manually! Edit the corresponding .h files instead!
+===========================================================================*/
+
+// IWYU pragma: private, include "FloorPlayerPawn.h"
+#include "UObject/ObjectMacros.h"
+#include "UObject/ScriptMacros.h"
+
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AFloorNode;
+enum class ECardinalNodeDirections : int32;
+struct FCompleteFloorPawnData;
+#ifdef DESENTINTOATLANTIS_FloorPlayerPawn_generated_h
+#error "FloorPlayerPawn.generated.h already included, missing '#pragma once' in FloorPlayerPawn.h"
+#endif
+#define DESENTINTOATLANTIS_FloorPlayerPawn_generated_h
+
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_15_DELEGATE \
+DESENTINTOATLANTIS_API void FPlayerForcedMovement_DelegateWrapper(const FMulticastScriptDelegate& PlayerForcedMovement, ECardinalNodeDirections direction);
+
+
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_16_DELEGATE \
+DESENTINTOATLANTIS_API void FPlayerHasMoved_DelegateWrapper(const FMulticastScriptDelegate& PlayerHasMoved, FCompleteFloorPawnData floorData);
+
+
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_17_DELEGATE \
+DESENTINTOATLANTIS_API void FPlayerDirectionHasChanged_DelegateWrapper(const FMulticastScriptDelegate& PlayerDirectionHasChanged, FCompleteFloorPawnData playerFacingDirection);
+
+
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_22_SPARSE_DATA
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_22_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_22_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execPlaceAndInitializieFloorPawn);
+
+
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_22_ACCESSORS
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_22_INCLASS_NO_PURE_DECLS \
+private: \
+	static void StaticRegisterNativesAFloorPlayerPawn(); \
+	friend struct Z_Construct_UClass_AFloorPlayerPawn_Statics; \
+public: \
+	DECLARE_CLASS(AFloorPlayerPawn, AFloorPawn, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/DesentIntoAtlantis"), NO_API) \
+	DECLARE_SERIALIZER(AFloorPlayerPawn)
+
+
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_22_ENHANCED_CONSTRUCTORS \
+private: \
+	/** Private move- and copy-constructors, should never be used */ \
+	NO_API AFloorPlayerPawn(AFloorPlayerPawn&&); \
+	NO_API AFloorPlayerPawn(const AFloorPlayerPawn&); \
+public: \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AFloorPlayerPawn); \
+	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AFloorPlayerPawn); \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AFloorPlayerPawn) \
+	NO_API virtual ~AFloorPlayerPawn();
+
+
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_18_PROLOG
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_22_GENERATED_BODY \
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_22_SPARSE_DATA \
+	FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_22_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_22_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_22_ACCESSORS \
+	FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_22_INCLASS_NO_PURE_DECLS \
+	FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_22_ENHANCED_CONSTRUCTORS \
+private: \
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+
+
+template<> DESENTINTOATLANTIS_API UClass* StaticClass<class AFloorPlayerPawn>();
+
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_71_SPARSE_DATA
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_71_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_71_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_71_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_71_ACCESSORS
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_71_INCLASS_NO_PURE_DECLS \
+private: \
+	static void StaticRegisterNativesUFloorPawnPositionInfo(); \
+	friend struct Z_Construct_UClass_UFloorPawnPositionInfo_Statics; \
+public: \
+	DECLARE_CLASS(UFloorPawnPositionInfo, UObject, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/DesentIntoAtlantis"), NO_API) \
+	DECLARE_SERIALIZER(UFloorPawnPositionInfo)
+
+
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_71_ENHANCED_CONSTRUCTORS \
+	/** Standard constructor, called after all reflected properties have been initialized */ \
+	NO_API UFloorPawnPositionInfo(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+private: \
+	/** Private move- and copy-constructors, should never be used */ \
+	NO_API UFloorPawnPositionInfo(UFloorPawnPositionInfo&&); \
+	NO_API UFloorPawnPositionInfo(const UFloorPawnPositionInfo&); \
+public: \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UFloorPawnPositionInfo); \
+	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UFloorPawnPositionInfo); \
+	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UFloorPawnPositionInfo) \
+	NO_API virtual ~UFloorPawnPositionInfo();
+
+
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_68_PROLOG
+#define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_71_GENERATED_BODY \
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_71_SPARSE_DATA \
+	FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_71_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_71_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_71_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_71_ACCESSORS \
+	FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_71_INCLASS_NO_PURE_DECLS \
+	FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_71_ENHANCED_CONSTRUCTORS \
+private: \
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+
+
+template<> DESENTINTOATLANTIS_API UClass* StaticClass<class UFloorPawnPositionInfo>();
+
+#undef CURRENT_FILE_ID
+#define CURRENT_FILE_ID FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h
+
+
+PRAGMA_ENABLE_DEPRECATION_WARNINGS

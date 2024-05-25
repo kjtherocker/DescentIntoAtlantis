@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "FloorEnum.h"
-#include "FloorPawn.h"
+#include "FloorPlayerPawn.h"
 #include "Gimmick_Base.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "LevelProgressionSubsystem.generated.h"
@@ -98,7 +98,7 @@ public:
 
 	void SetCompleteFloorPawnWithLockData(FCompleteFloorPawnData aCompleteFloorPawnData);
 	
-	void SetSubscribeFloorPawnDelegates(AFloorPawn* aFloorPawn);
+	void SetSubscribeFloorPawnDelegates(AFloorPlayerPawn* aFloorPawn);
 	FCompleteFloorPawnData GetCurrentFloorPawnCompleteData();
 
 	void SetNewFloorPlayerSpawnPosition(FVector2D aSpawnPosition);

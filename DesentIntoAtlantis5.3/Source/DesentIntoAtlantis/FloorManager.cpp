@@ -311,7 +311,7 @@ void AFloorManager::PlacePlayerFloorPawn(FVector2D aStartPositionInGrid,ECardina
 		FRotator rotator = GetActorRotation();
 	
 		//Spawn
-		AFloorPawn* floorPawn = floorGameModeBase->floorPawn;
+		AFloorPlayerPawn* floorPawn = floorGameModeBase->floorPawn;
 		floorPawn->PlaceAndInitializieFloorPawn(floorNodes[startPositionIndex],aPlayerFacingDirection);
 		floorPawn->SetActorLocation(ActorFinalSpawnPoint);
 		floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
@@ -341,8 +341,8 @@ void AFloorManager::SpawnFloorEventTriggers(FFloorEventData AFloorEventData)
 	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 	ActorSpawnParameters.Owner = this;
 	
-	 AFloorEnemyPawn* floorPawn;
-	floorPawn = Cast<AFloorEnemyPawn>(GetWorld()->SpawnActor<AActor>(AFloorEventData.eventActorReference, ActorFinalSpawnPoint, rotator,ActorSpawnParameters));
+	 AFloorEventMarker* floorPawn;
+	floorPawn = Cast<AFloorEventMarker>(GetWorld()->SpawnActor<AActor>(AFloorEventData.eventActorReference, ActorFinalSpawnPoint, rotator,ActorSpawnParameters));
 
 	USceneComponent* ParentRootComponent = this->GetRootComponent();
 
@@ -375,7 +375,7 @@ void AFloorManager::SpawnObjectInGrid(FVector2D aPositionInGrid, TSubclassOf<AAc
 	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 	ActorSpawnParameters.Owner = this;
 	
-	AActor* floorPawn = Cast<AFloorEnemyPawn>(GetWorld()->SpawnActor<AActor>(objectToSpawn, ActorFinalSpawnPoint, rotator,ActorSpawnParameters));
+	AActor* floorPawn = Cast<AFloorEventMarker>(GetWorld()->SpawnActor<AActor>(objectToSpawn, ActorFinalSpawnPoint, rotator,ActorSpawnParameters));
 }
 
 

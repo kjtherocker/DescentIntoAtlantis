@@ -22,7 +22,7 @@ void USaveManagerSubsystem::InitializeSessionSave(USaveGameData* aSessionSave)
 	aSessionSave->SubScribeToUpdateEnemyBestiary(persistentGameinstance->enemyFactorySubSystem);
 }
 
-void USaveManagerSubsystem::InitializeSessionSavePlayer(AFloorPawn* aFloorPawn)
+void USaveManagerSubsystem::InitializeSessionSavePlayer(AFloorPlayerPawn* aFloorPawn)
 {
 	SessionSaveGameObject->SubscribeUpdateFloorPlayerCompleteData(aFloorPawn);
 }

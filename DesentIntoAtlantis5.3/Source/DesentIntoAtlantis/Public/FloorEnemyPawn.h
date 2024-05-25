@@ -3,28 +3,16 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Pawn.h"
+#include "FloorPawn.h"
 #include "FloorEnemyPawn.generated.h"
 
+/**
+ * 
+ */
 UCLASS()
-class DESENTINTOATLANTIS_API AFloorEnemyPawn : public APawn
+class DESENTINTOATLANTIS_API AFloorEnemyPawn : public AFloorPawn
 {
 	GENERATED_BODY()
 
-public:
-	// Sets default values for this pawn's properties
-	AFloorEnemyPawn();
-
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
-	void DeleteEnemyPawn();
+	
 };

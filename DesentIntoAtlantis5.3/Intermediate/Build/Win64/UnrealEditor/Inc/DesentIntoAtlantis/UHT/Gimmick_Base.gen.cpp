@@ -14,7 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeGimmick_Base() {}
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloorDoor_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloorNode_NoRegister();
-	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloorPawn_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloorPlayerPawn_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UGimmick_Base();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UGimmick_Base_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UGimmick_Doors();
@@ -407,7 +407,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FUGimmickArrayWrap
 	}
 	DEFINE_FUNCTION(UGimmick_ForcedMovement::execSetPlayerForcedMovementDelegate)
 	{
-		P_GET_OBJECT(AFloorPawn,Z_Param_floorPawn);
+		P_GET_OBJECT(AFloorPlayerPawn,Z_Param_floorPawn);
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->SetPlayerForcedMovementDelegate(Z_Param_floorPawn);
@@ -503,7 +503,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FUGimmickArrayWrap
 	{
 		struct Gimmick_ForcedMovement_eventSetPlayerForcedMovementDelegate_Parms
 		{
-			AFloorPawn* floorPawn;
+			AFloorPlayerPawn* floorPawn;
 		};
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_floorPawn;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
@@ -512,7 +512,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FUGimmickArrayWrap
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UGimmick_ForcedMovement_SetPlayerForcedMovementDelegate_Statics::NewProp_floorPawn = { "floorPawn", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Gimmick_ForcedMovement_eventSetPlayerForcedMovementDelegate_Parms, floorPawn), Z_Construct_UClass_AFloorPawn_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UGimmick_ForcedMovement_SetPlayerForcedMovementDelegate_Statics::NewProp_floorPawn = { "floorPawn", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Gimmick_ForcedMovement_eventSetPlayerForcedMovementDelegate_Parms, floorPawn), Z_Construct_UClass_AFloorPlayerPawn_NoRegister, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UGimmick_ForcedMovement_SetPlayerForcedMovementDelegate_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UGimmick_ForcedMovement_SetPlayerForcedMovementDelegate_Statics::NewProp_floorPawn,
 	};
@@ -556,7 +556,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FUGimmickArrayWrap
 	const FClassFunctionLinkInfo Z_Construct_UClass_UGimmick_ForcedMovement_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UGimmick_ForcedMovement_ActivateGimmick, "ActivateGimmick" }, // 1316062250
 		{ &Z_Construct_UFunction_UGimmick_ForcedMovement_SetFloorNodeDelegate, "SetFloorNodeDelegate" }, // 3312392337
-		{ &Z_Construct_UFunction_UGimmick_ForcedMovement_SetPlayerForcedMovementDelegate, "SetPlayerForcedMovementDelegate" }, // 3732360839
+		{ &Z_Construct_UFunction_UGimmick_ForcedMovement_SetPlayerForcedMovementDelegate, "SetPlayerForcedMovementDelegate" }, // 4234923240
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UGimmick_ForcedMovement_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -615,7 +615,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FUGimmickArrayWrap
 	}
 	DEFINE_FUNCTION(UGimmick_Doors::execSetPlayerForcedMovementDelegate)
 	{
-		P_GET_OBJECT(AFloorPawn,Z_Param_aFloorpawn);
+		P_GET_OBJECT(AFloorPlayerPawn,Z_Param_aFloorpawn);
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->SetPlayerForcedMovementDelegate(Z_Param_aFloorpawn);
@@ -694,7 +694,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FUGimmickArrayWrap
 	{
 		struct Gimmick_Doors_eventSetPlayerForcedMovementDelegate_Parms
 		{
-			AFloorPawn* aFloorpawn;
+			AFloorPlayerPawn* aFloorpawn;
 		};
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_aFloorpawn;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
@@ -703,7 +703,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FUGimmickArrayWrap
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UGimmick_Doors_SetPlayerForcedMovementDelegate_Statics::NewProp_aFloorpawn = { "aFloorpawn", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Gimmick_Doors_eventSetPlayerForcedMovementDelegate_Parms, aFloorpawn), Z_Construct_UClass_AFloorPawn_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UGimmick_Doors_SetPlayerForcedMovementDelegate_Statics::NewProp_aFloorpawn = { "aFloorpawn", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Gimmick_Doors_eventSetPlayerForcedMovementDelegate_Parms, aFloorpawn), Z_Construct_UClass_AFloorPlayerPawn_NoRegister, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UGimmick_Doors_SetPlayerForcedMovementDelegate_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UGimmick_Doors_SetPlayerForcedMovementDelegate_Statics::NewProp_aFloorpawn,
 	};
@@ -757,7 +757,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FUGimmickArrayWrap
 	const FClassFunctionLinkInfo Z_Construct_UClass_UGimmick_Doors_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UGimmick_Doors_ActivateGimmick, "ActivateGimmick" }, // 4100444774
 		{ &Z_Construct_UFunction_UGimmick_Doors_SetDoorOpenDelegate, "SetDoorOpenDelegate" }, // 2551281130
-		{ &Z_Construct_UFunction_UGimmick_Doors_SetPlayerForcedMovementDelegate, "SetPlayerForcedMovementDelegate" }, // 1139047302
+		{ &Z_Construct_UFunction_UGimmick_Doors_SetPlayerForcedMovementDelegate, "SetPlayerForcedMovementDelegate" }, // 3000842186
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UGimmick_Doors_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -836,10 +836,10 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FUGimmickArrayWrap
 		{ Z_Construct_UClass_UGimmick_Base, UGimmick_Base::StaticClass, TEXT("UGimmick_Base"), &Z_Registration_Info_UClass_UGimmick_Base, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGimmick_Base), 1401537033U) },
 		{ Z_Construct_UClass_UGimmick_Interactable, UGimmick_Interactable::StaticClass, TEXT("UGimmick_Interactable"), &Z_Registration_Info_UClass_UGimmick_Interactable, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGimmick_Interactable), 3982811649U) },
 		{ Z_Construct_UClass_UGimmick_Teleporter, UGimmick_Teleporter::StaticClass, TEXT("UGimmick_Teleporter"), &Z_Registration_Info_UClass_UGimmick_Teleporter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGimmick_Teleporter), 2058825105U) },
-		{ Z_Construct_UClass_UGimmick_ForcedMovement, UGimmick_ForcedMovement::StaticClass, TEXT("UGimmick_ForcedMovement"), &Z_Registration_Info_UClass_UGimmick_ForcedMovement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGimmick_ForcedMovement), 624451906U) },
-		{ Z_Construct_UClass_UGimmick_Doors, UGimmick_Doors::StaticClass, TEXT("UGimmick_Doors"), &Z_Registration_Info_UClass_UGimmick_Doors, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGimmick_Doors), 3858921216U) },
+		{ Z_Construct_UClass_UGimmick_ForcedMovement, UGimmick_ForcedMovement::StaticClass, TEXT("UGimmick_ForcedMovement"), &Z_Registration_Info_UClass_UGimmick_ForcedMovement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGimmick_ForcedMovement), 2456463833U) },
+		{ Z_Construct_UClass_UGimmick_Doors, UGimmick_Doors::StaticClass, TEXT("UGimmick_Doors"), &Z_Registration_Info_UClass_UGimmick_Doors, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGimmick_Doors), 729220797U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Gimmick_Base_h_3611493454(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Gimmick_Base_h_477784102(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Gimmick_Base_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Gimmick_Base_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Gimmick_Base_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Gimmick_Base_h_Statics::ScriptStructInfo),
 		nullptr, 0);

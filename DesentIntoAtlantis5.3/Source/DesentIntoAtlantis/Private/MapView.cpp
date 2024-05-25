@@ -4,7 +4,7 @@
 #include "MapView.h"
 
 #include "FloorFactory.h"
-#include "FloorPawn.h"
+#include "FloorPlayerPawn.h"
 #include "LevelGeneratorUtilityWidget.h"
 #include "LevelProgressionSubsystem.h"
 #include "MapButtonElement.h"
@@ -245,7 +245,7 @@ void UMapView::SetPlayerRotation(FCompleteFloorPawnData aPlayerFacingDirection)
 	mapPlayerIconElement->SetPlayedIconBasedOnDirection(aPlayerFacingDirection.currentFacingDirection);
 }
 
-void UMapView::SetFloorPawnDelegates(AFloorPawn* aPlayerHasMoved)
+void UMapView::SetFloorPawnDelegates(AFloorPlayerPawn* aPlayerHasMoved)
 {
 	aPlayerHasMoved->playerhasMovedDelegate.AddDynamic(this,&UMapView::SetPlayerPosition);
 	aPlayerHasMoved->playerDirectionHasChanged.AddDynamic(this,&UMapView::SetPlayerRotation);

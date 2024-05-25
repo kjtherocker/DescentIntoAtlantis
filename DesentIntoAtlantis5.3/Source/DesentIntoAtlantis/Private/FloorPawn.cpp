@@ -2,7 +2,6 @@
 
 
 #include "FloorPawn.h"
-
 #include "CombatGameModeBase.h"
 #include "InGameHUD.h"
 #include "PersistentGameinstance.h"
@@ -54,7 +53,6 @@ void AFloorPawn::Initialize()
 	playerDirectionMatrix.Add(1,ECardinalNodeDirections::Right);
 	playerDirectionMatrix.Add(2,ECardinalNodeDirections::Down);
 	playerDirectionMatrix.Add(3,ECardinalNodeDirections::Left);
-	playerForcedMovement.AddDynamic(this,&AFloorPawn::ForcedMovement);
 }
 
 
@@ -73,17 +71,11 @@ void AFloorPawn::Tick(float DeltaTime)
 void AFloorPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-	//InputComponent->BindAxis("LeftRight", this, &AFloorPawn::RotatePawn);
-	InputComponent->BindAction("Left"     ,IE_Pressed ,this, &AFloorPawn::LeftRotation );
-	InputComponent->BindAction("Right"    ,IE_Pressed ,this, &AFloorPawn::RightRotation);
-	InputComponent->BindAction("Up"       ,IE_Pressed ,this, &AFloorPawn::MoveForward  );
-	InputComponent->BindAction("Escape"   ,IE_Pressed ,this, &AFloorPawn::ActivateMainMenu  );
 }
 
 void AFloorPawn::ForcedMovement(ECardinalNodeDirections directiontoHead)
 {
-	if(!hasRotationFinished || currentNodePlayerIsOn == nullptr)
+	if(!hasRotationFinished || currentNodePawnIsOn == nullptr)
 	{
 		return;
 	} 
@@ -91,23 +83,23 @@ void AFloorPawn::ForcedMovement(ECardinalNodeDirections directiontoHead)
 	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Footsteps);
 	
 	AFloorNode* nodeToMoveTo = nullptr;
-	TMap<ECardinalNodeDirections,AFloorNode*> currentNodeNeightbors = currentNodePlayerIsOn->nodeNeighbors;
+	TMap<ECardinalNodeDirections,AFloorNode*> currentNodeNeightbors = currentNodePawnIsOn->nodeNeighbors;
 	
 	if(currentNodeNeightbors.Contains(directiontoHead))
 	{
-		nodeToMoveTo = currentNodePlayerIsOn->nodeNeighbors[directiontoHead];
+		nodeToMoveTo = currentNodePawnIsOn->nodeNeighbors[directiontoHead];
 	}
 	
 	if(nodeToMoveTo != nullptr)
 	{
 		nodeToMoveTowards = nodeToMoveTo;
-		currentNodePlayerIsOn = nullptr;
+		currentNodePawnIsOn = nullptr;
 	}
 }
 
 void AFloorPawn::MoveForward()
 {
-	if(!hasRotationFinished || currentNodePlayerIsOn == nullptr)
+	if(!hasRotationFinished || currentNodePawnIsOn == nullptr)
 	{
 		return;
 	} 
@@ -116,37 +108,19 @@ void AFloorPawn::MoveForward()
 	
 
 	AFloorNode* nodeToMoveTo = nullptr;
-	TMap<ECardinalNodeDirections,AFloorNode*> currentNodeNeightbors = currentNodePlayerIsOn->nodeNeighbors;
+	TMap<ECardinalNodeDirections,AFloorNode*> currentNodeNeightbors = currentNodePawnIsOn->nodeNeighbors;
 	
 	if(currentNodeNeightbors.Contains(completeFloorPawnData.currentFacingDirection) &&
-		!currentNodePlayerIsOn->additonalLockedDirections.Contains(completeFloorPawnData.currentFacingDirection))
+		!currentNodePawnIsOn->additonalLockedDirections.Contains(completeFloorPawnData.currentFacingDirection))
 	{
-		nodeToMoveTo = currentNodePlayerIsOn->nodeNeighbors[completeFloorPawnData.currentFacingDirection];
+		nodeToMoveTo = currentNodePawnIsOn->nodeNeighbors[completeFloorPawnData.currentFacingDirection];
 	}
 	
 	if(nodeToMoveTo != nullptr)
 	{
 		nodeToMoveTowards = nodeToMoveTo;
-		currentNodePlayerIsOn = nullptr;
+		currentNodePawnIsOn = nullptr;
 	}
-}
-
-void AFloorPawn::ActivateMainMenu()
-{
-	gameModeBase->InGameHUD->PushView(EViews::MainMenu,    EUiType::ActiveUi);
-}
-
-void AFloorPawn::SetFloorPawnInput(bool aIsInputActive)
-{
-	if(aIsInputActive)
-	{
-		EnableInput(GetWorld()->GetFirstPlayerController());	
-	}
-	else
-	{
-		DisableInput(GetWorld()->GetFirstPlayerController());		
-	}
-
 }
 
 void AFloorPawn::MovePawn(float aDeltaTime)
@@ -167,19 +141,13 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 	if(FVector::Dist(GetActorLocation(), nodeToMoveTowardsPostion) < 20.5f )
 	{
 		hasRotationFinished       = true;
-		previousNodePlayerWasOn   = currentNodePlayerIsOn;
-		currentNodePlayerIsOn     = nodeToMoveTowards;
+		previousNodePlayerWasOn   = currentNodePawnIsOn;
+		currentNodePawnIsOn     = nodeToMoveTowards;
 		nodeToMoveTowards         = nullptr;
 		
-		UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
-		persistentGameInstance->partyManagerSubsystem->SavePlayerEntitys();
-		persistentGameInstance->saveManagerSubsystem->AutoSave();
-		
-		completeFloorPawnData.currentNodePositionInGrid = currentNodePlayerIsOn->positionInGrid;
-		currentNodePlayerIsOn->PlayerIsOnTopOfNode();
-		playerhasMovedDelegate.Broadcast(completeFloorPawnData);
-
-	
+		completeFloorPawnData.currentNodePositionInGrid = currentNodePawnIsOn->positionInGrid;
+		//currentNodePawnIsOn->PlayerIsOnTopOfNode();
+		//playerhasMovedDelegate.Broadcast(completeFloorPawnData);
 	
 		return;
 	}
@@ -239,15 +207,13 @@ void AFloorPawn::SetToStartRotation(double aDirection)
 	currentMatrixIndex = currentMatrixIndex % 4;
 	completeFloorPawnData.currentFacingDirection = playerDirectionMatrix[currentMatrixIndex];
 	newRotation = directionPositionInfo[completeFloorPawnData.currentFacingDirection]->rotation.Yaw;
-	playerDirectionHasChanged.Broadcast(completeFloorPawnData);
+	//playerDirectionHasChanged.Broadcast(completeFloorPawnData);
 	rotationAngle = aDirection;
 	
 	hasRotationFinished = false;
 }
 
-void AFloorPawn::WriteSaveGame()
-{
-}
+
 
 void AFloorPawn::RotatePawn(float aDeltatime)
 {
@@ -289,17 +255,10 @@ void AFloorPawn::AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirectio
 void AFloorPawn::PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode, ECardinalNodeDirections aRotation)
 {
 	
-	currentNodePlayerIsOn = aFloorNode;
-	completeFloorPawnData.currentNodePositionInGrid = currentNodePlayerIsOn->positionInGrid;
+	currentNodePawnIsOn = aFloorNode;
+	completeFloorPawnData.currentNodePositionInGrid = currentNodePawnIsOn->positionInGrid;
 	
 	SetRotationWithoutAnimation(aRotation);
-
-
-	playerhasMovedDelegate.Broadcast(completeFloorPawnData);
-
-	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
-	persistentGameInstance->partyManagerSubsystem->SavePlayerEntitys();
-	persistentGameInstance->saveManagerSubsystem->AutoSave();
 }
 
 void AFloorPawn::SetRotationWithoutAnimation(ECardinalNodeDirections aCardinalNodeDirection)
@@ -315,7 +274,6 @@ void AFloorPawn::SetRotationWithoutAnimation(ECardinalNodeDirections aCardinalNo
 		}
 	}
 	SetActorRotation(directionPositionInfo[completeFloorPawnData.currentFacingDirection]->rotation);
-	playerDirectionHasChanged.Broadcast(completeFloorPawnData);
 }
 
 

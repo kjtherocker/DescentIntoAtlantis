@@ -13,7 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeEventManagerSubSystem() {}
 // Cross Module References
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AAtlantisGameModeBase_NoRegister();
-	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloorEnemyPawn_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloorEventMarker_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEventManagerSubSystem();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UEventManagerSubSystem_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UPersistentGameinstance_NoRegister();
@@ -275,7 +275,7 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FEventManagerData>
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_completedFloorEventData = { "completedFloorEventData", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEventManagerSubSystem, completedFloorEventData), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_completedFloorEventData_MetaData), Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_completedFloorEventData_MetaData) }; // 3727948300
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_floorEnemyEvents_ValueProp = { "floorEnemyEvents", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_AFloorEnemyPawn_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_floorEnemyEvents_ValueProp = { "floorEnemyEvents", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_AFloorEventMarker_NoRegister, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_floorEnemyEvents_Key_KeyProp = { "floorEnemyEvents_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEventManagerSubSystem_Statics::NewProp_floorEnemyEvents_MetaData[] = {
@@ -357,9 +357,9 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FEventManagerData>
 		{ FEventManagerData::StaticStruct, Z_Construct_UScriptStruct_FEventManagerData_Statics::NewStructOps, TEXT("EventManagerData"), &Z_Registration_Info_UScriptStruct_EventManagerData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEventManagerData), 1602187977U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EventManagerSubSystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UEventManagerSubSystem, UEventManagerSubSystem::StaticClass, TEXT("UEventManagerSubSystem"), &Z_Registration_Info_UClass_UEventManagerSubSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEventManagerSubSystem), 1218770105U) },
+		{ Z_Construct_UClass_UEventManagerSubSystem, UEventManagerSubSystem::StaticClass, TEXT("UEventManagerSubSystem"), &Z_Registration_Info_UClass_UEventManagerSubSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEventManagerSubSystem), 2513205592U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EventManagerSubSystem_h_3331564474(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EventManagerSubSystem_h_4067865247(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EventManagerSubSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EventManagerSubSystem_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EventManagerSubSystem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EventManagerSubSystem_h_Statics::ScriptStructInfo),
 		nullptr, 0);
