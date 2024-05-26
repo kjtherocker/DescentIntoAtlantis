@@ -16,29 +16,30 @@ void EmptyLinkFunctionForGeneratedCodeFloorNode() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UFloorNodeWallInfo();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UFloorNodeWallInfo_NoRegister();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FFloorNodeData();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
 // End Cross Module References
-	void AFloorNode::StaticRegisterNativesAFloorNode()
+	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_FloorNodeData;
+class UScriptStruct* FFloorNodeData::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_FloorNodeData.OuterSingleton)
 	{
+		Z_Registration_Info_UScriptStruct_FloorNodeData.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FFloorNodeData, (UObject*)Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("FloorNodeData"));
 	}
-	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AFloorNode);
-	UClass* Z_Construct_UClass_AFloorNode_NoRegister()
+	return Z_Registration_Info_UScriptStruct_FloorNodeData.OuterSingleton;
+}
+template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FFloorNodeData>()
+{
+	return FFloorNodeData::StaticStruct();
+}
+	struct Z_Construct_UScriptStruct_FFloorNodeData_Statics
 	{
-		return AFloorNode::StaticClass();
-	}
-	struct Z_Construct_UClass_AFloorNode_Statics
-	{
-		static UObject* (*const DependentSingletons[])();
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
+		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
 #endif
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_hasFloorEvent_MetaData[];
-#endif
-		static void NewProp_hasFloorEvent_SetBit(void* Obj);
-		static const UECodeGen_Private::FBoolPropertyParams NewProp_hasFloorEvent;
+		static void* NewStructOps();
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_nodeNeighbors_ValueProp;
 		static const UECodeGen_Private::FIntPropertyParams NewProp_nodeNeighbors_Key_KeyProp_Underlying;
 		static const UECodeGen_Private::FEnumPropertyParams NewProp_nodeNeighbors_Key_KeyProp;
@@ -58,10 +59,104 @@ void EmptyLinkFunctionForGeneratedCodeFloorNode() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_cardinalNodeDirections_MetaData[];
 #endif
 		static const UECodeGen_Private::FArrayPropertyParams NewProp_cardinalNodeDirections;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UECodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFloorNodeData_Statics::Struct_MetaDataParams[] = {
+		{ "ModuleRelativePath", "FloorNode.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FFloorNodeData>();
+	}
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_nodeNeighbors_ValueProp = { "nodeNeighbors", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_AFloorNode_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_nodeNeighbors_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_nodeNeighbors_Key_KeyProp = { "nodeNeighbors_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections, METADATA_PARAMS(0, nullptr) }; // 1177015594
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_nodeNeighbors_MetaData[] = {
+		{ "ModuleRelativePath", "FloorNode.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_nodeNeighbors = { "nodeNeighbors", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFloorNodeData, nodeNeighbors), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_nodeNeighbors_MetaData), Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_nodeNeighbors_MetaData) }; // 1177015594
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_additonalLockedDirections_Inner_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_additonalLockedDirections_Inner = { "additonalLockedDirections", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections, METADATA_PARAMS(0, nullptr) }; // 1177015594
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_additonalLockedDirections_MetaData[] = {
+		{ "ModuleRelativePath", "FloorNode.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_additonalLockedDirections = { "additonalLockedDirections", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFloorNodeData, additonalLockedDirections), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_additonalLockedDirections_MetaData), Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_additonalLockedDirections_MetaData) }; // 1177015594
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_cardinalNodeDirections_Inner_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_cardinalNodeDirections_Inner = { "cardinalNodeDirections", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections, METADATA_PARAMS(0, nullptr) }; // 1177015594
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_cardinalNodeDirections_MetaData[] = {
+		{ "ModuleRelativePath", "FloorNode.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_cardinalNodeDirections = { "cardinalNodeDirections", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFloorNodeData, cardinalNodeDirections), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_cardinalNodeDirections_MetaData), Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_cardinalNodeDirections_MetaData) }; // 1177015594
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FFloorNodeData_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_nodeNeighbors_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_nodeNeighbors_Key_KeyProp_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_nodeNeighbors_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_nodeNeighbors,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_additonalLockedDirections_Inner_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_additonalLockedDirections_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_additonalLockedDirections,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_cardinalNodeDirections_Inner_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_cardinalNodeDirections_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewProp_cardinalNodeDirections,
+	};
+	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FFloorNodeData_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		nullptr,
+		&NewStructOps,
+		"FloorNodeData",
+		Z_Construct_UScriptStruct_FFloorNodeData_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorNodeData_Statics::PropPointers),
+		sizeof(FFloorNodeData),
+		alignof(FFloorNodeData),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000001),
+		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorNodeData_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FFloorNodeData_Statics::Struct_MetaDataParams)
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorNodeData_Statics::PropPointers) < 2048);
+	UScriptStruct* Z_Construct_UScriptStruct_FFloorNodeData()
+	{
+		if (!Z_Registration_Info_UScriptStruct_FloorNodeData.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_FloorNodeData.InnerSingleton, Z_Construct_UScriptStruct_FFloorNodeData_Statics::ReturnStructParams);
+		}
+		return Z_Registration_Info_UScriptStruct_FloorNodeData.InnerSingleton;
+	}
+	void AFloorNode::StaticRegisterNativesAFloorNode()
+	{
+	}
+	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AFloorNode);
+	UClass* Z_Construct_UClass_AFloorNode_NoRegister()
+	{
+		return AFloorNode::StaticClass();
+	}
+	struct Z_Construct_UClass_AFloorNode_Statics
+	{
+		static UObject* (*const DependentSingletons[])();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
+#endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_hasFloorEvent_MetaData[];
+#endif
+		static void NewProp_hasFloorEvent_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_hasFloorEvent;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_wallReference_MetaData[];
 #endif
 		static const UECodeGen_Private::FClassPropertyParams NewProp_wallReference;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_floorNodeData_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_floorNodeData;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -88,31 +183,6 @@ void EmptyLinkFunctionForGeneratedCodeFloorNode() {}
 		((AFloorNode*)Obj)->hasFloorEvent = 1;
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFloorNode_Statics::NewProp_hasFloorEvent = { "hasFloorEvent", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFloorNode), &Z_Construct_UClass_AFloorNode_Statics::NewProp_hasFloorEvent_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorNode_Statics::NewProp_hasFloorEvent_MetaData), Z_Construct_UClass_AFloorNode_Statics::NewProp_hasFloorEvent_MetaData) };
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFloorNode_Statics::NewProp_nodeNeighbors_ValueProp = { "nodeNeighbors", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_AFloorNode_NoRegister, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AFloorNode_Statics::NewProp_nodeNeighbors_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AFloorNode_Statics::NewProp_nodeNeighbors_Key_KeyProp = { "nodeNeighbors_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections, METADATA_PARAMS(0, nullptr) }; // 1177015594
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorNode_Statics::NewProp_nodeNeighbors_MetaData[] = {
-		{ "ModuleRelativePath", "FloorNode.h" },
-	};
-#endif
-	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_AFloorNode_Statics::NewProp_nodeNeighbors = { "nodeNeighbors", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorNode, nodeNeighbors), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorNode_Statics::NewProp_nodeNeighbors_MetaData), Z_Construct_UClass_AFloorNode_Statics::NewProp_nodeNeighbors_MetaData) }; // 1177015594
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AFloorNode_Statics::NewProp_additonalLockedDirections_Inner_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AFloorNode_Statics::NewProp_additonalLockedDirections_Inner = { "additonalLockedDirections", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections, METADATA_PARAMS(0, nullptr) }; // 1177015594
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorNode_Statics::NewProp_additonalLockedDirections_MetaData[] = {
-		{ "ModuleRelativePath", "FloorNode.h" },
-	};
-#endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AFloorNode_Statics::NewProp_additonalLockedDirections = { "additonalLockedDirections", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorNode, additonalLockedDirections), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorNode_Statics::NewProp_additonalLockedDirections_MetaData), Z_Construct_UClass_AFloorNode_Statics::NewProp_additonalLockedDirections_MetaData) }; // 1177015594
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AFloorNode_Statics::NewProp_cardinalNodeDirections_Inner_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AFloorNode_Statics::NewProp_cardinalNodeDirections_Inner = { "cardinalNodeDirections", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections, METADATA_PARAMS(0, nullptr) }; // 1177015594
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorNode_Statics::NewProp_cardinalNodeDirections_MetaData[] = {
-		{ "ModuleRelativePath", "FloorNode.h" },
-	};
-#endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AFloorNode_Statics::NewProp_cardinalNodeDirections = { "cardinalNodeDirections", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorNode, cardinalNodeDirections), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorNode_Statics::NewProp_cardinalNodeDirections_MetaData), Z_Construct_UClass_AFloorNode_Statics::NewProp_cardinalNodeDirections_MetaData) }; // 1177015594
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorNode_Statics::NewProp_wallReference_MetaData[] = {
 		{ "Category", "FloorNode" },
@@ -120,19 +190,16 @@ void EmptyLinkFunctionForGeneratedCodeFloorNode() {}
 	};
 #endif
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AFloorNode_Statics::NewProp_wallReference = { "wallReference", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorNode, wallReference), Z_Construct_UClass_UClass, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorNode_Statics::NewProp_wallReference_MetaData), Z_Construct_UClass_AFloorNode_Statics::NewProp_wallReference_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorNode_Statics::NewProp_floorNodeData_MetaData[] = {
+		{ "ModuleRelativePath", "FloorNode.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFloorNode_Statics::NewProp_floorNodeData = { "floorNodeData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorNode, floorNodeData), Z_Construct_UScriptStruct_FFloorNodeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorNode_Statics::NewProp_floorNodeData_MetaData), Z_Construct_UClass_AFloorNode_Statics::NewProp_floorNodeData_MetaData) }; // 2053659588
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFloorNode_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorNode_Statics::NewProp_hasFloorEvent,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorNode_Statics::NewProp_nodeNeighbors_ValueProp,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorNode_Statics::NewProp_nodeNeighbors_Key_KeyProp_Underlying,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorNode_Statics::NewProp_nodeNeighbors_Key_KeyProp,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorNode_Statics::NewProp_nodeNeighbors,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorNode_Statics::NewProp_additonalLockedDirections_Inner_Underlying,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorNode_Statics::NewProp_additonalLockedDirections_Inner,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorNode_Statics::NewProp_additonalLockedDirections,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorNode_Statics::NewProp_cardinalNodeDirections_Inner_Underlying,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorNode_Statics::NewProp_cardinalNodeDirections_Inner,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorNode_Statics::NewProp_cardinalNodeDirections,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorNode_Statics::NewProp_wallReference,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorNode_Statics::NewProp_floorNodeData,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AFloorNode_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AFloorNode>::IsAbstract,
@@ -244,14 +311,18 @@ void EmptyLinkFunctionForGeneratedCodeFloorNode() {}
 	UFloorNodeWallInfo::~UFloorNodeWallInfo() {}
 	struct Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorNode_h_Statics
 	{
+		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
+	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorNode_h_Statics::ScriptStructInfo[] = {
+		{ FFloorNodeData::StaticStruct, Z_Construct_UScriptStruct_FFloorNodeData_Statics::NewStructOps, TEXT("FloorNodeData"), &Z_Registration_Info_UScriptStruct_FloorNodeData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FFloorNodeData), 2053659588U) },
+	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorNode_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFloorNode, AFloorNode::StaticClass, TEXT("AFloorNode"), &Z_Registration_Info_UClass_AFloorNode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorNode), 1546502246U) },
+		{ Z_Construct_UClass_AFloorNode, AFloorNode::StaticClass, TEXT("AFloorNode"), &Z_Registration_Info_UClass_AFloorNode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorNode), 4213086259U) },
 		{ Z_Construct_UClass_UFloorNodeWallInfo, UFloorNodeWallInfo::StaticClass, TEXT("UFloorNodeWallInfo"), &Z_Registration_Info_UClass_UFloorNodeWallInfo, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFloorNodeWallInfo), 524741027U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorNode_h_1761194773(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorNode_h_673502636(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorNode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorNode_h_Statics::ClassInfo),
-		nullptr, 0,
+		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorNode_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorNode_h_Statics::ScriptStructInfo),
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

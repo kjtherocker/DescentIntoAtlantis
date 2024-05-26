@@ -51,6 +51,11 @@ void AFloorManager::Initialize(AAtlantisGameModeBase* aGameModeBase,UEventManage
 void AFloorManager::CreateGrid(UFloorBase* aFloor)
 {
 	UFloorBase* tempfloor = aFloor;
+	
+	FFloorNodeData floorNodeData;
+	int AmountOfFloorNodes = tempfloor->GridDimensionX * tempfloor->GridDimensionY;
+	entireFloorNodeData.Init(floorNodeData,AmountOfFloorNodes);
+	
 	for (int Column = 0; Column < tempfloor->GridDimensionX; Column++)
 	{
 		for (int Row = 0; Row < tempfloor->GridDimensionY; Row++)
@@ -64,6 +69,8 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 
 			SpawnFloorNode(Row , Column,LevelIndex );
 			floorNodes[LevelIndex]->SetWalkableDirections(aFloor->floorData.floorBlueprint[LevelIndex]);
+			entireFloorNodeData[LevelIndex] = floorNodes[LevelIndex]->floorNodeData;
+			
 			FVector2D positionInGrid = FVector2D(Row,Column);
 	
 			if(aFloor->floorEventData.Contains(positionInGrid) && !eventManagerSubSystem->isEventCompleted(positionInGrid))
@@ -271,16 +278,16 @@ void AFloorManager::SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes)
 		// In situations where the node was removed at creation
 		if(mainNode != nullptr)
 		{
-			TArray<ECardinalNodeDirections> walkableDirections = mainNode->walkableDirections;
+			TArray<ECardinalNodeDirections> walkableDirections = mainNode->floorNodeData.walkableDirections;
 		
 			for (ECardinalNodeDirections direction : walkableDirections)
 			{
-				AFloorNode* neightborNode = GetNodeInDirection(mainNode->positionInGrid, direction);
+				AFloorNode* neightborNode = GetNodeInDirection(mainNode->floorNodeData.positionInGrid, direction);
 
 				//In situations where the neightbor in that direction doesnt exist
 				if(neightborNode != nullptr)
 				{
-					mainNode->nodeNeighbors.Add(direction,neightborNode);
+					mainNode->floorNodeData.nodeNeighbors.Add(direction,neightborNode);
 				}
 			}
 		}

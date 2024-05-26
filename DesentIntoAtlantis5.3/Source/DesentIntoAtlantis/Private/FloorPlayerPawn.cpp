@@ -104,7 +104,7 @@ void AFloorPlayerPawn::MovePawn(float aDeltaTime)
 		persistentGameInstance->partyManagerSubsystem->SavePlayerEntitys();
 		persistentGameInstance->saveManagerSubsystem->AutoSave();
 		
-		completeFloorPawnData.currentNodePositionInGrid = currentNodePawnIsOn->positionInGrid;
+		completeFloorPawnData.currentNodePositionInGrid = currentNodePawnIsOn->floorNodeData.positionInGrid;
 		currentNodePawnIsOn->PlayerIsOnTopOfNode();
 		playerhasMovedDelegate.Broadcast(completeFloorPawnData);
 	

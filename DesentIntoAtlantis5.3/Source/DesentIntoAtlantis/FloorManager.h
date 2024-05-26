@@ -45,6 +45,10 @@ public:
 
 	UPROPERTY()
 	TArray<AFloorNode*> floorNodes;
+
+	UPROPERTY()
+	TArray<FFloorNodeData> entireFloorNodeData;
+	
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> floorNodeReference;
 	UPROPERTY(EditAnywhere)

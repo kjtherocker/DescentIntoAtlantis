@@ -83,11 +83,11 @@ void AFloorPawn::ForcedMovement(ECardinalNodeDirections directiontoHead)
 	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Footsteps);
 	
 	AFloorNode* nodeToMoveTo = nullptr;
-	TMap<ECardinalNodeDirections,AFloorNode*> currentNodeNeightbors = currentNodePawnIsOn->nodeNeighbors;
+	TMap<ECardinalNodeDirections,AFloorNode*> currentNodeNeightbors = currentNodePawnIsOn->floorNodeData.nodeNeighbors;
 	
 	if(currentNodeNeightbors.Contains(directiontoHead))
 	{
-		nodeToMoveTo = currentNodePawnIsOn->nodeNeighbors[directiontoHead];
+		nodeToMoveTo = currentNodePawnIsOn->floorNodeData.nodeNeighbors[directiontoHead];
 	}
 	
 	if(nodeToMoveTo != nullptr)
@@ -108,12 +108,12 @@ void AFloorPawn::MoveForward()
 	
 
 	AFloorNode* nodeToMoveTo = nullptr;
-	TMap<ECardinalNodeDirections,AFloorNode*> currentNodeNeightbors = currentNodePawnIsOn->nodeNeighbors;
+	TMap<ECardinalNodeDirections,AFloorNode*> currentNodeNeightbors = currentNodePawnIsOn->floorNodeData.nodeNeighbors;
 	
 	if(currentNodeNeightbors.Contains(completeFloorPawnData.currentFacingDirection) &&
-		!currentNodePawnIsOn->additonalLockedDirections.Contains(completeFloorPawnData.currentFacingDirection))
+		!currentNodePawnIsOn->floorNodeData.additonalLockedDirections.Contains(completeFloorPawnData.currentFacingDirection))
 	{
-		nodeToMoveTo = currentNodePawnIsOn->nodeNeighbors[completeFloorPawnData.currentFacingDirection];
+		nodeToMoveTo = currentNodePawnIsOn->floorNodeData.nodeNeighbors[completeFloorPawnData.currentFacingDirection];
 	}
 	
 	if(nodeToMoveTo != nullptr)
@@ -145,7 +145,7 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 		currentNodePawnIsOn     = nodeToMoveTowards;
 		nodeToMoveTowards         = nullptr;
 		
-		completeFloorPawnData.currentNodePositionInGrid = currentNodePawnIsOn->positionInGrid;
+		completeFloorPawnData.currentNodePositionInGrid = currentNodePawnIsOn->floorNodeData.positionInGrid;
 		//currentNodePawnIsOn->PlayerIsOnTopOfNode();
 		//playerhasMovedDelegate.Broadcast(completeFloorPawnData);
 	
@@ -256,7 +256,7 @@ void AFloorPawn::PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode, ECardinalN
 {
 	
 	currentNodePawnIsOn = aFloorNode;
-	completeFloorPawnData.currentNodePositionInGrid = currentNodePawnIsOn->positionInGrid;
+	completeFloorPawnData.currentNodePositionInGrid = currentNodePawnIsOn->floorNodeData.positionInGrid;
 	
 	SetRotationWithoutAnimation(aRotation);
 }

@@ -20,80 +20,80 @@ void AFloorNode::SetWalkableDirections(short aWalkabledirections)
 	switch (aWalkabledirections)
 	{
 	case ECardinalNodeDirections::Up:
-		walkableDirections.Add(ECardinalNodeDirections::Up);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Up);
 		break;
 
 	case ECardinalNodeDirections::Down:
-		walkableDirections.Add(ECardinalNodeDirections::Down);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Down);
 		break;
 
 	case ECardinalNodeDirections::Left:
-		walkableDirections.Add(ECardinalNodeDirections::Left);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Left);
 		break;
 
 	case ECardinalNodeDirections::Right:
-		walkableDirections.Add(ECardinalNodeDirections::Right);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Right);
 		break;
 
 	case ECardinalNodeDirections::AllSidesOpen:
-		walkableDirections.Add(ECardinalNodeDirections::Up);
-		walkableDirections.Add(ECardinalNodeDirections::Down);
-		walkableDirections.Add(ECardinalNodeDirections::Right);
-		walkableDirections.Add(ECardinalNodeDirections::Left);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Up);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Down);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Right);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Left);
 		break;
 
 	case ECardinalNodeDirections::UpDown:
-		walkableDirections.Add(ECardinalNodeDirections::Up);
-		walkableDirections.Add(ECardinalNodeDirections::Down);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Up);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Down);
 		break;
 
 	case ECardinalNodeDirections::UpLeft:
-		walkableDirections.Add(ECardinalNodeDirections::Up);
-		walkableDirections.Add(ECardinalNodeDirections::Left);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Up);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Left);
 		break;
 
 	case ECardinalNodeDirections::Upright:
-		walkableDirections.Add(ECardinalNodeDirections::Up);
-		walkableDirections.Add(ECardinalNodeDirections::Right);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Up);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Right);
 		break;
 
 	case ECardinalNodeDirections::LeftDown:
-		walkableDirections.Add(ECardinalNodeDirections::Down);
-		walkableDirections.Add(ECardinalNodeDirections::Left);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Down);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Left);
 		break;
 
 	case ECardinalNodeDirections::RightDown:
-		walkableDirections.Add(ECardinalNodeDirections::Down);
-		walkableDirections.Add(ECardinalNodeDirections::Right);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Down);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Right);
 		break;
 
 	case ECardinalNodeDirections::LeftRight:
-		walkableDirections.Add(ECardinalNodeDirections::Right);
-		walkableDirections.Add(ECardinalNodeDirections::Left);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Right);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Left);
 		break;
 
 	case ECardinalNodeDirections::UpLeftRight:
-		walkableDirections.Add(ECardinalNodeDirections::Up);
-		walkableDirections.Add(ECardinalNodeDirections::Right);
-		walkableDirections.Add(ECardinalNodeDirections::Left);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Up);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Right);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Left);
 		break;
 
 	case ECardinalNodeDirections::UpLeftDown:
-		walkableDirections.Add(ECardinalNodeDirections::Up);
-		walkableDirections.Add(ECardinalNodeDirections::Down);
-		walkableDirections.Add(ECardinalNodeDirections::Left);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Up);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Down);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Left);
 		break;
 
 	case ECardinalNodeDirections::UpRightDown:
-		walkableDirections.Add(ECardinalNodeDirections::Up);
-		walkableDirections.Add(ECardinalNodeDirections::Down);
-		walkableDirections.Add(ECardinalNodeDirections::Right);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Up);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Down);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Right);
 		break;
 
 	case ECardinalNodeDirections::DownLeftRight:
-		walkableDirections.Add(ECardinalNodeDirections::Down);
-		walkableDirections.Add(ECardinalNodeDirections::Right);
-		walkableDirections.Add(ECardinalNodeDirections::Left);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Down);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Right);
+		floorNodeData.walkableDirections.Add(ECardinalNodeDirections::Left);
 		break;
 	}
 
@@ -113,16 +113,16 @@ void AFloorNode::SetWalkableDirections(short aWalkabledirections)
 	                     FVector(-121.0, -8, 200),
 	                     FRotator(0, 270, 0));
 
-	SetLevelNode(walkableDirections);
+	SetLevelNode(floorNodeData.walkableDirections);
 }
 
 void AFloorNode::SetLevelNode(TArray<ECardinalNodeDirections> aWalkableDirections)
 {
-	walkableDirections = aWalkableDirections;
+	floorNodeData.walkableDirections = aWalkableDirections;
 
-	for (int i = 0; i < cardinalNodeDirections.Num(); i++)
+	for (int i = 0; i < floorNodeData.cardinalNodeDirections.Num(); i++)
 	{
-		ECardinalNodeDirections direction = cardinalNodeDirections[i];
+		ECardinalNodeDirections direction = floorNodeData.cardinalNodeDirections[i];
 		if (!aWalkableDirections.Contains(direction))
 		{
 			if (floorNodeWallInfos.Contains(direction))
@@ -135,19 +135,19 @@ void AFloorNode::SetLevelNode(TArray<ECardinalNodeDirections> aWalkableDirection
 
 void AFloorNode::SetPositionInGrid(FVector2D aPosition)
 {
-	positionInGrid = aPosition;
+	floorNodeData.positionInGrid = aPosition;
 }
 
 bool AFloorNode::IsDirectionWalkable(ECardinalNodeDirections aDirection)
 {
-	if (walkableDirections.Num() == 0)
+	if (floorNodeData.walkableDirections.Num() == 0)
 	{
 		return false;
 	}
 
-	for (int i = 0; i < walkableDirections.Num(); i++)
+	for (int i = 0; i < floorNodeData.walkableDirections.Num(); i++)
 	{
-		if (walkableDirections[i] == aDirection)
+		if (floorNodeData.walkableDirections[i] == aDirection)
 		{
 			return true;
 		}
@@ -161,10 +161,10 @@ void AFloorNode::BeginPlay()
 {
 	Super::BeginPlay();
 
-	cardinalNodeDirections.Add(ECardinalNodeDirections::Up);
-	cardinalNodeDirections.Add(ECardinalNodeDirections::Down);
-	cardinalNodeDirections.Add(ECardinalNodeDirections::Left);
-	cardinalNodeDirections.Add(ECardinalNodeDirections::Right);
+	floorNodeData.cardinalNodeDirections.Add(ECardinalNodeDirections::Up);
+	floorNodeData.cardinalNodeDirections.Add(ECardinalNodeDirections::Down);
+	floorNodeData.cardinalNodeDirections.Add(ECardinalNodeDirections::Left);
+	floorNodeData.cardinalNodeDirections.Add(ECardinalNodeDirections::Right);
 }
 
 AActor* AFloorNode::SpawnNodeWall(UFloorNodeWallInfo* nodeWallInfo, ECardinalNodeDirections aCardinalDirection)
@@ -200,11 +200,11 @@ void AFloorNode::SetFloorNodeWallInfo(ECardinalNodeDirections aCardinalDirection
 
 void AFloorNode::PlayerIsOnTopOfNode()
 {
-	nodeHasBeenWalkedOn.Broadcast(positionInGrid);
+	nodeHasBeenWalkedOn.Broadcast(floorNodeData.positionInGrid);
 }
 
 void AFloorNode::SetAdditionalLockedDirections(ECardinalNodeDirections aCardinalNodeDirections)
 {
-	additonalLockedDirections.Add(aCardinalNodeDirections);
+	floorNodeData.additonalLockedDirections.Add(aCardinalNodeDirections);
 }
 

@@ -10,6 +10,27 @@
 
 class UGimmick_Base;
 class UFloorNodeWallInfo;
+
+USTRUCT()
+struct FFloorNodeData
+{
+	GENERATED_BODY()
+
+	TArray<ECardinalNodeDirections> walkableDirections;
+	
+	FVector2D positionInGrid;
+
+	UPROPERTY()
+	TMap<ECardinalNodeDirections,AFloorNode*> nodeNeighbors;
+	UPROPERTY()
+	TArray<ECardinalNodeDirections> additonalLockedDirections;
+	UPROPERTY()
+	TArray<ECardinalNodeDirections> cardinalNodeDirections;
+};
+
+
+
+
 UCLASS()
 class DESENTINTOATLANTIS_API AFloorNode : public AActor
 {
@@ -31,7 +52,6 @@ public:
 	//	WalkOntopTriggerTypes m_WalkOnTopTriggerTypes;
 	void PlayerIsOnTopOfNode();
 	void SetAdditionalLockedDirections(ECardinalNodeDirections aCardinalNodeDirections);
-	TArray<ECardinalNodeDirections> walkableDirections;
 
 	FNodeHasBeenWalkedOn nodeHasBeenWalkedOn;
 	
@@ -39,26 +59,21 @@ public:
 	bool hasFloorEvent;
 
 	AActor* SpawnNodeWall(UFloorNodeWallInfo* nodeWallInfo,ECardinalNodeDirections aCardinalDirection);
-	
-	UPROPERTY()
-	TMap<ECardinalNodeDirections,AFloorNode*> nodeNeighbors;
-	FVector2D positionInGrid;
-
-	UPROPERTY()
-	TArray<ECardinalNodeDirections> additonalLockedDirections;
-	UPROPERTY()
-	TArray<ECardinalNodeDirections> cardinalNodeDirections;
+	TMap<ECardinalNodeDirections,UFloorNodeWallInfo*> floorNodeWallInfos;
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> wallReference;
-
-	TMap<ECardinalNodeDirections,UFloorNodeWallInfo*> floorNodeWallInfos;
-
+	
+	UPROPERTY()
+	FFloorNodeData floorNodeData;
+	
 	FNodeHasBeenWalkedOn floorEventHasBeenTriggered;
 
 private:
 
 
 };
+
+
 
 UCLASS()
 class DESENTINTOATLANTIS_API UFloorNodeWallInfo: public UObject
@@ -71,4 +86,3 @@ public:
 	UPROPERTY()
 	AActor* wallActor;
 };
-
