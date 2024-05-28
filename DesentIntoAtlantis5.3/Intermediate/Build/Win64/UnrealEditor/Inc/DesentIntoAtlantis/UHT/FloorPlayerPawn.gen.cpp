@@ -84,7 +84,7 @@ void FPlayerForcedMovement_DelegateWrapper(const FMulticastScriptDelegate& Playe
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerHasMoved__DelegateSignature_Statics::NewProp_floorData = { "floorData", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_DesentIntoAtlantis_eventPlayerHasMoved_Parms, floorData), Z_Construct_UScriptStruct_FCompleteFloorPawnData, METADATA_PARAMS(0, nullptr) }; // 1570468568
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerHasMoved__DelegateSignature_Statics::NewProp_floorData = { "floorData", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_DesentIntoAtlantis_eventPlayerHasMoved_Parms, floorData), Z_Construct_UScriptStruct_FCompleteFloorPawnData, METADATA_PARAMS(0, nullptr) }; // 300927908
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerHasMoved__DelegateSignature_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerHasMoved__DelegateSignature_Statics::NewProp_floorData,
 	};
@@ -128,7 +128,7 @@ void FPlayerHasMoved_DelegateWrapper(const FMulticastScriptDelegate& PlayerHasMo
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerDirectionHasChanged__DelegateSignature_Statics::NewProp_playerFacingDirection = { "playerFacingDirection", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_DesentIntoAtlantis_eventPlayerDirectionHasChanged_Parms, playerFacingDirection), Z_Construct_UScriptStruct_FCompleteFloorPawnData, METADATA_PARAMS(0, nullptr) }; // 1570468568
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerDirectionHasChanged__DelegateSignature_Statics::NewProp_playerFacingDirection = { "playerFacingDirection", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_DesentIntoAtlantis_eventPlayerDirectionHasChanged_Parms, playerFacingDirection), Z_Construct_UScriptStruct_FCompleteFloorPawnData, METADATA_PARAMS(0, nullptr) }; // 300927908
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerDirectionHasChanged__DelegateSignature_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerDirectionHasChanged__DelegateSignature_Statics::NewProp_playerFacingDirection,
 	};
@@ -266,13 +266,13 @@ void FPlayerDirectionHasChanged_DelegateWrapper(const FMulticastScriptDelegate& 
 		{ "ModuleRelativePath", "Public/FloorPlayerPawn.h" },
 	};
 #endif
-	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_AFloorPlayerPawn_Statics::NewProp_playerhasMovedDelegate = { "playerhasMovedDelegate", nullptr, (EPropertyFlags)0x0010000000080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorPlayerPawn, playerhasMovedDelegate), Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerHasMoved__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPlayerPawn_Statics::NewProp_playerhasMovedDelegate_MetaData), Z_Construct_UClass_AFloorPlayerPawn_Statics::NewProp_playerhasMovedDelegate_MetaData) }; // 2562058434
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_AFloorPlayerPawn_Statics::NewProp_playerhasMovedDelegate = { "playerhasMovedDelegate", nullptr, (EPropertyFlags)0x0010000000080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorPlayerPawn, playerhasMovedDelegate), Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerHasMoved__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPlayerPawn_Statics::NewProp_playerhasMovedDelegate_MetaData), Z_Construct_UClass_AFloorPlayerPawn_Statics::NewProp_playerhasMovedDelegate_MetaData) }; // 3568876599
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorPlayerPawn_Statics::NewProp_playerDirectionHasChanged_MetaData[] = {
 		{ "ModuleRelativePath", "Public/FloorPlayerPawn.h" },
 	};
 #endif
-	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_AFloorPlayerPawn_Statics::NewProp_playerDirectionHasChanged = { "playerDirectionHasChanged", nullptr, (EPropertyFlags)0x0010000000080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorPlayerPawn, playerDirectionHasChanged), Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerDirectionHasChanged__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPlayerPawn_Statics::NewProp_playerDirectionHasChanged_MetaData), Z_Construct_UClass_AFloorPlayerPawn_Statics::NewProp_playerDirectionHasChanged_MetaData) }; // 2996070519
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_AFloorPlayerPawn_Statics::NewProp_playerDirectionHasChanged = { "playerDirectionHasChanged", nullptr, (EPropertyFlags)0x0010000000080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorPlayerPawn, playerDirectionHasChanged), Z_Construct_UDelegateFunction_DesentIntoAtlantis_PlayerDirectionHasChanged__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPlayerPawn_Statics::NewProp_playerDirectionHasChanged_MetaData), Z_Construct_UClass_AFloorPlayerPawn_Statics::NewProp_playerDirectionHasChanged_MetaData) }; // 1606833873
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorPlayerPawn_Statics::NewProp_playerForcedMovement_MetaData[] = {
 		{ "ModuleRelativePath", "Public/FloorPlayerPawn.h" },
@@ -383,10 +383,10 @@ void FPlayerDirectionHasChanged_DelegateWrapper(const FMulticastScriptDelegate& 
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFloorPlayerPawn, AFloorPlayerPawn::StaticClass, TEXT("AFloorPlayerPawn"), &Z_Registration_Info_UClass_AFloorPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorPlayerPawn), 3326138785U) },
+		{ Z_Construct_UClass_AFloorPlayerPawn, AFloorPlayerPawn::StaticClass, TEXT("AFloorPlayerPawn"), &Z_Registration_Info_UClass_AFloorPlayerPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorPlayerPawn), 459985654U) },
 		{ Z_Construct_UClass_UFloorPawnPositionInfo, UFloorPawnPositionInfo::StaticClass, TEXT("UFloorPawnPositionInfo"), &Z_Registration_Info_UClass_UFloorPawnPositionInfo, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFloorPawnPositionInfo), 414681644U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_1609665659(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_1368782348(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPlayerPawn_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

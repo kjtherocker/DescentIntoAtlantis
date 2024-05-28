@@ -67,16 +67,18 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCompleteFloorPawn
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewProp_currentFacingDirection_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewProp_currentFacingDirection_MetaData[] = {
+		{ "Category", "CompleteFloorPawnData" },
 		{ "ModuleRelativePath", "Public/FloorPawn.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewProp_currentFacingDirection = { "currentFacingDirection", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FCompleteFloorPawnData, currentFacingDirection), Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewProp_currentFacingDirection_MetaData), Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewProp_currentFacingDirection_MetaData) }; // 1177015594
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewProp_currentFacingDirection = { "currentFacingDirection", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FCompleteFloorPawnData, currentFacingDirection), Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewProp_currentFacingDirection_MetaData), Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewProp_currentFacingDirection_MetaData) }; // 1177015594
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewProp_currentNodePositionInGrid_MetaData[] = {
+		{ "Category", "CompleteFloorPawnData" },
 		{ "ModuleRelativePath", "Public/FloorPawn.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewProp_currentNodePositionInGrid = { "currentNodePositionInGrid", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FCompleteFloorPawnData, currentNodePositionInGrid), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewProp_currentNodePositionInGrid_MetaData), Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewProp_currentNodePositionInGrid_MetaData) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewProp_currentNodePositionInGrid = { "currentNodePositionInGrid", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FCompleteFloorPawnData, currentNodePositionInGrid), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewProp_currentNodePositionInGrid_MetaData), Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewProp_currentNodePositionInGrid_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewProp_currentFacingDirection_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewProp_currentFacingDirection,
@@ -170,9 +172,9 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCompleteFloorPawn
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_previousNodePlayerWasOn_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_previousNodePawnWasOn_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_previousNodePlayerWasOn;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_previousNodePawnWasOn;
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_directionPositionInfo_ValueProp;
 		static const UECodeGen_Private::FIntPropertyParams NewProp_directionPositionInfo_Key_KeyProp_Underlying;
 		static const UECodeGen_Private::FEnumPropertyParams NewProp_directionPositionInfo_Key_KeyProp;
@@ -181,13 +183,13 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCompleteFloorPawn
 #endif
 		static const UECodeGen_Private::FMapPropertyParams NewProp_directionPositionInfo;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_nodeToMoveTowards_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_nodeToMoveTowards;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_gameModeBase_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_gameModeBase;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_nodeToMoveTowards_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_nodeToMoveTowards;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentNodePawnIsOn_MetaData[];
 #endif
@@ -228,11 +230,11 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCompleteFloorPawn
 	};
 #endif
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorPawn_Statics::NewProp_previousNodePlayerWasOn_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorPawn_Statics::NewProp_previousNodePawnWasOn_MetaData[] = {
 		{ "ModuleRelativePath", "Public/FloorPawn.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_previousNodePlayerWasOn = { "previousNodePlayerWasOn", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorPawn, previousNodePlayerWasOn), Z_Construct_UClass_AFloorNode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPawn_Statics::NewProp_previousNodePlayerWasOn_MetaData), Z_Construct_UClass_AFloorPawn_Statics::NewProp_previousNodePlayerWasOn_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_previousNodePawnWasOn = { "previousNodePawnWasOn", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorPawn, previousNodePawnWasOn), Z_Construct_UClass_AFloorNode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPawn_Statics::NewProp_previousNodePawnWasOn_MetaData), Z_Construct_UClass_AFloorPawn_Statics::NewProp_previousNodePawnWasOn_MetaData) };
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_directionPositionInfo_ValueProp = { "directionPositionInfo", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_UFloorPawnPositionInfo_NoRegister, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_directionPositionInfo_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_directionPositionInfo_Key_KeyProp = { "directionPositionInfo_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections, METADATA_PARAMS(0, nullptr) }; // 1177015594
@@ -243,17 +245,17 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCompleteFloorPawn
 #endif
 	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_directionPositionInfo = { "directionPositionInfo", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorPawn, directionPositionInfo), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPawn_Statics::NewProp_directionPositionInfo_MetaData), Z_Construct_UClass_AFloorPawn_Statics::NewProp_directionPositionInfo_MetaData) }; // 1177015594
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorPawn_Statics::NewProp_gameModeBase_MetaData[] = {
+		{ "ModuleRelativePath", "Public/FloorPawn.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_gameModeBase = { "gameModeBase", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorPawn, gameModeBase), Z_Construct_UClass_AFloorGameMode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPawn_Statics::NewProp_gameModeBase_MetaData), Z_Construct_UClass_AFloorPawn_Statics::NewProp_gameModeBase_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorPawn_Statics::NewProp_nodeToMoveTowards_MetaData[] = {
 		{ "ModuleRelativePath", "Public/FloorPawn.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_nodeToMoveTowards = { "nodeToMoveTowards", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorPawn, nodeToMoveTowards), Z_Construct_UClass_AFloorNode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPawn_Statics::NewProp_nodeToMoveTowards_MetaData), Z_Construct_UClass_AFloorPawn_Statics::NewProp_nodeToMoveTowards_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorPawn_Statics::NewProp_gameModeBase_MetaData[] = {
-		{ "ModuleRelativePath", "Public/FloorPawn.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_gameModeBase = { "gameModeBase", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorPawn, gameModeBase), Z_Construct_UClass_AFloorGameMode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPawn_Statics::NewProp_gameModeBase_MetaData), Z_Construct_UClass_AFloorPawn_Statics::NewProp_gameModeBase_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorPawn_Statics::NewProp_currentNodePawnIsOn_MetaData[] = {
 		{ "ModuleRelativePath", "Public/FloorPawn.h" },
@@ -280,15 +282,15 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCompleteFloorPawn
 		{ "ModuleRelativePath", "Public/FloorPawn.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_completeFloorPawnData = { "completeFloorPawnData", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorPawn, completeFloorPawnData), Z_Construct_UScriptStruct_FCompleteFloorPawnData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPawn_Statics::NewProp_completeFloorPawnData_MetaData), Z_Construct_UClass_AFloorPawn_Statics::NewProp_completeFloorPawnData_MetaData) }; // 1570468568
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_completeFloorPawnData = { "completeFloorPawnData", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorPawn, completeFloorPawnData), Z_Construct_UScriptStruct_FCompleteFloorPawnData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPawn_Statics::NewProp_completeFloorPawnData_MetaData), Z_Construct_UClass_AFloorPawn_Statics::NewProp_completeFloorPawnData_MetaData) }; // 300927908
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFloorPawn_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_previousNodePlayerWasOn,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_previousNodePawnWasOn,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_directionPositionInfo_ValueProp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_directionPositionInfo_Key_KeyProp_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_directionPositionInfo_Key_KeyProp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_directionPositionInfo,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_nodeToMoveTowards,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_gameModeBase,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_nodeToMoveTowards,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_currentNodePawnIsOn,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_currentMatrixIndex,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_playerDirectionMatrix_ValueProp_Underlying,
@@ -336,12 +338,12 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCompleteFloorPawn
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPawn_h_Statics::ScriptStructInfo[] = {
-		{ FCompleteFloorPawnData::StaticStruct, Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewStructOps, TEXT("CompleteFloorPawnData"), &Z_Registration_Info_UScriptStruct_CompleteFloorPawnData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCompleteFloorPawnData), 1570468568U) },
+		{ FCompleteFloorPawnData::StaticStruct, Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewStructOps, TEXT("CompleteFloorPawnData"), &Z_Registration_Info_UScriptStruct_CompleteFloorPawnData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCompleteFloorPawnData), 300927908U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPawn_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFloorPawn, AFloorPawn::StaticClass, TEXT("AFloorPawn"), &Z_Registration_Info_UClass_AFloorPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorPawn), 218132893U) },
+		{ Z_Construct_UClass_AFloorPawn, AFloorPawn::StaticClass, TEXT("AFloorPawn"), &Z_Registration_Info_UClass_AFloorPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorPawn), 3472173050U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPawn_h_869874350(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPawn_h_1992701854(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPawn_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPawn_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPawn_h_Statics::ScriptStructInfo),
 		nullptr, 0);

@@ -33,7 +33,7 @@ void AFloorPlayerPawn::Initialize()
 	Super::Initialize();
 
 	movementSpeed = MOVEMENT_SPEED;
-
+	positionOffSet = FVector(0,0,300);
 	playerForcedMovement.AddDynamic(this,&AFloorPlayerPawn::ForcedMovement);
 }
 
@@ -96,7 +96,7 @@ void AFloorPlayerPawn::MovePawn(float aDeltaTime)
 	if(FVector::Dist(GetActorLocation(), nodeToMoveTowardsPostion) < 20.5f )
 	{
 		hasRotationFinished       = true;
-		previousNodePlayerWasOn   = currentNodePawnIsOn;
+		previousNodePawnWasOn   = currentNodePawnIsOn;
 		currentNodePawnIsOn     = nodeToMoveTowards;
 		nodeToMoveTowards         = nullptr;
 		

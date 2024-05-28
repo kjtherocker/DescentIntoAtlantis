@@ -6,16 +6,96 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "DesentIntoAtlantis/Public/Floor_EnemyPawn.h"
+#include "DesentIntoAtlantis/Public/FloorPawn.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeFloor_EnemyPawn() {}
 // Cross Module References
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloor_EnemyPawn();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloor_EnemyPawn_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloorPawn();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UBehaviorTreeTaskTest_NoRegister();
+	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_ActivateEnemyBehavior__DelegateSignature();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCompleteFloorPawnData();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
 // End Cross Module References
+	struct Z_Construct_UDelegateFunction_DesentIntoAtlantis_ActivateEnemyBehavior__DelegateSignature_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_DesentIntoAtlantis_ActivateEnemyBehavior__DelegateSignature_Statics::Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/**\n * \n */" },
+#endif
+		{ "ModuleRelativePath", "Public/Floor_EnemyPawn.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_DesentIntoAtlantis_ActivateEnemyBehavior__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_DesentIntoAtlantis, nullptr, "ActivateEnemyBehavior__DelegateSignature", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_DesentIntoAtlantis_ActivateEnemyBehavior__DelegateSignature_Statics::Function_MetaDataParams), Z_Construct_UDelegateFunction_DesentIntoAtlantis_ActivateEnemyBehavior__DelegateSignature_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_ActivateEnemyBehavior__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_DesentIntoAtlantis_ActivateEnemyBehavior__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+void FActivateEnemyBehavior_DelegateWrapper(const FMulticastScriptDelegate& ActivateEnemyBehavior)
+{
+	ActivateEnemyBehavior.ProcessMulticastDelegate<UObject>(NULL);
+}
+	DEFINE_FUNCTION(AFloor_EnemyPawn::execActivateEnemysFloorBehavior)
+	{
+		P_GET_STRUCT(FCompleteFloorPawnData,Z_Param_aPlayerCompleteFloorData);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ActivateEnemysFloorBehavior(Z_Param_aPlayerCompleteFloorData);
+		P_NATIVE_END;
+	}
 	void AFloor_EnemyPawn::StaticRegisterNativesAFloor_EnemyPawn()
 	{
+		UClass* Class = AFloor_EnemyPawn::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "ActivateEnemysFloorBehavior", &AFloor_EnemyPawn::execActivateEnemysFloorBehavior },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics
+	{
+		struct Floor_EnemyPawn_eventActivateEnemysFloorBehavior_Parms
+		{
+			FCompleteFloorPawnData aPlayerCompleteFloorData;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_aPlayerCompleteFloorData;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::NewProp_aPlayerCompleteFloorData = { "aPlayerCompleteFloorData", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Floor_EnemyPawn_eventActivateEnemysFloorBehavior_Parms, aPlayerCompleteFloorData), Z_Construct_UScriptStruct_FCompleteFloorPawnData, METADATA_PARAMS(0, nullptr) }; // 300927908
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::NewProp_aPlayerCompleteFloorData,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/Floor_EnemyPawn.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFloor_EnemyPawn, nullptr, "ActivateEnemysFloorBehavior", nullptr, nullptr, Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::PropPointers), sizeof(Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::Floor_EnemyPawn_eventActivateEnemysFloorBehavior_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::Floor_EnemyPawn_eventActivateEnemysFloorBehavior_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AFloor_EnemyPawn);
 	UClass* Z_Construct_UClass_AFloor_EnemyPawn_NoRegister()
@@ -25,9 +105,14 @@ void EmptyLinkFunctionForGeneratedCodeFloor_EnemyPawn() {}
 	struct Z_Construct_UClass_AFloor_EnemyPawn_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_behaviorTreeTaskTest_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_behaviorTreeTaskTest;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Testooo_MetaData[];
 #endif
@@ -41,16 +126,24 @@ void EmptyLinkFunctionForGeneratedCodeFloor_EnemyPawn() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFloor_EnemyPawn_Statics::DependentSingletons) < 16);
+	const FClassFunctionLinkInfo Z_Construct_UClass_AFloor_EnemyPawn_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior, "ActivateEnemysFloorBehavior" }, // 86465830
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFloor_EnemyPawn_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloor_EnemyPawn_Statics::Class_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n * \n */" },
-#endif
 		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "Floor_EnemyPawn.h" },
 		{ "ModuleRelativePath", "Public/Floor_EnemyPawn.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_behaviorTreeTaskTest_MetaData[] = {
+		{ "Category", "Floor_EnemyPawn" },
+		{ "ModuleRelativePath", "Public/Floor_EnemyPawn.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_behaviorTreeTaskTest = { "behaviorTreeTaskTest", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloor_EnemyPawn, behaviorTreeTaskTest), Z_Construct_UClass_UBehaviorTreeTaskTest_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_behaviorTreeTaskTest_MetaData), Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_behaviorTreeTaskTest_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_Testooo_MetaData[] = {
 		{ "Category", "Floor_EnemyPawn" },
@@ -59,6 +152,7 @@ void EmptyLinkFunctionForGeneratedCodeFloor_EnemyPawn() {}
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_Testooo = { "Testooo", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloor_EnemyPawn, Testooo), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_Testooo_MetaData), Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_Testooo_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFloor_EnemyPawn_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_behaviorTreeTaskTest,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_Testooo,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AFloor_EnemyPawn_Statics::StaticCppClassTypeInfo = {
@@ -69,11 +163,11 @@ void EmptyLinkFunctionForGeneratedCodeFloor_EnemyPawn() {}
 		"Game",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_AFloor_EnemyPawn_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_AFloor_EnemyPawn_Statics::PropPointers),
 		0,
 		0x009000A4u,
@@ -100,9 +194,9 @@ void EmptyLinkFunctionForGeneratedCodeFloor_EnemyPawn() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Floor_EnemyPawn_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFloor_EnemyPawn, AFloor_EnemyPawn::StaticClass, TEXT("AFloor_EnemyPawn"), &Z_Registration_Info_UClass_AFloor_EnemyPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloor_EnemyPawn), 734018392U) },
+		{ Z_Construct_UClass_AFloor_EnemyPawn, AFloor_EnemyPawn::StaticClass, TEXT("AFloor_EnemyPawn"), &Z_Registration_Info_UClass_AFloor_EnemyPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloor_EnemyPawn), 1581486254U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Floor_EnemyPawn_h_3655967722(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Floor_EnemyPawn_h_436988504(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Floor_EnemyPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Floor_EnemyPawn_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

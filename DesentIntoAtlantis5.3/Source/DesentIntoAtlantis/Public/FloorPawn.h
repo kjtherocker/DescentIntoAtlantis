@@ -2,19 +2,23 @@
 
 #pragma once
 #include "CoreMinimal.h"
+#include "DesentIntoAtlantis/ECardinalDirections.h"
 #include "GameFramework/Pawn.h"
-#include "DesentIntoAtlantis/FloorNode.h"
+
 #include "FloorPawn.generated.h"
 
+class AFloorGameMode;
+class AFloorNode;
+enum class ECardinalNodeDirections;
 class UFloorPawnPositionInfo;
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FCompleteFloorPawnData:public  FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 	ECardinalNodeDirections currentFacingDirection = ECardinalNodeDirections::Up; 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 	FVector2D currentNodePositionInGrid = FVector2D(-1,-1);
 };
 
@@ -30,7 +34,7 @@ public:
 	virtual void Initialize();
 		
 	UPROPERTY()
-	AFloorNode* previousNodePlayerWasOn;
+	AFloorNode* previousNodePawnWasOn;
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -41,16 +45,19 @@ public:
 	virtual void ForcedMovement(ECardinalNodeDirections directiontoHead);
 	virtual void PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode, ECardinalNodeDirections aRotation);
 	virtual void SetRotationWithoutAnimation(ECardinalNodeDirections aCardinalNodeDirection);
+	virtual void SetNodeToMoveTowards(AFloorNode* aFloorNode);
 	virtual void RotatePawn(float aDeltatime);
 	virtual void MovePawn(float aDeltaTime);
 	virtual void AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections aDirection,FVector2D aDirectionPosition,FRotator aRotation);
 
-
+	virtual AFloorNode* GetCurrentNode();
 	virtual void SetToStartRotation(double aDirection );
 
 	UPROPERTY()
 	TMap<ECardinalNodeDirections,UFloorPawnPositionInfo*>   directionPositionInfo;
-
+	UPROPERTY()
+	AFloorGameMode* gameModeBase;
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -61,6 +68,7 @@ protected:
 	virtual void MoveForward();
 	TSubclassOf<AActor> commandBoardTest;
 
+	FVector positionOffSet;
 	double newRotation;
 
 	const double FULL_MOVEMENT       = 360;
@@ -79,8 +87,7 @@ protected:
 	UPROPERTY()
 	AFloorNode* nodeToMoveTowards;
 	
-	UPROPERTY()
-	AFloorGameMode* gameModeBase;
+
 
 	UPROPERTY()
 	AFloorNode* currentNodePawnIsOn;

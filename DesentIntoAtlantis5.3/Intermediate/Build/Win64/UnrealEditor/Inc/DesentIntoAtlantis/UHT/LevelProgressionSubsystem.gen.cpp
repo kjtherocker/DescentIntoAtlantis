@@ -338,7 +338,7 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics::NewProp_aCompleteFloorPawnData = { "aCompleteFloorPawnData", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(LevelProgressionSubsystem_eventActivateCurrentNodesInteractableGimmick_Parms, aCompleteFloorPawnData), Z_Construct_UScriptStruct_FCompleteFloorPawnData, METADATA_PARAMS(0, nullptr) }; // 1570468568
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics::NewProp_aCompleteFloorPawnData = { "aCompleteFloorPawnData", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(LevelProgressionSubsystem_eventActivateCurrentNodesInteractableGimmick_Parms, aCompleteFloorPawnData), Z_Construct_UScriptStruct_FCompleteFloorPawnData, METADATA_PARAMS(0, nullptr) }; // 300927908
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick_Statics::NewProp_aCompleteFloorPawnData,
 	};
@@ -372,7 +372,7 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics::NewProp_aCompleteFloorPawnData = { "aCompleteFloorPawnData", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(LevelProgressionSubsystem_eventSetCompleteFloorPawnData_Parms, aCompleteFloorPawnData), Z_Construct_UScriptStruct_FCompleteFloorPawnData, METADATA_PARAMS(0, nullptr) }; // 1570468568
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics::NewProp_aCompleteFloorPawnData = { "aCompleteFloorPawnData", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(LevelProgressionSubsystem_eventSetCompleteFloorPawnData_Parms, aCompleteFloorPawnData), Z_Construct_UScriptStruct_FCompleteFloorPawnData, METADATA_PARAMS(0, nullptr) }; // 300927908
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData_Statics::NewProp_aCompleteFloorPawnData,
 	};
@@ -441,8 +441,8 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ULevelProgressionSubsystem_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick, "ActivateCurrentNodesInteractableGimmick" }, // 2044373380
-		{ &Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData, "SetCompleteFloorPawnData" }, // 4269515942
+		{ &Z_Construct_UFunction_ULevelProgressionSubsystem_ActivateCurrentNodesInteractableGimmick, "ActivateCurrentNodesInteractableGimmick" }, // 3936117774
+		{ &Z_Construct_UFunction_ULevelProgressionSubsystem_SetCompleteFloorPawnData, "SetCompleteFloorPawnData" }, // 133539219
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelProgressionSubsystem_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -545,9 +545,9 @@ void FMapHasChanged_DelegateWrapper(const FMulticastScriptDelegate& MapHasChange
 		{ FCompleteProgressionData::StaticStruct, Z_Construct_UScriptStruct_FCompleteProgressionData_Statics::NewStructOps, TEXT("CompleteProgressionData"), &Z_Registration_Info_UScriptStruct_CompleteProgressionData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCompleteProgressionData), 3145609198U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ULevelProgressionSubsystem, ULevelProgressionSubsystem::StaticClass, TEXT("ULevelProgressionSubsystem"), &Z_Registration_Info_UClass_ULevelProgressionSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelProgressionSubsystem), 630262120U) },
+		{ Z_Construct_UClass_ULevelProgressionSubsystem, ULevelProgressionSubsystem::StaticClass, TEXT("ULevelProgressionSubsystem"), &Z_Registration_Info_UClass_ULevelProgressionSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelProgressionSubsystem), 2043239337U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_3410614684(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_1440243335(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_LevelProgressionSubsystem_h_Statics::ScriptStructInfo),
 		nullptr, 0);

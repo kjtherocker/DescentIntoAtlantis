@@ -7,6 +7,7 @@
 #include "UObject/GeneratedCppIncludes.h"
 #include "DesentIntoAtlantis/FloorManager.h"
 #include "DesentIntoAtlantis/FloorNode.h"
+#include "DesentIntoAtlantis/Public/FloorEnum.h"
 #include "DesentIntoAtlantis/Public/Gimmick_Base.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeFloorManager() {}
@@ -21,6 +22,7 @@ void EmptyLinkFunctionForGeneratedCodeFloorManager() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_ULevelProgressionSubsystem_NoRegister();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EFloorGimmicks();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EFloorIdentifier();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FFloorNodeData();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FUGimmickArrayWrapper();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
@@ -42,12 +44,21 @@ void EmptyLinkFunctionForGeneratedCodeFloorManager() {}
 		P_THIS->LoadNextLevel(Z_Param_aPositionInGrid);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(AFloorManager::execSpawnEnemyPawn)
+	{
+		P_GET_STRUCT(FFloorEnemyPawnCompleteData,Z_Param_aCompleteFloorPawnData);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SpawnEnemyPawn(Z_Param_aCompleteFloorPawnData);
+		P_NATIVE_END;
+	}
 	void AFloorManager::StaticRegisterNativesAFloorManager()
 	{
 		UClass* Class = AFloorManager::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "LoadNextLevel", &AFloorManager::execLoadNextLevel },
 			{ "PlacePlayerAtFloorStartingNode", &AFloorManager::execPlacePlayerAtFloorStartingNode },
+			{ "SpawnEnemyPawn", &AFloorManager::execSpawnEnemyPawn },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -104,6 +115,40 @@ void EmptyLinkFunctionForGeneratedCodeFloorManager() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFloorManager_PlacePlayerAtFloorStartingNode_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AFloorManager_SpawnEnemyPawn_Statics
+	{
+		struct FloorManager_eventSpawnEnemyPawn_Parms
+		{
+			FFloorEnemyPawnCompleteData aCompleteFloorPawnData;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_aCompleteFloorPawnData;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AFloorManager_SpawnEnemyPawn_Statics::NewProp_aCompleteFloorPawnData = { "aCompleteFloorPawnData", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FloorManager_eventSpawnEnemyPawn_Parms, aCompleteFloorPawnData), Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData, METADATA_PARAMS(0, nullptr) }; // 4015773625
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AFloorManager_SpawnEnemyPawn_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AFloorManager_SpawnEnemyPawn_Statics::NewProp_aCompleteFloorPawnData,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AFloorManager_SpawnEnemyPawn_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "FloorManager.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFloorManager_SpawnEnemyPawn_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFloorManager, nullptr, "SpawnEnemyPawn", nullptr, nullptr, Z_Construct_UFunction_AFloorManager_SpawnEnemyPawn_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFloorManager_SpawnEnemyPawn_Statics::PropPointers), sizeof(Z_Construct_UFunction_AFloorManager_SpawnEnemyPawn_Statics::FloorManager_eventSpawnEnemyPawn_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFloorManager_SpawnEnemyPawn_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFloorManager_SpawnEnemyPawn_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AFloorManager_SpawnEnemyPawn_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AFloorManager_SpawnEnemyPawn_Statics::FloorManager_eventSpawnEnemyPawn_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AFloorManager_SpawnEnemyPawn()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFloorManager_SpawnEnemyPawn_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -197,6 +242,7 @@ void EmptyLinkFunctionForGeneratedCodeFloorManager() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_AFloorManager_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AFloorManager_LoadNextLevel, "LoadNextLevel" }, // 2078699829
 		{ &Z_Construct_UFunction_AFloorManager_PlacePlayerAtFloorStartingNode, "PlacePlayerAtFloorStartingNode" }, // 861417612
+		{ &Z_Construct_UFunction_AFloorManager_SpawnEnemyPawn, "SpawnEnemyPawn" }, // 2874719127
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorManager_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -212,13 +258,13 @@ void EmptyLinkFunctionForGeneratedCodeFloorManager() {}
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AFloorManager_Statics::NewProp_floorNodes = { "floorNodes", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorManager, floorNodes), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorManager_Statics::NewProp_floorNodes_MetaData), Z_Construct_UClass_AFloorManager_Statics::NewProp_floorNodes_MetaData) };
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFloorManager_Statics::NewProp_entireFloorNodeData_Inner = { "entireFloorNodeData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FFloorNodeData, METADATA_PARAMS(0, nullptr) }; // 2053659588
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFloorManager_Statics::NewProp_entireFloorNodeData_Inner = { "entireFloorNodeData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FFloorNodeData, METADATA_PARAMS(0, nullptr) }; // 1344862626
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorManager_Statics::NewProp_entireFloorNodeData_MetaData[] = {
 		{ "ModuleRelativePath", "FloorManager.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AFloorManager_Statics::NewProp_entireFloorNodeData = { "entireFloorNodeData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorManager, entireFloorNodeData), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorManager_Statics::NewProp_entireFloorNodeData_MetaData), Z_Construct_UClass_AFloorManager_Statics::NewProp_entireFloorNodeData_MetaData) }; // 2053659588
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AFloorManager_Statics::NewProp_entireFloorNodeData = { "entireFloorNodeData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorManager, entireFloorNodeData), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorManager_Statics::NewProp_entireFloorNodeData_MetaData), Z_Construct_UClass_AFloorManager_Statics::NewProp_entireFloorNodeData_MetaData) }; // 1344862626
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorManager_Statics::NewProp_floorNodeReference_MetaData[] = {
 		{ "Category", "FloorManager" },
@@ -367,9 +413,9 @@ void EmptyLinkFunctionForGeneratedCodeFloorManager() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorManager_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFloorManager, AFloorManager::StaticClass, TEXT("AFloorManager"), &Z_Registration_Info_UClass_AFloorManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorManager), 455554141U) },
+		{ Z_Construct_UClass_AFloorManager, AFloorManager::StaticClass, TEXT("AFloorManager"), &Z_Registration_Info_UClass_AFloorManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorManager), 2250597657U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorManager_h_1781889901(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorManager_h_1386826507(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorManager_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

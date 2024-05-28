@@ -9,6 +9,7 @@
 #include "UObject/NoExportTypes.h"
 #include "FloorBase.generated.h"
 
+class AFloor_EnemyPawn;
 enum class EDialogueTriggers;
 enum class ETutorialTriggers;
 /**
@@ -42,6 +43,8 @@ public:
 
 	TMap<FVector2d ,FFloorEventData> floorEventData;
 
+	TArray<FFloorEnemyPawnCompleteData> floorEnemyPawns;
+	
 	TArray<FDoorComplete> doorGimmicks;
 	TMap<FVector2d ,FTeleporterGimmick> TeleporterGimmickData;
 	TMap<FVector2d ,FForcedMovementGimmick> ForcedMovementGimmickData;

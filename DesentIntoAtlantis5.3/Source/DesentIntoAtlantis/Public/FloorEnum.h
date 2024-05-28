@@ -2,12 +2,13 @@
 
 #pragma once
 #include "EDataTableTypes.h"
+#include "FloorPawn.h"
+
 #include "Views.h"
 #include "DesentIntoAtlantis/ECardinalDirections.h"
 #include "DesentIntoAtlantis/EFloorIdentifier.h"
 #include "Engine/DataTable.h"
 #include "FloorEnum.generated.h"
-
 
 class AFloorDoor;
 class UPersistentGameinstance;
@@ -44,6 +45,35 @@ enum class ECombatArena
 	Water           = 1,
 	Prison          = 2,
 };
+
+
+USTRUCT()
+struct FEnemyPatrolPath
+{
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere)
+	FVector2D StartPath;
+	UPROPERTY(EditAnywhere)
+	FVector2D EndPath;
+};
+
+
+USTRUCT()
+struct FFloorEnemyPawnCompleteData
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere)
+	FCompleteFloorPawnData completeFloorPawnData;
+	
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> floorEnemyPawnReference;
+	UPROPERTY(EditAnywhere)
+	FString EnemyGroupName;
+	UPROPERTY(EditAnywhere)
+	FEnemyPatrolPath enemyPatrolPath;
+};
+
 
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FNodeHasBeenWalkedOn, FVector2D, aPositionInGrid);
@@ -154,6 +184,9 @@ struct DESENTINTOATLANTIS_API FFloorData : public FTableRowBase
 
 	UPROPERTY(EditAnywhere)
 	TArray<FDoorComplete> doorGimmick;
+
+	UPROPERTY(EditAnywhere)
+	TArray<FFloorEnemyPawnCompleteData> EnemyPawns;
 };
 
 

@@ -3,8 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "ECardinalDirections.h"
-#include "FloorBase.h"
+#include "FloorEnum.h"
+
 #include "GameFramework/Actor.h"
 #include "FloorNode.generated.h"
 
@@ -20,6 +20,10 @@ struct FFloorNodeData
 	
 	FVector2D positionInGrid;
 
+	UPROPERTY()
+	bool hasBeenCalculated = false;
+	UPROPERTY()
+	int heuristic = -1;
 	UPROPERTY()
 	TMap<ECardinalNodeDirections,AFloorNode*> nodeNeighbors;
 	UPROPERTY()

@@ -6,6 +6,7 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "DesentIntoAtlantis/Public/FloorEnum.h"
+#include "DesentIntoAtlantis/Public/FloorPawn.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeFloorEnum() {}
 // Cross Module References
@@ -24,9 +25,12 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnum() {}
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_NodeHasBeenWalkedOn__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_TriggerNextEventStage__DelegateSignature();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCombatArenaData();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCompleteFloorPawnData();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FDoorComplete();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FDoorGimmick();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FEnemyPatrolPath();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FFloorData();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FFloorEventData();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FForcedMovementGimmick();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FGimmickData();
@@ -217,6 +221,188 @@ void EmptyLinkFunctionForGeneratedCodeFloorEnum() {}
 			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_ECombatArena.InnerSingleton, Z_Construct_UEnum_DesentIntoAtlantis_ECombatArena_Statics::EnumParams);
 		}
 		return Z_Registration_Info_UEnum_ECombatArena.InnerSingleton;
+	}
+	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_EnemyPatrolPath;
+class UScriptStruct* FEnemyPatrolPath::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_EnemyPatrolPath.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_EnemyPatrolPath.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FEnemyPatrolPath, (UObject*)Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("EnemyPatrolPath"));
+	}
+	return Z_Registration_Info_UScriptStruct_EnemyPatrolPath.OuterSingleton;
+}
+template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FEnemyPatrolPath>()
+{
+	return FEnemyPatrolPath::StaticStruct();
+}
+	struct Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_StartPath_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_StartPath;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_EndPath_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_EndPath;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UECodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::Struct_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FEnemyPatrolPath>();
+	}
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::NewProp_StartPath_MetaData[] = {
+		{ "Category", "EnemyPatrolPath" },
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::NewProp_StartPath = { "StartPath", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FEnemyPatrolPath, StartPath), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::NewProp_StartPath_MetaData), Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::NewProp_StartPath_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::NewProp_EndPath_MetaData[] = {
+		{ "Category", "EnemyPatrolPath" },
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::NewProp_EndPath = { "EndPath", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FEnemyPatrolPath, EndPath), Z_Construct_UScriptStruct_FVector2D, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::NewProp_EndPath_MetaData), Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::NewProp_EndPath_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::NewProp_StartPath,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::NewProp_EndPath,
+	};
+	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		nullptr,
+		&NewStructOps,
+		"EnemyPatrolPath",
+		Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::PropPointers),
+		sizeof(FEnemyPatrolPath),
+		alignof(FEnemyPatrolPath),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000001),
+		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::Struct_MetaDataParams)
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::PropPointers) < 2048);
+	UScriptStruct* Z_Construct_UScriptStruct_FEnemyPatrolPath()
+	{
+		if (!Z_Registration_Info_UScriptStruct_EnemyPatrolPath.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_EnemyPatrolPath.InnerSingleton, Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::ReturnStructParams);
+		}
+		return Z_Registration_Info_UScriptStruct_EnemyPatrolPath.InnerSingleton;
+	}
+	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_FloorEnemyPawnCompleteData;
+class UScriptStruct* FFloorEnemyPawnCompleteData::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_FloorEnemyPawnCompleteData.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_FloorEnemyPawnCompleteData.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData, (UObject*)Z_Construct_UPackage__Script_DesentIntoAtlantis(), TEXT("FloorEnemyPawnCompleteData"));
+	}
+	return Z_Registration_Info_UScriptStruct_FloorEnemyPawnCompleteData.OuterSingleton;
+}
+template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FFloorEnemyPawnCompleteData>()
+{
+	return FFloorEnemyPawnCompleteData::StaticStruct();
+}
+	struct Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_completeFloorPawnData_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_completeFloorPawnData;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_floorEnemyPawnReference_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_floorEnemyPawnReference;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_EnemyGroupName_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_EnemyGroupName;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_enemyPatrolPath_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_enemyPatrolPath;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UECodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::Struct_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FFloorEnemyPawnCompleteData>();
+	}
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_completeFloorPawnData_MetaData[] = {
+		{ "Category", "FloorEnemyPawnCompleteData" },
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_completeFloorPawnData = { "completeFloorPawnData", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFloorEnemyPawnCompleteData, completeFloorPawnData), Z_Construct_UScriptStruct_FCompleteFloorPawnData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_completeFloorPawnData_MetaData), Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_completeFloorPawnData_MetaData) }; // 300927908
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_floorEnemyPawnReference_MetaData[] = {
+		{ "Category", "FloorEnemyPawnCompleteData" },
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_floorEnemyPawnReference = { "floorEnemyPawnReference", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFloorEnemyPawnCompleteData, floorEnemyPawnReference), Z_Construct_UClass_UClass, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_floorEnemyPawnReference_MetaData), Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_floorEnemyPawnReference_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_EnemyGroupName_MetaData[] = {
+		{ "Category", "FloorEnemyPawnCompleteData" },
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_EnemyGroupName = { "EnemyGroupName", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFloorEnemyPawnCompleteData, EnemyGroupName), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_EnemyGroupName_MetaData), Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_EnemyGroupName_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_enemyPatrolPath_MetaData[] = {
+		{ "Category", "FloorEnemyPawnCompleteData" },
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_enemyPatrolPath = { "enemyPatrolPath", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFloorEnemyPawnCompleteData, enemyPatrolPath), Z_Construct_UScriptStruct_FEnemyPatrolPath, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_enemyPatrolPath_MetaData), Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_enemyPatrolPath_MetaData) }; // 3353165952
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_completeFloorPawnData,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_floorEnemyPawnReference,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_EnemyGroupName,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewProp_enemyPatrolPath,
+	};
+	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
+		nullptr,
+		&NewStructOps,
+		"FloorEnemyPawnCompleteData",
+		Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::PropPointers),
+		sizeof(FFloorEnemyPawnCompleteData),
+		alignof(FFloorEnemyPawnCompleteData),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000001),
+		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::Struct_MetaDataParams)
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::PropPointers) < 2048);
+	UScriptStruct* Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData()
+	{
+		if (!Z_Registration_Info_UScriptStruct_FloorEnemyPawnCompleteData.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_FloorEnemyPawnCompleteData.InnerSingleton, Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::ReturnStructParams);
+		}
+		return Z_Registration_Info_UScriptStruct_FloorEnemyPawnCompleteData.InnerSingleton;
 	}
 	struct Z_Construct_UDelegateFunction_DesentIntoAtlantis_NodeHasBeenWalkedOn__DelegateSignature_Statics
 	{
@@ -893,6 +1079,11 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FFloorData>()
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_doorGimmick_MetaData[];
 #endif
 		static const UECodeGen_Private::FArrayPropertyParams NewProp_doorGimmick;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_EnemyPawns_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_EnemyPawns_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_EnemyPawns;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -960,6 +1151,14 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FFloorData>()
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FFloorData_Statics::NewProp_doorGimmick = { "doorGimmick", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFloorData, doorGimmick), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorData_Statics::NewProp_doorGimmick_MetaData), Z_Construct_UScriptStruct_FFloorData_Statics::NewProp_doorGimmick_MetaData) }; // 3760402536
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FFloorData_Statics::NewProp_EnemyPawns_Inner = { "EnemyPawns", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData, METADATA_PARAMS(0, nullptr) }; // 4015773625
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FFloorData_Statics::NewProp_EnemyPawns_MetaData[] = {
+		{ "Category", "FloorData" },
+		{ "ModuleRelativePath", "Public/FloorEnum.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FFloorData_Statics::NewProp_EnemyPawns = { "EnemyPawns", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FFloorData, EnemyPawns), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FFloorData_Statics::NewProp_EnemyPawns_MetaData), Z_Construct_UScriptStruct_FFloorData_Statics::NewProp_EnemyPawns_MetaData) }; // 4015773625
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FFloorData_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorData_Statics::NewProp_floorBlueprint_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorData_Statics::NewProp_floorBlueprint,
@@ -974,6 +1173,8 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FFloorData>()
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorData_Statics::NewProp_forcedMovementGimmick,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorData_Statics::NewProp_doorGimmick_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorData_Statics::NewProp_doorGimmick,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorData_Statics::NewProp_EnemyPawns_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FFloorData_Statics::NewProp_EnemyPawns,
 	};
 	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FFloorData_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
@@ -1572,18 +1773,20 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FTutorialData>()
 		{ ETutorialTriggers_StaticEnum, TEXT("ETutorialTriggers"), &Z_Registration_Info_UEnum_ETutorialTriggers, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2742774201U) },
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::ScriptStructInfo[] = {
+		{ FEnemyPatrolPath::StaticStruct, Z_Construct_UScriptStruct_FEnemyPatrolPath_Statics::NewStructOps, TEXT("EnemyPatrolPath"), &Z_Registration_Info_UScriptStruct_EnemyPatrolPath, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEnemyPatrolPath), 3353165952U) },
+		{ FFloorEnemyPawnCompleteData::StaticStruct, Z_Construct_UScriptStruct_FFloorEnemyPawnCompleteData_Statics::NewStructOps, TEXT("FloorEnemyPawnCompleteData"), &Z_Registration_Info_UScriptStruct_FloorEnemyPawnCompleteData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FFloorEnemyPawnCompleteData), 4015773625U) },
 		{ FGimmickData::StaticStruct, Z_Construct_UScriptStruct_FGimmickData_Statics::NewStructOps, TEXT("GimmickData"), &Z_Registration_Info_UScriptStruct_GimmickData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FGimmickData), 2357971936U) },
 		{ FGimmickInteractableData::StaticStruct, Z_Construct_UScriptStruct_FGimmickInteractableData_Statics::NewStructOps, TEXT("GimmickInteractableData"), &Z_Registration_Info_UScriptStruct_GimmickInteractableData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FGimmickInteractableData), 4270722169U) },
 		{ FTeleporterGimmick::StaticStruct, Z_Construct_UScriptStruct_FTeleporterGimmick_Statics::NewStructOps, TEXT("TeleporterGimmick"), &Z_Registration_Info_UScriptStruct_TeleporterGimmick, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FTeleporterGimmick), 2933537049U) },
 		{ FForcedMovementGimmick::StaticStruct, Z_Construct_UScriptStruct_FForcedMovementGimmick_Statics::NewStructOps, TEXT("ForcedMovementGimmick"), &Z_Registration_Info_UScriptStruct_ForcedMovementGimmick, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FForcedMovementGimmick), 1189628515U) },
 		{ FDoorGimmick::StaticStruct, Z_Construct_UScriptStruct_FDoorGimmick_Statics::NewStructOps, TEXT("DoorGimmick"), &Z_Registration_Info_UScriptStruct_DoorGimmick, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FDoorGimmick), 1787684693U) },
 		{ FDoorComplete::StaticStruct, Z_Construct_UScriptStruct_FDoorComplete_Statics::NewStructOps, TEXT("DoorComplete"), &Z_Registration_Info_UScriptStruct_DoorComplete, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FDoorComplete), 3760402536U) },
-		{ FFloorData::StaticStruct, Z_Construct_UScriptStruct_FFloorData_Statics::NewStructOps, TEXT("FloorData"), &Z_Registration_Info_UScriptStruct_FloorData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FFloorData), 2665445193U) },
+		{ FFloorData::StaticStruct, Z_Construct_UScriptStruct_FFloorData_Statics::NewStructOps, TEXT("FloorData"), &Z_Registration_Info_UScriptStruct_FloorData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FFloorData), 174381550U) },
 		{ FFloorEventData::StaticStruct, Z_Construct_UScriptStruct_FFloorEventData_Statics::NewStructOps, TEXT("FloorEventData"), &Z_Registration_Info_UScriptStruct_FloorEventData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FFloorEventData), 3727948300U) },
 		{ FCombatArenaData::StaticStruct, Z_Construct_UScriptStruct_FCombatArenaData_Statics::NewStructOps, TEXT("CombatArenaData"), &Z_Registration_Info_UScriptStruct_CombatArenaData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatArenaData), 3277251417U) },
 		{ FTutorialData::StaticStruct, Z_Construct_UScriptStruct_FTutorialData_Statics::NewStructOps, TEXT("TutorialData"), &Z_Registration_Info_UScriptStruct_TutorialData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FTutorialData), 1079114697U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_452681500(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_2024944485(TEXT("/Script/DesentIntoAtlantis"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorEnum_h_Statics::EnumInfo));

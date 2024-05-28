@@ -138,10 +138,10 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 	FVector PositionOffset = FVector(0,0,300);
 	FVector nodeToMoveTowardsPostion = nodeToMoveTowards->GetActorLocation() + PositionOffset;
 	
-	if(FVector::Dist(GetActorLocation(), nodeToMoveTowardsPostion) < 20.5f )
+	if(FVector::Dist(GetActorLocation(), nodeToMoveTowardsPostion) < 90.5f )
 	{
 		hasRotationFinished       = true;
-		previousNodePlayerWasOn   = currentNodePawnIsOn;
+		previousNodePawnWasOn   = currentNodePawnIsOn;
 		currentNodePawnIsOn     = nodeToMoveTowards;
 		nodeToMoveTowards         = nullptr;
 		
@@ -162,8 +162,8 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 
 	float AngleToWaypoint = atan2(deltaX,deltaY);
 	
-	currentPostion.X += sin(AngleToWaypoint) * MOVEMENT_SPEED * aDeltaTime;
-	currentPostion.Y += cos(AngleToWaypoint) * MOVEMENT_SPEED * aDeltaTime;
+	currentPostion.X += sin(AngleToWaypoint) * movementSpeed * aDeltaTime;
+	currentPostion.Y += cos(AngleToWaypoint) * movementSpeed * aDeltaTime;
 	
 	
 	SetActorLocation(currentPostion);
@@ -252,6 +252,11 @@ void AFloorPawn::AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirectio
 	directionPositionInfo.Add(aDirection,floorPawnPositionInfo);
 }
 
+AFloorNode* AFloorPawn::GetCurrentNode()
+{
+	return currentNodePawnIsOn;
+}
+
 void AFloorPawn::PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode, ECardinalNodeDirections aRotation)
 {
 	
@@ -274,6 +279,11 @@ void AFloorPawn::SetRotationWithoutAnimation(ECardinalNodeDirections aCardinalNo
 		}
 	}
 	SetActorRotation(directionPositionInfo[completeFloorPawnData.currentFacingDirection]->rotation);
+}
+
+void AFloorPawn::SetNodeToMoveTowards(AFloorNode* aFloorNode)
+{
+	nodeToMoveTowards = aFloorNode;
 }
 
 

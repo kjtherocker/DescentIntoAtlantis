@@ -11,6 +11,7 @@
 #include "Engine/DataTable.h"
 #include "EventManagerSubSystem.h"
 #include "FloorDoor.h"
+#include "Floor_EnemyPawn.h"
 #include "Gimmick_Base.h"
 #include "LevelProgressionSubsystem.h"
 #include "SaveManagerSubsystem.h"
@@ -108,6 +109,11 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 	}
 
 
+	for(FFloorEnemyPawnCompleteData enemyPawnData : aFloor->floorEnemyPawns)
+	{
+		SpawnEnemyPawn(enemyPawnData);
+	}
+	
 	for (FDoorComplete Element : aFloor->doorGimmicks)
 	{
 		FDoorGimmick spotA = Element.DoorSpotA;
@@ -256,6 +262,30 @@ void AFloorManager::MovePlayerToPreviousNode()
 	//AFloorPawn* floorPawn = floorGameModeBase->floorPawn;
 	//FVector2D previousPosition = floorPawn->previousNodePlayerWasOn->positionInGrid;
 	//PlacePlayerFloorPawn(previousPosition);
+}
+
+void AFloorManager::SpawnEnemyPawn(FFloorEnemyPawnCompleteData aCompleteFloorPawnData)
+{
+	FVector PositionOffset = FVector(0,0,SPAWNED_OBJECT_OFFSET);
+
+	FVector ActorFinalSpawnPoint = GetNode(aCompleteFloorPawnData.completeFloorPawnData.currentNodePositionInGrid)->GetActorLocation() + PositionOffset;
+
+	//Rotation
+	FRotator rotator = GetActorRotation();
+	
+	FActorSpawnParameters ActorSpawnParameters;
+	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	ActorSpawnParameters.Owner = this;
+
+	int startPositionIndex = currentFloor->GetIndex( aCompleteFloorPawnData.completeFloorPawnData.currentNodePositionInGrid.X,
+		aCompleteFloorPawnData.completeFloorPawnData.currentNodePositionInGrid.Y) ;
+	
+	AFloor_EnemyPawn* floorPawn = Cast<AFloor_EnemyPawn>(GetWorld()->SpawnActor<AActor>(aCompleteFloorPawnData.floorEnemyPawnReference, ActorFinalSpawnPoint, rotator,ActorSpawnParameters));
+	floorPawn->Initialize();
+	floorPawn->SetEnemyFloorPlan(entireFloorNodeData);
+	floorPawn->SubscribeToActivateEnemyBehavior(floorGameModeBase->floorPawn);
+	floorPawn->SetEnemyPawnCompleteData(aCompleteFloorPawnData);
+	floorPawn->PlaceAndInitializieFloorPawn(floorNodes[startPositionIndex],aCompleteFloorPawnData.completeFloorPawnData.currentFacingDirection);
 }
 
 void AFloorManager::LoadNextLevel(FVector2D aPositionInGrid)

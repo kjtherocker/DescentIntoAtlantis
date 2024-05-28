@@ -38,6 +38,9 @@ public:
 	void MovePlayerToPreviousNode();
 
 	UFUNCTION()
+	void SpawnEnemyPawn(FFloorEnemyPawnCompleteData aCompleteFloorPawnData);
+	
+	UFUNCTION()
 	void LoadNextLevel(FVector2D aPositionInGrid);
 	
 	AFloorNode* GetNodeInDirection(FVector2D CurrentPosition,ECardinalNodeDirections TargetDirection);

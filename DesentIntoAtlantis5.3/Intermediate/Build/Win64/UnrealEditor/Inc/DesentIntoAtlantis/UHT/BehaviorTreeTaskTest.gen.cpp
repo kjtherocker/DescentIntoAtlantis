@@ -7,19 +7,56 @@
 #include "UObject/GeneratedCppIncludes.h"
 #include "DesentIntoAtlantis/Public/BehaviorTreeTaskTest.h"
 #include "BehaviorTree/BehaviorTreeTypes.h"
+#include "DesentIntoAtlantis/FloorNode.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeBehaviorTreeTaskTest() {}
 // Cross Module References
 	AIMODULE_API UClass* Z_Construct_UClass_UBTTaskNode();
 	AIMODULE_API UScriptStruct* Z_Construct_UScriptStruct_FBlackboardKeySelector();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloor_EnemyPawn_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloorNode_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UBehaviorTreeTaskTest();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UBehaviorTreeTaskTest_NoRegister();
+	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FFloorNodeData();
 	ENGINE_API UClass* Z_Construct_UClass_APawn_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_DesentIntoAtlantis();
 // End Cross Module References
+	DEFINE_FUNCTION(UBehaviorTreeTaskTest::execActivateBehavior)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ActivateBehavior();
+		P_NATIVE_END;
+	}
 	void UBehaviorTreeTaskTest::StaticRegisterNativesUBehaviorTreeTaskTest()
 	{
+		UClass* Class = UBehaviorTreeTaskTest::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "ActivateBehavior", &UBehaviorTreeTaskTest::execActivateBehavior },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UBehaviorTreeTaskTest_ActivateBehavior_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBehaviorTreeTaskTest_ActivateBehavior_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/BehaviorTreeTaskTest.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UBehaviorTreeTaskTest_ActivateBehavior_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UBehaviorTreeTaskTest, nullptr, "ActivateBehavior", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBehaviorTreeTaskTest_ActivateBehavior_Statics::Function_MetaDataParams), Z_Construct_UFunction_UBehaviorTreeTaskTest_ActivateBehavior_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_UBehaviorTreeTaskTest_ActivateBehavior()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UBehaviorTreeTaskTest_ActivateBehavior_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UBehaviorTreeTaskTest);
 	UClass* Z_Construct_UClass_UBehaviorTreeTaskTest_NoRegister()
@@ -29,6 +66,7 @@ void EmptyLinkFunctionForGeneratedCodeBehaviorTreeTaskTest() {}
 	struct Z_Construct_UClass_UBehaviorTreeTaskTest_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -40,6 +78,25 @@ void EmptyLinkFunctionForGeneratedCodeBehaviorTreeTaskTest() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_enemyFloorPawn_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_enemyFloorPawn;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_floorPlan_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_floorPlan_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_floorPlan;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_patrolRoute_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_patrolRoute_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_patrolRoute;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentPathIndex_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_currentPathIndex;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_isAscendingPath_MetaData[];
+#endif
+		static void NewProp_isAscendingPath_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_isAscendingPath;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_TargetLocation_MetaData[];
 #endif
@@ -53,6 +110,10 @@ void EmptyLinkFunctionForGeneratedCodeBehaviorTreeTaskTest() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_DesentIntoAtlantis,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::DependentSingletons) < 16);
+	const FClassFunctionLinkInfo Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UBehaviorTreeTaskTest_ActivateBehavior, "ActivateBehavior" }, // 3692522315
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::Class_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
@@ -74,16 +135,52 @@ void EmptyLinkFunctionForGeneratedCodeBehaviorTreeTaskTest() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_enemyFloorPawn = { "enemyFloorPawn", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBehaviorTreeTaskTest, enemyFloorPawn), Z_Construct_UClass_AFloor_EnemyPawn_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_enemyFloorPawn_MetaData), Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_enemyFloorPawn_MetaData) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_floorPlan_Inner = { "floorPlan", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FFloorNodeData, METADATA_PARAMS(0, nullptr) }; // 1344862626
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_floorPlan_MetaData[] = {
+		{ "ModuleRelativePath", "Public/BehaviorTreeTaskTest.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_floorPlan = { "floorPlan", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBehaviorTreeTaskTest, floorPlan), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_floorPlan_MetaData), Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_floorPlan_MetaData) }; // 1344862626
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_patrolRoute_Inner = { "patrolRoute", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_AFloorNode_NoRegister, METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_patrolRoute_MetaData[] = {
+		{ "ModuleRelativePath", "Public/BehaviorTreeTaskTest.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_patrolRoute = { "patrolRoute", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBehaviorTreeTaskTest, patrolRoute), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_patrolRoute_MetaData), Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_patrolRoute_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_currentPathIndex_MetaData[] = {
+		{ "ModuleRelativePath", "Public/BehaviorTreeTaskTest.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_currentPathIndex = { "currentPathIndex", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBehaviorTreeTaskTest, currentPathIndex), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_currentPathIndex_MetaData), Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_currentPathIndex_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_isAscendingPath_MetaData[] = {
+		{ "ModuleRelativePath", "Public/BehaviorTreeTaskTest.h" },
+	};
+#endif
+	void Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_isAscendingPath_SetBit(void* Obj)
+	{
+		((UBehaviorTreeTaskTest*)Obj)->isAscendingPath = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_isAscendingPath = { "isAscendingPath", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UBehaviorTreeTaskTest), &Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_isAscendingPath_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_isAscendingPath_MetaData), Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_isAscendingPath_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_TargetLocation_MetaData[] = {
 		{ "Category", "Blackboard" },
 		{ "ModuleRelativePath", "Public/BehaviorTreeTaskTest.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_TargetLocation = { "TargetLocation", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBehaviorTreeTaskTest, TargetLocation), Z_Construct_UScriptStruct_FBlackboardKeySelector, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_TargetLocation_MetaData), Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_TargetLocation_MetaData) }; // 3137324432
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_TargetLocation = { "TargetLocation", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBehaviorTreeTaskTest, TargetLocation), Z_Construct_UScriptStruct_FBlackboardKeySelector, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_TargetLocation_MetaData), Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_TargetLocation_MetaData) }; // 3137324432
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_AIPawn,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_enemyFloorPawn,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_floorPlan_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_floorPlan,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_patrolRoute_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_patrolRoute,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_currentPathIndex,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_isAscendingPath,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::NewProp_TargetLocation,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::StaticCppClassTypeInfo = {
@@ -94,11 +191,11 @@ void EmptyLinkFunctionForGeneratedCodeBehaviorTreeTaskTest() {}
 		nullptr,
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_UBehaviorTreeTaskTest_Statics::PropPointers),
 		0,
 		0x001000A0u,
@@ -125,9 +222,9 @@ void EmptyLinkFunctionForGeneratedCodeBehaviorTreeTaskTest() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_BehaviorTreeTaskTest_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UBehaviorTreeTaskTest, UBehaviorTreeTaskTest::StaticClass, TEXT("UBehaviorTreeTaskTest"), &Z_Registration_Info_UClass_UBehaviorTreeTaskTest, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBehaviorTreeTaskTest), 3837123334U) },
+		{ Z_Construct_UClass_UBehaviorTreeTaskTest, UBehaviorTreeTaskTest::StaticClass, TEXT("UBehaviorTreeTaskTest"), &Z_Registration_Info_UClass_UBehaviorTreeTaskTest, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBehaviorTreeTaskTest), 485223972U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_BehaviorTreeTaskTest_h_1535058144(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_BehaviorTreeTaskTest_h_3826247543(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_BehaviorTreeTaskTest_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_BehaviorTreeTaskTest_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

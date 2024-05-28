@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FFloorEnemyPawnCompleteData;
 #ifdef DESENTINTOATLANTIS_FloorManager_generated_h
 #error "FloorManager.generated.h already included, missing '#pragma once' in FloorManager.h"
 #endif
@@ -20,7 +21,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorManager_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execPlacePlayerAtFloorStartingNode); \
-	DECLARE_FUNCTION(execLoadNextLevel);
+	DECLARE_FUNCTION(execLoadNextLevel); \
+	DECLARE_FUNCTION(execSpawnEnemyPawn);
 
 
 #define FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_FloorManager_h_25_ACCESSORS
