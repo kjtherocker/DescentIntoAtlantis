@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FCompleteFloorPawnData;
 #ifdef DESENTINTOATLANTIS_BehaviorTreeTaskTest_generated_h
 #error "BehaviorTreeTaskTest.generated.h already included, missing '#pragma once' in BehaviorTreeTaskTest.h"
 #endif

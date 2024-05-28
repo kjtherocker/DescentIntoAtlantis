@@ -9,6 +9,7 @@
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "LevelProgressionSubsystem.generated.h"
 
+class AAtlantisGameModeBase;
 class UInteractableView;
 class FPlayerHasMoved;
 class FNodeHasBeenWalkedOn;

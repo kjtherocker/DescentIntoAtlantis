@@ -27,8 +27,13 @@ EBTNodeResult::Type UBehaviorTreeTaskTest::ExecuteTask(UBehaviorTreeComponent& O
 	return EBTNodeResult::InProgress;
 }
 
-void UBehaviorTreeTaskTest::ActivateBehavior()
+void UBehaviorTreeTaskTest::ActivateBehavior(FCompleteFloorPawnData aPlayerCompleteFloorData)
 {
+	if(aPlayerCompleteFloorData.currentNodePositionInGrid == patrolRoute[currentPathIndex]->floorNodeData.positionInGrid)
+	{
+		enemyFloorPawn->ActivateCombat();
+	}
+	
 	currentPathIndex += isAscendingPath ? -1 : +1;
 	
 	if(currentPathIndex >= patrolRoute.Num() - 1)
@@ -43,6 +48,10 @@ void UBehaviorTreeTaskTest::ActivateBehavior()
 	}
 	
 	enemyFloorPawn->SetNodeToMoveTowards(patrolRoute[currentPathIndex]);
+	if(aPlayerCompleteFloorData.currentNodePositionInGrid == patrolRoute[currentPathIndex]->floorNodeData.positionInGrid)
+	{
+		enemyFloorPawn->ActivateCombat();
+	}
  }
 
 void UBehaviorTreeTaskTest::CalculateDistance()
@@ -52,9 +61,6 @@ void UBehaviorTreeTaskTest::CalculateDistance()
 
 	FVector2D GoalPosition             = enemyFloorPawn->enemyPawnCompleteData.enemyPatrolPath.EndPath;
 	FVector2D startPosition            = enemyFloorPawn->enemyPawnCompleteData.enemyPatrolPath.StartPath;
-	
-	FVector2D travelToPosition         = enemyFloorPawn->enemyPawnCompleteData.enemyPatrolPath.StartPath;
-	FVector2d currentPositionInTravel  = travelToPosition;
 	
 	AFloorNode* goalFloorNode          = floorManager->GetNode(GoalPosition);
 	AFloorNode* startFloorNode         = floorManager->GetNode(startPosition);

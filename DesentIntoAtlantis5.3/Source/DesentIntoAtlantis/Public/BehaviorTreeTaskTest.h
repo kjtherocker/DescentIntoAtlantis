@@ -39,7 +39,7 @@ class DESENTINTOATLANTIS_API UBehaviorTreeTaskTest : public UBTTaskNode
 public:
 
 	UFUNCTION()
-	void ActivateBehavior();
+	void ActivateBehavior(FCompleteFloorPawnData aPlayerCompleteFloorData);
 
 	void CalculateDistance();
 	UPROPERTY(EditAnywhere, Category = "Blackboard")

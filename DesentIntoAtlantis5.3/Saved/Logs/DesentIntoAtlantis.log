@@ -2500,3 +2500,1114 @@ LogConfig: Set CVar [[r.Shadow.DetectVertexShaderLayerAtRuntime:1]]
 [2024.05.28-18.06.37:027][300]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=14
 [2024.05.28-18.06.37:042][300]LogUObjectHash: Compacting FUObjectHashTables data took   1.45ms
 [2024.05.28-18.06.37:077][301]LogPlayLevel: Display: Destroying online subsystem :Context_24
+[2024.05.28-18.17.55:039][515]LogLiveCoding: Display: Starting Live Coding compile.
+[2024.05.28-18.18.11:709][823]LogLiveCoding: Display:    Creating library C:\Users\kylej\Desktop\DescentIntoAtlantis\DesentIntoAtlantis5.3\Binaries\Win64\UnrealEditor-DesentIntoAtlantis.patch_6.lib and object C:\Users\kylej\Desktop\DescentIntoAtlantis\DesentIntoAtlantis5.3\Binaries\Win64\UnrealEditor-DesentIntoAtlantis.patch_6.exp
+[2024.05.28-18.18.12:071][829]LogClass: UPackage /Script/DesentIntoAtlantis Reload.
+[2024.05.28-18.18.12:074][829]LogClass: UClass BehaviorTreeTaskTest Reload.
+[2024.05.28-18.18.12:176][829]LogClass: Could not find existing class BehaviorTreeTaskTest in package /Script/DesentIntoAtlantis for reload, assuming new or modified class
+[2024.05.28-18.18.12:176][829]LogClass: Function ActivateBehavior is new or belongs to a modified class.
+[2024.05.28-18.18.12:252][829]Re-instancing BehaviorTreeTaskTest after reload.
+[2024.05.28-18.18.12:388][829]LogUObjectHash: Compacting FUObjectHashTables data took   1.33ms
+[2024.05.28-18.18.13:042][830]Display: Reload/Re-instancing Complete: 1 package changed, 1 class changed, 67 classes unchanged, 24 enums unchanged, 13 scriptstructs unchanged, 46 functions remapped, 32 scriptstructs remapped
+[2024.05.28-18.18.13:042][830]LogLiveCoding: Warning: Live coding succeeded, data type changes may cause packaging to fail if assets reference the new or updated data types
+[2024.05.28-18.18.14:125][887]LogDebuggerCommands: Repeating last play command: New Editor Window (PIE)
+[2024.05.28-18.18.14:135][887]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2024.05.28-18.18.14:135][887]PIE: New page: PIE session: MainMenu (May 28, 2024, 10:18:14 AM)
+[2024.05.28-18.18.14:135][887]LogPlayLevel: Creating play world package: /Game/Map/UEDPIE_0_MainMenu
+[2024.05.28-18.18.14:136][887]LogPlayLevel: PIE: StaticDuplicateObject took: (0.000868s)
+[2024.05.28-18.18.14:136][887]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Map/MainMenu.MainMenu to /Game/Map/UEDPIE_0_MainMenu.MainMenu (0.001064s)
+[2024.05.28-18.18.14:195][887]LogUObjectHash: Compacting FUObjectHashTables data took   1.54ms
+[2024.05.28-18.18.14:197][887]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.18.14:197][887]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.18.14:198][887]LogAIModule: Creating AISystem for world MainMenu
+[2024.05.28-18.18.14:198][887]LogPlayLevel: PIE: World Init took: (0.001313s)
+[2024.05.28-18.18.14:198][887]LogAudio: Display: Creating Audio Device:                 Id: 15, Scope: Unique, Realtime: True
+[2024.05.28-18.18.14:198][887]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2024.05.28-18.18.14:198][887]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2024.05.28-18.18.14:199][887]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2024.05.28-18.18.14:199][887]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2024.05.28-18.18.14:199][887]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2024.05.28-18.18.14:199][887]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2024.05.28-18.18.14:199][887]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2024.05.28-18.18.14:199][887]LogAudio: Display: AudioDevice MaxSources: 32
+[2024.05.28-18.18.14:199][887]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2024.05.28-18.18.14:200][887]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2024.05.28-18.18.14:200][887]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2024.05.28-18.18.14:202][887]LogAudioMixer: Display: Initializing audio mixer using platform API: 'XAudio2'
+[2024.05.28-18.18.14:236][887]LogAudioMixer: Display: Using Audio Hardware Device Speakers (6- USB Audio Device)
+[2024.05.28-18.18.14:237][887]LogAudioMixer: Display: Initializing Sound Submixes...
+[2024.05.28-18.18.14:237][887]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2024.05.28-18.18.14:237][887]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2024.05.28-18.18.14:238][887]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called. InstanceID=15
+[2024.05.28-18.18.14:238][887]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=15
+[2024.05.28-18.18.14:240][887]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=15
+[2024.05.28-18.18.14:240][887]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time. InstanceID=15
+[2024.05.28-18.18.14:240][887]LogInit: FAudioDevice initialized with ID 15.
+[2024.05.28-18.18.14:240][887]LogAudio: Display: Audio Device (ID: 15) registered with world 'MainMenu'.
+[2024.05.28-18.18.14:241][887]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 15
+[2024.05.28-18.18.14:283][887]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2024.05.28-18.18.14:283][887]LogLoad: Game class is 'BP_MainMenuGameMode_C'
+[2024.05.28-18.18.14:284][887]LogWorld: Bringing World /Game/Map/UEDPIE_0_MainMenu.MainMenu up for play (max tick rate 0) at 2024.05.28-14.18.14
+[2024.05.28-18.18.14:284][887]LogWorld: Bringing up level for play took: 0.000489
+[2024.05.28-18.18.14:287][887]LogOnline: OSS: Created online subsystem instance for: :Context_25
+[2024.05.28-18.18.14:293][887]PIE: Server logged in
+[2024.05.28-18.18.14:296][887]PIE: Play in editor total start time 0.161 seconds.
+[2024.05.28-18.18.14:342][887]LogViewport: Scene viewport resized to 1914x1000, mode Windowed.
+[2024.05.28-18.18.16:226][ 32]LogNet: Browse: /Game/Map/Prison_Floor1
+[2024.05.28-18.18.16:226][ 32]LogLoad: LoadMap: /Game/Map/Prison_Floor1
+[2024.05.28-18.18.16:226][ 32]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_MainMenu
+[2024.05.28-18.18.16:227][ 32]LogWorld: UWorld::CleanupWorld for MainMenu, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.18.16:227][ 32]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.18.16:263][ 32]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.18.16:284][ 32]LogUObjectHash: Compacting FUObjectHashTables data took   1.60ms
+[2024.05.28-18.18.16:311][ 32]LogAudio: Display: Audio Device (ID: 15) registered with world 'Prison_Floor1'.
+[2024.05.28-18.18.16:311][ 32]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.18.16:311][ 32]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.18.16:312][ 32]LogAIModule: Creating AISystem for world Prison_Floor1
+[2024.05.28-18.18.16:313][ 32]LogWorldPartition: ULevel::OnLevelLoaded(Prison_Floor1)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=1)
+[2024.05.28-18.18.16:313][ 32]LogWorldPartition: Display: WorldPartition initialize started...
+[2024.05.28-18.18.16:313][ 32]LogWorldPartition: UWorldPartition::Initialize : World = Prison_Floor1, World Type = PIE, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 0, IsGame = 0, IsPIEWorldTravel = 1, IsCooking = 0
+[2024.05.28-18.18.16:313][ 32]LogWorldPartition: UWorldPartition::Initialize Context : World NetMode = Standalone, IsServer = 0, IsDedicatedServer = 0, IsServerStreamingEnabled = 0, IsServerStreamingOutEnabled = 0, IsUsingMakingVisibleTransaction = 0, IsUsingMakingInvisibleTransaction = 0
+[2024.05.28-18.18.16:315][ 32]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' started...
+[2024.05.28-18.18.16:367][ 32]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' took 51 ms (total: 791 ms)
+[2024.05.28-18.18.16:369][ 32]LogContentBundle: [Prison_Floor1(Standalone)] Creating new contrainer.
+[2024.05.28-18.18.16:369][ 32]LogWorldPartition: Display: WorldPartition initialize took 56 ms (total: 871 ms)
+[2024.05.28-18.18.16:369][ 32]LogPlayLevel: PIE: World Init took: (0.058153s)
+[2024.05.28-18.18.16:369][ 32]LogLoad: Game class is 'BP_FloorGameMode_C'
+[2024.05.28-18.18.16:384][ 32]LogWorld: Bringing World /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1 up for play (max tick rate 0) at 2024.05.28-14.18.16
+[2024.05.28-18.18.16:384][ 32]LogWorld: Bringing up level for play took: 0.014562
+[2024.05.28-18.18.16:385][ 32]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.18.16:470][ 32]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_C_0.Cube has a component set to zero, which will result in a bad body instance. Scale:X=4.000 Y=0.000 Z=4.000
+[2024.05.28-18.18.16:477][ 32]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_GEN_VARIABLE_EventTrigger_SharkFiend_C_CAT_1.Cube has a component set to zero, which will result in a bad body instance. Scale:X=1.600 Y=0.000 Z=1.600
+[2024.05.28-18.18.16:478][ 32]LogSkeletalMesh: Error: Material with missing usage flag was applied to skeletal mesh /Game/Objects/Models/PrisonCell/prisonCell19.prisonCell19
+[2024.05.28-18.18.16:484][ 32]LogLoad: Took 0.257700 seconds to LoadMap(/Game/Map/Prison_Floor1)
+[2024.05.28-18.18.19:959][226]LogNet: Browse: /Game/Map/PrisonCombat
+[2024.05.28-18.18.19:959][226]LogLoad: LoadMap: /Game/Map/PrisonCombat
+[2024.05.28-18.18.19:959][226]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_Prison_Floor1
+[2024.05.28-18.18.19:962][226]LogWorld: UWorld::CleanupWorld for Prison_Floor1, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.18.19:964][226]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.18.19:965][226]LogContentBundle: [Prison_Floor1(Standalone)] Deleting container.
+[2024.05.28-18.18.19:979][226]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.18.19:987][226]LogUObjectHash: Compacting FUObjectHashTables data took   1.12ms
+[2024.05.28-18.18.20:116][226]LogAudio: Display: Audio Device (ID: 15) registered with world 'PrisonCombat'.
+[2024.05.28-18.18.20:117][226]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.18.20:117][226]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.18.20:118][226]LogAIModule: Creating AISystem for world PrisonCombat
+[2024.05.28-18.18.20:120][226]LogPlayLevel: PIE: World Init took: (0.002992s)
+[2024.05.28-18.18.20:120][226]LogLoad: Game class is 'BP_CombatGameMode_C'
+[2024.05.28-18.18.20:121][226]LogStaticMesh: Display: Waiting on static mesh StaticMesh /Game/Objects/TwilightsCallModels/EditedWall.EditedWall being ready before playing
+[2024.05.28-18.18.20:121][226]LogStaticMesh: Display: Waiting on static mesh StaticMesh /Engine/MapTemplates/Sky/SM_SkySphere.SM_SkySphere being ready before playing
+[2024.05.28-18.18.20:138][226]LogWorld: Bringing World /Game/Map/UEDPIE_0_PrisonCombat.PrisonCombat up for play (max tick rate 0) at 2024.05.28-14.18.20
+[2024.05.28-18.18.20:139][226]LogWorld: Bringing up level for play took: 0.010168
+[2024.05.28-18.18.20:139][226]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.18.20:146][226]LogLoad: Took 0.187429 seconds to LoadMap(/Game/Map/PrisonCombat)
+[2024.05.28-18.18.20:324][227]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.18.26:149][541]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2024.05.28-18.18.26:149][541]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_PrisonCombat
+[2024.05.28-18.18.26:150][541]LogSlate: Window 'DesentIntoAtlantis Preview [NetMode: Standalone 0]  (64-bit/PC D3D SM5)' being destroyed
+[2024.05.28-18.18.26:156][541]LogWorld: UWorld::CleanupWorld for PrisonCombat, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.18.26:157][541]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.18.26:160][541]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2024.05.28-18.18.26:165][541]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.18.26:177][541]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.18.26:178][541]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 15
+[2024.05.28-18.18.26:178][541]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=15
+[2024.05.28-18.18.26:180][541]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=15
+[2024.05.28-18.18.26:187][541]LogUObjectHash: Compacting FUObjectHashTables data took   1.17ms
+[2024.05.28-18.18.26:222][542]LogPlayLevel: Display: Destroying online subsystem :Context_25
+[2024.05.28-18.18.27:495][652]LogDebuggerCommands: Repeating last play command: New Editor Window (PIE)
+[2024.05.28-18.18.27:505][652]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2024.05.28-18.18.27:505][652]PIE: New page: PIE session: MainMenu (May 28, 2024, 10:18:27 AM)
+[2024.05.28-18.18.27:505][652]LogPlayLevel: Creating play world package: /Game/Map/UEDPIE_0_MainMenu
+[2024.05.28-18.18.27:506][652]LogPlayLevel: PIE: StaticDuplicateObject took: (0.001084s)
+[2024.05.28-18.18.27:506][652]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Map/MainMenu.MainMenu to /Game/Map/UEDPIE_0_MainMenu.MainMenu (0.001351s)
+[2024.05.28-18.18.27:518][652]LogUObjectHash: Compacting FUObjectHashTables data took   1.10ms
+[2024.05.28-18.18.27:520][652]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.18.27:521][652]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.18.27:521][652]LogAIModule: Creating AISystem for world MainMenu
+[2024.05.28-18.18.27:522][652]LogPlayLevel: PIE: World Init took: (0.001337s)
+[2024.05.28-18.18.27:522][652]LogAudio: Display: Creating Audio Device:                 Id: 16, Scope: Unique, Realtime: True
+[2024.05.28-18.18.27:522][652]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2024.05.28-18.18.27:522][652]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2024.05.28-18.18.27:522][652]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2024.05.28-18.18.27:522][652]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2024.05.28-18.18.27:523][652]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2024.05.28-18.18.27:523][652]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2024.05.28-18.18.27:523][652]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2024.05.28-18.18.27:523][652]LogAudio: Display: AudioDevice MaxSources: 32
+[2024.05.28-18.18.27:523][652]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2024.05.28-18.18.27:524][652]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2024.05.28-18.18.27:524][652]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2024.05.28-18.18.27:526][652]LogAudioMixer: Display: Initializing audio mixer using platform API: 'XAudio2'
+[2024.05.28-18.18.27:561][652]LogAudioMixer: Display: Using Audio Hardware Device Speakers (6- USB Audio Device)
+[2024.05.28-18.18.27:561][652]LogAudioMixer: Display: Initializing Sound Submixes...
+[2024.05.28-18.18.27:561][652]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2024.05.28-18.18.27:561][652]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2024.05.28-18.18.27:562][652]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called. InstanceID=16
+[2024.05.28-18.18.27:562][652]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=16
+[2024.05.28-18.18.27:565][652]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=16
+[2024.05.28-18.18.27:565][652]LogInit: FAudioDevice initialized with ID 16.
+[2024.05.28-18.18.27:565][652]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time. InstanceID=16
+[2024.05.28-18.18.27:565][652]LogAudio: Display: Audio Device (ID: 16) registered with world 'MainMenu'.
+[2024.05.28-18.18.27:565][652]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 16
+[2024.05.28-18.18.27:617][652]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2024.05.28-18.18.27:617][652]LogLoad: Game class is 'BP_MainMenuGameMode_C'
+[2024.05.28-18.18.27:618][652]LogWorld: Bringing World /Game/Map/UEDPIE_0_MainMenu.MainMenu up for play (max tick rate 0) at 2024.05.28-14.18.27
+[2024.05.28-18.18.27:618][652]LogWorld: Bringing up level for play took: 0.000529
+[2024.05.28-18.18.27:621][652]LogOnline: OSS: Created online subsystem instance for: :Context_27
+[2024.05.28-18.18.27:626][652]PIE: Server logged in
+[2024.05.28-18.18.27:630][652]PIE: Play in editor total start time 0.125 seconds.
+[2024.05.28-18.18.27:655][652]LogViewport: Scene viewport resized to 1914x1000, mode Windowed.
+[2024.05.28-18.18.29:186][771]LogNet: Browse: /Game/Map/Prison_Floor1
+[2024.05.28-18.18.29:186][771]LogLoad: LoadMap: /Game/Map/Prison_Floor1
+[2024.05.28-18.18.29:186][771]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_MainMenu
+[2024.05.28-18.18.29:187][771]LogWorld: UWorld::CleanupWorld for MainMenu, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.18.29:187][771]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.18.29:219][771]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.18.29:221][771]LogUObjectHash: Compacting FUObjectHashTables data took   1.15ms
+[2024.05.28-18.18.29:237][771]LogAudio: Display: Audio Device (ID: 16) registered with world 'Prison_Floor1'.
+[2024.05.28-18.18.29:237][771]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.18.29:237][771]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.18.29:238][771]LogAIModule: Creating AISystem for world Prison_Floor1
+[2024.05.28-18.18.29:238][771]LogWorldPartition: ULevel::OnLevelLoaded(Prison_Floor1)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=1)
+[2024.05.28-18.18.29:238][771]LogWorldPartition: Display: WorldPartition initialize started...
+[2024.05.28-18.18.29:238][771]LogWorldPartition: UWorldPartition::Initialize : World = Prison_Floor1, World Type = PIE, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 0, IsGame = 0, IsPIEWorldTravel = 1, IsCooking = 0
+[2024.05.28-18.18.29:239][771]LogWorldPartition: UWorldPartition::Initialize Context : World NetMode = Standalone, IsServer = 0, IsDedicatedServer = 0, IsServerStreamingEnabled = 0, IsServerStreamingOutEnabled = 0, IsUsingMakingVisibleTransaction = 0, IsUsingMakingInvisibleTransaction = 0
+[2024.05.28-18.18.29:241][771]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' started...
+[2024.05.28-18.18.29:292][771]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' took 51 ms (total: 842 ms)
+[2024.05.28-18.18.29:295][771]LogContentBundle: [Prison_Floor1(Standalone)] Creating new contrainer.
+[2024.05.28-18.18.29:295][771]LogWorldPartition: Display: WorldPartition initialize took 56 ms (total: 928 ms)
+[2024.05.28-18.18.29:295][771]LogPlayLevel: PIE: World Init took: (0.058082s)
+[2024.05.28-18.18.29:295][771]LogLoad: Game class is 'BP_FloorGameMode_C'
+[2024.05.28-18.18.29:310][771]LogWorld: Bringing World /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1 up for play (max tick rate 0) at 2024.05.28-14.18.29
+[2024.05.28-18.18.29:310][771]LogWorld: Bringing up level for play took: 0.014794
+[2024.05.28-18.18.29:311][771]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.18.29:396][771]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_C_0.Cube has a component set to zero, which will result in a bad body instance. Scale:X=4.000 Y=0.000 Z=4.000
+[2024.05.28-18.18.29:403][771]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_GEN_VARIABLE_EventTrigger_SharkFiend_C_CAT_1.Cube has a component set to zero, which will result in a bad body instance. Scale:X=1.600 Y=0.000 Z=1.600
+[2024.05.28-18.18.29:404][771]LogSkeletalMesh: Error: Material with missing usage flag was applied to skeletal mesh /Game/Objects/Models/PrisonCell/prisonCell19.prisonCell19
+[2024.05.28-18.18.29:409][771]LogLoad: Took 0.223089 seconds to LoadMap(/Game/Map/Prison_Floor1)
+[2024.05.28-18.18.47:066][106]LogNet: Browse: /Game/Map/PrisonCombat
+[2024.05.28-18.18.47:067][106]LogLoad: LoadMap: /Game/Map/PrisonCombat
+[2024.05.28-18.18.47:067][106]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_Prison_Floor1
+[2024.05.28-18.18.47:070][106]LogWorld: UWorld::CleanupWorld for Prison_Floor1, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.18.47:072][106]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.18.47:073][106]LogContentBundle: [Prison_Floor1(Standalone)] Deleting container.
+[2024.05.28-18.18.47:091][106]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.18.47:102][106]LogUObjectHash: Compacting FUObjectHashTables data took   1.23ms
+[2024.05.28-18.18.47:109][106]LogAudio: Display: Audio Device (ID: 16) registered with world 'PrisonCombat'.
+[2024.05.28-18.18.47:109][106]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.18.47:109][106]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.18.47:110][106]LogAIModule: Creating AISystem for world PrisonCombat
+[2024.05.28-18.18.47:110][106]LogPlayLevel: PIE: World Init took: (0.001289s)
+[2024.05.28-18.18.47:111][106]LogLoad: Game class is 'BP_CombatGameMode_C'
+[2024.05.28-18.18.47:120][106]LogWorld: Bringing World /Game/Map/UEDPIE_0_PrisonCombat.PrisonCombat up for play (max tick rate 0) at 2024.05.28-14.18.47
+[2024.05.28-18.18.47:120][106]LogWorld: Bringing up level for play took: 0.008813
+[2024.05.28-18.18.47:120][106]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.18.47:126][106]LogLoad: Took 0.060330 seconds to LoadMap(/Game/Map/PrisonCombat)
+[2024.05.28-18.19.05:862][442]LogViewport: Scene viewport resized to 1369x458, mode Windowed.
+[2024.05.28-18.19.07:091][445]LogViewport: Scene viewport resized to 1369x442, mode Windowed.
+[2024.05.28-18.19.07:429][445]LogViewport: Scene viewport resized to 1369x438, mode Windowed.
+[2024.05.28-18.20.03:589][695]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2024.05.28-18.20.03:589][695]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_PrisonCombat
+[2024.05.28-18.20.03:590][695]LogSlate: Window 'DesentIntoAtlantis Preview [NetMode: Standalone 0]  (64-bit/PC D3D SM5)' being destroyed
+[2024.05.28-18.20.03:602][695]LogWorld: UWorld::CleanupWorld for PrisonCombat, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.20.03:602][695]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.20.03:605][695]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2024.05.28-18.20.03:610][695]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.20.03:628][695]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 16
+[2024.05.28-18.20.03:628][695]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=16
+[2024.05.28-18.20.03:631][695]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=16
+[2024.05.28-18.20.03:641][695]LogUObjectHash: Compacting FUObjectHashTables data took   1.71ms
+[2024.05.28-18.20.03:882][696]LogPlayLevel: Display: Destroying online subsystem :Context_27
+[2024.05.28-18.21.47:922][603]LogAssetEditorSubsystem: Opening Asset editor for DataTable /Game/Datatables/Atlantis_-_EnemyGroup.Atlantis_-_EnemyGroup
+[2024.05.28-18.21.53:223][202]LogAssetEditorSubsystem: Opening Asset editor for DataTable /Game/Datatables/Atlantis_-_Floor.Atlantis_-_Floor
+[2024.05.28-18.22.05:600][501]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2024.05.28-18.22.05:655][501]LogSavePackage: Moving output files for package: /Game/Datatables/Atlantis_-_Floor
+[2024.05.28-18.22.05:656][501]LogSavePackage: Moving '../../../../../../Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Saved/Atlantis_-_Floor41397ED848E48E3CE3B405A7E142D472.tmp' to '../../../../../../Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Datatables/Atlantis_-_Floor.uasset'
+[2024.05.28-18.22.05:667][501]LogFileHelpers: InternalPromptForCheckoutAndSave took 66 ms (total: 490 ms)
+[2024.05.28-18.22.05:669][501]AssetCheck: New page: Asset Save: Atlantis_-_Floor
+[2024.05.28-18.22.05:670][501]LogContentValidation: Display: Validating /Script/Engine.DataTable /Game/Datatables/Atlantis_-_Floor.Atlantis_-_Floor
+[2024.05.28-18.22.43:041][954]LogLiveCoding: Display: Starting Live Coding compile.
+[2024.05.28-18.22.55:104][125]LogLiveCoding: Display:    Creating library C:\Users\kylej\Desktop\DescentIntoAtlantis\DesentIntoAtlantis5.3\Binaries\Win64\UnrealEditor-DesentIntoAtlantis.patch_7.lib and object C:\Users\kylej\Desktop\DescentIntoAtlantis\DesentIntoAtlantis5.3\Binaries\Win64\UnrealEditor-DesentIntoAtlantis.patch_7.exp
+[2024.05.28-18.22.55:604][126]LogUObjectHash: Compacting FUObjectHashTables data took   1.31ms
+[2024.05.28-18.22.56:151][127]Display: Reload/Re-instancing Complete: 20 classes unchanged, 11 enums unchanged, 1 scriptstruct unchanged, 4 functions remapped, 32 scriptstructs remapped
+[2024.05.28-18.22.56:151][127]LogLiveCoding: Display: Live coding succeeded
+[2024.05.28-18.22.59:171][136]LogDebuggerCommands: Repeating last play command: New Editor Window (PIE)
+[2024.05.28-18.22.59:181][136]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2024.05.28-18.22.59:181][136]PIE: New page: PIE session: MainMenu (May 28, 2024, 10:22:59 AM)
+[2024.05.28-18.22.59:182][136]LogPlayLevel: Creating play world package: /Game/Map/UEDPIE_0_MainMenu
+[2024.05.28-18.22.59:183][136]LogPlayLevel: PIE: StaticDuplicateObject took: (0.000878s)
+[2024.05.28-18.22.59:183][136]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Map/MainMenu.MainMenu to /Game/Map/UEDPIE_0_MainMenu.MainMenu (0.001172s)
+[2024.05.28-18.22.59:248][136]LogUObjectHash: Compacting FUObjectHashTables data took   1.74ms
+[2024.05.28-18.22.59:250][136]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.22.59:250][136]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.22.59:251][136]LogAIModule: Creating AISystem for world MainMenu
+[2024.05.28-18.22.59:251][136]LogPlayLevel: PIE: World Init took: (0.001541s)
+[2024.05.28-18.22.59:252][136]LogAudio: Display: Creating Audio Device:                 Id: 17, Scope: Unique, Realtime: True
+[2024.05.28-18.22.59:252][136]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2024.05.28-18.22.59:252][136]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2024.05.28-18.22.59:252][136]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2024.05.28-18.22.59:252][136]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2024.05.28-18.22.59:252][136]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2024.05.28-18.22.59:252][136]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2024.05.28-18.22.59:252][136]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2024.05.28-18.22.59:252][136]LogAudio: Display: AudioDevice MaxSources: 32
+[2024.05.28-18.22.59:253][136]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2024.05.28-18.22.59:253][136]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2024.05.28-18.22.59:253][136]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2024.05.28-18.22.59:255][136]LogAudioMixer: Display: Initializing audio mixer using platform API: 'XAudio2'
+[2024.05.28-18.22.59:298][136]LogAudioMixer: Display: Using Audio Hardware Device Speakers (6- USB Audio Device)
+[2024.05.28-18.22.59:298][136]LogAudioMixer: Display: Initializing Sound Submixes...
+[2024.05.28-18.22.59:298][136]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2024.05.28-18.22.59:299][136]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2024.05.28-18.22.59:299][136]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called. InstanceID=17
+[2024.05.28-18.22.59:299][136]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=17
+[2024.05.28-18.22.59:301][136]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=17
+[2024.05.28-18.22.59:302][136]LogInit: FAudioDevice initialized with ID 17.
+[2024.05.28-18.22.59:302][136]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time. InstanceID=17
+[2024.05.28-18.22.59:302][136]LogAudio: Display: Audio Device (ID: 17) registered with world 'MainMenu'.
+[2024.05.28-18.22.59:302][136]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 17
+[2024.05.28-18.22.59:346][136]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2024.05.28-18.22.59:346][136]LogLoad: Game class is 'BP_MainMenuGameMode_C'
+[2024.05.28-18.22.59:347][136]LogWorld: Bringing World /Game/Map/UEDPIE_0_MainMenu.MainMenu up for play (max tick rate 0) at 2024.05.28-14.22.59
+[2024.05.28-18.22.59:347][136]LogWorld: Bringing up level for play took: 0.000601
+[2024.05.28-18.22.59:350][136]LogOnline: OSS: Created online subsystem instance for: :Context_28
+[2024.05.28-18.22.59:356][136]PIE: Server logged in
+[2024.05.28-18.22.59:360][136]PIE: Play in editor total start time 0.179 seconds.
+[2024.05.28-18.22.59:399][136]LogViewport: Scene viewport resized to 1914x1000, mode Windowed.
+[2024.05.28-18.23.05:474][835]LogNet: Browse: /Game/Map/Prison_Floor1
+[2024.05.28-18.23.05:474][835]LogLoad: LoadMap: /Game/Map/Prison_Floor1
+[2024.05.28-18.23.05:474][835]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_MainMenu
+[2024.05.28-18.23.05:475][835]LogWorld: UWorld::CleanupWorld for MainMenu, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.23.05:476][835]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.23.05:518][835]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.23.05:543][835]LogUObjectHash: Compacting FUObjectHashTables data took   1.87ms
+[2024.05.28-18.23.05:572][835]LogAudio: Display: Audio Device (ID: 17) registered with world 'Prison_Floor1'.
+[2024.05.28-18.23.05:573][835]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.23.05:573][835]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.23.05:573][835]LogAIModule: Creating AISystem for world Prison_Floor1
+[2024.05.28-18.23.05:574][835]LogWorldPartition: ULevel::OnLevelLoaded(Prison_Floor1)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=1)
+[2024.05.28-18.23.05:574][835]LogWorldPartition: Display: WorldPartition initialize started...
+[2024.05.28-18.23.05:574][835]LogWorldPartition: UWorldPartition::Initialize : World = Prison_Floor1, World Type = PIE, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 0, IsGame = 0, IsPIEWorldTravel = 1, IsCooking = 0
+[2024.05.28-18.23.05:574][835]LogWorldPartition: UWorldPartition::Initialize Context : World NetMode = Standalone, IsServer = 0, IsDedicatedServer = 0, IsServerStreamingEnabled = 0, IsServerStreamingOutEnabled = 0, IsUsingMakingVisibleTransaction = 0, IsUsingMakingInvisibleTransaction = 0
+[2024.05.28-18.23.05:576][835]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' started...
+[2024.05.28-18.23.05:628][835]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' took 51 ms (total: 894 ms)
+[2024.05.28-18.23.05:631][835]LogContentBundle: [Prison_Floor1(Standalone)] Creating new contrainer.
+[2024.05.28-18.23.05:631][835]LogWorldPartition: Display: WorldPartition initialize took 56 ms (total: 984 ms)
+[2024.05.28-18.23.05:631][835]LogPlayLevel: PIE: World Init took: (0.058409s)
+[2024.05.28-18.23.05:631][835]LogLoad: Game class is 'BP_FloorGameMode_C'
+[2024.05.28-18.23.05:646][835]LogWorld: Bringing World /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1 up for play (max tick rate 0) at 2024.05.28-14.23.05
+[2024.05.28-18.23.05:647][835]LogWorld: Bringing up level for play took: 0.014862
+[2024.05.28-18.23.05:647][835]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.23.05:731][835]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_C_0.Cube has a component set to zero, which will result in a bad body instance. Scale:X=4.000 Y=0.000 Z=4.000
+[2024.05.28-18.23.05:739][835]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_GEN_VARIABLE_EventTrigger_SharkFiend_C_CAT_1.Cube has a component set to zero, which will result in a bad body instance. Scale:X=1.600 Y=0.000 Z=1.600
+[2024.05.28-18.23.05:740][835]LogSkeletalMesh: Error: Material with missing usage flag was applied to skeletal mesh /Game/Objects/Models/PrisonCell/prisonCell19.prisonCell19
+[2024.05.28-18.23.05:745][835]LogLoad: Took 0.270407 seconds to LoadMap(/Game/Map/Prison_Floor1)
+[2024.05.28-18.23.11:025][249]LogNet: Browse: /Game/Map/PrisonCombat
+[2024.05.28-18.23.11:025][249]LogLoad: LoadMap: /Game/Map/PrisonCombat
+[2024.05.28-18.23.11:025][249]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_Prison_Floor1
+[2024.05.28-18.23.11:027][249]LogWorld: UWorld::CleanupWorld for Prison_Floor1, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.23.11:029][249]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.23.11:030][249]LogContentBundle: [Prison_Floor1(Standalone)] Deleting container.
+[2024.05.28-18.23.11:045][249]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.23.11:053][249]LogUObjectHash: Compacting FUObjectHashTables data took   1.20ms
+[2024.05.28-18.23.11:064][249]LogAudio: Display: Audio Device (ID: 17) registered with world 'PrisonCombat'.
+[2024.05.28-18.23.11:064][249]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.23.11:064][249]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.23.11:065][249]LogAIModule: Creating AISystem for world PrisonCombat
+[2024.05.28-18.23.11:065][249]LogPlayLevel: PIE: World Init took: (0.001160s)
+[2024.05.28-18.23.11:065][249]LogLoad: Game class is 'BP_CombatGameMode_C'
+[2024.05.28-18.23.11:074][249]LogWorld: Bringing World /Game/Map/UEDPIE_0_PrisonCombat.PrisonCombat up for play (max tick rate 0) at 2024.05.28-14.23.11
+[2024.05.28-18.23.11:074][249]LogWorld: Bringing up level for play took: 0.007962
+[2024.05.28-18.23.11:074][249]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.23.11:079][249]LogLoad: Took 0.055248 seconds to LoadMap(/Game/Map/PrisonCombat)
+[2024.05.28-18.23.12:534][394]LogShaderCompilers: Display: ================================================
+[2024.05.28-18.23.12:534][394]LogShaderCompilers: Display: === FShaderJobCache stats ===
+[2024.05.28-18.23.12:534][394]LogShaderCompilers: Display: Total job queries 49, among them cache hits 15 (30.61%)
+[2024.05.28-18.23.12:534][394]LogShaderCompilers: Display: Tracking 34 distinct input hashes that result in 28 distinct outputs (82.35%)
+[2024.05.28-18.23.12:534][394]LogShaderCompilers: Display: RAM used: 120.74 KiB of 1.60 GiB budget. Usage: 0.01%
+[2024.05.28-18.23.12:534][394]LogShaderCompilers: Display: === Shader Compilation stats ===
+[2024.05.28-18.23.12:534][394]LogShaderCompilers: Display: Shaders Compiled: 0
+[2024.05.28-18.23.12:535][394]LogShaderCompilers: Display: Jobs assigned 0, completed 0 (0%)
+[2024.05.28-18.23.12:535][394]LogShaderCompilers: Display: Time at least one job was in flight (either pending or executed): 0.00 s
+[2024.05.28-18.23.12:535][394]LogShaderCompilers: Display: ================================================
+[2024.05.28-18.23.30:518][910]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2024.05.28-18.23.30:518][910]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_PrisonCombat
+[2024.05.28-18.23.30:518][910]LogSlate: Window 'DesentIntoAtlantis Preview [NetMode: Standalone 0]  (64-bit/PC D3D SM5)' being destroyed
+[2024.05.28-18.23.30:525][910]LogWorld: UWorld::CleanupWorld for PrisonCombat, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.23.30:526][910]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.23.30:529][910]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2024.05.28-18.23.30:535][910]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.23.30:551][910]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 17
+[2024.05.28-18.23.30:552][910]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=17
+[2024.05.28-18.23.30:554][910]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=17
+[2024.05.28-18.23.30:562][910]LogUObjectHash: Compacting FUObjectHashTables data took   1.36ms
+[2024.05.28-18.23.30:806][911]LogPlayLevel: Display: Destroying online subsystem :Context_28
+[2024.05.28-18.25.11:579][214]LogLiveCoding: Display: Starting Live Coding compile.
+[2024.05.28-18.25.23:482][252]LogLiveCoding: Display:    Creating library C:\Users\kylej\Desktop\DescentIntoAtlantis\DesentIntoAtlantis5.3\Binaries\Win64\UnrealEditor-DesentIntoAtlantis.patch_8.lib and object C:\Users\kylej\Desktop\DescentIntoAtlantis\DesentIntoAtlantis5.3\Binaries\Win64\UnrealEditor-DesentIntoAtlantis.patch_8.exp
+[2024.05.28-18.25.23:972][253]LogUObjectHash: Compacting FUObjectHashTables data took   1.29ms
+[2024.05.28-18.25.24:510][254]Display: Reload/Re-instancing Complete: 20 classes unchanged, 11 enums unchanged, 1 scriptstruct unchanged, 4 functions remapped, 32 scriptstructs remapped
+[2024.05.28-18.25.24:510][254]LogLiveCoding: Display: Live coding succeeded
+[2024.05.28-18.25.26:278][413]LogDebuggerCommands: Repeating last play command: New Editor Window (PIE)
+[2024.05.28-18.25.26:287][413]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2024.05.28-18.25.26:288][413]PIE: New page: PIE session: MainMenu (May 28, 2024, 10:25:26 AM)
+[2024.05.28-18.25.26:288][413]LogPlayLevel: Creating play world package: /Game/Map/UEDPIE_0_MainMenu
+[2024.05.28-18.25.26:289][413]LogPlayLevel: PIE: StaticDuplicateObject took: (0.000908s)
+[2024.05.28-18.25.26:289][413]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Map/MainMenu.MainMenu to /Game/Map/UEDPIE_0_MainMenu.MainMenu (0.001119s)
+[2024.05.28-18.25.26:354][413]LogUObjectHash: Compacting FUObjectHashTables data took   1.54ms
+[2024.05.28-18.25.26:356][413]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.25.26:356][413]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.25.26:357][413]LogAIModule: Creating AISystem for world MainMenu
+[2024.05.28-18.25.26:357][413]LogPlayLevel: PIE: World Init took: (0.001442s)
+[2024.05.28-18.25.26:357][413]LogAudio: Display: Creating Audio Device:                 Id: 18, Scope: Unique, Realtime: True
+[2024.05.28-18.25.26:358][413]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2024.05.28-18.25.26:358][413]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2024.05.28-18.25.26:358][413]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2024.05.28-18.25.26:358][413]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2024.05.28-18.25.26:358][413]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2024.05.28-18.25.26:358][413]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2024.05.28-18.25.26:358][413]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2024.05.28-18.25.26:358][413]LogAudio: Display: AudioDevice MaxSources: 32
+[2024.05.28-18.25.26:359][413]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2024.05.28-18.25.26:359][413]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2024.05.28-18.25.26:359][413]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2024.05.28-18.25.26:362][413]LogAudioMixer: Display: Initializing audio mixer using platform API: 'XAudio2'
+[2024.05.28-18.25.26:400][413]LogAudioMixer: Display: Using Audio Hardware Device Speakers (6- USB Audio Device)
+[2024.05.28-18.25.26:400][413]LogAudioMixer: Display: Initializing Sound Submixes...
+[2024.05.28-18.25.26:400][413]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2024.05.28-18.25.26:400][413]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2024.05.28-18.25.26:401][413]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called. InstanceID=18
+[2024.05.28-18.25.26:401][413]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=18
+[2024.05.28-18.25.26:403][413]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=18
+[2024.05.28-18.25.26:403][413]LogInit: FAudioDevice initialized with ID 18.
+[2024.05.28-18.25.26:403][413]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time. InstanceID=18
+[2024.05.28-18.25.26:403][413]LogAudio: Display: Audio Device (ID: 18) registered with world 'MainMenu'.
+[2024.05.28-18.25.26:404][413]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 18
+[2024.05.28-18.25.26:438][413]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2024.05.28-18.25.26:439][413]LogLoad: Game class is 'BP_MainMenuGameMode_C'
+[2024.05.28-18.25.26:440][413]LogWorld: Bringing World /Game/Map/UEDPIE_0_MainMenu.MainMenu up for play (max tick rate 0) at 2024.05.28-14.25.26
+[2024.05.28-18.25.26:440][413]LogWorld: Bringing up level for play took: 0.000479
+[2024.05.28-18.25.26:442][413]LogOnline: OSS: Created online subsystem instance for: :Context_29
+[2024.05.28-18.25.26:448][413]PIE: Server logged in
+[2024.05.28-18.25.26:451][413]PIE: Play in editor total start time 0.164 seconds.
+[2024.05.28-18.25.26:489][413]LogViewport: Scene viewport resized to 1914x1000, mode Windowed.
+[2024.05.28-18.25.28:412][618]LogNet: Browse: /Game/Map/Prison_Floor1
+[2024.05.28-18.25.28:412][618]LogLoad: LoadMap: /Game/Map/Prison_Floor1
+[2024.05.28-18.25.28:412][618]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_MainMenu
+[2024.05.28-18.25.28:413][618]LogWorld: UWorld::CleanupWorld for MainMenu, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.25.28:413][618]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.25.28:460][618]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.25.28:487][618]LogUObjectHash: Compacting FUObjectHashTables data took   1.60ms
+[2024.05.28-18.25.28:517][618]LogAudio: Display: Audio Device (ID: 18) registered with world 'Prison_Floor1'.
+[2024.05.28-18.25.28:517][618]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.25.28:518][618]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.25.28:518][618]LogAIModule: Creating AISystem for world Prison_Floor1
+[2024.05.28-18.25.28:519][618]LogWorldPartition: ULevel::OnLevelLoaded(Prison_Floor1)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=1)
+[2024.05.28-18.25.28:519][618]LogWorldPartition: Display: WorldPartition initialize started...
+[2024.05.28-18.25.28:519][618]LogWorldPartition: UWorldPartition::Initialize : World = Prison_Floor1, World Type = PIE, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 0, IsGame = 0, IsPIEWorldTravel = 1, IsCooking = 0
+[2024.05.28-18.25.28:519][618]LogWorldPartition: UWorldPartition::Initialize Context : World NetMode = Standalone, IsServer = 0, IsDedicatedServer = 0, IsServerStreamingEnabled = 0, IsServerStreamingOutEnabled = 0, IsUsingMakingVisibleTransaction = 0, IsUsingMakingInvisibleTransaction = 0
+[2024.05.28-18.25.28:521][618]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' started...
+[2024.05.28-18.25.28:574][618]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' took 52 ms (total: 946 ms)
+[2024.05.28-18.25.28:576][618]LogContentBundle: [Prison_Floor1(Standalone)] Creating new contrainer.
+[2024.05.28-18.25.28:576][618]LogWorldPartition: Display: WorldPartition initialize took 57 ms (total: 1.04 sec)
+[2024.05.28-18.25.28:576][618]LogPlayLevel: PIE: World Init took: (0.059107s)
+[2024.05.28-18.25.28:576][618]LogLoad: Game class is 'BP_FloorGameMode_C'
+[2024.05.28-18.25.28:591][618]LogWorld: Bringing World /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1 up for play (max tick rate 0) at 2024.05.28-14.25.28
+[2024.05.28-18.25.28:592][618]LogWorld: Bringing up level for play took: 0.014673
+[2024.05.28-18.25.28:592][618]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.25.28:674][618]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_C_0.Cube has a component set to zero, which will result in a bad body instance. Scale:X=4.000 Y=0.000 Z=4.000
+[2024.05.28-18.25.28:682][618]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_GEN_VARIABLE_EventTrigger_SharkFiend_C_CAT_1.Cube has a component set to zero, which will result in a bad body instance. Scale:X=1.600 Y=0.000 Z=1.600
+[2024.05.28-18.25.28:683][618]LogSkeletalMesh: Error: Material with missing usage flag was applied to skeletal mesh /Game/Objects/Models/PrisonCell/prisonCell19.prisonCell19
+[2024.05.28-18.25.28:688][618]LogLoad: Took 0.276406 seconds to LoadMap(/Game/Map/Prison_Floor1)
+[2024.05.28-18.25.38:390][375]LogNet: Browse: /Game/Map/PrisonCombat
+[2024.05.28-18.25.38:390][375]LogLoad: LoadMap: /Game/Map/PrisonCombat
+[2024.05.28-18.25.38:390][375]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_Prison_Floor1
+[2024.05.28-18.25.38:394][375]LogWorld: UWorld::CleanupWorld for Prison_Floor1, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.25.38:395][375]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.25.38:396][375]LogContentBundle: [Prison_Floor1(Standalone)] Deleting container.
+[2024.05.28-18.25.38:410][375]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.25.38:420][375]LogUObjectHash: Compacting FUObjectHashTables data took   1.23ms
+[2024.05.28-18.25.38:430][375]LogAudio: Display: Audio Device (ID: 18) registered with world 'PrisonCombat'.
+[2024.05.28-18.25.38:431][375]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.25.38:431][375]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.25.38:431][375]LogAIModule: Creating AISystem for world PrisonCombat
+[2024.05.28-18.25.38:432][375]LogPlayLevel: PIE: World Init took: (0.001187s)
+[2024.05.28-18.25.38:432][375]LogLoad: Game class is 'BP_CombatGameMode_C'
+[2024.05.28-18.25.38:440][375]LogWorld: Bringing World /Game/Map/UEDPIE_0_PrisonCombat.PrisonCombat up for play (max tick rate 0) at 2024.05.28-14.25.38
+[2024.05.28-18.25.38:440][375]LogWorld: Bringing up level for play took: 0.007782
+[2024.05.28-18.25.38:440][375]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.25.38:445][375]LogLoad: Took 0.055230 seconds to LoadMap(/Game/Map/PrisonCombat)
+[2024.05.28-18.25.49:105][472]LogNet: Browse: /Game/Map/Prison_Floor1
+[2024.05.28-18.25.49:105][472]LogLoad: LoadMap: /Game/Map/Prison_Floor1
+[2024.05.28-18.25.49:105][472]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_PrisonCombat
+[2024.05.28-18.25.49:105][472]LogWorld: UWorld::CleanupWorld for PrisonCombat, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.25.49:106][472]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.25.49:160][472]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.25.49:163][472]LogUObjectHash: Compacting FUObjectHashTables data took   1.31ms
+[2024.05.28-18.25.49:180][472]LogAudio: Display: Audio Device (ID: 18) registered with world 'Prison_Floor1'.
+[2024.05.28-18.25.49:180][472]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.25.49:181][472]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.25.49:181][472]LogAIModule: Creating AISystem for world Prison_Floor1
+[2024.05.28-18.25.49:182][472]LogWorldPartition: ULevel::OnLevelLoaded(Prison_Floor1)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=1)
+[2024.05.28-18.25.49:182][472]LogWorldPartition: Display: WorldPartition initialize started...
+[2024.05.28-18.25.49:182][472]LogWorldPartition: UWorldPartition::Initialize : World = Prison_Floor1, World Type = PIE, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 0, IsGame = 0, IsPIEWorldTravel = 1, IsCooking = 0
+[2024.05.28-18.25.49:182][472]LogWorldPartition: UWorldPartition::Initialize Context : World NetMode = Standalone, IsServer = 0, IsDedicatedServer = 0, IsServerStreamingEnabled = 0, IsServerStreamingOutEnabled = 0, IsUsingMakingVisibleTransaction = 0, IsUsingMakingInvisibleTransaction = 0
+[2024.05.28-18.25.49:184][472]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' started...
+[2024.05.28-18.25.49:236][472]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' took 51 ms (total: 998 ms)
+[2024.05.28-18.25.49:239][472]LogContentBundle: [Prison_Floor1(Standalone)] Creating new contrainer.
+[2024.05.28-18.25.49:239][472]LogWorldPartition: Display: WorldPartition initialize took 56 ms (total: 1.09 sec)
+[2024.05.28-18.25.49:239][472]LogPlayLevel: PIE: World Init took: (0.058385s)
+[2024.05.28-18.25.49:239][472]LogLoad: Game class is 'BP_FloorGameMode_C'
+[2024.05.28-18.25.49:254][472]LogWorld: Bringing World /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1 up for play (max tick rate 0) at 2024.05.28-14.25.49
+[2024.05.28-18.25.49:255][472]LogWorld: Bringing up level for play took: 0.014855
+[2024.05.28-18.25.49:255][472]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.25.49:340][472]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_C_0.Cube has a component set to zero, which will result in a bad body instance. Scale:X=4.000 Y=0.000 Z=4.000
+[2024.05.28-18.25.49:347][472]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_GEN_VARIABLE_EventTrigger_SharkFiend_C_CAT_1.Cube has a component set to zero, which will result in a bad body instance. Scale:X=1.600 Y=0.000 Z=1.600
+[2024.05.28-18.25.49:348][472]LogSkeletalMesh: Error: Material with missing usage flag was applied to skeletal mesh /Game/Objects/Models/PrisonCell/prisonCell19.prisonCell19
+[2024.05.28-18.25.49:354][472]LogLoad: Took 0.248632 seconds to LoadMap(/Game/Map/Prison_Floor1)
+[2024.05.28-18.27.43:039][216]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2024.05.28-18.27.43:040][216]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_Prison_Floor1
+[2024.05.28-18.27.43:040][216]LogSlate: Window 'DesentIntoAtlantis Preview [NetMode: Standalone 0]  (64-bit/PC D3D SM5)' being destroyed
+[2024.05.28-18.27.43:048][216]LogWorld: UWorld::CleanupWorld for Prison_Floor1, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.27.43:050][216]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.27.43:051][216]LogContentBundle: [Prison_Floor1(Standalone)] Deleting container.
+[2024.05.28-18.27.43:054][216]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2024.05.28-18.27.43:061][216]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.27.43:081][216]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.27.43:082][216]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 18
+[2024.05.28-18.27.43:082][216]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=18
+[2024.05.28-18.27.43:084][216]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=18
+[2024.05.28-18.27.43:098][216]LogUObjectHash: Compacting FUObjectHashTables data took   1.34ms
+[2024.05.28-18.27.43:320][217]LogPlayLevel: Display: Destroying online subsystem :Context_29
+[2024.05.28-18.27.59:548][440]LogDebuggerCommands: Repeating last play command: New Editor Window (PIE)
+[2024.05.28-18.27.59:557][440]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2024.05.28-18.27.59:557][440]PIE: New page: PIE session: MainMenu (May 28, 2024, 10:27:59 AM)
+[2024.05.28-18.27.59:557][440]LogPlayLevel: Creating play world package: /Game/Map/UEDPIE_0_MainMenu
+[2024.05.28-18.27.59:558][440]LogPlayLevel: PIE: StaticDuplicateObject took: (0.000946s)
+[2024.05.28-18.27.59:558][440]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Map/MainMenu.MainMenu to /Game/Map/UEDPIE_0_MainMenu.MainMenu (0.001174s)
+[2024.05.28-18.27.59:573][440]LogUObjectHash: Compacting FUObjectHashTables data took   1.23ms
+[2024.05.28-18.27.59:574][440]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.27.59:575][440]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.27.59:575][440]LogAIModule: Creating AISystem for world MainMenu
+[2024.05.28-18.27.59:576][440]LogPlayLevel: PIE: World Init took: (0.001201s)
+[2024.05.28-18.27.59:576][440]LogAudio: Display: Creating Audio Device:                 Id: 19, Scope: Unique, Realtime: True
+[2024.05.28-18.27.59:576][440]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2024.05.28-18.27.59:576][440]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2024.05.28-18.27.59:576][440]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2024.05.28-18.27.59:576][440]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2024.05.28-18.27.59:576][440]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2024.05.28-18.27.59:576][440]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2024.05.28-18.27.59:576][440]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2024.05.28-18.27.59:576][440]LogAudio: Display: AudioDevice MaxSources: 32
+[2024.05.28-18.27.59:577][440]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2024.05.28-18.27.59:577][440]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2024.05.28-18.27.59:577][440]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2024.05.28-18.27.59:579][440]LogAudioMixer: Display: Initializing audio mixer using platform API: 'XAudio2'
+[2024.05.28-18.27.59:615][440]LogAudioMixer: Display: Using Audio Hardware Device Speakers (6- USB Audio Device)
+[2024.05.28-18.27.59:615][440]LogAudioMixer: Display: Initializing Sound Submixes...
+[2024.05.28-18.27.59:616][440]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2024.05.28-18.27.59:616][440]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2024.05.28-18.27.59:616][440]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called. InstanceID=19
+[2024.05.28-18.27.59:616][440]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=19
+[2024.05.28-18.27.59:619][440]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=19
+[2024.05.28-18.27.59:619][440]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time. InstanceID=19
+[2024.05.28-18.27.59:619][440]LogInit: FAudioDevice initialized with ID 19.
+[2024.05.28-18.27.59:619][440]LogAudio: Display: Audio Device (ID: 19) registered with world 'MainMenu'.
+[2024.05.28-18.27.59:619][440]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 19
+[2024.05.28-18.27.59:655][440]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2024.05.28-18.27.59:655][440]LogLoad: Game class is 'BP_MainMenuGameMode_C'
+[2024.05.28-18.27.59:656][440]LogWorld: Bringing World /Game/Map/UEDPIE_0_MainMenu.MainMenu up for play (max tick rate 0) at 2024.05.28-14.27.59
+[2024.05.28-18.27.59:656][440]LogWorld: Bringing up level for play took: 0.000593
+[2024.05.28-18.27.59:659][440]LogOnline: OSS: Created online subsystem instance for: :Context_30
+[2024.05.28-18.27.59:664][440]PIE: Server logged in
+[2024.05.28-18.27.59:666][440]PIE: Play in editor total start time 0.11 seconds.
+[2024.05.28-18.27.59:686][440]LogViewport: Scene viewport resized to 1914x1000, mode Windowed.
+[2024.05.28-18.28.01:607][660]LogNet: Browse: /Game/Map/Prison_Floor1
+[2024.05.28-18.28.01:607][660]LogLoad: LoadMap: /Game/Map/Prison_Floor1
+[2024.05.28-18.28.01:607][660]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_MainMenu
+[2024.05.28-18.28.01:608][660]LogWorld: UWorld::CleanupWorld for MainMenu, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.28.01:608][660]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.28.01:659][660]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.28.01:661][660]LogUObjectHash: Compacting FUObjectHashTables data took   1.25ms
+[2024.05.28-18.28.01:677][660]LogAudio: Display: Audio Device (ID: 19) registered with world 'Prison_Floor1'.
+[2024.05.28-18.28.01:678][660]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.28.01:678][660]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.28.01:678][660]LogAIModule: Creating AISystem for world Prison_Floor1
+[2024.05.28-18.28.01:679][660]LogWorldPartition: ULevel::OnLevelLoaded(Prison_Floor1)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=1)
+[2024.05.28-18.28.01:679][660]LogWorldPartition: Display: WorldPartition initialize started...
+[2024.05.28-18.28.01:679][660]LogWorldPartition: UWorldPartition::Initialize : World = Prison_Floor1, World Type = PIE, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 0, IsGame = 0, IsPIEWorldTravel = 1, IsCooking = 0
+[2024.05.28-18.28.01:679][660]LogWorldPartition: UWorldPartition::Initialize Context : World NetMode = Standalone, IsServer = 0, IsDedicatedServer = 0, IsServerStreamingEnabled = 0, IsServerStreamingOutEnabled = 0, IsUsingMakingVisibleTransaction = 0, IsUsingMakingInvisibleTransaction = 0
+[2024.05.28-18.28.01:682][660]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' started...
+[2024.05.28-18.28.01:734][660]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' took 51 ms (total: 1.04 sec)
+[2024.05.28-18.28.01:736][660]LogContentBundle: [Prison_Floor1(Standalone)] Creating new contrainer.
+[2024.05.28-18.28.01:736][660]LogWorldPartition: Display: WorldPartition initialize took 56 ms (total: 1.15 sec)
+[2024.05.28-18.28.01:736][660]LogPlayLevel: PIE: World Init took: (0.058244s)
+[2024.05.28-18.28.01:736][660]LogLoad: Game class is 'BP_FloorGameMode_C'
+[2024.05.28-18.28.01:751][660]LogWorld: Bringing World /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1 up for play (max tick rate 0) at 2024.05.28-14.28.01
+[2024.05.28-18.28.01:752][660]LogWorld: Bringing up level for play took: 0.014802
+[2024.05.28-18.28.01:752][660]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.28.01:836][660]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_C_0.Cube has a component set to zero, which will result in a bad body instance. Scale:X=4.000 Y=0.000 Z=4.000
+[2024.05.28-18.28.01:844][660]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_GEN_VARIABLE_EventTrigger_SharkFiend_C_CAT_1.Cube has a component set to zero, which will result in a bad body instance. Scale:X=1.600 Y=0.000 Z=1.600
+[2024.05.28-18.28.01:844][660]LogSkeletalMesh: Error: Material with missing usage flag was applied to skeletal mesh /Game/Objects/Models/PrisonCell/prisonCell19.prisonCell19
+[2024.05.28-18.28.01:850][660]LogLoad: Took 0.242468 seconds to LoadMap(/Game/Map/Prison_Floor1)
+[2024.05.28-18.28.05:131][906]LogNet: Browse: /Game/Map/PrisonCombat
+[2024.05.28-18.28.05:131][906]LogLoad: LoadMap: /Game/Map/PrisonCombat
+[2024.05.28-18.28.05:131][906]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_Prison_Floor1
+[2024.05.28-18.28.05:135][906]LogWorld: UWorld::CleanupWorld for Prison_Floor1, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.28.05:136][906]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.28.05:137][906]LogContentBundle: [Prison_Floor1(Standalone)] Deleting container.
+[2024.05.28-18.28.05:154][906]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.28.05:163][906]LogUObjectHash: Compacting FUObjectHashTables data took   1.41ms
+[2024.05.28-18.28.05:169][906]LogAudio: Display: Audio Device (ID: 19) registered with world 'PrisonCombat'.
+[2024.05.28-18.28.05:169][906]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.28.05:170][906]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.28.05:170][906]LogAIModule: Creating AISystem for world PrisonCombat
+[2024.05.28-18.28.05:171][906]LogPlayLevel: PIE: World Init took: (0.001210s)
+[2024.05.28-18.28.05:171][906]LogLoad: Game class is 'BP_CombatGameMode_C'
+[2024.05.28-18.28.05:179][906]LogWorld: Bringing World /Game/Map/UEDPIE_0_PrisonCombat.PrisonCombat up for play (max tick rate 0) at 2024.05.28-14.28.05
+[2024.05.28-18.28.05:179][906]LogWorld: Bringing up level for play took: 0.007965
+[2024.05.28-18.28.05:179][906]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.28.05:185][906]LogLoad: Took 0.053326 seconds to LoadMap(/Game/Map/PrisonCombat)
+[2024.05.28-18.28.11:742][619]LogNet: Browse: /Game/Map/Prison_Floor1
+[2024.05.28-18.28.11:742][619]LogLoad: LoadMap: /Game/Map/Prison_Floor1
+[2024.05.28-18.28.11:742][619]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_PrisonCombat
+[2024.05.28-18.28.11:742][619]LogWorld: UWorld::CleanupWorld for PrisonCombat, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.28.11:743][619]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.28.11:789][619]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.28.11:793][619]LogUObjectHash: Compacting FUObjectHashTables data took   1.37ms
+[2024.05.28-18.28.11:810][619]LogAudio: Display: Audio Device (ID: 19) registered with world 'Prison_Floor1'.
+[2024.05.28-18.28.11:810][619]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.28.11:810][619]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.28.11:811][619]LogAIModule: Creating AISystem for world Prison_Floor1
+[2024.05.28-18.28.11:811][619]LogWorldPartition: ULevel::OnLevelLoaded(Prison_Floor1)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=1)
+[2024.05.28-18.28.11:811][619]LogWorldPartition: Display: WorldPartition initialize started...
+[2024.05.28-18.28.11:811][619]LogWorldPartition: UWorldPartition::Initialize : World = Prison_Floor1, World Type = PIE, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 0, IsGame = 0, IsPIEWorldTravel = 1, IsCooking = 0
+[2024.05.28-18.28.11:812][619]LogWorldPartition: UWorldPartition::Initialize Context : World NetMode = Standalone, IsServer = 0, IsDedicatedServer = 0, IsServerStreamingEnabled = 0, IsServerStreamingOutEnabled = 0, IsUsingMakingVisibleTransaction = 0, IsUsingMakingInvisibleTransaction = 0
+[2024.05.28-18.28.11:814][619]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' started...
+[2024.05.28-18.28.11:866][619]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' took 51 ms (total: 1.10 sec)
+[2024.05.28-18.28.11:868][619]LogContentBundle: [Prison_Floor1(Standalone)] Creating new contrainer.
+[2024.05.28-18.28.11:868][619]LogWorldPartition: Display: WorldPartition initialize took 56 ms (total: 1.21 sec)
+[2024.05.28-18.28.11:868][619]LogPlayLevel: PIE: World Init took: (0.058026s)
+[2024.05.28-18.28.11:868][619]LogLoad: Game class is 'BP_FloorGameMode_C'
+[2024.05.28-18.28.11:883][619]LogWorld: Bringing World /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1 up for play (max tick rate 0) at 2024.05.28-14.28.11
+[2024.05.28-18.28.11:884][619]LogWorld: Bringing up level for play took: 0.014741
+[2024.05.28-18.28.11:884][619]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.28.11:971][619]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_C_0.Cube has a component set to zero, which will result in a bad body instance. Scale:X=4.000 Y=0.000 Z=4.000
+[2024.05.28-18.28.11:978][619]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_GEN_VARIABLE_EventTrigger_SharkFiend_C_CAT_1.Cube has a component set to zero, which will result in a bad body instance. Scale:X=1.600 Y=0.000 Z=1.600
+[2024.05.28-18.28.11:979][619]LogSkeletalMesh: Error: Material with missing usage flag was applied to skeletal mesh /Game/Objects/Models/PrisonCell/prisonCell19.prisonCell19
+[2024.05.28-18.28.11:985][619]LogLoad: Took 0.243245 seconds to LoadMap(/Game/Map/Prison_Floor1)
+[2024.05.28-18.28.26:949][326]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2024.05.28-18.28.26:949][326]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_Prison_Floor1
+[2024.05.28-18.28.26:950][326]LogSlate: Window 'DesentIntoAtlantis Preview [NetMode: Standalone 0]  (64-bit/PC D3D SM5)' being destroyed
+[2024.05.28-18.28.26:960][326]LogWorld: UWorld::CleanupWorld for Prison_Floor1, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.28.26:962][326]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.28.26:963][326]LogContentBundle: [Prison_Floor1(Standalone)] Deleting container.
+[2024.05.28-18.28.26:966][326]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2024.05.28-18.28.26:976][326]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.28.26:997][326]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 19
+[2024.05.28-18.28.26:997][326]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=19
+[2024.05.28-18.28.26:999][326]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=19
+[2024.05.28-18.28.27:015][326]LogUObjectHash: Compacting FUObjectHashTables data took   1.37ms
+[2024.05.28-18.28.27:254][327]LogPlayLevel: Display: Destroying online subsystem :Context_30
+[2024.05.28-18.28.39:266][363]LogLiveCoding: Display: Starting Live Coding compile.
+[2024.05.28-18.28.51:135][403]LogLiveCoding: Display:    Creating library C:\Users\kylej\Desktop\DescentIntoAtlantis\DesentIntoAtlantis5.3\Binaries\Win64\UnrealEditor-DesentIntoAtlantis.patch_9.lib and object C:\Users\kylej\Desktop\DescentIntoAtlantis\DesentIntoAtlantis5.3\Binaries\Win64\UnrealEditor-DesentIntoAtlantis.patch_9.exp
+[2024.05.28-18.28.51:687][404]LogUObjectHash: Compacting FUObjectHashTables data took   1.28ms
+[2024.05.28-18.28.52:237][405]Display: Reload/Re-instancing Complete: 20 classes unchanged, 11 enums unchanged, 1 scriptstruct unchanged, 4 functions remapped, 32 scriptstructs remapped
+[2024.05.28-18.28.52:237][405]LogLiveCoding: Display: Live coding succeeded
+[2024.05.28-18.28.55:937][518]LogDebuggerCommands: Repeating last play command: New Editor Window (PIE)
+[2024.05.28-18.28.55:947][518]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2024.05.28-18.28.55:947][518]PIE: New page: PIE session: MainMenu (May 28, 2024, 10:28:55 AM)
+[2024.05.28-18.28.55:948][518]LogPlayLevel: Creating play world package: /Game/Map/UEDPIE_0_MainMenu
+[2024.05.28-18.28.55:949][518]LogPlayLevel: PIE: StaticDuplicateObject took: (0.000880s)
+[2024.05.28-18.28.55:949][518]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Map/MainMenu.MainMenu to /Game/Map/UEDPIE_0_MainMenu.MainMenu (0.001124s)
+[2024.05.28-18.28.56:015][518]LogUObjectHash: Compacting FUObjectHashTables data took   1.67ms
+[2024.05.28-18.28.56:016][518]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.28.56:016][518]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.28.56:017][518]LogAIModule: Creating AISystem for world MainMenu
+[2024.05.28-18.28.56:017][518]LogPlayLevel: PIE: World Init took: (0.001271s)
+[2024.05.28-18.28.56:017][518]LogAudio: Display: Creating Audio Device:                 Id: 20, Scope: Unique, Realtime: True
+[2024.05.28-18.28.56:018][518]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2024.05.28-18.28.56:018][518]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2024.05.28-18.28.56:018][518]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2024.05.28-18.28.56:018][518]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2024.05.28-18.28.56:018][518]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2024.05.28-18.28.56:018][518]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2024.05.28-18.28.56:018][518]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2024.05.28-18.28.56:018][518]LogAudio: Display: AudioDevice MaxSources: 32
+[2024.05.28-18.28.56:019][518]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2024.05.28-18.28.56:019][518]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2024.05.28-18.28.56:019][518]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2024.05.28-18.28.56:021][518]LogAudioMixer: Display: Initializing audio mixer using platform API: 'XAudio2'
+[2024.05.28-18.28.56:057][518]LogAudioMixer: Display: Using Audio Hardware Device Speakers (6- USB Audio Device)
+[2024.05.28-18.28.56:057][518]LogAudioMixer: Display: Initializing Sound Submixes...
+[2024.05.28-18.28.56:057][518]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2024.05.28-18.28.56:057][518]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2024.05.28-18.28.56:058][518]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called. InstanceID=20
+[2024.05.28-18.28.56:058][518]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=20
+[2024.05.28-18.28.56:060][518]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=20
+[2024.05.28-18.28.56:060][518]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time. InstanceID=20
+[2024.05.28-18.28.56:061][518]LogInit: FAudioDevice initialized with ID 20.
+[2024.05.28-18.28.56:061][518]LogAudio: Display: Audio Device (ID: 20) registered with world 'MainMenu'.
+[2024.05.28-18.28.56:061][518]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 20
+[2024.05.28-18.28.56:104][518]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2024.05.28-18.28.56:105][518]LogLoad: Game class is 'BP_MainMenuGameMode_C'
+[2024.05.28-18.28.56:105][518]LogWorld: Bringing World /Game/Map/UEDPIE_0_MainMenu.MainMenu up for play (max tick rate 0) at 2024.05.28-14.28.56
+[2024.05.28-18.28.56:106][518]LogWorld: Bringing up level for play took: 0.000665
+[2024.05.28-18.28.56:108][518]LogOnline: OSS: Created online subsystem instance for: :Context_31
+[2024.05.28-18.28.56:114][518]PIE: Server logged in
+[2024.05.28-18.28.56:118][518]PIE: Play in editor total start time 0.171 seconds.
+[2024.05.28-18.28.56:162][518]LogViewport: Scene viewport resized to 1914x1000, mode Windowed.
+[2024.05.28-18.28.57:648][688]LogNet: Browse: /Game/Map/Prison_Floor1
+[2024.05.28-18.28.57:648][688]LogLoad: LoadMap: /Game/Map/Prison_Floor1
+[2024.05.28-18.28.57:648][688]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_MainMenu
+[2024.05.28-18.28.57:649][688]LogWorld: UWorld::CleanupWorld for MainMenu, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.28.57:649][688]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.28.57:700][688]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.28.57:724][688]LogUObjectHash: Compacting FUObjectHashTables data took   1.55ms
+[2024.05.28-18.28.57:753][688]LogAudio: Display: Audio Device (ID: 20) registered with world 'Prison_Floor1'.
+[2024.05.28-18.28.57:753][688]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.28.57:754][688]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.28.57:754][688]LogAIModule: Creating AISystem for world Prison_Floor1
+[2024.05.28-18.28.57:755][688]LogWorldPartition: ULevel::OnLevelLoaded(Prison_Floor1)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=1)
+[2024.05.28-18.28.57:755][688]LogWorldPartition: Display: WorldPartition initialize started...
+[2024.05.28-18.28.57:755][688]LogWorldPartition: UWorldPartition::Initialize : World = Prison_Floor1, World Type = PIE, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 0, IsGame = 0, IsPIEWorldTravel = 1, IsCooking = 0
+[2024.05.28-18.28.57:755][688]LogWorldPartition: UWorldPartition::Initialize Context : World NetMode = Standalone, IsServer = 0, IsDedicatedServer = 0, IsServerStreamingEnabled = 0, IsServerStreamingOutEnabled = 0, IsUsingMakingVisibleTransaction = 0, IsUsingMakingInvisibleTransaction = 0
+[2024.05.28-18.28.57:757][688]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' started...
+[2024.05.28-18.28.57:808][688]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' took 51 ms (total: 1.15 sec)
+[2024.05.28-18.28.57:811][688]LogContentBundle: [Prison_Floor1(Standalone)] Creating new contrainer.
+[2024.05.28-18.28.57:811][688]LogWorldPartition: Display: WorldPartition initialize took 56 ms (total: 1.26 sec)
+[2024.05.28-18.28.57:811][688]LogPlayLevel: PIE: World Init took: (0.057644s)
+[2024.05.28-18.28.57:811][688]LogLoad: Game class is 'BP_FloorGameMode_C'
+[2024.05.28-18.28.57:828][688]LogWorld: Bringing World /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1 up for play (max tick rate 0) at 2024.05.28-14.28.57
+[2024.05.28-18.28.57:829][688]LogWorld: Bringing up level for play took: 0.016956
+[2024.05.28-18.28.57:829][688]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.28.57:912][688]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_C_0.Cube has a component set to zero, which will result in a bad body instance. Scale:X=4.000 Y=0.000 Z=4.000
+[2024.05.28-18.28.57:920][688]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_GEN_VARIABLE_EventTrigger_SharkFiend_C_CAT_1.Cube has a component set to zero, which will result in a bad body instance. Scale:X=1.600 Y=0.000 Z=1.600
+[2024.05.28-18.28.57:921][688]LogSkeletalMesh: Error: Material with missing usage flag was applied to skeletal mesh /Game/Objects/Models/PrisonCell/prisonCell19.prisonCell19
+[2024.05.28-18.28.57:927][688]LogLoad: Took 0.278497 seconds to LoadMap(/Game/Map/Prison_Floor1)
+[2024.05.28-18.29.02:038][997]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2024.05.28-18.29.02:038][997]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_Prison_Floor1
+[2024.05.28-18.29.02:039][997]LogSlate: Window 'DesentIntoAtlantis Preview [NetMode: Standalone 0]  (64-bit/PC D3D SM5)' being destroyed
+[2024.05.28-18.29.02:047][997]LogWorld: UWorld::CleanupWorld for Prison_Floor1, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.29.02:049][997]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.29.02:050][997]LogContentBundle: [Prison_Floor1(Standalone)] Deleting container.
+[2024.05.28-18.29.02:052][997]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2024.05.28-18.29.02:058][997]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.29.02:076][997]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 20
+[2024.05.28-18.29.02:076][997]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=20
+[2024.05.28-18.29.02:078][997]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=20
+[2024.05.28-18.29.02:092][997]LogUObjectHash: Compacting FUObjectHashTables data took   1.19ms
+[2024.05.28-18.29.02:129][998]LogPlayLevel: Display: Destroying online subsystem :Context_31
+[2024.05.28-18.29.12:663][130]LogLiveCoding: Display: Starting Live Coding compile.
+[2024.05.28-18.29.24:539][168]LogLiveCoding: Display:    Creating library C:\Users\kylej\Desktop\DescentIntoAtlantis\DesentIntoAtlantis5.3\Binaries\Win64\UnrealEditor-DesentIntoAtlantis.patch_10.lib and object C:\Users\kylej\Desktop\DescentIntoAtlantis\DesentIntoAtlantis5.3\Binaries\Win64\UnrealEditor-DesentIntoAtlantis.patch_10.exp
+[2024.05.28-18.29.25:017][169]LogUObjectHash: Compacting FUObjectHashTables data took   1.11ms
+[2024.05.28-18.29.25:575][170]Display: Reload/Re-instancing Complete: 20 classes unchanged, 11 enums unchanged, 1 scriptstruct unchanged, 4 functions remapped, 32 scriptstructs remapped
+[2024.05.28-18.29.25:575][170]LogLiveCoding: Display: Live coding succeeded
+[2024.05.28-18.29.26:463][223]LogDebuggerCommands: Repeating last play command: New Editor Window (PIE)
+[2024.05.28-18.29.26:472][223]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2024.05.28-18.29.26:472][223]PIE: New page: PIE session: MainMenu (May 28, 2024, 10:29:26 AM)
+[2024.05.28-18.29.26:472][223]LogPlayLevel: Creating play world package: /Game/Map/UEDPIE_0_MainMenu
+[2024.05.28-18.29.26:473][223]LogPlayLevel: PIE: StaticDuplicateObject took: (0.000838s)
+[2024.05.28-18.29.26:473][223]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Map/MainMenu.MainMenu to /Game/Map/UEDPIE_0_MainMenu.MainMenu (0.001029s)
+[2024.05.28-18.29.26:531][223]LogUObjectHash: Compacting FUObjectHashTables data took   1.39ms
+[2024.05.28-18.29.26:534][223]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.29.26:535][223]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.29.26:535][223]LogAIModule: Creating AISystem for world MainMenu
+[2024.05.28-18.29.26:535][223]LogPlayLevel: PIE: World Init took: (0.001222s)
+[2024.05.28-18.29.26:536][223]LogAudio: Display: Creating Audio Device:                 Id: 21, Scope: Unique, Realtime: True
+[2024.05.28-18.29.26:536][223]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2024.05.28-18.29.26:536][223]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2024.05.28-18.29.26:536][223]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2024.05.28-18.29.26:536][223]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2024.05.28-18.29.26:536][223]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2024.05.28-18.29.26:536][223]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2024.05.28-18.29.26:536][223]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2024.05.28-18.29.26:536][223]LogAudio: Display: AudioDevice MaxSources: 32
+[2024.05.28-18.29.26:537][223]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2024.05.28-18.29.26:537][223]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2024.05.28-18.29.26:537][223]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2024.05.28-18.29.26:539][223]LogAudioMixer: Display: Initializing audio mixer using platform API: 'XAudio2'
+[2024.05.28-18.29.26:575][223]LogAudioMixer: Display: Using Audio Hardware Device Speakers (6- USB Audio Device)
+[2024.05.28-18.29.26:575][223]LogAudioMixer: Display: Initializing Sound Submixes...
+[2024.05.28-18.29.26:575][223]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2024.05.28-18.29.26:575][223]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2024.05.28-18.29.26:576][223]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called. InstanceID=21
+[2024.05.28-18.29.26:576][223]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=21
+[2024.05.28-18.29.26:579][223]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=21
+[2024.05.28-18.29.26:579][223]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time. InstanceID=21
+[2024.05.28-18.29.26:579][223]LogInit: FAudioDevice initialized with ID 21.
+[2024.05.28-18.29.26:579][223]LogAudio: Display: Audio Device (ID: 21) registered with world 'MainMenu'.
+[2024.05.28-18.29.26:579][223]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 21
+[2024.05.28-18.29.26:624][223]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2024.05.28-18.29.26:625][223]LogLoad: Game class is 'BP_MainMenuGameMode_C'
+[2024.05.28-18.29.26:625][223]LogWorld: Bringing World /Game/Map/UEDPIE_0_MainMenu.MainMenu up for play (max tick rate 0) at 2024.05.28-14.29.26
+[2024.05.28-18.29.26:625][223]LogWorld: Bringing up level for play took: 0.000560
+[2024.05.28-18.29.26:628][223]LogOnline: OSS: Created online subsystem instance for: :Context_32
+[2024.05.28-18.29.26:635][223]PIE: Server logged in
+[2024.05.28-18.29.26:639][223]PIE: Play in editor total start time 0.167 seconds.
+[2024.05.28-18.29.26:671][223]LogViewport: Scene viewport resized to 1914x1000, mode Windowed.
+[2024.05.28-18.29.28:218][373]LogNet: Browse: /Game/Map/Prison_Floor1
+[2024.05.28-18.29.28:218][373]LogLoad: LoadMap: /Game/Map/Prison_Floor1
+[2024.05.28-18.29.28:218][373]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_MainMenu
+[2024.05.28-18.29.28:219][373]LogWorld: UWorld::CleanupWorld for MainMenu, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.29.28:219][373]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.29.28:258][373]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.29.28:263][373]LogUObjectHash: Compacting FUObjectHashTables data took   1.48ms
+[2024.05.28-18.29.28:282][373]LogAudio: Display: Audio Device (ID: 21) registered with world 'Prison_Floor1'.
+[2024.05.28-18.29.28:283][373]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.29.28:283][373]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.29.28:284][373]LogAIModule: Creating AISystem for world Prison_Floor1
+[2024.05.28-18.29.28:284][373]LogWorldPartition: ULevel::OnLevelLoaded(Prison_Floor1)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=1)
+[2024.05.28-18.29.28:285][373]LogWorldPartition: Display: WorldPartition initialize started...
+[2024.05.28-18.29.28:285][373]LogWorldPartition: UWorldPartition::Initialize : World = Prison_Floor1, World Type = PIE, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 0, IsGame = 0, IsPIEWorldTravel = 1, IsCooking = 0
+[2024.05.28-18.29.28:285][373]LogWorldPartition: UWorldPartition::Initialize Context : World NetMode = Standalone, IsServer = 0, IsDedicatedServer = 0, IsServerStreamingEnabled = 0, IsServerStreamingOutEnabled = 0, IsUsingMakingVisibleTransaction = 0, IsUsingMakingInvisibleTransaction = 0
+[2024.05.28-18.29.28:287][373]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' started...
+[2024.05.28-18.29.28:341][373]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' took 53 ms (total: 1.20 sec)
+[2024.05.28-18.29.28:343][373]LogContentBundle: [Prison_Floor1(Standalone)] Creating new contrainer.
+[2024.05.28-18.29.28:343][373]LogWorldPartition: Display: WorldPartition initialize took 58 ms (total: 1.32 sec)
+[2024.05.28-18.29.28:343][373]LogPlayLevel: PIE: World Init took: (0.060844s)
+[2024.05.28-18.29.28:343][373]LogLoad: Game class is 'BP_FloorGameMode_C'
+[2024.05.28-18.29.28:359][373]LogWorld: Bringing World /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1 up for play (max tick rate 0) at 2024.05.28-14.29.28
+[2024.05.28-18.29.28:359][373]LogWorld: Bringing up level for play took: 0.015327
+[2024.05.28-18.29.28:359][373]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.29.28:446][373]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_C_0.Cube has a component set to zero, which will result in a bad body instance. Scale:X=4.000 Y=0.000 Z=4.000
+[2024.05.28-18.29.28:454][373]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_GEN_VARIABLE_EventTrigger_SharkFiend_C_CAT_1.Cube has a component set to zero, which will result in a bad body instance. Scale:X=1.600 Y=0.000 Z=1.600
+[2024.05.28-18.29.28:455][373]LogSkeletalMesh: Error: Material with missing usage flag was applied to skeletal mesh /Game/Objects/Models/PrisonCell/prisonCell19.prisonCell19
+[2024.05.28-18.29.28:461][373]LogLoad: Took 0.242307 seconds to LoadMap(/Game/Map/Prison_Floor1)
+[2024.05.28-18.29.32:437][675]LogNet: Browse: /Game/Map/PrisonCombat
+[2024.05.28-18.29.32:437][675]LogLoad: LoadMap: /Game/Map/PrisonCombat
+[2024.05.28-18.29.32:437][675]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_Prison_Floor1
+[2024.05.28-18.29.32:440][675]LogWorld: UWorld::CleanupWorld for Prison_Floor1, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.29.32:442][675]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.29.32:443][675]LogContentBundle: [Prison_Floor1(Standalone)] Deleting container.
+[2024.05.28-18.29.32:457][675]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.29.32:467][675]LogUObjectHash: Compacting FUObjectHashTables data took   1.16ms
+[2024.05.28-18.29.32:474][675]LogAudio: Display: Audio Device (ID: 21) registered with world 'PrisonCombat'.
+[2024.05.28-18.29.32:474][675]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.29.32:474][675]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.29.32:475][675]LogAIModule: Creating AISystem for world PrisonCombat
+[2024.05.28-18.29.32:475][675]LogPlayLevel: PIE: World Init took: (0.001162s)
+[2024.05.28-18.29.32:475][675]LogLoad: Game class is 'BP_CombatGameMode_C'
+[2024.05.28-18.29.32:483][675]LogWorld: Bringing World /Game/Map/UEDPIE_0_PrisonCombat.PrisonCombat up for play (max tick rate 0) at 2024.05.28-14.29.32
+[2024.05.28-18.29.32:483][675]LogWorld: Bringing up level for play took: 0.007780
+[2024.05.28-18.29.32:484][675]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.29.32:489][675]LogLoad: Took 0.052268 seconds to LoadMap(/Game/Map/PrisonCombat)
+[2024.05.28-18.29.38:521][309]LogNet: Browse: /Game/Map/Prison_Floor1
+[2024.05.28-18.29.38:521][309]LogLoad: LoadMap: /Game/Map/Prison_Floor1
+[2024.05.28-18.29.38:521][309]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_PrisonCombat
+[2024.05.28-18.29.38:522][309]LogWorld: UWorld::CleanupWorld for PrisonCombat, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.29.38:523][309]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.29.38:560][309]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.29.38:563][309]LogUObjectHash: Compacting FUObjectHashTables data took   1.20ms
+[2024.05.28-18.29.38:581][309]LogAudio: Display: Audio Device (ID: 21) registered with world 'Prison_Floor1'.
+[2024.05.28-18.29.38:581][309]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.29.38:581][309]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.29.38:582][309]LogAIModule: Creating AISystem for world Prison_Floor1
+[2024.05.28-18.29.38:582][309]LogWorldPartition: ULevel::OnLevelLoaded(Prison_Floor1)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=1)
+[2024.05.28-18.29.38:582][309]LogWorldPartition: Display: WorldPartition initialize started...
+[2024.05.28-18.29.38:583][309]LogWorldPartition: UWorldPartition::Initialize : World = Prison_Floor1, World Type = PIE, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 0, IsGame = 0, IsPIEWorldTravel = 1, IsCooking = 0
+[2024.05.28-18.29.38:583][309]LogWorldPartition: UWorldPartition::Initialize Context : World NetMode = Standalone, IsServer = 0, IsDedicatedServer = 0, IsServerStreamingEnabled = 0, IsServerStreamingOutEnabled = 0, IsUsingMakingVisibleTransaction = 0, IsUsingMakingInvisibleTransaction = 0
+[2024.05.28-18.29.38:585][309]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' started...
+[2024.05.28-18.29.38:638][309]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' took 52 ms (total: 1.25 sec)
+[2024.05.28-18.29.38:641][309]LogContentBundle: [Prison_Floor1(Standalone)] Creating new contrainer.
+[2024.05.28-18.29.38:641][309]LogWorldPartition: Display: WorldPartition initialize took 58 ms (total: 1.38 sec)
+[2024.05.28-18.29.38:641][309]LogPlayLevel: PIE: World Init took: (0.060089s)
+[2024.05.28-18.29.38:641][309]LogLoad: Game class is 'BP_FloorGameMode_C'
+[2024.05.28-18.29.38:657][309]LogWorld: Bringing World /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1 up for play (max tick rate 0) at 2024.05.28-14.29.38
+[2024.05.28-18.29.38:657][309]LogWorld: Bringing up level for play took: 0.015269
+[2024.05.28-18.29.38:657][309]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.29.38:746][309]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_C_0.Cube has a component set to zero, which will result in a bad body instance. Scale:X=4.000 Y=0.000 Z=4.000
+[2024.05.28-18.29.38:754][309]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_GEN_VARIABLE_EventTrigger_SharkFiend_C_CAT_1.Cube has a component set to zero, which will result in a bad body instance. Scale:X=1.600 Y=0.000 Z=1.600
+[2024.05.28-18.29.38:755][309]LogSkeletalMesh: Error: Material with missing usage flag was applied to skeletal mesh /Game/Objects/Models/PrisonCell/prisonCell19.prisonCell19
+[2024.05.28-18.29.38:760][309]LogLoad: Took 0.239072 seconds to LoadMap(/Game/Map/Prison_Floor1)
+[2024.05.28-18.29.41:007][462]LogNet: Browse: /Game/Map/PrisonCombat
+[2024.05.28-18.29.41:007][462]LogLoad: LoadMap: /Game/Map/PrisonCombat
+[2024.05.28-18.29.41:007][462]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_Prison_Floor1
+[2024.05.28-18.29.41:010][462]LogWorld: UWorld::CleanupWorld for Prison_Floor1, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.29.41:012][462]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.29.41:013][462]LogContentBundle: [Prison_Floor1(Standalone)] Deleting container.
+[2024.05.28-18.29.41:030][462]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.29.41:038][462]LogUObjectHash: Compacting FUObjectHashTables data took   1.25ms
+[2024.05.28-18.29.41:046][462]LogAudio: Display: Audio Device (ID: 21) registered with world 'PrisonCombat'.
+[2024.05.28-18.29.41:046][462]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.29.41:046][462]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.29.41:047][462]LogAIModule: Creating AISystem for world PrisonCombat
+[2024.05.28-18.29.41:047][462]LogPlayLevel: PIE: World Init took: (0.001282s)
+[2024.05.28-18.29.41:047][462]LogLoad: Game class is 'BP_CombatGameMode_C'
+[2024.05.28-18.29.41:056][462]LogWorld: Bringing World /Game/Map/UEDPIE_0_PrisonCombat.PrisonCombat up for play (max tick rate 0) at 2024.05.28-14.29.41
+[2024.05.28-18.29.41:056][462]LogWorld: Bringing up level for play took: 0.008210
+[2024.05.28-18.29.41:057][462]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.29.41:062][462]LogLoad: Took 0.055267 seconds to LoadMap(/Game/Map/PrisonCombat)
+[2024.05.28-18.29.53:445][719]LogNet: Browse: /Game/Map/Prison_Floor1
+[2024.05.28-18.29.53:445][719]LogLoad: LoadMap: /Game/Map/Prison_Floor1
+[2024.05.28-18.29.53:445][719]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_PrisonCombat
+[2024.05.28-18.29.53:446][719]LogWorld: UWorld::CleanupWorld for PrisonCombat, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.29.53:446][719]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.29.53:501][719]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.29.53:506][719]LogUObjectHash: Compacting FUObjectHashTables data took   1.34ms
+[2024.05.28-18.29.53:524][719]LogAudio: Display: Audio Device (ID: 21) registered with world 'Prison_Floor1'.
+[2024.05.28-18.29.53:524][719]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.29.53:524][719]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.29.53:525][719]LogAIModule: Creating AISystem for world Prison_Floor1
+[2024.05.28-18.29.53:525][719]LogWorldPartition: ULevel::OnLevelLoaded(Prison_Floor1)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=1)
+[2024.05.28-18.29.53:525][719]LogWorldPartition: Display: WorldPartition initialize started...
+[2024.05.28-18.29.53:525][719]LogWorldPartition: UWorldPartition::Initialize : World = Prison_Floor1, World Type = PIE, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 0, IsGame = 0, IsPIEWorldTravel = 1, IsCooking = 0
+[2024.05.28-18.29.53:526][719]LogWorldPartition: UWorldPartition::Initialize Context : World NetMode = Standalone, IsServer = 0, IsDedicatedServer = 0, IsServerStreamingEnabled = 0, IsServerStreamingOutEnabled = 0, IsUsingMakingVisibleTransaction = 0, IsUsingMakingInvisibleTransaction = 0
+[2024.05.28-18.29.53:528][719]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' started...
+[2024.05.28-18.29.53:582][719]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' took 54 ms (total: 1.31 sec)
+[2024.05.28-18.29.53:585][719]LogContentBundle: [Prison_Floor1(Standalone)] Creating new contrainer.
+[2024.05.28-18.29.53:585][719]LogWorldPartition: Display: WorldPartition initialize took 59 ms (total: 1.44 sec)
+[2024.05.28-18.29.53:585][719]LogPlayLevel: PIE: World Init took: (0.060890s)
+[2024.05.28-18.29.53:585][719]LogLoad: Game class is 'BP_FloorGameMode_C'
+[2024.05.28-18.29.53:600][719]LogWorld: Bringing World /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1 up for play (max tick rate 0) at 2024.05.28-14.29.53
+[2024.05.28-18.29.53:601][719]LogWorld: Bringing up level for play took: 0.015154
+[2024.05.28-18.29.53:601][719]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.29.53:686][719]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_C_0.Cube has a component set to zero, which will result in a bad body instance. Scale:X=4.000 Y=0.000 Z=4.000
+[2024.05.28-18.29.53:694][719]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_GEN_VARIABLE_EventTrigger_SharkFiend_C_CAT_1.Cube has a component set to zero, which will result in a bad body instance. Scale:X=1.600 Y=0.000 Z=1.600
+[2024.05.28-18.29.53:695][719]LogSkeletalMesh: Error: Material with missing usage flag was applied to skeletal mesh /Game/Objects/Models/PrisonCell/prisonCell19.prisonCell19
+[2024.05.28-18.29.53:701][719]LogLoad: Took 0.255170 seconds to LoadMap(/Game/Map/Prison_Floor1)
+[2024.05.28-18.30.00:736][266]LogNet: Browse: /Game/Map/PrisonCombat
+[2024.05.28-18.30.00:736][266]LogLoad: LoadMap: /Game/Map/PrisonCombat
+[2024.05.28-18.30.00:736][266]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_Prison_Floor1
+[2024.05.28-18.30.00:739][266]LogWorld: UWorld::CleanupWorld for Prison_Floor1, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.30.00:741][266]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.30.00:742][266]LogContentBundle: [Prison_Floor1(Standalone)] Deleting container.
+[2024.05.28-18.30.00:759][266]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.30.00:767][266]LogUObjectHash: Compacting FUObjectHashTables data took   1.33ms
+[2024.05.28-18.30.00:774][266]LogAudio: Display: Audio Device (ID: 21) registered with world 'PrisonCombat'.
+[2024.05.28-18.30.00:774][266]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.30.00:775][266]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.30.00:775][266]LogAIModule: Creating AISystem for world PrisonCombat
+[2024.05.28-18.30.00:775][266]LogPlayLevel: PIE: World Init took: (0.001293s)
+[2024.05.28-18.30.00:776][266]LogLoad: Game class is 'BP_CombatGameMode_C'
+[2024.05.28-18.30.00:784][266]LogWorld: Bringing World /Game/Map/UEDPIE_0_PrisonCombat.PrisonCombat up for play (max tick rate 0) at 2024.05.28-14.30.00
+[2024.05.28-18.30.00:784][266]LogWorld: Bringing up level for play took: 0.007952
+[2024.05.28-18.30.00:784][266]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.30.00:790][266]LogLoad: Took 0.053485 seconds to LoadMap(/Game/Map/PrisonCombat)
+[2024.05.28-18.30.07:198][965]LogNet: Browse: /Game/Map/Prison_Floor1
+[2024.05.28-18.30.07:199][965]LogLoad: LoadMap: /Game/Map/Prison_Floor1
+[2024.05.28-18.30.07:199][965]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_PrisonCombat
+[2024.05.28-18.30.07:199][965]LogWorld: UWorld::CleanupWorld for PrisonCombat, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.30.07:200][965]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.30.07:260][965]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.30.07:263][965]LogUObjectHash: Compacting FUObjectHashTables data took   1.32ms
+[2024.05.28-18.30.07:280][965]LogAudio: Display: Audio Device (ID: 21) registered with world 'Prison_Floor1'.
+[2024.05.28-18.30.07:280][965]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.30.07:281][965]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.30.07:281][965]LogAIModule: Creating AISystem for world Prison_Floor1
+[2024.05.28-18.30.07:282][965]LogWorldPartition: ULevel::OnLevelLoaded(Prison_Floor1)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=1)
+[2024.05.28-18.30.07:282][965]LogWorldPartition: Display: WorldPartition initialize started...
+[2024.05.28-18.30.07:282][965]LogWorldPartition: UWorldPartition::Initialize : World = Prison_Floor1, World Type = PIE, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 0, IsGame = 0, IsPIEWorldTravel = 1, IsCooking = 0
+[2024.05.28-18.30.07:282][965]LogWorldPartition: UWorldPartition::Initialize Context : World NetMode = Standalone, IsServer = 0, IsDedicatedServer = 0, IsServerStreamingEnabled = 0, IsServerStreamingOutEnabled = 0, IsUsingMakingVisibleTransaction = 0, IsUsingMakingInvisibleTransaction = 0
+[2024.05.28-18.30.07:284][965]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' started...
+[2024.05.28-18.30.07:336][965]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' took 51 ms (total: 1.36 sec)
+[2024.05.28-18.30.07:339][965]LogContentBundle: [Prison_Floor1(Standalone)] Creating new contrainer.
+[2024.05.28-18.30.07:339][965]LogWorldPartition: Display: WorldPartition initialize took 56 ms (total: 1.50 sec)
+[2024.05.28-18.30.07:339][965]LogPlayLevel: PIE: World Init took: (0.058242s)
+[2024.05.28-18.30.07:339][965]LogLoad: Game class is 'BP_FloorGameMode_C'
+[2024.05.28-18.30.07:354][965]LogWorld: Bringing World /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1 up for play (max tick rate 0) at 2024.05.28-14.30.07
+[2024.05.28-18.30.07:355][965]LogWorld: Bringing up level for play took: 0.015336
+[2024.05.28-18.30.07:355][965]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.30.07:440][965]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_C_0.Cube has a component set to zero, which will result in a bad body instance. Scale:X=4.000 Y=0.000 Z=4.000
+[2024.05.28-18.30.07:448][965]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_GEN_VARIABLE_EventTrigger_SharkFiend_C_CAT_1.Cube has a component set to zero, which will result in a bad body instance. Scale:X=1.600 Y=0.000 Z=1.600
+[2024.05.28-18.30.07:448][965]LogSkeletalMesh: Error: Material with missing usage flag was applied to skeletal mesh /Game/Objects/Models/PrisonCell/prisonCell19.prisonCell19
+[2024.05.28-18.30.07:454][965]LogLoad: Took 0.255506 seconds to LoadMap(/Game/Map/Prison_Floor1)
+[2024.05.28-18.30.08:533][ 44]LogNet: Browse: /Game/Map/PrisonCombat
+[2024.05.28-18.30.08:533][ 44]LogLoad: LoadMap: /Game/Map/PrisonCombat
+[2024.05.28-18.30.08:533][ 44]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_Prison_Floor1
+[2024.05.28-18.30.08:536][ 44]LogWorld: UWorld::CleanupWorld for Prison_Floor1, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.30.08:538][ 44]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.30.08:539][ 44]LogContentBundle: [Prison_Floor1(Standalone)] Deleting container.
+[2024.05.28-18.30.08:584][ 44]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.30.08:592][ 44]LogUObjectHash: Compacting FUObjectHashTables data took   1.32ms
+[2024.05.28-18.30.08:598][ 44]LogAudio: Display: Audio Device (ID: 21) registered with world 'PrisonCombat'.
+[2024.05.28-18.30.08:598][ 44]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.30.08:598][ 44]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.30.08:599][ 44]LogAIModule: Creating AISystem for world PrisonCombat
+[2024.05.28-18.30.08:599][ 44]LogPlayLevel: PIE: World Init took: (0.001190s)
+[2024.05.28-18.30.08:599][ 44]LogLoad: Game class is 'BP_CombatGameMode_C'
+[2024.05.28-18.30.08:607][ 44]LogWorld: Bringing World /Game/Map/UEDPIE_0_PrisonCombat.PrisonCombat up for play (max tick rate 0) at 2024.05.28-14.30.08
+[2024.05.28-18.30.08:608][ 44]LogWorld: Bringing up level for play took: 0.007866
+[2024.05.28-18.30.08:608][ 44]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.30.08:613][ 44]LogLoad: Took 0.080288 seconds to LoadMap(/Game/Map/PrisonCombat)
+[2024.05.28-18.30.34:883][845]LogNet: Browse: /Game/Map/Prison_Floor1
+[2024.05.28-18.30.34:883][845]LogLoad: LoadMap: /Game/Map/Prison_Floor1
+[2024.05.28-18.30.34:883][845]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_PrisonCombat
+[2024.05.28-18.30.34:884][845]LogWorld: UWorld::CleanupWorld for PrisonCombat, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.30.34:884][845]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.30.34:931][845]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.30.34:935][845]LogUObjectHash: Compacting FUObjectHashTables data took   1.37ms
+[2024.05.28-18.30.34:952][845]LogAudio: Display: Audio Device (ID: 21) registered with world 'Prison_Floor1'.
+[2024.05.28-18.30.34:952][845]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.30.34:952][845]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.30.34:953][845]LogAIModule: Creating AISystem for world Prison_Floor1
+[2024.05.28-18.30.34:953][845]LogWorldPartition: ULevel::OnLevelLoaded(Prison_Floor1)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=1)
+[2024.05.28-18.30.34:953][845]LogWorldPartition: Display: WorldPartition initialize started...
+[2024.05.28-18.30.34:954][845]LogWorldPartition: UWorldPartition::Initialize : World = Prison_Floor1, World Type = PIE, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 0, IsGame = 0, IsPIEWorldTravel = 1, IsCooking = 0
+[2024.05.28-18.30.34:954][845]LogWorldPartition: UWorldPartition::Initialize Context : World NetMode = Standalone, IsServer = 0, IsDedicatedServer = 0, IsServerStreamingEnabled = 0, IsServerStreamingOutEnabled = 0, IsUsingMakingVisibleTransaction = 0, IsUsingMakingInvisibleTransaction = 0
+[2024.05.28-18.30.34:956][845]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' started...
+[2024.05.28-18.30.35:007][845]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' took 51 ms (total: 1.41 sec)
+[2024.05.28-18.30.35:010][845]LogContentBundle: [Prison_Floor1(Standalone)] Creating new contrainer.
+[2024.05.28-18.30.35:010][845]LogWorldPartition: Display: WorldPartition initialize took 56 ms (total: 1.55 sec)
+[2024.05.28-18.30.35:010][845]LogPlayLevel: PIE: World Init took: (0.058124s)
+[2024.05.28-18.30.35:010][845]LogLoad: Game class is 'BP_FloorGameMode_C'
+[2024.05.28-18.30.35:025][845]LogWorld: Bringing World /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1 up for play (max tick rate 0) at 2024.05.28-14.30.35
+[2024.05.28-18.30.35:026][845]LogWorld: Bringing up level for play took: 0.015060
+[2024.05.28-18.30.35:026][845]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.30.35:110][845]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_C_0.Cube has a component set to zero, which will result in a bad body instance. Scale:X=4.000 Y=0.000 Z=4.000
+[2024.05.28-18.30.35:118][845]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_GEN_VARIABLE_EventTrigger_SharkFiend_C_CAT_1.Cube has a component set to zero, which will result in a bad body instance. Scale:X=1.600 Y=0.000 Z=1.600
+[2024.05.28-18.30.35:119][845]LogSkeletalMesh: Error: Material with missing usage flag was applied to skeletal mesh /Game/Objects/Models/PrisonCell/prisonCell19.prisonCell19
+[2024.05.28-18.30.35:125][845]LogLoad: Took 0.242208 seconds to LoadMap(/Game/Map/Prison_Floor1)
+[2024.05.28-18.30.39:787][209]LogNet: Browse: /Game/Map/PrisonCombat
+[2024.05.28-18.30.39:787][209]LogLoad: LoadMap: /Game/Map/PrisonCombat
+[2024.05.28-18.30.39:787][209]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_Prison_Floor1
+[2024.05.28-18.30.39:791][209]LogWorld: UWorld::CleanupWorld for Prison_Floor1, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.30.39:792][209]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.30.39:793][209]LogContentBundle: [Prison_Floor1(Standalone)] Deleting container.
+[2024.05.28-18.30.39:811][209]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.30.39:819][209]LogUObjectHash: Compacting FUObjectHashTables data took   1.31ms
+[2024.05.28-18.30.39:826][209]LogAudio: Display: Audio Device (ID: 21) registered with world 'PrisonCombat'.
+[2024.05.28-18.30.39:826][209]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.30.39:826][209]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.30.39:827][209]LogAIModule: Creating AISystem for world PrisonCombat
+[2024.05.28-18.30.39:827][209]LogPlayLevel: PIE: World Init took: (0.001407s)
+[2024.05.28-18.30.39:827][209]LogLoad: Game class is 'BP_CombatGameMode_C'
+[2024.05.28-18.30.39:835][209]LogWorld: Bringing World /Game/Map/UEDPIE_0_PrisonCombat.PrisonCombat up for play (max tick rate 0) at 2024.05.28-14.30.39
+[2024.05.28-18.30.39:836][209]LogWorld: Bringing up level for play took: 0.007969
+[2024.05.28-18.30.39:836][209]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.30.39:841][209]LogLoad: Took 0.053988 seconds to LoadMap(/Game/Map/PrisonCombat)
+[2024.05.28-18.30.51:439][469]LogNet: Browse: /Game/Map/Prison_Floor1
+[2024.05.28-18.30.51:439][469]LogLoad: LoadMap: /Game/Map/Prison_Floor1
+[2024.05.28-18.30.51:439][469]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_PrisonCombat
+[2024.05.28-18.30.51:439][469]LogWorld: UWorld::CleanupWorld for PrisonCombat, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.30.51:440][469]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.30.51:481][469]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.30.51:485][469]LogUObjectHash: Compacting FUObjectHashTables data took   1.29ms
+[2024.05.28-18.30.51:502][469]LogAudio: Display: Audio Device (ID: 21) registered with world 'Prison_Floor1'.
+[2024.05.28-18.30.51:502][469]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.30.51:502][469]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.30.51:503][469]LogAIModule: Creating AISystem for world Prison_Floor1
+[2024.05.28-18.30.51:503][469]LogWorldPartition: ULevel::OnLevelLoaded(Prison_Floor1)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=1)
+[2024.05.28-18.30.51:503][469]LogWorldPartition: Display: WorldPartition initialize started...
+[2024.05.28-18.30.51:503][469]LogWorldPartition: UWorldPartition::Initialize : World = Prison_Floor1, World Type = PIE, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 0, IsGame = 0, IsPIEWorldTravel = 1, IsCooking = 0
+[2024.05.28-18.30.51:504][469]LogWorldPartition: UWorldPartition::Initialize Context : World NetMode = Standalone, IsServer = 0, IsDedicatedServer = 0, IsServerStreamingEnabled = 0, IsServerStreamingOutEnabled = 0, IsUsingMakingVisibleTransaction = 0, IsUsingMakingInvisibleTransaction = 0
+[2024.05.28-18.30.51:506][469]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' started...
+[2024.05.28-18.30.51:558][469]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' took 51 ms (total: 1.46 sec)
+[2024.05.28-18.30.51:560][469]LogContentBundle: [Prison_Floor1(Standalone)] Creating new contrainer.
+[2024.05.28-18.30.51:560][469]LogWorldPartition: Display: WorldPartition initialize took 56 ms (total: 1.61 sec)
+[2024.05.28-18.30.51:560][469]LogPlayLevel: PIE: World Init took: (0.058052s)
+[2024.05.28-18.30.51:561][469]LogLoad: Game class is 'BP_FloorGameMode_C'
+[2024.05.28-18.30.51:576][469]LogWorld: Bringing World /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1 up for play (max tick rate 0) at 2024.05.28-14.30.51
+[2024.05.28-18.30.51:576][469]LogWorld: Bringing up level for play took: 0.015150
+[2024.05.28-18.30.51:577][469]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.30.51:660][469]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_C_0.Cube has a component set to zero, which will result in a bad body instance. Scale:X=4.000 Y=0.000 Z=4.000
+[2024.05.28-18.30.51:668][469]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_GEN_VARIABLE_EventTrigger_SharkFiend_C_CAT_1.Cube has a component set to zero, which will result in a bad body instance. Scale:X=1.600 Y=0.000 Z=1.600
+[2024.05.28-18.30.51:669][469]LogSkeletalMesh: Error: Material with missing usage flag was applied to skeletal mesh /Game/Objects/Models/PrisonCell/prisonCell19.prisonCell19
+[2024.05.28-18.30.51:674][469]LogLoad: Took 0.235151 seconds to LoadMap(/Game/Map/Prison_Floor1)
+[2024.05.28-18.30.59:132][ 46]LogNet: Browse: /Game/Map/PrisonCombat
+[2024.05.28-18.30.59:133][ 46]LogLoad: LoadMap: /Game/Map/PrisonCombat
+[2024.05.28-18.30.59:133][ 46]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_Prison_Floor1
+[2024.05.28-18.30.59:136][ 46]LogWorld: UWorld::CleanupWorld for Prison_Floor1, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.30.59:137][ 46]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.30.59:138][ 46]LogContentBundle: [Prison_Floor1(Standalone)] Deleting container.
+[2024.05.28-18.30.59:156][ 46]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.30.59:164][ 46]LogUObjectHash: Compacting FUObjectHashTables data took   1.33ms
+[2024.05.28-18.30.59:171][ 46]LogAudio: Display: Audio Device (ID: 21) registered with world 'PrisonCombat'.
+[2024.05.28-18.30.59:171][ 46]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.30.59:171][ 46]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.30.59:172][ 46]LogAIModule: Creating AISystem for world PrisonCombat
+[2024.05.28-18.30.59:172][ 46]LogPlayLevel: PIE: World Init took: (0.001228s)
+[2024.05.28-18.30.59:172][ 46]LogLoad: Game class is 'BP_CombatGameMode_C'
+[2024.05.28-18.30.59:180][ 46]LogWorld: Bringing World /Game/Map/UEDPIE_0_PrisonCombat.PrisonCombat up for play (max tick rate 0) at 2024.05.28-14.30.59
+[2024.05.28-18.30.59:180][ 46]LogWorld: Bringing up level for play took: 0.007838
+[2024.05.28-18.30.59:181][ 46]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.30.59:186][ 46]LogLoad: Took 0.053578 seconds to LoadMap(/Game/Map/PrisonCombat)
+[2024.05.28-18.31.12:996][556]LogNet: Browse: /Game/Map/Prison_Floor1
+[2024.05.28-18.31.12:996][556]LogLoad: LoadMap: /Game/Map/Prison_Floor1
+[2024.05.28-18.31.12:996][556]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_PrisonCombat
+[2024.05.28-18.31.12:997][556]LogWorld: UWorld::CleanupWorld for PrisonCombat, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.31.12:997][556]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.31.13:050][556]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.31.13:055][556]LogUObjectHash: Compacting FUObjectHashTables data took   1.33ms
+[2024.05.28-18.31.13:073][556]LogAudio: Display: Audio Device (ID: 21) registered with world 'Prison_Floor1'.
+[2024.05.28-18.31.13:073][556]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.31.13:073][556]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.31.13:074][556]LogAIModule: Creating AISystem for world Prison_Floor1
+[2024.05.28-18.31.13:074][556]LogWorldPartition: ULevel::OnLevelLoaded(Prison_Floor1)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=1)
+[2024.05.28-18.31.13:074][556]LogWorldPartition: Display: WorldPartition initialize started...
+[2024.05.28-18.31.13:074][556]LogWorldPartition: UWorldPartition::Initialize : World = Prison_Floor1, World Type = PIE, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 0, IsGame = 0, IsPIEWorldTravel = 1, IsCooking = 0
+[2024.05.28-18.31.13:075][556]LogWorldPartition: UWorldPartition::Initialize Context : World NetMode = Standalone, IsServer = 0, IsDedicatedServer = 0, IsServerStreamingEnabled = 0, IsServerStreamingOutEnabled = 0, IsUsingMakingVisibleTransaction = 0, IsUsingMakingInvisibleTransaction = 0
+[2024.05.28-18.31.13:077][556]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' started...
+[2024.05.28-18.31.13:129][556]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' took 52 ms (total: 1.51 sec)
+[2024.05.28-18.31.13:132][556]LogContentBundle: [Prison_Floor1(Standalone)] Creating new contrainer.
+[2024.05.28-18.31.13:132][556]LogWorldPartition: Display: WorldPartition initialize took 57 ms (total: 1.67 sec)
+[2024.05.28-18.31.13:132][556]LogPlayLevel: PIE: World Init took: (0.059168s)
+[2024.05.28-18.31.13:132][556]LogLoad: Game class is 'BP_FloorGameMode_C'
+[2024.05.28-18.31.13:148][556]LogWorld: Bringing World /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1 up for play (max tick rate 0) at 2024.05.28-14.31.13
+[2024.05.28-18.31.13:148][556]LogWorld: Bringing up level for play took: 0.015471
+[2024.05.28-18.31.13:149][556]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.31.13:236][556]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_C_0.Cube has a component set to zero, which will result in a bad body instance. Scale:X=4.000 Y=0.000 Z=4.000
+[2024.05.28-18.31.13:243][556]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_GEN_VARIABLE_EventTrigger_SharkFiend_C_CAT_1.Cube has a component set to zero, which will result in a bad body instance. Scale:X=1.600 Y=0.000 Z=1.600
+[2024.05.28-18.31.13:244][556]LogSkeletalMesh: Error: Material with missing usage flag was applied to skeletal mesh /Game/Objects/Models/PrisonCell/prisonCell19.prisonCell19
+[2024.05.28-18.31.13:251][556]LogLoad: Took 0.254007 seconds to LoadMap(/Game/Map/Prison_Floor1)
+[2024.05.28-18.31.16:133][777]LogNet: Browse: /Game/Map/PrisonCombat
+[2024.05.28-18.31.16:133][777]LogLoad: LoadMap: /Game/Map/PrisonCombat
+[2024.05.28-18.31.16:133][777]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_Prison_Floor1
+[2024.05.28-18.31.16:136][777]LogWorld: UWorld::CleanupWorld for Prison_Floor1, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.31.16:138][777]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.31.16:139][777]LogContentBundle: [Prison_Floor1(Standalone)] Deleting container.
+[2024.05.28-18.31.16:157][777]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.31.16:165][777]LogUObjectHash: Compacting FUObjectHashTables data took   1.34ms
+[2024.05.28-18.31.16:172][777]LogAudio: Display: Audio Device (ID: 21) registered with world 'PrisonCombat'.
+[2024.05.28-18.31.16:172][777]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.31.16:172][777]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.31.16:173][777]LogAIModule: Creating AISystem for world PrisonCombat
+[2024.05.28-18.31.16:173][777]LogPlayLevel: PIE: World Init took: (0.001189s)
+[2024.05.28-18.31.16:173][777]LogLoad: Game class is 'BP_CombatGameMode_C'
+[2024.05.28-18.31.16:181][777]LogWorld: Bringing World /Game/Map/UEDPIE_0_PrisonCombat.PrisonCombat up for play (max tick rate 0) at 2024.05.28-14.31.16
+[2024.05.28-18.31.16:181][777]LogWorld: Bringing up level for play took: 0.008073
+[2024.05.28-18.31.16:182][777]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.31.16:188][777]LogLoad: Took 0.054166 seconds to LoadMap(/Game/Map/PrisonCombat)
+[2024.05.28-18.31.27:910][ 54]LogNet: Browse: /Game/Map/Prison_Floor1
+[2024.05.28-18.31.27:910][ 54]LogLoad: LoadMap: /Game/Map/Prison_Floor1
+[2024.05.28-18.31.27:910][ 54]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_PrisonCombat
+[2024.05.28-18.31.27:911][ 54]LogWorld: UWorld::CleanupWorld for PrisonCombat, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.31.27:911][ 54]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.31.27:961][ 54]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2024.05.28-18.31.27:965][ 54]LogUObjectHash: Compacting FUObjectHashTables data took   1.30ms
+[2024.05.28-18.31.27:982][ 54]LogAudio: Display: Audio Device (ID: 21) registered with world 'Prison_Floor1'.
+[2024.05.28-18.31.27:982][ 54]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.05.28-18.31.27:982][ 54]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.05.28-18.31.27:983][ 54]LogAIModule: Creating AISystem for world Prison_Floor1
+[2024.05.28-18.31.27:984][ 54]LogWorldPartition: ULevel::OnLevelLoaded(Prison_Floor1)(bIsOwningWorldGameWorld=1, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=0, InitializeForGame=1)
+[2024.05.28-18.31.27:984][ 54]LogWorldPartition: Display: WorldPartition initialize started...
+[2024.05.28-18.31.27:984][ 54]LogWorldPartition: UWorldPartition::Initialize : World = Prison_Floor1, World Type = PIE, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 0, IsGame = 0, IsPIEWorldTravel = 1, IsCooking = 0
+[2024.05.28-18.31.27:984][ 54]LogWorldPartition: UWorldPartition::Initialize Context : World NetMode = Standalone, IsServer = 0, IsDedicatedServer = 0, IsServerStreamingEnabled = 0, IsServerStreamingOutEnabled = 0, IsUsingMakingVisibleTransaction = 0, IsUsingMakingInvisibleTransaction = 0
+[2024.05.28-18.31.27:987][ 54]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' started...
+[2024.05.28-18.31.28:045][ 54]LogWorldPartition: Display: GenerateStreaming for 'Prison_Floor1' took 57 ms (total: 1.57 sec)
+[2024.05.28-18.31.28:047][ 54]LogContentBundle: [Prison_Floor1(Standalone)] Creating new contrainer.
+[2024.05.28-18.31.28:047][ 54]LogWorldPartition: Display: WorldPartition initialize took 63 ms (total: 1.73 sec)
+[2024.05.28-18.31.28:048][ 54]LogPlayLevel: PIE: World Init took: (0.065561s)
+[2024.05.28-18.31.28:048][ 54]LogLoad: Game class is 'BP_FloorGameMode_C'
+[2024.05.28-18.31.28:064][ 54]LogWorld: Bringing World /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1 up for play (max tick rate 0) at 2024.05.28-14.31.28
+[2024.05.28-18.31.28:065][ 54]LogWorld: Bringing up level for play took: 0.016160
+[2024.05.28-18.31.28:065][ 54]LogGameMode: FindPlayerStart: PATHS NOT DEFINED or NO PLAYERSTART with positive rating
+[2024.05.28-18.31.28:151][ 54]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_C_0.Cube has a component set to zero, which will result in a bad body instance. Scale:X=4.000 Y=0.000 Z=4.000
+[2024.05.28-18.31.28:158][ 54]LogPhysics: Warning: Scale for /Game/Map/UEDPIE_0_Prison_Floor1.Prison_Floor1:PersistentLevel.EventTrigger_SharkFiend_GEN_VARIABLE_EventTrigger_SharkFiend_C_CAT_1.Cube has a component set to zero, which will result in a bad body instance. Scale:X=1.600 Y=0.000 Z=1.600
+[2024.05.28-18.31.28:159][ 54]LogSkeletalMesh: Error: Material with missing usage flag was applied to skeletal mesh /Game/Objects/Models/PrisonCell/prisonCell19.prisonCell19
+[2024.05.28-18.31.28:166][ 54]LogLoad: Took 0.255661 seconds to LoadMap(/Game/Map/Prison_Floor1)
+[2024.05.28-18.31.48:959][687]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2024.05.28-18.31.48:959][687]LogWorld: BeginTearingDown for /Game/Map/UEDPIE_0_Prison_Floor1
+[2024.05.28-18.31.48:960][687]LogSlate: Window 'DesentIntoAtlantis Preview [NetMode: Standalone 0]  (64-bit/PC D3D SM5)' being destroyed
+[2024.05.28-18.31.48:968][687]LogWorld: UWorld::CleanupWorld for Prison_Floor1, bSessionEnded=true, bCleanupResources=true
+[2024.05.28-18.31.48:970][687]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.31.48:971][687]LogContentBundle: [Prison_Floor1(Standalone)] Deleting container.
+[2024.05.28-18.31.48:973][687]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2024.05.28-18.31.48:981][687]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.05.28-18.31.49:000][687]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 21
+[2024.05.28-18.31.49:000][687]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=21
+[2024.05.28-18.31.49:002][687]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=21
+[2024.05.28-18.31.49:016][687]LogUObjectHash: Compacting FUObjectHashTables data took   1.40ms
+[2024.05.28-18.31.49:046][688]LogPlayLevel: Display: Destroying online subsystem :Context_32
+[2024.05.28-18.53.10:365][892]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:13.175 and deleted 387 files with total size 10 MiB and 376 empty folders. Scanned 7519 files in 8945 folders with total size 519 MiB.
+[2024.05.28-19.53.11:197][690]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:14.006 and deleted 456 files with total size 6 MiB and 435 empty folders. Scanned 7132 files in 8569 folders with total size 508 MiB.

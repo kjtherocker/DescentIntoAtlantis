@@ -44,5 +44,5 @@ void AFloor_EnemyPawn::SetCurrentBehaviorTask(UBehaviorTreeTaskTest* aBehaviorTr
 
 void AFloor_EnemyPawn::ActivateEnemysFloorBehavior(FCompleteFloorPawnData aPlayerCompleteFloorData)
 {
-	activateEnemyBehavior.Broadcast();
+	activateEnemyBehavior.Broadcast(aPlayerCompleteFloorData);
 }

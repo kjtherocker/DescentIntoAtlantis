@@ -16,7 +16,7 @@ struct FFloorNodeData;
  * 
  */
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FActivateEnemyBehavior);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FActivateEnemyBehavior,FCompleteFloorPawnData,floorData);
 UCLASS()
 class DESENTINTOATLANTIS_API AFloor_EnemyPawn : public AFloorPawn
 {

@@ -138,7 +138,7 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 	FVector PositionOffset = FVector(0,0,300);
 	FVector nodeToMoveTowardsPostion = nodeToMoveTowards->GetActorLocation() + PositionOffset;
 	
-	if(FVector::Dist(GetActorLocation(), nodeToMoveTowardsPostion) < 90.5f )
+	if(FVector::Dist(GetActorLocation(), nodeToMoveTowardsPostion) < 100.5f )
 	{
 		hasRotationFinished       = true;
 		previousNodePawnWasOn   = currentNodePawnIsOn;
