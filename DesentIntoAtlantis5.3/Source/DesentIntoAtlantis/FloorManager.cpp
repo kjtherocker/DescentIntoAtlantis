@@ -108,10 +108,16 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 		}
 	}
 
-
+	FCompleteEnemyInteractionData completeEnemyInteractionData =
+				levelProgressionSubsystem->GetEnemyInteractionData(aFloor->floorData.floorIdentifier);
+	
 	for(FFloorEnemyPawnCompleteData enemyPawnData : aFloor->floorEnemyPawns)
 	{
-		SpawnEnemyPawn(enemyPawnData);
+		FVector2D startPosition = enemyPawnData.enemyPatrolPath.StartPath;
+		if(!completeEnemyInteractionData.interactedEnemy.Contains(startPosition))
+		{
+			SpawnEnemyPawn(enemyPawnData);
+		}
 	}
 	
 	for (FDoorComplete Element : aFloor->doorGimmicks)

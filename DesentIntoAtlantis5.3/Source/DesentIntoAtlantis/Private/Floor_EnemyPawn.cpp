@@ -6,6 +6,7 @@
 #include "AIController.h"
 #include "BehaviorTreeTaskTest.h"
 #include "FloorPlayerPawn.h"
+#include "LevelProgressionSubsystem.h"
 #include "PersistentGameinstance.h"
 
 void AFloor_EnemyPawn::Initialize()
@@ -33,6 +34,7 @@ void AFloor_EnemyPawn::SetEnemyPawnCompleteData(FFloorEnemyPawnCompleteData aEne
 void AFloor_EnemyPawn::ActivateCombat()
 {
 	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+	persistentGameInstance->levelProgressionSubsystem->AddEnemyHasBeenInteracted(this);
 	persistentGameInstance->LoadCombatLevel(enemyPawnCompleteData.EnemyGroupName,ECombatArena::Prison);
 }
 

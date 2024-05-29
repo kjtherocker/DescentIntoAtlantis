@@ -83,7 +83,7 @@ void EmptyLinkFunctionForGeneratedCodeSaveGameData() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_USaveGameData_UpdateCompleteProgressionData_Statics::NewProp_aCompleteProgressionData = { "aCompleteProgressionData", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SaveGameData_eventUpdateCompleteProgressionData_Parms, aCompleteProgressionData), Z_Construct_UScriptStruct_FCompleteProgressionData, METADATA_PARAMS(0, nullptr) }; // 3145609198
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_USaveGameData_UpdateCompleteProgressionData_Statics::NewProp_aCompleteProgressionData = { "aCompleteProgressionData", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SaveGameData_eventUpdateCompleteProgressionData_Parms, aCompleteProgressionData), Z_Construct_UScriptStruct_FCompleteProgressionData, METADATA_PARAMS(0, nullptr) }; // 3299057101
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_USaveGameData_UpdateCompleteProgressionData_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USaveGameData_UpdateCompleteProgressionData_Statics::NewProp_aCompleteProgressionData,
 	};
@@ -264,7 +264,7 @@ void EmptyLinkFunctionForGeneratedCodeSaveGameData() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_USaveGameData_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_USaveGameData_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_USaveGameData_UpdateCompleteProgressionData, "UpdateCompleteProgressionData" }, // 689303047
+		{ &Z_Construct_UFunction_USaveGameData_UpdateCompleteProgressionData, "UpdateCompleteProgressionData" }, // 1334510159
 		{ &Z_Construct_UFunction_USaveGameData_UpdateCurrentLevelIdentifier, "UpdateCurrentLevelIdentifier" }, // 1375988695
 		{ &Z_Construct_UFunction_USaveGameData_UpdateEnemyBestiaryData, "UpdateEnemyBestiaryData" }, // 1025145128
 		{ &Z_Construct_UFunction_USaveGameData_UpdateFloorPawnData, "UpdateFloorPawnData" }, // 259592439
@@ -297,7 +297,7 @@ void EmptyLinkFunctionForGeneratedCodeSaveGameData() {}
 		{ "ModuleRelativePath", "Public/SaveGameData.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_USaveGameData_Statics::NewProp_completeProgressionData = { "completeProgressionData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USaveGameData, completeProgressionData), Z_Construct_UScriptStruct_FCompleteProgressionData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_USaveGameData_Statics::NewProp_completeProgressionData_MetaData), Z_Construct_UClass_USaveGameData_Statics::NewProp_completeProgressionData_MetaData) }; // 3145609198
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_USaveGameData_Statics::NewProp_completeProgressionData = { "completeProgressionData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USaveGameData, completeProgressionData), Z_Construct_UScriptStruct_FCompleteProgressionData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_USaveGameData_Statics::NewProp_completeProgressionData_MetaData), Z_Construct_UClass_USaveGameData_Statics::NewProp_completeProgressionData_MetaData) }; // 3299057101
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USaveGameData_Statics::NewProp_completeFloorPawnData_MetaData[] = {
 		{ "ModuleRelativePath", "Public/SaveGameData.h" },
@@ -379,9 +379,9 @@ void EmptyLinkFunctionForGeneratedCodeSaveGameData() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveGameData_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_USaveGameData, USaveGameData::StaticClass, TEXT("USaveGameData"), &Z_Registration_Info_UClass_USaveGameData, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USaveGameData), 4290860558U) },
+		{ Z_Construct_UClass_USaveGameData, USaveGameData::StaticClass, TEXT("USaveGameData"), &Z_Registration_Info_UClass_USaveGameData, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USaveGameData), 2115376810U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveGameData_h_1927219741(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveGameData_h_2144488359(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveGameData_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_SaveGameData_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -9,6 +9,7 @@
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "LevelProgressionSubsystem.generated.h"
 
+class AFloor_EnemyPawn;
 class AAtlantisGameModeBase;
 class UInteractableView;
 class FPlayerHasMoved;
@@ -29,6 +30,16 @@ struct DESENTINTOATLANTIS_API FNodeMapData
 	bool hasBeenRevealed = false;
 };
 
+USTRUCT()
+struct DESENTINTOATLANTIS_API FInteractedEnemy
+{
+	GENERATED_BODY()
+	UPROPERTY()
+	FVector2D positionInGrid;
+	UPROPERTY()
+	bool hasBeenInteracted;
+};
+
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FMapData
@@ -39,6 +50,16 @@ struct DESENTINTOATLANTIS_API FMapData
 	TArray<FNodeMapData> revealedNodes; 
 };
 
+USTRUCT()
+struct DESENTINTOATLANTIS_API FCompleteEnemyInteractionData
+{
+	GENERATED_BODY()
+	UPROPERTY()
+	EFloorIdentifier floorIdentifier;
+	UPROPERTY()
+	TMap<FVector2D,FInteractedEnemy> interactedEnemy;
+};
+
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FCompleteProgressionData
@@ -47,6 +68,10 @@ struct DESENTINTOATLANTIS_API FCompleteProgressionData
 	
 	UPROPERTY()
 	TMap<EFloorIdentifier,FMapData> mapProgression;
+
+	UPROPERTY()
+	FCompleteEnemyInteractionData completeEnemyInteractionData;
+	
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMapHasChanged,FCompleteProgressionData,playerFacingDirection);
@@ -59,7 +84,7 @@ class DESENTINTOATLANTIS_API ULevelProgressionSubsystem : public UGameInstanceSu
 	
 	EFloorIdentifier currentFloorIdentifier;
 	UPROPERTY()
-	FCompleteProgressionData fogOfWar;
+	FCompleteProgressionData completeProgressionData;
 
 	UPROPERTY()
 	TMap<FVector2D,UGimmick_Interactable* > gimmickLocation;
@@ -106,9 +131,12 @@ public:
 	void SetCurrentFloorIdentifier(EFloorIdentifier aFloorIdentifier);
 	
 	EFloorIdentifier GetCurrentFlooridentifier();
-	void LoadCompleteProgressionData(FCompleteProgressionData completeProgressionData);
+	void LoadCompleteProgressionData(FCompleteProgressionData aCompleteProgressionData);
 	void SetCurrentMapFogOfWar(UFloorBase* floorBase);
 
+	FCompleteEnemyInteractionData GetEnemyInteractionData(EFloorIdentifier aFloorIdentifier);
+	void AddEnemyHasBeenInteracted(AFloor_EnemyPawn* aEnemyPawn);
+	
 	void RevealMapNode( int aLevelIndex);
 	bool HasNodeBeenRevealed(int aLevelIndex);
 	void InitializeSubsystem(UPersistentGameinstance* aPersistentGameinstance);

@@ -4,6 +4,7 @@
 #include "LevelProgressionSubsystem.h"
 
 #include "AtlantisGameModeBase.h"
+#include "Floor_EnemyPawn.h"
 #include "InteractableView.h"
 #include "PersistentGameinstance.h"
 
@@ -42,9 +43,9 @@ EFloorIdentifier ULevelProgressionSubsystem::GetCurrentFlooridentifier()
 	return currentFloorIdentifier;
 }
 
-void ULevelProgressionSubsystem::LoadCompleteProgressionData(FCompleteProgressionData completeProgressionData)
+void ULevelProgressionSubsystem::LoadCompleteProgressionData(FCompleteProgressionData aCompleteProgressionData)
 {
-	fogOfWar = completeProgressionData;
+	completeProgressionData = aCompleteProgressionData;
 }
 
 void ULevelProgressionSubsystem::CreateNewFogOfWar(UFloorBase* aFloor)
@@ -57,7 +58,7 @@ void ULevelProgressionSubsystem::CreateNewFogOfWar(UFloorBase* aFloor)
 	
 	FMapData entireMapFogData;
 	entireMapFogData.revealedNodes = newFogOfWar;
-	fogOfWar.mapProgression.Add(aFloor->floorData.floorIdentifier, entireMapFogData);
+	completeProgressionData.mapProgression.Add(aFloor->floorData.floorIdentifier, entireMapFogData);
 }
 
 void ULevelProgressionSubsystem::SetInteractableGimmick(FVector2D aPositionInGrid,
@@ -118,31 +119,57 @@ void ULevelProgressionSubsystem::SetCompleteFloorPawnWithLockData(FCompleteFloor
 
 void ULevelProgressionSubsystem::SetCurrentMapFogOfWar(UFloorBase* floorBase)
 {
-	if(!fogOfWar.mapProgression.Contains(currentFloorIdentifier))
+	if(!completeProgressionData.mapProgression.Contains(currentFloorIdentifier))
 	{
 		CreateNewFogOfWar(floorBase);
 	}
 }
 
+FCompleteEnemyInteractionData ULevelProgressionSubsystem::GetEnemyInteractionData(EFloorIdentifier aFloorIdentifier)
+{
+	EFloorIdentifier interactionDataFloor = completeProgressionData.completeEnemyInteractionData.floorIdentifier;
+	
+	if(aFloorIdentifier != interactionDataFloor)
+	{
+		completeProgressionData.completeEnemyInteractionData.interactedEnemy.Empty();
+	}
+
+	completeProgressionData.completeEnemyInteractionData.floorIdentifier = aFloorIdentifier;
+	
+	return completeProgressionData.completeEnemyInteractionData;
+}
+
+void ULevelProgressionSubsystem::AddEnemyHasBeenInteracted(AFloor_EnemyPawn* aEnemyPawn)
+{
+	FInteractedEnemy interactedEnemy;
+
+	FVector2D startPosition = aEnemyPawn->enemyPawnCompleteData.enemyPatrolPath.StartPath;
+	interactedEnemy.hasBeenInteracted = true;
+	interactedEnemy.positionInGrid    = startPosition;
+	
+	completeProgressionData.completeEnemyInteractionData.interactedEnemy.Add(startPosition,interactedEnemy);
+	mapHasChanged.Broadcast(completeProgressionData);
+}
+
 void ULevelProgressionSubsystem::RevealMapNode(int aLevelIndex)
 {
-	if(!fogOfWar.mapProgression.Contains(currentFloorIdentifier))
+	if(!completeProgressionData.mapProgression.Contains(currentFloorIdentifier))
 	{
 		return;
 	}
-	FMapData* currentMap = &fogOfWar.mapProgression[currentFloorIdentifier];
+	FMapData* currentMap = &completeProgressionData.mapProgression[currentFloorIdentifier];
 	currentMap->revealedNodes[aLevelIndex].hasBeenRevealed = true;
-	mapHasChanged.Broadcast(fogOfWar);
+	mapHasChanged.Broadcast(completeProgressionData);
 }
 
 bool ULevelProgressionSubsystem::HasNodeBeenRevealed(int aLevelIndex)
 {
-	if(!fogOfWar.mapProgression.Contains(currentFloorIdentifier))
+	if(!completeProgressionData.mapProgression.Contains(currentFloorIdentifier))
 	{
 		return false;
 	}
 	
-	FMapData* currentMap = &fogOfWar.mapProgression[currentFloorIdentifier];
+	FMapData* currentMap = &completeProgressionData.mapProgression[currentFloorIdentifier];
 	return currentMap->revealedNodes[aLevelIndex].hasBeenRevealed;
 }
 
