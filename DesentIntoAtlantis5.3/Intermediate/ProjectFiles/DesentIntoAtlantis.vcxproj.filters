@@ -1679,9 +1679,6 @@
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\FloorDoor.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\FloorEnemyPawn.cpp">
-      <Filter>Source\DesentIntoAtlantis\Private</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\FloorEnum.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
@@ -1698,6 +1695,9 @@
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\FloorPlayerPawn.cpp">
+      <Filter>Source\DesentIntoAtlantis\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\Floor_EnemyPawn.cpp">
       <Filter>Source\DesentIntoAtlantis\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\GameManager.cpp">
@@ -1931,9 +1931,6 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\FloorDoor.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\FloorEnemyPawn.h">
-      <Filter>Source\DesentIntoAtlantis\Public</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\FloorEnum.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
@@ -1950,6 +1947,9 @@
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\FloorPlayerPawn.h">
+      <Filter>Source\DesentIntoAtlantis\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\Floor_EnemyPawn.h">
       <Filter>Source\DesentIntoAtlantis\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\GameManager.h">

@@ -135,20 +135,20 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 		return;
 	}
 	
-	FVector PositionOffset = FVector(0,0,300);
-	FVector nodeToMoveTowardsPostion = nodeToMoveTowards->GetActorLocation() + PositionOffset;
+
+	FVector nodeToMoveTowardsPostion = nodeToMoveTowards->GetActorLocation() + positionOffSet;
+	FVector2D nodeToModeTowardsXY = FVector2D(nodeToMoveTowardsPostion.X,nodeToMoveTowardsPostion.Y);
+	FVector2D currentActorPositionXY = FVector2D(GetActorLocation().X,GetActorLocation().Y);
 	
-	if(FVector::Dist(GetActorLocation(), nodeToMoveTowardsPostion) < 100.5f )
+	if(FVector2D::Distance(currentActorPositionXY, nodeToModeTowardsXY) < 5.5f )
 	{
 		hasRotationFinished       = true;
 		previousNodePawnWasOn   = currentNodePawnIsOn;
 		currentNodePawnIsOn     = nodeToMoveTowards;
 		nodeToMoveTowards         = nullptr;
-		
+
 		completeFloorPawnData.currentNodePositionInGrid = currentNodePawnIsOn->floorNodeData.positionInGrid;
-		//currentNodePawnIsOn->PlayerIsOnTopOfNode();
-		//playerhasMovedDelegate.Broadcast(completeFloorPawnData);
-	
+		//SetActorLocation(nodeToMoveTowardsPostion);
 		return;
 	}
 

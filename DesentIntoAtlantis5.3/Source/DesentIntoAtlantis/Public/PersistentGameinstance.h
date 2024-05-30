@@ -8,6 +8,7 @@
 #include "Engine/GameInstance.h"
 #include "PersistentGameinstance.generated.h"
 
+enum class EElementalType;
 class ULevelProgressionSubsystem;
 class USaveManagerSubsystem;
 class USaveGameData;

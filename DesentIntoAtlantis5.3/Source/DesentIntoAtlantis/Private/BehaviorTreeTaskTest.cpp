@@ -27,6 +27,37 @@ EBTNodeResult::Type UBehaviorTreeTaskTest::ExecuteTask(UBehaviorTreeComponent& O
 	return EBTNodeResult::InProgress;
 }
 
+ECardinalNodeDirections UBehaviorTreeTaskTest::CalculateDirection(const FVector2D& CurrentPosition,
+	const FVector2D& TargetPosition)
+{
+	FVector2D Difference = TargetPosition - CurrentPosition;
+
+	if (FMath::Abs(Difference.X) > 0 && FMath::Abs(Difference.Y) == 0)
+	{
+		if (Difference.X > 0)
+		{
+			return ECardinalNodeDirections::Right;
+		}
+		else
+		{
+			return ECardinalNodeDirections::Left;
+		}
+	}
+	else if (FMath::Abs(Difference.Y) > 0 && FMath::Abs(Difference.X) == 0)
+	{
+		if (Difference.Y > 0)
+		{
+			return ECardinalNodeDirections::Up;
+		}
+		else
+		{
+			return ECardinalNodeDirections::Down;
+		}
+	}
+
+	return ECardinalNodeDirections::Empty;
+}
+
 void UBehaviorTreeTaskTest::ActivateBehavior(FCompleteFloorPawnData aPlayerCompleteFloorData)
 {
 	if(aPlayerCompleteFloorData.currentNodePositionInGrid == patrolRoute[currentPathIndex]->floorNodeData.positionInGrid)
@@ -47,7 +78,16 @@ void UBehaviorTreeTaskTest::ActivateBehavior(FCompleteFloorPawnData aPlayerCompl
 		currentPathIndex = 0;
 	}
 	
+	FVector2D currentPosition = enemyFloorPawn->GetCurrentNode()->floorNodeData.positionInGrid;
+	FVector2D newPosition     = patrolRoute[currentPathIndex]->floorNodeData.positionInGrid;
+	ECardinalNodeDirections facingDirection = CalculateDirection(currentPosition,newPosition);
+	if(facingDirection != ECardinalNodeDirections::Empty)
+	{
+		enemyFloorPawn->SetRotationWithoutAnimation(facingDirection);
+	}
+	
 	enemyFloorPawn->SetNodeToMoveTowards(patrolRoute[currentPathIndex]);
+
 	if(aPlayerCompleteFloorData.currentNodePositionInGrid == patrolRoute[currentPathIndex]->floorNodeData.positionInGrid)
 	{
 		enemyFloorPawn->ActivateCombat();

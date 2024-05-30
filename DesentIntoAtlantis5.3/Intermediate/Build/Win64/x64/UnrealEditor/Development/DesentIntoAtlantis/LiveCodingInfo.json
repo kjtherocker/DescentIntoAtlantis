@@ -22,11 +22,11 @@
 			"DialogueView.gen.cpp.obj",
 			"ECardinalDirections.gen.cpp.obj",
 			"EDataTableTypes.gen.cpp.obj",
-			"EElementalType.gen.cpp.obj",
-			"EFloorIdentifier.gen.cpp.obj",
-			"EndView.gen.cpp.obj"
+			"EElementalType.gen.cpp.obj"
 		],
 		"Module.DesentIntoAtlantis.2.cpp.obj": [
+			"EFloorIdentifier.gen.cpp.obj",
+			"EndView.gen.cpp.obj",
 			"EnemyBeastiaryData.gen.cpp.obj",
 			"EnemyBehaviour.gen.cpp.obj",
 			"EnemyCombatEntity.gen.cpp.obj",
@@ -63,10 +63,10 @@
 			"LoadView.gen.cpp.obj",
 			"MainMenuGameMode.gen.cpp.obj",
 			"MainMenuSkillView.gen.cpp.obj",
-			"MainMenuView.gen.cpp.obj",
-			"MapButtonElement.gen.cpp.obj"
+			"MainMenuView.gen.cpp.obj"
 		],
 		"Module.DesentIntoAtlantis.4.cpp.obj": [
+			"MapButtonElement.gen.cpp.obj",
 			"MapEventEditorView.gen.cpp.obj",
 			"MapNodeEditorView.gen.cpp.obj",
 			"MapPlayerIconElement.gen.cpp.obj",
@@ -82,12 +82,12 @@
 			"SaveManagerSubsystem.gen.cpp.obj",
 			"SaveSlotElement.gen.cpp.obj",
 			"SaveSlotPortraitElement.gen.cpp.obj",
-			"SaveView.gen.cpp.obj",
-			"SavingView.gen.cpp.obj",
-			"SkillBarElement.gen.cpp.obj",
-			"SkillFactorySubsystem.gen.cpp.obj"
+			"SaveView.gen.cpp.obj"
 		],
 		"Module.DesentIntoAtlantis.5.cpp.obj": [
+			"SavingView.gen.cpp.obj",
+			"SkillBarElement.gen.cpp.obj",
+			"SkillFactorySubsystem.gen.cpp.obj",
 			"SkillsData.gen.cpp.obj",
 			"SkillView.gen.cpp.obj",
 			"SoundManager.gen.cpp.obj",
@@ -158,7 +158,9 @@
 			"MainMenuSkillView.cpp.obj",
 			"MainMenuView.cpp.obj",
 			"MapButtonElement.cpp.obj",
-			"MapEventEditorView.cpp.obj",
+			"MapEventEditorView.cpp.obj"
+		],
+		"Module.DesentIntoAtlantis.6.cpp.obj": [
 			"MapNodeEditorView.cpp.obj",
 			"MapPlayerIconElement.cpp.obj",
 			"MapView.cpp.obj",
@@ -168,9 +170,7 @@
 			"PartyManagerSubsystem.cpp.obj",
 			"PersistentGameinstance.cpp.obj",
 			"PlayerCombatEntity.cpp.obj",
-			"PressTurnManager.cpp.obj"
-		],
-		"Module.DesentIntoAtlantis.6.cpp.obj": [
+			"PressTurnManager.cpp.obj",
 			"SaveGameData.cpp.obj",
 			"SaveManagerSubsystem.cpp.obj",
 			"SaveSlotElement.cpp.obj",

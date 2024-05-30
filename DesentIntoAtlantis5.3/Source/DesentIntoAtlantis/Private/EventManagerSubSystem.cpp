@@ -129,8 +129,7 @@ void UEventManagerSubSystem::TriggerNextFloorEventStep(EFloorEventStates aFloorE
 			{
 				persistentGameInstance->partyManagerSubsystem->AddPlayerToActiveParty(currentEvent.partyMemberGainedOnEnd);
 			}
-			//gameModeBase->floorManager->GetNode(currentEvent.positionInGrid)->hasFloorEvent = false;
-			//floorEnemyEvents[currentEvent.positionInGrid]->DeleteEnemyPawn();
+			gameMode->floorPawn->SetFloorPawnInput(true);
 			isEventRunning = false;
 
 			
@@ -151,6 +150,12 @@ void UEventManagerSubSystem::TriggerNextFloorEventStep(EFloorEventStates aFloorE
 	}
 }
 
+void UEventManagerSubSystem::SetCurrentEventSet()
+{
+	TriggerNextFloorEventStep(currentFloorEventStates);
+	 
+}
+
 void UEventManagerSubSystem::TriggerDialogue(EDialogueTriggers aDialogueTrigger, EFloorEventStates aTriggerOnEnd)
 {
 	if(UGameSettings::DISABLE_CUTSCENES)
@@ -158,6 +163,8 @@ void UEventManagerSubSystem::TriggerDialogue(EDialogueTriggers aDialogueTrigger,
 		TriggerNextFloorEventStep(aTriggerOnEnd);
 		return;
 	}
+
+	gameMode->floorPawn->SetFloorPawnInput(false);
 	
 	if(aDialogueTrigger != EDialogueTriggers::None)
 	{
@@ -199,8 +206,7 @@ void UEventManagerSubSystem::TriggerPostCombatLevelSwap()
 	completedFloorEventData.Add(currentEvent);
 	eventManagerData.completedFloorEventData.Add(currentEvent);
 	persistentGameInstance->saveManagerSubsystem->SetEventManagerData(eventManagerData);
-	TriggerNextFloorEventStep(EFloorEventStates::Completed);
-	persistentGameInstance->LoadPreviousLevel();
+	currentFloorEventStates = EFloorEventStates::DialogueOnEnd;
 	
 }
 

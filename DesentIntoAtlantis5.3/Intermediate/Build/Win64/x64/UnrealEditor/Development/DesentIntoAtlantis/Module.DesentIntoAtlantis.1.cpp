@@ -20,5 +20,3 @@
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/ECardinalDirections.gen.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EDataTableTypes.gen.cpp"
 #include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EElementalType.gen.cpp"
-#include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EFloorIdentifier.gen.cpp"
-#include "C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Intermediate/Build/Win64/UnrealEditor/Inc/DesentIntoAtlantis/UHT/EndView.gen.cpp"

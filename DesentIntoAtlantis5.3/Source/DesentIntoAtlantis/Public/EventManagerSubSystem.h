@@ -78,6 +78,8 @@ public:
 	UFUNCTION()
 	void TriggerNextFloorEventStep(EFloorEventStates aFloorEventStates);
 
+	void SetCurrentEventSet();
+
 	void EventNotCompleted();
 
 	void AddFloorEnemyEvents(FVector2D aPositionInGrid, AFloorEventMarker* aFloorEnemyPawn);

@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemyPortraitElement() {}
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AEnemyPortraitElement_NoRegister();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_EStatusAilments();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
+	ENGINE_API UClass* Z_Construct_UClass_UMaterialInstanceDynamic_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UMaterialInterface_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
@@ -196,6 +197,10 @@ void EmptyLinkFunctionForGeneratedCodeEnemyPortraitElement() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_materialInstanceDynamic_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_materialInstanceDynamic;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_PlaneMeshComponent_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_PlaneMeshComponent;
@@ -233,6 +238,12 @@ void EmptyLinkFunctionForGeneratedCodeEnemyPortraitElement() {}
 	};
 #endif
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_materialInstanceDynamic_MetaData[] = {
+		{ "ModuleRelativePath", "Public/EnemyPortraitElement.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_materialInstanceDynamic = { "materialInstanceDynamic", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEnemyPortraitElement, materialInstanceDynamic), Z_Construct_UClass_UMaterialInstanceDynamic_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_materialInstanceDynamic_MetaData), Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_materialInstanceDynamic_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_PlaneMeshComponent_MetaData[] = {
 		{ "Category", "EnemyPortraitElement" },
 		{ "EditInline", "true" },
@@ -256,6 +267,7 @@ void EmptyLinkFunctionForGeneratedCodeEnemyPortraitElement() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_BW_Portrait = { "BW_Portrait", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEnemyPortraitElement, BW_Portrait), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_BW_Portrait_MetaData), Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_BW_Portrait_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AEnemyPortraitElement_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_materialInstanceDynamic,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_PlaneMeshComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_currentEnemyMaterialInterface,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEnemyPortraitElement_Statics::NewProp_BW_Portrait,
@@ -298,9 +310,9 @@ void EmptyLinkFunctionForGeneratedCodeEnemyPortraitElement() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AEnemyPortraitElement, AEnemyPortraitElement::StaticClass, TEXT("AEnemyPortraitElement"), &Z_Registration_Info_UClass_AEnemyPortraitElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemyPortraitElement), 2934820068U) },
+		{ Z_Construct_UClass_AEnemyPortraitElement, AEnemyPortraitElement::StaticClass, TEXT("AEnemyPortraitElement"), &Z_Registration_Info_UClass_AEnemyPortraitElement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEnemyPortraitElement), 2336068985U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_2336914312(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_105737495(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_EnemyPortraitElement_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

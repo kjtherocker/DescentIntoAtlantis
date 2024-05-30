@@ -1294,11 +1294,6 @@
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\Floor_EnemyPawn.cpp">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
-      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
-    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\FloorEnum.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
@@ -1325,6 +1320,11 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\FloorPlayerPawn.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\Floor_EnemyPawn.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
@@ -1589,13 +1589,13 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EnemySkillView.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EventManagerSubSystem.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\FloorDoor.h"/>
-    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\Floor_EnemyPawn.h" />
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\FloorEnum.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\FloorEventMarker.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\FloorFactory.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\FloorPawn.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\FloorPlayerController.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\FloorPlayerPawn.h"/>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\Floor_EnemyPawn.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\GameManager.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\GameSettings.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\Gimmick_Base.h"/>

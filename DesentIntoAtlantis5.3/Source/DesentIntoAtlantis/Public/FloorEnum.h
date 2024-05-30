@@ -226,7 +226,7 @@ struct DESENTINTOATLANTIS_API FFloorEventData : public FTableRowBase
 	TSubclassOf<AActor> eventActorReference;
 	
 	UPROPERTY( EditAnywhere )
-	FVector2D positionInGrid = FVector2d::Zero();
+	FVector2D positionInGrid = FVector2D(-1,-1);
 
 	UPROPERTY( EditAnywhere )
 	FString enemyGroupName  = "DefaultTest";

@@ -207,8 +207,7 @@ void ACombatGameModeBase::EndCombat(bool aHasWon)
 	enemyFactory->BestiaryDataHasChangedBroadcast();	
 	if(aHasWon)
 	{
-		//TriggerLevelupMenu(partyMembersInCombat, GetEXP());
-		persistentGameInstance->LoadPreviousLevel();
+		TriggerLevelupMenu(partyMembersInCombat, GetEXP());
 	}
 	else
 	{
@@ -345,6 +344,7 @@ void ACombatGameModeBase::TriggerLevelupMenu(TArray<UPlayerCombatEntity*> aPlaye
 	{
 		persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
 		persistentGameInstance->EventManagerSubSystem->TriggerNextFloorEventStep(EFloorEventStates::PostCombatLevelSwap);
+		persistentGameInstance->LoadPreviousLevel();
 	}
 }
 

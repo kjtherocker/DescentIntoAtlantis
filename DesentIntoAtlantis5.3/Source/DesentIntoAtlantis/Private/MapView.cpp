@@ -22,8 +22,8 @@ void UMapView::GenerateLevel(UFloorFactory* aFloorFactory,EFloorIdentifier aFloo
 	{
 		return;
 	}
-	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
-	levelProgressionSubsystem = persistentGameInstance->levelProgressionSubsystem;
+
+	levelProgressionSubsystem = persistentGameinstance->levelProgressionSubsystem;
 	floorFactory = aFloorFactory;
 	CurrentFloor = floorFactory->floorDictionary[FloorIdentifier];
 	levelProgressionSubsystem->SetCurrentMapFogOfWar(CurrentFloor);

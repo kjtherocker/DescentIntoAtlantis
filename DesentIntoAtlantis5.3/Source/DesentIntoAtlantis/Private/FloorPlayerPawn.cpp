@@ -90,10 +90,12 @@ void AFloorPlayerPawn::MovePawn(float aDeltaTime)
 		return;
 	}
 	
-	FVector PositionOffset = FVector(0,0,300);
-	FVector nodeToMoveTowardsPostion = nodeToMoveTowards->GetActorLocation() + PositionOffset;
 	
-	if(FVector::Dist(GetActorLocation(), nodeToMoveTowardsPostion) < 20.5f )
+	FVector nodeToMoveTowardsPostion = nodeToMoveTowards->GetActorLocation() + positionOffSet;
+	FVector2D nodeToModeTowardsXY = FVector2D(nodeToMoveTowardsPostion.X,nodeToMoveTowardsPostion.Y);
+	FVector2D currentActorPositionXY = FVector2D(GetActorLocation().X,GetActorLocation().Y);
+	
+	if(FVector2D::Distance(currentActorPositionXY, nodeToModeTowardsXY) < 5.5f )
 	{
 		hasRotationFinished       = true;
 		previousNodePawnWasOn   = currentNodePawnIsOn;
@@ -102,7 +104,6 @@ void AFloorPlayerPawn::MovePawn(float aDeltaTime)
 		
 		UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
 		persistentGameInstance->partyManagerSubsystem->SavePlayerEntitys();
-		persistentGameInstance->saveManagerSubsystem->AutoSave();
 		
 		completeFloorPawnData.currentNodePositionInGrid = currentNodePawnIsOn->floorNodeData.positionInGrid;
 		currentNodePawnIsOn->PlayerIsOnTopOfNode();

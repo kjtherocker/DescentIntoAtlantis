@@ -24,6 +24,7 @@ private:
 	bool isTriggeringHitEffect;
 	void HitEffect(float DeltaTime);
 	void Disappear(float DeltaTime);
+	UPROPERTY()
 	UMaterialInstanceDynamic* materialInstanceDynamic;
 	
 public:

@@ -26,14 +26,11 @@ void ULevelupView::SetupLevelupView(UPlayerCombatEntity* aPlayerCombatEntity)
 	FCompleteClassData completeClassData = aPlayerCombatEntity->mainClass->completeClassData;
 	FClassData currentClassLevel = aPlayerCombatEntity->mainClass->completeClassData.currentLevelClassData;
 	FClassData nextClassLevel    = aPlayerCombatEntity->mainClass->Levelup();
-	
-	AFloorGameMode* GameModeBase = Cast< AFloorGameMode>(UGameplayStatics::GetGameMode(GetWorld()));
-	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
 
-	if(completeClassData.unlockableSkillByLevel.Contains(completeClassData.currentLevel))
+	if(completeClassData.unlockableSkillByLevel.Contains(completeClassData.currentLevel+ 1))
 	{
 		ESkillIDS newSkillName = completeClassData.unlockableSkillByLevel[completeClassData.currentLevel + 1];
-		FSkillsData newSKill = persistentGameInstance->skillFactorySubsystem->GetSkill(newSkillName)->skillData;
+		FSkillsData newSKill = persistentGameinstance->skillFactorySubsystem->GetSkill(newSkillName)->skillData;
 		BW_Skillbar->SetSkill(newSKill);
 
 		BW_LevelupConversationalText->SetText(FText(FText::FromString(newSKill.skillDescription)));
@@ -76,6 +73,7 @@ void ULevelupView::ActivateNextLevelup()
 	{
 		InGameHUD->PopMostRecentActiveView();
 		triggerNextEventStage.Broadcast(triggerOnEnd);
+		persistentGameinstance->LoadPreviousLevel();
 		return;
 	}
 	
