@@ -13,7 +13,8 @@
 				"Engine",
 				"UMG",
 				"Blutility",
-				"AIModule"
+				"AIModule",
+				"StateTreeModule"
 			]
 		}
 	],
@@ -24,6 +25,14 @@
 			"TargetAllowList": [
 				"Editor"
 			]
+		},
+		{
+			"Name": "GameplayStateTree",
+			"Enabled": true
+		},
+		{
+			"Name": "StateTree",
+			"Enabled": true
 		}
 	]
 }

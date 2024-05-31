@@ -34,6 +34,7 @@ public:
 	void SpawnFloorNode(int aRow, int aColumn,int aIndex);
 	void SpawnFloorEventTriggers(FFloorEventData AFloorEventData);
 	void SpawnFloor(UFloorBase* aFloorBase);
+	void SpawnEnemysInFloor(UFloorBase* aFloorBase);
 	void PlacePlayerFloorPawn(FVector2D aStartPositionInGrid,ECardinalNodeDirections aPlayerFacingDirection);
 	void MovePlayerToPreviousNode();
 
@@ -46,11 +47,14 @@ public:
 	AFloorNode* GetNodeInDirection(FVector2D CurrentPosition,ECardinalNodeDirections TargetDirection);
 	AFloorNode* GetNode(FVector2D CurrentPosition);
 
+	TArray<FFloorNodeAiData> GetCopyOfFloorNodeAIData();
+	int GetNodeIndex(FVector2D aPositionInGrid);
+
 	UPROPERTY()
 	TArray<AFloorNode*> floorNodes;
 
 	UPROPERTY()
-	TArray<FFloorNodeData> entireFloorNodeData;
+	TArray<FFloorNodeAiData> entireFloorNodeData;
 	
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> floorNodeReference;
@@ -101,7 +105,7 @@ protected:
 private:
 	const double FLOOR_EVENT_HEIGHT_OFFSET = 240;
 	const double SPAWNED_OBJECT_OFFSET = 210;
-	void SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes);
+	void SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes,UFloorBase* aFloorBase);
 
 	UPersistentGameinstance* persistentGameInstance;
 	UPROPERTY()

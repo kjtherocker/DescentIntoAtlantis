@@ -53,7 +53,7 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 {
 	UFloorBase* tempfloor = aFloor;
 	
-	FFloorNodeData floorNodeData;
+	FFloorNodeAiData floorNodeData;
 	int AmountOfFloorNodes = tempfloor->GridDimensionX * tempfloor->GridDimensionY;
 	entireFloorNodeData.Init(floorNodeData,AmountOfFloorNodes);
 	
@@ -105,18 +105,6 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 				
 				SpawnObjectInGrid(positionInGrid,stairsReference);
 			}
-		}
-	}
-
-	FCompleteEnemyInteractionData completeEnemyInteractionData =
-				levelProgressionSubsystem->GetEnemyInteractionData(aFloor->floorData.floorIdentifier);
-	
-	for(FFloorEnemyPawnCompleteData enemyPawnData : aFloor->floorEnemyPawns)
-	{
-		FVector2D startPosition = enemyPawnData.enemyPatrolPath.StartPath;
-		if(!completeEnemyInteractionData.interactedEnemy.Contains(startPosition))
-		{
-			SpawnEnemyPawn(enemyPawnData);
 		}
 	}
 	
@@ -236,6 +224,24 @@ AFloorNode* AFloorManager::GetNode(FVector2D CurrentPosition)
 	return floorNodes[FinalIndex] ;
 }
 
+TArray<FFloorNodeAiData> AFloorManager::GetCopyOfFloorNodeAIData()
+{
+	TArray<FFloorNodeAiData> copyArray;
+
+	entireFloorNodeData[0].neightborsFloorData.Add(ECardinalNodeDirections::Down,FFloorNodeData());
+	for(int i = 0 ; i < entireFloorNodeData.Num();i++)
+	{
+		copyArray.Add(FFloorNodeAiData(entireFloorNodeData[i]));
+	}
+
+	return copyArray;
+}
+
+int AFloorManager::GetNodeIndex(FVector2D aPositionInGrid)
+{
+	return currentFloor->GetIndex(aPositionInGrid.X,aPositionInGrid.Y);
+}
+
 // Called when the game starts or when spawned
 void AFloorManager::BeginPlay()
 {
@@ -259,8 +265,23 @@ void AFloorManager::SpawnFloor(UFloorBase* aFloorBase)
 	currentFloor = aFloorBase;
 
 	CreateGrid(aFloorBase);
-	SetFloorNodeNeightbors(floorNodes);
+	SetFloorNodeNeightbors(floorNodes,aFloorBase);
+	SpawnEnemysInFloor(aFloorBase);
+}
+
+void AFloorManager::SpawnEnemysInFloor(UFloorBase* aFloorBase)
+{
+	FCompleteEnemyInteractionData completeEnemyInteractionData =
+			levelProgressionSubsystem->GetEnemyInteractionData(aFloorBase->floorData.floorIdentifier);
 	
+	for(FFloorEnemyPawnCompleteData enemyPawnData : aFloorBase->floorEnemyPawns)
+	{
+		FVector2D startPosition = enemyPawnData.enemyPatrolPath.StartPath;
+		if(!completeEnemyInteractionData.interactedEnemy.Contains(startPosition))
+		{
+			SpawnEnemyPawn(enemyPawnData);
+		}
+	}
 }
 
 void AFloorManager::MovePlayerToPreviousNode()
@@ -288,7 +309,7 @@ void AFloorManager::SpawnEnemyPawn(FFloorEnemyPawnCompleteData aCompleteFloorPaw
 	
 	AFloor_EnemyPawn* floorPawn = Cast<AFloor_EnemyPawn>(GetWorld()->SpawnActor<AActor>(aCompleteFloorPawnData.floorEnemyPawnReference, ActorFinalSpawnPoint, rotator,ActorSpawnParameters));
 	floorPawn->Initialize();
-	floorPawn->SetEnemyFloorPlan(entireFloorNodeData);
+	floorPawn->SetEnemyFloorPlan(GetCopyOfFloorNodeAIData());
 	floorPawn->SubscribeToActivateEnemyBehavior(floorGameModeBase->floorPawn);
 	floorPawn->SetEnemyPawnCompleteData(aCompleteFloorPawnData);
 	floorPawn->PlaceAndInitializieFloorPawn(floorNodes[startPositionIndex],aCompleteFloorPawnData.completeFloorPawnData.currentFacingDirection);
@@ -300,7 +321,7 @@ void AFloorManager::LoadNextLevel(FVector2D aPositionInGrid)
 }
 
 
-void AFloorManager::SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes)
+void AFloorManager::SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes,UFloorBase* aFloorBase)
 {
 	if(aFloorNodes.Num() == 0)
 	{
@@ -326,6 +347,16 @@ void AFloorManager::SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes)
 					mainNode->floorNodeData.nodeNeighbors.Add(direction,neightborNode);
 				}
 			}
+
+			FVector2D mainNodePositionInGrid = mainNode->floorNodeData.positionInGrid;
+			int LevelIndex = aFloorBase->GetIndex(mainNodePositionInGrid.X, mainNodePositionInGrid.Y);
+			entireFloorNodeData[LevelIndex] = mainNode->floorNodeData;
+			
+			for (TTuple<ECardinalNodeDirections, AFloorNode*> neightbors : mainNode->floorNodeData.nodeNeighbors)
+			{
+				entireFloorNodeData[LevelIndex].neightborsFloorData.Add(neightbors.Key,neightbors.Value->floorNodeData);
+			}
+			
 		}
 	}
 }

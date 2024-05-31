@@ -9,6 +9,7 @@ AFloorNode::AFloorNode()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
+
 }
 
 AFloorNode::~AFloorNode()
@@ -131,6 +132,7 @@ void AFloorNode::SetLevelNode(TArray<ECardinalNodeDirections> aWalkableDirection
 			}
 		}
 	}
+	
 }
 
 void AFloorNode::SetPositionInGrid(FVector2D aPosition)
@@ -205,6 +207,6 @@ void AFloorNode::PlayerIsOnTopOfNode()
 
 void AFloorNode::SetAdditionalLockedDirections(ECardinalNodeDirections aCardinalNodeDirections)
 {
-	floorNodeData.additonalLockedDirections.Add(aCardinalNodeDirections);
+	floorNodeData.additionalLockedDirections.Add(aCardinalNodeDirections);
 }
 

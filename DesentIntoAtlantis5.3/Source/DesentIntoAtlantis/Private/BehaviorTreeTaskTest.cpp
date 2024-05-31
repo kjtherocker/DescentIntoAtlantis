@@ -15,15 +15,34 @@
 EBTNodeResult::Type UBehaviorTreeTaskTest::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
 	AAIController* MyController = OwnerComp.GetAIOwner();
-//	APawn* AIPawn2 = MyController->GetPawn();
-	
-	AIPawn = MyController->GetPawn();
-	enemyFloorPawn = static_cast<AFloor_EnemyPawn*>(AIPawn);
+	APawn* AIPawn = MyController->GetPawn();
+	AFloor_EnemyPawn* enemyFloorPawn = static_cast<AFloor_EnemyPawn*>(AIPawn);
 	enemyFloorPawn->SetCurrentBehaviorTask(this);
 	int testo = 0;
-	enemyFloorPawn->activateEnemyBehavior.AddDynamic(this, &UBehaviorTreeTaskTest::ActivateBehavior);
-	floorPlan = enemyFloorPawn->floorPlan;
-	CalculateDistance();
+//	enemyFloorPawn->activateEnemyBehavior.AddDynamic(this, &UBehaviorTreeTaskTest::ActivateBehavior);
+
+	FVector2D startPosition = enemyFloorPawn->enemyPawnCompleteData.enemyPatrolPath.StartPath;
+	FVector2D endPosition   = enemyFloorPawn->enemyPawnCompleteData.enemyPatrolPath.EndPath;
+	TargetActorKey.AddObjectFilter(this, FName("PatrolData"), AActor::StaticClass());
+	UBlackboardComponent* BlackboardComp = OwnerComp.GetBlackboardComponent();
+	
+	if (BlackboardComp)
+	{
+		// Retrieve the current target actor from the blackboard
+		FName patrolDataName = FName("PatrolData");
+		UPatrolData* TargetClass = Cast<UPatrolData>(BlackboardComp->GetValueAsClass(TargetActorKey.SelectedKeyName));
+
+		TargetClass->currentPathIndex = 99;
+		// Set the new target actor in the blackboard
+		if (TargetClass)
+		{
+			BlackboardComp->SetValueAsObject(TargetActorKey.SelectedKeyName, TargetClass);
+		}
+
+		UPatrolData* testsdadwdawdaw = Cast<UPatrolData>(BlackboardComp->GetValueAsClass(TargetActorKey.SelectedKeyName));
+	}
+	
+	//CalculateDistance(startPosition,endPosition,enemyFloorPawn->gameModeBase->floorManager);
 	return EBTNodeResult::InProgress;
 }
 
@@ -58,11 +77,18 @@ ECardinalNodeDirections UBehaviorTreeTaskTest::CalculateDirection(const FVector2
 	return ECardinalNodeDirections::Empty;
 }
 
-void UBehaviorTreeTaskTest::ActivateBehavior(FCompleteFloorPawnData aPlayerCompleteFloorData)
+void UBehaviorTreeTaskTest::ActivateBehavior(FCompleteFloorPawnData aPlayerCompleteFloorData,AFloor_EnemyPawn* aEnemyPawn)
 {
-	if(aPlayerCompleteFloorData.currentNodePositionInGrid == patrolRoute[currentPathIndex]->floorNodeData.positionInGrid)
+	TArray<FFloorNodeAiData> patrolRoute;
+	int currentPathIndex = 0;
+	bool isAscendingPath = false;
+	
+	AFloor_EnemyPawn* enemyPawn = aEnemyPawn;
+	FVector2D currentPositionInGrid = patrolRoute[currentPathIndex].positionInGrid;
+	
+	if(aPlayerCompleteFloorData.currentNodePositionInGrid == currentPositionInGrid)
 	{
-		enemyFloorPawn->ActivateCombat();
+		enemyPawn->ActivateCombat();
 	}
 	
 	currentPathIndex += isAscendingPath ? -1 : +1;
@@ -78,92 +104,102 @@ void UBehaviorTreeTaskTest::ActivateBehavior(FCompleteFloorPawnData aPlayerCompl
 		currentPathIndex = 0;
 	}
 	
-	FVector2D currentPosition = enemyFloorPawn->GetCurrentNode()->floorNodeData.positionInGrid;
-	FVector2D newPosition     = patrolRoute[currentPathIndex]->floorNodeData.positionInGrid;
+	FVector2D currentPosition = enemyPawn->GetCurrentNode()->floorNodeData.positionInGrid;
+	FVector2D newPosition     = patrolRoute[currentPathIndex].positionInGrid;
 	ECardinalNodeDirections facingDirection = CalculateDirection(currentPosition,newPosition);
 	if(facingDirection != ECardinalNodeDirections::Empty)
 	{
-		enemyFloorPawn->SetRotationWithoutAnimation(facingDirection);
+		enemyPawn->SetRotationWithoutAnimation(facingDirection);
 	}
 	
-	enemyFloorPawn->SetNodeToMoveTowards(patrolRoute[currentPathIndex]);
+	enemyPawn->SetNodeToMoveTowards(enemyPawn->gameModeBase->floorManager->GetNode(newPosition));
 
-	if(aPlayerCompleteFloorData.currentNodePositionInGrid == patrolRoute[currentPathIndex]->floorNodeData.positionInGrid)
+	if(aPlayerCompleteFloorData.currentNodePositionInGrid == newPosition)
 	{
-		enemyFloorPawn->ActivateCombat();
+		enemyPawn->ActivateCombat();
 	}
  }
 
-void UBehaviorTreeTaskTest::CalculateDistance()
+void UBehaviorTreeTaskTest::CalculateDistance(FVector2D aStartPosition,FVector2D aEndPosition,AFloorManager* aFloorManager)
 {
-
-	AFloorManager* floorManager        = enemyFloorPawn->gameModeBase->floorManager;
-
-	FVector2D GoalPosition             = enemyFloorPawn->enemyPawnCompleteData.enemyPatrolPath.EndPath;
-	FVector2D startPosition            = enemyFloorPawn->enemyPawnCompleteData.enemyPatrolPath.StartPath;
+	AFloorManager* floorManager = aFloorManager;
+	TArray<FFloorNodeAiData> floorPlan = floorManager->GetCopyOfFloorNodeAIData();
+	FVector2D GoalPosition             = aEndPosition;
+	FVector2D startPosition            = aStartPosition;
 	
-	AFloorNode* goalFloorNode          = floorManager->GetNode(GoalPosition);
-	AFloorNode* startFloorNode         = floorManager->GetNode(startPosition);
-	FVector2d pawnPosition             = goalFloorNode->floorNodeData.positionInGrid;
+	FFloorNodeAiData goalFloorNode          = floorPlan[floorManager->GetNodeIndex(GoalPosition)];
+	FFloorNodeAiData startFloorNode         = floorPlan[floorManager->GetNodeIndex(startPosition)];
+	FVector2d pawnPosition                  = startFloorNode.positionInGrid;
 
-	TArray<FFloorNodeData> nodesToTravel;
-	nodesToTravel.Add(goalFloorNode->floorNodeData);
-	TArray<FFloorNodeData> testAllCalculatedHeuristics;
+	FFloorNodeAiData startNodeData;
+
+	TArray<FFloorNodeAiData> nodesToTravel;
+
+	goalFloorNode.heuristic         = 0;
+	goalFloorNode.hasBeenCalculated = true;
+	nodesToTravel.Add(goalFloorNode);
+	floorPlan[floorManager->GetNodeIndex(GoalPosition)] = goalFloorNode;
+	
 	while(nodesToTravel.Num() > 0)
 	{
-		FFloorNodeData currentNodeData = nodesToTravel[0];
+		FFloorNodeAiData currentNodeData = nodesToTravel[0];
 		nodesToTravel.RemoveAt(0);
 		
-		if(startFloorNode->floorNodeData.positionInGrid == pawnPosition)
+		if(currentNodeData.positionInGrid == pawnPosition)
 		{
 			break;
 		}
 
-		for (TTuple<ECardinalNodeDirections, AFloorNode*> NodesToTravel : currentNodeData.nodeNeighbors)
+		for (TTuple<ECardinalNodeDirections,  FFloorNodeAiData> NodesToTravel : currentNodeData.neightborsFloorData)
 		{
-			if(!NodesToTravel.Value->floorNodeData.hasBeenCalculated)
+			FFloorNodeAiData aiNode = floorPlan[floorManager->GetNodeIndex(NodesToTravel.Value.positionInGrid)];
+			if(!aiNode.hasBeenCalculated)
 			{
-				NodesToTravel.Value->floorNodeData.heuristic = currentNodeData.heuristic +1;
-				nodesToTravel.Add(NodesToTravel.Value->floorNodeData);
-				testAllCalculatedHeuristics.Add(NodesToTravel.Value->floorNodeData);
-				NodesToTravel.Value->floorNodeData.hasBeenCalculated = true;
+				aiNode.heuristic    = currentNodeData.heuristic +1;
+				aiNode.hasBeenCalculated = true;
+				nodesToTravel.Add(aiNode);
+				floorPlan[floorManager->GetNodeIndex(NodesToTravel.Value.positionInGrid)] = aiNode;
 			}
 		}
 	}
-	
-	int currentHeuristic = startFloorNode->floorNodeData.heuristic;
 
-	AFloorNode* currentFloorNode  = startFloorNode;
-	patrolRoute.Add(currentFloorNode);
+	FFloorNodeAiData currentFloorNode  = floorPlan[floorManager->GetNodeIndex(pawnPosition)];
 	
-	while(currentFloorNode != nullptr)
+	int currentHeuristic = currentFloorNode.heuristic;
+	//patrolRoute.Add(currentFloorNode);
+	
+	while(currentFloorNode.heuristic != -1)
 	{
+		FFloorNodeAiData aiNode = floorPlan[floorManager->GetNodeIndex(currentFloorNode.positionInGrid)];
 
-		TMap<ECardinalNodeDirections, AFloorNode*> nodeNeighbors = currentFloorNode->floorNodeData.nodeNeighbors;
+		TMap<ECardinalNodeDirections, FFloorNodeData> nodeNeighbors = aiNode.neightborsFloorData;
 
 		if(currentHeuristic == 0)
 		{
 			break;
 		}
 		
-		AFloorNode* floorNodePath = nullptr;
+		FFloorNodeAiData floorNodePath;
 		
-		for (TTuple<ECardinalNodeDirections, AFloorNode*> node : nodeNeighbors)
+		for (TTuple<ECardinalNodeDirections, FFloorNodeAiData> node : nodeNeighbors)
 		{
-			if(node.Value->floorNodeData.heuristic < currentHeuristic
-				&& node.Value->floorNodeData.heuristic != -1)
+			FFloorNodeAiData floorNodeData = floorPlan[floorManager->GetNodeIndex(node.Value.positionInGrid)];;
+			if(floorNodeData.heuristic < currentHeuristic
+				&& floorNodeData.heuristic != -1)
 			{
-				floorNodePath = node.Value;
+				floorNodePath = floorNodeData;
 			}
 		}
 
-		if(floorNodePath == nullptr)
+		if(floorNodePath.heuristic == -1)
 		{
 			break;
 		}
 		
-		patrolRoute.Add(floorNodePath);
-		currentHeuristic = floorNodePath->floorNodeData.heuristic;
+		//patrolRoute.Add(floorNodePath);
+		currentHeuristic = floorNodePath.heuristic;
 		currentFloorNode = floorNodePath;
 	}
+
+	//enemyFloorPawn->patrolPath = patrolRoute;
 }

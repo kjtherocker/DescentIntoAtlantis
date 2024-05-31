@@ -32,6 +32,8 @@ void AFloor_EnemyPawn::Initialize()
 			SetEnemyTexture(ECardinalNodeDirections::Left);
 		}
 	}
+	
+	hasBeenInitialized = true;
 }
 
 void AFloor_EnemyPawn::Tick(float DeltaTime)
@@ -95,7 +97,7 @@ void AFloor_EnemyPawn::SubscribeToActivateEnemyBehavior(AFloorPlayerPawn* aFloor
 	aFloorPlayerPawn->playerhasMovedDelegate.AddDynamic(this,&AFloor_EnemyPawn::ActivateEnemysFloorBehavior);
 }
 
-void AFloor_EnemyPawn::SetEnemyFloorPlan(TArray<FFloorNodeData> aFloorPlan)
+void AFloor_EnemyPawn::SetEnemyFloorPlan(TArray<FFloorNodeAiData> aFloorPlan)
 {
 	floorPlan = aFloorPlan;
 }

@@ -8,28 +8,59 @@
 #include "GameFramework/Actor.h"
 #include "FloorNode.generated.h"
 
+struct FFloorNodeData;
 class UGimmick_Base;
 class UFloorNodeWallInfo;
 
-USTRUCT()
+
+
+USTRUCT(BlueprintType)
 struct FFloorNodeData
 {
 	GENERATED_BODY()
-
+public:
 	TArray<ECardinalNodeDirections> walkableDirections;
 	
+	FVector2D positionInGrid;
+	
+	UPROPERTY()
+	TMap<ECardinalNodeDirections,AFloorNode*> nodeNeighbors;
+	UPROPERTY()
+	TArray<ECardinalNodeDirections> additionalLockedDirections;
+	UPROPERTY()
+	TArray<ECardinalNodeDirections> cardinalNodeDirections;
+	
+};
+
+
+USTRUCT(BlueprintType)
+struct FFloorNodeAiData : public FFloorNodeData
+{
+	GENERATED_BODY()
+
+	UPROPERTY()
+	TMap<ECardinalNodeDirections,FFloorNodeData> neightborsFloorData;
 	FVector2D positionInGrid;
 
 	UPROPERTY()
 	bool hasBeenCalculated = false;
 	UPROPERTY()
 	int heuristic = -1;
-	UPROPERTY()
-	TMap<ECardinalNodeDirections,AFloorNode*> nodeNeighbors;
-	UPROPERTY()
-	TArray<ECardinalNodeDirections> additonalLockedDirections;
-	UPROPERTY()
-	TArray<ECardinalNodeDirections> cardinalNodeDirections;
+	FFloorNodeAiData() {}
+    
+	FFloorNodeAiData(const FFloorNodeData& floorNodeData)
+	{
+		// Copy base struct data to derived struct
+		walkableDirections = floorNodeData.walkableDirections;
+		positionInGrid = floorNodeData.positionInGrid;
+		nodeNeighbors = floorNodeData.nodeNeighbors;
+		additionalLockedDirections = floorNodeData.additionalLockedDirections;
+		cardinalNodeDirections = floorNodeData.cardinalNodeDirections;
+
+		// Initialize FFloorNodeAiData specific members
+		hasBeenCalculated = false;
+		heuristic = -1;
+	}
 };
 
 

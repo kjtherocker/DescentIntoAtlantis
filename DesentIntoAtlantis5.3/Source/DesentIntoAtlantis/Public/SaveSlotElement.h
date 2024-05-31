@@ -6,6 +6,7 @@
 #include "BaseUserWidget.h"
 #include "SaveSlotElement.generated.h"
 
+struct FPlayerCompleteDataSet;
 class UTextBlock;
 class UHorizontalBox;
 class USaveSlotPortraitElement;

@@ -91,6 +91,7 @@
 			"SkillsData.gen.cpp.obj",
 			"SkillView.gen.cpp.obj",
 			"SoundManager.gen.cpp.obj",
+			"StateTask_Patrol.gen.cpp.obj",
 			"StatusElement.gen.cpp.obj",
 			"StatusMainMenuElement.gen.cpp.obj",
 			"SyncView.gen.cpp.obj",
@@ -136,6 +137,7 @@
 			"EnemySkillView.cpp.obj",
 			"EventManagerSubSystem.cpp.obj",
 			"FloorDoor.cpp.obj",
+			"FloorEnemyStateTree.cpp.obj",
 			"FloorEnum.cpp.obj",
 			"FloorEventMarker.cpp.obj",
 			"FloorFactory.cpp.obj",
@@ -149,7 +151,9 @@
 			"InGameHUD.cpp.obj",
 			"InteractableView.cpp.obj",
 			"ItemView.cpp.obj",
-			"LevelGeneratorUtilityWidget.cpp.obj",
+			"LevelGeneratorUtilityWidget.cpp.obj"
+		],
+		"Module.DesentIntoAtlantis.6.cpp.obj": [
 			"LevelProgressionSubsystem.cpp.obj",
 			"LevelupPanelElement.cpp.obj",
 			"LevelupView.cpp.obj",
@@ -158,9 +162,7 @@
 			"MainMenuSkillView.cpp.obj",
 			"MainMenuView.cpp.obj",
 			"MapButtonElement.cpp.obj",
-			"MapEventEditorView.cpp.obj"
-		],
-		"Module.DesentIntoAtlantis.6.cpp.obj": [
+			"MapEventEditorView.cpp.obj",
 			"MapNodeEditorView.cpp.obj",
 			"MapPlayerIconElement.cpp.obj",
 			"MapView.cpp.obj",
@@ -182,6 +184,7 @@
 			"SkillsData.cpp.obj",
 			"SkillView.cpp.obj",
 			"SoundManager.cpp.obj",
+			"StateTask_Patrol.cpp.obj",
 			"StatusElement.cpp.obj",
 			"StatusMainMenuElement.cpp.obj",
 			"SyncView.cpp.obj",

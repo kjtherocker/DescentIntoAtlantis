@@ -111,7 +111,7 @@ void AFloorPawn::MoveForward()
 	TMap<ECardinalNodeDirections,AFloorNode*> currentNodeNeightbors = currentNodePawnIsOn->floorNodeData.nodeNeighbors;
 	
 	if(currentNodeNeightbors.Contains(completeFloorPawnData.currentFacingDirection) &&
-		!currentNodePawnIsOn->floorNodeData.additonalLockedDirections.Contains(completeFloorPawnData.currentFacingDirection))
+		!currentNodePawnIsOn->floorNodeData.additionalLockedDirections.Contains(completeFloorPawnData.currentFacingDirection))
 	{
 		nodeToMoveTo = currentNodePawnIsOn->floorNodeData.nodeNeighbors[completeFloorPawnData.currentFacingDirection];
 	}
