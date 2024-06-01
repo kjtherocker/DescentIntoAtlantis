@@ -34,6 +34,8 @@ void AFloor_EnemyPawn::Initialize()
 	}
 	
 	hasBeenInitialized = true;
+
+	SetCurrentBehaviorTask(NewObject<UPatrolBehavior>());
 }
 
 void AFloor_EnemyPawn::Tick(float DeltaTime)
@@ -122,9 +124,10 @@ void AFloor_EnemyPawn::SetEnemyTexture(ECardinalNodeDirections aCardinalNodeDire
 	meshComponent->SetMaterial(0, materialInstanceDynamic);
 }
 
-void AFloor_EnemyPawn::SetCurrentBehaviorTask(UBehaviorTreeTaskTest* aBehaviorTreeTask)
+void AFloor_EnemyPawn::SetCurrentBehaviorTask(UFloorBehaviors* aFloorBehavior)
 {
-	behaviorTreeTaskTest = aBehaviorTreeTask;
+	currentFloorBehavior = aFloorBehavior;
+	currentFloorBehavior->ExecuteTask(this);
 }
 
 

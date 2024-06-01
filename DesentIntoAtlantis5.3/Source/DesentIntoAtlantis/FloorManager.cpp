@@ -308,10 +308,10 @@ void AFloorManager::SpawnEnemyPawn(FFloorEnemyPawnCompleteData aCompleteFloorPaw
 		aCompleteFloorPawnData.completeFloorPawnData.currentNodePositionInGrid.Y) ;
 	
 	AFloor_EnemyPawn* floorPawn = Cast<AFloor_EnemyPawn>(GetWorld()->SpawnActor<AActor>(aCompleteFloorPawnData.floorEnemyPawnReference, ActorFinalSpawnPoint, rotator,ActorSpawnParameters));
-	floorPawn->Initialize();
 	floorPawn->SetEnemyFloorPlan(GetCopyOfFloorNodeAIData());
 	floorPawn->SubscribeToActivateEnemyBehavior(floorGameModeBase->floorPawn);
 	floorPawn->SetEnemyPawnCompleteData(aCompleteFloorPawnData);
+	floorPawn->Initialize();
 	floorPawn->PlaceAndInitializieFloorPawn(floorNodes[startPositionIndex],aCompleteFloorPawnData.completeFloorPawnData.currentFacingDirection);
 }
 

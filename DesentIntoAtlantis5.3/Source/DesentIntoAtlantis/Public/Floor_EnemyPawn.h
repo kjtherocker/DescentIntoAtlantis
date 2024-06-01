@@ -37,7 +37,7 @@ public:
 	UPROPERTY()
 	UMeshComponent* meshComponent;
 	UPROPERTY(EditAnywhere)
-	UBehaviorTreeTaskTest* behaviorTreeTaskTest;
+	UFloorBehaviors* currentFloorBehavior;
 
 	TArray<FFloorNodeAiData> patrolPath;
 	
@@ -52,7 +52,7 @@ public:
 	virtual void SetEnemyPawnCompleteData(FFloorEnemyPawnCompleteData aEnemyPawnCompleteData);
 	virtual void ActivateCombat();
 	virtual void SetEnemyTexture(ECardinalNodeDirections aCardinalNodeDirection);
-	void SetCurrentBehaviorTask(UBehaviorTreeTaskTest* aBehaviorTreeTask);
+	void SetCurrentBehaviorTask(UFloorBehaviors* aFloorBehavior);
 	UFUNCTION()
 	void ActivateEnemysFloorBehavior(FCompleteFloorPawnData aPlayerCompleteFloorData);
 

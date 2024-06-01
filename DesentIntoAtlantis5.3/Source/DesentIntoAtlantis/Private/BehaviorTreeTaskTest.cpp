@@ -14,40 +14,35 @@
 
 EBTNodeResult::Type UBehaviorTreeTaskTest::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
-	AAIController* MyController = OwnerComp.GetAIOwner();
-	APawn* AIPawn = MyController->GetPawn();
-	AFloor_EnemyPawn* enemyFloorPawn = static_cast<AFloor_EnemyPawn*>(AIPawn);
-	enemyFloorPawn->SetCurrentBehaviorTask(this);
-	int testo = 0;
-//	enemyFloorPawn->activateEnemyBehavior.AddDynamic(this, &UBehaviorTreeTaskTest::ActivateBehavior);
-
-	FVector2D startPosition = enemyFloorPawn->enemyPawnCompleteData.enemyPatrolPath.StartPath;
-	FVector2D endPosition   = enemyFloorPawn->enemyPawnCompleteData.enemyPatrolPath.EndPath;
-	TargetActorKey.AddObjectFilter(this, FName("PatrolData"), AActor::StaticClass());
-	UBlackboardComponent* BlackboardComp = OwnerComp.GetBlackboardComponent();
-	
-	if (BlackboardComp)
-	{
-		// Retrieve the current target actor from the blackboard
-		FName patrolDataName = FName("PatrolData");
-		UPatrolData* TargetClass = Cast<UPatrolData>(BlackboardComp->GetValueAsClass(TargetActorKey.SelectedKeyName));
-
-		TargetClass->currentPathIndex = 99;
-		// Set the new target actor in the blackboard
-		if (TargetClass)
-		{
-			BlackboardComp->SetValueAsObject(TargetActorKey.SelectedKeyName, TargetClass);
-		}
-
-		UPatrolData* testsdadwdawdaw = Cast<UPatrolData>(BlackboardComp->GetValueAsClass(TargetActorKey.SelectedKeyName));
-	}
-	
-	//CalculateDistance(startPosition,endPosition,enemyFloorPawn->gameModeBase->floorManager);
 	return EBTNodeResult::InProgress;
 }
 
-ECardinalNodeDirections UBehaviorTreeTaskTest::CalculateDirection(const FVector2D& CurrentPosition,
-	const FVector2D& TargetPosition)
+void UFloorBehaviors::ExecuteTask(AFloor_EnemyPawn* aEnemyPawn)
+{
+}
+
+void UFloorBehaviors::ActivateBehavior(FCompleteFloorPawnData aPlayerCompleteFloorData)
+{
+}
+
+void UPatrolBehavior::ExecuteTask(AFloor_EnemyPawn* aEnemyPawn)
+{
+
+	enemyFloorPawn = aEnemyPawn;
+	//enemyFloorPawn->SetCurrentBehaviorTask(this);
+	int testo = 0;
+	enemyFloorPawn->activateEnemyBehavior.AddDynamic(this, &UPatrolBehavior::ActivateBehavior);
+
+	floorManager = enemyFloorPawn->gameModeBase->floorManager;
+	
+	FVector2D startPosition = enemyFloorPawn->enemyPawnCompleteData.enemyPatrolPath.StartPath;
+	FVector2D endPosition   = enemyFloorPawn->enemyPawnCompleteData.enemyPatrolPath.EndPath;
+
+	CalculateDistance(startPosition, endPosition, floorManager);
+}
+
+ECardinalNodeDirections UPatrolBehavior::CalculateDirection(const FVector2D& CurrentPosition,
+                                                            const FVector2D& TargetPosition)
 {
 	FVector2D Difference = TargetPosition - CurrentPosition;
 
@@ -77,13 +72,11 @@ ECardinalNodeDirections UBehaviorTreeTaskTest::CalculateDirection(const FVector2
 	return ECardinalNodeDirections::Empty;
 }
 
-void UBehaviorTreeTaskTest::ActivateBehavior(FCompleteFloorPawnData aPlayerCompleteFloorData,AFloor_EnemyPawn* aEnemyPawn)
+void UPatrolBehavior::ActivateBehavior(FCompleteFloorPawnData aPlayerCompleteFloorData)
 {
-	TArray<FFloorNodeAiData> patrolRoute;
-	int currentPathIndex = 0;
-	bool isAscendingPath = false;
+
 	
-	AFloor_EnemyPawn* enemyPawn = aEnemyPawn;
+	AFloor_EnemyPawn* enemyPawn = enemyFloorPawn;
 	FVector2D currentPositionInGrid = patrolRoute[currentPathIndex].positionInGrid;
 	
 	if(aPlayerCompleteFloorData.currentNodePositionInGrid == currentPositionInGrid)
@@ -118,12 +111,12 @@ void UBehaviorTreeTaskTest::ActivateBehavior(FCompleteFloorPawnData aPlayerCompl
 	{
 		enemyPawn->ActivateCombat();
 	}
- }
+}
 
-void UBehaviorTreeTaskTest::CalculateDistance(FVector2D aStartPosition,FVector2D aEndPosition,AFloorManager* aFloorManager)
+void UPatrolBehavior::CalculateDistance(FVector2D aStartPosition, FVector2D aEndPosition, AFloorManager* aFloorManager)
 {
-	AFloorManager* floorManager = aFloorManager;
-	TArray<FFloorNodeAiData> floorPlan = floorManager->GetCopyOfFloorNodeAIData();
+	floorManager = aFloorManager;
+	floorPlan = floorManager->GetCopyOfFloorNodeAIData();
 	FVector2D GoalPosition             = aEndPosition;
 	FVector2D startPosition            = aStartPosition;
 	
@@ -166,7 +159,7 @@ void UBehaviorTreeTaskTest::CalculateDistance(FVector2D aStartPosition,FVector2D
 	FFloorNodeAiData currentFloorNode  = floorPlan[floorManager->GetNodeIndex(pawnPosition)];
 	
 	int currentHeuristic = currentFloorNode.heuristic;
-	//patrolRoute.Add(currentFloorNode);
+	patrolRoute.Add(currentFloorNode);
 	
 	while(currentFloorNode.heuristic != -1)
 	{
@@ -196,10 +189,9 @@ void UBehaviorTreeTaskTest::CalculateDistance(FVector2D aStartPosition,FVector2D
 			break;
 		}
 		
-		//patrolRoute.Add(floorNodePath);
+		patrolRoute.Add(floorNodePath);
 		currentHeuristic = floorNodePath.heuristic;
 		currentFloorNode = floorNodePath;
 	}
 
-	//enemyFloorPawn->patrolPath = patrolRoute;
 }

@@ -23,45 +23,37 @@ class DESENTINTOATLANTIS_API UBehaviorTreeTaskTest : public UBTTaskNode
 {
 	GENERATED_BODY()
 public:
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//APawn* AIPawn;
-	
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//AFloor_EnemyPawn* enemyFloorPawn;
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//TArray<FFloorNodeAiData>  floorPlan;
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//TArray<FFloorNodeAiData> patrolRoute;
-
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//AFloorManager* floorManager;
-	
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//int currentPathIndex = 0;
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//bool isAscendingPath;
-	
 	virtual EBTNodeResult::Type ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) override;
-public:
-
-	UPROPERTY(EditAnywhere, Category = "Blackboard")
-	struct FBlackboardKeySelector TargetActorKey;
-	
-	ECardinalNodeDirections CalculateDirection(const FVector2D& CurrentPosition, const FVector2D& TargetPosition);
-	UFUNCTION()
-	void ActivateBehavior(FCompleteFloorPawnData aPlayerCompleteFloorData,AFloor_EnemyPawn* aEnemyPawn);
-
-	void CalculateDistance(FVector2D aStartPosition,FVector2D aEndPosition,AFloorManager* floorManager);
-	UPROPERTY(EditAnywhere, Category = "Blackboard")
-	FBlackboardKeySelector TargetLocation;
-	
 };
 
+
+
 UCLASS()
-class DESENTINTOATLANTIS_API UPatrolData : public UObject
+class DESENTINTOATLANTIS_API UFloorBehaviors : public UObject
 {
 	GENERATED_BODY()
 public:
+
+	virtual void ExecuteTask(AFloor_EnemyPawn* aEnemyPawn);
+public:
+
+	virtual void ActivateBehavior(FCompleteFloorPawnData aPlayerCompleteFloorData);
+};
+
+UCLASS()
+class DESENTINTOATLANTIS_API UPatrolBehavior : public UFloorBehaviors
+{
+	GENERATED_BODY()
+public:
+
+	virtual void ExecuteTask(AFloor_EnemyPawn* aEnemyPawn) override;
+public:
+	
+	ECardinalNodeDirections CalculateDirection(const FVector2D& CurrentPosition, const FVector2D& TargetPosition);
+	UFUNCTION()
+	virtual void ActivateBehavior(FCompleteFloorPawnData aPlayerCompleteFloorData) override;
+
+	void CalculateDistance(FVector2D aStartPosition,FVector2D aEndPosition,AFloorManager* floorManager);
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AFloor_EnemyPawn* enemyFloorPawn;
