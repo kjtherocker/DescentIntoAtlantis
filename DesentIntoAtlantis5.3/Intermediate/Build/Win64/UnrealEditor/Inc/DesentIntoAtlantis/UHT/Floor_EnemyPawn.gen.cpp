@@ -10,10 +10,11 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeFloor_EnemyPawn() {}
 // Cross Module References
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloor_EnemyPawn();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloor_EnemyPawn_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloorPawn();
-	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UFloorBehaviors_NoRegister();
+	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_UFloorBehaviorTree_NoRegister();
 	DESENTINTOATLANTIS_API UEnum* Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_ActivateEnemyBehavior__DelegateSignature();
 	DESENTINTOATLANTIS_API UScriptStruct* Z_Construct_UScriptStruct_FCompleteFloorPawnData();
@@ -104,7 +105,13 @@ void FActivateEnemyBehavior_DelegateWrapper(const FMulticastScriptDelegate& Acti
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//void SetCurrentBehaviorTask(UFloorBehaviors* aFloorBehavior);\n" },
+#endif
 		{ "ModuleRelativePath", "Public/Floor_EnemyPawn.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "void SetCurrentBehaviorTask(UFloorBehaviors* aFloorBehavior);" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFloor_EnemyPawn, nullptr, "ActivateEnemysFloorBehavior", nullptr, nullptr, Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::PropPointers), sizeof(Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::Floor_EnemyPawn_eventActivateEnemysFloorBehavior_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior_Statics::Function_MetaDataParams) };
@@ -137,6 +144,10 @@ void FActivateEnemyBehavior_DelegateWrapper(const FMulticastScriptDelegate& Acti
 		static void NewProp_hasBeenInitialized_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_hasBeenInitialized;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CameraForward_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_CameraForward;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_materialInstanceDynamic_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_materialInstanceDynamic;
@@ -145,9 +156,9 @@ void FActivateEnemyBehavior_DelegateWrapper(const FMulticastScriptDelegate& Acti
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_meshComponent;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_currentFloorBehavior_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_floorBehaviorTree_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_currentFloorBehavior;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_floorBehaviorTree;
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_floorEnemyTextures_ValueProp;
 		static const UECodeGen_Private::FIntPropertyParams NewProp_floorEnemyTextures_Key_KeyProp_Underlying;
 		static const UECodeGen_Private::FEnumPropertyParams NewProp_floorEnemyTextures_Key_KeyProp;
@@ -169,7 +180,7 @@ void FActivateEnemyBehavior_DelegateWrapper(const FMulticastScriptDelegate& Acti
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFloor_EnemyPawn_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AFloor_EnemyPawn_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior, "ActivateEnemysFloorBehavior" }, // 86465830
+		{ &Z_Construct_UFunction_AFloor_EnemyPawn_ActivateEnemysFloorBehavior, "ActivateEnemysFloorBehavior" }, // 972423847
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AFloor_EnemyPawn_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -191,6 +202,13 @@ void FActivateEnemyBehavior_DelegateWrapper(const FMulticastScriptDelegate& Acti
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_hasBeenInitialized = { "hasBeenInitialized", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFloor_EnemyPawn), &Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_hasBeenInitialized_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_hasBeenInitialized_MetaData), Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_hasBeenInitialized_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_CameraForward_MetaData[] = {
+		{ "Category", "Floor_EnemyPawn" },
+		{ "ModuleRelativePath", "Public/Floor_EnemyPawn.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_CameraForward = { "CameraForward", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloor_EnemyPawn, CameraForward), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_CameraForward_MetaData), Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_CameraForward_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_materialInstanceDynamic_MetaData[] = {
 		{ "ModuleRelativePath", "Public/Floor_EnemyPawn.h" },
 	};
@@ -204,12 +222,12 @@ void FActivateEnemyBehavior_DelegateWrapper(const FMulticastScriptDelegate& Acti
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_meshComponent = { "meshComponent", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloor_EnemyPawn, meshComponent), Z_Construct_UClass_UMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_meshComponent_MetaData), Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_meshComponent_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_currentFloorBehavior_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_floorBehaviorTree_MetaData[] = {
 		{ "Category", "Floor_EnemyPawn" },
 		{ "ModuleRelativePath", "Public/Floor_EnemyPawn.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_currentFloorBehavior = { "currentFloorBehavior", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloor_EnemyPawn, currentFloorBehavior), Z_Construct_UClass_UFloorBehaviors_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_currentFloorBehavior_MetaData), Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_currentFloorBehavior_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_floorBehaviorTree = { "floorBehaviorTree", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloor_EnemyPawn, floorBehaviorTree), Z_Construct_UClass_UFloorBehaviorTree_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_floorBehaviorTree_MetaData), Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_floorBehaviorTree_MetaData) };
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_floorEnemyTextures_ValueProp = { "floorEnemyTextures", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_floorEnemyTextures_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_floorEnemyTextures_Key_KeyProp = { "floorEnemyTextures_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections, METADATA_PARAMS(0, nullptr) }; // 1177015594
@@ -229,9 +247,10 @@ void FActivateEnemyBehavior_DelegateWrapper(const FMulticastScriptDelegate& Acti
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_Testooo = { "Testooo", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloor_EnemyPawn, Testooo), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_Testooo_MetaData), Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_Testooo_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFloor_EnemyPawn_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_hasBeenInitialized,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_CameraForward,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_materialInstanceDynamic,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_meshComponent,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_currentFloorBehavior,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_floorBehaviorTree,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_floorEnemyTextures_ValueProp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_floorEnemyTextures_Key_KeyProp_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloor_EnemyPawn_Statics::NewProp_floorEnemyTextures_Key_KeyProp,
@@ -277,9 +296,9 @@ void FActivateEnemyBehavior_DelegateWrapper(const FMulticastScriptDelegate& Acti
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Floor_EnemyPawn_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFloor_EnemyPawn, AFloor_EnemyPawn::StaticClass, TEXT("AFloor_EnemyPawn"), &Z_Registration_Info_UClass_AFloor_EnemyPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloor_EnemyPawn), 4257518855U) },
+		{ Z_Construct_UClass_AFloor_EnemyPawn, AFloor_EnemyPawn::StaticClass, TEXT("AFloor_EnemyPawn"), &Z_Registration_Info_UClass_AFloor_EnemyPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloor_EnemyPawn), 3894208061U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Floor_EnemyPawn_h_2060420179(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Floor_EnemyPawn_h_2352568182(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Floor_EnemyPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_Floor_EnemyPawn_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

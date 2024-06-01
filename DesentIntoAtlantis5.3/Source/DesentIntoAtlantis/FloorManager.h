@@ -50,11 +50,15 @@ public:
 	TArray<FFloorNodeAiData> GetCopyOfFloorNodeAIData();
 	int GetNodeIndex(FVector2D aPositionInGrid);
 
+	TArray<FVector2D> GetPositionsOfEnemysBesidesOne(AFloor_EnemyPawn* aEnemyPawn);
 	UPROPERTY()
 	TArray<AFloorNode*> floorNodes;
 
 	UPROPERTY()
 	TArray<FFloorNodeAiData> entireFloorNodeData;
+
+	UPROPERTY()
+	TArray<AFloor_EnemyPawn*> enemyFloorPawns;
 	
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> floorNodeReference;

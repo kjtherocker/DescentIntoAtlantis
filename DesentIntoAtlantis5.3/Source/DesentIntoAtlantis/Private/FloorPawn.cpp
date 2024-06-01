@@ -33,6 +33,11 @@ void AFloorPawn::BeginPlay()
 
 void AFloorPawn::Initialize()
 {
+	cardinalDirections.Add(ECardinalNodeDirections::Up,    FVector(0,-1,0));
+	cardinalDirections.Add(ECardinalNodeDirections::Down,  FVector(0,1, 0));
+	cardinalDirections.Add(ECardinalNodeDirections::Left,  FVector(1,0, 0));
+	cardinalDirections.Add(ECardinalNodeDirections::Right, FVector(-1,0, 0));
+	
 	AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections::Up,
 	FVector2D(0,1), 
 	FRotator(0,90,0));
@@ -142,12 +147,7 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 	
 	if(FVector2D::Distance(currentActorPositionXY, nodeToModeTowardsXY) < 5.5f )
 	{
-		hasRotationFinished       = true;
-		previousNodePawnWasOn   = currentNodePawnIsOn;
-		currentNodePawnIsOn     = nodeToMoveTowards;
-		nodeToMoveTowards         = nullptr;
-
-		completeFloorPawnData.currentNodePositionInGrid = currentNodePawnIsOn->floorNodeData.positionInGrid;
+		OnNewNodeReached();
 		//SetActorLocation(nodeToMoveTowardsPostion);
 		return;
 	}
@@ -284,6 +284,16 @@ void AFloorPawn::SetRotationWithoutAnimation(ECardinalNodeDirections aCardinalNo
 void AFloorPawn::SetNodeToMoveTowards(AFloorNode* aFloorNode)
 {
 	nodeToMoveTowards = aFloorNode;
+}
+
+void AFloorPawn::OnNewNodeReached()
+{
+	hasRotationFinished       = true;
+	previousNodePawnWasOn   = currentNodePawnIsOn;
+	currentNodePawnIsOn     = nodeToMoveTowards;
+	nodeToMoveTowards         = nullptr;
+
+	completeFloorPawnData.currentNodePositionInGrid = currentNodePawnIsOn->floorNodeData.positionInGrid;
 }
 
 

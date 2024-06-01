@@ -9,6 +9,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeFloorPawn() {}
 // Cross Module References
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloorGameMode_NoRegister();
 	DESENTINTOATLANTIS_API UClass* Z_Construct_UClass_AFloorNode_NoRegister();
@@ -171,6 +172,13 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCompleteFloorPawn
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_cardinalDirections_ValueProp;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_cardinalDirections_Key_KeyProp_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_cardinalDirections_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_cardinalDirections_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_cardinalDirections;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_previousNodePawnWasOn_MetaData[];
 #endif
@@ -229,6 +237,15 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCompleteFloorPawn
 		{ "ModuleRelativePath", "Public/FloorPawn.h" },
 	};
 #endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_cardinalDirections_ValueProp = { "cardinalDirections", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_cardinalDirections_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_cardinalDirections_Key_KeyProp = { "cardinalDirections_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_DesentIntoAtlantis_ECardinalNodeDirections, METADATA_PARAMS(0, nullptr) }; // 1177015594
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorPawn_Statics::NewProp_cardinalDirections_MetaData[] = {
+		{ "ModuleRelativePath", "Public/FloorPawn.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_cardinalDirections = { "cardinalDirections", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorPawn, cardinalDirections), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPawn_Statics::NewProp_cardinalDirections_MetaData), Z_Construct_UClass_AFloorPawn_Statics::NewProp_cardinalDirections_MetaData) }; // 1177015594
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFloorPawn_Statics::NewProp_previousNodePawnWasOn_MetaData[] = {
 		{ "ModuleRelativePath", "Public/FloorPawn.h" },
@@ -284,6 +301,10 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCompleteFloorPawn
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AFloorPawn_Statics::NewProp_completeFloorPawnData = { "completeFloorPawnData", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFloorPawn, completeFloorPawnData), Z_Construct_UScriptStruct_FCompleteFloorPawnData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFloorPawn_Statics::NewProp_completeFloorPawnData_MetaData), Z_Construct_UClass_AFloorPawn_Statics::NewProp_completeFloorPawnData_MetaData) }; // 300927908
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFloorPawn_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_cardinalDirections_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_cardinalDirections_Key_KeyProp_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_cardinalDirections_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_cardinalDirections,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_previousNodePawnWasOn,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_directionPositionInfo_ValueProp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFloorPawn_Statics::NewProp_directionPositionInfo_Key_KeyProp_Underlying,
@@ -341,9 +362,9 @@ template<> DESENTINTOATLANTIS_API UScriptStruct* StaticStruct<FCompleteFloorPawn
 		{ FCompleteFloorPawnData::StaticStruct, Z_Construct_UScriptStruct_FCompleteFloorPawnData_Statics::NewStructOps, TEXT("CompleteFloorPawnData"), &Z_Registration_Info_UScriptStruct_CompleteFloorPawnData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCompleteFloorPawnData), 300927908U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPawn_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFloorPawn, AFloorPawn::StaticClass, TEXT("AFloorPawn"), &Z_Registration_Info_UClass_AFloorPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorPawn), 3472173050U) },
+		{ Z_Construct_UClass_AFloorPawn, AFloorPawn::StaticClass, TEXT("AFloorPawn"), &Z_Registration_Info_UClass_AFloorPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFloorPawn), 3434838203U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPawn_h_1992701854(TEXT("/Script/DesentIntoAtlantis"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPawn_h_251883955(TEXT("/Script/DesentIntoAtlantis"),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPawn_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPawn_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_kylej_Desktop_DescentIntoAtlantis_DesentIntoAtlantis5_3_Source_DesentIntoAtlantis_Public_FloorPawn_h_Statics::ScriptStructInfo),
 		nullptr, 0);

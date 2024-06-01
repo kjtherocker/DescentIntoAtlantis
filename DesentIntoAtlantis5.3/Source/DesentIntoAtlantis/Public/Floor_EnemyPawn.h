@@ -31,16 +31,21 @@ private:
 public:
 	UPROPERTY(EditAnywhere)
 	bool hasBeenInitialized = false;
+	UPROPERTY(EditAnywhere)
+	FVector CameraForward ;
+	FVector PawnForward;
 	UPROPERTY()
 	UMaterialInstanceDynamic* materialInstanceDynamic;
 	FActivateEnemyBehavior activateEnemyBehavior;
 	UPROPERTY()
 	UMeshComponent* meshComponent;
+	virtual void SetRotationWithoutAnimation(ECardinalNodeDirections aCardinalNodeDirection) override;
 	UPROPERTY(EditAnywhere)
-	UFloorBehaviors* currentFloorBehavior;
+	UFloorBehaviorTree* floorBehaviorTree;
 
 	TArray<FFloorNodeAiData> patrolPath;
-	
+
+
 	
 	TArray<FFloorNodeAiData> floorPlan;	
 	FFloorEnemyPawnCompleteData enemyPawnCompleteData;
@@ -48,11 +53,12 @@ public:
 	virtual void Initialize() override;
 	virtual void Tick(float DeltaTime) override;
 	virtual void SubscribeToActivateEnemyBehavior(AFloorPlayerPawn* aFloorPlayerPawn);
+	virtual void OnNewNodeReached() override;
 	virtual void SetEnemyFloorPlan(TArray<FFloorNodeAiData> aFloorPlan);
 	virtual void SetEnemyPawnCompleteData(FFloorEnemyPawnCompleteData aEnemyPawnCompleteData);
 	virtual void ActivateCombat();
 	virtual void SetEnemyTexture(ECardinalNodeDirections aCardinalNodeDirection);
-	void SetCurrentBehaviorTask(UFloorBehaviors* aFloorBehavior);
+	//void SetCurrentBehaviorTask(UFloorBehaviors* aFloorBehavior);
 	UFUNCTION()
 	void ActivateEnemysFloorBehavior(FCompleteFloorPawnData aPlayerCompleteFloorData);
 

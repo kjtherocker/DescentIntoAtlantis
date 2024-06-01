@@ -242,6 +242,22 @@ int AFloorManager::GetNodeIndex(FVector2D aPositionInGrid)
 	return currentFloor->GetIndex(aPositionInGrid.X,aPositionInGrid.Y);
 }
 
+TArray<FVector2D> AFloorManager::GetPositionsOfEnemysBesidesOne(AFloor_EnemyPawn* aEnemyPawn)
+{
+	TArray<FVector2D> enemyPositions;
+
+	for( int i = 0 ; i < enemyFloorPawns.Num();i++)
+	{
+		if(enemyFloorPawns[i] != aEnemyPawn)
+		{
+			FVector2D positionInGrid = enemyFloorPawns[i]->enemyPawnCompleteData.completeFloorPawnData.currentNodePositionInGrid;
+			enemyPositions.Add(positionInGrid);
+		}
+	}
+
+	return enemyPositions;
+}
+
 // Called when the game starts or when spawned
 void AFloorManager::BeginPlay()
 {
@@ -313,6 +329,7 @@ void AFloorManager::SpawnEnemyPawn(FFloorEnemyPawnCompleteData aCompleteFloorPaw
 	floorPawn->SetEnemyPawnCompleteData(aCompleteFloorPawnData);
 	floorPawn->Initialize();
 	floorPawn->PlaceAndInitializieFloorPawn(floorNodes[startPositionIndex],aCompleteFloorPawnData.completeFloorPawnData.currentFacingDirection);
+	enemyFloorPawns.Add(floorPawn); 
 }
 
 void AFloorManager::LoadNextLevel(FVector2D aPositionInGrid)

@@ -11,11 +11,17 @@
 #include "Kismet/GameplayStatics.h"
 
 
+void AFloor_EnemyPawn::SetRotationWithoutAnimation(ECardinalNodeDirections aCardinalNodeDirection)
+{
+	//Super::SetRotationWithoutAnimation(aCardinalNodeDirection);
+	completeFloorPawnData.currentFacingDirection = aCardinalNodeDirection;
+	enemyPawnCompleteData.completeFloorPawnData = completeFloorPawnData;
+}
 
 void AFloor_EnemyPawn::Initialize()
 {
 	Super::Initialize();
-	movementSpeed = 800;
+	movementSpeed = 1000;
 	positionOffSet = FVector(0,0,45.0);
 
 	TArray<UStaticMeshComponent*> Components;
@@ -35,7 +41,9 @@ void AFloor_EnemyPawn::Initialize()
 	
 	hasBeenInitialized = true;
 
-	SetCurrentBehaviorTask(NewObject<UPatrolBehavior>());
+	floorBehaviorTree = NewObject<UFloorBehaviorTree>();
+	floorBehaviorTree->InitializeBehaviorTree(this);
+	
 }
 
 void AFloor_EnemyPawn::Tick(float DeltaTime)
@@ -51,10 +59,10 @@ void AFloor_EnemyPawn::Tick(float DeltaTime)
 		PlayerController->GetPlayerViewPoint(CameraLocation, CameraRotation);
 
 		// Calculate the forward vector of the camera
-		FVector CameraForward = CameraRotation.Vector();
+		CameraForward = CameraRotation.Vector();
 
 		// Calculate the forward vector of the pawn
-		FVector PawnForward = GetActorForwardVector();
+		PawnForward = cardinalDirections[completeFloorPawnData.currentFacingDirection];
 
 		// Calculate the vector from the camera to the pawn
 		FVector CameraToPawn = GetActorLocation() - CameraLocation;
@@ -99,6 +107,12 @@ void AFloor_EnemyPawn::SubscribeToActivateEnemyBehavior(AFloorPlayerPawn* aFloor
 	aFloorPlayerPawn->playerhasMovedDelegate.AddDynamic(this,&AFloor_EnemyPawn::ActivateEnemysFloorBehavior);
 }
 
+void AFloor_EnemyPawn::OnNewNodeReached()
+{
+	Super::OnNewNodeReached();
+	enemyPawnCompleteData.completeFloorPawnData = completeFloorPawnData;
+}
+
 void AFloor_EnemyPawn::SetEnemyFloorPlan(TArray<FFloorNodeAiData> aFloorPlan)
 {
 	floorPlan = aFloorPlan;
@@ -123,13 +137,6 @@ void AFloor_EnemyPawn::SetEnemyTexture(ECardinalNodeDirections aCardinalNodeDire
 	materialInstanceDynamic->SetTextureParameterValue(FName("BaseTexture"), floorEnemyTextures[aCardinalNodeDirection]);
 	meshComponent->SetMaterial(0, materialInstanceDynamic);
 }
-
-void AFloor_EnemyPawn::SetCurrentBehaviorTask(UFloorBehaviors* aFloorBehavior)
-{
-	currentFloorBehavior = aFloorBehavior;
-	currentFloorBehavior->ExecuteTask(this);
-}
-
 
 void AFloor_EnemyPawn::ActivateEnemysFloorBehavior(FCompleteFloorPawnData aPlayerCompleteFloorData)
 {

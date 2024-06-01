@@ -32,7 +32,8 @@ public:
 	AFloorPawn();
 
 	virtual void Initialize();
-		
+	UPROPERTY()
+	TMap<ECardinalNodeDirections, FVector> cardinalDirections;
 	UPROPERTY()
 	AFloorNode* previousNodePawnWasOn;
 	// Called every frame
@@ -46,6 +47,7 @@ public:
 	virtual void PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode, ECardinalNodeDirections aRotation);
 	virtual void SetRotationWithoutAnimation(ECardinalNodeDirections aCardinalNodeDirection);
 	virtual void SetNodeToMoveTowards(AFloorNode* aFloorNode);
+	virtual void OnNewNodeReached();
 	virtual void RotatePawn(float aDeltatime);
 	virtual void MovePawn(float aDeltaTime);
 	virtual void AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections aDirection,FVector2D aDirectionPosition,FRotator aRotation);
