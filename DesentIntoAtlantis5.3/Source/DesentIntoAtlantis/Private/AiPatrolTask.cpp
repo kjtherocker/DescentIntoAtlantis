@@ -26,7 +26,7 @@ void UAiPatrolTask::ActivateBehavior(FCompleteFloorPawnData aPlayerCompleteFloor
 	
 	if(aPlayerCompleteFloorData.currentNodePositionInGrid == currentPositionInGrid)
 	{
-		enemyPawn->ActivateCombat();
+		enemyPawn->ActivateEncountered();
 	}
 	
 	currentPathIndex += isAscendingPath ? -1 : +1;
@@ -54,6 +54,6 @@ void UAiPatrolTask::ActivateBehavior(FCompleteFloorPawnData aPlayerCompleteFloor
 
 	if(aPlayerCompleteFloorData.currentNodePositionInGrid == newPosition)
 	{
-		enemyPawn->ActivateCombat();
+		enemyPawn->ActivateEncountered();
 	}
 }

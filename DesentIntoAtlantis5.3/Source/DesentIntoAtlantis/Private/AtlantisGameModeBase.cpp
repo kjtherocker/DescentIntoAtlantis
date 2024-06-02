@@ -22,6 +22,7 @@ void AAtlantisGameModeBase::InitializeLevel()
 
     // Cast the game instance to your custom game instance class
     persistentGameInstance = Cast<UPersistentGameinstance>(GameInstance);
+	persistentGameInstance->currentGameMode = this;
     
     partyManager              = persistentGameInstance->partyManagerSubsystem;
     skillFactory              = persistentGameInstance->skillFactorySubsystem;

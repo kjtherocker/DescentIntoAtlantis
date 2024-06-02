@@ -57,7 +57,9 @@ public:
 	virtual void OnNewNodeReached() override;
 	virtual void SetEnemyFloorPlan(TArray<FFloorNodeAiData> aFloorPlan);
 	virtual void SetEnemyPawnCompleteData(FFloorEnemyPawnCompleteData aEnemyPawnCompleteData);
-	virtual void ActivateCombat();
+	virtual void ActivateEncountered();
+	UFUNCTION()
+	virtual void TransitionToCombat();
 	virtual void SetEnemyTexture(ECardinalNodeDirections aCardinalNodeDirection);
 	//void SetCurrentBehaviorTask(UFloorBehaviors* aFloorBehavior);
 	UFUNCTION()

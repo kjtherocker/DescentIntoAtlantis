@@ -65,7 +65,7 @@ void UStateTask_Patrol::ActivateBehavior(FCompleteFloorPawnData aPlayerCompleteF
 	
 	if(aPlayerCompleteFloorData.currentNodePositionInGrid == currentPositionInGrid)
 	{
-		enemyFloorPawn->ActivateCombat();
+		enemyFloorPawn->ActivateEncountered();
 	}
 	
 	currentPathIndex += isAscendingPath ? -1 : +1;
@@ -93,7 +93,7 @@ void UStateTask_Patrol::ActivateBehavior(FCompleteFloorPawnData aPlayerCompleteF
 
 	if(aPlayerCompleteFloorData.currentNodePositionInGrid == newPosition)
 	{
-		enemyFloorPawn->ActivateCombat();
+		enemyFloorPawn->ActivateEncountered();
 	}
 }
 

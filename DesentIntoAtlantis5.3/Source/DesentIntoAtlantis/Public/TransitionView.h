@@ -9,11 +9,21 @@
 /**
  * 
  */
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FToTransitionTo);
 UCLASS()
 class DESENTINTOATLANTIS_API UTransitionView : public UBaseUserWidget
 {
 	GENERATED_BODY()
 
 public:
+	FToTransitionTo transitionTo;
+	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 	void TransitionAtHalfWay();
+	void StartEnterTransition();
+	UPROPERTY(meta = (BindWidgetAnim), Transient)
+	UWidgetAnimation* EnterTransition;
+
+	UFUNCTION()
+	void OnEnterFinished();
 };

@@ -37,7 +37,7 @@ void UAiReturnToPatrolTask::ActivateBehavior(FCompleteFloorPawnData aPlayerCompl
 	
 	if(aPlayerCompleteFloorData.currentNodePositionInGrid == startPosition)
 	{
-		enemyPawn->ActivateCombat();
+		enemyPawn->ActivateEncountered();
 	}
 	
 	FVector2D currentPosition  = enemyPawn->GetCurrentNode()->floorNodeData.positionInGrid;
@@ -60,6 +60,6 @@ void UAiReturnToPatrolTask::ActivateBehavior(FCompleteFloorPawnData aPlayerCompl
 
 	if(aPlayerCompleteFloorData.currentNodePositionInGrid == newPosition)
 	{
-		enemyPawn->ActivateCombat();
+		enemyPawn->ActivateEncountered();
 	}
 }

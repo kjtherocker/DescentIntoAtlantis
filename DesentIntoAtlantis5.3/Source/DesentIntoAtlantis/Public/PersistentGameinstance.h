@@ -53,7 +53,7 @@ public:
 	FCombatArenaData ConsumeArenaDataFlag();
 
 	bool ConsumeCombatFinishedFlag();
-
+	void CallTransition();
 
 	UPROPERTY()
 	FLevelHasChanged levelHasChanged;
@@ -89,6 +89,8 @@ public:
 	UFloorFactory*      floorFactory;
 
 	bool hasRecentlyFinishedCombat = false;
+	UPROPERTY()
+	AAtlantisGameModeBase* currentGameMode;
 
 private:
 

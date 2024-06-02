@@ -121,6 +121,11 @@ void AInGameHUD::ReturnToPreviousActiveView()
     }
 }
 
+ TSubclassOf<UUserWidget> AInGameHUD::GetUserWidget(EViews aView)
+{
+    return userWidgets[aView];
+}
+
 TSubclassOf<UUserWidget> AInGameHUD::GetElement(EViewElements aViewElement)
 {
     if(viewElements.Contains(aViewElement))

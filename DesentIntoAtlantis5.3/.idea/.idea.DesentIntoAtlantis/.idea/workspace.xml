@@ -9,532 +9,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Ui/BP_TransitionView.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/BatteIndicators/ATTACK_DOWN_INDICATOR.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/BatteIndicators/ATTACK_UP_Indicator.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/BatteIndicators/DEFENSE_UP_Indicator.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/BatteIndicators/MISS_Indicator.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/BatteIndicators/SPEED_UP_Indicator.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/BatteIndicators/STRONG_Indicator.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/BatteIndicators/WEAK_Indicator.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/2048x2048_Rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/2048x2048_oldard.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4000x4000_Fia.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4000x4000_Fide.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4000x4000_Gram.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4000x4000_Ophelia.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4000x4000_Rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4000x4000_sharkfiend.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4096x4096_Ethel.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4096x4096_Ethel_Sprite.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4096x4096_Fia.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4096x4096_Fienne.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4096x4096_FienneDialoguePortrait.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4096x4096_FullBodyPortrait_Kriede.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4096x4096_FullPortrait_Fienne.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4096x4096_Kreide_HealthboardPortrait.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4096x4096_MCTESTo.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4096x4096_Ophelia.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4096x4096_Test4.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/4096x4096_fide.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/Commandboard_Portriat_Ardus.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/Commandboard_Portriat_Kain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/Commandboard_Portriat_Kristoff.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/Commandboard_Portriat_Rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/Commandboard_Portriat_Seres.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/Commandboard_Portriat_Vander.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/Day522.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/Day560.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/Demons-Roots-Deathpolca.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/Ethel.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/HealtboardDesign_Fienne.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/HealtboardDesign_Gram.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/HealtboardDesign_Kain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/HealtboardDesign_Ophelia.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/HealtboardDesign_Rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/HealtboardDesign_Rain2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/HealtboardDesign_Rainold.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/HealtboardDesign_Vander.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/HealtboardDesign_oldard.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/HealthboardDesign_Ardus.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/HealthboardDesign_Fia.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/HealthboardDesign_Fide.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/HealthboardDesign_Kristoff.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/HealthboardDesign_Rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/HealthboardDesign_Seres.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/Kreide_BansheeGlare.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/Ophelia_test.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Characters/mctesto2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/CutsceneBackground/red-color-solid-background.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Dialogue/DialogueBox.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/2048x2048_Rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/2048x2048_fide.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/2048x2048_sharkFiend.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/2048x2048_test.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/4096x4096_Fienne.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/4096x4096_Lorolei.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/4096x4096_Lorolei2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/4096x4096_Test.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/4096x4096_Test2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/4096x4096_Test3.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/4096x4096_Test4.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/4096x4096_rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/Day267.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/Day501.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/Day520-2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/Enemy_AnimatedWeapon.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/Enemy_Gold_Lancer.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/Enemy_Lorolei.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/Enemy_Rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/GoldLancer.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/HealtboardDesign_Rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/HealtboardDesign_Rain2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/Sharkfiend2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/Undines.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/Undines2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/UndinesPortrait.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/VermilionLord.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/EnemyTextures/VermilionLordBackground.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Event/Material_EvenTrigger_Base.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Event/Material_EvenTrigger_Base_Ethel.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Event/Material_EvenTrigger_Base_Inst.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Event/Material_EvenTrigger_Base_Rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Event/Material_EvenTrigger_SharkFiend.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Event/Material_EventTrigger_Enemy.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Event/Material_EventTrigger_SharkFiend.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Event/Turn_Face_Enemy.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/4096x4096Healthboard2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/4096x4096Healthboard3.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/4096x4096Healthboard4.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/4096x4096Healthboard8.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/4096x4096HealthboardFienne.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/4096x4096HealthboardHighlight.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/4096x4096HealthboardKriede.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/4096x4096HealthboardMask.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/4096x4096HealthboardMask2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/4096x4096HealthboardSyncTest.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/4096x4096HealthboardTest.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/4096x4096SyncBar3.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/Healthfill.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/Healthfill2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/Healthfill5.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/Healthfill6.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/Material_Fienne.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/Material_Kriede.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/Texture_Completely_Empty.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/UiMask.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/levelupPane.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Healthboars/manaFill.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/MainMenu/Chain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/MainMenu/Characters/Material_MainMenuPortrait.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/MainMenu/Characters/Material_MainMenuPortrait_Fienne.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/MainMenu/Characters/Material_MainMenuPortrait_Kriede.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/MainMenu/ElementalSquare.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/MainMenu/Gear.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/MainMenu/MainMenuMask.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/MainMenu/MainMenuNode2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/MainMenu/Potion.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/MainMenu/Scroll.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/MainMenu/fafadawdawd.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/MainMenu/sword.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Transition/PanningCautionTape.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Transition/PanningCautionTape1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Transition/Transition.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Transition/Transition2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/HealthBoard/CaviaHealthboard.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/HealthBoard/FioreHealthboard.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/HealthBoard/HealtboardDesign-Background.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/HealthBoard/HealthbarFill.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/HealthBoard/HealthbardFill2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/HealthBoard/HealthbardTemp.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/HealthBoard/Illustration.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/HealthBoard/PeteHealthboard.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/HealthBoard/Testhigherezhealthboard.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/AllSidesOpen.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/Down.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/DownLeft.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/DownRight.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/Left.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/LeftRight.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/PlayerIcon_Down.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/PlayerIcon_Left.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/PlayerIcon_Right.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/PlayerIcon_Up.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/RightLeftDown.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/Up.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/UpDown.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/UpLeft.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/UpLeftDown.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/UpLeftRight.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/UpRight.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/UpRightDown.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Map/right.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/360_F_438384956_mBwaD9gkObzfHZmH.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/60265239-cobblestones-floor-text.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/AllSidesOpen.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Arena_Test-2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Arena_Test-3.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Arena_Test-4.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Arena_Test-5.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Arena_Test-6.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Arena_Test.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Arrow_up.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/BattleArena_SandDune.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/BuffPortrait.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Commandboard.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Day203.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Day360.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/EnemySkillpanel.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/HealthbarBackground.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Illustration3.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/KristoffHealthboard.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/LevelupArrow.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/LevelupCircle.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Resolution_test.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Skillpanel5.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/SkillpanelHighlight.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Solid_black.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Sword.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Texture_Baragor.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Title_Menu.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Titlecard.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Turn_Face_Ally.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/Untitled.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/artassetman.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/battlebackground-Undine.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/healthboardHighlight.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/levelupPanel.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/leveluparrowdown.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/mask.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/sand_texture.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/seamless_beach_sand_texture_by_h.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Misc/waterScanLinesBorder.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/Particle/Particle_Bubble.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/UiMaterials/MaterialFunctions/MF_AspectRatio.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/UiMaterials/MaterialFunctions/MF_Circle.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/UiMaterials/MaterialFunctions/MF_GridTiling.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/UiMaterials/MaterialFunctions/MF_Lerp_Multiple_Float.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/UiMaterials/MaterialFunctions/MF_RotateUVs.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/UiMaterials/MaterialFunctions/MF_Translate.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/UiMaterials/MaterialFunctions/MF_UI_LinearGradient.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/UiMaterials/MaterialFunctions/MF_UI_LinearTime.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/UiMaterials/MaterialFunctions/MF_UI_PingPong.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/UiMaterials/MaterialFunctions/MF_UI_Random.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/UiMaterials/MaterialFunctions/MF_UI_Scale.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/UiMaterials/MaterialFunctions/MF_WaveWarp.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/UiMaterials/Material_LinearFill.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/UiMaterials/Material_WaterFill.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/UiMaterials/Material_WaterFill_Inst.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/UiMaterials/Material_WaterFill_Inst1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/font/MALINVA.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/font/MALINVA_Font.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/font/RichTextStyleSheet.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/font/Roboto-Bold.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/font/Roboto-Bold_Font.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/wall/360_F_403249195_s7XmAFBFFJTEqYAn.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/wall/7d9541048e8023cac33375d4dab56d15.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/wall/Material_WallTest.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/wall/Material_WallTest1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/wall/Material__25.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/wall/Screenshot_744.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/wall/Screenshot_746.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/wall/TempleWall.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/wall/emission_map.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/wall/ju-howe-ghibliestone-wip2-flat.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/wall/ju-howe-ghibliestone-wip2-flat_Mat.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/wall/stone-wall-texture_1110-425.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/wall/stone-wall-texture_1110-425_Mat.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Transition/Transition3.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Transition/Transition4.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Transition/Transition5.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Atlantis_-_Enemys1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Atlantis_-_Enemys1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/AI/FloorEnemyPawn/BP_Floor_EventPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/AI/FloorEnemyPawn/BP_Floor_EventPawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/EventTrigger_Enemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/EventTrigger_Enemy.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/EventTrigger_Enemy1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/EventTrigger_Enemy1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/EventTrigger_Enemy2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/EventTrigger_Enemy2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/EventTrigger_Enemy3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/EventTrigger_Enemy3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/EventTrigger_Rain.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/EventTrigger_Rain.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/EventTrigger_SharkFiend.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/EventTrigger_SharkFiend.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Nodes/BP_FloorNode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Nodes/BP_FloorNode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Walls/Wall3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/Wall3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Walls/wallPlaneTest.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/wallPlaneTest.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Dialogue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Dialogue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_PlayerCharacters.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_PlayerCharacters.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Tutorial.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Tutorial.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Editor/BP_MapButtonElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Editor/BP_MapButtonElement.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Characters/Fienne/BP_Floor_Enemy_Fienne.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/Characters/Fienne/BP_Floor_Enemy_Fienne.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Characters/Fienne/BP_Floor_Enemy_Fienne1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/Characters/Fienne/BP_Floor_Enemy_Fienne1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Characters/Material_Combat_Base_.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/Characters/Material_Combat_Base_.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Characters/Material_Combat_Ethel.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/Characters/Material_Combat_Ethel.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Characters/Material_Combat_Lorolei.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/Characters/Material_Combat_Lorolei.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Characters/Material_Combat_Undine.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/Characters/Material_Combat_Undine.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Characters/Material_EventCombat_Fienne.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/Characters/Material_EventCombat_Fienne.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Characters/Material_EventCombat_Rain.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/Characters/Material_EventCombat_Rain.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/Characters/Material_EventCombat_SharkFiend.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/Characters/Material_EventCombat_SharkFiend.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/MaterialFloorColor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/MaterialFloorColor.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/SpriteTest/NewPaperSprite.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/SpriteTest/NewPaperSprite.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/SpriteTest/NewPaperSprite1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/SpriteTest/NewPaperSprite1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PostProcessing/fog/Material_Bubble.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PostProcessing/fog/Material_Bubble.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_CameraFilter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_CameraFilter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_Commandboard.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_Commandboard.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_DialogueView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_DialogueView.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_EnemySelectionBar.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_EnemySelectionBar.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_EnemySkillView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_EnemySkillView.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_InGameHUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_InGameHUD.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_InteractableView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_InteractableView.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_LevelUpElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_LevelUpElement.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_LevelupView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_LevelupView.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_LoadView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_LoadView.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_MAT_Mask.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_MAT_Mask.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_MainMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_MainMenu.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_MainMenuStatusElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_MainMenuStatusElement.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_MapButtonElement1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_MapButtonElement1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_MapPlayerIconElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_MapPlayerIconElement.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_OptionView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_OptionView.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_PartyHealthbarElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_PartyHealthbarElement.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_SavePortraitElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_SavePortraitElement.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_SaveSlot.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_SaveSlot.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_SaveView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_SaveView.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_Skillbar.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_Skillbar.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_StatusElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_StatusElement.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_SyncView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_SyncView.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_TitleView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_TitleView.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_TurnCounterElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_TurnCounterElement.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_TutorialView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_TutorialView.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/IntroTest.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/IntroTest.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/BatteIndicators/ATTACK_DOWN_INDICATOR.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/BatteIndicators/ATTACK_UP_Indicator.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/BatteIndicators/DEFENSE_UP_Indicator.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/BatteIndicators/MISS_Indicator.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/BatteIndicators/SPEED_UP_Indicator.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/BatteIndicators/STRONG_Indicator.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/BatteIndicators/WEAK_Indicator.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/2048x2048_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/2048x2048_oldard.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4000x4000_Fia.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4000x4000_Fide.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4000x4000_Gram.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4000x4000_Ophelia.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4000x4000_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4000x4000_sharkfiend.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4096x4096_Ethel.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4096x4096_Ethel_Sprite.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4096x4096_Fia.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4096x4096_Fienne.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4096x4096_FienneDialoguePortrait.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4096x4096_FullBodyPortrait_Kriede.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4096x4096_FullPortrait_Fienne.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4096x4096_Kreide_HealthboardPortrait.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4096x4096_MCTESTo.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4096x4096_Ophelia.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4096x4096_Test4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/4096x4096_fide.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Ardus.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Kain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Kristoff.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Seres.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/Commandboard_Portriat_Vander.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/Day522.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/Day560.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/Demons-Roots-Deathpolca.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/Ethel.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/HealtboardDesign_Fienne.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/HealtboardDesign_Gram.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/HealtboardDesign_Kain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/HealtboardDesign_Ophelia.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/HealtboardDesign_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/HealtboardDesign_Rain2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/HealtboardDesign_Rainold.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/HealtboardDesign_Vander.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/HealtboardDesign_oldard.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/HealthboardDesign_Ardus.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/HealthboardDesign_Fia.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/HealthboardDesign_Fide.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/HealthboardDesign_Kristoff.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/HealthboardDesign_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/HealthboardDesign_Seres.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/Kreide_BansheeGlare.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/Ophelia_test.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Characters/mctesto2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/CutsceneBackground/red-color-solid-background.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Dialogue/DialogueBox.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/2048x2048_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/2048x2048_fide.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/2048x2048_sharkFiend.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/2048x2048_test.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/4096x4096_Fienne.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/4096x4096_Lorolei.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/4096x4096_Lorolei2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/4096x4096_Test.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/4096x4096_Test2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/4096x4096_Test3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/4096x4096_Test4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/4096x4096_rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/Day267.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/Day501.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/Day520-2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/Enemy_AnimatedWeapon.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/Enemy_Gold_Lancer.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/Enemy_Lorolei.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/Enemy_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/GoldLancer.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/HealtboardDesign_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/HealtboardDesign_Rain2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/Sharkfiend2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/Undines.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/Undines2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/UndinesPortrait.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/VermilionLord.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/EnemyTextures/VermilionLordBackground.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Event/Material_EvenTrigger_Base.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Event/Material_EvenTrigger_Base_Ethel.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Event/Material_EvenTrigger_Base_Inst.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Event/Material_EvenTrigger_Base_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Event/Material_EvenTrigger_SharkFiend.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Event/Material_EventTrigger_Enemy.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Event/Material_EventTrigger_SharkFiend.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Event/Turn_Face_Enemy.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/4096x4096Healthboard2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/4096x4096Healthboard3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/4096x4096Healthboard4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/4096x4096Healthboard8.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/4096x4096HealthboardFienne.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/4096x4096HealthboardHighlight.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/4096x4096HealthboardKriede.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/4096x4096HealthboardMask.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/4096x4096HealthboardMask2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/4096x4096HealthboardSyncTest.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/4096x4096HealthboardTest.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/4096x4096SyncBar3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/Healthfill.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/Healthfill2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/Healthfill5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/Healthfill6.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/Material_Fienne.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/Material_Kriede.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/Texture_Completely_Empty.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/UiMask.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/levelupPane.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/Healthboars/manaFill.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/MainMenu/Chain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/MainMenu/Characters/Material_MainMenuPortrait.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/MainMenu/Characters/Material_MainMenuPortrait_Fienne.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/MainMenu/Characters/Material_MainMenuPortrait_Kriede.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/MainMenu/ElementalSquare.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/MainMenu/Gear.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/MainMenu/MainMenuMask.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/MainMenu/MainMenuNode2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/MainMenu/Potion.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/MainMenu/Scroll.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/MainMenu/fafadawdawd.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/General/MainMenu/sword.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/HealthBoard/CaviaHealthboard.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/HealthBoard/FioreHealthboard.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/HealthBoard/HealtboardDesign-Background.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/HealthBoard/HealthbarFill.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/HealthBoard/HealthbardFill2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/HealthBoard/HealthbardTemp.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/HealthBoard/Illustration.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/HealthBoard/PeteHealthboard.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/HealthBoard/Testhigherezhealthboard.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/AllSidesOpen.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/Down.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/DownLeft.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/DownRight.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/Left.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/LeftRight.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/PlayerIcon_Down.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/PlayerIcon_Left.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/PlayerIcon_Right.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/PlayerIcon_Up.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/RightLeftDown.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/Up.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/UpDown.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/UpLeft.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/UpLeftDown.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/UpLeftRight.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/UpRight.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/UpRightDown.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Map/right.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/360_F_438384956_mBwaD9gkObzfHZmH.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/60265239-cobblestones-floor-text.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/AllSidesOpen.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Arena_Test-2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Arena_Test-3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Arena_Test-4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Arena_Test-5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Arena_Test-6.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Arena_Test.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Arrow_up.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/BattleArena_SandDune.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/BuffPortrait.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Commandboard.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Day203.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Day360.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/EnemySkillpanel.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/HealthbarBackground.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Illustration3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/KristoffHealthboard.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/LevelupArrow.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/LevelupCircle.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Resolution_test.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Skillpanel5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/SkillpanelHighlight.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Solid_black.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Sword.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Texture_Baragor.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Title_Menu.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Titlecard.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Turn_Face_Ally.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/Untitled.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/artassetman.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/battlebackground-Undine.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/healthboardHighlight.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/levelupPanel.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/leveluparrowdown.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/mask.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/sand_texture.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/seamless_beach_sand_texture_by_h.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Misc/waterScanLinesBorder.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/Particle/Particle_Bubble.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/UiMaterials/MaterialFunctions/MF_AspectRatio.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/UiMaterials/MaterialFunctions/MF_Circle.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/UiMaterials/MaterialFunctions/MF_GridTiling.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/UiMaterials/MaterialFunctions/MF_Lerp_Multiple_Float.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/UiMaterials/MaterialFunctions/MF_RotateUVs.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/UiMaterials/MaterialFunctions/MF_Translate.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/UiMaterials/MaterialFunctions/MF_UI_LinearGradient.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/UiMaterials/MaterialFunctions/MF_UI_LinearTime.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/UiMaterials/MaterialFunctions/MF_UI_PingPong.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/UiMaterials/MaterialFunctions/MF_UI_Random.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/UiMaterials/MaterialFunctions/MF_UI_Scale.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/UiMaterials/MaterialFunctions/MF_WaveWarp.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/UiMaterials/Material_LinearFill.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/UiMaterials/Material_WaterFill.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/UiMaterials/Material_WaterFill_Inst.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/UiMaterials/Material_WaterFill_Inst1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/wall/360_F_403249195_s7XmAFBFFJTEqYAn.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/wall/7d9541048e8023cac33375d4dab56d15.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/wall/Material_WallTest.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/wall/Material_WallTest1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/wall/Material__25.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/wall/Screenshot_744.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/wall/Screenshot_746.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/wall/TempleWall.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/wall/emission_map.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/wall/ju-howe-ghibliestone-wip2-flat.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/wall/ju-howe-ghibliestone-wip2-flat_Mat.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/wall/stone-wall-texture_1110-425.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/uiTextures/wall/stone-wall-texture_1110-425_Mat.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PersistentObjects/BP_PersistentGameInstance.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PersistentObjects/BP_PersistentGameInstance.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/BP_TransitionView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/BP_TransitionView.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Transition/PanningCautionTape.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Transition/PanningCautionTape.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Transition/PanningCautionTape1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/uiAssets/General/Transition/PanningCautionTape1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-08A0ABFF459429AE7007179BC94B0D59/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Config/CrashReportClient/UECC-Windows-5E2B7A6540DE84F222566B98B8695856/CrashReportClient.ini" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.06.01-16.36.44.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.06.01-16.43.09.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.06.01-18.58.52.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.06.01-19.25.28.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.06.01-19.28.06.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis-backup-2024.06.01-21.07.00.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis.log" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/SaveGames/AutoSave.sav" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/SaveGames/AutoSave.sav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/SourceControl/UncontrolledChangelists.json" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/SourceControl/UncontrolledChangelists.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/FloorPawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/FloorPawn.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/FloorPlayerPawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/FloorPlayerPawn.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/AiChaseTask.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/AiChaseTask.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/AiPatrolTask.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/AiPatrolTask.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/AiReturnToPatrolTask.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/AiReturnToPatrolTask.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/AtlantisGameModeBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/AtlantisGameModeBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/Floor_EnemyPawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/Floor_EnemyPawn.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/InGameHUD.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/InGameHUD.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PersistentGameinstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PersistentGameinstance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/StateTask_Patrol.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/StateTask_Patrol.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/TransitionView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/TransitionView.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/Floor_EnemyPawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/Floor_EnemyPawn.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/InGameHUD.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/InGameHUD.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PersistentGameinstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PersistentGameinstance.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/TransitionView.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/TransitionView.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -546,6 +52,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Plugins/EnhancedInput/Source/EnhancedInput/Private/EnhancedPlayerInput.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -1013,7 +528,7 @@
       <workItem from="1717183204255" duration="27832000" />
       <workItem from="1717338638214" duration="1828000" />
       <workItem from="1717340519487" duration="1738000" />
-      <workItem from="1717342791513" duration="3427000" />
+      <workItem from="1717342791513" duration="9081000" />
     </task>
     <servers />
   </component>

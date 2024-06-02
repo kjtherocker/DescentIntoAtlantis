@@ -84,11 +84,14 @@ void UPersistentGameinstance::Init()
 			EventManagerSubSystem->InitializeEventManager(floorFactory,this);
 		}
 	}
-	
-
 	saveManagerSubsystem->InitializeSubsystem(this);
 
 
+	//persistentGameHud = (AInGameHUD*)GetWorld()->GetFirstPlayerController()->GetHUD();
+
+	//USceneComponent* ParentRootComponent = this->GetRootComponent();
+//
+	//floorNode->AttachToComponent(ParentRootComponent,FAttachmentTransformRules::KeepRelativeTransform);
 	LevelMap.Add(EFloorIdentifier::Floor1,"Prison_Floor1");
 	LevelMap.Add(EFloorIdentifier::Floor2,"Prison_Floor2");
 	LevelMap.Add(EFloorIdentifier::PrisonCombat,"PrisonCombat");
@@ -163,6 +166,18 @@ bool UPersistentGameinstance::ConsumeCombatFinishedFlag()
 	// Once checked, reset the flag
 	hasRecentlyFinishedCombat = false;
 	return bIsLoading;
+}
+
+void UPersistentGameinstance::CallTransition()
+{
+	TSubclassOf<UUserWidget> transitionView = currentGameMode->InGameHUD->GetUserWidget(EViews::TransitionView);
+	UBaseUserWidget* newView = CreateWidget<UBaseUserWidget>(GetWorld(),transitionView);
+	if(newView)
+	{
+		newView->UiInitialize(currentGameMode);
+		newView->AddToViewport();
+		//newView->viewName = aView;
+	}
 }
 
 

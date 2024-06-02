@@ -9,6 +9,7 @@
 #include "FloorPlayerPawn.h"
 #include "LevelProgressionSubsystem.h"
 #include "PersistentGameinstance.h"
+#include "TransitionView.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -127,16 +128,31 @@ void AFloor_EnemyPawn::SetEnemyPawnCompleteData(FFloorEnemyPawnCompleteData aEne
 
 
 
-void AFloor_EnemyPawn::ActivateCombat()
+void AFloor_EnemyPawn::ActivateEncountered()
 {
 	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
-	gameModeBase->InGameHUD->PushView(EViews::TransitionView,EUiType::ActiveUi);
-	//persistentGameInstance->levelProgressionSubsystem->AddEnemyHasBeenInteracted(this);
-	//persistentGameInstance->LoadCombatLevel(enemyPawnCompleteData.EnemyGroupName,ECombatArena::Prison);
+	persistentGameInstance->CallTransition();
+	//UTransitionView* transitionView =
+	//	(UTransitionView* )persistentGameInstance->persistentGameHud->PushAndGetView(EViews::TransitionView,EUiType::ActiveUi);
+//
+	//transitionView->transitionTo.AddDynamic(this,&AFloor_EnemyPawn::TransitionToCombat);
+	TransitionToCombat();
+}
+
+void AFloor_EnemyPawn::TransitionToCombat()
+{
+	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+	persistentGameInstance->levelProgressionSubsystem->AddEnemyHasBeenInteracted(this);
+	persistentGameInstance->LoadCombatLevel(enemyPawnCompleteData.EnemyGroupName,ECombatArena::Prison);
 }
 
 void AFloor_EnemyPawn::SetEnemyTexture(ECardinalNodeDirections aCardinalNodeDirection)
 {
+	if(nodeToMoveTowards != nullptr)
+	{
+		return;
+	}
+	
 	materialInstanceDynamic->SetTextureParameterValue(FName("BaseTexture"), floorEnemyTextures[aCardinalNodeDirection]);
 	meshComponent->SetMaterial(0, materialInstanceDynamic);
 }
