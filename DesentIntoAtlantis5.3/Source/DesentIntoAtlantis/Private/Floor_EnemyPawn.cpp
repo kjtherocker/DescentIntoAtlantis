@@ -5,6 +5,7 @@
 
 #include "AIController.h"
 #include "BehaviorTreeTaskTest.h"
+#include "FloorBehaviorTrees.h"
 #include "FloorPlayerPawn.h"
 #include "LevelProgressionSubsystem.h"
 #include "PersistentGameinstance.h"

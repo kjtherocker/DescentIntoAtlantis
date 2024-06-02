@@ -9,6 +9,7 @@
 #include "StateTree.h"
 #include "Floor_EnemyPawn.generated.h"
 
+class UFloorBehaviorTree;
 class AFloorPlayerPawn;
 struct FEnemyPatrolPath;
 struct FFloorNodeData;

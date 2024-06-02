@@ -9,6 +9,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeDesentIntoAtlantis_init() {}
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_ActivateEnemyBehavior__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_BestiaryDataHasChanged__DelegateSignature();
+	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_FloorTaskHasEnded__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasHealthOrManaValuesChanged__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature();
 	DESENTINTOATLANTIS_API UFunction* Z_Construct_UDelegateFunction_DesentIntoAtlantis_MapHasChanged__DelegateSignature();
@@ -38,6 +39,7 @@ void EmptyLinkFunctionForGeneratedCodeDesentIntoAtlantis_init() {}
 			static UObject* (*const SingletonFuncArray[])() = {
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_ActivateEnemyBehavior__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_BestiaryDataHasChanged__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_FloorTaskHasEnded__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_HasHealthOrManaValuesChanged__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_LevelHasChanged__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_DesentIntoAtlantis_MapHasChanged__DelegateSignature,
@@ -65,13 +67,13 @@ void EmptyLinkFunctionForGeneratedCodeDesentIntoAtlantis_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x0CE01AA3,
-				0xA8193113,
+				0x414E7DE3,
+				0xDCF6DB92,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_DesentIntoAtlantis.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_DesentIntoAtlantis.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_DesentIntoAtlantis(Z_Construct_UPackage__Script_DesentIntoAtlantis, TEXT("/Script/DesentIntoAtlantis"), Z_Registration_Info_UPackage__Script_DesentIntoAtlantis, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x0CE01AA3, 0xA8193113));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_DesentIntoAtlantis(Z_Construct_UPackage__Script_DesentIntoAtlantis, TEXT("/Script/DesentIntoAtlantis"), Z_Registration_Info_UPackage__Script_DesentIntoAtlantis, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x414E7DE3, 0xDCF6DB92));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

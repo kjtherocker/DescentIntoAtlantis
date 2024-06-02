@@ -1150,6 +1150,21 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\FloorNode.h"/>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\AiChaseTask.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\AiPatrolTask.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\AiReturnToPatrolTask.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\AtlantisGameModeBase.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
@@ -1286,6 +1301,16 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\EventManagerSubSystem.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\FloorAiTask.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\FloorBehaviorTrees.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
@@ -1430,11 +1455,6 @@
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\MyStateTreeTest.cpp">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
-      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
-    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\OptionView.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
@@ -1530,11 +1550,6 @@
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
-    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\StateTreeTest.cpp">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
-      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
-    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\StatusElement.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
@@ -1580,6 +1595,9 @@
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\AiChaseTask.h"/>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\AiPatrolTask.h"/>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\AiReturnToPatrolTask.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\AtlantisGameModeBase.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\BaseUserWidget.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\BaseUserWidgetMovingButtons.h"/>
@@ -1609,6 +1627,8 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EnemySelectionView.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EnemySkillView.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\EventManagerSubSystem.h"/>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\FloorAiTask.h"/>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\FloorBehaviorTrees.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\FloorDoor.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\FloorEnemyStateTree.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\FloorEnum.h"/>
@@ -1637,7 +1657,6 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\MapNodeEditorView.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\MapPlayerIconElement.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\MapView.h"/>
-    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\MyStateTreeTest.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\OptionView.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PartyHealthbarElement.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\PartyHealthbarsView.h"/>
@@ -1657,7 +1676,6 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SkillView.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SoundManager.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\StateTask_Patrol.h"/>
-    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\StateTreeTest.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\StatusElement.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\StatusMainMenuElement.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SyncView.h"/>
