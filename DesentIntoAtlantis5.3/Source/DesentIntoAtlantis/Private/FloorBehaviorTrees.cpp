@@ -4,13 +4,9 @@
 #include "FloorBehaviorTrees.h"
 
 #include "AiChaseTask.h"
-#include "AIController.h"
 #include "AiPatrolTask.h"
 #include "AiReturnToPatrolTask.h"
 #include "Floor_EnemyPawn.h"
-#include "BehaviorTree/BlackboardComponent.h"
-#include "BehaviorTree/Blackboard/BlackboardKeyType_Object.h"
-#include "BehaviorTree/Tasks/BTTask_MoveTo.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 #include "DesentIntoAtlantis/FloorManager.h"
 #include "DesentIntoAtlantis/FloorNode.h"
@@ -120,7 +116,6 @@ void UFloorBehaviorTree::SetNewTask(EBehaviorTaskTypes aTaskTypes,FCompleteFloor
 {
 	previousTask = currentTask;
 	currentTask = aTaskTypes;
-
 	
 	floorBehaviors[aTaskTypes]->ExecuteTask(aCompleteFloorPawnData);
 }

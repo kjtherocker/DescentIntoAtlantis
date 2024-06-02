@@ -1570,6 +1570,11 @@
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\TransitionView.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DesentIntoAtlantis\Private\TurnCounterElement.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_8)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_8)</ForcedIncludeFiles>
@@ -1680,6 +1685,7 @@
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\StatusMainMenuElement.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\SyncView.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\TitleView.h"/>
+    <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\TransitionView.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\TurnCounterElement.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\TurnCounterView.h"/>
     <ClInclude Include="..\..\Source\DesentIntoAtlantis\Public\TutorialManagerSubsystem.h"/>

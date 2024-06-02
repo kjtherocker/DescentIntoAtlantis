@@ -1552,3 +1552,117 @@ LogConfig: Set CVar [[r.Shadow.DetectVertexShaderLayerAtRuntime:1]]
 [2024.06.02-15.22.23:762][165]LogFileHelpers: InternalPromptForCheckoutAndSave took 129 ms
 [2024.06.02-15.22.23:764][165]AssetCheck: New page: Asset Save: MainMenu
 [2024.06.02-15.22.23:764][165]LogContentValidation: Display: Validating /Script/Engine.World /Game/Map/MainMenu.MainMenu
+[2024.06.02-15.27.15:505][561]LogShaderCompilers: Display: ================================================
+[2024.06.02-15.27.15:505][561]LogShaderCompilers: Display: === FShaderJobCache stats ===
+[2024.06.02-15.27.15:505][561]LogShaderCompilers: Display: Total job queries 8, among them cache hits 0 (0.00%)
+[2024.06.02-15.27.15:505][561]LogShaderCompilers: Display: Tracking 8 distinct input hashes that result in 7 distinct outputs (87.50%)
+[2024.06.02-15.27.15:506][561]LogShaderCompilers: Display: RAM used: 21.61 KiB of 1.60 GiB budget. Usage: 0.00%
+[2024.06.02-15.27.15:506][561]LogShaderCompilers: Display: === Shader Compilation stats ===
+[2024.06.02-15.27.15:506][561]LogShaderCompilers: Display: Shaders Compiled: 0
+[2024.06.02-15.27.15:506][561]LogShaderCompilers: Display: Jobs assigned 0, completed 0 (0%)
+[2024.06.02-15.27.15:506][561]LogShaderCompilers: Display: Time at least one job was in flight (either pending or executed): 0.00 s
+[2024.06.02-15.27.15:506][561]LogShaderCompilers: Display: ================================================
+[2024.06.02-15.27.21:873][208]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Ui/BP_InGameHUD.BP_InGameHUD
+[2024.06.02-15.27.21:896][208]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.06.02-15.27.21:897][208]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.06.02-15.27.21:903][208]LogSlate: Warning: The command 'BlueprintEditorSpawnNodes.AddActorRefAction->CommandInfo' has the same default chord as 'BlueprintEditorSpawnNodes.(Class=/Script/BlueprintGraph.K2Node_Knot Key=R Shift=false Ctrl=false Alt=false)' [R]
+[2024.06.02-15.27.37:248][517]Warning: In asset 'None', there is an enum property of type 'EViews' with an invalid value of '('
+[2024.06.02-15.27.37:249][517]Warning: In asset 'None', there is an enum property of type 'EViews' with an invalid value of '('
+[2024.06.02-15.27.37:823][568]Warning: In asset 'None', there is an enum property of type 'EViews' with an invalid value of '('
+[2024.06.02-15.27.37:824][568]Warning: In asset 'None', there is an enum property of type 'EViews' with an invalid value of '('
+[2024.06.02-15.27.40:514][814]LogSlate: Window 'BP_InGameHUD' being destroyed
+[2024.06.02-15.27.40:521][814]LogSlate: Window 'BP_InGameHUD' being destroyed
+[2024.06.02-15.27.40:534][814]LogWorld: UWorld::CleanupWorld for World_0, bSessionEnded=true, bCleanupResources=true
+[2024.06.02-15.27.40:534][814]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.06.02-15.28.35:295][ 96]LogLiveCoding: Display: Starting Live Coding compile.
+[2024.06.02-15.29.34:490][368]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Ui/BP_InGameHUD.BP_InGameHUD
+[2024.06.02-15.29.34:491][368]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.06.02-15.29.34:491][368]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.06.02-15.29.48:712][562]LogSlate: Window 'BP_InGameHUD' being destroyed
+[2024.06.02-15.29.48:720][562]LogSlate: Window 'BP_InGameHUD' being destroyed
+[2024.06.02-15.29.48:731][562]LogWorld: UWorld::CleanupWorld for World_1, bSessionEnded=true, bCleanupResources=true
+[2024.06.02-15.29.48:731][562]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.06.02-15.29.54:116][884]LogSlate: Took 0.006711 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf' (158K)
+[2024.06.02-15.30.01:779][760]LogLiveCoding: Display:    Creating library C:\Users\kylej\Desktop\DescentIntoAtlantis\DesentIntoAtlantis5.3\Binaries\Win64\UnrealEditor-DesentIntoAtlantis.patch_1.lib and object C:\Users\kylej\Desktop\DescentIntoAtlantis\DesentIntoAtlantis5.3\Binaries\Win64\UnrealEditor-DesentIntoAtlantis.patch_1.exp
+[2024.06.02-15.30.02:265][767]LogClass: UPackage /Script/DesentIntoAtlantis Reload.
+[2024.06.02-15.30.02:265][767]LogClass: UScriptStruct EventManagerData Reload.
+[2024.06.02-15.30.02:265][767]LogClass: UScriptStruct FloorEventData Reload.
+[2024.06.02-15.30.02:265][767]LogClass: UEnum EViews Reload.
+[2024.06.02-15.30.02:266][767]LogClass: UClass SaveManagerSubsystem Reload.
+[2024.06.02-15.30.02:266][767]LogClass: UClass FloorFactory Reload.
+[2024.06.02-15.30.02:266][767]LogClass: UClass InGameHUD Reload.
+[2024.06.02-15.30.02:266][767]LogClass: UClass LevelGeneratorUtilityWidget Reload.
+[2024.06.02-15.30.02:266][767]LogClass: UClass EventManagerSubSystem Reload.
+[2024.06.02-15.30.02:266][767]LogClass: UClass MapButtonElement Reload.
+[2024.06.02-15.30.02:266][767]LogClass: UClass MapEventEditorView Reload.
+[2024.06.02-15.30.02:267][767]LogClass: UClass SaveGameData Reload.
+[2024.06.02-15.30.02:267][767]LogClass: Could not find existing class SaveManagerSubsystem in package /Script/DesentIntoAtlantis for reload, assuming new or modified class
+[2024.06.02-15.30.02:267][767]LogClass: Function AutoSave is new or belongs to a modified class.
+[2024.06.02-15.30.02:267][767]LogClass: Function ConsumeGameSaveLoadingFlag is new or belongs to a modified class.
+[2024.06.02-15.30.02:267][767]LogClass: Function InitializeSubsystem is new or belongs to a modified class.
+[2024.06.02-15.30.02:267][767]LogClass: Function LoadFloorPawnRotation is new or belongs to a modified class.
+[2024.06.02-15.30.02:268][767]LogClass: Function LoadPreSetLevel is new or belongs to a modified class.
+[2024.06.02-15.30.02:268][767]LogClass: Function LoadSaveDataAndTransitionToMap is new or belongs to a modified class.
+[2024.06.02-15.30.02:268][767]LogClass: Function ReturnToPreviousLevel is new or belongs to a modified class.
+[2024.06.02-15.30.02:268][767]LogClass: Function SaveGameInSlot is new or belongs to a modified class.
+[2024.06.02-15.30.02:268][767]LogClass: Function SetEventManagerData is new or belongs to a modified class.
+[2024.06.02-15.30.02:282][767]LogClass: Could not find existing class FloorFactory in package /Script/DesentIntoAtlantis for reload, assuming new or modified class
+[2024.06.02-15.30.02:283][767]LogClass: Function CreateNewFloorEventRow is new or belongs to a modified class.
+[2024.06.02-15.30.02:283][767]LogClass: Function DeleteFloorEventRow is new or belongs to a modified class.
+[2024.06.02-15.30.02:283][767]LogClass: Function OverwriteFloorEventData is new or belongs to a modified class.
+[2024.06.02-15.30.02:283][767]LogClass: Function OverwriteFloorMapData is new or belongs to a modified class.
+[2024.06.02-15.30.02:283][767]LogClass: Function ReOrderFloorEventRow is new or belongs to a modified class.
+[2024.06.02-15.30.02:290][767]LogClass: Could not find existing class InGameHUD in package /Script/DesentIntoAtlantis for reload, assuming new or modified class
+[2024.06.02-15.30.02:292][767]LogClass: Could not find existing class LevelGeneratorUtilityWidget in package /Script/DesentIntoAtlantis for reload, assuming new or modified class
+[2024.06.02-15.30.02:292][767]LogClass: Function ActivateMapNodeEditor is new or belongs to a modified class.
+[2024.06.02-15.30.02:292][767]LogClass: Function CreateEvent is new or belongs to a modified class.
+[2024.06.02-15.30.02:292][767]LogClass: Function CreateGrid is new or belongs to a modified class.
+[2024.06.02-15.30.02:292][767]LogClass: Function DeleteEvent is new or belongs to a modified class.
+[2024.06.02-15.30.02:292][767]LogClass: Function GenerateLevel is new or belongs to a modified class.
+[2024.06.02-15.30.02:292][767]LogClass: Function SaveCurrentEvent is new or belongs to a modified class.
+[2024.06.02-15.30.02:292][767]LogClass: Function SaveCurrentMap is new or belongs to a modified class.
+[2024.06.02-15.30.02:293][767]LogClass: Function SpawnMapButton is new or belongs to a modified class.
+[2024.06.02-15.30.02:309][767]LogClass: Could not find existing class EventManagerSubSystem in package /Script/DesentIntoAtlantis for reload, assuming new or modified class
+[2024.06.02-15.30.02:309][767]LogClass: Function PlayerHasTriggeredFloorEvent is new or belongs to a modified class.
+[2024.06.02-15.30.02:309][767]LogClass: Function TriggerNextFloorEventStep is new or belongs to a modified class.
+[2024.06.02-15.30.02:314][767]LogClass: Could not find existing class MapButtonElement in package /Script/DesentIntoAtlantis for reload, assuming new or modified class
+[2024.06.02-15.30.02:314][767]LogClass: Function ActivateMapNodeEditor is new or belongs to a modified class.
+[2024.06.02-15.30.02:314][767]LogClass: Could not find existing class MapEventEditorView in package /Script/DesentIntoAtlantis for reload, assuming new or modified class
+[2024.06.02-15.30.02:314][767]LogClass: Function DeleteEvent is new or belongs to a modified class.
+[2024.06.02-15.30.02:314][767]LogClass: Function SaveEvent is new or belongs to a modified class.
+[2024.06.02-15.30.02:319][767]LogClass: Could not find existing class SaveGameData in package /Script/DesentIntoAtlantis for reload, assuming new or modified class
+[2024.06.02-15.30.02:320][767]LogClass: Function UpdateCompleteProgressionData is new or belongs to a modified class.
+[2024.06.02-15.30.02:320][767]LogClass: Function UpdateCurrentLevelIdentifier is new or belongs to a modified class.
+[2024.06.02-15.30.02:320][767]LogClass: Function UpdateEnemyBestiaryData is new or belongs to a modified class.
+[2024.06.02-15.30.02:320][767]LogClass: Function UpdateFloorPawnData is new or belongs to a modified class.
+[2024.06.02-15.30.02:332][767]Re-instancing SaveGameData after reload.
+[2024.06.02-15.30.02:343][767]Re-instancing SaveManagerSubsystem after reload.
+[2024.06.02-15.30.02:352][767]Re-instancing FloorFactory after reload.
+[2024.06.02-15.30.02:361][767]Re-instancing InGameHUD after reload.
+[2024.06.02-15.30.02:370][767]Re-instancing MapButtonElement after reload.
+[2024.06.02-15.30.02:371][767]LogClass: Warning: Property currentFloorEventData of currentFloorEventData has a struct type mismatch (tag LIVECODING_FloorEventData_1 != prop FloorEventData) in package:  FObjectReader. If that struct got renamed, add an entry to ActiveStructRedirects.
+[2024.06.02-15.30.02:382][767]Re-instancing LevelGeneratorUtilityWidget after reload.
+[2024.06.02-15.30.02:391][767]Re-instancing EventManagerSubSystem after reload.
+[2024.06.02-15.30.02:401][767]Re-instancing MapEventEditorView after reload.
+[2024.06.02-15.30.02:515][767]LogUObjectHash: Compacting FUObjectHashTables data took   0.71ms
+[2024.06.02-15.30.02:933][768]Display: Reload/Re-instancing Complete: 1 package changed, 8 classes changed, 101 classes unchanged, 1 enum changed, 31 enums unchanged, 2 scriptstructs changed, 33 scriptstructs unchanged, 71 functions remapped, 35 scriptstructs remapped
+[2024.06.02-15.30.02:933][768]LogLiveCoding: Warning: Live coding succeeded, data type changes may cause packaging to fail if assets reference the new or updated data types
+[2024.06.02-15.30.08:142][318]Running C:/Program Files/Epic Games/UE_5.3/Engine/Build/BatchFiles/Build.bat  -projectfiles -project="C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/DesentIntoAtlantis.uproject" -game -rocket -progress
+[2024.06.02-15.30.08:261][318]Using bundled DotNet SDK version: 6.0.302
+[2024.06.02-15.30.08:261][318]Running UnrealBuildTool: dotnet "..\..\Engine\Binaries\DotNET\UnrealBuildTool\UnrealBuildTool.dll" -projectfiles -project="C:/Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/DesentIntoAtlantis.uproject" -game -rocket -progress
+[2024.06.02-15.30.08:663][318]Log file: C:\Users\kylej\AppData\Local\UnrealBuildTool\Log_GPF.txt
+[2024.06.02-15.30.09:165][318]
+[2024.06.02-15.30.09:165][318]Generating VisualStudio project files:
+[2024.06.02-15.30.09:165][318]Discovering modules, targets and source code for project...
+[2024.06.02-15.30.13:386][318]Binding IntelliSense data...
+[2024.06.02-15.30.33:491][318]Binding IntelliSense data... 75%
+[2024.06.02-15.30.33:492][318]Binding IntelliSense data... 100%
+[2024.06.02-15.30.33:492][318]Creating common properties file...
+[2024.06.02-15.30.33:593][318]Creating common properties file... 0%
+[2024.06.02-15.30.33:594][318]Writing project files...
+[2024.06.02-15.30.35:105][318]Writing project files... 100%
+[2024.06.02-15.30.35:105][318]
+[2024.06.02-15.30.35:105][318]Generating QueryTargets data for editor...
+[2024.06.02-15.30.35:307][318]LogLiveCoding: Display: Starting Live Coding compile.
+[2024.06.02-15.30.35:332][318]LogSlate: Window 'Add C++ Class' being destroyed
+[2024.06.02-15.31.00:746][549]LogSlate: Window 'Pick Parent Class' being destroyed

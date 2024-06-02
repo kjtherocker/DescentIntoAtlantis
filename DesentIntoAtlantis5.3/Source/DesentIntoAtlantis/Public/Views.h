@@ -35,6 +35,7 @@ enum class  EViews
 	SaveView             = 25,
 	LoadView             = 26,
 	SettingView          = 27,
+	TransitionView       = 28,
 };
 
 
