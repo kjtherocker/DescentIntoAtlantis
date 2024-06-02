@@ -9,6 +9,7 @@
 #include "FloorPlayerPawn.h"
 #include "LevelProgressionSubsystem.h"
 #include "PersistentGameinstance.h"
+#include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
 
@@ -129,8 +130,9 @@ void AFloor_EnemyPawn::SetEnemyPawnCompleteData(FFloorEnemyPawnCompleteData aEne
 void AFloor_EnemyPawn::ActivateCombat()
 {
 	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
-	persistentGameInstance->levelProgressionSubsystem->AddEnemyHasBeenInteracted(this);
-	persistentGameInstance->LoadCombatLevel(enemyPawnCompleteData.EnemyGroupName,ECombatArena::Prison);
+	gameModeBase->InGameHUD->PushView(EViews::TransitionView,EUiType::ActiveUi);
+	//persistentGameInstance->levelProgressionSubsystem->AddEnemyHasBeenInteracted(this);
+	//persistentGameInstance->LoadCombatLevel(enemyPawnCompleteData.EnemyGroupName,ECombatArena::Prison);
 }
 
 void AFloor_EnemyPawn::SetEnemyTexture(ECardinalNodeDirections aCardinalNodeDirection)

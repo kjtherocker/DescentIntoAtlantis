@@ -95,7 +95,7 @@ void AFloorPlayerPawn::MovePawn(float aDeltaTime)
 	FVector2D nodeToModeTowardsXY = FVector2D(nodeToMoveTowardsPostion.X,nodeToMoveTowardsPostion.Y);
 	FVector2D currentActorPositionXY = FVector2D(GetActorLocation().X,GetActorLocation().Y);
 	
-	if(FVector2D::Distance(currentActorPositionXY, nodeToModeTowardsXY) < 5.5f )
+	if(FVector2D::Distance(currentActorPositionXY, nodeToModeTowardsXY) < 9.5f )
 	{
 		hasRotationFinished       = true;
 		previousNodePawnWasOn   = currentNodePawnIsOn;

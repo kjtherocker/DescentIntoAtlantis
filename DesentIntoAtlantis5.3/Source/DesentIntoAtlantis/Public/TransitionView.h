@@ -13,5 +13,7 @@ UCLASS()
 class DESENTINTOATLANTIS_API UTransitionView : public UBaseUserWidget
 {
 	GENERATED_BODY()
-	
+
+public:
+	void TransitionAtHalfWay();
 };
