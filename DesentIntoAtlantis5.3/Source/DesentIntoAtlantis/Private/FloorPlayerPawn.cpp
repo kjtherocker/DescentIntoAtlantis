@@ -35,6 +35,7 @@ void AFloorPlayerPawn::Initialize()
 	movementSpeed = MOVEMENT_SPEED;
 	positionOffSet = FVector(0,0,300);
 	playerForcedMovement.AddDynamic(this,&AFloorPlayerPawn::ForcedMovement);
+	isPlayerInputEnabled.AddDynamic(this,&AFloorPlayerPawn::SetFloorPawnInput);
 }
 
 

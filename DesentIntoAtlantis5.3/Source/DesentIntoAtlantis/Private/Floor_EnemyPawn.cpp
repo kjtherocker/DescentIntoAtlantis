@@ -107,6 +107,7 @@ void AFloor_EnemyPawn::Tick(float DeltaTime)
 
 void AFloor_EnemyPawn::SubscribeToActivateEnemyBehavior(AFloorPlayerPawn* aFloorPlayerPawn)
 {
+	floorPlayerPawn = aFloorPlayerPawn;
 	aFloorPlayerPawn->playerhasMovedDelegate.AddDynamic(this,&AFloor_EnemyPawn::ActivateEnemysFloorBehavior);
 }
 
@@ -132,11 +133,11 @@ void AFloor_EnemyPawn::ActivateEncountered()
 {
 	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
 	persistentGameInstance->CallTransition();
-	//UTransitionView* transitionView =
-	//	(UTransitionView* )persistentGameInstance->persistentGameHud->PushAndGetView(EViews::TransitionView,EUiType::ActiveUi);
-//
-	//transitionView->transitionTo.AddDynamic(this,&AFloor_EnemyPawn::TransitionToCombat);
-	TransitionToCombat();
+	UTransitionView* transitionView =
+		(UTransitionView* )gameModeBase->InGameHUD->PushAndGetView(EViews::TransitionView,EUiType::ActiveUi);
+	transitionView->transitionTo.AddDynamic(this,&AFloor_EnemyPawn::TransitionToCombat);
+	transitionView->StartEnterTransition();
+	floorPlayerPawn->isPlayerInputEnabled.Broadcast(false);
 }
 
 void AFloor_EnemyPawn::TransitionToCombat()

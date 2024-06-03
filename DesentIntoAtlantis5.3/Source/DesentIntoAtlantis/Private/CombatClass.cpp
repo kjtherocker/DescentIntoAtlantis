@@ -97,6 +97,7 @@ FClassData UCombatClass::Levelup()
 	attachedCombatEntity->currentMana   = completeClassData.currentLevelClassData.maxMana;
 	attachedCombatEntity->GatherAndSavePlayerCompleteDataSet();
 	attachedCombatEntity->SetAbilityScores();
+	attachedCombatEntity->hasHealthOrManaValuesChanged.Broadcast();
 
 
 	return completeClassData.currentLevelClassData;

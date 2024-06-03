@@ -43,7 +43,8 @@ public:
 	virtual void SetRotationWithoutAnimation(ECardinalNodeDirections aCardinalNodeDirection) override;
 	UPROPERTY(EditAnywhere)
 	UFloorBehaviorTree* floorBehaviorTree;
-
+	UPROPERTY()
+	AFloorPlayerPawn* floorPlayerPawn;
 	TArray<FFloorNodeAiData> patrolPath;
 
 

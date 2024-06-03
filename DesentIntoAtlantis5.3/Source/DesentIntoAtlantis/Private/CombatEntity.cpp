@@ -121,7 +121,7 @@ PressTurnReactions UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSki
     {
         currentHealth = 0;
     }
-    currentSync += 10;
+    currentSync += 30;
     hasHealthOrManaValuesChanged.Broadcast();
     if(!isMarkedForDeath)
     {

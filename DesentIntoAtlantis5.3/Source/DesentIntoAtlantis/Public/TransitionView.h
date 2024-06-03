@@ -21,8 +21,11 @@ public:
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 	void TransitionAtHalfWay();
 	void StartEnterTransition();
+	void StartExitTransition();
 	UPROPERTY(meta = (BindWidgetAnim), Transient)
 	UWidgetAnimation* EnterTransition;
+	UPROPERTY(meta = (BindWidgetAnim), Transient)
+	UWidgetAnimation* ExitTransition;
 
 	UFUNCTION()
 	void OnEnterFinished();

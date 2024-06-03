@@ -19,7 +19,7 @@ void USkillFactorySubsystem::InitializeDatabase(UDataTable*  aSkillDataTable)
 	//Banshee
 	allSkillsMap.Add(ESkillIDS::Bonk,NewObject<USkillAlimentAttackFear>());
 	allSkillsMap.Add(ESkillIDS::Boo,NewObject<USkillAlimentAttackFear>());
-	allSkillsMap.Add(ESkillIDS::RejuvenatingLink,NewObject<USkillAttack>());
+	allSkillsMap.Add(ESkillIDS::RejuvenatingLink,NewObject<USkillHeal>());
 	allSkillsMap.Add(ESkillIDS::WailingScream,NewObject<USkillAttack>());
 	//Gem Thief
 	allSkillsMap.Add(ESkillIDS::Lunge,NewObject<USkillAttack>());

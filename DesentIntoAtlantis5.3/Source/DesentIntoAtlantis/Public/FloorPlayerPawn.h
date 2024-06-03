@@ -15,6 +15,7 @@ class UFloorPawnPositionInfo;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerForcedMovement, ECardinalNodeDirections, direction);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerHasMoved,FCompleteFloorPawnData,floorData);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerDirectionHasChanged,FCompleteFloorPawnData,playerFacingDirection);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FIsPlayerInputEnabled,bool,playerInput);
 UCLASS()
 
 class DESENTINTOATLANTIS_API AFloorPlayerPawn : public AFloorPawn
@@ -36,7 +37,7 @@ protected:
 public:
 
 	
-
+	FIsPlayerInputEnabled isPlayerInputEnabled;
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -47,6 +48,7 @@ public:
 	virtual void PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode, ECardinalNodeDirections aRotation) override;
 	virtual void SetRotationWithoutAnimation(ECardinalNodeDirections aCardinalNodeDirection) override;
 	virtual void MovePawn(float aDeltaTime) override;
+	UFUNCTION()
 	virtual void SetFloorPawnInput(bool aIsInputActive);
 
 

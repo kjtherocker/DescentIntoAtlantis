@@ -17,6 +17,7 @@
 #include "EnemyPortraitElement.h"
 #include "PlayerCombatEntity.h"
 #include "SoundManager.h"
+#include "TransitionView.h"
 #include "UObject/NoExportTypes.h"
 
 
@@ -41,6 +42,8 @@ void ACombatGameModeBase::InitializeLevel()
 	combatCamera->PrimaryActorTick.bCanEverTick = true;
 	combatCamera->PossessedBy(PlayerController);
 	combatCamera->AutoPossessPlayer = EAutoReceiveInput::Player0;
+
+	combatCamera->Rotate();
 	
 	pressTurnManager = NewObject<UPressTurnManager>();
 	pressTurnManager->Initialize(this);
@@ -52,7 +55,12 @@ void ACombatGameModeBase::InitializeLevel()
 	portraitsLocations.Add(EEnemyCombatPositions::Right,ENEMY_POSITION3);
 	
 	StartCombat(arenaData.enemyGroupName);
-	
+
+
+	UTransitionView* transitionView =
+		(UTransitionView* )InGameHUD->PushAndGetView(EViews::TransitionView,EUiType::ActiveUi);
+
+	transitionView->StartExitTransition();
 	//floorPawn->bBlockInput = true;
 	//floorPawn->SetFloorPawnInput(false);
 
@@ -66,7 +74,7 @@ void ACombatGameModeBase::CreateEnemyPortraits()
 		
 		AEnemyPortraitElement* portrait =
 		Cast<AEnemyPortraitElement>(GetWorld()->SpawnActor<AActor>
-			(enemyPortraitElementReference, portraitsLocations[enemyCombatPosition], FRotator(0,90.0,0)));
+			(enemyPortraitElementReference, portraitsLocations[enemyCombatPosition], FRotator(0,0,0)));
 		portrait->SetCombatEntity(enemysInCombat[i]);
 		Portraits.Add(enemyCombatPosition,portrait);
 	}

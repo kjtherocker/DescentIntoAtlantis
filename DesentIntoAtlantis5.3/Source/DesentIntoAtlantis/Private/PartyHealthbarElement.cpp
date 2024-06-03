@@ -39,7 +39,8 @@ void UPartyHealthbarElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 	
 	//BW_CharacterPortrait->SetBrushFromTexture(playerCombatEntity->playerIdentityData.characterPortrait);
 	UpdateHealthbarElements();
-	
+	previousHealthPercentage = currentHealthPercentage;
+	BW_Health_Slow->SetPercent(previousHealthPercentage);
 }
 
 void UPartyHealthbarElement::NativeTick(const FGeometry& MyGeometry, float DeltaTime)
@@ -48,17 +49,33 @@ void UPartyHealthbarElement::NativeTick(const FGeometry& MyGeometry, float Delta
 	{
 		HitEffect(DeltaTime);
 	}
+	if(previousHealthPercentage != currentHealthPercentage &&
+		previousHealthPercentage >  currentHealthPercentage)
+	{
+		previousHealthPercentage -= DeltaTime *0.2;
+	}
+	//else if(previousHealthPercentage != currentHealthPercentage &&
+	//	previousHealthPercentage <  currentHealthPercentage)
+	//{
+	//	previousHealthPercentage += DeltaTime *0.1;
+	//}
+	BW_Health_Slow->SetPercent(previousHealthPercentage);
 }
 
 void UPartyHealthbarElement::UpdateHealthbarElements()
 {
-	float healthPercentage = playerCombatEntity->GetHealthPercentage();
-	BW_Health->SetPercent(healthPercentage);
+	//previousHealthPercentage = currentHealthPercentage;
+	currentHealthPercentage = playerCombatEntity->GetHealthPercentage();
+	BW_Health->SetPercent(currentHealthPercentage);
 	BW_HealthText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->currentHealth)));
 	
 	BW_Mana->SetPercent(playerCombatEntity->GetManaPercentage());
 	BW_ManaText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->currentMana)));
 
+	if(previousHealthPercentage < currentHealthPercentage)
+	{
+		previousHealthPercentage = currentHealthPercentage;
+	}
 	float syncPercentage = playerCombatEntity->GetSyncPercentage(); 
 	BW_Sync->SetPercent(syncPercentage);
 }

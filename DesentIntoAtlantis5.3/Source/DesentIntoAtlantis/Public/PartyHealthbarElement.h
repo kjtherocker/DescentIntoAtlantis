@@ -26,7 +26,8 @@ protected:
 	UPlayerCombatEntity*  playerCombatEntity;
 
 	const int MOVEUP_TRANSLATION_OFFSET = -100;
-	
+	float previousHealthPercentage;
+	float currentHealthPercentage;
 public:
 
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
@@ -58,7 +59,10 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UProgressBar* BW_Sync;
-
+	
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UProgressBar* BW_Health_Slow;
+	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_ManaText;
 
