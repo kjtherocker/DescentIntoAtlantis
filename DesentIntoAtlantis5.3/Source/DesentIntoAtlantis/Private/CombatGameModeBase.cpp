@@ -74,7 +74,7 @@ void ACombatGameModeBase::CreateEnemyPortraits()
 		
 		AEnemyPortraitElement* portrait =
 		Cast<AEnemyPortraitElement>(GetWorld()->SpawnActor<AActor>
-			(enemyPortraitElementReference, portraitsLocations[enemyCombatPosition], FRotator(0,0,0)));
+			(enemyPortraitElementReference, portraitsLocations[enemyCombatPosition], FRotator(0,90.0,0)));
 		portrait->SetCombatEntity(enemysInCombat[i]);
 		Portraits.Add(enemyCombatPosition,portrait);
 	}

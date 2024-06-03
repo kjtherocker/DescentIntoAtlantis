@@ -9,35 +9,38 @@ void UTransitionView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 
+	transitionViewAnimations.Add(ETransitionAnimationTriggers::Enter, EnterTransition);
+	transitionViewAnimations.Add(ETransitionAnimationTriggers::Exit, ExitTransition);
+
 }
 
 void UTransitionView::TransitionAtHalfWay()
 {
 }
 
+void UTransitionView::StartAnimation(ETransitionAnimationTriggers aTransitionAnimationTriggers)
+{
+	PlayAnimation(transitionViewAnimations[aTransitionAnimationTriggers]);
+}
+
 void UTransitionView::StartEnterTransition()
 {
 	if (EnterTransition)
 	{
-		// Play the animation
-		PlayAnimation(EnterTransition);
-
-		// Get the duration of the animation
-	//	float Duration = EnterTransition->GetEndTime() - EnterTransition->GetStartTime();
+	
+		StartAnimation(ETransitionAnimationTriggers::Enter);
+	
 	
 		FWidgetAnimationDynamicEvent dynamicEvent;
 		dynamicEvent.BindDynamic(this,&UTransitionView::OnEnterFinished);
-		// Set a timer to call OnAnimationFinished after the animation is done
+	
 		BindToAnimationFinished(EnterTransition,dynamicEvent);
 	}
 }
 
 void UTransitionView::StartExitTransition()
 {
-	if (ExitTransition)
-	{
-		PlayAnimation(ExitTransition);
-	}
+	StartAnimation(ETransitionAnimationTriggers::Exit);
 }
 
 void UTransitionView::OnEnterFinished()

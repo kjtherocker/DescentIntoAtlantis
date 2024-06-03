@@ -52,7 +52,7 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	ECharactertype currentTurnType;
 
 	UPROPERTY(EditAnywhere)
-	FVector3d CAMERA_POSITION = FVector3d(0,-50,0);
+	FVector3d CAMERA_POSITION = FVector3d(0,0,100.0);
 	UPROPERTY(EditAnywhere)
 	FRotator CAMERA_ROTATION;
 	
@@ -81,9 +81,9 @@ public:
 	FRoundEndDelegate OnRoundEndDelegate;
 
 	
-	const FVector3d ENEMY_POSITION1 = FVector3d(550,-300,43.0);
-	const FVector3d ENEMY_POSITION2 = FVector3d(550,0,43.0);
-	const FVector3d ENEMY_POSITION3 = FVector3d(550,300,43.0);
+	const FVector3d ENEMY_POSITION1 = FVector3d(800,-500,-260);
+	const FVector3d ENEMY_POSITION2 = FVector3d(800,0,-260);
+	const FVector3d ENEMY_POSITION3 = FVector3d(800,500,-260);
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> enemyPortraitElementReference;

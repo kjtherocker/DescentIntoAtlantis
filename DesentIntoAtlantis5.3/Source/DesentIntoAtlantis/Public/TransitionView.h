@@ -9,6 +9,13 @@
 /**
  * 
  */
+UENUM()
+enum class ETransitionAnimationTriggers
+{
+	None,
+	Enter,
+	Exit
+};
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FToTransitionTo);
 UCLASS()
@@ -18,8 +25,10 @@ class DESENTINTOATLANTIS_API UTransitionView : public UBaseUserWidget
 
 public:
 	FToTransitionTo transitionTo;
+	TMap<ETransitionAnimationTriggers, UWidgetAnimation*> transitionViewAnimations;
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 	void TransitionAtHalfWay();
+	void StartAnimation(ETransitionAnimationTriggers aTransitionAnimationTriggers);
 	void StartEnterTransition();
 	void StartExitTransition();
 	UPROPERTY(meta = (BindWidgetAnim), Transient)

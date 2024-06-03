@@ -57,9 +57,9 @@ void ACombatCameraPawn::Tick(float DeltaTime)
 
 void ACombatCameraPawn::Rotate()
 {
-	//SetActorRotation(FRotator(0,20,0));
-	SetActorLocation(ENEMY_POSITION3);
-	testHasBeenReached= false;
+	////SetActorRotation(FRotator(0,20,0));
+	//SetActorLocation(ENEMY_POSITION3);
+	//testHasBeenReached= false;
 }
 
 // Called to bind functionality to input
