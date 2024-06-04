@@ -29,6 +29,8 @@ class DESENTINTOATLANTIS_API AFloor_EnemyPawn : public AFloorPawn
 private:
 
 	int currentFloorIndex;
+	UPROPERTY()
+	TArray<UStaticMeshComponent*> staticMeshComponents;
 public:
 	UPROPERTY(EditAnywhere)
 	bool hasBeenInitialized = false;

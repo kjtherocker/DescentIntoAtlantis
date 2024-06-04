@@ -48,6 +48,7 @@ void UAiChaseTask::ActivateBehavior(FCompleteFloorPawnData aPlayerCompleteFloorD
 	if(aPlayerCompleteFloorData.currentNodePositionInGrid == startPosition)
 	{
 		enemyPawn->ActivateEncountered();
+		return;
 	}
 	
 	FVector2D currentPosition  = enemyPawn->GetCurrentNode()->floorNodeData.positionInGrid;

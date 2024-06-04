@@ -27,10 +27,10 @@ void AFloor_EnemyPawn::Initialize()
 	movementSpeed = 1000;
 	positionOffSet = FVector(0,0,45.0);
 
-	TArray<UStaticMeshComponent*> Components;
-	GetComponents<UStaticMeshComponent>(Components);
+	staticMeshComponents;
+	GetComponents<UStaticMeshComponent>(staticMeshComponents);
 	
-	for(UStaticMeshComponent* MeshComponent : Components)
+	for(UStaticMeshComponent* MeshComponent : staticMeshComponents)
 	{
 		UMaterialInterface* CurrentMaterial = MeshComponent->GetMaterial(0);
 		materialInstanceDynamic = UMaterialInstanceDynamic::Create(CurrentMaterial, this);
@@ -39,11 +39,12 @@ void AFloor_EnemyPawn::Initialize()
 		{
 			meshComponent = MeshComponent;
 			SetEnemyTexture(ECardinalNodeDirections::Left);
+		
 		}
 	}
 	
 	hasBeenInitialized = true;
-
+	
 	floorBehaviorTree = NewObject<UFloorBehaviorTree>();
 	floorBehaviorTree->InitializeBehaviorTree(this);
 	
@@ -115,6 +116,17 @@ void AFloor_EnemyPawn::OnNewNodeReached()
 {
 	Super::OnNewNodeReached();
 	enemyPawnCompleteData.completeFloorPawnData = completeFloorPawnData;
+	if(completeFloorPawnData.currentNodePositionInGrid == floorPlayerPawn->GetPosition())
+	{
+		for(UStaticMeshComponent* MeshComponent : staticMeshComponents)
+		{
+			if (MeshComponent)
+			{
+				MeshComponent->SetVisibility(false);
+				MeshComponent->SetHiddenInGame(true);
+			}
+		}
+	}
 }
 
 void AFloor_EnemyPawn::SetEnemyFloorPlan(TArray<FFloorNodeAiData> aFloorPlan)
@@ -131,6 +143,7 @@ void AFloor_EnemyPawn::SetEnemyPawnCompleteData(FFloorEnemyPawnCompleteData aEne
 
 void AFloor_EnemyPawn::ActivateEncountered()
 {
+	
 	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
 	persistentGameInstance->CallTransition();
 	UTransitionView* transitionView =

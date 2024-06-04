@@ -79,6 +79,11 @@ void AFloorPlayerPawn::SetFloorPawnInput(bool aIsInputActive)
 
 }
 
+FVector2D AFloorPlayerPawn::GetPosition()
+{
+	return completeFloorPawnData.currentNodePositionInGrid;
+}
+
 void AFloorPlayerPawn::MovePawn(float aDeltaTime)
 {
 	if(!hasRotationFinished)

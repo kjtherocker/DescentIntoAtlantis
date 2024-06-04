@@ -50,7 +50,7 @@ public:
 	virtual void MovePawn(float aDeltaTime) override;
 	UFUNCTION()
 	virtual void SetFloorPawnInput(bool aIsInputActive);
-
+	FVector2D GetPosition();
 
 	virtual void SetToStartRotation(double aDirection ) override;
 	
