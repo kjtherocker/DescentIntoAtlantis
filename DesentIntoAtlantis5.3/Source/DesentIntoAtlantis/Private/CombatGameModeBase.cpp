@@ -30,7 +30,7 @@ void ACombatGameModeBase::InitializeLevel()
 	ActorSpawnParameters.Owner = this;
 
 	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
-	ACombatCameraPawn* combatCamera = Cast<ACombatCameraPawn>(GetWorld()->SpawnActor<AActor>(cameraReference, CAMERA_POSITION, CAMERA_ROTATION,ActorSpawnParameters));
+	combatCamera = Cast<ACombatCameraPawn>(GetWorld()->SpawnActor<AActor>(cameraReference, CAMERA_POSITION, CAMERA_ROTATION,ActorSpawnParameters));
 
 	if (PlayerController->GetPawn()) // If the player controller has a pawn
 	{
@@ -43,7 +43,7 @@ void ACombatGameModeBase::InitializeLevel()
 	combatCamera->PossessedBy(PlayerController);
 	combatCamera->AutoPossessPlayer = EAutoReceiveInput::Player0;
 
-	combatCamera->Rotate();
+
 	
 	pressTurnManager = NewObject<UPressTurnManager>();
 	pressTurnManager->Initialize(this);
@@ -58,7 +58,7 @@ void ACombatGameModeBase::InitializeLevel()
 
 
 	UTransitionView* transitionView =
-		(UTransitionView* )InGameHUD->PushAndGetView(EViews::TransitionView,EUiType::ActiveUi);
+		(UTransitionView* )InGameHUD->PushAndGetView(EViews::TransitionView,EUiType::PersistentUi);
 
 	transitionView->StartExitTransition();
 	//floorPawn->bBlockInput = true;
@@ -74,7 +74,7 @@ void ACombatGameModeBase::CreateEnemyPortraits()
 		
 		AEnemyPortraitElement* portrait =
 		Cast<AEnemyPortraitElement>(GetWorld()->SpawnActor<AActor>
-			(enemyPortraitElementReference, portraitsLocations[enemyCombatPosition], FRotator(0,90.0,0)));
+			(enemyPortraitElementReference, portraitsLocations[enemyCombatPosition], FRotator(0,0.0,0)));
 		portrait->SetCombatEntity(enemysInCombat[i]);
 		Portraits.Add(enemyCombatPosition,portrait);
 	}
@@ -144,6 +144,8 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 	pressTurnManager->SetAmountOfTurns(partyMembersInCombat.Num(),currentTurnType);
 	
 	AllyStartTurn();
+
+	
 	//GameHUD->PushView(EViews::Tutorial,    EUiType::PersistentUi);
 }
 
@@ -294,6 +296,7 @@ void ACombatGameModeBase::AllyStartTurn()
 	currentActivePartyMember = partyMembersInCombat[currentActivePosition];
 	partyHealthbars->SetHighlightHealthbar(currentActivePartyMember,FULL_OPACITY);
 	currentActivePartyMember->StartTurn();
+	combatCamera->shouldReturnToInitialPosition = true;
 	UCommandBoardView* commandBoard = (UCommandBoardView*)InGameHUD->PushAndGetView(EViews::CommandBoard,  EUiType::ActiveUi);
 
 }
@@ -316,18 +319,33 @@ void ACombatGameModeBase::EnemyStartTurn()
 		SwitchCombatSides();
 		return;
 	}
-
+	for(int i =0;i > enemysInCombat.Num();i++)
+	{
+		EEnemyCombatPositions portraitPosition = enemysInCombat[i]->portraitPosition;
+		Portraits[portraitPosition]->ResetPortraitRotationToDefault();
+	}
+	
 	if(currentActivePosition <= enemysInCombat.Num() -1)
 	{
 		EnemyActivateSkill(enemysInCombat[currentActivePosition]);
+		EEnemyCombatPositions portraitPosition = enemysInCombat[currentActivePosition]->portraitPosition;
+		Portraits[portraitPosition]->RotateTowardsCamera();
+		combatCamera->RotateCameraToActor(Portraits[portraitPosition]);
+		combatCamera->ZoomCameraInTowardsActor(Portraits[portraitPosition]);
 		currentActivePosition++;
 	}
 	else
 	{
 		currentActivePosition = 0;
 		EnemyActivateSkill(enemysInCombat[currentActivePosition]);
+		EEnemyCombatPositions portraitPosition = enemysInCombat[currentActivePosition]->portraitPosition;
+		Portraits[portraitPosition]->RotateTowardsCamera();
+		combatCamera->RotateCameraToActor(Portraits[portraitPosition]);
+		combatCamera->ZoomCameraInTowardsActor(Portraits[portraitPosition]);
 		currentActivePosition++;
 	}
+
+	
 }
 
 

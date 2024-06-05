@@ -14,14 +14,12 @@ class DESENTINTOATLANTIS_API ACombatCameraPawn : public APawn
 public:
 	// Sets default values for this pawn's properties
 	ACombatCameraPawn();
-bool testHasBeenReached = true;
-	const int CAMERA_SPEED = 1000;
-	const FVector3d ENEMY_POSITION1 = FVector3d(90,-500,43.0);
-	const FVector3d ENEMY_POSITION2 = FVector3d(90,0,43.0);
-	const FVector3d ENEMY_POSITION3 = FVector3d(90,500,43.0);
+	bool shouldReturnToInitialPosition = true;
+	const int CAMERA_SPEED = 750;
 
 	const FVector3d InitialPosition = FVector3d(0,-50,0);
-	
+	const FRotator InitialRotation = FRotator(0,0,0);
+	const FVector zoomInPosition = FVector(158,-153,100);
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -29,7 +27,8 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	virtual void Rotate();
+	virtual void RotateCameraToActor(AActor* aRotateTowards);
+	virtual void ZoomCameraInTowardsActor(AActor* aRotateTowards);
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 

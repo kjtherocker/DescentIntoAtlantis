@@ -3,6 +3,8 @@
 
 #include "CombatCameraPawn.h"
 
+#include "Kismet/GameplayStatics.h"
+
 // Sets default values
 ACombatCameraPawn::ACombatCameraPawn()
 {
@@ -22,7 +24,7 @@ void ACombatCameraPawn::BeginPlay()
 void ACombatCameraPawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if(testHasBeenReached)
+	if(!shouldReturnToInitialPosition)
 	{
 		return;
 	}
@@ -32,9 +34,9 @@ void ACombatCameraPawn::Tick(float DeltaTime)
 	
 	if(FVector2D::Distance(currentActorPositionXY, nodeToModeTowardsXY) < 9.5f )
 	{
-		testHasBeenReached = true;
+		shouldReturnToInitialPosition = false;
 		//OnNewNodeReached();
-		//SetActorLocation(nodeToMoveTowardsPostion);
+		SetActorRotation(InitialRotation);
 		return;
 	}
 
@@ -55,11 +57,61 @@ void ACombatCameraPawn::Tick(float DeltaTime)
 	SetActorLocation(currentPostion);
 }
 
-void ACombatCameraPawn::Rotate()
+void ACombatCameraPawn::RotateCameraToActor(AActor* aRotateTowards)
 {
 	////SetActorRotation(FRotator(0,20,0));
 	//SetActorLocation(ENEMY_POSITION3);
 	//testHasBeenReached= false;
+	// Get the player controller
+
+	// Get the camera location
+	FVector CameraLocation = GetActorLocation();
+	FVector PawnLocation = aRotateTowards->GetActorLocation();
+
+	// Calculate the direction vector in the XY plane
+	FVector Direction = PawnLocation - CameraLocation;
+	Direction.Z = 0.0f; // Ignore the Z component
+
+	// Normalize the direction vector
+	Direction.Normalize();
+
+	// Calculate the yaw angle
+	float YawAngle = FMath::Atan2(Direction.Y, Direction.X) * (180.0f / PI);
+
+	// Ensure the yaw angle is within the correct range
+	if (YawAngle < 0.0f)
+	{
+		YawAngle += 360.0f;
+	}
+
+	// Create a new rotation that only affects the Z-axis
+	FRotator NewRotation(0.0f, YawAngle, 0.0f);
+
+	// Set the camera's rotation to the new rotation
+	SetActorRotation(NewRotation);
+
+	// Print debug information
+	if (GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Camera Location: %s"), *CameraLocation.ToString()));
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Pawn Location: %s"), *PawnLocation.ToString()));
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Direction: %s"), *Direction.ToString()));
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Yaw Angle: %f"), YawAngle));
+	}
+}
+
+void ACombatCameraPawn::ZoomCameraInTowardsActor(AActor* aRotateTowards)
+{
+	FVector SourceLocation = GetActorLocation();
+	FVector TargetLocation = aRotateTowards->GetActorLocation();
+
+	// Calculate the halfway point
+	FVector HalfwayPoint = (SourceLocation + TargetLocation) / 4.0f;
+
+	FVector finalDestination = FVector(HalfwayPoint.X,HalfwayPoint.Y,100);
+	// Move the source actor to the halfway point
+	SetActorLocation(finalDestination);
+
 }
 
 // Called to bind functionality to input

@@ -10,6 +10,7 @@
 #include "UObject/NoExportTypes.h"
 
 #include "CombatGameModeBase.generated.h"
+class ACombatCameraPawn;
 class AAtlantisGameModeBase;
 class USkillFactorySubsystem;
 enum class ECharactertype;
@@ -76,6 +77,8 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	TMap<EEnemyCombatPositions,FVector3d> portraitsLocations;
 	
 	void CreateEnemyPortraits();
+	UPROPERTY()
+	ACombatCameraPawn* combatCamera;
 public:
 	UPROPERTY(BlueprintAssignable, Category = "Test")
 	FRoundEndDelegate OnRoundEndDelegate;

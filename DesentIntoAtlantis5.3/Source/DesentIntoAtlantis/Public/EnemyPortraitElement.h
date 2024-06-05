@@ -26,13 +26,15 @@ private:
 	void Disappear(float DeltaTime);
 	UPROPERTY()
 	UMaterialInstanceDynamic* materialInstanceDynamic;
-	
+	const FRotator DEFAULT_ROTATION  = FRotator(0,180,0);
 public:
 
 	AEnemyPortraitElement();	
 	void SetCombatEntity(UEnemyCombatEntity* aCombatEntity);
 	virtual void Tick(float DeltaTime) override;
+	void RotateTowardsCamera();
 
+	void ResetPortraitRotationToDefault();
 	//AEnemyPortraitElement* GetMaterialCollection(UMaterialInterface* Material);
 	
 	UFUNCTION()
