@@ -10,7 +10,7 @@ ACombatCameraPawn::ACombatCameraPawn()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
+	SetActorLocation(InitialPosition);
 }
 
 // Called when the game starts or when spawned
@@ -32,10 +32,11 @@ void ACombatCameraPawn::Tick(float DeltaTime)
 	FVector2D nodeToModeTowardsXY = FVector2D(nodeToMoveTowardsPostion.X,nodeToMoveTowardsPostion.Y);
 	FVector2D currentActorPositionXY = FVector2D(GetActorLocation().X,GetActorLocation().Y);
 	
-	if(FVector2D::Distance(currentActorPositionXY, nodeToModeTowardsXY) < 9.5f )
+	if(FVector2D::Distance(currentActorPositionXY, nodeToModeTowardsXY) < 6.5f )
 	{
 		shouldReturnToInitialPosition = false;
 		//OnNewNodeReached();
+		SetActorLocation(InitialPosition);
 		SetActorRotation(InitialRotation);
 		return;
 	}
@@ -65,7 +66,7 @@ void ACombatCameraPawn::RotateCameraToActor(AActor* aRotateTowards)
 	// Get the player controller
 
 	// Get the camera location
-	FVector CameraLocation = GetActorLocation();
+	FVector CameraLocation = InitialPosition;
 	FVector PawnLocation = aRotateTowards->GetActorLocation();
 
 	// Calculate the direction vector in the XY plane
@@ -102,13 +103,13 @@ void ACombatCameraPawn::RotateCameraToActor(AActor* aRotateTowards)
 
 void ACombatCameraPawn::ZoomCameraInTowardsActor(AActor* aRotateTowards)
 {
-	FVector SourceLocation = GetActorLocation();
+	FVector SourceLocation = InitialPosition;
 	FVector TargetLocation = aRotateTowards->GetActorLocation();
 
 	// Calculate the halfway point
-	FVector HalfwayPoint = (SourceLocation + TargetLocation) / 4.0f;
+	FVector HalfwayPoint = (SourceLocation + TargetLocation) / 2.5f;
 
-	FVector finalDestination = FVector(HalfwayPoint.X,HalfwayPoint.Y,100);
+	FVector finalDestination = FVector(HalfwayPoint.X,HalfwayPoint.Y,135);
 	// Move the source actor to the halfway point
 	SetActorLocation(finalDestination);
 

@@ -313,18 +313,20 @@ void ACombatGameModeBase::EnemyStartTurn()
 		InGameHUD->PushView(EViews::Death,    EUiType::PersistentUi);
 		return;
 	}
+
+	for (UEnemyCombatEntity* Element : enemysInCombat)
+	{
+		EEnemyCombatPositions portraitPosition = Element->portraitPosition;
+		Portraits[portraitPosition]->ResetPortraitRotationToDefault();
+	}
 	
 	if(pressTurnManager->GetNumberOfActivePressTurns() == 0)
 	{
 		SwitchCombatSides();
 		return;
 	}
-	for(int i =0;i > enemysInCombat.Num();i++)
-	{
-		EEnemyCombatPositions portraitPosition = enemysInCombat[i]->portraitPosition;
-		Portraits[portraitPosition]->ResetPortraitRotationToDefault();
-	}
 	
+
 	if(currentActivePosition <= enemysInCombat.Num() -1)
 	{
 		EnemyActivateSkill(enemysInCombat[currentActivePosition]);

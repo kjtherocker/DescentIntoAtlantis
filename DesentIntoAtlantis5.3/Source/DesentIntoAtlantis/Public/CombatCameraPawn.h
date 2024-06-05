@@ -15,9 +15,9 @@ public:
 	// Sets default values for this pawn's properties
 	ACombatCameraPawn();
 	bool shouldReturnToInitialPosition = true;
-	const int CAMERA_SPEED = 750;
+	const int CAMERA_SPEED = 1000;
 
-	const FVector3d InitialPosition = FVector3d(0,-50,0);
+	const FVector3d InitialPosition = FVector3d(0,0,100.0);
 	const FRotator InitialRotation = FRotator(0,0,0);
 	const FVector zoomInPosition = FVector(158,-153,100);
 protected:
