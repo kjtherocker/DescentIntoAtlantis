@@ -69,44 +69,6 @@ int UPressTurnManager::GetNumberOfActivePressTurns()
 	return activePressTurns.Num();
 }
 
-void UPressTurnManager::ActivateSkill(UCombatEntity* aAttacker, int aCursorPosition, USkillBase* aSkill)
-{
-//	gameModeBase->InGameHUD->PushView(EViews::SyncView,EUiType::PersistentUi);
-	
-	TArray<UCombatEntity*>  enemyInCombat    = TArray<UCombatEntity*>(combatManager->GetEnemysInCombat());
-	TArray<UCombatEntity*>  playersInCombat  = TArray<UCombatEntity*>(combatManager->GetPlayersInCombat());
-	
-	TArray<UCombatEntity*> entitySkillsAreUsedOn;
-
-	TArray<PressTurnReactions> turnReactions;
-
-	FSkillsData skillsData = aSkill->skillData;
-	
-	if(aAttacker->characterType == ECharactertype::Ally)
-	{
-		entitySkillsAreUsedOn = skillsData.skillUsage == ESkillUsage::Opponents ? enemyInCombat : playersInCombat;
-	}
-	else if(aAttacker->characterType == ECharactertype::Enemy)
-	{
-		entitySkillsAreUsedOn = skillsData.skillUsage == ESkillUsage::Opponents ? playersInCombat : enemyInCombat;
-	}
-	
-	if(skillsData.skillRange == ESkillRange::Single)
-	{
-		turnReactions.Add(aSkill->UseSkill(aAttacker,entitySkillsAreUsedOn[aCursorPosition]));
-	}
-	else if (skillsData.skillRange == ESkillRange::Multi)
-	{
-		for(int i = 0 ; i <entitySkillsAreUsedOn.Num();i++)
-		{
-			turnReactions.Add(aSkill->UseSkill(aAttacker,entitySkillsAreUsedOn[i]));
-		}
-		
-	}
-
-	ProcessTurn(turnReactions);
-}
-
 void UPressTurnManager::ProcessTurn(TArray<PressTurnReactions> aAllTurnReactions)
 {
 	//Null Skills Consume all press turns completely

@@ -3,6 +3,7 @@
 
 #include "CombatCameraPawn.h"
 
+#include "CombatGameModeBase.h"
 #include "Kismet/GameplayStatics.h"
 
 // Sets default values
@@ -10,7 +11,8 @@ ACombatCameraPawn::ACombatCameraPawn()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	SetActorLocation(InitialPosition);
+	SetActorLocation(INITIAL_POSITION);
+	
 }
 
 // Called when the game starts or when spawned
@@ -19,7 +21,6 @@ void ACombatCameraPawn::BeginPlay()
 	Super::BeginPlay();
 	
 }
-
 // Called every frame
 void ACombatCameraPawn::Tick(float DeltaTime)
 {
@@ -28,16 +29,16 @@ void ACombatCameraPawn::Tick(float DeltaTime)
 	{
 		return;
 	}
-	FVector nodeToMoveTowardsPostion = InitialPosition;
+	FVector nodeToMoveTowardsPostion = INITIAL_POSITION;
 	FVector2D nodeToModeTowardsXY = FVector2D(nodeToMoveTowardsPostion.X,nodeToMoveTowardsPostion.Y);
 	FVector2D currentActorPositionXY = FVector2D(GetActorLocation().X,GetActorLocation().Y);
 	
-	if(FVector2D::Distance(currentActorPositionXY, nodeToModeTowardsXY) < 6.5f )
+	if(FVector2D::Distance(currentActorPositionXY, nodeToModeTowardsXY) < UCombatSettings::CAMERA_OFFSET_RANGE )
 	{
 		shouldReturnToInitialPosition = false;
 		//OnNewNodeReached();
-		SetActorLocation(InitialPosition);
-		SetActorRotation(InitialRotation);
+		SetActorLocation(INITIAL_POSITION);
+		SetActorRotation(INITIAL_ROTATION);
 		return;
 	}
 
@@ -66,7 +67,7 @@ void ACombatCameraPawn::RotateCameraToActor(AActor* aRotateTowards)
 	// Get the player controller
 
 	// Get the camera location
-	FVector CameraLocation = InitialPosition;
+	FVector CameraLocation = INITIAL_POSITION;
 	FVector PawnLocation = aRotateTowards->GetActorLocation();
 
 	// Calculate the direction vector in the XY plane
@@ -103,13 +104,13 @@ void ACombatCameraPawn::RotateCameraToActor(AActor* aRotateTowards)
 
 void ACombatCameraPawn::ZoomCameraInTowardsActor(AActor* aRotateTowards)
 {
-	FVector SourceLocation = InitialPosition;
+	FVector SourceLocation = INITIAL_POSITION;
 	FVector TargetLocation = aRotateTowards->GetActorLocation();
 
 	// Calculate the halfway point
-	FVector HalfwayPoint = (SourceLocation + TargetLocation) / 2.5f;
+	FVector HalfwayPoint = (SourceLocation + TargetLocation) / UCombatSettings::CAMERA_DISTANCE;
 
-	FVector finalDestination = FVector(HalfwayPoint.X,HalfwayPoint.Y,135);
+	FVector finalDestination = FVector(HalfwayPoint.X,HalfwayPoint.Y,ZOOM_IN_POSITION.Z);
 	// Move the source actor to the halfway point
 	SetActorLocation(finalDestination);
 

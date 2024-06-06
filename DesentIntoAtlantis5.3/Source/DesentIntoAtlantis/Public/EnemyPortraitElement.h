@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
+#include "CombatGameModeBase.h"
 #include "EnemyPortraitElement.generated.h"
 
 enum class EStatusAilments;
@@ -27,6 +28,7 @@ private:
 	UPROPERTY()
 	UMaterialInstanceDynamic* materialInstanceDynamic;
 	const FRotator DEFAULT_ROTATION  = FRotator(0,180,0);
+	const FVector3d INITIAL_CAMERA_POSITION = UCombatSettings::INITIAL_CAMERA_POSITION;
 public:
 
 	AEnemyPortraitElement();	

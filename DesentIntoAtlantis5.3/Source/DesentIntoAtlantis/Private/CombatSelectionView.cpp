@@ -39,7 +39,7 @@ void UCombatSelectionView::ActivateSkill()
 {
 	SetCursorHud(false);
 	combatManager->GetCurrentActivePartyMember()->DecrementMana(currentSkill->skillData.costToUse);
-	combatManager->pressTurnManager->ActivateSkill(combatManager->GetCurrentActivePartyMember(),cursorPosition,currentSkill);
+	combatManager->ActivateSkill(combatManager->GetCurrentActivePartyMember(),cursorPosition,currentSkill);
 }
 
 void UCombatSelectionView::MoveCursorLeft()

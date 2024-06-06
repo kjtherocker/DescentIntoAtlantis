@@ -2,6 +2,8 @@
 
 
 #include "EnemyPortraitElement.h"
+
+#include "CombatGameModeBase.h"
 #include "EnemyCombatEntity.h"
 #include "Components/HorizontalBox.h"
 #include "Components/Image.h"
@@ -42,8 +44,9 @@ void AEnemyPortraitElement::SetCombatEntity(UEnemyCombatEntity* aCombatEntity)
 			MeshComponent->SetMaterial(0, materialInstanceDynamic);
 		}
 	}
-
+	
 	SetActorRotation(DEFAULT_ROTATION);
+	RotateTowardsCamera();
 }
 
 void AEnemyPortraitElement::Tick(float DeltaTime)
@@ -78,7 +81,7 @@ void AEnemyPortraitElement::RotateTowardsCamera()
 	FVector ActorLocation = GetActorLocation();
 
 	// Calculate the direction vector in the XY plane
-	FVector Direction = CameraLocation - ActorLocation;
+	FVector Direction = INITIAL_CAMERA_POSITION - ActorLocation;
 	Direction.Z = 0.0f; // Ignore the Z component
 
 	// Normalize the direction vector
@@ -88,19 +91,19 @@ void AEnemyPortraitElement::RotateTowardsCamera()
 	float YawAngle = FMath::Atan2(Direction.Y, Direction.X) * (180.0f / PI);
 
 	// Ensure the yaw angle is within the correct range
-	if (YawAngle < 0.0f)
-	{
-		YawAngle += 360.0f;
-	}
+	//if (YawAngle < 0.0f)
+	//{
+	//	YawAngle += 360.0f;
+	//}
 
 	// Print debug information
-	if (GEngine)
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Camera Location: %s"), *CameraLocation.ToString()));
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Actor Location: %s"), *ActorLocation.ToString()));
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Direction: %s"), *Direction.ToString()));
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Yaw Angle: %f"), YawAngle));
-	}
+	//if (GEngine)
+	//{
+	//	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Camera Location: %s"), *CameraLocation.ToString()));
+	//	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Actor Location: %s"), *ActorLocation.ToString()));
+	//	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Direction: %s"), *Direction.ToString()));
+	//	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Yaw Angle: %f"), YawAngle));
+	//}
 
 	// Create a new rotation that only affects the Z-axis
 	FRotator NewRotation(0.0f, YawAngle, 0.0f);

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CombatGameModeBase.h"
 #include "GameFramework/Pawn.h"
 #include "CombatCameraPawn.generated.h"
 
@@ -15,11 +16,11 @@ public:
 	// Sets default values for this pawn's properties
 	ACombatCameraPawn();
 	bool shouldReturnToInitialPosition = true;
-	const int CAMERA_SPEED = 1000;
+	const int       CAMERA_SPEED       = UCombatSettings::CAMERA_SPEED;
 
-	const FVector3d InitialPosition = FVector3d(0,0,100.0);
-	const FRotator InitialRotation = FRotator(0,0,0);
-	const FVector zoomInPosition = FVector(158,-153,100);
+	const FVector3d INITIAL_POSITION   = UCombatSettings::INITIAL_CAMERA_POSITION;
+	const FRotator  INITIAL_ROTATION   = UCombatSettings::INITIAL_CAMERA_ROTATION;
+	const FVector   ZOOM_IN_POSITION   = UCombatSettings::CAMERA_ZOOM_IN_POSITION;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

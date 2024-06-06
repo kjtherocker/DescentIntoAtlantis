@@ -28,6 +28,30 @@ class AFloorGameMode;
  * 
  */
 
+UCLASS()
+class DESENTINTOATLANTIS_API UCombatSettings : public UObject
+{
+	GENERATED_BODY()
+
+public:
+
+	//Camera
+	inline FVector3d static INITIAL_CAMERA_POSITION = FVector(0,0,100);
+	inline FVector3d static CAMERA_ZOOM_IN_POSITION = FVector(0,0,100);
+	inline FRotator  static INITIAL_CAMERA_ROTATION = FRotator(0,0,0);
+
+	inline float     static CAMERA_DISTANCE     = 2.5f;
+	inline float     static CAMERA_OFFSET_RANGE = 6.5f;
+	inline int       static CAMERA_SPEED        = 1000;
+	//Enemy
+	inline FVector3d static ENEMY_POSITION1 = FVector3d(900,-475,-260);
+	inline FVector3d static ENEMY_POSITION2 = FVector3d(900,0,-260);
+	inline FVector3d static ENEMY_POSITION3 = FVector3d(900,475,-260);
+	inline FRotator  static ENEMY_ROTATION  = FRotator(0,0,0);
+
+};
+
+
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FRoundEndDelegate);
 UCLASS()
 class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
@@ -37,6 +61,8 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 
 	UFUNCTION()
 	virtual void InitializeLevel() override;
+
+	
 	UPROPERTY()
 	UTurnCounterView*     turnCounter;
 	UPROPERTY()
@@ -47,15 +73,15 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	const int   ENEMY_TURN_TIME = 2;
 	bool hasCombatStarted;
 	int currentActivePosition;
-	int combatExp;
+	int combatExp = 0;
 	
 	UPROPERTY()
 	ECharactertype currentTurnType;
 
 	UPROPERTY(EditAnywhere)
-	FVector3d CAMERA_POSITION = FVector3d(0,0,100.0);
+	FVector3d CAMERA_POSITION = UCombatSettings::INITIAL_CAMERA_POSITION;
 	UPROPERTY(EditAnywhere)
-	FRotator CAMERA_ROTATION;
+	FRotator CAMERA_ROTATION  = UCombatSettings::INITIAL_CAMERA_ROTATION;
 	
 		
 	UPROPERTY()
@@ -84,9 +110,9 @@ public:
 	FRoundEndDelegate OnRoundEndDelegate;
 
 	
-	const FVector3d ENEMY_POSITION1 = FVector3d(800,-500,-260);
-	const FVector3d ENEMY_POSITION2 = FVector3d(800,0,-260);
-	const FVector3d ENEMY_POSITION3 = FVector3d(800,500,-260);
+	const FVector ENEMY_POSITION1 = UCombatSettings::ENEMY_POSITION1;
+	const FVector ENEMY_POSITION2 = UCombatSettings::ENEMY_POSITION2;
+	const FVector ENEMY_POSITION3 = UCombatSettings::ENEMY_POSITION3;
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> enemyPortraitElementReference;
@@ -107,9 +133,13 @@ public:
 	void EnemyStartTurn();
 	void EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEntity);
 	int GetEXP();
+	UFUNCTION()
+	void ActivateSkill(UCombatEntity* aAttacker, int aCursorPosition, USkillBase* aSkill);
 	
 	UPlayerCombatEntity* GetCurrentActivePartyMember();
 	
 	TArray<UEnemyCombatEntity*> GetEnemysInCombat();
 	TArray<UPlayerCombatEntity*> GetPlayersInCombat();
 };
+
+

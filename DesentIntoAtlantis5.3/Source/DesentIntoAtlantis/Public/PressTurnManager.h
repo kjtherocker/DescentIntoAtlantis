@@ -60,7 +60,7 @@ public:
 
 	void SetAmountOfTurns(int aTurnAmount, ECharactertype aCharacterType );
 	
-	void ActivateSkill(UCombatEntity* aAttacker, int aCursorPosition, USkillBase* aSkill);
+
 	
 	void ProcessTurn(TArray<PressTurnReactions> aAllTurnReactions);
 

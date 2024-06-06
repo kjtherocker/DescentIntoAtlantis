@@ -20,3 +20,5 @@ public:
 	inline bool static DISABLE_CUTSCENES = false;
 	inline bool static DISABLE_TUTORIAL  = true;
 };
+
+

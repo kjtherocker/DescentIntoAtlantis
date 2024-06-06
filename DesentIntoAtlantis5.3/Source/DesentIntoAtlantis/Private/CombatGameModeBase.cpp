@@ -31,7 +31,7 @@ void ACombatGameModeBase::InitializeLevel()
 
 	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
 	combatCamera = Cast<ACombatCameraPawn>(GetWorld()->SpawnActor<AActor>(cameraReference, CAMERA_POSITION, CAMERA_ROTATION,ActorSpawnParameters));
-
+	
 	if (PlayerController->GetPawn()) // If the player controller has a pawn
 	{
 		PlayerController->UnPossess(); // Unpossess the current pawn
@@ -42,17 +42,16 @@ void ACombatGameModeBase::InitializeLevel()
 	combatCamera->PrimaryActorTick.bCanEverTick = true;
 	combatCamera->PossessedBy(PlayerController);
 	combatCamera->AutoPossessPlayer = EAutoReceiveInput::Player0;
-
-
 	
 	pressTurnManager = NewObject<UPressTurnManager>();
 	pressTurnManager->Initialize(this);
+	
 	FCombatArenaData arenaData = persistentGameInstance->ConsumeArenaDataFlag();
 	persistentGameInstance->EventManagerSubSystem->SetCombatGameMode(this);
 	
-	portraitsLocations.Add(EEnemyCombatPositions::Left,ENEMY_POSITION1);
+	portraitsLocations.Add(EEnemyCombatPositions::Left  ,ENEMY_POSITION1);
 	portraitsLocations.Add(EEnemyCombatPositions::Middle,ENEMY_POSITION2);
-	portraitsLocations.Add(EEnemyCombatPositions::Right,ENEMY_POSITION3);
+	portraitsLocations.Add(EEnemyCombatPositions::Right ,ENEMY_POSITION3);
 	
 	StartCombat(arenaData.enemyGroupName);
 
@@ -61,9 +60,42 @@ void ACombatGameModeBase::InitializeLevel()
 		(UTransitionView* )InGameHUD->PushAndGetView(EViews::TransitionView,EUiType::PersistentUi);
 
 	transitionView->StartExitTransition();
-	//floorPawn->bBlockInput = true;
-	//floorPawn->SetFloorPawnInput(false);
+}
 
+void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPosition, USkillBase* aSkill)
+{
+	TArray<UCombatEntity*>  enemyInCombat    = TArray<UCombatEntity*>(GetEnemysInCombat());
+	TArray<UCombatEntity*>  playersInCombat  = TArray<UCombatEntity*>(GetPlayersInCombat());
+	
+	TArray<UCombatEntity*> entitySkillsAreUsedOn;
+
+	TArray<PressTurnReactions> turnReactions;
+
+	FSkillsData skillsData = aSkill->skillData;
+	
+	if(aAttacker->characterType == ECharactertype::Ally)
+	{
+		entitySkillsAreUsedOn = skillsData.skillUsage == ESkillUsage::Opponents ? enemyInCombat : playersInCombat;
+	}
+	else if(aAttacker->characterType == ECharactertype::Enemy)
+	{
+		entitySkillsAreUsedOn = skillsData.skillUsage == ESkillUsage::Opponents ? playersInCombat : enemyInCombat;
+	}
+	
+	if(skillsData.skillRange == ESkillRange::Single)
+	{
+		turnReactions.Add(aSkill->UseSkill(aAttacker,entitySkillsAreUsedOn[aCursorPosition]));
+	}
+	else if (skillsData.skillRange == ESkillRange::Multi)
+	{
+		for(int i = 0 ; i <entitySkillsAreUsedOn.Num();i++)
+		{
+			turnReactions.Add(aSkill->UseSkill(aAttacker,entitySkillsAreUsedOn[i]));
+		}
+		
+	}
+
+	pressTurnManager->ProcessTurn(turnReactions);
 }
 
 void ACombatGameModeBase::CreateEnemyPortraits()
@@ -74,7 +106,7 @@ void ACombatGameModeBase::CreateEnemyPortraits()
 		
 		AEnemyPortraitElement* portrait =
 		Cast<AEnemyPortraitElement>(GetWorld()->SpawnActor<AActor>
-			(enemyPortraitElementReference, portraitsLocations[enemyCombatPosition], FRotator(0,0.0,0)));
+			(enemyPortraitElementReference, portraitsLocations[enemyCombatPosition], UCombatSettings::ENEMY_ROTATION));
 		portrait->SetCombatEntity(enemysInCombat[i]);
 		Portraits.Add(enemyCombatPosition,portrait);
 	}
@@ -139,8 +171,7 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 		partyHealthbars = (UPartyHealthbarsView*)InGameHUD->PushAndGetView(EViews::Healthbars,  EUiType::PersistentUi);
 	}
 	
-
-	combatExp = 0;
+	
 	pressTurnManager->SetAmountOfTurns(partyMembersInCombat.Num(),currentTurnType);
 	
 	AllyStartTurn();
@@ -174,7 +205,6 @@ void ACombatGameModeBase::AddEnemyToCombat(FEnemyEntityData AEnemyEntityData,int
 	EnemyCombatEntity->SetEnemyEntityData(AEnemyEntityData,skillFactory,static_cast<EEnemyCombatPositions>(aPosition));
 	EnemyCombatEntity->beastiaryData = enemyFactory->GetBestiaryEntry(EnemyCombatEntity->enemyEntityData.characterName);
 	enemysInCombat.Add(EnemyCombatEntity);
-
 }
 
 void ACombatGameModeBase::SwitchCombatSides()
@@ -202,8 +232,6 @@ void ACombatGameModeBase::SwitchCombatSides()
 void ACombatGameModeBase::EndCombat(bool aHasWon)
 {
 	hasCombatStarted = false;
-
-	
 	
 	InGameHUD->PopAllPersistantViews();
 	InGameHUD->PopAllActiveViews();
@@ -223,8 +251,7 @@ void ACombatGameModeBase::EndCombat(bool aHasWon)
 	{
 		floorEventManager->EventNotCompleted();
 	}
-
-
+	
 	soundManager->SetAudioPauseState(EAudioSources::CombatSoundEffect,true);
 	soundManager->SetAudioPauseState(EAudioSources::CombatMusic,true);
 	soundManager->PlayAudio(EAudioSources::OverworldMusic,EAudio::Overword);
@@ -388,7 +415,7 @@ void ACombatGameModeBase::EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEnt
 
 	int playerToAttack = aEnemyCombatEntity->enemyBehaviour->PlayerToAttack(partyMembersInCombat);
 
-	pressTurnManager->ActivateSkill(aEnemyCombatEntity,playerToAttack,skillObject);
+	ActivateSkill(aEnemyCombatEntity,playerToAttack,skillObject);
 }
 
 int ACombatGameModeBase::GetEXP()
