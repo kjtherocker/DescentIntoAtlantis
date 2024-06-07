@@ -44,9 +44,8 @@ void AEnemyPortraitElement::SetCombatEntity(UEnemyCombatEntity* aCombatEntity)
 			MeshComponent->SetMaterial(0, materialInstanceDynamic);
 		}
 	}
-	
-	SetActorRotation(DEFAULT_ROTATION);
-	RotateTowardsCamera();
+
+	ResetPortraitRotationToDefault();
 }
 
 void AEnemyPortraitElement::Tick(float DeltaTime)
@@ -163,7 +162,6 @@ void AEnemyPortraitElement::HitEffect(float DeltaTime)
 		hitEffectTimer = 0;
 		materialInstanceDynamic->SetScalarParameterValue(FName("Red"), hitEffectTimer);
 		isTriggeringHitEffect = false;
-		RotateTowardsCamera();
 		return;
 	}
 	

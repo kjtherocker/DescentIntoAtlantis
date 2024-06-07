@@ -82,15 +82,18 @@ void UPartyHealthbarElement::UpdateHealthbarElements()
 
 void UPartyHealthbarElement::HitEffect(float DeltaTime)
 {
-	if(movementTimer >= 1)
+	if(movementTimer >= 3)
 	{
 		movementTimer = 0;
 		isTriggeringHitEffect = false;
+		ResetTranslation();
+		BW_BackgroundHighlight->SetOpacity(0);
 		return;
 	}
 	
 	movementTimer += DeltaTime *2;	
-	
+	MoveUp();
+	BW_BackgroundHighlight->SetOpacity(1);
 	BW_CharacterPortrait->SetColorAndOpacity(FLinearColor(1,movementTimer,movementTimer,1));
 }
 

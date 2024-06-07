@@ -25,7 +25,7 @@ protected:
 	UPROPERTY()
 	UPlayerCombatEntity*  playerCombatEntity;
 
-	const int MOVEUP_TRANSLATION_OFFSET = -100;
+	const int MOVEUP_TRANSLATION_OFFSET = -35;
 	float previousHealthPercentage;
 	float currentHealthPercentage;
 public:

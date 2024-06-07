@@ -9,130 +9,368 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Characters/DefaultAssets/BP_EnemyPortraitElement.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/EnemyIcon/EventMarker_Enemy.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Ethel/EventMarker_Enemy1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Fienne/Material/Material_EvenTrigger_Base_Inst.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Fienne/Material/Material_EventCombat_Fienne.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Fienne/Material/Material_Fienne.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Fienne/Texture/2048x2048_test.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Fienne/Texture/4000x4000_Fia.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Fienne/Texture/4000x4000_Ophelia.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Fienne/Texture/4096x4096HealthboardFienne.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Fienne/Texture/4096x4096_Fia.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Fienne/Texture/4096x4096_Fienne.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Fienne/Texture/4096x4096_FienneBack.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Fienne/Texture/4096x4096_FienneDialoguePortrait.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Fienne/Texture/4096x4096_FienneFront.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Fienne/Texture/4096x4096_FienneSide.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Fienne/Texture/4096x4096_FullPortrait_Fienne.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Fienne/Texture/4096x4096_Ophelia.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Fienne/Texture/4096x4096_Test.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Fienne/Texture/HealthboardDesign_Fia.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Kriede/Material/Material_EvenTrigger_Kriede.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Kriede/Material/Material_EventCombat_Kriede.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Kriede/Material/Material_Kriede.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Kriede/Texture/4096x4096HealthboardKriede.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Kriede/Texture/4096x4096_FullBodyPortrait_Kriede.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Kriede/Texture/4096x4096_Kreide_HealthboardPortrait.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Kriede/Texture/4096x4096_MCTESTo.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Kriede/Texture/Kreide_BansheeGlare.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Kriede/Texture/mctesto2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Lorolei/Material/Material_Combat_Lorolei.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Lorolei/Texture/4096x4096_Lorolei.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Lorolei/Texture/4096x4096_Lorolei2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Lorolei/Texture/Enemy_Lorolei.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Rain/Material/HealthboardPortrait_Rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Rain/Material/Material_Combat_AngelRain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Rain/Material/Material_Combat_Rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Rain/Material/Material_EvenTrigger_Rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Rain/texture/2048x2048_Rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Rain/texture/4000x4000_Rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Rain/texture/4096x4096_Test3.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Rain/texture/4096x4096_Test4.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Rain/texture/4096x4096_rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Rain/texture/Commandboard_Portriat_Rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Rain/texture/Day520-2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Rain/texture/Day574.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Rain/texture/Enemy_Rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Rain/texture/HealtboardDesign_Rain.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Rain/texture/HealtboardDesign_Rain2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/DefaultAssets/UiMask.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/DefaultAssets/UiMask.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/2048x2048_test.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/4000x4000_Fia.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/4000x4000_Ophelia.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/4096x4096HealthboardFienne.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/4096x4096_Fia.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/4096x4096_Fienne.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/4096x4096_FienneBack.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/4096x4096_FienneDialoguePortrait.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/4096x4096_FienneFront.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/4096x4096_FienneSide.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/4096x4096_FullPortrait_Fienne.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/4096x4096_Ophelia.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/4096x4096_Test.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/BP_Floor_Enemy_Fienne.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Fienne/BP_Floor_Enemy_Fienne.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/BP_Floor_Enemy_Fienne1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Fienne/BP_Floor_Enemy_Fienne1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/EventMarker_Enemy2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Fienne/EventMarker_Enemy2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/EventMarker_Enemy3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Fienne/EventMarker_Enemy3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/HealthboardDesign_Fia.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/Material_EvenTrigger_Base_Inst.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/Material_EventCombat_Fienne.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Fienne/Material_Fienne.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Kriede/4096x4096HealthboardKriede.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Kriede/4096x4096_FullBodyPortrait_Kriede.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Kriede/4096x4096_Kreide_HealthboardPortrait.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Kriede/4096x4096_MCTESTo.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Kriede/BP_FloorEnemy_Kriede.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Kriede/BP_FloorEnemy_Kriede.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Kriede/BP_Floor_Enemy_Kriede2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Kriede/BP_Floor_Enemy_Kriede2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Kriede/Kreide_BansheeGlare.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Kriede/Material_EvenTrigger_Kriede.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Kriede/Material_EventCombat_Kriede.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Kriede/Material_Kriede.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Kriede/mctesto2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Lorolei/4096x4096_Lorolei.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Lorolei/4096x4096_Lorolei2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Lorolei/Enemy_Lorolei.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Lorolei/Material_Combat_Lorolei.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Rain/2048x2048_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Rain/4000x4000_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Rain/4096x4096_Test3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Rain/4096x4096_Test4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Rain/4096x4096_rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Rain/Commandboard_Portriat_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Rain/Day520-2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Rain/Day574.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Rain/Enemy_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Rain/EventMarker_Rain.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Rain/EventMarker_Rain.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Rain/HealtboardDesign_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Rain/HealtboardDesign_Rain2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Rain/HealthboardPortrait_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Rain/Material_Combat_AngelRain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Rain/Material_Combat_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Rain/Material_EvenTrigger_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/SharkFiend/EventMarker_SharkFiend.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/SharkFiend/EventMarker_SharkFiend.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/BP_EnemyPortraitElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/BP_EnemyPortraitElement.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/BP_EnemyPortraitElement.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/EventMarker_Enemy.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/EventMarker_Enemy1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/EventTrigger_Enemy1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/EventTrigger_Enemy1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_AllDialogueActors.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_AllDialogueActors.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Enemys.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Enemys.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Floor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Floor.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_FloorEvent.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_FloorEvent.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_PlayerCharacters.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_PlayerCharacters.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Tutorial.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Tutorial.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Asset_Default/HealthboardUI/Material_MainMenuPortrait.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Enemy/EnemyIcon/Texture/Turn_Face_Enemy1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Player/Fienne/Material/Material_MainMenuPortrait_Fienne.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Material/Material_MainMenuPortrait_Kriede.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/BP_FloorNode.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Sand/90fe4b6685a0b0816da4f96d7ae67739.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Sand/BP_FloorNode2.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Sand/BP_FloorNode3.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Sand/MaterialFloorColor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_CombatCameraPawn.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_Door.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_Door2.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_FloorEnemyPawn_Testo.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_FloorManager.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_FloorPawn.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/MyFloorPlayerController.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/360_F_403249195_s7XmAFBFFJTEqYAn.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/7d9541048e8023cac33375d4dab56d15.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Material_Rock.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Material_Wall.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Material_WallTest.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Material_WallTest1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Material__25.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Screenshot_744.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Screenshot_746.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/TempleWall.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Wall.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/emission_map.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/ju-howe-ghibliestone-wip2-flat.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/ju-howe-ghibliestone-wip2-flat_Mat.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/stone-wall-texture_1110-425.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/stone-wall-texture_1110-425_Mat.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_Classes.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_Dancer.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_DarkKnight.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_EnemyGroup.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_Enemys.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_Paladin.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_PlayerCharacters.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_Skills.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_Skills_Attack.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_Skills_Buff.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_Skills_Debuff.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_Skills_Heal.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_SoulEater.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_AllDialogueActors.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueComplete.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_Tutorial.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Dialogue/OLD_Atlantis_-_Dialogue.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/ElementalIcons/circle.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/ElementalIcons/earth_element.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/ElementalIcons/fire_element_1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/ElementalIcons/fire_element_2.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/ElementalIcons/ice_element.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/ElementalIcons/ice_element2.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/ElementalIcons/ice_element_1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/ElementalIcons/light_element_1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/ElementalIcons/lightning_element.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/ElementalIcons/null_element.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/ElementalIcons/shadow_element_1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/ElementalIcons/wind_element.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Floor/DT_Floor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Floor/DT_FloorEvent.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Map/Prison/NewMap_HLOD0_Instancing.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Map/Prison/PrisonCombat.umap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Map/Prison/PrisonCombat_BuiltData.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Map/Prison/Prison_Floor1.umap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Map/Prison/Prison_Floor2.umap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Map/Sand/WaterCombat.umap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Defaultcolor/Material_Black.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Defaultcolor/Material_Cyan.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Defaultcolor/Material_DarkPurple.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Defaultcolor/Test/DownLoadedIce.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Floor/9f9f9f_solid_color_background_ic.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Floor/Texture_Rock1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Floor/Texture_Rock1_NRM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Floor/stone_floor_texture_001_by_dimim.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Skybox/BP_SkyBox.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Skybox/Cube_render_Target.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Skybox/Cube_render_Target_Tex.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Skybox/MaterialBottom.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Skybox/Material_SeaCubeMap.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Skybox/Material_White.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Skybox/NewMaterial.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Skybox/NewTextureCubeArray.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Skybox/battlebackground.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Skybox/syferfontein_18d_clear_puresky_8k.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Water/Material_Water.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Water/Material_Water1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Water/waterScanLinesTest.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Objects/Particles/NewNiagaraEmitter.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Objects/Particles/NewNiagaraSystem.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/A_Editor/BP_LevelGeneratorUtilityWidget.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/A_Editor/BP_MapButtonElement.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/A_Editor/BP_MapEventEditor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/A_Editor/BP_MapEventEditorView.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/A_Editor/BP_MapNodeEditor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/A_Editor/EditorFrame.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/Assets/General/Map/AllSidesOpen-blue.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/Assets/General/Map/Tile.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/0/2M/XSWMRZQQNSKK1RC5OCBUCX.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/0/D2/3PBTFKS4BG3KC696WYJZJ5.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/0/JH/AAO45VVM8AF5LJVDFC18D7.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/0/LL/FEWQWFA41220KANY6HDQBJ.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/0/PP/87R48MV5OI3T7UV0N5V5FU.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/0/VK/S609X4UTP8G6W22PKD3JM0.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/29/G40CW0PZVRU31OGSSHQLE4.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/4S/33K90OG0A6ISKYZP1QDZMS.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/92/7MDDCJS5QHH9RBORSUB34F.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/B7/L4EQMVQLFJUOBUVXZHJUE0.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/CI/6LOFS6PZEEYSFJ4L9A3RIP.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/ER/B9FIQLC952BE612A0DS5NL.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/ID/TQ4AO0SM7ABCEJV74BJKQH.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/IZ/3Q9DTDQMXLCNN9JK17TESG.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/JW/0GCZ43X6OFLXR0IQO5GXQS.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/LH/A5UOC25TFPGLXJKVO4LHFT.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/UC/VA9877AVK1LTQYGHGMR7E6.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/UI/LZVLFA9ZLO4Z8VSPWMHT2F.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/VC/F15NIH9SS43SMBV7249J1Z.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/VJ/QIRVGIDCCJU1LAH7LC7TFA.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/XD/KVKGKD2B2CNFVJUXO4O5VP.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/2/CJ/BDE0OG1MWFSREKMW0B9SV7.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/2/D1/8O53HBMWFF7KX4WU8GGTH9.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/2/RD/16AC1RYEXT9HZ7ZP9NR3I7.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/2/RD/39HSF474STE1C442768GMX.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/1U/9P82DR6OT0UK10QDUZHAV0.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/3X/V1K8798QHWEHGMUBZ568XD.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/7W/6QR4CCPXTOCXDV5OJQ0A65.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/8W/J33CYXEO8CGW5AV97Q3QYI.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/F7/6O2WIBBKYVO1BS14IW8HM9.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/HX/MDDTEL81Q0X4I43KI6GYOS.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/J7/FPVKBHO8ZWO1IP3TSTWR6Y.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/LS/JV3PKQ4I5BJ01EV73DFT1Z.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/MW/FXZZVX0D70SREN3O3V3E0R.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/P3/CSFRTII2Z19DGJK452L9BF.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/T8/F8G7CG1PCIR3WNCGWJ0SQX.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/UR/1XW9F8XV939E19DDQH5NVD.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/2T/JRLVEDP90SER7PHWZS9FO8.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/5E/74142IY4KWRH1YI4Q1OTDL.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/6K/LMAERQJW0SCK07VTO194R9.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/7B/SV5U9TNKAU9LMYZV8A40VZ.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/C7/QMY5WUXEDOUFJPQQQWJSDN.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/CG/I4MVYVVH2A2IEED4K6PR2X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/K0/TONBB4SUB76EJZU09FPX38.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/KS/HM3NBAF23U1M35OQA6VYVH.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/MM/BTFHIVWRRU8S2X0WCRKC3F.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/O1/CE1Z5Y08NKFS4N02WLKHL9.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/VP/AAO7MQSN6Y0FGHMI0IONWY.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/5/1E/56K73D914ADPANT3974X5J.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/5/A2/XMQJZJFG13UG8XCZPKVHFO.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/5/C1/AD7DGKDHV4MAEWV1FF59MH.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/5/HA/XPG4VE7GKMPE0RYOCRLB1L.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/5/NN/GCG0K4UZ04WK22JUS6T1VX.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/5/TC/RC2DWV8KU88UJS2FVSUWLM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/5/YR/QFNPBV2TM8KHECY3N7S4AB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/5/YX/9AXXTPXFO4Y6RSOSAIBBTV.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/08/7T6NREKE7KNN7DF8ID42P2.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/45/0SK3C0BNDNBHHAMN39GW0X.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/AQ/5QXN13XRPDHZW98JLAKO8J.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/FO/7OKSOWLXUCUQJ14G8CMOQY.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/FW/I8PQ09PY5HR866321YAYFM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/IR/1F3NLZUQYVXYWB2QXA58EV.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/JT/LZM3PQ92OMP1SBTGP548UP.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/ML/VS4GSW9M7SY06ZYYXXWMU2.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/NX/EODRQMQWKG16YFVGN8BAQU.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/OA/3QU5KUQBWYD817ER3VA6KG.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/PJ/Q4UMDFTR7EOYRLONVN15PZ.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/SV/X0G4CH0I1QPGM8PQUNE39T.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/7/30/8FSELFK2ES9PF70AGVZ2YW.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/7/NC/XVDPM1T5EBZ5RECX3X1JNB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/7/NV/5O66NXNHB5QPHPVD2B3M1J.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/8/1K/AKBXPAJZ6IAQW9V599ZXQ5.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/8/HI/TX3KV10L8F5AE3S6TA5T1Y.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/8/N3/XPCECVUALZHVKQZ4K1F3HU.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/8/U0/7O8L6Y69SO8SJUT01WS96M.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/9/3F/DYRJTF8U7JBAOXI9UXP8XC.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/9/4M/34TY0E8PCTA5PK36C3BE46.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/9/DB/K36Y7XNAMZV7QFX3YZTBPI.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/9/L8/A3RB8OMF34GFOKUWA1PS3H.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/9/MJ/S9B0KO736DXI29TSDANIEI.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/9/SM/10634IDZFLKLFBH6WHA9U1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/9/TM/FF4HQDRIANTTGJF74OFT5T.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/A/6O/0BSNMGXLF6X5CFX3KJYLAB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/A/E8/KAM0NR8FA6EZVDYWQTMO9M.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/A/HI/NRFSE981RCOWJJ8VG7WW77.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/A/LZ/W6FW3RCLPCPDAXGYMB1X06.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/A/O6/Q4N0R3OYLODSVH3LPZ8S99.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/A/SG/X6QG3MFU0497SKYPFAYSDG.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/B/K5/Y79LZCSV2TPRW4WCBCX0KL.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/B/MT/IUK04QRE74TNK5PQIWTP1P.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/B/RD/SUNUZKLRA0X0HX2YB2K8UM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/B/SS/RXQYVWOXS63ST45H5NZ0ZW.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/B/TM/7RX5MNBW2YD5YMVY0B5XSQ.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/B/W6/7C4OULQ1KVBBKIXEC851M6.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/C/FR/IIZ5F9AGEYJI5VWAONUVED.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/C/KI/K2U5XAR6BQLM8JBO3I8WXX.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/C/L1/S197MQV920TFLOEDDO1YI8.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/C/P7/FQDV78GTPRT5C2IDVSJ5XE.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/D/1Q/E6GK4P19ZU94EURW0JKDLQ.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/D/5M/HR525U4DSKJGS1XX4BKKF4.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/D/UH/C33JMMXVFG2M6CIU2046IM.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/D/VF/Q3Y8NBQCC7FJHP7PK59SHB.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/E/0C/5JJ3RFDXNFS80GUS6IP3Q9.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/E/2Q/YJW9NWU3UMA9L2CMVT5L6H.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/E/69/SDY1M7I8AL434KMFPI30SD.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/E/8F/GGLDI6JJ9C9LSFKEHUMVP1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/E/K5/IOYLH69MYMW8C9UJMBOTRU.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/E/RZ/Q12TMG5XUOSS68Z6O51MP0.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/F/1G/HL0WXXHXVU6EOJXHKVZPSZ.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/F/26/IATE9Z0X7QYPQBSJ238UR3.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/F/3B/RZOJ4M8CDJ3NAR9SPEMKIW.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/Prison_Floor1/1/EZ/S8UMHXPQVZU8QLZQCG6ZL6.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/Prison_Floor1/2/2X/I50PNO1MLJ8ORZ51GRSPUA.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/Prison_Floor1/3/TZ/X4F90BGYSCO7Q5MZM14IXD.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/Prison_Floor1/4/O5/XVWPVCR4RZNT7XE72FFTA6.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/Prison_Floor1/7/7E/ZZTE0WTUSEG44MN7VADXEF.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/Prison_Floor1/7/V6/61CUAN78RKLR85GPUIGWT7.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/Prison_Floor1/9/WI/X9KADYAYLTKD13NAYAH79D.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/Asset_Default/Combat/Material_Combat_Base.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Asset_Default/Combat/Material_Combat_Base.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/Enemy/SharkFiend/Material/Material_EventCombat_SharkFiend.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Enemy/SharkFiend/Material/Material_EventCombat_SharkFiend.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/Player/Fienne/Texture/4096x4096_FullPortrait_Fienne.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Player/Fienne/Texture/4096x4096_FullPortrait_Fienne.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Material/Material_EventCombat_Kriede.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Material/Material_EventCombat_Kriede.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/Player/Rain/Material/Material_Combat_AngelRain.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Player/Rain/Material/Material_Combat_AngelRain.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/EventTriggers/EventTrigger_Enemy1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/MyFloorNode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/MyFloorNode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Nodes/BP_FloorNode.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Nodes/BP_FloorNode2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Nodes/BP_FloorNode3.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Prefabs/BP_CombatCameraPawn.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Prefabs/BP_Door.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Prefabs/BP_Door.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Prefabs/BP_Door2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Prefabs/BP_Door2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Prefabs/BP_FloorEnemyPawn_Testo.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Prefabs/BP_FloorManager.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Prefabs/BP_FloorPawn.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Prefabs/MyFloorPlayerController.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Walls/Wall3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/Wall3.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Walls/wall1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/wall1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Walls/wall2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/wall2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Walls/wallPlaneTest.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/wallPlaneTest.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_AllDialogueActors.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Classes.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Dancer.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_DarkKnight.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Dialogue.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_DialogueComplete.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_EnemyGroup.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Enemys.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Floor.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_FloorEvent.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Paladin.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_PlayerCharacters.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Skills.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Skills_Attack.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Skills_Buff.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Skills_Debuff.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Skills_Heal.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_SoulEater.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Atlantis_-_Tutorial.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Icons/circle.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Icons/earth_element.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Icons/fire_element_1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Icons/fire_element_2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Icons/ice_element.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Icons/ice_element2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Icons/ice_element_1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Icons/light_element_1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Icons/lightning_element.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Icons/null_element.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Icons/shadow_element_1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Icons/wind_element.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Editor/BP_LevelGeneratorUtilityWidget.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Editor/BP_MapButtonElement.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Editor/BP_MapEventEditor.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Editor/BP_MapEventEditorView.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Editor/BP_MapNodeEditor.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Editor/EditorFrame.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/GameMode/BP_CombatGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GameMode/BP_CombatGameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/GameMode/BP_FloorGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GameMode/BP_FloorGameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/GameMode/BP_MainMenuGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GameMode/BP_MainMenuGameMode.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Materials/SpriteTest/NewPaperSprite1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/SpriteTest/NewPaperSprite1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/Load_Save/BP_SavePortraitElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/Load_Save/BP_SavePortraitElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Map/NewMap_HLOD0_Instancing.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Map/PrisonCombat.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/PrisonCombat.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Map/PrisonCombat_BuiltData.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Map/Prison_Floor1.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/Prison_Floor1.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Map/Prison_Floor2.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/Prison_Floor2.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Map/WaterCombat.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/WaterCombat.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/90fe4b6685a0b0816da4f96d7ae67739.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/9f9f9f_solid_color_background_ic.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/AllSidesOpen-blue.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/Day219_Mat.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/Day219_Mat.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/DefaultColor/Test/DownLoadedIce.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/DefaultColor/dark-purple-color-solid-backgrou.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/Down.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/Illustration2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/MaterialFloorColor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/MaterialFloorColor.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/Material_Enemy.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/Material_Rock.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/Material_Wall.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/Material_WatershimmerBorder.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/SpriteTest/NewPaperFlipbook.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/SpriteTest/NewPaperSprite.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/SpriteTest/NewPaperSprite1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/Texture_Rock1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/Texture_Rock1_NRM.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/Tile.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/Turn_Face_Enemy.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/Wall.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/cubemap/BP_SkyBox.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/cubemap/Cube_render_Target.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/cubemap/Cube_render_Target_Tex.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/cubemap/MaterialBottom.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/cubemap/Material_SeaCubeMap.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/cubemap/Material_White.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/cubemap/NewMaterial.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/cubemap/NewTextureCubeArray.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/cubemap/battlebackground.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/cubemap/syferfontein_18d_clear_puresky_8k.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/stone_floor_texture_001_by_dimim.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/water/Material_Water.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/water/Material_Water.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/water/Material_Water1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/waterScanLinesTest.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Models/TwilightsCallModels/24_-_Default.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Models/TwilightsCallModels/24_-_Default.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/NewMap_HLOD0_Instancing.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/NewMap_HLOD0_Instancing.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Particles/NewNiagaraEmitter.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Particles/NewNiagaraSystem.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/PersistentObjects/BP_PersistentGameInstance.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PersistentObjects/BP_PersistentGameInstance.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Assets/TextMat_Walls/360_F_403249195_s7XmAFBFFJTEqYAn.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Assets/TextMat_Walls/7d9541048e8023cac33375d4dab56d15.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Assets/TextMat_Walls/Material_WallTest.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Assets/TextMat_Walls/Material_WallTest1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Assets/TextMat_Walls/Material__25.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Assets/TextMat_Walls/Screenshot_744.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Assets/TextMat_Walls/Screenshot_746.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Assets/TextMat_Walls/TempleWall.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Assets/TextMat_Walls/emission_map.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Assets/TextMat_Walls/ju-howe-ghibliestone-wip2-flat.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Assets/TextMat_Walls/ju-howe-ghibliestone-wip2-flat_Mat.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Assets/TextMat_Walls/stone-wall-texture_1110-425.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Assets/TextMat_Walls/stone-wall-texture_1110-425_Mat.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatSelection/BP_CombatSelectionView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatSelection/BP_CombatSelectionView.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatSelection/BP_EnemySelectionBar.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatSelection/BP_EnemySelectionBar.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatSelection/BP_EnemySelectionBar1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatSelection/BP_EnemySelectionBar1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Commandboard/BP_Skillbar.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/Commandboard/BP_Skillbar.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Dialogue/BP_DialogueView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/Dialogue/BP_DialogueView.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/EnemySkill/BP_EnemySkillView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/EnemySkill/BP_EnemySkillView.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Ui/MainMenu/BP_MainMenuStatusElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/MainMenu/BP_MainMenuStatusElement.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/MainMenu/MainMenuTexture/Characters/Material_MainMenuPortrait.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/MainMenu/MainMenuTexture/Characters/Material_MainMenuPortrait.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/MainMenu/MainMenuTexture/Characters/Material_MainMenuPortrait_Fienne.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/MainMenu/MainMenuTexture/Characters/Material_MainMenuPortrait_Fienne.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/Sync/BP_SyncView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/Sync/BP_SyncView.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/MainMenu/MainMenuTexture/Characters/Material_MainMenuPortrait.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/MainMenu/MainMenuTexture/Characters/Material_MainMenuPortrait_Fienne.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/MainMenu/MainMenuTexture/Characters/Material_MainMenuPortrait_Kriede.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/MapView/BP_MapButtonElement1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/MapView/BP_MapButtonElement1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Title/BP_TitleView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/Title/BP_TitleView.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/ZNOT_IN_USE_VIEW/BP_CombatBackground.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/ZNOT_IN_USE_VIEW/BP_CombatBackground.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis.log" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/SaveGames/AutoSave.sav" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/SaveGames/AutoSave.sav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/SourceControl/UncontrolledChangelists.json" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/SourceControl/UncontrolledChangelists.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EnemyPortraitElement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EnemyPortraitElement.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyHealthbarElement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyHealthbarElement.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatGameModeBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatGameModeBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EnemyPortraitElement.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EnemyPortraitElement.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyHealthbarElement.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyHealthbarElement.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +381,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -646,7 +892,7 @@
       <workItem from="1717340519487" duration="1738000" />
       <workItem from="1717342791513" duration="22966000" />
       <workItem from="1717446571959" duration="7183000" />
-      <workItem from="1717601685696" duration="30346000" />
+      <workItem from="1717601685696" duration="34584000" />
     </task>
     <servers />
   </component>

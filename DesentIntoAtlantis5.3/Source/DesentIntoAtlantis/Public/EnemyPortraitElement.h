@@ -27,7 +27,7 @@ private:
 	void Disappear(float DeltaTime);
 	UPROPERTY()
 	UMaterialInstanceDynamic* materialInstanceDynamic;
-	const FRotator DEFAULT_ROTATION  = FRotator(0,180,0);
+	const FRotator DEFAULT_ROTATION         = UCombatSettings::ENEMY_ROTATION;
 	const FVector3d INITIAL_CAMERA_POSITION = UCombatSettings::INITIAL_CAMERA_POSITION;
 public:
 
