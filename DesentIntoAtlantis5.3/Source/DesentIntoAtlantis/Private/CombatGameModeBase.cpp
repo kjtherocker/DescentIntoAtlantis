@@ -171,9 +171,7 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 		partyHealthbars = (UPartyHealthbarsView*)InGameHUD->PushAndGetView(EViews::Healthbars,  EUiType::PersistentUi);
 	}
 	
-	
 	pressTurnManager->SetAmountOfTurns(partyMembersInCombat.Num(),currentTurnType);
-	
 	AllyStartTurn();
 
 	
@@ -200,10 +198,12 @@ void ACombatGameModeBase::AddEnemyToCombat(FEnemyEntityData AEnemyEntityData,int
 	}
 	
 	UEnemyCombatEntity* EnemyCombatEntity = NewObject<UEnemyCombatEntity>();
+	
 	EnemyCombatEntity->SetTacticsEntity(skillFactory);
 	EnemyCombatEntity->SetTacticsEvents(this);
 	EnemyCombatEntity->SetEnemyEntityData(AEnemyEntityData,skillFactory,static_cast<EEnemyCombatPositions>(aPosition));
 	EnemyCombatEntity->beastiaryData = enemyFactory->GetBestiaryEntry(EnemyCombatEntity->enemyEntityData.characterName);
+	
 	enemysInCombat.Add(EnemyCombatEntity);
 }
 
@@ -240,8 +240,7 @@ void ACombatGameModeBase::EndCombat(bool aHasWon)
 	{
 		enemysInCombat.RemoveAt(i);
 	}
-
-	//gameModeBase->partyManager->ResetActivePartyToDefaultState();
+	
 	enemyFactory->BestiaryDataHasChangedBroadcast();	
 	if(aHasWon)
 	{
@@ -299,7 +298,6 @@ void ACombatGameModeBase::TurnFinished()
 	
 		InGameHUD->PopAllActiveViews();
 		UCommandBoardView* commandBoard = (UCommandBoardView*)InGameHUD->PushAndGetView(EViews::CommandBoard,  EUiType::ActiveUi);
-	
 	}
 
 	if(currentTurnType == ECharactertype::Enemy)
@@ -314,11 +312,13 @@ void ACombatGameModeBase::AllyStartTurn()
 {
 	OnRoundEndDelegate.Broadcast();
 	RemoveDeadPartyMembersFromCombat();
+	
 	if(partyMembersInCombat.Num() == 0)
 	{
 		InGameHUD->PushView(EViews::Death,    EUiType::PersistentUi);
 		return;
 	}
+	
 	currentActivePosition = 0;
 	currentActivePartyMember = partyMembersInCombat[currentActivePosition];
 	partyHealthbars->SetHighlightHealthbar(currentActivePartyMember,FULL_OPACITY);
@@ -327,8 +327,6 @@ void ACombatGameModeBase::AllyStartTurn()
 	UCommandBoardView* commandBoard = (UCommandBoardView*)InGameHUD->PushAndGetView(EViews::CommandBoard,  EUiType::ActiveUi);
 
 }
-
-
 
 void ACombatGameModeBase::EnemyStartTurn()
 {
@@ -353,7 +351,6 @@ void ACombatGameModeBase::EnemyStartTurn()
 		return;
 	}
 	
-
 	if(currentActivePosition <= enemysInCombat.Num() -1)
 	{
 		EnemyActivateSkill(enemysInCombat[currentActivePosition]);
@@ -373,10 +370,7 @@ void ACombatGameModeBase::EnemyStartTurn()
 		combatCamera->ZoomCameraInTowardsActor(Portraits[portraitPosition]);
 		currentActivePosition++;
 	}
-
-	
 }
-
 
 void ACombatGameModeBase::TriggerLevelupMenu(TArray<UPlayerCombatEntity*> aPlayerCombatEntity, int aExperience)
 {

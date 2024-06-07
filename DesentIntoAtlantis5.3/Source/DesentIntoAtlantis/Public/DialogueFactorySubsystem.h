@@ -11,6 +11,27 @@
 
 
 enum class EAudio;
+
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FDialogueActor : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+
+	UPROPERTY(EditAnywhere)
+	EDialogueActors dialogueActor;
+	
+	UPROPERTY(EditAnywhere)
+	bool hasMovement = false;
+	
+	UPROPERTY(EditAnywhere)
+	bool actorToBePossessed = false;
+	
+	UPROPERTY(EditAnywhere)
+	FCompleteFloorPawnData pawnData;
+
+};
+
 USTRUCT()
 struct DESENTINTOATLANTIS_API FDialogueData : public FTableRowBase
 {
@@ -19,10 +40,10 @@ struct DESENTINTOATLANTIS_API FDialogueData : public FTableRowBase
 	EDialogueTriggers DialogueTriggers;
 	
 	UPROPERTY( EditAnywhere )
-	FString Dialogue;
+	FString     Dialogue;
 
 	UPROPERTY( EditAnywhere )
-	FString SpeakerName;
+	FString     SpeakerName;
 
 	UPROPERTY( EditAnywhere )
 	UTexture2D* CenterPortrait;
@@ -37,10 +58,55 @@ struct DESENTINTOATLANTIS_API FDialogueData : public FTableRowBase
 	UTexture2D* BackgroundCG;
 
 	UPROPERTY( EditAnywhere )
-	EAudio musicToPlay;
+	EAudio      musicToPlay;
 
+	UPROPERTY( EditAnywhere )
+	TArray<FDialogueActor> dialogueActor;
 };
 
+USTRUCT()
+struct DESENTINTOATLANTIS_API FInitializedDialogueActorData : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	
+	UPROPERTY(EditAnywhere)
+	EDialogueActors dialogueActor;
+	
+	UPROPERTY(EditAnywhere)
+	bool actorToBePossessed;
+	
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> actorToMove;
+	
+	UPROPERTY(EditAnywhere)
+	FCompleteFloorPawnData pawnData;
+};
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FDialogueCompleteData : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	UPROPERTY(EditAnywhere)
+	EDialogueTriggers DialogueTriggers;
+
+	UPROPERTY(EditAnywhere)
+	TArray<FDialogueData> DialogueData;
+
+	UPROPERTY(EditAnywhere)
+	TArray<FInitializedDialogueActorData> AllActorsInDialogue;
+};
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FAllDialogueActors : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+
+	UPROPERTY(EditAnywhere)
+	EDialogueActors dialogueActor;
+	
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> actorReference;
+};
 
 UCLASS()
 class DESENTINTOATLANTIS_API UDialogueFactorySubsystem : public UGameInstanceSubsystem

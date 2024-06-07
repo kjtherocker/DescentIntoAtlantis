@@ -203,6 +203,17 @@ enum class EDialogueTriggers
 	FinalBossStart  = 7,
 	FinalBossEnd    = 8
 };
+
+UENUM()
+enum class EDialogueActors
+{
+	None                = 0,
+	Rain                = 1,
+	Kriede              = 2,
+	Fienne              = 3,
+	GuardShark          = 4
+};
+
 UENUM()
 enum class ETutorialTriggers
 {
