@@ -169,7 +169,8 @@ void UEventManagerSubSystem::TriggerDialogue(EDialogueTriggers aDialogueTrigger,
 	if(aDialogueTrigger != EDialogueTriggers::None)
 	{
 		UDialogueView * dialogueView = (UDialogueView*)gameMode->InGameHUD->PushAndGetView(EViews::Dialogue,EUiType::ActiveUi);
-		dialogueView->SetFloorEventDialogueData(aDialogueTrigger, aTriggerOnEnd ,triggerNextEventStage );
+
+		dialogueView->SetFloorEventDialogueData(aDialogueTrigger, aTriggerOnEnd ,triggerNextEventStage,gameMode->floorManager );
 	}
 	else
 	{

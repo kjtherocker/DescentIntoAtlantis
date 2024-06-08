@@ -56,6 +56,9 @@ class DESENTINTOATLANTIS_API UEventManagerSubSystem : public UGameInstanceSubsys
 
 	UPROPERTY()
 	AAtlantisGameModeBase* gameMode;
+
+	UPROPERTY()
+	AFloorGameMode* floorGameMode;
 	UPROPERTY()
 	UPersistentGameinstance* persistentGameInstance;
 	

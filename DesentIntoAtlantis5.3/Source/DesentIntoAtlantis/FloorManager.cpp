@@ -332,6 +332,43 @@ void AFloorManager::SpawnEnemyPawn(FFloorEnemyPawnCompleteData aCompleteFloorPaw
 	enemyFloorPawns.Add(floorPawn); 
 }
 
+void AFloorManager::SpawnCutsceneFloorPawn(FDialogueActorData aDialogueActor,TSubclassOf<AActor> aCutsceneFloorPawn)
+{
+	FVector PositionOffset = FVector(0,0,SPAWNED_OBJECT_OFFSET);
+
+	FCompleteFloorPawnData completeFloorPawnData = aDialogueActor.pawnData;
+	EDialogueActorsLabel dialogueActor = aDialogueActor.dialogueActor;
+	FVector ActorFinalSpawnPoint = GetNode(completeFloorPawnData.currentNodePositionInGrid)->GetActorLocation() + PositionOffset;
+
+	//Rotation
+	FRotator rotator = GetActorRotation();
+	
+	FActorSpawnParameters ActorSpawnParameters;
+	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	ActorSpawnParameters.Owner = this;
+
+	int startPositionIndex = currentFloor->GetIndex( completeFloorPawnData.currentNodePositionInGrid.X,
+		completeFloorPawnData.currentNodePositionInGrid.Y) ;
+	
+	AFloorPawn* floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(aCutsceneFloorPawn, ActorFinalSpawnPoint, rotator,ActorSpawnParameters));
+	floorPawn->Initialize();
+	floorPawn->PlaceAndInitializieFloorPawn(floorNodes[startPositionIndex],completeFloorPawnData.currentFacingDirection);
+	spawnedDialogueActors.Add(dialogueActor,floorPawn); 
+}
+
+void AFloorManager::MoveCutscenePawnToLocation(FDialogueActorData actorData)
+{
+	EDialogueActorsLabel dialogueActorsLabel       = actorData.dialogueActor;
+	FCompleteFloorPawnData CompleteFloorPawnData   = actorData.pawnData;
+	FVector2D positionInGrid                       = CompleteFloorPawnData.currentNodePositionInGrid;
+	
+	AFloorPawn* cutScenePawn = spawnedDialogueActors[dialogueActorsLabel];
+	AFloorNode* floorNodeToMoveTowards = GetNode(positionInGrid);
+
+	cutScenePawn->SetNodeToMoveTowards(floorNodeToMoveTowards);
+	
+}
+
 void AFloorManager::LoadNextLevel(FVector2D aPositionInGrid)
 {
 
@@ -378,24 +415,24 @@ void AFloorManager::SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes,UFloo
 	}
 }
 
-void AFloorManager::PlacePlayerFloorPawn(FVector2D aStartPositionInGrid,ECardinalNodeDirections aPlayerFacingDirection)
+void AFloorManager::PlacePlayerFloorPawn(FVector2D aPositionInGrid,ECardinalNodeDirections aPlayerFacingDirection)
 {
 	AFloorPlayerController * playerController;
 	playerController = Cast<AFloorPlayerController>(GetWorld()->GetFirstPlayerController());
+	
 
 	if(playerController != nullptr)
 	{
-		int startPositionIndex = currentFloor->GetIndex( aStartPositionInGrid.X,aStartPositionInGrid.Y) ;
+		int startPositionIndex = currentFloor->GetIndex( aPositionInGrid.X,aPositionInGrid.Y) ;
 		//Setting new Positon
 
 		if(floorNodes[startPositionIndex] == nullptr)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("PLAYER SPAWN POSITION IS NULL AT INDEX"), *aStartPositionInGrid.ToString());
+			UE_LOG(LogTemp, Warning, TEXT("PLAYER SPAWN POSITION IS NULL AT INDEX"), *aPositionInGrid.ToString());
 			return;
 		}
-
 		
-		FVector PositionOffset = FVector(0,0,300);
+		FVector PositionOffset       = FVector(0,0,300);
 		FVector ActorFinalSpawnPoint = floorNodes[startPositionIndex]->GetActorLocation() + PositionOffset;
 
 		//Rotation

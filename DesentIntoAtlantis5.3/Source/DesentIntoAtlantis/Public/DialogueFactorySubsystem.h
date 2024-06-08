@@ -15,11 +15,11 @@ enum class EAudio;
 
 
 USTRUCT()
-struct DESENTINTOATLANTIS_API FDialogueActor : public FTableRowBase
+struct DESENTINTOATLANTIS_API FDialogueActorData : public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 	UPROPERTY(EditAnywhere)
-	EDialogueActors dialogueActor;
+	EDialogueActorsLabel dialogueActor;
 	
 	UPROPERTY(EditAnywhere)
 	bool hasMovement = false;
@@ -57,7 +57,7 @@ struct DESENTINTOATLANTIS_API FDialogueData : public FTableRowBase
 	EAudio      musicToPlay;
 
 	UPROPERTY( EditAnywhere )
-	TArray<FDialogueActor> dialogueActor;
+	TArray<FDialogueActorData> dialogueActor;
 };
 
 
@@ -72,7 +72,7 @@ struct DESENTINTOATLANTIS_API FDialogueCompleteData : public FTableRowBase
 	TArray<FDialogueData> DialogueData;
 
 	UPROPERTY(EditAnywhere)
-	TArray<FDialogueActor> AllActorsInDialogue;
+	TArray<FDialogueActorData> AllActorsInDialogue;
 };
 
 USTRUCT()
@@ -81,7 +81,7 @@ struct DESENTINTOATLANTIS_API FAllDialogueActors : public FTableRowBase
 	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY(EditAnywhere)
-	EDialogueActors dialogueActor;
+	EDialogueActorsLabel dialogueActor;
 	
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> actorReference;
@@ -94,10 +94,10 @@ class DESENTINTOATLANTIS_API UDialogueFactorySubsystem : public UGameInstanceSub
 public:
 	void InitializeDatabase(UDataTable* aDialogueDatabase, UDataTable* aDialogueActorDatabase);
 	FDialogueCompleteData GetDialogueDataByTrigger(EDialogueTriggers aDialogueData);
-	FAllDialogueActors GetDialogueActorDataByLabel(EDialogueActors aActorData);
+	FAllDialogueActors GetDialogueActorDataByLabel(EDialogueActorsLabel aActorData);
 
 	UPROPERTY(EditAnywhere)
-	TMap<EDialogueActors, FAllDialogueActors> dialogueActors;
+	TMap<EDialogueActorsLabel, FAllDialogueActors> dialogueActors;
 	
 	UPROPERTY(EditAnywhere)
 	TMap<EDialogueTriggers, FDialogueCompleteData> dialogueData;

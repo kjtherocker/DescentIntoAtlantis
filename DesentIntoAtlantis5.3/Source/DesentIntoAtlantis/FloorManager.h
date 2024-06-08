@@ -35,12 +35,16 @@ public:
 	void SpawnFloorEventTriggers(FFloorEventData AFloorEventData);
 	void SpawnFloor(UFloorBase* aFloorBase);
 	void SpawnEnemysInFloor(UFloorBase* aFloorBase);
-	void PlacePlayerFloorPawn(FVector2D aStartPositionInGrid,ECardinalNodeDirections aPlayerFacingDirection);
+	void PlacePlayerFloorPawn(FVector2D aPositionInGrid,ECardinalNodeDirections aPlayerFacingDirection);
 	void MovePlayerToPreviousNode();
 
 	UFUNCTION()
 	void SpawnEnemyPawn(FFloorEnemyPawnCompleteData aCompleteFloorPawnData);
-	
+
+	UFUNCTION()
+	void SpawnCutsceneFloorPawn(FDialogueActorData aDialogueActor,TSubclassOf<AActor> aCutsceneFloorPawn);
+	UFUNCTION()
+	void MoveCutscenePawnToLocation(FDialogueActorData actorData);
 	UFUNCTION()
 	void LoadNextLevel(FVector2D aPositionInGrid);
 	
@@ -59,7 +63,8 @@ public:
 
 	UPROPERTY()
 	TArray<AFloor_EnemyPawn*> enemyFloorPawns;
-	
+	UPROPERTY()
+	TMap<EDialogueActorsLabel, AFloorPawn*> spawnedDialogueActors;
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> floorNodeReference;
 	UPROPERTY(EditAnywhere)

@@ -14,7 +14,7 @@ void UDialogueFactorySubsystem::InitializeDatabase(UDataTable* aDialogueDatabase
 	}
 
 	UDataTable* datatable2 = aDialogueActorDatabase;
-	TMap<EDialogueActors, FAllDialogueActors> tempdialogueActors;
+	TMap<EDialogueActorsLabel, FAllDialogueActors> tempdialogueActors;
 	for(int i = 0 ; i < datatable2->GetRowMap().Num(); i ++)
 	{
 		FAllDialogueActors actorData = *datatable2->FindRow<FAllDialogueActors>(FName(FString::FromInt(i)),FString("Searching for Actor"),true);
@@ -29,7 +29,7 @@ FDialogueCompleteData UDialogueFactorySubsystem::GetDialogueDataByTrigger(EDialo
 	return dialogueData[aDialogueData];
 }
 
-FAllDialogueActors UDialogueFactorySubsystem::GetDialogueActorDataByLabel(EDialogueActors aActorData)
+FAllDialogueActors UDialogueFactorySubsystem::GetDialogueActorDataByLabel(EDialogueActorsLabel aActorData)
 {
 	return dialogueActors[aActorData];
 }

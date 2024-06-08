@@ -12,6 +12,7 @@
  * 
  */
 
+class AFloorManager;
 class UPersistentGameinstance;
 enum class EFloorEventStates;
 struct FDialogueData;
@@ -25,9 +26,9 @@ class DESENTINTOATLANTIS_API UDialogueView : public UBaseUserWidget
 	bool reactivatePawnInputOnEnd;
 	FTriggerNextEventStage triggerNextEventStage;
 	FDialogueCompleteData currentDialogueCompleteData;
-	TMap<EDialogueActors, FDialogueActor> cutsceneActors;
+	TMap<EDialogueActorsLabel, FDialogueActorData> cutsceneActors;
 	UPROPERTY()
-	TMap<EDialogueActors, AFloorPawn*> spawnedActors;
+	TMap<EDialogueActorsLabel, AFloorPawn*> spawnedActors;
 public:
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 
@@ -48,11 +49,12 @@ public:
 	
 	UPROPERTY()
 	TArray<FDialogueData> dialogueData;
-	
-	void SetFloorEventDialogueData(EDialogueTriggers aDialogueData, EFloorEventStates aTriggerOnEnd, FTriggerNextEventStage  aTriggerNextEventStage);
+	UPROPERTY()
+	AFloorManager* floorManager;
+	void SetFloorEventDialogueData(EDialogueTriggers aDialogueData, EFloorEventStates aTriggerOnEnd, FTriggerNextEventStage  aTriggerNextEventStage, AFloorManager* aFloorManager);
 	void SetDialogueData(EDialogueTriggers aDialogueData);
 	void SetDialogueImages(UTexture2D* aPortraitTexture,UImage* aPortraitImage);
-	void SpawnActor(EDialogueActors aActorLabel, TSubclassOf<AActor> aActorToSpawn);
+	void SpawnActor(EDialogueActorsLabel aActorLabel, TSubclassOf<AActor> aActorToSpawn);
 	void DialogueFinished();
 	void ActivateNextDialogue();
 	void SetNextDialogue(bool audio = false);

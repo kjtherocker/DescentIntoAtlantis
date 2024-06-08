@@ -205,7 +205,7 @@ enum class EDialogueTriggers
 };
 
 UENUM()
-enum class EDialogueActors
+enum class EDialogueActorsLabel
 {
 	None                = 0,
 	Rain                = 1,

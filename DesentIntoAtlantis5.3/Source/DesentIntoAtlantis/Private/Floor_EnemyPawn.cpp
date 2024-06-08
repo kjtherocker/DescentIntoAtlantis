@@ -117,14 +117,18 @@ void AFloor_EnemyPawn::OnNewNodeReached()
 {
 	Super::OnNewNodeReached();
 	enemyPawnCompleteData.completeFloorPawnData = completeFloorPawnData;
-	if(completeFloorPawnData.currentNodePositionInGrid == floorPlayerPawn->GetPosition())
+	
+	if(floorPlayerPawn != nullptr)
 	{
-		for(UStaticMeshComponent* MeshComponent : staticMeshComponents)
+		if(completeFloorPawnData.currentNodePositionInGrid == floorPlayerPawn->GetPosition())
 		{
-			if (MeshComponent)
+			for(UStaticMeshComponent* MeshComponent : staticMeshComponents)
 			{
-				MeshComponent->SetVisibility(false);
-				MeshComponent->SetHiddenInGame(true);
+				if (MeshComponent)
+				{
+					MeshComponent->SetVisibility(false);
+					MeshComponent->SetHiddenInGame(true);
+				}
 			}
 		}
 	}

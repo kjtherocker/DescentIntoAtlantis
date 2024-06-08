@@ -35,6 +35,7 @@ void AFloorGameMode::InitializeLevel()
     floorPawn = Cast<AFloorPlayerPawn>(GetWorld()->SpawnActor<AActor>(floorPawnReference, FVector(0,0,0), rotator));
     floorPawn->AutoPossessPlayer = EAutoReceiveInput::Player0;
     floorPawn->Initialize();
+   
     levelProgressionSubsystem->SetSubscribeFloorPawnDelegates(floorPawn);
     UInteractableView* interactableView = (UInteractableView*)InGameHUD->PushAndGetView(EViews::InteractableView,    EUiType::PersistentUi);
     levelProgressionSubsystem->SetGameMode(this,interactableView);

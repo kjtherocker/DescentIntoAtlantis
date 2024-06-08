@@ -21,20 +21,23 @@ void UDialogueView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	persistentGameinstance = Cast<UPersistentGameinstance>( GetGameInstance());
 }
 
-void UDialogueView::SetFloorEventDialogueData(EDialogueTriggers aDialogueData, EFloorEventStates aTriggerOnEnd, FTriggerNextEventStage aTriggerNextEventStage)
+void UDialogueView::SetFloorEventDialogueData(EDialogueTriggers aDialogueData, EFloorEventStates aTriggerOnEnd,
+	FTriggerNextEventStage aTriggerNextEventStage, AFloorManager* aFloorManager)
 {
 	currentDialogueCompleteData           = persistentGameinstance->dialogueManagerSubsystem->GetDialogueDataByTrigger(aDialogueData);
 	dialogueData                          = currentDialogueCompleteData.DialogueData;
 	
-	TArray<FDialogueActor>
+	TArray<FDialogueActorData>
 	dialogueActorData                     = currentDialogueCompleteData.AllActorsInDialogue;
 	
 	for(int i = 0 ; i < dialogueActorData.Num();i++)
 	{
-		EDialogueActors dialogueActor = dialogueActorData[i].dialogueActor;
+		EDialogueActorsLabel dialogueActor = dialogueActorData[i].dialogueActor;
 		TSubclassOf<AActor> newActor = persistentGameinstance->dialogueManagerSubsystem->GetDialogueActorDataByLabel(dialogueActor).actorReference;
-		SpawnActor(dialogueActorData[i].dialogueActor, newActor);
+		aFloorManager->SpawnCutsceneFloorPawn(dialogueActorData[i],newActor);
+	
 	}
+	floorManager = aFloorManager;
 	
 	triggerOnEnd          = aTriggerOnEnd;
 	triggerNextEventStage = aTriggerNextEventStage;
@@ -73,6 +76,15 @@ void UDialogueView::SetNextDialogue(bool audio)
 	SetDialogueImages(nextDialogueData.CenterPortrait,BW_CenterCharacterPortrait);
 	SetDialogueImages(nextDialogueData.RightPortrait,BW_RightCharacterPortrait);
 	SetDialogueImages(nextDialogueData.BackgroundCG, BW_BackgroundCG);
+
+	if(floorManager != nullptr)
+	{
+		TArray<FDialogueActorData> dialogueActors = nextDialogueData.dialogueActor;
+		for(int i = 0 ; i < dialogueActors.Num();i++)
+		{
+			floorManager->MoveCutscenePawnToLocation(dialogueActors[i]);	
+		}
+	}
 	
 	if(audio)
 	{
@@ -95,7 +107,7 @@ void UDialogueView::SetDialogueImages(UTexture2D* aPortraitTexture, UImage* aPor
 	}
 }
 
-void UDialogueView::SpawnActor(EDialogueActors aActorLabel, TSubclassOf<AActor> aActorToSpawn)
+void UDialogueView::SpawnActor(EDialogueActorsLabel aActorLabel, TSubclassOf<AActor> aActorToSpawn)
 {
 	
 		//FVector PositionOffset = FVector(0,0,SPAWNED_OBJECT_OFFSET);
