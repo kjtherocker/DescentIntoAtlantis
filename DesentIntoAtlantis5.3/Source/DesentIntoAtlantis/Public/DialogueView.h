@@ -24,7 +24,10 @@ class DESENTINTOATLANTIS_API UDialogueView : public UBaseUserWidget
 
 	bool reactivatePawnInputOnEnd;
 	FTriggerNextEventStage triggerNextEventStage;
-	UPersistentGameinstance* persistentGameInstance;
+	FDialogueCompleteData currentDialogueCompleteData;
+	TMap<EDialogueActors, FDialogueActor> cutsceneActors;
+	UPROPERTY()
+	TMap<EDialogueActors, AFloorPawn*> spawnedActors;
 public:
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 
@@ -49,6 +52,7 @@ public:
 	void SetFloorEventDialogueData(EDialogueTriggers aDialogueData, EFloorEventStates aTriggerOnEnd, FTriggerNextEventStage  aTriggerNextEventStage);
 	void SetDialogueData(EDialogueTriggers aDialogueData);
 	void SetDialogueImages(UTexture2D* aPortraitTexture,UImage* aPortraitImage);
+	void SpawnActor(EDialogueActors aActorLabel, TSubclassOf<AActor> aActorToSpawn);
 	void DialogueFinished();
 	void ActivateNextDialogue();
 	void SetNextDialogue(bool audio = false);

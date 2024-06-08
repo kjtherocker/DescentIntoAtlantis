@@ -65,8 +65,10 @@ void AFloor_EnemyPawn::Tick(float DeltaTime)
 		CameraForward = CameraRotation.Vector();
 
 		// Calculate the forward vector of the pawn
-		PawnForward = cardinalDirections[completeFloorPawnData.currentFacingDirection];
-
+		if(completeFloorPawnData.currentFacingDirection != ECardinalNodeDirections::Empty)
+		{
+			PawnForward = cardinalDirections[completeFloorPawnData.currentFacingDirection];
+		}
 		// Calculate the vector from the camera to the pawn
 		FVector CameraToPawn = GetActorLocation() - CameraLocation;
 		CameraToPawn.Normalize();

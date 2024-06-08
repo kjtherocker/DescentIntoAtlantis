@@ -18,21 +18,34 @@ void UDialogueView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UDialogueView::ActivateNextDialogue);
 	InputComponent->BindAction("Tab"  ,IE_Pressed ,this, &UDialogueView::DialogueFinished);
 
-	persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+	persistentGameinstance = Cast<UPersistentGameinstance>( GetGameInstance());
 }
 
 void UDialogueView::SetFloorEventDialogueData(EDialogueTriggers aDialogueData, EFloorEventStates aTriggerOnEnd, FTriggerNextEventStage aTriggerNextEventStage)
 {
-	dialogueData = persistentGameInstance->dialogueManagerSubsystem->GetDialogueDataByTrigger(aDialogueData);
-	triggerOnEnd = aTriggerOnEnd;
+	currentDialogueCompleteData           = persistentGameinstance->dialogueManagerSubsystem->GetDialogueDataByTrigger(aDialogueData);
+	dialogueData                          = currentDialogueCompleteData.DialogueData;
+	
+	TArray<FDialogueActor>
+	dialogueActorData                     = currentDialogueCompleteData.AllActorsInDialogue;
+	
+	for(int i = 0 ; i < dialogueActorData.Num();i++)
+	{
+		EDialogueActors dialogueActor = dialogueActorData[i].dialogueActor;
+		TSubclassOf<AActor> newActor = persistentGameinstance->dialogueManagerSubsystem->GetDialogueActorDataByLabel(dialogueActor).actorReference;
+		SpawnActor(dialogueActorData[i].dialogueActor, newActor);
+	}
+	
+	triggerOnEnd          = aTriggerOnEnd;
 	triggerNextEventStage = aTriggerNextEventStage;
+	
 	SetNextDialogue(false);
 }
 
 void UDialogueView::SetDialogueData(EDialogueTriggers aDialogueData)
 {
 	reactivatePawnInputOnEnd = true;
-	dialogueData =  persistentGameInstance->dialogueManagerSubsystem->GetDialogueDataByTrigger(aDialogueData);
+	dialogueData             =  persistentGameinstance->dialogueManagerSubsystem->GetDialogueDataByTrigger(aDialogueData).DialogueData;
 	SetNextDialogue(false);
 }
 
@@ -80,6 +93,29 @@ void UDialogueView::SetDialogueImages(UTexture2D* aPortraitTexture, UImage* aPor
 	{
 		aPortraitImage->SetBrushFromTexture(aPortraitTexture);
 	}
+}
+
+void UDialogueView::SpawnActor(EDialogueActors aActorLabel, TSubclassOf<AActor> aActorToSpawn)
+{
+	
+		//FVector PositionOffset = FVector(0,0,SPAWNED_OBJECT_OFFSET);
+//
+		//FVector ActorFinalSpawnPoint = GetNode(aCompleteFloorPawnData.completeFloorPawnData.currentNodePositionInGrid)->GetActorLocation() + PositionOffset;
+	FVector ActorFinalSpawnPoint = FVector(-1,-1,-1);
+		//Rotation
+	FRotator rotator = FRotator::ZeroRotator;
+	
+	FActorSpawnParameters ActorSpawnParameters;
+	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+		//ActorSpawnParameters.Owner = this;
+
+		//int startPositionIndex = currentFloor->GetIndex( aCompleteFloorPawnData.completeFloorPawnData.currentNodePositionInGrid.X,
+		//	aCompleteFloorPawnData.completeFloorPawnData.currentNodePositionInGrid.Y) ;
+	
+	AFloorPawn* floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(aActorToSpawn, ActorFinalSpawnPoint, rotator,ActorSpawnParameters));
+	floorPawn->Initialize();
+	spawnedActors.Add(aActorLabel,floorPawn);
+
 }
 
 void UDialogueView::DialogueFinished()

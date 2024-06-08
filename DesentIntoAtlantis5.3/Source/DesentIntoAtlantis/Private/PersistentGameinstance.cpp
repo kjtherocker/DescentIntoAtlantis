@@ -69,7 +69,7 @@ void UPersistentGameinstance::Init()
 	{
 		if(dataTables[EDataTableTypes::Dialogue] != nullptr)
 		{
-			dialogueManagerSubsystem->InitializeDatabase(dataTables[EDataTableTypes::Dialogue]);
+			dialogueManagerSubsystem->InitializeDatabase(dataTables[EDataTableTypes::Dialogue],dataTables[EDataTableTypes::DialogueActor]);
 		}
 	}
 

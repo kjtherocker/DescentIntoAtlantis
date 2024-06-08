@@ -13,11 +13,11 @@
 enum class EAudio;
 
 
+
 USTRUCT()
 struct DESENTINTOATLANTIS_API FDialogueActor : public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
-
 	UPROPERTY(EditAnywhere)
 	EDialogueActors dialogueActor;
 	
@@ -29,16 +29,12 @@ struct DESENTINTOATLANTIS_API FDialogueActor : public FTableRowBase
 	
 	UPROPERTY(EditAnywhere)
 	FCompleteFloorPawnData pawnData;
-
 };
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FDialogueData : public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
-	UPROPERTY( EditAnywhere )
-	EDialogueTriggers DialogueTriggers;
-	
 	UPROPERTY( EditAnywhere )
 	FString     Dialogue;
 
@@ -64,23 +60,6 @@ struct DESENTINTOATLANTIS_API FDialogueData : public FTableRowBase
 	TArray<FDialogueActor> dialogueActor;
 };
 
-USTRUCT()
-struct DESENTINTOATLANTIS_API FInitializedDialogueActorData : public FTableRowBase
-{
-	GENERATED_USTRUCT_BODY()
-	
-	UPROPERTY(EditAnywhere)
-	EDialogueActors dialogueActor;
-	
-	UPROPERTY(EditAnywhere)
-	bool actorToBePossessed;
-	
-	UPROPERTY(EditAnywhere)
-	TSubclassOf<AActor> actorToMove;
-	
-	UPROPERTY(EditAnywhere)
-	FCompleteFloorPawnData pawnData;
-};
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FDialogueCompleteData : public FTableRowBase
@@ -93,7 +72,7 @@ struct DESENTINTOATLANTIS_API FDialogueCompleteData : public FTableRowBase
 	TArray<FDialogueData> DialogueData;
 
 	UPROPERTY(EditAnywhere)
-	TArray<FInitializedDialogueActorData> AllActorsInDialogue;
+	TArray<FDialogueActor> AllActorsInDialogue;
 };
 
 USTRUCT()
@@ -113,9 +92,13 @@ class DESENTINTOATLANTIS_API UDialogueFactorySubsystem : public UGameInstanceSub
 {
 	GENERATED_BODY()
 public:
-	void InitializeDatabase(UDataTable* aDialogueDatabase);
+	void InitializeDatabase(UDataTable* aDialogueDatabase, UDataTable* aDialogueActorDatabase);
+	FDialogueCompleteData GetDialogueDataByTrigger(EDialogueTriggers aDialogueData);
+	FAllDialogueActors GetDialogueActorDataByLabel(EDialogueActors aActorData);
 
-	TArray<FDialogueData> GetDialogueDataByTrigger(EDialogueTriggers aDialogueData);
-	UPROPERTY()
-	TArray<FDialogueData> dialogueData;
+	UPROPERTY(EditAnywhere)
+	TMap<EDialogueActors, FAllDialogueActors> dialogueActors;
+	
+	UPROPERTY(EditAnywhere)
+	TMap<EDialogueTriggers, FDialogueCompleteData> dialogueData;
 };

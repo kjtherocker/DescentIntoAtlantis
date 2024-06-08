@@ -3,29 +3,33 @@
 
 #include "DialogueFactorySubsystem.h"
 
-void UDialogueFactorySubsystem::InitializeDatabase(UDataTable* aDialogueDatabase)
+void UDialogueFactorySubsystem::InitializeDatabase(UDataTable* aDialogueDatabase,UDataTable* aDialogueActorDatabase)
 {
 	UDataTable* datatable = aDialogueDatabase;
 	for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
 	{
-		FDialogueData DialogueData = *datatable->FindRow<FDialogueData>(FName(FString::FromInt(i)),FString("Searching for Floors"),true);
+		FDialogueCompleteData DialogueData = *datatable->FindRow<FDialogueCompleteData>(FName(FString::FromInt(i)),FString("Searching for Dialogue"),true);
 
-		dialogueData.Add(DialogueData);
+		dialogueData.Add(DialogueData.DialogueTriggers,DialogueData);
 	}
+
+	UDataTable* datatable2 = aDialogueActorDatabase;
+	TMap<EDialogueActors, FAllDialogueActors> tempdialogueActors;
+	for(int i = 0 ; i < datatable2->GetRowMap().Num(); i ++)
+	{
+		FAllDialogueActors actorData = *datatable2->FindRow<FAllDialogueActors>(FName(FString::FromInt(i)),FString("Searching for Actor"),true);
+
+		tempdialogueActors.Add(actorData.dialogueActor,actorData);
+	}
+	dialogueActors = tempdialogueActors;
 }
 
-TArray<FDialogueData> UDialogueFactorySubsystem::GetDialogueDataByTrigger(EDialogueTriggers aDialogueData)
+FDialogueCompleteData UDialogueFactorySubsystem::GetDialogueDataByTrigger(EDialogueTriggers aDialogueData)
 {
-	TArray<FDialogueData> dialogueDataByTrigger;
+	return dialogueData[aDialogueData];
+}
 
-	for(int i = 0 ; i < dialogueData.Num();i++)
-	{
-		if(dialogueData[i].DialogueTriggers == aDialogueData)
-		{
-			dialogueDataByTrigger.Add(dialogueData[i]);
-		}
-	}
-
-	return dialogueDataByTrigger;
-	
+FAllDialogueActors UDialogueFactorySubsystem::GetDialogueActorDataByLabel(EDialogueActors aActorData)
+{
+	return dialogueActors[aActorData];
 }

@@ -16,6 +16,7 @@ enum class  EDataTableTypes
 	Dialogue         = 7,
 	Classes          = 8,
 	Skills           = 9,
+	DialogueActor    = 10,
 };
 
 
