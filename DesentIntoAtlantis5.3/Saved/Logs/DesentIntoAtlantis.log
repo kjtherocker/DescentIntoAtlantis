@@ -1334,3 +1334,71 @@ LogConfig: Set CVar [[r.Shadow.DetectVertexShaderLayerAtRuntime:1]]
 [2024.06.08-18.33.44:834][312]LogPlayLevel: Display: Destroying online subsystem :Context_1
 [2024.06.08-19.31.32:555][714]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:07.142 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
 [2024.06.08-20.31.33:518][516]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:08.102 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.08-21.14.00:880][142]LogAutomationController: Ignoring very large delta of 5.20 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
+[2024.06.08-21.17.55:994][830]LogAutomationController: Ignoring very large delta of 3.97 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
+[2024.06.08-21.31.32:603][276]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:07.184 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.08-22.31.32:508][ 76]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:07.089 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.08-23.31.33:484][878]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:08.064 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.09-00.31.32:513][674]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:07.093 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.09-01.31.33:489][476]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:08.068 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.09-02.31.32:539][272]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:07.117 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.09-03.16.01:047][277]LogAudioMixer: Warning: FMixerPlatformXAudio2: Changing default audio render device to new device: Role=Console, DeviceName=Headphones (Oculus Virtual Audio Device), InstanceID=1
+[2024.06.09-03.16.01:229][278]LogAudioMixer: Display: FMixerNullCallback: Simulating a h/w device callback at [21ms], ThreadID=2568
+[2024.06.09-03.16.02:232][280]LogAudioMixer: Display: Successful Swap new Device is (NumChannels=2, SampleRate=48000, DeviceID={0.0.0.00000000}.{f1aaf75d-8605-4e0d-bca3-fcbe4aab0900}, Name=Headphones (Oculus Virtual Audio Device)), Reason=FMixerPlatformXAudio2::OnDefaultRenderDeviceChanged, InstanceID=1, DurationMS=890.46
+[2024.06.09-03.16.02:232][280]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=1
+[2024.06.09-03.16.02:235][280]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=1
+[2024.06.09-03.31.32:528][ 71]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:07.097 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.09-04.31.33:507][872]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:08.075 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.09-05.31.32:523][667]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:07.089 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.09-06.31.33:504][469]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:08.070 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.09-07.31.32:523][264]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:07.087 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.09-08.31.32:581][ 63]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:07.144 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.09-09.31.33:504][864]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:08.066 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.09-10.31.32:535][659]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:07.095 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.09-11.31.32:529][457]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:07.088 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.09-12.31.33:503][258]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:08.060 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.09-12.56.06:796][664]LogAutomationController: Ignoring very large delta of 4.91 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
+[2024.06.09-12.56.11:952][667]LogAutomationController: Ignoring very large delta of 4.20 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
+[2024.06.09-12.56.19:040][669]LogAutomationController: Ignoring very large delta of 5.94 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
+[2024.06.09-12.56.23:667][674]LogAutomationController: Ignoring very large delta of 2.37 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
+[2024.06.09-12.56.27:790][676]LogAutomationController: Ignoring very large delta of 3.79 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
+[2024.06.09-12.59.21:082][196]LogAudioMixer: Warning: FMixerPlatformXAudio2: Changing default audio render device to new device: Role=Console, DeviceName=Speakers (6- USB Audio Device), InstanceID=1
+[2024.06.09-12.59.21:143][197]LogAudioMixer: Display: FMixerNullCallback: Simulating a h/w device callback at [21ms], ThreadID=2568
+[2024.06.09-12.59.21:479][197]LogAudioMixer: Display: Successful Swap new Device is (NumChannels=2, SampleRate=48000, DeviceID={0.0.0.00000000}.{fe2b3bf9-24f7-4561-8ef3-e9e1fbff02f0}, Name=Speakers (6- USB Audio Device)), Reason=FMixerPlatformXAudio2::OnDefaultRenderDeviceChanged, InstanceID=1, DurationMS=172.11
+[2024.06.09-12.59.21:479][197]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=1
+[2024.06.09-12.59.21:481][197]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=1
+[2024.06.09-13.31.32:610][991]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:07.164 and deleted 8 files with total size 4 MiB and 8 empty folders. Scanned 4208 files in 5632 folders with total size 412 MiB.
+[2024.06.09-14.31.33:515][793]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:08.068 and deleted 0 files with total size 0 MiB and 2 empty folders. Scanned 4200 files in 5624 folders with total size 408 MiB.
+[2024.06.09-15.31.32:550][591]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:07.103 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4200 files in 5622 folders with total size 408 MiB.
+[2024.06.09-16.31.32:547][390]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:07.098 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4200 files in 5622 folders with total size 408 MiB.
+[2024.06.09-17.31.33:526][193]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:08.076 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4200 files in 5622 folders with total size 408 MiB.
+[2024.06.09-18.31.32:555][990]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:07.104 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4200 files in 5622 folders with total size 408 MiB.
+[2024.06.09-19.31.32:589][789]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:07.137 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4200 files in 5622 folders with total size 408 MiB.
+[2024.06.09-20.31.33:526][590]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:08.072 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4200 files in 5622 folders with total size 408 MiB.
+[2024.06.09-21.31.32:562][387]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:07.106 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 4200 files in 5622 folders with total size 408 MiB.
+[2024.06.09-21.36.04:008][201]LogViewport: Scene viewport resized to 2747x928, mode Windowed.
+[2024.06.09-21.36.04:120][201]LogViewport: Scene viewport resized to 2728x787, mode Windowed.
+[2024.06.09-21.36.20:845][768]LogInterchangeEngine: [Pending] Importing
+[2024.06.09-21.36.20:847][768]LogInterchangeEngine: Display: Interchange start importing source [C:/Users/kylej/Docum...Atlantis/Concept Art/Red Thread.png]
+[2024.06.09-21.36.20:873][769]LogInterchangeEngine: [Pending] Importing
+[2024.06.09-21.36.21:518][771]LogTexture: Display: Building textures: /Game/Ui/Dialogue/CutsceneBackground/Red_Thread.Red_Thread (TFO_AutoDXT, 1920x1080 x1x1x1) (Required Memory Estimate: 168.460938 MB), EncodeSpeed: Fast
+[2024.06.09-21.36.21:814][772]LogInterchangeEngine: [Success] Import Done
+[2024.06.09-21.36.21:820][772]LogInterchangeEngine: [Success] Import Done
+[2024.06.09-21.36.22:179][772]LogSlate: Vector cache flush requested. Reason: Large atlases out of space; 2/1 Textures; frames since last flush: 14760435132633873523
+[2024.06.09-21.36.22:179][772]LogSlate: Warning: Setting the threshold to trigger a flush to 2 non-atlased textures as there is a lot of font data being cached.
+[2024.06.09-21.36.39:364][954]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2024.06.09-21.36.39:528][954]LogUObjectHash: Compacting FUObjectHashTables data took   1.87ms
+[2024.06.09-21.36.39:544][954]LogPackageLocalizationCache: Processed 47 localized package path(s) for 1 prioritized culture(s) in 0.008127 seconds
+[2024.06.09-21.36.39:553][954]LogSavePackage: Moving output files for package: /Game/Map/MainMenu
+[2024.06.09-21.36.39:555][954]LogSavePackage: Moving '../../../../../../Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Saved/MainMenuE4C7C9F64E681BAD350B59ABC86EDCC4.tmp' to '../../../../../../Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Map/MainMenu.umap'
+[2024.06.09-21.36.39:569][954]LogFileHelpers: Saving map 'MainMenu' took 0.100
+[2024.06.09-21.36.39:581][954]LogFileHelpers: InternalPromptForCheckoutAndSave took 216 ms
+[2024.06.09-21.36.39:584][954]AssetCheck: New page: Asset Save: MainMenu
+[2024.06.09-21.36.39:584][954]LogContentValidation: Display: Validating /Script/Engine.World /Game/Map/MainMenu.MainMenu
+[2024.06.09-21.36.40:590][ 46]LogUObjectHash: Compacting FUObjectHashTables data took   0.43ms
+[2024.06.09-21.36.40:594][ 46]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2024.06.09-21.36.40:709][ 46]LogSavePackage: Moving output files for package: /Game/Ui/Dialogue/CutsceneBackground/Red_Thread
+[2024.06.09-21.36.40:710][ 46]LogSavePackage: Moving '../../../../../../Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Saved/Red_ThreadC8D11476454BA126E8B93CA5E01D604F.tmp' to '../../../../../../Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Ui/Dialogue/CutsceneBackground/Red_Thread.uasset'
+[2024.06.09-21.36.40:725][ 46]LogFileHelpers: InternalPromptForCheckoutAndSave took 130 ms (total: 347 ms)
+[2024.06.09-21.36.40:731][ 46]AssetCheck: New page: Asset Save: Red_Thread
+[2024.06.09-21.36.40:731][ 46]LogContentValidation: Display: Validating /Script/Engine.Texture2D /Game/Ui/Dialogue/CutsceneBackground/Red_Thread.Red_Thread
