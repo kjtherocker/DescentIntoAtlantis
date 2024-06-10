@@ -10,8 +10,11 @@
 #include "LevelupView.h"
 #include "PersistentGameinstance.h"
 #include "SaveManagerSubsystem.h"
+#include "TransitionView.h"
 #include "TutorialView.h"
 
+
+class UTransitionView;
 
 void UEventManagerSubSystem::LoadSavedFloorEventData(FEventManagerData aEventManagerData)
 {
@@ -99,8 +102,12 @@ void UEventManagerSubSystem::TriggerNextFloorEventStep(EFloorEventStates aFloorE
 		{
 			if(!currentEvent.enemyGroupName.IsEmpty())
 			{
-				
-				persistentGameInstance->LoadCombatLevel(currentEvent.enemyGroupName,ECombatArena::Prison);
+	
+				persistentGameInstance->CallTransition();
+				UTransitionView* transitionView =
+					(UTransitionView* )gameMode->InGameHUD->PushAndGetView(EViews::TransitionView,EUiType::ActiveUi);
+				transitionView->transitionTo.AddDynamic(this,&UEventManagerSubSystem::ActivateCombat);
+				transitionView->StartEnterTransition();
 			}
 			else
 			{
@@ -148,6 +155,11 @@ void UEventManagerSubSystem::TriggerNextFloorEventStep(EFloorEventStates aFloorE
 			break;
 		}
 	}
+}
+
+void UEventManagerSubSystem::ActivateCombat()
+{
+	persistentGameInstance->LoadCombatLevel(currentEvent.enemyGroupName,ECombatArena::Prison);
 }
 
 void UEventManagerSubSystem::SetCurrentEventSet()

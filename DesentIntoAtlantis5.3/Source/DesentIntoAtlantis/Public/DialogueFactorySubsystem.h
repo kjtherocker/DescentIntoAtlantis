@@ -35,11 +35,12 @@ USTRUCT()
 struct DESENTINTOATLANTIS_API FDialogueData : public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
-	UPROPERTY( EditAnywhere )
-	FString     Dialogue;
-
+	
 	UPROPERTY( EditAnywhere )
 	FString     SpeakerName;
+	
+	UPROPERTY( EditAnywhere )
+	FString     Dialogue;
 
 	UPROPERTY( EditAnywhere )
 	UTexture2D* CenterPortrait;

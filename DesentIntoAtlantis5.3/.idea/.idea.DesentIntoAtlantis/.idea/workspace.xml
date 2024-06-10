@@ -9,26 +9,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Player/Rain/texture/Rain_DialoguePortrait.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_CutscenePawn.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Dialogue/Kriede_Dialogue_Sweating.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Texture/Kriede_FullBody.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_FloorPlayerPawn.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_Testorino.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Characters/Player/Kriede/BP_Floor_Enemy_Kriede2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Player/Kriede/BP_Floor_Enemy_Kriede2.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Material/Material_EvenTrigger_Kriede.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Material/Material_EvenTrigger_Kriede.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Player/Rain/Material/HealthboardPortrait_Rain.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Player/Rain/Material/HealthboardPortrait_Rain.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Player/Rain/Material/Material_EvenTrigger_Rain.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Player/Rain/Material/Material_EvenTrigger_Rain.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Player/Rain/texture/4000x4000_Rain.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Combat/DT_PlayerCharacters.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_PlayerCharacters.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/BP_FloorNode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/BP_FloorNode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_CutscenePawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_CutscenePawn.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_FloorPawn.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Walls/Wall3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/Wall3.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Combat/DT_Enemys.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_Enemys.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_AllDialogueActors.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_AllDialogueActors.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueComplete.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueComplete.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Floor/DT_Floor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Floor/DT_Floor.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/GameMode/BP_CombatGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GameMode/BP_CombatGameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/GameMode/BP_FloorGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GameMode/BP_FloorGameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/GameMode/BP_MainMenuGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GameMode/BP_MainMenuGameMode.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis.log" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/SaveGames/AutoSave.sav" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/SaveGames/AutoSave.sav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/SourceControl/UncontrolledChangelists.json" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/SourceControl/UncontrolledChangelists.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/FloorManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/FloorManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/FloorEnum.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/FloorEnum.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/FloorPawn.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/FloorPawn.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EventManagerSubSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EventManagerSubSystem.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/DialogueFactorySubsystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/DialogueFactorySubsystem.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EventManagerSubSystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EventManagerSubSystem.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +44,17 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -655,7 +671,7 @@
       <workItem from="1717342791513" duration="22966000" />
       <workItem from="1717446571959" duration="7183000" />
       <workItem from="1717601685696" duration="39598000" />
-      <workItem from="1717866851019" duration="13802000" />
+      <workItem from="1717866851019" duration="17392000" />
     </task>
     <servers />
   </component>

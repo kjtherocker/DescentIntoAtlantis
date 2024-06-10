@@ -80,7 +80,8 @@ public:
 	void TriggerLevelupMenu(EFloorEventStates aTriggerOnEnd,TArray<UPlayerCombatEntity*> aPlayerCombatEntity, int aExperience);
 	UFUNCTION()
 	void TriggerNextFloorEventStep(EFloorEventStates aFloorEventStates);
-
+	UFUNCTION()
+	void ActivateCombat();
 	void SetCurrentEventSet();
 
 	void EventNotCompleted();
