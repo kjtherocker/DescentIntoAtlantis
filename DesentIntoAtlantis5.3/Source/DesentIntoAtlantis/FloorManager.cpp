@@ -353,6 +353,18 @@ void AFloorManager::SpawnCutsceneFloorPawn(FDialogueActorData aDialogueActor,TSu
 	AFloorPawn* floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(aCutsceneFloorPawn, ActorFinalSpawnPoint, rotator,ActorSpawnParameters));
 	floorPawn->Initialize();
 	floorPawn->PlaceAndInitializieFloorPawn(floorNodes[startPositionIndex],completeFloorPawnData.currentFacingDirection);
+
+	if(aDialogueActor.actorToBePossessed)
+	{
+		AFloorPlayerController * playerController;
+		playerController = Cast<AFloorPlayerController>(GetWorld()->GetFirstPlayerController());
+
+		if(playerController != nullptr)
+		{
+			playerController->Possess(floorPawn);
+			playerController->SetViewTarget(floorPawn);
+		}
+	}
 	spawnedDialogueActors.Add(dialogueActor,floorPawn); 
 }
 
@@ -365,6 +377,7 @@ void AFloorManager::MoveCutscenePawnToLocation(FDialogueActorData actorData)
 	AFloorPawn* cutScenePawn = spawnedDialogueActors[dialogueActorsLabel];
 	AFloorNode* floorNodeToMoveTowards = GetNode(positionInGrid);
 
+	cutScenePawn->SetRotationWithoutAnimation(CompleteFloorPawnData.currentFacingDirection);
 	cutScenePawn->SetNodeToMoveTowards(floorNodeToMoveTowards);
 	
 }

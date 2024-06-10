@@ -70,7 +70,7 @@ protected:
 	virtual void MoveForward();
 	TSubclassOf<AActor> commandBoardTest;
 
-	FVector positionOffSet;
+	FVector positionOffSet = FVector(0,0,80);
 	double newRotation;
 
 	const double FULL_MOVEMENT       = 360;
@@ -82,7 +82,7 @@ protected:
 	const float  RIGHT_DIRECTION     = 1;
 	const float  LEFT_DIRECTION      = -1;
 
-	float movementSpeed;
+	float movementSpeed = 1000;
 	bool hasRotationFinished = true;
 	double rotationAngle;
 
