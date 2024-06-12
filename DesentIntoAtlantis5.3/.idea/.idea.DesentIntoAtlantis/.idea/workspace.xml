@@ -9,31 +9,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Dialogue/Kriede_Dialogue_Sweating.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Texture/Kriede_FullBody.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_FloorPlayerPawn.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_Testorino.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Screenshot_3.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Models/Models/TempleWall/Material.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Models/Models/TempleWall/TempleWall4.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Models/Models/TempleWall/TempleWall5.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Characters/Player/Kriede/BP_Floor_Enemy_Kriede2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Player/Kriede/BP_Floor_Enemy_Kriede2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Material/Material_EvenTrigger_Kriede.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Material/Material_EvenTrigger_Kriede.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/BP_FloorNode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/BP_FloorNode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_CutscenePawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_CutscenePawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_FloorPawn.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_Testorino.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_Testorino.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Material_Rock.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Material_Rock.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Material_Wall.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Material_Wall.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Material_WallTest.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Material_WallTest.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Walls/Wall3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/Wall3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Combat/DT_Enemys.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_Enemys.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_AllDialogueActors.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_AllDialogueActors.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueComplete.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueComplete.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/GameMode/BP_CombatGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GameMode/BP_CombatGameMode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/GameMode/BP_FloorGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GameMode/BP_FloorGameMode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/GameMode/BP_MainMenuGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GameMode/BP_MainMenuGameMode.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Map/Prison/PrisonCombat.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/Prison/PrisonCombat.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saved/Autosaves/Game/Map/MainMenu_Auto1.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Autosaves/Game/Map/MainMenu_Auto1.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis.log" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/SaveGames/AutoSave.sav" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/SaveGames/AutoSave.sav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/SourceControl/UncontrolledChangelists.json" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/SourceControl/UncontrolledChangelists.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EventManagerSubSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EventManagerSubSystem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/DialogueFactorySubsystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/DialogueFactorySubsystem.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EventManagerSubSystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EventManagerSubSystem.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/FloorPawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/FloorPawn.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -671,7 +668,7 @@
       <workItem from="1717342791513" duration="22966000" />
       <workItem from="1717446571959" duration="7183000" />
       <workItem from="1717601685696" duration="39598000" />
-      <workItem from="1717866851019" duration="17392000" />
+      <workItem from="1717866851019" duration="22060000" />
     </task>
     <servers />
   </component>

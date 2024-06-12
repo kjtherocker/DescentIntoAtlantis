@@ -177,7 +177,7 @@ void UEventManagerSubSystem::TriggerDialogue(EDialogueTriggers aDialogueTrigger,
 	}
 
 	gameMode->floorPawn->SetFloorPawnInput(false);
-	
+	gameMode->floorPawn->SetActorHiddenInGame(true);
 	if(aDialogueTrigger != EDialogueTriggers::None)
 	{
 		UDialogueView * dialogueView = (UDialogueView*)gameMode->InGameHUD->PushAndGetView(EViews::Dialogue,EUiType::ActiveUi);
