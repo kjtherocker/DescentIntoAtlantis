@@ -9,38 +9,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/BP_FloorNode.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/Illustration.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/NormalMap.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/NormalMap__1_.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/Tex_PrisonFloor.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/Tex_PrisonFloor1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TempleWall/Material_Wood.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TempleWall/Material__25.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TempleWall/TempleWall2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TempleWall/TempleWall4.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TempleWall/TempleWall5.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TempleWall/TempleWall6.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TempleWall/TempleWallV1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/FloorNodeCube.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/FloorNodeCube2.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/PortHole/Material_001.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/PortHole/Material_002.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/PortHole/Material_003.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/PortHole/Material_PrisonCell1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/PortHole/PortHole_Circle.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/PortHole/PortHole_Cube.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/PortHole/PortHole_Cube_001.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/PortHole/Untitled.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/PortHole/pngtree-gleaming-copper-texture.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/PrisonFloorNodeGreen.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Tex_StoneWall.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/BP_FloorNode.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_FloorManager.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_FloorManager.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/BP_FloorNode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Nodes/Prison/BP_FloorNode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_CutscenePawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_CutscenePawn.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_FloorPlayerPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_FloorPlayerPawn.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_Testorino.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Floor_Prefabs/BP_Testorino.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/MyFloorNode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/MyFloorNode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Material_WallTest.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Material_WallTest.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Material__25.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Material__25.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Wall.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/Wall.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/stone-wall-texture_1110-425_Mat.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/TextMat_Walls/stone-wall-texture_1110-425_Mat.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Walls/Wall3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/Wall3.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_AllDialogueActors.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_AllDialogueActors.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Materials/TexMat_Defaultcolor/Material_Black.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Materials/TexMat_Defaultcolor/Material_Black.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Models/Models/PrisonCell/Material_PrisonCell.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Models/Models/PrisonCell/Material_PrisonCell.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Models/TempleWall/Material.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Models/TempleWall/Material__25.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Models/TempleWall/TempleWall2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Models/TempleWall/TempleWall4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Models/TempleWall/TempleWall5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/Models/TempleWall/TempleWallV1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/5/HA/XPG4VE7GKMPE0RYOCRLB1L.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis.log" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/Logs/DesentIntoAtlantis.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saved/SaveGames/AutoSave.sav" beforeDir="false" afterPath="$PROJECT_DIR$/Saved/SaveGames/AutoSave.sav" afterDir="false" />
@@ -55,7 +49,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="cidr-memory-view://2" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Plugins/EnhancedInput/Source/EnhancedInput/Private/EnhancedPlayerInput.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/GameplayStateTree/Source/GameplayStateTreeModule/Public/Components/StateTreeComponent.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/StateTree/Source/StateTreeModule/Public/StateTree.h" root0="SKIP_HIGHLIGHTING" />
@@ -527,7 +527,7 @@
       <workItem from="1717866851019" duration="22060000" />
       <workItem from="1718232518489" duration="783000" />
       <workItem from="1718289616660" duration="1999000" />
-      <workItem from="1718497853995" duration="894000" />
+      <workItem from="1718497853995" duration="3044000" />
     </task>
     <servers />
   </component>
