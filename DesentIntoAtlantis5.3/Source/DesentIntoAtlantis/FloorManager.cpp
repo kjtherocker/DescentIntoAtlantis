@@ -359,9 +359,9 @@ void AFloorManager::SpawnCutsceneFloorPawn(FDialogueActorData aDialogueActor,TSu
 		AFloorPlayerController * playerController;
 		playerController = Cast<AFloorPlayerController>(GetWorld()->GetFirstPlayerController());
 
-		if(playerController != nullptr)
+	//	if(playerController != nullptr)
 		{
-			playerController->Possess(floorPawn);
+		//	playerController->Possess(floorPawn);
 			playerController->SetViewTarget(floorPawn);
 		}
 	}
