@@ -351,6 +351,7 @@ void AFloorManager::SpawnCutsceneFloorPawn(FDialogueActorData aDialogueActor,TSu
 		completeFloorPawnData.currentNodePositionInGrid.Y) ;
 	
 	AFloorPawn* floorPawn = Cast<AFloorPawn>(GetWorld()->SpawnActor<AActor>(aCutsceneFloorPawn, ActorFinalSpawnPoint, rotator,ActorSpawnParameters));
+
 	floorPawn->Initialize();
 	floorPawn->PlaceAndInitializieFloorPawn(floorNodes[startPositionIndex],completeFloorPawnData.currentFacingDirection);
 
@@ -359,9 +360,9 @@ void AFloorManager::SpawnCutsceneFloorPawn(FDialogueActorData aDialogueActor,TSu
 		AFloorPlayerController * playerController;
 		playerController = Cast<AFloorPlayerController>(GetWorld()->GetFirstPlayerController());
 
-	//	if(playerController != nullptr)
+		if(playerController != nullptr)
 		{
-		//	playerController->Possess(floorPawn);
+			playerController->Possess(floorPawn);
 			playerController->SetViewTarget(floorPawn);
 		}
 	}

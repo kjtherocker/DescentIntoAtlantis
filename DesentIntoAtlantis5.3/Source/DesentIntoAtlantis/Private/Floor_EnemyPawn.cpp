@@ -54,6 +54,11 @@ void AFloor_EnemyPawn::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
+	if(cardinalDirections.Num() == 0)
+	{
+		return;
+	}
+	
 	if (PlayerController)
 	{
 		// Get the camera's location and rotation
