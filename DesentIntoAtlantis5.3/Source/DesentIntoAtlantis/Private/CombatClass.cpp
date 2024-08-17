@@ -20,20 +20,20 @@ void UCombatClass::CreateClass(FCompleteClassData aLoadedClass,int aClassLevel)
 {
 	completeClassData = aLoadedClass;
 	completeClassData.currentLevel = aClassLevel;
-	completeClassData.currentLevelClassData = completeClassData.classLevels[aClassLevel];
+	completeClassData.classStatBase = completeClassData.classBaseStat;
 	CreateAllClassSkillsForLevel(completeClassData);
 }
 
 bool UCombatClass::AddExperience(int aExperience)
 {
 	experience += aExperience;
-	if(completeClassData.classLevels.Num() > 0)
-	{
-		if(experience > completeClassData.currentLevelClassData.expToNextClassLevel)
-		{
+	//if(completeClassData.classBaseStat.Num() > 0)
+	//{
+	//	if(experience > completeClassData.currentLevelClassData.expToNextClassLevel)
+	//	{
 			return true;
-		}
-	}
+	//	}
+	//}
 	return false;
 }
 
@@ -55,50 +55,5 @@ void UCombatClass::CreateAllClassSkillsForLevel(FCompleteClassData aCompleteClas
 	}
 }
 
-void UCombatClass::SetClassLevel(int aInitalLevel)
-{
-	currentClassIndex = aInitalLevel - 1;
-	completeClassData.currentLevel = currentClassIndex;
-
-	completeClassData.currentLevelClassData = completeClassData.classLevels[currentClassIndex];
-
-	CreateAllClassSkillsForLevel(completeClassData);
-
-	attachedCombatEntity->currentHealth = completeClassData.currentLevelClassData.maxHealth;
-	attachedCombatEntity->currentMana   = completeClassData.currentLevelClassData.maxMana;
-	attachedCombatEntity->SetAbilityScores();
-}
-
-void UCombatClass::SetClassAttributes()
-{
-	attachedCombatEntity->currentHealth = completeClassData.currentLevelClassData.maxHealth;
-	attachedCombatEntity->currentMana   = completeClassData.currentLevelClassData.maxMana;
-	attachedCombatEntity->SetAbilityScores();
-}
 
 
-
-FClassData UCombatClass::Levelup()
-{
-	currentClassIndex += 1;
-	completeClassData.currentLevelClassData = completeClassData.classLevels[currentClassIndex];
-	completeClassData.currentLevel = currentClassIndex;
-
-	if(completeClassData.unlockableSkillByLevel.Contains(completeClassData.currentLevel))
-	{
-		ESkillIDS skillName = completeClassData.unlockableSkillByLevel[completeClassData.currentLevel];
-		USkillBase* newSkill = skillFactory->GetSkill(skillName);
-		attachedCombatEntity->playerCompleteDataSet.skillSlots.Add(skillName);
-		classSkills.Add(newSkill);
-	}
-	
-	
-	attachedCombatEntity->currentHealth = completeClassData.currentLevelClassData.maxHealth;
-	attachedCombatEntity->currentMana   = completeClassData.currentLevelClassData.maxMana;
-	attachedCombatEntity->GatherAndSavePlayerCompleteDataSet();
-	attachedCombatEntity->SetAbilityScores();
-	attachedCombatEntity->hasHealthOrManaValuesChanged.Broadcast();
-
-
-	return completeClassData.currentLevelClassData;
-}

@@ -24,8 +24,9 @@ void ULevelupView::InitializeCombatEntitysToLevelUp(TArray<UPlayerCombatEntity*>
 void ULevelupView::SetupLevelupView(UPlayerCombatEntity* aPlayerCombatEntity)
 {
 	FCompleteClassData completeClassData = aPlayerCombatEntity->mainClass->completeClassData;
-	FClassData currentClassLevel = aPlayerCombatEntity->mainClass->completeClassData.currentLevelClassData;
-	FClassData nextClassLevel    = aPlayerCombatEntity->mainClass->Levelup();
+	TMap<EStatTypes, UCombatAbilityStats*> currentClassLevel = aPlayerCombatEntity->abilityScoreMap;
+	aPlayerCombatEntity->LevelUp(4);
+	TMap<EStatTypes, UCombatAbilityStats*> nextClassLevel    = aPlayerCombatEntity->abilityScoreMap;
 
 	if(completeClassData.unlockableSkillByLevel.Contains(completeClassData.currentLevel+ 1))
 	{
@@ -43,28 +44,28 @@ void ULevelupView::SetupLevelupView(UPlayerCombatEntity* aPlayerCombatEntity)
 	BW_CurrentLevelNumber->SetText(FText(FText::AsNumber(completeClassData.currentLevel + 1)));
 	
 	BW_StrengthLevelpanel->SetLevelupPanelElement(FString("Str"),
-		FString::FromInt(currentClassLevel.baseStrength),
-		  FString::FromInt(nextClassLevel.baseStrength));
+		FString::FromInt(currentClassLevel[EStatTypes::Strength]->base),
+		  FString::FromInt(nextClassLevel[EStatTypes::Strength]->base));
 
 	BW_MagicLevelPanel->SetLevelupPanelElement(FString("Mag"),
-	FString::FromInt(currentClassLevel.baseMagic),
-	  FString::FromInt(nextClassLevel.baseMagic));
+	FString::FromInt(currentClassLevel[EStatTypes::Magic]->base),
+	  FString::FromInt(nextClassLevel[EStatTypes::Magic]->base));
 
 	BW_HitLevelPanel->SetLevelupPanelElement(FString("Hit"),
-	FString::FromInt(currentClassLevel.baseHit),
-	  FString::FromInt(nextClassLevel.baseHit));
+	FString::FromInt(currentClassLevel[EStatTypes::Hit]->base),
+	  FString::FromInt(nextClassLevel[EStatTypes::Hit]->base));
 
 	BW_EvasionLevelPanel->SetLevelupPanelElement(FString("Eva"),
-	FString::FromInt(currentClassLevel.baseEvasion),
-	  FString::FromInt(nextClassLevel.baseEvasion));
+	FString::FromInt(currentClassLevel[EStatTypes::Evasion]->base),
+	  FString::FromInt(nextClassLevel[EStatTypes::Evasion]->base));
 
 	BW_DefencePanel->SetLevelupPanelElement(FString("Def"),
-	FString::FromInt(currentClassLevel.baseDefence),
-	  FString::FromInt(nextClassLevel.baseDefence));
+	FString::FromInt(currentClassLevel[EStatTypes::Defence]->base),
+	  FString::FromInt(nextClassLevel[EStatTypes::Defence]->base));
 	
 	BW_ResistancePanel->SetLevelupPanelElement(FString("Res"),
-	FString::FromInt(currentClassLevel.baseResistance),
-	  FString::FromInt(nextClassLevel.baseResistance));
+	FString::FromInt(currentClassLevel[EStatTypes::Resistance]->base),
+	  FString::FromInt(nextClassLevel[EStatTypes::Resistance]->base));
 }
 
 void ULevelupView::ActivateNextLevelup()

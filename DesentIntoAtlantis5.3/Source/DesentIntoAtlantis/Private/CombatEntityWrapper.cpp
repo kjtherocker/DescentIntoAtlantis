@@ -39,8 +39,8 @@ int UCalculateDamage_Base::CalculateDamage(UCombatEntity* aAttachedEntity,UComba
     int decementBy = aSkill.damage;
 
     UCombatEntity* attachedCombatEntity = aAttachedEntity;
-    int strengthAllStats =  aAttacker->abilityScoreMap[EAbilityScoreTypes::Strength]->GetAllStats() / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
-    int magicAllStats    =  aAttacker->abilityScoreMap[EAbilityScoreTypes::Magic]->GetAllStats()    / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
+    int strengthAllStats =  aAttacker->abilityScoreMap[EStatTypes::Strength]->GetAllStats() / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
+    int magicAllStats    =  aAttacker->abilityScoreMap[EStatTypes::Magic]->GetAllStats()    / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
     decementBy += aSkill.skillDamageType == ESkillDamageType::Strength ? strengthAllStats : magicAllStats;
 	
     if (aSkill.elementalType == attachedCombatEntity->elementalWeakness)
@@ -53,8 +53,8 @@ int UCalculateDamage_Base::CalculateDamage(UCombatEntity* aAttachedEntity,UComba
     }
 
     decementBy -=  aSkill.skillDamageType == ESkillDamageType::Strength ?
-        attachedCombatEntity->abilityScoreMap[EAbilityScoreTypes::Defence]->GetAllStats()    / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO :
-        attachedCombatEntity->abilityScoreMap[EAbilityScoreTypes::Resistance]->GetAllStats() / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
+        attachedCombatEntity->abilityScoreMap[EStatTypes::Defence]->GetAllStats()    / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO :
+        attachedCombatEntity->abilityScoreMap[EStatTypes::Resistance]->GetAllStats() / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
 	
     return decementBy;
 }

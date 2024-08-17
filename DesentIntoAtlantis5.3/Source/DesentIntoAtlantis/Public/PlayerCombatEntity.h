@@ -24,6 +24,12 @@ struct DESENTINTOATLANTIS_API FPlayerIdentityData :public  FTableRowBase
 		
 	UPROPERTY( EditAnywhere )
 	EClasses initalClass;
+
+
+	UPROPERTY(EditAnywhere)
+	FCombatEntityData playerStatGrowths;
+	UPROPERTY(EditAnywhere)
+	FCombatEntityData playerStatBases;
 	
 	UPROPERTY( EditAnywhere )
 	FString characterName;
@@ -48,14 +54,14 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 
 	UPROPERTY()
 	FCompleteClassData mainClassData;
-
-	UPROPERTY()
-	FClassData currentMainClassLevel;
 	
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 	TMap<EClasses,FCompleteClassData> unlockedPlayerClasses;
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
+	int jobPoints;
+	
+	UPROPERTY(EditAnywhere)
 	TArray<ESkillIDS> skillSlots;
 
 	UPROPERTY()
@@ -66,6 +72,57 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 	float currentSync;
 };
 
+
+UCLASS()
+class DESENTINTOATLANTIS_API UPlayerAbilityStats : public UCombatAbilityStats
+{
+	GENERATED_BODY()
+public:
+
+	UPROPERTY(EditAnywhere)
+	TMap<EClasses,int> classStatBases;
+	
+	inline static const float ABILITYSCORE_CONVERSION_RATIO = 3;
+
+	virtual int  GetAllStats() override
+	{
+		int classBase = GetClassBases();
+		
+		return base + classBase + buff + debuff + domain;
+	}
+
+	void SetStat(FPlayerIdentityData aPlayerIdentityData,int aCurrentLevel)
+	{
+		int baseGrowth = aPlayerIdentityData.playerStatGrowths.baseStats[StatType] ;
+		int baseStat   = aPlayerIdentityData.playerStatBases.baseStats[StatType];
+		
+		base = baseStat + (aCurrentLevel / baseGrowth);
+	}
+
+	void AddClassStatBase(FCompleteClassData aCompleteClassData)
+	{
+		classStatBases.Add(aCompleteClassData.classIdentifer,aCompleteClassData.classStatBase.baseStats[StatType]);
+	}
+	
+	int GetClassBases()
+	{
+		int classBase = 0;
+
+		if(classStatBases.Num() == 0)
+		{
+			return classBase;
+		}
+		
+		for (TTuple<EClasses, int> Element : classStatBases)
+		{
+			classBase += Element.Value;
+		}
+		
+		return classBase;
+	}
+	
+	
+};
 
 
 UCLASS()
@@ -95,7 +152,7 @@ public:
 	UPROPERTY()
 	TArray<UAilment*> activeAilments;
 
-
+    virtual void InitializeStats(EStatTypes aAbilityScoreTypes) override;
 	virtual void LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet);
 	virtual void SetPlayerEntity(FPlayerIdentityData aPlayerEntityData);
 	virtual void SetTacticsEntity(USkillFactorySubsystem* aSkillFactory) override;
@@ -113,6 +170,8 @@ public:
 	virtual float GetManaPercentage()   override;
 	virtual float GetSyncPercentage() override;
 	virtual float GetMainClassEXPPercentage();
+	
+	virtual void LevelUp(int aNewLevel);
 };
 
 

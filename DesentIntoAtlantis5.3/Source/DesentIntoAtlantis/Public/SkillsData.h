@@ -9,7 +9,7 @@
 #include "SkillsData.generated.h"
 
 enum class EStatusAilments;
-enum class EAbilityScoreTypes;
+enum class EStatTypes;
 class UCombatEntity;
 /**
  * 
@@ -123,7 +123,7 @@ struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
 	UTexture2D* skillIcon;
 	
 	UPROPERTY( EditAnywhere )
-	EAbilityScoreTypes ablityScoreToBuffOrDebuff;
+	EStatTypes ablityScoreToBuffOrDebuff;
 
 	UPROPERTY( EditAnywhere )
 	int abilityScoreChangeDuration;

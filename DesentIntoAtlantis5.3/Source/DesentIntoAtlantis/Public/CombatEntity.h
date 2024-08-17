@@ -13,6 +13,7 @@
 #include "CombatEntity.generated.h"
 
 
+enum class EClasses;
 class UAilment;
 class USkillAliment;
 struct FSkillsData;
@@ -25,15 +26,16 @@ class USkillFactorySubsystem;
  */
 
 UENUM()
-enum class EAbilityScoreTypes
+enum class EStatTypes
 {
-	Undefined,
-	Strength,
-	Magic,
-	Hit,
-	Evasion,
-	Defence,
-	Resistance
+	None       = 0,
+	Strength   = 1,
+	Magic      = 2,
+	Hit        = 3,
+	Evasion    = 4,
+	Defence    = 5,
+	Resistance = 6,
+	Max        = 7,
 };
 
 
@@ -46,25 +48,9 @@ struct DESENTINTOATLANTIS_API FCombatEntityData :public  FTableRowBase
 	
 	UPROPERTY( EditAnywhere )
 	int maxMana;
-
-	UPROPERTY( EditAnywhere )
-	int baseStrength;
-
-	UPROPERTY( EditAnywhere )
-	int baseMagic;
-
-	UPROPERTY( EditAnywhere )
-	int baseHit;
-
-	UPROPERTY( EditAnywhere )
-	int baseEvasion;
-
-	UPROPERTY( EditAnywhere )
-	int baseDefence;
-
-	UPROPERTY( EditAnywhere )
-	int baseResistance;
 	
+	UPROPERTY( EditAnywhere )
+	TMap< EStatTypes,int> baseStats; 
 };
 
 
@@ -75,6 +61,9 @@ class DESENTINTOATLANTIS_API UCombatAbilityStats : public UObject
 {
 	GENERATED_BODY()
 public:
+	UPROPERTY(EditAnywhere)
+	EStatTypes StatType;
+	
 	UPROPERTY( EditAnywhere )
 	int base    			= 0;
 	UPROPERTY( EditAnywhere )
@@ -87,13 +76,19 @@ public:
 	int buffTimeRemaining   = 0;
 	UPROPERTY( EditAnywhere )
 	int debuffTimeRemaining = 0;
+	
+	void SetStatType(EStatTypes aStatType)
+	{
+		StatType = aStatType;
+	}
 
 	inline static const float ABILITYSCORE_CONVERSION_RATIO = 3;
-	int GetAllStats()
+	virtual int GetAllStats()
 	{
 		return base + buff + debuff + domain;
 	}
-	void AttachAbilityScoreChange(int timeLimit,bool isBuff)
+	
+	virtual void AttachAbilityScoreChange(int timeLimit,bool isBuff)
 	{
 		if(isBuff)
 		{
@@ -107,14 +102,14 @@ public:
 		}
 	}
 
-	void ResetAbilityscore()
+	virtual void ResetAbilityscore()
 	{
 		buff   = 0;
 		debuff = 0;
 		domain = 0;
 	}
 
-	void TurnEnd()
+	virtual void TurnEnd()
 	{
 		buffTimeRemaining--;
 		if(buffTimeRemaining <= 0)
@@ -183,7 +178,7 @@ public:
 	virtual void EndTurn();
 
 	//SetStatusEffect(StatusEffects aStatusEffect);
-
+	virtual void InitializeStats(EStatTypes aAbilityScoreTypes);
 	virtual void SetHealth(int aHealth);
 	virtual void InflictAilment(UAilmentShellTakeOver* aAliment,ECombatEntityWrapperType aCombatEntityWrapperType);
 	
@@ -229,7 +224,7 @@ public:
 	float currentSync = 100;
 	
 	UPROPERTY( EditAnywhere )
-	TMap< EAbilityScoreTypes,UCombatAbilityStats*> abilityScoreMap;
+	TMap< EStatTypes,UCombatAbilityStats*> abilityScoreMap;
 
 	
 

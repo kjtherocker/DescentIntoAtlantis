@@ -54,10 +54,10 @@ PressTurnReactions UEnemyCombatEntity::DecrementHealth(UCombatEntity* aAttacker,
 
 void UEnemyCombatEntity::SetAbilityScores()
 {
-	abilityScoreMap[EAbilityScoreTypes::Strength]->base    =  enemyEntityData.baseStrength;
-	abilityScoreMap[EAbilityScoreTypes::Magic]->base       =  enemyEntityData.baseMagic;
-	abilityScoreMap[EAbilityScoreTypes::Hit]->base         =  enemyEntityData.baseHit;
-	abilityScoreMap[EAbilityScoreTypes::Evasion]->base     =  enemyEntityData.baseEvasion;
-	abilityScoreMap[EAbilityScoreTypes::Defence]->base     =  enemyEntityData.baseDefence;
-	abilityScoreMap[EAbilityScoreTypes::Resistance]->base  =  enemyEntityData.baseResistance;
+	abilityScoreMap[EStatTypes::Strength]->base    =  enemyEntityData.baseStats[EStatTypes::Strength];
+	abilityScoreMap[EStatTypes::Magic]->base       =  enemyEntityData.baseStats[EStatTypes::Magic];
+	abilityScoreMap[EStatTypes::Hit]->base         =  enemyEntityData.baseStats[EStatTypes::Hit];
+	abilityScoreMap[EStatTypes::Evasion]->base     =  enemyEntityData.baseStats[EStatTypes::Evasion];
+	abilityScoreMap[EStatTypes::Defence]->base     =  enemyEntityData.baseStats[EStatTypes::Defence];
+	abilityScoreMap[EStatTypes::Resistance]->base  =  enemyEntityData.baseStats[EStatTypes::Resistance];
 }

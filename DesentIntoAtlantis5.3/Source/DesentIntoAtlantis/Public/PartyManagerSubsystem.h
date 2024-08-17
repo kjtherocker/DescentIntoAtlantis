@@ -48,6 +48,8 @@ public:
 	
 	TArray<UPlayerCombatEntity*> ReturnActiveParty();
 
+	int PartyLevel = 4;
+	
 	TMap<EPartyMembers,FPlayerIdentityData> playerIdenityMap;
 	UPROPERTY()
 	TMap<EPartyMembers,UPlayerCombatEntity*> playerCombatEntityInfo;

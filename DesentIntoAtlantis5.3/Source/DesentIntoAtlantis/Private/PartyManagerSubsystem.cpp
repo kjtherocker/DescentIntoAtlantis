@@ -55,8 +55,9 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembers aPlayer)
 	EClasses initalClass = playerIdenityMap[aPlayer].initalClass;
 	if(classDataTables.Contains(initalClass))
 	{
-		PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[initalClass],PlayerCombatEntity->playerIdentityData.initialLevel);
+		PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[initalClass],PartyLevel);
 		PlayerCombatEntity->SetMainClass(initalClass);
+		PlayerCombatEntity->LevelUp(PartyLevel);
 	}
 	playerCombatEntity.Add(PlayerCombatEntity);
 	playerCombatEntityInfo.Add(aPlayer,PlayerCombatEntity);

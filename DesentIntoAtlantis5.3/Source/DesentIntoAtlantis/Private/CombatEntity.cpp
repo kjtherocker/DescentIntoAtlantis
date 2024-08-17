@@ -22,12 +22,12 @@ void UCombatEntity::SetAWrapperToDefault(ECombatEntityWrapperType aShellType)
 
 void UCombatEntity::SetTacticsEntity(USkillFactorySubsystem* aSkillFactory)
 {
-    abilityScoreMap.Add(EAbilityScoreTypes::Strength,  NewObject<UCombatAbilityStats>());
-    abilityScoreMap.Add(EAbilityScoreTypes::Magic,     NewObject<UCombatAbilityStats>());
-    abilityScoreMap.Add(EAbilityScoreTypes::Hit,       NewObject<UCombatAbilityStats>());
-    abilityScoreMap.Add(EAbilityScoreTypes::Evasion,   NewObject<UCombatAbilityStats>());
-    abilityScoreMap.Add(EAbilityScoreTypes::Defence,   NewObject<UCombatAbilityStats>());
-    abilityScoreMap.Add(EAbilityScoreTypes::Resistance,NewObject<UCombatAbilityStats>());
+
+    for (int32 i = static_cast<int32>(EStatTypes::None) + 1; i < static_cast<int32>(EStatTypes::Max); ++i)
+    {
+        EStatTypes Value = static_cast<EStatTypes>(i);
+        InitializeStats(Value);
+    }
 
     resetOneWrapperToDefault.AddDynamic(this,&UCombatEntity::SetAWrapperToDefault);
     inUseCombatWrapper      = NewObject<UCombatEntityWrapper>();
@@ -37,9 +37,15 @@ void UCombatEntity::SetTacticsEntity(USkillFactorySubsystem* aSkillFactory)
     
     inUseCombatWrapper->SetAttachedCombatEntity(this);
     inUseCombatWrapper->SetCalculateDamageAilment(allDefaultCombatWrapper->GetCalculateDamageWrapper());
-
-    
 }
+
+
+void UCombatEntity::InitializeStats(EStatTypes aAbilityScoreTypes)
+{
+    abilityScoreMap.Add(aAbilityScoreTypes,  NewObject<UCombatAbilityStats>());
+    abilityScoreMap[aAbilityScoreTypes]->SetStatType(aAbilityScoreTypes);
+}
+
 
 void UCombatEntity::SetTacticsEvents(ACombatGameModeBase* aCombatManager)
 {
@@ -56,13 +62,12 @@ void UCombatEntity::StartTurn()
 
 void UCombatEntity::EndTurn()
 {
-    for (TTuple<EAbilityScoreTypes, UCombatAbilityStats*> abilityScore : abilityScoreMap)
+    for (TTuple<EStatTypes, UCombatAbilityStats*> abilityScore : abilityScoreMap)
     {
         abilityScore.Value->TurnEnd();
     }
     inUseCombatWrapper->TurnEnd();
 }
-
 
 
 void UCombatEntity::SetHealth(int aHealth)
@@ -135,7 +140,7 @@ PressTurnReactions UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSki
 
 PressTurnReactions UCombatEntity::IncrementHealth(UCombatEntity* aHealer, FSkillsData aSkill)
 {
-    int AmountOfHpToAdd =  aSkill.damage + (aHealer->abilityScoreMap[EAbilityScoreTypes::Magic]->GetAllStats() / ABILITYSCORE_CONVERSION_RATIO);
+    int AmountOfHpToAdd =  aSkill.damage + (aHealer->abilityScoreMap[EStatTypes::Magic]->GetAllStats() / ABILITYSCORE_CONVERSION_RATIO);
     currentHealth += AmountOfHpToAdd;
     
     if(currentHealth >= maxHealth)

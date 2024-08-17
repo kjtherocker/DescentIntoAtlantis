@@ -5,8 +5,15 @@
 #include "CombatGameModeBase.h"
 #include "PartyHealthbarElement.h"
 #include "PersistentGameinstance.h"
+
 #include "SaveGameData.h"
 
+
+void UPlayerCombatEntity::InitializeStats(EStatTypes aAbilityScoreTypes)
+{
+	abilityScoreMap.Add(aAbilityScoreTypes,  NewObject<UPlayerAbilityStats>());
+	abilityScoreMap[aAbilityScoreTypes]->SetStatType(aAbilityScoreTypes);
+}
 
 void UPlayerCombatEntity::LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet)
 {
@@ -41,10 +48,9 @@ void UPlayerCombatEntity::InitializeAndUnlockCombatClassFromDataTable(FCompleteC
 void UPlayerCombatEntity::SetMainClass(EClasses aClass)
 {
 	mainClass = unlockedClasses[aClass];
-	mainClass->SetClassAttributes();
 
-	currentHealth = mainClass->completeClassData.currentLevelClassData.maxHealth;
-	currentMana   = mainClass->completeClassData.currentLevelClassData.maxMana;
+	currentHealth = mainClass->completeClassData.classStatBase.maxHealth;
+	currentMana   = mainClass->completeClassData.classStatBase.maxMana;
 	
 	elementalStrength = mainClass->completeClassData.ElementalStrength;
 	elementalWeakness = mainClass->completeClassData.ElementalWeakness;
@@ -52,7 +58,6 @@ void UPlayerCombatEntity::SetMainClass(EClasses aClass)
 	SetAbilityScores();
 	SetToDefaultState();
 	playerCompleteDataSet.mainClassData = mainClass->completeClassData;
-	playerCompleteDataSet.currentMainClassLevel = mainClass->completeClassData.currentLevelClassData;
 }
 
 void UPlayerCombatEntity::Reset()
@@ -64,12 +69,12 @@ void UPlayerCombatEntity::Reset()
 void UPlayerCombatEntity::SetToDefaultState()
 {
 	Super::SetToDefaultState();
-	maxHealth         =  mainClass->completeClassData.currentLevelClassData.maxHealth;
+	maxHealth         =  mainClass->completeClassData.classStatBase.maxHealth;
 	currentHealth     = maxHealth;
-	maxMana           =  mainClass->completeClassData.currentLevelClassData.maxMana;
+	maxMana           =  mainClass->completeClassData.classStatBase.maxMana;
 	currentMana       = maxMana;
     isMarkedForDeath  = false;
-	for (TTuple<EAbilityScoreTypes, UCombatAbilityStats*> abilityStats : abilityScoreMap)
+	for (TTuple<EStatTypes, UCombatAbilityStats*> abilityStats : abilityScoreMap)
 	{
 		abilityStats.Value->ResetAbilityscore();
 	}
@@ -79,7 +84,6 @@ void UPlayerCombatEntity::GatherAndSavePlayerCompleteDataSet()
 {
 	playerCompleteDataSet.playerIdentityData    = playerIdentityData;
 	playerCompleteDataSet.mainClassData         = mainClass->completeClassData;
-	playerCompleteDataSet.currentMainClassLevel = mainClass->completeClassData.currentLevelClassData;
 
 	playerCompleteDataSet.unlockedPlayerClasses.Add(mainClass->completeClassData.classIdentifer,mainClass->completeClassData);
 
@@ -89,22 +93,33 @@ void UPlayerCombatEntity::GatherAndSavePlayerCompleteDataSet()
 
 void UPlayerCombatEntity::SetAbilityScores()
 {
-	abilityScoreMap[EAbilityScoreTypes::Strength]->base   =  mainClass->completeClassData.currentLevelClassData.baseStrength;
-	abilityScoreMap[EAbilityScoreTypes::Magic]->base      =  mainClass->completeClassData.currentLevelClassData.baseMagic;
-	abilityScoreMap[EAbilityScoreTypes::Hit]->base        =  mainClass->completeClassData.currentLevelClassData.baseHit;
-	abilityScoreMap[EAbilityScoreTypes::Evasion]->base    =  mainClass->completeClassData.currentLevelClassData.baseEvasion;
-	abilityScoreMap[EAbilityScoreTypes::Defence]->base    =  mainClass->completeClassData.currentLevelClassData.baseDefence;
-	abilityScoreMap[EAbilityScoreTypes::Resistance]->base =  mainClass->completeClassData.currentLevelClassData.baseResistance;
+	if(mainClass != nullptr)
+	{
+		for (int32 i = static_cast<int32>(EStatTypes::None) + 1; i < static_cast<int32>(EStatTypes::Max); ++i)
+		{
+			EStatTypes statType = static_cast<EStatTypes>(i);
+		
+			if(statType == EStatTypes::None)
+			{
+				continue;
+			}
+        
+			UPlayerAbilityStats* PlayerStats = Cast<UPlayerAbilityStats>(abilityScoreMap[statType]);
+			PlayerStats->AddClassStatBase(mainClass->completeClassData);
+
+			abilityScoreMap[statType] = PlayerStats;
+		}
+	}
 }
 
 float UPlayerCombatEntity::GetHealthPercentage()
 {
-	return  (float)currentHealth /  (float)mainClass->completeClassData.currentLevelClassData.maxHealth;
+	return  (float)currentHealth /  (float)maxHealth;
 }
 
 float UPlayerCombatEntity::GetManaPercentage()
 {
-	return (float)currentMana / (float)mainClass->completeClassData.currentLevelClassData.maxMana;
+	return (float)currentMana / (float)maxMana;
 }
 
 float UPlayerCombatEntity::GetSyncPercentage()
@@ -115,7 +130,43 @@ float UPlayerCombatEntity::GetSyncPercentage()
 float UPlayerCombatEntity::GetMainClassEXPPercentage()
 {
 	float expCurrent    = mainClass->experience;
-	float expNextLevel  = mainClass->completeClassData.currentLevelClassData.expToNextClassLevel;
+	float expNextLevel  = 1;
 	float expPercentage = expCurrent / expNextLevel;
 	return expPercentage;
 }
+
+void UPlayerCombatEntity::LevelUp(int aNewLevel)
+{
+
+	for (int32 i = static_cast<int32>(EStatTypes::None) + 1; i < static_cast<int32>(EStatTypes::Max); ++i)
+	{
+		EStatTypes statType = static_cast<EStatTypes>(i);
+		UPlayerAbilityStats* PlayerStats = Cast<UPlayerAbilityStats>(abilityScoreMap[statType]);
+		PlayerStats->SetStat(playerIdentityData,aNewLevel);
+
+		abilityScoreMap[statType] = PlayerStats;
+	}
+	
+
+	//if(completeClassData.unlockableSkillByLevel.Contains(completeClassData.currentLevel))
+	//{
+	//	ESkillIDS skillName = completeClassData.unlockableSkillByLevel[completeClassData.currentLevel];
+	//	USkillBase* newSkill = skillFactory->GetSkill(skillName);
+	//	attachedCombatEntity->playerCompleteDataSet.skillSlots.Add(skillName);
+	//	classSkills.Add(newSkill);
+	//}
+	
+	maxHealth     = 5 * aNewLevel;
+	maxMana       = 5 * aNewLevel;
+	currentHealth = maxHealth;
+	currentMana   = maxMana;
+
+	SetAbilityScores();
+	GatherAndSavePlayerCompleteDataSet();
+
+	hasHealthOrManaValuesChanged.Broadcast();
+
+	
+}
+
+

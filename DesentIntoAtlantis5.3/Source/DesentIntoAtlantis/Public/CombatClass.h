@@ -23,8 +23,6 @@ struct DESENTINTOATLANTIS_API FClassData :public  FCombatEntityData
 {
 	GENERATED_USTRUCT_BODY()
 	
-	UPROPERTY( EditAnywhere )
-	int expToNextClassLevel;
 };
 
 USTRUCT(Atomic)
@@ -39,7 +37,7 @@ struct DESENTINTOATLANTIS_API FCompleteClassData  :public  FTableRowBase
 	EClasses classIdentifer;
 
 	UPROPERTY( EditAnywhere )
-	TArray<FClassData> classLevels;
+	FClassData classBaseStat;
 
 	UPROPERTY( EditAnywhere )
 
@@ -53,7 +51,7 @@ struct DESENTINTOATLANTIS_API FCompleteClassData  :public  FTableRowBase
 	TArray<FSkillsData> syncSkills;
 	
 	UPROPERTY()
-	FClassData currentLevelClassData;
+	FClassData classStatBase;
 	
 	UPROPERTY()
 	int currentLevel;
@@ -98,9 +96,7 @@ public:
 	
 	bool AddExperience(int aExperience);
 	void CreateAllClassSkillsForLevel(FCompleteClassData aCompleteClassData);
-	void SetClassLevel(int aInitalLevel);
-	void SetClassAttributes();
-	FClassData Levelup();
+
 	int experience;
 };
 
