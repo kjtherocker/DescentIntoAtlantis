@@ -1436,3 +1436,72 @@ LogConfig: Set CVar [[r.Shadow.DetectVertexShaderLayerAtRuntime:1]]
 [2024.09.02-16.03.20:955][896]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=2
 [2024.09.02-16.03.20:972][896]LogUObjectHash: Compacting FUObjectHashTables data took   0.62ms
 [2024.09.02-16.03.20:997][897]LogPlayLevel: Display: Destroying online subsystem :Context_1
+[2024.09.02-16.04.16:351][348]LogDerivedDataCache: C:/Users/kylej/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:01.093 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 1191 files in 1977 folders with total size 68 MiB.
+[2024.09.02-16.04.52:347][410]LogAssetEditorSubsystem: Opening Asset editor for DataTable /Game/Datatables/Combat/DT_PartyExperienceTable.DT_PartyExperienceTable
+[2024.09.02-16.05.21:444][561]LogAssetEditorSubsystem: Opening Asset editor for DataTable /Game/Datatables/Combat/DT_Enemys.DT_Enemys
+[2024.09.02-16.05.21:555][562]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.09.02-16.05.21:604][563]LogShaderCompilers: Display: ================================================
+[2024.09.02-16.05.21:604][563]LogShaderCompilers: Display: === FShaderJobCache stats ===
+[2024.09.02-16.05.21:604][563]LogShaderCompilers: Display: Total job queries 12, among them cache hits 4 (33.33%)
+[2024.09.02-16.05.21:604][563]LogShaderCompilers: Display: Tracking 8 distinct input hashes that result in 7 distinct outputs (87.50%)
+[2024.09.02-16.05.21:604][563]LogShaderCompilers: Display: RAM used: 32.90 KiB of 1.60 GiB budget. Usage: 0.00%
+[2024.09.02-16.05.21:604][563]LogShaderCompilers: Display: === Shader Compilation stats ===
+[2024.09.02-16.05.21:605][563]LogShaderCompilers: Display: Shaders Compiled: 0
+[2024.09.02-16.05.21:605][563]LogShaderCompilers: Display: Jobs assigned 0, completed 0 (0%)
+[2024.09.02-16.05.21:605][563]LogShaderCompilers: Display: Time at least one job was in flight (either pending or executed): 0.00 s
+[2024.09.02-16.05.21:605][563]LogShaderCompilers: Display: ================================================
+[2024.09.02-16.07.52:443][  9]LogAssetEditorSubsystem: Opening Asset editor for DataTable /Game/Datatables/Dialogue/DT_AllDialogueActors.DT_AllDialogueActors
+[2024.09.02-16.08.16:728][877]LogContentBrowser: Attempting asset rename: DT_AllDialogueActors -> DT_DialogueInWorldActors
+[2024.09.02-16.08.16:809][877]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2024.09.02-16.08.16:869][877]LogPackageLocalizationCache: Processed 47 localized package path(s) for 1 prioritized culture(s) in 0.005537 seconds
+[2024.09.02-16.08.16:872][877]LogSavePackage: Moving output files for package: /Game/PersistentObjects/BP_PersistentGameInstance
+[2024.09.02-16.08.16:872][877]LogSavePackage: Moving '../../../../../../Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Saved/BP_PersistentGameInstance19CAB49C4B54FFDD763473A995CD347B.tmp' to '../../../../../../Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/PersistentObjects/BP_PersistentGameInstance.uasset'
+[2024.09.02-16.08.16:874][877]LogSavePackage: Moving output files for package: /Game/Datatables/Dialogue/DT_DialogueInWorldActors
+[2024.09.02-16.08.16:875][877]LogSavePackage: Moving '../../../../../../Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Saved/DT_DialogueInWorldActors705763E14851D1BEFDE532ADC3BA464F.tmp' to '../../../../../../Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Content/Datatables/Dialogue/DT_DialogueInWorldActors.uasset'
+[2024.09.02-16.08.16:888][877]LogFileHelpers: InternalPromptForCheckoutAndSave took 77 ms
+[2024.09.02-16.08.16:905][877]LogUObjectHash: Compacting FUObjectHashTables data took   0.59ms
+[2024.09.02-16.08.16:909][877]LogUObjectHash: Compacting FUObjectHashTables data took   0.58ms
+[2024.09.02-16.08.16:913][877]LogUObjectHash: Compacting FUObjectHashTables data took   0.29ms
+[2024.09.02-16.08.16:916][877]AssetCheck: New page: Asset Save: multiple assets
+[2024.09.02-16.08.16:916][877]LogContentValidation: Display: Validating /Script/Engine.Blueprint /Game/PersistentObjects/BP_PersistentGameInstance.BP_PersistentGameInstance
+[2024.09.02-16.08.16:916][877]LogContentValidation: Display: Validating /Script/Engine.DataTable /Game/Datatables/Dialogue/DT_DialogueInWorldActors.DT_DialogueInWorldActors
+[2024.09.02-16.09.00:881][113]LogContentBrowser: Deferred new asset folder creation: NewFolder
+[2024.09.02-16.09.00:900][113]LogContentBrowser: Creating deferred item: NewFolder
+[2024.09.02-16.09.00:908][114]LogContentBrowser: Renaming the item being created (Deferred Item: NewFolder).
+[2024.09.02-16.09.05:377][644]LogContentBrowser: Attempting asset rename: NewFolder -> Behavior
+[2024.09.02-16.09.05:378][644]LogContentBrowser: End creating deferred item NewFolder
+[2024.09.02-16.09.08:116][935]LogSlate: Warning: Unable to rasterize '../../../Engine/Content/Editor/Slate/Starship/AssetIcons/SpecularProfile_64.svg'. File could not be found
+[2024.09.02-16.09.19:141][842]LogSlate: Window 'Pick Schema for State Tree' being destroyed
+[2024.09.02-16.09.19:151][842]LogContentBrowser: Deferred new asset file creation: NewStateTree
+[2024.09.02-16.09.19:155][842]LogContentBrowser: Creating deferred item: NewStateTree
+[2024.09.02-16.09.19:172][844]LogContentBrowser: Renaming the item being created (Deferred Item: NewStateTree).
+[2024.09.02-16.09.19:791][904]LogContentBrowser: Attempting asset rename: NewStateTree -> NewStateTree
+[2024.09.02-16.09.19:795][904]LogContentBrowser: End creating deferred item NewStateTree
+[2024.09.02-16.09.20:418][978]LogAssetEditorSubsystem: Opening Asset editor for StateTree /Game/Behavior/NewStateTree.NewStateTree
+[2024.09.02-16.09.20:539][978]LogSlate: Took 0.005276 seconds to synchronously load lazily loaded font '../../../Engine/Content/Editor/Slate/Fonts/FontAwesome.ttf' (139K)
+[2024.09.02-16.09.33:682][544]LogStateTreeEditor: StateTreeEditorData /Game/Behavior/NewStateTree.NewStateTree:StateTreeEditorData_0: Fixing outer on state StateTreeState_1.
+[2024.09.02-16.10.10:913][919]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/CodeObjects/AI/BP_TaskPatrol.BP_TaskPatrol
+[2024.09.02-16.10.10:913][919]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.09.02-16.10.10:913][919]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.09.02-16.10.10:916][919]LogSlate: Warning: The command 'BlueprintEditorSpawnNodes.AddActorRefAction->CommandInfo' has the same default chord as 'BlueprintEditorSpawnNodes.(Class=/Script/BlueprintGraph.K2Node_Knot Key=R Shift=false Ctrl=false Alt=false)' [R]
+[2024.09.02-16.10.16:707][516]LogWorld: UWorld::CleanupWorld for World_1, bSessionEnded=true, bCleanupResources=true
+[2024.09.02-16.10.16:707][516]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2024.09.02-16.10.16:725][516]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/CodeObjects/AI/BP_TaskPatrol.BP_TaskPatrol
+[2024.09.02-16.10.16:725][516]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.09.02-16.10.16:726][516]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.09.02-16.10.17:415][516]LogSlate: Took 0.004966 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf' (158K)
+[2024.09.02-16.10.20:241][838]LogSceneOutliner: Outliner Column Item Label does not have a localizable name, please specify one to FSceneOutlinerColumnInfo
+[2024.09.02-16.10.20:241][838]LogSceneOutliner: Outliner Column Type does not have a localizable name, please specify one to FSceneOutlinerColumnInfo
+[2024.09.02-16.10.22:508][ 88]LogSceneOutliner: Outliner Column Item Label does not have a localizable name, please specify one to FSceneOutlinerColumnInfo
+[2024.09.02-16.10.22:508][ 88]LogSceneOutliner: Outliner Column Type does not have a localizable name, please specify one to FSceneOutlinerColumnInfo
+[2024.09.02-16.13.19:430][843]LogUObjectHash: Compacting FUObjectHashTables data took   1.46ms
+[2024.09.02-16.13.19:431][843]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Map/MainMenu' took 0.020
+[2024.09.02-16.13.19:431][843]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/Datatables/Combat/DT_Enemys] ([1] browsable assets)...
+[2024.09.02-16.13.19:431][843]OBJ SavePackage: Finished generating thumbnails for package [/Game/Datatables/Combat/DT_Enemys]
+[2024.09.02-16.13.19:434][843]LogSavePackage: Moving output files for package: /Temp/Autosaves/Game/Datatables/Combat/DT_Enemys_Auto1
+[2024.09.02-16.13.19:434][843]LogSavePackage: Moving '../../../../../../Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Saved/DT_Enemys_Auto114E1F9D048FC9542B87D228DC863C1A2.tmp' to '../../../../../../Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Saved/Autosaves/Game/Datatables/Combat/DT_Enemys_Auto1.uasset'
+[2024.09.02-16.13.19:436][843]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/Behavior/NewStateTree] ([1] browsable assets)...
+[2024.09.02-16.13.19:436][843]OBJ SavePackage: Finished generating thumbnails for package [/Game/Behavior/NewStateTree]
+[2024.09.02-16.13.19:439][843]LogSavePackage: Moving output files for package: /Temp/Autosaves/Game/Behavior/NewStateTree_Auto1
+[2024.09.02-16.13.19:439][843]LogSavePackage: Moving '../../../../../../Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Saved/NewStateTree_Auto1031710E8449D03DF4CD274A27F0FCEDF.tmp' to '../../../../../../Users/kylej/Desktop/DescentIntoAtlantis/DesentIntoAtlantis5.3/Saved/Autosaves/Game/Behavior/NewStateTree_Auto1.uasset'
+[2024.09.02-16.13.19:439][843]LogFileHelpers: Auto-saving content packages took 0.008
