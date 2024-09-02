@@ -13,10 +13,19 @@ UPartyManagerSubsystem::UPartyManagerSubsystem()
 {
 }
 
-void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aDataTable, UDataTable* aClassDataTable)
+void UPartyManagerSubsystem::LoadSavedPartyManagerSubsystem(FCompletePartyManagerSubsystemData aPartyManagerSubsystemData)
+{
+	CompletePartyManagerSubsystemData = aPartyManagerSubsystemData;
+	totalExperience                   = aPartyManagerSubsystemData.totalExperience;
+	partyLevel                        = aPartyManagerSubsystemData.partyLevel;
+}
+
+void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UDataTable* aClassDataTable, UDataTable* aPartyExperienceTable)
 {
 
 
+	FPartyExperienceTable PartyExperienceTable = *aPartyExperienceTable->FindRow<FPartyExperienceTable>(FName(FString::FromInt(0)),FString("Searching for Classes"),true) ;
+	LevelExperienceTable = PartyExperienceTable.LevelExpValue;
 	
 	UDataTable* classDatatable = aClassDataTable;
 	for(int i = 0 ; i < classDatatable->GetRowMap().Num(); i ++)
@@ -31,7 +40,7 @@ void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aDataTable, UDataT
 	
 	skillFactory = skillFactorySubsystem;
 
-	UDataTable* datatable = aDataTable;
+	UDataTable* datatable = aPlayerData;
 	for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
 	{
 		playerEntityData.Add(*datatable->FindRow<FPlayerIdentityData>(FName(FString::FromInt(i)),FString("Searching for Players"),true));
@@ -55,9 +64,9 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembers aPlayer)
 	EClasses initalClass = playerIdenityMap[aPlayer].initalClass;
 	if(classDataTables.Contains(initalClass))
 	{
-		PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[initalClass],PartyLevel);
+		PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[initalClass],partyLevel);
 		PlayerCombatEntity->SetMainClass(initalClass);
-		PlayerCombatEntity->LevelUp(PartyLevel);
+		PlayerCombatEntity->LevelUp(partyLevel);
 	}
 	playerCombatEntity.Add(PlayerCombatEntity);
 	playerCombatEntityInfo.Add(aPlayer,PlayerCombatEntity);
@@ -77,6 +86,13 @@ void UPartyManagerSubsystem::AddPlayerToActiveParty(EPartyMembers aPlayer)
 	}
 }
 
+void UPartyManagerSubsystem::SavePartyManager()
+{
+	CompletePartyManagerSubsystemData.partyLevel      = partyLevel;
+	CompletePartyManagerSubsystemData.totalExperience = totalExperience;
+	PartyManagerHasChanged.Broadcast(CompletePartyManagerSubsystemData);
+}
+
 void UPartyManagerSubsystem::SavePlayerEntitys()
 {
 	for(int i = 0 ; i < activePartyEntityData.Num();i++)
@@ -86,11 +102,40 @@ void UPartyManagerSubsystem::SavePlayerEntitys()
 	}
 }
 
+int UPartyManagerSubsystem::GetPartyLevel() const {return partyLevel;}
+
+void UPartyManagerSubsystem::AddPartyExperience(int aExperience)
+{
+	totalExperience +=  aExperience;
+	int currentLevel      = partyLevel;
+	int expToReach        = LevelExperienceTable[partyLevel];
+	
+	while (totalExperience >= expToReach)
+	{
+		currentLevel++;
+		
+		if (LevelExperienceTable.Contains(currentLevel))
+		{
+			expToReach = LevelExperienceTable[currentLevel];
+		}
+		else
+		{
+			// Handle case when no further levels are defined.
+			break;
+		}
+	}
+
+
+	partyLevel = currentLevel;
+	SavePartyManager();
+}
+
 void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, FPlayerCompleteDataSet> aPlayerCompleteDataSets)
 {
 	playerCombatEntity.Empty();
 	playerCombatEntityInfo.Empty();
 	activePartyEntityData.Empty();
+	
 	for (auto& playerCompleteDataSet : aPlayerCompleteDataSets)
 	{
 		FPlayerCompleteDataSet playerCompleteData  = playerCompleteDataSet.Value;
@@ -115,9 +160,9 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 		EClasses mainClassIdentifier = playerCompleteData.mainClassData.classIdentifer;
 		PlayerCombatEntity->SetMainClass(mainClassIdentifier);
 		playerCombatEntity.Add(PlayerCombatEntity);
-		
-
 		playerCombatEntityInfo.Add(partyMember,PlayerCombatEntity);
+
+		PlayerCombatEntity->LevelUp(partyLevel);
 		AddPlayerToActiveParty(partyMember);
 	}
 }

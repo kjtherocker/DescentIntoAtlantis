@@ -19,36 +19,71 @@ class UPlayerCombatEntity;
 class UCombatEntity;
 class USkillFactorySubsystem;
 
+
+
+USTRUCT(Atomic)
+struct DESENTINTOATLANTIS_API FPartyExperienceTable :public  FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+
+	UPROPERTY( EditAnywhere )
+	TMap<int,int> LevelExpValue;
+};
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FCompletePartyManagerSubsystemData:public  FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	UPROPERTY(EditAnywhere)
+	int partyLevel;
+	UPROPERTY(EditAnywhere)
+	int totalExperience;
+};
+
 /**
  * 
  */
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPartyManagerHasChanged,FCompletePartyManagerSubsystemData,partyManagerData);
 UCLASS()
 class DESENTINTOATLANTIS_API UPartyManagerSubsystem : public UGameInstanceSubsystem
 {
 	GENERATED_BODY()
-	
+private:
 	UPartyManagerSubsystem();
 	UPROPERTY()
 	USkillFactorySubsystem* skillFactory;
 
+	TMap<int,int> LevelExperienceTable;
 	TMap<EClasses,FCompleteClassData> classDataTables;
 	UPROPERTY()
 	UPersistentGameinstance* persistentGameInstance;
-public:
 
-	
-	void InitializeDataTable(UDataTable* aDataTable,UDataTable* aClassDataTable);
+	FCompletePartyManagerSubsystemData CompletePartyManagerSubsystemData;
+	int totalExperience = 0;
+	int partyLevel      = 1;
+public:
+	FPartyManagerHasChanged PartyManagerHasChanged;
+
+	void LoadSavedPartyManagerSubsystem(FCompletePartyManagerSubsystemData APartyManagerSubsystemData);
+	void InitializeDataTable(UDataTable* aPlayerData,UDataTable* aClassDataTable, UDataTable* aPartyExperienceTable);
 	void CreatePlayerEntitys(EPartyMembers aPlayer);
 	void AddPlayerToActiveParty(EPartyMembers aPlayer);
 
+	void SavePartyManager();
+
 	void SavePlayerEntitys();
+
+	int GetPartyLevel() const;
+
+	void AddPartyExperience(int aExperience);
 
 	void LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, FPlayerCompleteDataSet> aPlayerCompleteDataSets);
 	void ResetActivePartyToDefaultState();
 	
 	TArray<UPlayerCombatEntity*> ReturnActiveParty();
 
-	int PartyLevel = 4;
+	
 	
 	TMap<EPartyMembers,FPlayerIdentityData> playerIdenityMap;
 	UPROPERTY()

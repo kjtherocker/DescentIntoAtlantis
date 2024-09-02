@@ -48,9 +48,6 @@ void UPlayerCombatEntity::InitializeAndUnlockCombatClassFromDataTable(FCompleteC
 void UPlayerCombatEntity::SetMainClass(EClasses aClass)
 {
 	mainClass = unlockedClasses[aClass];
-
-	currentHealth = mainClass->completeClassData.classStatBase.maxHealth;
-	currentMana   = mainClass->completeClassData.classStatBase.maxMana;
 	
 	elementalStrength = mainClass->completeClassData.ElementalStrength;
 	elementalWeakness = mainClass->completeClassData.ElementalWeakness;
@@ -70,10 +67,10 @@ void UPlayerCombatEntity::SetToDefaultState()
 {
 	Super::SetToDefaultState();
 	maxHealth         =  mainClass->completeClassData.classStatBase.maxHealth;
-	currentHealth     = maxHealth;
+	currentHealth     =  maxHealth;
 	maxMana           =  mainClass->completeClassData.classStatBase.maxMana;
-	currentMana       = maxMana;
-    isMarkedForDeath  = false;
+	currentMana       =  maxMana;
+    isMarkedForDeath  =  false;
 	for (TTuple<EStatTypes, UCombatAbilityStats*> abilityStats : abilityScoreMap)
 	{
 		abilityStats.Value->ResetAbilityscore();
@@ -135,6 +132,8 @@ float UPlayerCombatEntity::GetMainClassEXPPercentage()
 	return expPercentage;
 }
 
+int UPlayerCombatEntity::GetCurrentLevel(){return currentLevel;}
+
 void UPlayerCombatEntity::LevelUp(int aNewLevel)
 {
 
@@ -155,9 +154,11 @@ void UPlayerCombatEntity::LevelUp(int aNewLevel)
 	//	attachedCombatEntity->playerCompleteDataSet.skillSlots.Add(skillName);
 	//	classSkills.Add(newSkill);
 	//}
+
+	currentLevel = aNewLevel;
 	
-	maxHealth     = 5 * aNewLevel;
-	maxMana       = 5 * aNewLevel;
+	maxHealth     = 10 * aNewLevel;
+	maxMana       = 25 * aNewLevel;
 	currentHealth = maxHealth;
 	currentMana   = maxMana;
 

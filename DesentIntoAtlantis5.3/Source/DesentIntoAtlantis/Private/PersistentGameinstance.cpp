@@ -48,11 +48,13 @@ void UPersistentGameinstance::Init()
 	}
 	
 	if(dataTables.Contains(EDataTableTypes::PlayerCharacters) &&
-	dataTables.Contains(EDataTableTypes::Classes))
+	dataTables.Contains(EDataTableTypes::Classes) &&
+	dataTables.Contains(EDataTableTypes::PartyExperienceTable))
 	{
 		if(dataTables[EDataTableTypes::PlayerCharacters] != nullptr)
 		{
-			partyManagerSubsystem->InitializeDataTable(dataTables[EDataTableTypes::PlayerCharacters], dataTables[EDataTableTypes::Classes]);
+			partyManagerSubsystem->InitializeDataTable(dataTables[EDataTableTypes::PlayerCharacters], dataTables[EDataTableTypes::Classes],
+				dataTables[EDataTableTypes::PartyExperienceTable]);
 		}
 	}
 

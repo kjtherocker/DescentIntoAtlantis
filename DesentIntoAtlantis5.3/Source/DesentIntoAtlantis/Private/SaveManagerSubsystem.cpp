@@ -20,6 +20,7 @@ void USaveManagerSubsystem::InitializeSessionSave(USaveGameData* aSessionSave)
 	aSessionSave->SubscribeUpdateCompleteProgressionData(persistentGameinstance->levelProgressionSubsystem);
 	aSessionSave->SubScribeToUpdateLevelIdentifier(persistentGameinstance);
 	aSessionSave->SubScribeToUpdateEnemyBestiary(persistentGameinstance->enemyFactorySubSystem);
+	aSessionSave->SubscribeToUpdatePartyManager(persistentGameinstance->partyManagerSubsystem);
 }
 
 void USaveManagerSubsystem::InitializeSessionSavePlayer(AFloorPlayerPawn* aFloorPawn)
@@ -68,11 +69,16 @@ void USaveManagerSubsystem::LoadSaveDataAndTransitionToMap(FString saveGameName)
 	USaveGameData* LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(saveGameName,0));
 	SessionSaveGameObject = LoadedSaveGameObject;
 	InitializeSessionSave(SessionSaveGameObject);
+	//Need to load the party Manager itself first
+	persistentGameinstance->partyManagerSubsystem->LoadSavedPartyManagerSubsystem(SessionSaveGameObject->completePartyManagerData);
 	persistentGameinstance->partyManagerSubsystem->LoadAndCreateAllPlayerEntitys(LoadedSaveGameObject->playerCompleteDataSet);
+	
 	persistentGameinstance->EventManagerSubSystem->LoadSavedFloorEventData(LoadedSaveGameObject->eventManagerData);
 	persistentGameinstance->levelProgressionSubsystem->LoadCompleteProgressionData(LoadedSaveGameObject->completeProgressionData);
 	persistentGameinstance->levelProgressionSubsystem->SetCompleteFloorPawnData(SessionSaveGameObject->completeFloorPawnData);
+	
 	persistentGameinstance->enemyFactorySubSystem->LoadSavedBestiary(SessionSaveGameObject->enemyBestiaryData);
+
 	persistentGameinstance->LoadLevel(SessionSaveGameObject->currentLevel);
 
 	

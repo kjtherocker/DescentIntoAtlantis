@@ -374,20 +374,16 @@ void ACombatGameModeBase::EnemyStartTurn()
 
 void ACombatGameModeBase::TriggerLevelupMenu(TArray<UPlayerCombatEntity*> aPlayerCombatEntity, int aExperience)
 {
-	TArray<UPlayerCombatEntity*> combatEntitysToLevelup;
-	TArray<UPlayerCombatEntity*> endingPartyMembersInCombat = aPlayerCombatEntity;
-	for(int i = 0 ; i < endingPartyMembersInCombat.Num();i++)
-	{
-		if(endingPartyMembersInCombat[i]->mainClass->AddExperience( aExperience))
-		{
-			combatEntitysToLevelup.Add(endingPartyMembersInCombat[i]);
-		}
-	}
+	TArray<UPlayerCombatEntity*> combatEntitysToLevelup= aPlayerCombatEntity;
+
+	int previousPartyLevel = partyManager->GetPartyLevel();
+	partyManager->AddPartyExperience(aExperience);
+	int newPartyLevel = partyManager->GetPartyLevel();
 	
-	if(combatEntitysToLevelup.Num() > 0)
+	if(newPartyLevel > previousPartyLevel)
 	{
 		ULevelupView * levelUpView = (ULevelupView*)InGameHUD->PushAndGetView(EViews::Levelup,    EUiType::ActiveUi);
-		levelUpView->InitializeCombatEntitysToLevelUp(combatEntitysToLevelup,triggerNextEventStage,EFloorEventStates::PostCombatLevelSwap);
+		levelUpView->InitializeCombatEntitysToLevelUp(newPartyLevel,combatEntitysToLevelup,triggerNextEventStage,EFloorEventStates::PostCombatLevelSwap);
 	}
 	else
 	{

@@ -11,61 +11,69 @@
 #include "SkillBarElement.h"
 
 
-void ULevelupView::InitializeCombatEntitysToLevelUp(TArray<UPlayerCombatEntity*> aPlayerCombatEntitys,FTriggerNextEventStage  aTriggerNextEventStage, EFloorEventStates aTriggerOnEnd)
+void ULevelupView::InitializeCombatEntitysToLevelUp(int newLevel,TArray<UPlayerCombatEntity*> aPlayerCombatEntitys,FTriggerNextEventStage  aTriggerNextEventStage, EFloorEventStates aTriggerOnEnd)
 {
 	InitializeInputComponent();
+	
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &ULevelupView::ActivateNextLevelup  );
+	
 	combatEntitysToLevelup = aPlayerCombatEntitys;
-	ActivateNextLevelup();
+	currentPlayerLevel = newLevel;
+
 	triggerNextEventStage = aTriggerNextEventStage;
 	triggerOnEnd = aTriggerOnEnd;
+	
+	ActivateNextLevelup();
 }
 
-void ULevelupView::SetupLevelupView(UPlayerCombatEntity* aPlayerCombatEntity)
+void ULevelupView::SetupLevelupView(int newLevel, UPlayerCombatEntity* aPlayerCombatEntity)
 {
 	FCompleteClassData completeClassData = aPlayerCombatEntity->mainClass->completeClassData;
-	TMap<EStatTypes, UCombatAbilityStats*> currentClassLevel = aPlayerCombatEntity->abilityScoreMap;
-	aPlayerCombatEntity->LevelUp(4);
+
+	int previousLevel = aPlayerCombatEntity->GetCurrentLevel();
+	FPlayerIdentityData PlayerIdentityData = aPlayerCombatEntity->playerIdentityData;
+	
+	aPlayerCombatEntity->LevelUp(newLevel);
 	TMap<EStatTypes, UCombatAbilityStats*> nextClassLevel    = aPlayerCombatEntity->abilityScoreMap;
 
-	if(completeClassData.unlockableSkillByLevel.Contains(completeClassData.currentLevel+ 1))
-	{
-		ESkillIDS newSkillName = completeClassData.unlockableSkillByLevel[completeClassData.currentLevel + 1];
-		FSkillsData newSKill = persistentGameinstance->skillFactorySubsystem->GetSkill(newSkillName)->skillData;
-		BW_Skillbar->SetSkill(newSKill);
+	//if(completeClassData.unlockableSkillByLevel.Contains(completeClassData.currentLevel+ 1))
+	//{
+	//	ESkillIDS newSkillName = completeClassData.unlockableSkillByLevel[completeClassData.currentLevel + 1];
+	//	FSkillsData newSKill = persistentGameinstance->skillFactorySubsystem->GetSkill(newSkillName)->skillData;
+	//	BW_Skillbar->SetSkill(newSKill);
+//
+	//	BW_LevelupConversationalText->SetText(FText(FText::FromString(newSKill.skillDescription)));
+	//}
 
-		BW_LevelupConversationalText->SetText(FText(FText::FromString(newSKill.skillDescription)));
-	}
-
-	
 	BW_CharacterPortrait->SetBrushFromTexture(aPlayerCombatEntity->playerIdentityData.fullBodyCharacterPortrait);
 	
-	BW_PreviousLevelNumber->SetText(FText(FText::AsNumber(completeClassData.currentLevel )));
-	BW_CurrentLevelNumber->SetText(FText(FText::AsNumber(completeClassData.currentLevel + 1)));
+	BW_PreviousLevelNumber->SetText(FText(FText::AsNumber(previousLevel)));
+	BW_CurrentLevelNumber->SetText(FText(FText::AsNumber(newLevel)));
+
 	
 	BW_StrengthLevelpanel->SetLevelupPanelElement(FString("Str"),
-		FString::FromInt(currentClassLevel[EStatTypes::Strength]->base),
-		  FString::FromInt(nextClassLevel[EStatTypes::Strength]->base));
+		FString::FromInt(Cast<UPlayerAbilityStats>(nextClassLevel[EStatTypes::Strength])->GetStatByLevel(PlayerIdentityData,previousLevel)),
+		   FString::FromInt(nextClassLevel[EStatTypes::Strength]->base));
 
 	BW_MagicLevelPanel->SetLevelupPanelElement(FString("Mag"),
-	FString::FromInt(currentClassLevel[EStatTypes::Magic]->base),
-	  FString::FromInt(nextClassLevel[EStatTypes::Magic]->base));
+	FString::FromInt(Cast<UPlayerAbilityStats>(nextClassLevel[EStatTypes::Magic])->GetStatByLevel(PlayerIdentityData,previousLevel)),
+	   FString::FromInt(nextClassLevel[EStatTypes::Magic]->base));
 
 	BW_HitLevelPanel->SetLevelupPanelElement(FString("Hit"),
-	FString::FromInt(currentClassLevel[EStatTypes::Hit]->base),
-	  FString::FromInt(nextClassLevel[EStatTypes::Hit]->base));
+	FString::FromInt(Cast<UPlayerAbilityStats>(nextClassLevel[EStatTypes::Hit])->GetStatByLevel(PlayerIdentityData,previousLevel)),
+	   FString::FromInt(nextClassLevel[EStatTypes::Hit]->base));
 
 	BW_EvasionLevelPanel->SetLevelupPanelElement(FString("Eva"),
-	FString::FromInt(currentClassLevel[EStatTypes::Evasion]->base),
-	  FString::FromInt(nextClassLevel[EStatTypes::Evasion]->base));
+	FString::FromInt(Cast<UPlayerAbilityStats>(nextClassLevel[EStatTypes::Evasion])->GetStatByLevel(PlayerIdentityData,previousLevel)),
+	   FString::FromInt(nextClassLevel[EStatTypes::Evasion]->base));
 
 	BW_DefencePanel->SetLevelupPanelElement(FString("Def"),
-	FString::FromInt(currentClassLevel[EStatTypes::Defence]->base),
-	  FString::FromInt(nextClassLevel[EStatTypes::Defence]->base));
+	FString::FromInt(Cast<UPlayerAbilityStats>(nextClassLevel[EStatTypes::Defence])->GetStatByLevel(PlayerIdentityData,previousLevel)),
+	   FString::FromInt(nextClassLevel[EStatTypes::Defence]->base));
 	
 	BW_ResistancePanel->SetLevelupPanelElement(FString("Res"),
-	FString::FromInt(currentClassLevel[EStatTypes::Resistance]->base),
-	  FString::FromInt(nextClassLevel[EStatTypes::Resistance]->base));
+	FString::FromInt(Cast<UPlayerAbilityStats>(nextClassLevel[EStatTypes::Resistance])->GetStatByLevel(PlayerIdentityData,previousLevel)),
+	   FString::FromInt(nextClassLevel[EStatTypes::Resistance]->base));
 }
 
 void ULevelupView::ActivateNextLevelup()
@@ -78,7 +86,7 @@ void ULevelupView::ActivateNextLevelup()
 		return;
 	}
 	
-	SetupLevelupView(combatEntitysToLevelup[0]);
+	SetupLevelupView(currentPlayerLevel,combatEntitysToLevelup[0]);
 	combatEntitysToLevelup.RemoveAt(0);
 	
 }

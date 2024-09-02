@@ -84,6 +84,8 @@ public:
 	
 	inline static const float ABILITYSCORE_CONVERSION_RATIO = 3;
 
+	int previousBase = 0;
+
 	virtual int  GetAllStats() override
 	{
 		int classBase = GetClassBases();
@@ -93,10 +95,15 @@ public:
 
 	void SetStat(FPlayerIdentityData aPlayerIdentityData,int aCurrentLevel)
 	{
+		base = GetStatByLevel(aPlayerIdentityData,aCurrentLevel);
+	}
+
+	int GetStatByLevel(FPlayerIdentityData aPlayerIdentityData,int aCurrentLevel)
+	{
 		int baseGrowth = aPlayerIdentityData.playerStatGrowths.baseStats[StatType] ;
 		int baseStat   = aPlayerIdentityData.playerStatBases.baseStats[StatType];
 		
-		base = baseStat + (aCurrentLevel / baseGrowth);
+		return baseStat + (aCurrentLevel / baseGrowth);
 	}
 
 	void AddClassStatBase(FCompleteClassData aCompleteClassData)
@@ -133,6 +140,8 @@ private:
 	UPROPERTY()
 	USkillFactorySubsystem* skillFactory;
 
+	UPROPERTY()
+	int currentLevel;
 public:
 	
 	UPROPERTY()
@@ -170,6 +179,8 @@ public:
 	virtual float GetManaPercentage()   override;
 	virtual float GetSyncPercentage() override;
 	virtual float GetMainClassEXPPercentage();
+
+	virtual int GetCurrentLevel();
 	
 	virtual void LevelUp(int aNewLevel);
 };

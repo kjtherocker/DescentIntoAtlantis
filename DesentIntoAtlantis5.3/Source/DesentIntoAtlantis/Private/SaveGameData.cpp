@@ -4,6 +4,7 @@
 #include "SaveGameData.h"
 
 #include "FloorPlayerPawn.h"
+#include "PartyManagerSubsystem.h"
 #include "PersistentGameinstance.h"
 
 
@@ -27,6 +28,11 @@ void USaveGameData::UpdateEnemyBestiaryData(FCompleteBestiaryData aCompleteBesti
 	enemyBestiaryData = aCompleteBestiaryData;
 }
 
+void USaveGameData::UpdatePartyLevel(FCompletePartyManagerSubsystemData aPartyManagerSubsystem)
+{
+	completePartyManagerData = aPartyManagerSubsystem;
+}
+
 void USaveGameData::SubscribeUpdateFloorPlayerCompleteData(AFloorPlayerPawn* aFloorPawn)
 {
 	aFloorPawn->playerhasMovedDelegate.AddDynamic(this,&USaveGameData::UpdateFloorPawnData);
@@ -46,6 +52,11 @@ void USaveGameData::SubScribeToUpdateLevelIdentifier(UPersistentGameinstance* aP
 void USaveGameData::SubScribeToUpdateEnemyBestiary(UEnemyFactorySubSystem* aEnemyFactorySubsystem)
 {
 	aEnemyFactorySubsystem->bestiaryDataHasChanged.AddDynamic(this,&USaveGameData::UpdateEnemyBestiaryData);
+}
+
+void USaveGameData::SubscribeToUpdatePartyManager(UPartyManagerSubsystem* aPartyManagerSubsystem)
+{
+	aPartyManagerSubsystem->PartyManagerHasChanged.AddDynamic(this,&USaveGameData::UpdatePartyLevel);
 }
 
 void USaveGameData::AddPlayerCompleteDataSet(EPartyMembers aPartyMember,FPlayerCompleteDataSet aPlayerCompleteDataSet)
