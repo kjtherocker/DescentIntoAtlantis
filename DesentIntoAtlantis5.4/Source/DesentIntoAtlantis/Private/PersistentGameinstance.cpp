@@ -8,6 +8,7 @@
 #include "PartyManagerSubsystem.h"
 #include "TutorialManagerSubsystem.h"
 #include "DialogueFactorySubsystem.h"
+#include "GodManagerSubsystem.h"
 #include "LevelProgressionSubsystem.h"
 #include "SaveGameData.h"
 #include "SaveManagerSubsystem.h"
@@ -24,6 +25,7 @@ void UPersistentGameinstance::Init()
 {
 	Super::Init();
 
+	godManagerSubsystem       = GetSubsystem<UGodManagerSubsystem>();
 	partyManagerSubsystem     = GetSubsystem<UPartyManagerSubsystem>();
 	skillFactorySubsystem     = GetSubsystem<USkillFactorySubsystem>();
 	enemyFactorySubSystem     = GetSubsystem<UEnemyFactorySubSystem>();
@@ -35,6 +37,8 @@ void UPersistentGameinstance::Init()
 
 	skillFactorySubsystem->InitializeDatabase(dataTables[EDataTableTypes::Skills]);
 	levelProgressionSubsystem->InitializeSubsystem(this);
+
+	godManagerSubsystem->InitializeSubsystem();
 
 	if(dataTables.Contains(EDataTableTypes::Enemys) &&
    dataTables.Contains(EDataTableTypes::EnemyGroups))

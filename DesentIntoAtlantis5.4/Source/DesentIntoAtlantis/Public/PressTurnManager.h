@@ -7,7 +7,7 @@
 
 class ACombatGameModeBase;
 class AAtlantisGameModeBase;
-enum class PressTurnReactions;
+enum class EPressTurnReactions;
 class USkillBase;
 enum class ECharactertype;
 class UTurnCounterView;
@@ -62,7 +62,7 @@ public:
 	
 
 	
-	void ProcessTurn(TArray<PressTurnReactions> aAllTurnReactions);
+	void ProcessTurn(TArray<EPressTurnReactions> aAllTurnReactions);
 
 
 

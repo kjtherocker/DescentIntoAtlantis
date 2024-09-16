@@ -185,9 +185,9 @@ public:
 	virtual int CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
 	virtual void Reset();
 	virtual void AlimentDecrementHealth(int aDamage);
-	virtual PressTurnReactions DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill);
-	virtual PressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
-	virtual PressTurnReactions ApplyBuff(      UCombatEntity* aBuffer,   FSkillsData aSkill);
+	virtual EPressTurnReactions DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill);
+	virtual EPressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
+	virtual EPressTurnReactions ApplyBuff(      UCombatEntity* aBuffer,   FSkillsData aSkill);
 	virtual void DecrementMana(int aDecrementBy);
 	virtual ECharactertype GetCharactertype();
 	virtual void Resurrection();

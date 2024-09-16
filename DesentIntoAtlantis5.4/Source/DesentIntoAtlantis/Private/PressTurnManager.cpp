@@ -69,13 +69,13 @@ int UPressTurnManager::GetNumberOfActivePressTurns()
 	return activePressTurns.Num();
 }
 
-void UPressTurnManager::ProcessTurn(TArray<PressTurnReactions> aAllTurnReactions)
+void UPressTurnManager::ProcessTurn(TArray<EPressTurnReactions> aAllTurnReactions)
 {
 	//Null Skills Consume all press turns completely
 
-	for (PressTurnReactions reaction : aAllTurnReactions)
+	for (EPressTurnReactions reaction : aAllTurnReactions)
 	{
-		if (reaction == PressTurnReactions::Null)
+		if (reaction == EPressTurnReactions::Null)
 		{
 			ConsumeTurn(activePressTurns.Num());
 			return;
@@ -85,10 +85,10 @@ void UPressTurnManager::ProcessTurn(TArray<PressTurnReactions> aAllTurnReactions
         
 	//If Dodged Consume two press turns if empowered only take the empowered and the next token
         
-	for (PressTurnReactions reaction : aAllTurnReactions)
+	for (EPressTurnReactions reaction : aAllTurnReactions)
 	{
-		if (reaction == PressTurnReactions::Dodge ||
-			reaction == PressTurnReactions::Strong )
+		if (reaction == EPressTurnReactions::Dodge ||
+			reaction == EPressTurnReactions::Strong )
 		{
 			ConsumeTurn(2);
 			return;
@@ -97,10 +97,10 @@ void UPressTurnManager::ProcessTurn(TArray<PressTurnReactions> aAllTurnReactions
         
 	//If weakness is hit correctly then the turn that was used will be empowered
         
-	for (PressTurnReactions reaction : aAllTurnReactions)
+	for (EPressTurnReactions reaction : aAllTurnReactions)
 	{
-		if (reaction == PressTurnReactions::Weak || 
-			reaction == PressTurnReactions::Pass)
+		if (reaction == EPressTurnReactions::Weak || 
+			reaction == EPressTurnReactions::Pass)
 		{
 			EmpowerTurn();
 			return;

@@ -23,30 +23,30 @@ void UAilment_Fear::Initialize(FSkillsData aSkillData)
 	Super::Initialize(aSkillData);
 }
 
-PressTurnReactions USkillBase::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+EPressTurnReactions USkillBase::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
-	return PressTurnReactions::Normal;
+	return EPressTurnReactions::Normal;
 }
 
 // Each of these are structs that inherit from Skill_Base
-PressTurnReactions USkillAttack::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+EPressTurnReactions USkillAttack::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
 	return aVictim->DecrementHealth(aAttacker,skillData);
 }
 
-PressTurnReactions USyncSkill::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+EPressTurnReactions USyncSkill::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
 	return aVictim->DecrementHealth(aAttacker,skillData);
 }
 
 
-PressTurnReactions USkillAlimentAttack::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+EPressTurnReactions USkillAlimentAttack::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
 	aVictim->InflictAilment(NewObject<UCalculateDamage_Fear>(),ECombatEntityWrapperType::CalculateDamage);
 	return aVictim->DecrementHealth(aAttacker,skillData);
 }
 
-PressTurnReactions USkillAlimentAttackFear::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+EPressTurnReactions USkillAlimentAttackFear::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
 	UCalculateDamage_Fear* calculateDamageFear = NewObject<UCalculateDamage_Fear>();
 	calculateDamageFear->ailmentInfo.statusAilment = EStatusAilments::Fear;
@@ -54,17 +54,17 @@ PressTurnReactions USkillAlimentAttackFear::UseSkill(UCombatEntity* aAttacker, U
 	return aVictim->DecrementHealth(aAttacker,skillData);
 }
 
-PressTurnReactions USkillHeal::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+EPressTurnReactions USkillHeal::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
 	return aVictim->IncrementHealth(aAttacker, skillData);
 }
 
-PressTurnReactions USkillBuff::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+EPressTurnReactions USkillBuff::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
 	return aVictim->ApplyBuff(aAttacker,skillData);
 }
 
-PressTurnReactions USkillDebuff::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+EPressTurnReactions USkillDebuff::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
 	return aVictim->DecrementHealth(aAttacker,skillData);
 }

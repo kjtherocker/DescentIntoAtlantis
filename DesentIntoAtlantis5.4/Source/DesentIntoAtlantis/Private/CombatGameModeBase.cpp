@@ -15,6 +15,7 @@
 #include "CombatCameraPawn.h"
 #include "CommandBoardView.h"
 #include "EnemyPortraitElement.h"
+#include "GodManagerSubsystem.h"
 #include "PlayerCombatEntity.h"
 #include "SoundManager.h"
 #include "TransitionView.h"
@@ -28,6 +29,8 @@ void ACombatGameModeBase::InitializeLevel()
 	FActorSpawnParameters ActorSpawnParameters;
 	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 	ActorSpawnParameters.Owner = this;
+
+	godManagerSubsystem = persistentGameInstance->godManagerSubsystem;
 
 	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
 	combatCamera = Cast<ACombatCameraPawn>(GetWorld()->SpawnActor<AActor>(cameraReference, CAMERA_POSITION, CAMERA_ROTATION,ActorSpawnParameters));
@@ -69,7 +72,7 @@ void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPos
 	
 	TArray<UCombatEntity*> entitySkillsAreUsedOn;
 
-	TArray<PressTurnReactions> turnReactions;
+	TArray<EPressTurnReactions> turnReactions;
 
 	FSkillsData skillsData = aSkill->skillData;
 	
@@ -95,6 +98,8 @@ void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPos
 		
 	}
 
+	DamageEvent MyEvent(100,EPressTurnReactions::Normal,aSkill);
+	godManagerSubsystem->DispatchEvent(&MyEvent);
 	pressTurnManager->ProcessTurn(turnReactions);
 }
 

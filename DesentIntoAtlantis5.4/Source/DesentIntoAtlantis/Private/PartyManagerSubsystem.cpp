@@ -106,6 +106,11 @@ int UPartyManagerSubsystem::GetPartyLevel() const {return partyLevel;}
 
 void UPartyManagerSubsystem::AddPartyExperience(int aExperience)
 {
+	if(partyLevel > LevelExperienceTable.Num())
+	{
+		return;
+	}
+	
 	totalExperience +=  aExperience;
 	int currentLevel      = partyLevel;
 	int expToReach        = LevelExperienceTable[partyLevel];

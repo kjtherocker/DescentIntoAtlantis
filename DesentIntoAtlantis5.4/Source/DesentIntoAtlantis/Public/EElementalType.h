@@ -18,7 +18,7 @@ enum class EElementalType
 };
 
 UENUM()
-enum class  PressTurnReactions
+enum class  EPressTurnReactions
 {
 	Normal,
 	Weak,

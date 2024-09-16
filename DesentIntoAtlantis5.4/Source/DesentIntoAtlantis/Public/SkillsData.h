@@ -161,7 +161,7 @@ class USkillBase : public UObject
 public:
 
 	FSkillsData skillData;
-	virtual PressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim);
+	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim);
 	
 	virtual void Initialize(FSkillsData aSkillData);
 };
@@ -173,7 +173,7 @@ class USkillAttack : public USkillBase
 {
 	GENERATED_BODY()
 
-	virtual PressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
 	
 };
 
@@ -182,7 +182,7 @@ class USyncSkill : public USkillAttack
 {
 	GENERATED_BODY()
 
-	virtual PressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
 	
 };
 
@@ -195,7 +195,7 @@ class USkillAlimentAttack : public USkillAttack
 	UAilment* ailment;
 	UPROPERTY(EditAnywhere)
 	EStatusAilments statusAilments;
-	virtual PressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
 	
 };
 
@@ -203,7 +203,7 @@ UCLASS()
 class USkillAlimentAttackFear: public USkillAttack
 {
 	GENERATED_BODY()
-	virtual PressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
 	
 };
 
@@ -212,7 +212,7 @@ class USkillHeal : public USkillBase
 {
 	GENERATED_BODY()
 
-	virtual PressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
 	
 };
 
@@ -221,7 +221,7 @@ class USkillBuff : public USkillBase
 {
 	GENERATED_BODY()
 	
-	virtual PressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
 	
 };
 
@@ -230,6 +230,6 @@ class USkillDebuff: public USkillBase
 {
 	GENERATED_BODY()
 	
-	virtual PressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
 	
 };
