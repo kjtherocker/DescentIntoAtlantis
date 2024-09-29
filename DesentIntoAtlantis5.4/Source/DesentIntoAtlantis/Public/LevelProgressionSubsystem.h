@@ -25,7 +25,7 @@ struct DESENTINTOATLANTIS_API FNodeMapData
 {
 	GENERATED_BODY()
 	UPROPERTY()
-	FVector2D positionInGrid;
+	FVector2D positionInGrid = FVector2d::Zero();
 	UPROPERTY()
 	bool hasBeenRevealed = false;
 };
@@ -35,9 +35,9 @@ struct DESENTINTOATLANTIS_API FInteractedEnemy
 {
 	GENERATED_BODY()
 	UPROPERTY()
-	FVector2D positionInGrid;
+	FVector2D positionInGrid = FVector2d::Zero();
 	UPROPERTY()
-	bool hasBeenInteracted;
+	bool hasBeenInteracted = false;
 };
 
 
@@ -55,7 +55,7 @@ struct DESENTINTOATLANTIS_API FCompleteEnemyInteractionData
 {
 	GENERATED_BODY()
 	UPROPERTY()
-	EFloorIdentifier floorIdentifier;
+	EFloorIdentifier floorIdentifier = EFloorIdentifier::None;
 	UPROPERTY()
 	TMap<FVector2D,FInteractedEnemy> interactedEnemy;
 };

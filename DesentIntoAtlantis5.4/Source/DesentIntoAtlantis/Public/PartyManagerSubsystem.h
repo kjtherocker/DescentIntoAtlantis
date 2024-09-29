@@ -35,9 +35,9 @@ struct DESENTINTOATLANTIS_API FCompletePartyManagerSubsystemData:public  FTableR
 {
 	GENERATED_USTRUCT_BODY()
 	UPROPERTY(EditAnywhere)
-	int partyLevel;
+	int partyLevel = 0;
 	UPROPERTY(EditAnywhere)
-	int totalExperience;
+	int totalExperience = 0;
 };
 
 /**

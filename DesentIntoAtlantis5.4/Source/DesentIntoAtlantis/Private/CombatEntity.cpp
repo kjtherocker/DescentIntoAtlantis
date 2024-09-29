@@ -3,6 +3,7 @@
 
 #include "CombatEntityWrapper.h"
 #include "CombatGameModeBase.h"
+#include "EElementalType.h"
 #include "SkillFactorySubsystem.h"
 #include "SkillsData.h"
 
@@ -107,17 +108,17 @@ void UCombatEntity::AlimentDecrementHealth(int aDamage)
     }
 }
 
-PressTurnReactions UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
+EPressTurnReactions UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
-    PressTurnReactions reaction = PressTurnReactions::Normal;
+    EPressTurnReactions reaction = EPressTurnReactions::Normal;
 	    
     if (aSkill.elementalType == elementalWeakness)
     {
-        reaction =  PressTurnReactions::Weak;
+        reaction =  EPressTurnReactions::Weak;
     }
     if (aSkill.elementalType ==  elementalStrength)
     {
-        reaction =  PressTurnReactions::Strong;
+        reaction =  EPressTurnReactions::Strong;
     }
 
     currentHealth -= CalculateDamage(aAttacker,aSkill);
@@ -138,7 +139,7 @@ PressTurnReactions UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSki
 }
 
 
-PressTurnReactions UCombatEntity::IncrementHealth(UCombatEntity* aHealer, FSkillsData aSkill)
+EPressTurnReactions UCombatEntity::IncrementHealth(UCombatEntity* aHealer, FSkillsData aSkill)
 {
     int AmountOfHpToAdd =  aSkill.damage + (aHealer->abilityScoreMap[EStatTypes::Magic]->GetAllStats() / ABILITYSCORE_CONVERSION_RATIO);
     currentHealth += AmountOfHpToAdd;
@@ -148,15 +149,15 @@ PressTurnReactions UCombatEntity::IncrementHealth(UCombatEntity* aHealer, FSkill
         currentHealth = maxHealth;
     }
     hasHealthOrManaValuesChanged.Broadcast();
-    return PressTurnReactions::Normal;
+    return EPressTurnReactions::Normal;
 }
 
-PressTurnReactions UCombatEntity::ApplyBuff(UCombatEntity* aBuffer, FSkillsData aSkill)
+EPressTurnReactions UCombatEntity::ApplyBuff(UCombatEntity* aBuffer, FSkillsData aSkill)
 {
      abilityScoreMap[aSkill.ablityScoreToBuffOrDebuff]->AttachAbilityScoreChange(aSkill.abilityScoreChangeDuration,true);
 
 
-    return PressTurnReactions::Normal;
+    return EPressTurnReactions::Normal;
 }
 
 void UCombatEntity::DecrementMana(int aDecrementBy)

@@ -46,7 +46,7 @@ float UEnemyCombatEntity::GetHealthPercentage()
 	return (float)currentHealth / (float)enemyEntityData.maxHealth;
 }
 
-PressTurnReactions UEnemyCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
+EPressTurnReactions UEnemyCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
 	beastiaryData->RevealElementalInfo(aSkill.elementalType);
 	return UCombatEntity::DecrementHealth(aAttacker, aSkill);

@@ -18,6 +18,7 @@ enum class  EDataTableTypes
 	Skills               = 9,
 	DialogueActor        = 10,
 	PartyExperienceTable = 11,
+	ChallengeTable       = 12,
 };
 
 

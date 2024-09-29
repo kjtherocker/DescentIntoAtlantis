@@ -119,7 +119,7 @@ void UCommandBoardView::Escape()
 
 void UCommandBoardView::Pass()
 {
-	TArray<PressTurnReactions> pressTurnReaction;
-	pressTurnReaction.Add(PressTurnReactions::Pass);
+	TArray<EPressTurnReactions> pressTurnReaction;
+	pressTurnReaction.Add(EPressTurnReactions::Pass);
 	combatManager->pressTurnManager->ProcessTurn(pressTurnReaction);
 }

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CombatEntity.h"
 #include "Engine/DataTable.h"
 #include "UObject/NoExportTypes.h"
 #include "EElementalType.h"
@@ -49,8 +50,9 @@ enum class ESkillDamageType
 UENUM()
 enum class ESkillRange
 {
-	Single,
-	Multi,
+	None    = 0,
+	Single  = 1,
+	Multi   = 2,
 };
 
 UENUM(BlueprintType)
@@ -90,40 +92,35 @@ struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
 	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY( EditAnywhere )
-	ESkillIDS skillID;
+	ESkillIDS skillID                    = ESkillIDS::None;
 	
-	UPROPERTY( EditAnywhere )
-	EElementalType elementalType;
-
-	UPROPERTY( EditAnywhere )
-	ESkillDamageType skillDamageType;
-
-	UPROPERTY( EditAnywhere )
-	ESkillType      skillType;
-	
-	UPROPERTY( EditAnywhere )
-	ESkillUsage     skillUsage;
-	
-	UPROPERTY( EditAnywhere )
-	FString skillName;
-	
-	UPROPERTY( EditAnywhere )
-	FString skillDescription;
-
 	UPROPERTY( EditAnywhere )
 	int costToUse;
 	
 	UPROPERTY( EditAnywhere )
 	int damage;
 	
+	UPROPERTY( EditAnywhere )    
+	EElementalType elementalType         = EElementalType::None;
+	UPROPERTY( EditAnywhere )    
+	ESkillDamageType skillDamageType     = ESkillDamageType::None;
+	UPROPERTY( EditAnywhere )    
+	ESkillType      skillType            = ESkillType::None;
+	UPROPERTY( EditAnywhere )    
+	ESkillUsage     skillUsage           = ESkillUsage::None;
+	UPROPERTY( EditAnywhere )    
+	ESkillRange skillRange               = ESkillRange::None;
 	UPROPERTY( EditAnywhere )
-	ESkillRange skillRange;
-
-	UPROPERTY( EditAnywhere )
-	UTexture2D* skillIcon;
+	EStatTypes ablityScoreToBuffOrDebuff = EStatTypes::None;
 	
 	UPROPERTY( EditAnywhere )
-	EStatTypes ablityScoreToBuffOrDebuff;
+	FString skillName;
+	
+	UPROPERTY( EditAnywhere )
+	FString skillDescription;
+	
+	UPROPERTY( EditAnywhere )
+	UTexture2D* skillIcon;
 
 	UPROPERTY( EditAnywhere )
 	int abilityScoreChangeDuration;

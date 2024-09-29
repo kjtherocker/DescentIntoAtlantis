@@ -10,7 +10,7 @@
 #include "UObject/NoExportTypes.h"
 
 #include "CombatGameModeBase.generated.h"
-class UGodManagerSubsystem;
+class UChallengeSubsystem;
 class ACombatCameraPawn;
 class AAtlantisGameModeBase;
 class USkillFactorySubsystem;
@@ -108,7 +108,7 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	ACombatCameraPawn* combatCamera;
 
 	UPROPERTY()
-	UGodManagerSubsystem* godManagerSubsystem;
+	UChallengeSubsystem* godManagerSubsystem;
 	
 public:
 	UPROPERTY(BlueprintAssignable, Category = "Test")

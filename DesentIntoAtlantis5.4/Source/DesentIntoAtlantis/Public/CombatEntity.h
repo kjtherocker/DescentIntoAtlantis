@@ -44,10 +44,10 @@ struct DESENTINTOATLANTIS_API FCombatEntityData :public  FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 	UPROPERTY( EditAnywhere )
-	int maxHealth;
+	int maxHealth = 0;
 	
 	UPROPERTY( EditAnywhere )
-	int maxMana;
+	int maxMana = 0;
 	
 	UPROPERTY( EditAnywhere )
 	TMap< EStatTypes,int> baseStats; 

@@ -15,7 +15,7 @@
 #include "CombatCameraPawn.h"
 #include "CommandBoardView.h"
 #include "EnemyPortraitElement.h"
-#include "GodManagerSubsystem.h"
+#include "ChallengeSubsystem.h"
 #include "PlayerCombatEntity.h"
 #include "SoundManager.h"
 #include "TransitionView.h"
@@ -30,7 +30,7 @@ void ACombatGameModeBase::InitializeLevel()
 	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 	ActorSpawnParameters.Owner = this;
 
-	godManagerSubsystem = persistentGameInstance->godManagerSubsystem;
+	godManagerSubsystem = persistentGameInstance->challengeManagerSubsystem;
 
 	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
 	combatCamera = Cast<ACombatCameraPawn>(GetWorld()->SpawnActor<AActor>(cameraReference, CAMERA_POSITION, CAMERA_ROTATION,ActorSpawnParameters));

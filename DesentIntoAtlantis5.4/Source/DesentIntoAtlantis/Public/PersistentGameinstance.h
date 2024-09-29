@@ -8,7 +8,7 @@
 #include "Engine/GameInstance.h"
 #include "PersistentGameinstance.generated.h"
 
-class UGodManagerSubsystem;
+class UChallengeSubsystem;
 enum class EElementalType;
 class ULevelProgressionSubsystem;
 class USaveManagerSubsystem;
@@ -67,7 +67,7 @@ public:
 	TMap<ESkillType,UDataTable*> dataTablesSkills;
 
 	UPROPERTY()
-	UGodManagerSubsystem* godManagerSubsystem;
+	UChallengeSubsystem*       challengeManagerSubsystem;
 	UPROPERTY()
 	UPartyManagerSubsystem*    partyManagerSubsystem;
 	UPROPERTY()

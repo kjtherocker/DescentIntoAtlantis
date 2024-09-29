@@ -34,7 +34,7 @@ struct DESENTINTOATLANTIS_API FCompleteClassData  :public  FTableRowBase
 	FString className;
 	
 	UPROPERTY( EditAnywhere )
-	EClasses classIdentifer;
+	EClasses classIdentifer = EClasses::None;
 
 	UPROPERTY( EditAnywhere )
 	FClassData classBaseStat;
@@ -45,7 +45,7 @@ struct DESENTINTOATLANTIS_API FCompleteClassData  :public  FTableRowBase
 
 	
 	UPROPERTY()
-	EPartyMembers attachedEntityIdentifier;
+	EPartyMembers attachedEntityIdentifier = EPartyMembers::None;
 
 	UPROPERTY()
 	TArray<FSkillsData> syncSkills;
@@ -54,7 +54,7 @@ struct DESENTINTOATLANTIS_API FCompleteClassData  :public  FTableRowBase
 	FClassData classStatBase;
 	
 	UPROPERTY()
-	int currentLevel;
+	int currentLevel = 0;
 
 	UPROPERTY( EditAnywhere )
 	EElementalType ElementalStrength;
