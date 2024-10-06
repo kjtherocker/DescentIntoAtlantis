@@ -99,16 +99,25 @@ public:
 	int32 amountOfTimesCompleted          = 0;
 };
 
+USTRUCT()
+struct DESENTINTOATLANTIS_API FActiveChallengeArray:public  FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	UPROPERTY()
+	TArray<FChallengeData> activeChallenges;
+};
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FChallengeManagerData:public  FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 	UPROPERTY()
-	TMap<EAtlantisEvents,FChallengeData> activeChallenges;
+	TMap<EAtlantisEvents,FActiveChallengeArray> activeChallenges;
 	UPROPERTY()
 	TMap<int32,FChallengeData> completedChallenge;
 };
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FChallengeManagerHasChanged,FChallengeManagerData,ChallengeManagerData);
 
 UCLASS()
 class DESENTINTOATLANTIS_API UChallengeSubsystem : public UGameInstanceSubsystem
@@ -116,9 +125,13 @@ class DESENTINTOATLANTIS_API UChallengeSubsystem : public UGameInstanceSubsystem
 	GENERATED_BODY()
 
 public :
+
+	FChallengeManagerHasChanged ChallengeManagerHasChanged;
+	
 	void InitializeSubsystem(UDataTable* aChallengeTable);
 
 	void LoadSaveData(FChallengeManagerData aChallengeManagerData);
+	void SaveData();
 	void DispatchEvent(EventBase* aEvent);
 
 	bool CanActivateChallenge(int32 challengeID);
@@ -129,6 +142,8 @@ private:
 	void ActivateChallenge(UChallenge* aChallenge);
 
 	void CreateNewChallengesOnEnd(TArray<int32> CreatedOnEndIDs);
+
+	void AddNewChallengeToData(UChallenge* aChallenge);
 	
 	UFUNCTION()
 	void RemoveChallenge(UChallenge* aChallenge);

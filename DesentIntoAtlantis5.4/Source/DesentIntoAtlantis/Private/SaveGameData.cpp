@@ -28,6 +28,11 @@ void USaveGameData::UpdateEnemyBestiaryData(FCompleteBestiaryData aCompleteBesti
 	enemyBestiaryData = aCompleteBestiaryData;
 }
 
+void USaveGameData::UpdateChallengeManagerData(FChallengeManagerData aChallengeManagerData)
+{
+	completeChallengeManagerData = aChallengeManagerData;
+}
+
 void USaveGameData::UpdatePartyLevel(FCompletePartyManagerSubsystemData aPartyManagerSubsystem)
 {
 	completePartyManagerData = aPartyManagerSubsystem;
@@ -47,6 +52,11 @@ void USaveGameData::SubscribeUpdateCompleteProgressionData(ULevelProgressionSubs
 void USaveGameData::SubScribeToUpdateLevelIdentifier(UPersistentGameinstance* aPersistentGameInstance)
 {
 	aPersistentGameInstance->levelHasChanged.AddDynamic(this,&USaveGameData::UpdateCurrentLevelIdentifier);
+}
+
+void USaveGameData::SubScribeToUpdateChallengeManager(UChallengeSubsystem* aChallengeSubsystem)
+{
+	aChallengeSubsystem->ChallengeManagerHasChanged.AddDynamic(this,&USaveGameData::UpdateChallengeManagerData);
 }
 
 void USaveGameData::SubScribeToUpdateEnemyBestiary(UEnemyFactorySubSystem* aEnemyFactorySubsystem)

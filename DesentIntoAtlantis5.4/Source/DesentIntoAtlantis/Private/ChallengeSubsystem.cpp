@@ -18,22 +18,40 @@ void UChallengeSubsystem::InitializeSubsystem(UDataTable* aChallengeTable)
 
 void UChallengeSubsystem::LoadSaveData(FChallengeManagerData aChallengeManagerData)
 {
-	ChallengeManagerData = aChallengeManagerData;
-	for ( TTuple<EAtlantisEvents, FChallengeData> Element : aChallengeManagerData.activeChallenges)
+	activeChallenges.Empty();
+	ChallengeManagerData.activeChallenges.Empty();
+	ChallengeManagerData.completedChallenge = aChallengeManagerData.completedChallenge;
+	
+	for ( TTuple<EAtlantisEvents, FActiveChallengeArray> Element : aChallengeManagerData.activeChallenges)
 	{
-		FChallengeData ChallengeData      = Element.Value;
-		FChallengeData ChallengeTableCopy = AllChallenges[ChallengeData.ChallengeID];
-		if(ChallengeData.ChallengeName != ChallengeTableCopy.ChallengeName)
+		for (FChallengeData challengeData : Element.Value.activeChallenges)
 		{
-			ChallengeTableCopy.currentValue = ChallengeData.currentValue;
-			Element.Value = ChallengeTableCopy;
-			ActivateChallenge(CreateChallenge(ChallengeTableCopy));
-		}
-		else
-		{
-			ActivateChallenge(CreateChallenge(ChallengeData));	
+			FChallengeData ChallengeData      = challengeData;
+			FChallengeData ChallengeTableCopy = AllChallenges[ChallengeData.ChallengeID];
+			if(ChallengeData.ChallengeName != ChallengeTableCopy.ChallengeName)
+			{
+				ChallengeTableCopy.currentValue = ChallengeData.currentValue;
+				ChallengeData = ChallengeTableCopy;
+				ActivateChallenge(CreateChallenge(ChallengeTableCopy));
+			}
+			else
+			{
+				ActivateChallenge(CreateChallenge(ChallengeData));	
+			}	
 		}
 	}
+}
+
+void UChallengeSubsystem::SaveData()
+{
+	ChallengeManagerData.activeChallenges.Empty();
+	
+	for (UChallenge* challenge : activeChallenges)
+	{
+		AddNewChallengeToData(challenge);
+	}
+	
+	ChallengeManagerHasChanged.Broadcast(ChallengeManagerData);
 }
 
 void UChallengeSubsystem::DispatchEvent(EventBase* aEvent)
@@ -47,7 +65,7 @@ void UChallengeSubsystem::DispatchEvent(EventBase* aEvent)
 	{
 		activeChallenges[i]->EventReceived(aEvent);
 	}
-	
+	SaveData();
 }
 
 bool UChallengeSubsystem::CanActivateChallenge(int32 challengeID)
@@ -67,12 +85,15 @@ bool UChallengeSubsystem::CanActivateChallenge(int32 challengeID)
 		}
 	}
 
-	for (TTuple<EAtlantisEvents, FChallengeData> Element : ChallengeManagerData.activeChallenges)
+	for (TTuple<EAtlantisEvents, FActiveChallengeArray> Element : ChallengeManagerData.activeChallenges)
 	{
-		int32 challengeToAddID = Element.Value.ChallengeID;
-		if(challengeToAdd.ChallengeID == challengeToAddID)
+		for (FChallengeData challengeData : Element.Value.activeChallenges)
 		{
-			return false;
+			int32 challengeToAddID = challengeData.ChallengeID;
+			if(challengeToAdd.ChallengeID == challengeToAddID)
+			{
+				return false;
+			}
 		}
 	}
 
@@ -138,6 +159,7 @@ void UChallengeSubsystem::ActivateChallenge(UChallenge* aChallenge)
 	aChallenge->ChallengeHasCompletedFinished.AddDynamic(this,&UChallengeSubsystem::RemoveChallenge);
 	
 	activeChallenges.Add(aChallenge);
+	AddNewChallengeToData(aChallenge);
 }
 
 void UChallengeSubsystem::CreateNewChallengesOnEnd(TArray<int32> CreatedOnEndIDs)
@@ -147,6 +169,23 @@ void UChallengeSubsystem::CreateNewChallengesOnEnd(TArray<int32> CreatedOnEndIDs
 		RequestCreateActiveChallenge(challengeID);
 	}
 	
+}
+
+void UChallengeSubsystem::AddNewChallengeToData(UChallenge* aChallenge)
+{
+	EAtlantisEvents challengeType  = aChallenge->GetChallengeType();
+	FChallengeData  challengeData  = aChallenge->GetChallengeData();
+	
+	if(	ChallengeManagerData.activeChallenges.Contains(challengeType))
+	{
+		ChallengeManagerData.activeChallenges[challengeType].activeChallenges.Add(challengeData);
+	}
+	else
+	{
+		FActiveChallengeArray newActiveChallengeArray;
+		newActiveChallengeArray.activeChallenges.Add(challengeData);
+		ChallengeManagerData.activeChallenges.Add(challengeType,newActiveChallengeArray);
+	}
 }
 
 void UChallengeSubsystem::RemoveChallenge(UChallenge* aChallenge)
@@ -164,6 +203,7 @@ void UChallengeSubsystem::RemoveChallenge(UChallenge* aChallenge)
 		ChallengeManagerData.completedChallenge.Add(ChallengeData.ChallengeID,ChallengeData);
 	}
 
+	//ChallengeManagerData.activeChallenges
 	activeChallenges.Remove(aChallenge);
 	aChallenge->ChallengeHasCompletedFinished.RemoveAll(this);
 	CreateNewChallengesOnEnd(ChallengeData.ChallengesStartedOnEnd);
@@ -224,7 +264,7 @@ void UDamageChallenge::EventReceived(EventBase* Event)
 	FSkillsData SkillsData = damageEvent->GetSkill()->skillData;
 	int32 damageValue      = damageEvent->GetValue();
 	
-	if(SkillsData.elementalType == EElementalType::Shadow)
+	if(SkillsData.elementalType == challengeData.elementalTypeChallenge)
 	{
 		challengeData.currentValue += damageValue;
 	}

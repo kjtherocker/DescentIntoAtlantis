@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ChallengeSubsystem.h"
 #include "CombatClass.h"
 #include "CombatEntity.h"
 #include "EnemyBeastiaryData.h"
@@ -14,6 +15,8 @@
 #include "GameFramework/SaveGame.h"
 #include "SaveGameData.generated.h"
 
+struct FChallengeManagerData;
+class UChallengeSubsystem;
 struct FCompletePartyManagerSubsystemData;
 class UPartyManagerSubsystem;
 class UEnemyBestiaryData;
@@ -39,7 +42,8 @@ private:
 	UFUNCTION()
 	void UpdateEnemyBestiaryData(FCompleteBestiaryData aCompleteBestiaryData);
 
-	
+	UFUNCTION()
+	void UpdateChallengeManagerData(FChallengeManagerData aChallengeManagerData);
 	UFUNCTION()
 	void UpdatePartyLevel(FCompletePartyManagerSubsystemData aPartyManagerSubsystem);
 
@@ -47,6 +51,7 @@ public:
 	void SubscribeUpdateFloorPlayerCompleteData(AFloorPlayerPawn* aFloorPawn);
 	void SubscribeUpdateCompleteProgressionData(ULevelProgressionSubsystem* aLevelProgressionSubsystem);
 	void SubScribeToUpdateLevelIdentifier(UPersistentGameinstance*  aPersistentGameInstance);
+	void SubScribeToUpdateChallengeManager(UChallengeSubsystem*  aChallengeSubsystem);
 	void SubScribeToUpdateEnemyBestiary(UEnemyFactorySubSystem*  aEnemyFactorySubsystem);
 	void SubscribeToUpdatePartyManager(UPartyManagerSubsystem* aPartyManagerSubsystem);
 	//void SubScribeToUpdateLevelIdentifier(UPersistentGameinstance*  aPersistentGameInstance);
@@ -61,6 +66,8 @@ public:
 	UPROPERTY()
 	FCompleteProgressionData completeProgressionData;
 
+	UPROPERTY()
+	FChallengeManagerData completeChallengeManagerData;
 	UPROPERTY()
 	FCompletePartyManagerSubsystemData completePartyManagerData;
 	UPROPERTY()
