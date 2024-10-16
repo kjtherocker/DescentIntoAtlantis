@@ -4,6 +4,7 @@
 #include "CombatEntityWrapper.h"
 #include "CombatGameModeBase.h"
 #include "EElementalType.h"
+#include "PassiveSkills.h"
 #include "SkillFactorySubsystem.h"
 #include "SkillsData.h"
 
@@ -80,6 +81,31 @@ void UCombatEntity::InflictAilment(UAilmentShellTakeOver* aAliment,ECombatEntity
 {
     onStatusAilmentStart.Broadcast(aAliment->ailmentInfo.statusAilment);
     inUseCombatWrapper->SetAilment(aAliment,aCombatEntityWrapperType);
+}
+
+void UCombatEntity::CheckPassives(int CurrentDamage, UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker,
+    FSkillsData aSkill)
+{
+    for (UPassiveSkills* passiveSkill : passiveSkills)
+    {
+      //  DamageEvent* aDamageEvent;
+     //   if(passiveSkill->VerifyTriggers(aDamageEvent))
+        {
+            passiveSkill->ActivatePassive();
+        }
+    }
+}
+
+void UCombatEntity::AddPassive(UPassiveSkills* aPassiveSkills)
+{
+    aPassiveSkills->ApplyEffect(this);
+    passiveSkills.Add(aPassiveSkills);
+}
+
+void UCombatEntity::RemovePassive(UPassiveSkills* aPassiveSkills)
+{
+    aPassiveSkills->RemoveEffect(this);
+    passiveSkills.Remove(aPassiveSkills);
 }
 
 
@@ -186,6 +212,32 @@ void UCombatEntity::DeathCheck()
 void UCombatEntity::Death()
 {
     wasKilled.Broadcast();
+}
+
+int UCombatEntity::GetHit()
+{
+    return abilityScoreMap[EStatTypes::Hit]->GetAllStats();
+}
+
+int UCombatEntity::GetEvasion()
+{
+    return abilityScoreMap[EStatTypes::Evasion]->GetAllStats();
+}
+
+int UCombatEntity::GetAilmentResistance(EStatusAilments aStatusAilment)
+{
+    int AilmentResistance = 0;
+   // for (auto Element : passiveSkills)
+   // {
+   //     if(Element->)
+   //     Element->
+   // }
+    return AilmentResistance;
+}
+
+int UCombatEntity::GetAilmentInfliction(EStatusAilments aStatusAilment)
+{
+    return 0;
 }
 
 void UCombatEntity::ActivateDamageHitEffect()

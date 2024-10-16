@@ -58,6 +58,9 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 	UPROPERTY(EditAnywhere)
 	TMap<EClasses,FCompleteClassData> unlockedPlayerClasses;
 
+//	UPROPERTY(EditAnywhere)
+//	TArray<FPassiveSkillsData> unlockedPassives;
+
 	UPROPERTY(EditAnywhere)
 	int jobPoints;
 	
@@ -90,7 +93,7 @@ public:
 	{
 		int classBase = GetClassBases();
 		
-		return base + classBase + buff + debuff + domain;
+		return base + classBase + buff + debuff + domain + passive;
 	}
 
 	void SetStat(FPlayerIdentityData aPlayerIdentityData,int aCurrentLevel)

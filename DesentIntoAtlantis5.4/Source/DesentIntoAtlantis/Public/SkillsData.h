@@ -24,7 +24,8 @@ enum class ESkillType
 	Buff,
 	Debuff,
 	HealBuff,
-	AttackDebuff
+	AttackDebuff,
+	Start
 
 };
 
@@ -80,9 +81,6 @@ enum class ESkillIDS : uint8
 	MockingTaunt           UMETA(DisplayName = "MockingTaunt"),
 	AbsoluteGuard          UMETA(DisplayName = "AbsoluteGuard"),
 	SelfIndulgentRevenge   UMETA(DisplayName = "SelfIndulgentRevenge"),
-	
-	
-	
 };
 
 
@@ -99,6 +97,11 @@ struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
 	
 	UPROPERTY( EditAnywhere )
 	int damage;
+
+	UPROPERTY(EditAnywhere)
+	int SkillHit = 90;
+	UPROPERTY(EditAnywhere)
+	int AilmentHit = 0;
 	
 	UPROPERTY( EditAnywhere )    
 	EElementalType elementalType         = EElementalType::None;
@@ -161,6 +164,8 @@ public:
 	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim);
 	
 	virtual void Initialize(FSkillsData aSkillData);
+
+	virtual bool CalculateHit(UCombatEntity* aAttacker, UCombatEntity* aVictim);
 };
 
 // All the different variations of Skills
@@ -192,16 +197,21 @@ class USkillAlimentAttack : public USkillAttack
 	UAilment* ailment;
 	UPROPERTY(EditAnywhere)
 	EStatusAilments statusAilments;
+
+	UPROPERTY(EditAnywhere)
+	int AilmentHitCalculation = 0;
+protected:
+	virtual bool CalculateAilmentInfliction(UCombatEntity* aAttacker, UCombatEntity* aVictim,EStatusAilments aAilment);
 	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
 	
 };
 
 UCLASS()
-class USkillAlimentAttackFear: public USkillAttack
+class USkillAlimentAttackFear: public USkillAlimentAttack
 {
 	GENERATED_BODY()
 	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
-	
+
 };
 
 UCLASS()

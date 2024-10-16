@@ -48,8 +48,8 @@ USTRUCT()
 struct DESENTINTOATLANTIS_API FAilmentInfo
 {
 	GENERATED_BODY()
-	//UPROPERTY()
-	EStatusAilments statusAilment;
+	UPROPERTY()
+	EStatusAilments statusAilment = EStatusAilments::Fear;
 	UPROPERTY()
 	FResetOneWrapperToDefault resetShellToDefault;
 	UPROPERTY()

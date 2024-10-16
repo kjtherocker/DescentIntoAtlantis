@@ -1,11 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
 #include "CombatEntityWrapper.h"
 #include "UObject/NoExportTypes.h"
 #include "EElementalType.h"
+
 #include "PressTurnManager.h"
 
 #include "Components/Image.h"
@@ -13,6 +13,9 @@
 #include "CombatEntity.generated.h"
 
 
+class UPassiveSkills;
+struct FPassiveSkillsData;
+enum class EPassiveSkillIDS;
 enum class EClasses;
 class UAilment;
 class USkillAliment;
@@ -50,7 +53,10 @@ struct DESENTINTOATLANTIS_API FCombatEntityData :public  FTableRowBase
 	int maxMana = 0;
 	
 	UPROPERTY( EditAnywhere )
-	TMap< EStatTypes,int> baseStats; 
+	TMap< EStatTypes,int> baseStats;
+
+//	UPROPERTY( EditAnywhere )
+//	TMap<EPassiveSkillIDS, FPassiveSkillsData> passiveSkills;
 };
 
 
@@ -73,6 +79,8 @@ public:
 	UPROPERTY( EditAnywhere )
 	int domain  			= 0;
 	UPROPERTY( EditAnywhere )
+	int passive  			= 0;
+	UPROPERTY( EditAnywhere )
 	int buffTimeRemaining   = 0;
 	UPROPERTY( EditAnywhere )
 	int debuffTimeRemaining = 0;
@@ -82,10 +90,11 @@ public:
 		StatType = aStatType;
 	}
 
-	inline static const float ABILITYSCORE_CONVERSION_RATIO = 3;
+	inline static const float ABILITYSCORE_CONVERSION_RATIO = 1;
 	virtual int GetAllStats()
 	{
-		return base + buff + debuff + domain;
+		int total =  base + buff + debuff + domain + passive ;
+		return total;
 	}
 	
 	virtual void AttachAbilityScoreChange(int timeLimit,bool isBuff)
@@ -152,6 +161,10 @@ protected:
 	UCombatEntityWrapper* inUseCombatWrapper;
 	UPROPERTY()
 	UCombatEntityWrapper* allDefaultCombatWrapper;
+
+	UPROPERTY( EditAnywhere )
+	TArray<UPassiveSkills*> passiveSkills;
+	
 public:
 	inline static const float ABILITYSCORE_CONVERSION_RATIO = 3;
 	inline static const float ABILITYSCORE_BUFF_MULTIPLIER  = 2;
@@ -181,7 +194,6 @@ public:
 	virtual void InitializeStats(EStatTypes aAbilityScoreTypes);
 	virtual void SetHealth(int aHealth);
 	virtual void InflictAilment(UAilmentShellTakeOver* aAliment,ECombatEntityWrapperType aCombatEntityWrapperType);
-	
 	virtual int CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
 	virtual void Reset();
 	virtual void AlimentDecrementHealth(int aDamage);
@@ -194,13 +206,26 @@ public:
 	void DeathCheck();
 	virtual void Death();
 
+
 	virtual void ActivateDamageHitEffect();
 	virtual void SetToDefaultState();
+	
 	virtual float GetHealthPercentage();
 	virtual float GetPotentialHealthPercentage(int aDamage);
 	virtual float GetManaPercentage();
 	virtual float GetSyncPercentage();
 
+	virtual int GetHit();
+	virtual int GetEvasion();
+	virtual int GetAilmentResistance(EStatusAilments aStatusAilment);
+	virtual int GetAilmentInfliction(EStatusAilments aStatusAilment);
+
+	virtual void CheckPassives(int CurrentDamage ,UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill);
+	
+	virtual void AddPassive(UPassiveSkills* aPassiveSkills);
+	virtual void RemovePassive(UPassiveSkills* aPassiveSkills);
+	
+	
 	bool GetIsMarkedForDeath();
 
 	

@@ -40,7 +40,7 @@ int UCalculateDamage_Base::CalculateDamage(UCombatEntity* aAttachedEntity,UComba
 
     UCombatEntity* attachedCombatEntity = aAttachedEntity;
     int strengthAllStats =  aAttacker->abilityScoreMap[EStatTypes::Strength]->GetAllStats() / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
-    int magicAllStats    =  aAttacker->abilityScoreMap[EStatTypes::Magic]->GetAllStats()    / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
+    int magicAllStats    =  aAttacker->abilityScoreMap[EStatTypes::Magic]->GetAllStats() / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
     decementBy += aSkill.skillDamageType == ESkillDamageType::Strength ? strengthAllStats : magicAllStats;
 	
     if (aSkill.elementalType == attachedCombatEntity->elementalWeakness)
@@ -71,7 +71,7 @@ void UCalculateDamage_Base::TurnEnd()
 
 int UCalculateDamage_Fear::CalculateDamage(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill)
 {
-    return UCalculateDamage_Base::CalculateDamage(aAttachedEntity,aAttacker, aSkill) * 2;
+    return UCalculateDamage_Base::CalculateDamage(aAttachedEntity,aAttacker, aSkill) * 1.4;
 }
 
 void UCalculateDamage_Fear::TurnEnd()

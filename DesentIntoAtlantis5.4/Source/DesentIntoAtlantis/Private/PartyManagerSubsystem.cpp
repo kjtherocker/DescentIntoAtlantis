@@ -3,6 +3,7 @@
 
 #include "PartyManagerSubsystem.h"
 #include "EDataTableTypes.h"
+#include "PassiveSkills.h"
 #include "PersistentGameinstance.h"
 #include "PlayerCombatEntity.h"
 #include "SaveGameData.h"
@@ -140,6 +141,8 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 	playerCombatEntity.Empty();
 	playerCombatEntityInfo.Empty();
 	activePartyEntityData.Empty();
+
+	UPassiveSkills* PassiveSkills = NewObject<UPassiveSkills>();
 	
 	for (auto& playerCompleteDataSet : aPlayerCompleteDataSets)
 	{
@@ -152,6 +155,8 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 
 		PlayerCombatEntity->SetPlayerEntity(playerIdenityMap[partyMember]);
 		PlayerCombatEntity->SetTacticsEntity(skillFactory);
+
+		PlayerCombatEntity->AddPassive(PassiveSkills);
 
 		TMap<EClasses, FCompleteClassData> allCompleteClassData = playerCompleteData.unlockedPlayerClasses;
 		
