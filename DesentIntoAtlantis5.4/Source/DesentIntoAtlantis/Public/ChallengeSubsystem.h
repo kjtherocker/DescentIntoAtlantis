@@ -21,15 +21,15 @@ class UChallengeSubsystem;
 /**
  * 
  */
-class DESENTINTOATLANTIS_API EventBase
+class DESENTINTOATLANTIS_API FEventBase
 {
 public:
-	virtual ~EventBase() {}
+	virtual ~FEventBase() {}
 	// Define a function to identify the type of event
 	virtual EAtlantisEvents GetEventType() const = 0;
 };
 
-class DESENTINTOATLANTIS_API SpecificEvent : public EventBase
+class DESENTINTOATLANTIS_API SpecificEvent : public FEventBase
 {
 public:
 	SpecificEvent(int32 InValue) : Value(InValue) {}
@@ -42,7 +42,7 @@ private:
 	int32 Value;
 };
 
-class DESENTINTOATLANTIS_API DamageEvent : public EventBase
+class DESENTINTOATLANTIS_API DamageEvent : public FEventBase
 {
 public:
 	DamageEvent(int32 InValue,EPressTurnReactions InPressTurnReactions,USkillBase* InSkillBase)
@@ -132,7 +132,7 @@ public :
 
 	void LoadSaveData(FChallengeManagerData aChallengeManagerData);
 	void SaveData();
-	void DispatchEvent(EventBase* aEvent);
+	void DispatchEvent(FEventBase* aEvent);
 
 	bool CanActivateChallenge(int32 challengeID);
 	void RequestCreateActiveChallenge(int32 challengeID);
@@ -169,7 +169,7 @@ public:
 
 	virtual void Initialize(FChallengeData aChallengeData,UChallengeSubsystem* aChallengeSubsystem);
 
-	virtual void EventReceived(EventBase* Event);
+	virtual void EventReceived(FEventBase* Event);
 	virtual bool DoesEventFitChallenge(int32 aValue);
 
     virtual FChallengeData GetChallengeData();
@@ -190,7 +190,7 @@ class DESENTINTOATLANTIS_API UDamageChallenge : public UChallenge
 public:
 
 
-	virtual void EventReceived(EventBase* Event) override;
+	virtual void EventReceived(FEventBase* Event) override;
 	virtual bool DoesEventFitChallenge(int32 aValue) override;
 
 	virtual EAtlantisEvents GetChallengeType() override;

@@ -4,7 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
+#include "LevelProgressionSubsystem.h"
 #include "MapView.generated.h"
+
+
 
 struct FCompleteFloorPawnData;
 struct FNodeMapData;

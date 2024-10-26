@@ -4,6 +4,8 @@
 #include "CombatEntityWrapper.h"
 
 #include "CombatEntity.h"
+#include "CombatStat.h"
+#include "PassiveHandler.h"
 #include "SkillsData.h"
 
 
@@ -39,9 +41,9 @@ int UCalculateDamage_Base::CalculateDamage(UCombatEntity* aAttachedEntity,UComba
     int decementBy = aSkill.damage;
 
     UCombatEntity* attachedCombatEntity = aAttachedEntity;
-    int strengthAllStats =  aAttacker->abilityScoreMap[EStatTypes::Strength]->GetAllStats() / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
-    int magicAllStats    =  aAttacker->abilityScoreMap[EStatTypes::Magic]->GetAllStats() / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
-    decementBy += aSkill.skillDamageType == ESkillDamageType::Strength ? strengthAllStats : magicAllStats;
+    int strengthAllStats =  aAttacker->abilityScoreMap[EStatTypes::Strength]->GetAllStats() / UCombatStat::ABILITYSCORE_CONVERSION_RATIO;
+    int magicAllStats    =  aAttacker->abilityScoreMap[EStatTypes::Magic]->GetAllStats();   // / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
+    decementBy +=  magicAllStats;
 	
     if (aSkill.elementalType == attachedCombatEntity->elementalWeakness)
     {
@@ -53,9 +55,17 @@ int UCalculateDamage_Base::CalculateDamage(UCombatEntity* aAttachedEntity,UComba
     }
 
     decementBy -=  aSkill.skillDamageType == ESkillDamageType::Strength ?
-        attachedCombatEntity->abilityScoreMap[EStatTypes::Defence]->GetAllStats()    / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO :
-        attachedCombatEntity->abilityScoreMap[EStatTypes::Resistance]->GetAllStats() / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
-	
+        attachedCombatEntity->abilityScoreMap[EStatTypes::Defence]->GetAllStats()    / UCombatStat::ABILITYSCORE_CONVERSION_RATIO :
+        attachedCombatEntity->abilityScoreMap[EStatTypes::Resistance]->GetAllStats() / UCombatStat::ABILITYSCORE_CONVERSION_RATIO;
+
+    aAttacker->passiveHandler->CheckAttackDefencePassives(decementBy,aAttachedEntity,aAttacker,aSkill);
+    aAttachedEntity->passiveHandler->CheckAttackDefencePassives(decementBy,aAttachedEntity,aAttacker,aSkill);
+
+    if(decementBy <= 0)
+    {
+        decementBy = 0;
+    }
+    
     return decementBy;
 }
 

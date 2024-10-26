@@ -12,7 +12,7 @@ void USkillBase::Initialize(FSkillsData aSkillData)
 bool USkillBase::CalculateHit(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
 	int RandomNumbner =  FMath::RandRange(1, 100);
-	RandomNumbner += (aAttacker->GetHit() - aVictim->GetEvasion()) / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
+	RandomNumbner += (aAttacker->GetHit() - aVictim->GetEvasion()) / UCombatStat::ABILITYSCORE_CONVERSION_RATIO;
 	RandomNumbner += skillData.SkillHit; 
 	return RandomNumbner > 100;
 }

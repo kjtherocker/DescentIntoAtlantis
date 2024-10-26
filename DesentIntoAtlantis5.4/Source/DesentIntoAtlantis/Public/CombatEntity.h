@@ -6,6 +6,7 @@
 #include "UObject/NoExportTypes.h"
 #include "EElementalType.h"
 
+
 #include "PressTurnManager.h"
 
 #include "Components/Image.h"
@@ -13,6 +14,8 @@
 #include "CombatEntity.generated.h"
 
 
+class UCombatStat;
+class UPassiveHandler;
 class UPassiveSkills;
 struct FPassiveSkillsData;
 enum class EPassiveSkillIDS;
@@ -61,80 +64,6 @@ struct DESENTINTOATLANTIS_API FCombatEntityData :public  FTableRowBase
 
 
 
-
-UCLASS()
-class DESENTINTOATLANTIS_API UCombatAbilityStats : public UObject
-{
-	GENERATED_BODY()
-public:
-	UPROPERTY(EditAnywhere)
-	EStatTypes StatType;
-	
-	UPROPERTY( EditAnywhere )
-	int base    			= 0;
-	UPROPERTY( EditAnywhere )
-	int buff    			= 0;
-	UPROPERTY( EditAnywhere )
-	int debuff  			= 0;
-	UPROPERTY( EditAnywhere )
-	int domain  			= 0;
-	UPROPERTY( EditAnywhere )
-	int passive  			= 0;
-	UPROPERTY( EditAnywhere )
-	int buffTimeRemaining   = 0;
-	UPROPERTY( EditAnywhere )
-	int debuffTimeRemaining = 0;
-	
-	void SetStatType(EStatTypes aStatType)
-	{
-		StatType = aStatType;
-	}
-
-	inline static const float ABILITYSCORE_CONVERSION_RATIO = 1;
-	virtual int GetAllStats()
-	{
-		int total =  base + buff + debuff + domain + passive ;
-		return total;
-	}
-	
-	virtual void AttachAbilityScoreChange(int timeLimit,bool isBuff)
-	{
-		if(isBuff)
-		{
-			buffTimeRemaining = timeLimit;
-			buff              = base * ABILITYSCORE_CONVERSION_RATIO;
-		}
-		else
-		{
-			debuffTimeRemaining = timeLimit;
-			debuff              = base * ABILITYSCORE_CONVERSION_RATIO;
-		}
-	}
-
-	virtual void ResetAbilityscore()
-	{
-		buff   = 0;
-		debuff = 0;
-		domain = 0;
-	}
-
-	virtual void TurnEnd()
-	{
-		buffTimeRemaining--;
-		if(buffTimeRemaining <= 0)
-		{
-			buff = 0;
-		}
-		
-		debuff--;
-		if(debuffTimeRemaining <= 0)
-		{
-			debuff = 0;
-		}
-	}
-	
-};
-
 UENUM()
 enum class ECharactertype
 {
@@ -164,7 +93,8 @@ protected:
 
 	UPROPERTY( EditAnywhere )
 	TArray<UPassiveSkills*> passiveSkills;
-	
+
+
 public:
 	inline static const float ABILITYSCORE_CONVERSION_RATIO = 3;
 	inline static const float ABILITYSCORE_BUFF_MULTIPLIER  = 2;
@@ -181,7 +111,7 @@ public:
  
 	UFUNCTION()
 	virtual void SetAWrapperToDefault(ECombatEntityWrapperType aShellType);
-	virtual void SetTacticsEntity(USkillFactorySubsystem*  aSkillFactory);
+	virtual void SetCombatEntity(USkillFactorySubsystem*  aSkillFactory);
 	
 	virtual void SetTacticsEvents(ACombatGameModeBase* aCombatManager);
 
@@ -220,7 +150,6 @@ public:
 	virtual int GetAilmentResistance(EStatusAilments aStatusAilment);
 	virtual int GetAilmentInfliction(EStatusAilments aStatusAilment);
 
-	virtual void CheckPassives(int CurrentDamage ,UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill);
 	
 	virtual void AddPassive(UPassiveSkills* aPassiveSkills);
 	virtual void RemovePassive(UPassiveSkills* aPassiveSkills);
@@ -235,6 +164,8 @@ public:
 	
 	ECharactertype characterType;
 	
+	UPROPERTY()
+	UPassiveHandler* passiveHandler;
 	
 	UPROPERTY()
 	int maxHealth;
@@ -249,7 +180,7 @@ public:
 	float currentSync = 100;
 	
 	UPROPERTY( EditAnywhere )
-	TMap< EStatTypes,UCombatAbilityStats*> abilityScoreMap;
+	TMap< EStatTypes,UCombatStat*> abilityScoreMap;
 
 	
 

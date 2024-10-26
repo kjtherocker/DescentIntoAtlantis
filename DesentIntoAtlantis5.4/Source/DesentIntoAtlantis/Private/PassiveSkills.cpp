@@ -1,8 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "ChallengeSubsystem.h"
 #include "PassiveSkills.h"
 
+#include "ChallengeSubsystem.h"
+#include "CombatStat.h"
 #include "SkillsData.h"
 
 
@@ -27,42 +28,62 @@ void UPassiveSkills::ActivatePassive()
 	{
 		return;
 	}
-
-	
-	
 }
 
 void UPassiveSkills::ApplyEffect(UCombatEntity* aCombatEntity)
 {
-	auto testo = aCombatEntity->abilityScoreMap[EStatTypes::Magic]->GetAllStats();
-	aCombatEntity->abilityScoreMap[EStatTypes::Magic]->passive += 5;
-	auto test2o = aCombatEntity->abilityScoreMap[EStatTypes::Magic]->GetAllStats();
 }
 
 void UPassiveSkills::RemoveEffect(UCombatEntity* aCombatEntity)
 {
-	aCombatEntity->abilityScoreMap[EStatTypes::Magic]->passive -= 5;
-	attachedCombatEntity = nullptr;
 }
 
-//void UPassiveSkills::EventListener(EventBase* aEvent)
-//{
-//	if(aEvent == nullptr)
-//	{
-//		return;
-//	}
-//	
-//	DamageEvent* damageEvent = static_cast<DamageEvent*>(aEvent);
-//	if(damageEvent == nullptr)
-//	{
-//		return;
-//	}
-//
-//	//if(VerifyTriggers(damageEvent))
-//	//{
-//	//	ActivatePassive();
-//	//}
-//}
+
+int UGenericStatPassive::GetStatIncrease_Implementation(EStatTypes aStatType)
+{
+	return passiveSkillData.passiveStats[aStatType];
+}
+
+void UGenericStatPassive::ApplyEffect(UCombatEntity* aCombatEntity)
+{
+	for (TTuple<EStatTypes, int> Element : passiveSkillData.passiveStats)
+	{
+		aCombatEntity->abilityScoreMap[Element.Key]->TryAddStatPassive(this);		
+	}
+
+}
+
+void UGenericStatPassive::RemoveEffect(UCombatEntity* aCombatEntity)
+{
+	for (TTuple<EStatTypes, int> Element : passiveSkillData.passiveStats)
+	{
+		aCombatEntity->abilityScoreMap[Element.Key]->TryRemoveStatPassive(this);		
+	}
+}
+
+void UGenericEventPassive::EventListener_Implementation(FEventBase* aEvent)
+{
+	if(aEvent == nullptr)
+	{
+		return;
+	}
+	
+	DamageEvent* damageEvent = static_cast<DamageEvent*>(aEvent);
+	if(damageEvent == nullptr)
+	{
+		return;
+	}
+}
+
+void UGenericOnAttackPassive::CheckDamageAttackPassives_Implementation(int& CurrentDamage, UCombatEntity* aAttachedEntity,
+	UCombatEntity* aAttacker, FSkillsData aSkill)
+{
+	if(aAttacker->currentHealth > 2)
+	{
+		CurrentDamage -= 100;
+	}
+
+}
 
 //bool UPassiveSkills::VerifyTriggers(DamageEvent* aDamageEvent)
 //{

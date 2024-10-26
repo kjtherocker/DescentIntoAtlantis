@@ -5,13 +5,16 @@
 #include "CombatGameModeBase.h"
 #include "PartyHealthbarElement.h"
 #include "PersistentGameinstance.h"
+#include "PlayerCombatStat.h"
 
 #include "SaveGameData.h"
 
 
+class UPlayerCombatStats;
+
 void UPlayerCombatEntity::InitializeStats(EStatTypes aAbilityScoreTypes)
 {
-	abilityScoreMap.Add(aAbilityScoreTypes,  NewObject<UPlayerAbilityStats>());
+	abilityScoreMap.Add(aAbilityScoreTypes,  NewObject<UPlayerCombatStats>());
 	abilityScoreMap[aAbilityScoreTypes]->SetStatType(aAbilityScoreTypes);
 }
 
@@ -28,9 +31,9 @@ void UPlayerCombatEntity::SetPlayerEntity(FPlayerIdentityData aPlayerEntityData)
 	playerIdentityData                       = aPlayerEntityData;
 }
 
-void UPlayerCombatEntity::SetTacticsEntity(USkillFactorySubsystem* aSkillFactory)
+void UPlayerCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory)
 {
-	Super::SetTacticsEntity(aSkillFactory);
+	Super::SetCombatEntity(aSkillFactory);
 	characterType = ECharactertype::Ally;
 	skillFactory  = aSkillFactory;
 }
@@ -71,7 +74,7 @@ void UPlayerCombatEntity::SetToDefaultState()
 	maxMana           =  mainClass->completeClassData.classStatBase.maxMana;
 	currentMana       =  maxMana;
     isMarkedForDeath  =  false;
-	for (TTuple<EStatTypes, UCombatAbilityStats*> abilityStats : abilityScoreMap)
+	for (TTuple<EStatTypes, UCombatStat*> abilityStats : abilityScoreMap)
 	{
 		abilityStats.Value->ResetAbilityscore();
 	}
@@ -101,7 +104,7 @@ void UPlayerCombatEntity::SetAbilityScores()
 				continue;
 			}
         
-			UPlayerAbilityStats* PlayerStats = Cast<UPlayerAbilityStats>(abilityScoreMap[statType]);
+			UPlayerCombatStats* PlayerStats = Cast<UPlayerCombatStats>(abilityScoreMap[statType]);
 			PlayerStats->AddClassStatBase(mainClass->completeClassData);
 
 			abilityScoreMap[statType] = PlayerStats;
@@ -140,7 +143,7 @@ void UPlayerCombatEntity::LevelUp(int aNewLevel)
 	for (int32 i = static_cast<int32>(EStatTypes::None) + 1; i < static_cast<int32>(EStatTypes::Max); ++i)
 	{
 		EStatTypes statType = static_cast<EStatTypes>(i);
-		UPlayerAbilityStats* PlayerStats = Cast<UPlayerAbilityStats>(abilityScoreMap[statType]);
+		UPlayerCombatStats* PlayerStats = Cast<UPlayerCombatStats>(abilityScoreMap[statType]);
 		PlayerStats->SetStat(playerIdentityData,aNewLevel);
 
 		abilityScoreMap[statType] = PlayerStats;

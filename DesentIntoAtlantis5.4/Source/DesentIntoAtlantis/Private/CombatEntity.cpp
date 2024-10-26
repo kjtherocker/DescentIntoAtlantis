@@ -3,7 +3,9 @@
 
 #include "CombatEntityWrapper.h"
 #include "CombatGameModeBase.h"
+#include "CombatStat.h"
 #include "EElementalType.h"
+#include "PassiveHandler.h"
 #include "PassiveSkills.h"
 #include "SkillFactorySubsystem.h"
 #include "SkillsData.h"
@@ -22,7 +24,7 @@ void UCombatEntity::SetAWrapperToDefault(ECombatEntityWrapperType aShellType)
     }
 }
 
-void UCombatEntity::SetTacticsEntity(USkillFactorySubsystem* aSkillFactory)
+void UCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory)
 {
 
     for (int32 i = static_cast<int32>(EStatTypes::None) + 1; i < static_cast<int32>(EStatTypes::Max); ++i)
@@ -32,6 +34,11 @@ void UCombatEntity::SetTacticsEntity(USkillFactorySubsystem* aSkillFactory)
     }
 
     resetOneWrapperToDefault.AddDynamic(this,&UCombatEntity::SetAWrapperToDefault);
+
+    passiveHandler          = NewObject<UPassiveHandler>();
+    passiveHandler->InitializePassiveHandler(this);
+
+    
     inUseCombatWrapper      = NewObject<UCombatEntityWrapper>();
     allDefaultCombatWrapper = NewObject<UCombatEntityWrapper>();
     allDefaultCombatWrapper->SetAttachedCombatEntity(this);
@@ -44,7 +51,7 @@ void UCombatEntity::SetTacticsEntity(USkillFactorySubsystem* aSkillFactory)
 
 void UCombatEntity::InitializeStats(EStatTypes aAbilityScoreTypes)
 {
-    abilityScoreMap.Add(aAbilityScoreTypes,  NewObject<UCombatAbilityStats>());
+    abilityScoreMap.Add(aAbilityScoreTypes,  NewObject<UCombatStat>());
     abilityScoreMap[aAbilityScoreTypes]->SetStatType(aAbilityScoreTypes);
 }
 
@@ -64,7 +71,7 @@ void UCombatEntity::StartTurn()
 
 void UCombatEntity::EndTurn()
 {
-    for (TTuple<EStatTypes, UCombatAbilityStats*> abilityScore : abilityScoreMap)
+    for (TTuple<EStatTypes, UCombatStat*> abilityScore : abilityScoreMap)
     {
         abilityScore.Value->TurnEnd();
     }
@@ -83,29 +90,15 @@ void UCombatEntity::InflictAilment(UAilmentShellTakeOver* aAliment,ECombatEntity
     inUseCombatWrapper->SetAilment(aAliment,aCombatEntityWrapperType);
 }
 
-void UCombatEntity::CheckPassives(int CurrentDamage, UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker,
-    FSkillsData aSkill)
-{
-    for (UPassiveSkills* passiveSkill : passiveSkills)
-    {
-      //  DamageEvent* aDamageEvent;
-     //   if(passiveSkill->VerifyTriggers(aDamageEvent))
-        {
-            passiveSkill->ActivatePassive();
-        }
-    }
-}
 
 void UCombatEntity::AddPassive(UPassiveSkills* aPassiveSkills)
 {
-    aPassiveSkills->ApplyEffect(this);
-    passiveSkills.Add(aPassiveSkills);
+    passiveHandler->AddPassive(aPassiveSkills);
 }
 
 void UCombatEntity::RemovePassive(UPassiveSkills* aPassiveSkills)
 {
-    aPassiveSkills->RemoveEffect(this);
-    passiveSkills.Remove(aPassiveSkills);
+    passiveHandler->RemovePassive(aPassiveSkills);
 }
 
 

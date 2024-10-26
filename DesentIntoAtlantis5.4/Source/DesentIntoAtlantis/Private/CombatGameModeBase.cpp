@@ -204,7 +204,7 @@ void ACombatGameModeBase::AddEnemyToCombat(FEnemyEntityData AEnemyEntityData,int
 	
 	UEnemyCombatEntity* EnemyCombatEntity = NewObject<UEnemyCombatEntity>();
 	
-	EnemyCombatEntity->SetTacticsEntity(skillFactory);
+	EnemyCombatEntity->SetCombatEntity(skillFactory);
 	EnemyCombatEntity->SetTacticsEvents(this);
 	EnemyCombatEntity->SetEnemyEntityData(AEnemyEntityData,skillFactory,static_cast<EEnemyCombatPositions>(aPosition));
 	EnemyCombatEntity->beastiaryData = enemyFactory->GetBestiaryEntry(EnemyCombatEntity->enemyEntityData.characterName);

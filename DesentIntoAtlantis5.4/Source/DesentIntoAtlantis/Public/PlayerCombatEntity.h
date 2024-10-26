@@ -75,66 +75,6 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 	float currentSync;
 };
 
-
-UCLASS()
-class DESENTINTOATLANTIS_API UPlayerAbilityStats : public UCombatAbilityStats
-{
-	GENERATED_BODY()
-public:
-
-	UPROPERTY(EditAnywhere)
-	TMap<EClasses,int> classStatBases;
-	
-	inline static const float ABILITYSCORE_CONVERSION_RATIO = 3;
-
-	int previousBase = 0;
-
-	virtual int  GetAllStats() override
-	{
-		int classBase = GetClassBases();
-		
-		return base + classBase + buff + debuff + domain + passive;
-	}
-
-	void SetStat(FPlayerIdentityData aPlayerIdentityData,int aCurrentLevel)
-	{
-		base = GetStatByLevel(aPlayerIdentityData,aCurrentLevel);
-	}
-
-	int GetStatByLevel(FPlayerIdentityData aPlayerIdentityData,int aCurrentLevel)
-	{
-		int baseGrowth = aPlayerIdentityData.playerStatGrowths.baseStats[StatType] ;
-		int baseStat   = aPlayerIdentityData.playerStatBases.baseStats[StatType];
-		
-		return baseStat + (aCurrentLevel / baseGrowth);
-	}
-
-	void AddClassStatBase(FCompleteClassData aCompleteClassData)
-	{
-		classStatBases.Add(aCompleteClassData.classIdentifer,aCompleteClassData.classStatBase.baseStats[StatType]);
-	}
-	
-	int GetClassBases()
-	{
-		int classBase = 0;
-
-		if(classStatBases.Num() == 0)
-		{
-			return classBase;
-		}
-		
-		for (TTuple<EClasses, int> Element : classStatBases)
-		{
-			classBase += Element.Value;
-		}
-		
-		return classBase;
-	}
-	
-	
-};
-
-
 UCLASS()
 class DESENTINTOATLANTIS_API UPlayerCombatEntity : public UCombatEntity
 {
@@ -167,7 +107,7 @@ public:
     virtual void InitializeStats(EStatTypes aAbilityScoreTypes) override;
 	virtual void LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet);
 	virtual void SetPlayerEntity(FPlayerIdentityData aPlayerEntityData);
-	virtual void SetTacticsEntity(USkillFactorySubsystem* aSkillFactory) override;
+	virtual void SetCombatEntity(USkillFactorySubsystem* aSkillFactory) override;
 	
 	virtual void InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData, int aClassLevel);
 	virtual void SetMainClass(EClasses aClass);

@@ -54,7 +54,7 @@ void UChallengeSubsystem::SaveData()
 	ChallengeManagerHasChanged.Broadcast(ChallengeManagerData);
 }
 
-void UChallengeSubsystem::DispatchEvent(EventBase* aEvent)
+void UChallengeSubsystem::DispatchEvent(FEventBase* aEvent)
 {
 	if(activeChallenges.Num() == 0)
 	{
@@ -216,7 +216,7 @@ void UChallenge::Initialize(FChallengeData aChallengeData,UChallengeSubsystem* a
 	challengeData = aChallengeData;
 }
 
-void UChallenge::EventReceived(EventBase* Event)
+void UChallenge::EventReceived(FEventBase* Event)
 {
 	SpecificEvent* Specific = static_cast<SpecificEvent*>(Event);
 	if (Specific && DoesEventFitChallenge(Specific->GetValue()))
@@ -248,7 +248,7 @@ EAtlantisEvents UChallenge::GetChallengeType()
 	return EAtlantisEvents::SpecificEvent;
 }
 
-void UDamageChallenge::EventReceived(EventBase* Event)
+void UDamageChallenge::EventReceived(FEventBase* Event)
 {
 	if(Event == nullptr)
 	{
