@@ -12,10 +12,10 @@
 #include "ChallengeSubsystem.generated.h"
 
 class UDamageChallenge;
-enum class ECharactertype;
+enum class ECharactertype  : uint8;
 class USkillBase;
-enum class EPressTurnReactions;
-enum class EElementalType;
+enum class EPressTurnReactions : uint8;
+enum class EElementalType: uint8;
 class UChallenge;
 class UChallengeSubsystem;
 /**

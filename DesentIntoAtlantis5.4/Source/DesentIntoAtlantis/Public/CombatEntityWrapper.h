@@ -13,7 +13,7 @@ struct FSkillsData;
 class UCombatEntity;
 
 UENUM()
-enum class EStatusAilments
+enum class EStatusAilments : uint8
 {
 	None   = 0,
 	Fear   = 1,

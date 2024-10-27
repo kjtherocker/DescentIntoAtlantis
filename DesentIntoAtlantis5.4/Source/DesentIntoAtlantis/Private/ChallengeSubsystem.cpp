@@ -3,7 +3,7 @@
 
 #include "ChallengeSubsystem.h"
 
-#include "SkillsData.h"
+#include "SkillBase.h"
 
 void UChallengeSubsystem::InitializeSubsystem(UDataTable* aChallengeTable)
 {

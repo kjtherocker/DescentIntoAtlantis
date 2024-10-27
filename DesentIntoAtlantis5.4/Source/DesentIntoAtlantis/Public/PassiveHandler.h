@@ -32,6 +32,9 @@ class DESENTINTOATLANTIS_API UPassiveHandler : public UObject
 
 	UPROPERTY()
 	UCombatEntity* ownedCombatEntity;
+
+	FPassiveHandlerData PassiveHandlerData;
+
 public:
 	virtual void InitializePassiveHandler(UCombatEntity* aOwnedCombatEntity);
 	
@@ -45,5 +48,6 @@ public:
 	virtual bool TryActivatePassive(UPassiveSkills* aPassiveSkills);
 	virtual void AddPassive(UPassiveSkills* aPassiveSkills);
 	virtual void RemovePassive(UPassiveSkills* aPassiveSkills);
-	
+
+	virtual FPassiveHandlerData GetPassiveHandlerData();
 };

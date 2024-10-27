@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 UENUM()
-enum class EElementalType
+enum class EElementalType : uint8
 {
 	None     = 0,
 	Null     = 1,
@@ -18,7 +18,7 @@ enum class EElementalType
 };
 
 UENUM()
-enum class  EPressTurnReactions
+enum class  EPressTurnReactions : uint8
 {
 	Normal,
 	Weak,

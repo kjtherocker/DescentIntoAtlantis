@@ -5,8 +5,13 @@
 
 #include "ChallengeSubsystem.h"
 #include "PassiveSkills.h"
-#include "SkillsData.h"
+#include "SkillBase.h"
 
+
+FPassiveHandlerData UPassiveHandler::GetPassiveHandlerData()
+{
+	return PassiveHandlerData;
+}
 
 void UPassiveHandler::InitializePassiveHandler(UCombatEntity* aOwnedCombatEntity)
 {
@@ -16,11 +21,14 @@ void UPassiveHandler::InitializePassiveHandler(UCombatEntity* aOwnedCombatEntity
 void UPassiveHandler::CheckAttackDefencePassives(int& CurrentDamage, UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker,
                                     FSkillsData aSkill)
 {
-	for (UPassiveSkills* passiveSkill : passiveSkills)
+	for (UPassiveSkills* passiveSkillWrapper : passiveSkills)
 	{
-		if (IOnAttackDefencePassive* SkillableActor = Cast<IOnAttackDefencePassive>(passiveSkill))
+		if (IOnAttackDefencePassive* attackDefencePassive = Cast<IOnAttackDefencePassive>(passiveSkillWrapper))
 		{
-			SkillableActor->Execute_CheckDamageAttackPassives(passiveSkill,CurrentDamage,aAttachedEntity, aAttacker,aSkill);
+			if(attackDefencePassive->Execute_IsPassiveTriggered(passiveSkillWrapper,CurrentDamage,aAttachedEntity, aAttacker,aSkill))
+			{
+				attackDefencePassive->Execute_ActivateAttackDefencePassive(passiveSkillWrapper,CurrentDamage,aAttachedEntity, aAttacker,aSkill);
+			}
 		}
 	}
 }
@@ -49,12 +57,14 @@ void UPassiveHandler::AddPassive(UPassiveSkills* aPassiveSkills)
 		//godManagerSubsystem
 	}
 	passiveSkills.Add(aPassiveSkills);
+//	PassiveHandlerData.PassiveSkillsDatas.Add(aPassiveSkills->passiveSkillData);
 }
 
 void UPassiveHandler::RemovePassive(UPassiveSkills* aPassiveSkills)
 {
 	aPassiveSkills->RemoveEffect(ownedCombatEntity);
 	passiveSkills.Remove(aPassiveSkills);
+//	PassiveHandlerData.PassiveSkillsDatas.Remove(aPassiveSkills->passiveSkillData);
 }
 
 

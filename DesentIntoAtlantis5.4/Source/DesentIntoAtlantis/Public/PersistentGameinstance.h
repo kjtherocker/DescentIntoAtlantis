@@ -8,8 +8,9 @@
 #include "Engine/GameInstance.h"
 #include "PersistentGameinstance.generated.h"
 
+class UPassiveSkillFactorySubsystem;
 class UChallengeSubsystem;
-enum class EElementalType;
+enum class EElementalType: uint8;
 class ULevelProgressionSubsystem;
 class USaveManagerSubsystem;
 class USaveGameData;
@@ -19,8 +20,8 @@ class USkillFactorySubsystem;
 class UPartyManagerSubsystem;
 class UTutorialManagerSubsystem;
 class UDialogueFactorySubsystem;
-enum class ESkillType;
-enum class EClasses;
+enum class ESkillType : uint8;
+enum class EClasses  : uint8;
 class UDataTable;
 enum class EDataTableTypes;
 /**
@@ -74,6 +75,9 @@ public:
 	USkillFactorySubsystem*    skillFactorySubsystem;
 	UPROPERTY()
 	UEnemyFactorySubSystem*    enemyFactorySubSystem;
+	UPROPERTY()
+	UPassiveSkillFactorySubsystem*  passiveFactorySubsystem;
+
 	UPROPERTY()
 	UTutorialManagerSubsystem* tutorialManagerSubsystem;
 	UPROPERTY()

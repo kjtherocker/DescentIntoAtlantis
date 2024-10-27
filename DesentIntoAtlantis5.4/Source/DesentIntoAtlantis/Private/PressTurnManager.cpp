@@ -4,14 +4,10 @@
 #include "PressTurnManager.h"
 
 #include "CombatEntity.h"
-#include "EnemyCombatEntity.h"
-#include "PlayerCombatEntity.h"
 #include "CombatGameModeBase.h"
 #include "InGameHUD.h"
-#include "UObject/NoExportTypes.h"
-#include "SkillsData.h"
-#include "SoundManager.h"
-#include "CombatGameModeBase.h"
+#include "SkillBase.h"
+
 #include "TurnCounterView.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 

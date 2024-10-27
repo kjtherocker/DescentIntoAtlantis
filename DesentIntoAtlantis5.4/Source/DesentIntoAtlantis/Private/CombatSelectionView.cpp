@@ -5,6 +5,8 @@
 
 #include "CombatGameModeBase.h"
 #include "PartyHealthbarElement.h"
+#include "SkillRange.h"
+#include "SkillUsage.h"
 #include "Components/TextBlock.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"

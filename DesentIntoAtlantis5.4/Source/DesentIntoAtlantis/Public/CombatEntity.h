@@ -18,12 +18,12 @@ class UCombatStat;
 class UPassiveHandler;
 class UPassiveSkills;
 struct FPassiveSkillsData;
-enum class EPassiveSkillIDS;
-enum class EClasses;
+enum class EPassiveSkillIDS  : uint8;
+enum class EClasses : uint8;
 class UAilment;
 class USkillAliment;
 struct FSkillsData;
-enum class EStatusAilments;
+enum class EStatusAilments : uint8;
 class ACombatGameModeBase;
 class AEnemyPortraitElement;
 class USkillFactorySubsystem;
@@ -32,7 +32,7 @@ class USkillFactorySubsystem;
  */
 
 UENUM()
-enum class EStatTypes
+enum class EStatTypes  : uint8
 {
 	None       = 0,
 	Strength   = 1,
@@ -65,7 +65,7 @@ struct DESENTINTOATLANTIS_API FCombatEntityData :public  FTableRowBase
 
 
 UENUM()
-enum class ECharactertype
+enum class ECharactertype  : uint8
 {
 	Undefined,
 	Ally,

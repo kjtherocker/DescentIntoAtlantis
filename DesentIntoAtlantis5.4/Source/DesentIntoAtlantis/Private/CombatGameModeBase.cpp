@@ -17,6 +17,8 @@
 #include "EnemyPortraitElement.h"
 #include "ChallengeSubsystem.h"
 #include "PlayerCombatEntity.h"
+#include "SkillRange.h"
+#include "SkillUsage.h"
 #include "SoundManager.h"
 #include "TransitionView.h"
 #include "UObject/NoExportTypes.h"

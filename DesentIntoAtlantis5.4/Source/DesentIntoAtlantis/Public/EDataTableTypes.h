@@ -19,11 +19,12 @@ enum class  EDataTableTypes
 	DialogueActor        = 10,
 	PartyExperienceTable = 11,
 	ChallengeTable       = 12,
+	PassiveSkills        = 13
 };
 
 
 UENUM()
-enum class  EClasses
+enum class  EClasses  : uint8
 {
 	None                 = 0,
 	Banshee              = 1,

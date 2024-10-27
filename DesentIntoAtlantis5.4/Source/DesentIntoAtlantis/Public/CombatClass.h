@@ -7,7 +7,7 @@
 #include "EDataTableTypes.h"
 #include "Engine/DataTable.h"
 #include "UObject/NoExportTypes.h"
-#include "SkillsData.h"
+#include "SkillBase.h"
 #include "CombatClass.generated.h"
 
 class UPlayerCombatEntity;

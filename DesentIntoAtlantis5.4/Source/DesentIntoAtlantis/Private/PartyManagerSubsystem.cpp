@@ -3,6 +3,7 @@
 
 #include "PartyManagerSubsystem.h"
 #include "EDataTableTypes.h"
+#include "PassiveSkillFactorySubsystem.h"
 #include "PassiveSkills.h"
 #include "PersistentGameinstance.h"
 #include "PlayerCombatEntity.h"
@@ -37,10 +38,9 @@ void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UData
 	
 	// Cast the game instance to your custom game instance class
 	persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
-	USkillFactorySubsystem* skillFactorySubsystem = persistentGameInstance->GetSubsystem<USkillFactorySubsystem>();
+	skillFactory = persistentGameInstance->GetSubsystem<USkillFactorySubsystem>();
+	passiveSkillFactory = persistentGameInstance->GetSubsystem<UPassiveSkillFactorySubsystem>();
 	
-	skillFactory = skillFactorySubsystem;
-
 	UDataTable* datatable = aPlayerData;
 	for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
 	{
@@ -141,8 +141,7 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 	playerCombatEntity.Empty();
 	playerCombatEntityInfo.Empty();
 	activePartyEntityData.Empty();
-
-	UPassiveSkills* PassiveSkills = NewObject<UGenericOnAttackPassive>();
+	
 	
 	for (auto& playerCompleteDataSet : aPlayerCompleteDataSets)
 	{
@@ -171,7 +170,15 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 		playerCombatEntityInfo.Add(partyMember,PlayerCombatEntity);
 
 		PlayerCombatEntity->LevelUp(partyLevel);
-		PlayerCombatEntity->AddPassive(PassiveSkills);
+
+		//FPassiveHandlerData passiveHandler = playerCompleteDataSet.Value.PassiveHandlerData;
+//
+		//PlayerCombatEntity->AddPassive(passiveSkillFactory->GetPassiveSkill(EPassiveSkillIDS::DarkIncrease));		
+		//for (auto AllCompleteClassData : passiveHandler.PassiveSkillsDatas)
+		//{
+		//	PlayerCombatEntity->AddPassive(passiveSkillFactory->GetPassiveSkill(AllCompleteClassData.passiveSkillID));			
+		//}
+
 		AddPlayerToActiveParty(partyMember);
 	}
 }

@@ -4,6 +4,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "SkillFactorySubsystem.h"
 #include "CombatEntity.h"
+#include "ESkillID.h"
 #include "PlayerCombatEntity.h"
 
 

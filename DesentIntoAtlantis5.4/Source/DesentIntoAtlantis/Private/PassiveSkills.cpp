@@ -4,7 +4,11 @@
 
 #include "ChallengeSubsystem.h"
 #include "CombatStat.h"
-#include "SkillsData.h"
+#include "SkillBase.h"
+#include "SkillDamageType.h"
+#include "SkillRange.h"
+#include "SkillType.h"
+#include "SkillUsage.h"
 
 
 void UPassiveSkills::InitializePassiveSkilData(FPassiveSkillsData aPassiveSkillsData)
@@ -75,53 +79,47 @@ void UGenericEventPassive::EventListener_Implementation(FEventBase* aEvent)
 	}
 }
 
-void UGenericOnAttackPassive::CheckDamageAttackPassives_Implementation(int& CurrentDamage, UCombatEntity* aAttachedEntity,
-	UCombatEntity* aAttacker, FSkillsData aSkill)
+bool UGenericOnAttackPassive::IsPassiveTriggered_Implementation(int& CurrentDamage, UCombatEntity* aAttachedEntity,
+                                                                UCombatEntity* aAttacker, FSkillsData aSkill)
 {
-	if(aAttacker->currentHealth > 2)
+	FSkillsData skillData = aSkill;
+	
+	if(passiveSkillData.trigger1SkillType != skillData.skillType
+		&& passiveSkillData.trigger1SkillType != ESkillType::None )
 	{
-		CurrentDamage -= 100;
+		return false;
 	}
+	if(passiveSkillData.trigger2SkillUsage != skillData.skillUsage
+		&& passiveSkillData.trigger2SkillUsage != ESkillUsage::None )
+	{
+		return false;
+	}
+	if(passiveSkillData.trigger3SkillRange != skillData.skillRange
+		&& passiveSkillData.trigger3SkillRange != ESkillRange::None )
+	{
+		return false;
+	}
+	if(passiveSkillData.trigger4DamageType != skillData.skillDamageType
+		&& passiveSkillData.trigger4DamageType != ESkillDamageType::None )
+	{
+		return false;
+	}
+	//if(passiveSkillData.trigger5ElementalType != skillData.elementalType
+	//	&& passiveSkillData.trigger5ElementalType != EElementalType::None)
+	//{
+	//	return false;
+	//}
+	return true;
+}
+
+void UGenericOnAttackPassive::ActivateAttackDefencePassive_Implementation(int& CurrentDamage, UCombatEntity* aAttachedEntity,
+                                                                       UCombatEntity* aAttacker, FSkillsData aSkill)
+{
+	// Calculate the damage increase as a percentage of CurrentDamage
+	int DamageIncrease = aSkill.damage * (passiveSkillData.damagePercentageIncrease / 100.0f);
+    
+	// Add the calculated increase to CurrentDamage
+	CurrentDamage += DamageIncrease;
 
 }
 
-//bool UPassiveSkills::VerifyTriggers(DamageEvent* aDamageEvent)
-//{
-//
-//	USkillBase* SkillBase = aDamageEvent->GetSkill();
-//
-//	FSkillsData skillData = SkillBase->skillData;
-//	
-//	if(passiveSkillData.trigger1SkillType != skillData.skillType
-//		&& passiveSkillData.trigger1SkillType != ESkillType::None )
-//	{
-//		return false;
-//	}
-//
-//	if(passiveSkillData.trigger2SkillUsage != skillData.skillUsage
-//		&& passiveSkillData.trigger2SkillUsage != ESkillUsage::None )
-//	{
-//		return false;
-//	}
-//
-//	if(passiveSkillData.trigger3SkillRange != skillData.skillRange
-//		&& passiveSkillData.trigger3SkillRange != ESkillRange::None )
-//	{
-//		return false;
-//	}
-//
-//	if(passiveSkillData.trigger4DamageType != skillData.skillDamageType
-//		&& passiveSkillData.trigger4DamageType != ESkillDamageType::None )
-//	{
-//		return false;
-//	}
-//
-//	if(passiveSkillData.trigger5ElementalType != skillData.elementalType
-//		&& passiveSkillData.trigger5ElementalType != EElementalType::None)
-//	{
-//		return false;
-//	}
-//	
-//	return true;
-//}
-//

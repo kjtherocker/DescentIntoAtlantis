@@ -1,7 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-#include "SkillsData.h"
+#include "SkillBase.h"
 #include "CombatEntity.h"
 #include "CombatEntityWrapper.h"
+#include "CombatStat.h"
 
 
 void USkillBase::Initialize(FSkillsData aSkillData)

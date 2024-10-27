@@ -6,6 +6,7 @@
 #include "EnemyBehaviour.h"
 #include "EnemyPortraitElement.h"
 #include "CombatGameModeBase.h"
+#include "CombatStat.h"
 #include "SkillFactorySubsystem.h"
 
 void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactorySubsystem * skillFactory,EEnemyCombatPositions aPortraitPosition)

@@ -11,7 +11,7 @@
  */
 
 class UPassiveSkills;
-enum class EStatTypes;
+enum class EStatTypes  : uint8;
 
 UCLASS()
 class DESENTINTOATLANTIS_API UCombatStat : public UObject

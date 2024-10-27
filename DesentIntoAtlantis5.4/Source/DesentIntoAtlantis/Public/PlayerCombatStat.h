@@ -10,7 +10,7 @@
 
 struct FCompleteClassData;
 struct FPlayerIdentityData;
-enum class EClasses;
+enum class EClasses  : uint8;
 /**
  * 
  */

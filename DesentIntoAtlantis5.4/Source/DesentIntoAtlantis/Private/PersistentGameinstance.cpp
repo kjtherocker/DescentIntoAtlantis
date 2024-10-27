@@ -10,6 +10,7 @@
 #include "DialogueFactorySubsystem.h"
 #include "ChallengeSubsystem.h"
 #include "LevelProgressionSubsystem.h"
+#include "PassiveSkillFactorySubsystem.h"
 #include "SaveGameData.h"
 #include "SaveManagerSubsystem.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
@@ -29,16 +30,25 @@ void UPersistentGameinstance::Init()
 	partyManagerSubsystem           = GetSubsystem<UPartyManagerSubsystem>();
 	skillFactorySubsystem           = GetSubsystem<USkillFactorySubsystem>();
 	enemyFactorySubSystem           = GetSubsystem<UEnemyFactorySubSystem>();
+	passiveFactorySubsystem         = GetSubsystem<UPassiveSkillFactorySubsystem>();
 	tutorialManagerSubsystem        = GetSubsystem<UTutorialManagerSubsystem>();
 	dialogueManagerSubsystem        = GetSubsystem<UDialogueFactorySubsystem>();
 	EventManagerSubSystem           = GetSubsystem<UEventManagerSubSystem>();
 	saveManagerSubsystem            = GetSubsystem<USaveManagerSubsystem>();
 	levelProgressionSubsystem       = GetSubsystem<ULevelProgressionSubsystem>();
 
-	skillFactorySubsystem->InitializeDatabase(dataTables[EDataTableTypes::Skills]);
 	levelProgressionSubsystem->InitializeSubsystem(this);
 	
+	if(dataTables.Contains(EDataTableTypes::Skills))
+	{
+		skillFactorySubsystem->InitializeDatabase(dataTables[EDataTableTypes::Skills]);
+	}
 
+	if(dataTables.Contains(EDataTableTypes::PassiveSkills))
+	{
+		passiveFactorySubsystem->InitializeDatabase(dataTables[EDataTableTypes::PassiveSkills]);
+	}
+	
 	if(dataTables.Contains(EDataTableTypes::ChallengeTable))
 	{
 		challengeManagerSubsystem->InitializeSubsystem(dataTables[EDataTableTypes::ChallengeTable]);	

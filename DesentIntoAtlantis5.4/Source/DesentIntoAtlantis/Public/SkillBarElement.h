@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
-#include "SkillsData.h"
+#include "SkillBase.h"
 #include "Components/Image.h"
 #include "Components/TextBlock.h"
 #include "SkillBarElement.generated.h"

@@ -5,7 +5,7 @@
 
 #include "CombatEntity.h"
 #include "Engine/DataTable.h"
-#include "SkillsData.h"
+#include "SkillBase.h"
 
 
 void USkillFactorySubsystem::InitializeDatabase(UDataTable*  aSkillDataTable)

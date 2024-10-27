@@ -7,6 +7,7 @@
 #include "CombatGameModeBase.h"
 #include "CombatSelectionView.h"
 #include "EngineUtils.h"
+#include "ESkillID.h"
 #include "GameManager.h"
 #include "PersistentGameinstance.h"
 #include "SkillView.h"

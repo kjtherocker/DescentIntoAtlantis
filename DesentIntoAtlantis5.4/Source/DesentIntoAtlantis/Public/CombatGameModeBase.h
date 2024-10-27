@@ -14,7 +14,7 @@ class UChallengeSubsystem;
 class ACombatCameraPawn;
 class AAtlantisGameModeBase;
 class USkillFactorySubsystem;
-enum class ECharactertype;
+enum class ECharactertype  : uint8;
 class UPlayerCombatEntity;
 class UEnemyCombatEntity;
 struct FEnemyEntityData;

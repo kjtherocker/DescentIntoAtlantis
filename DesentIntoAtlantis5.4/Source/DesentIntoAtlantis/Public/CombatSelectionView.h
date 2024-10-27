@@ -6,7 +6,7 @@
 #include "BaseUserWidget.h"
 #include "EnemyCombatEntity.h"
 #include "EnemySelectionElement.h"
-#include "SkillsData.h"
+#include "SkillBase.h"
 #include "CombatSelectionView.generated.h"
 
 class UPlayerCombatEntity;

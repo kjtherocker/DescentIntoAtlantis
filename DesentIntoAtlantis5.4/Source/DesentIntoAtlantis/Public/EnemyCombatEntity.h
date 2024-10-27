@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "CombatEntity.h"
 #include "EnemyBeastiaryData.h"
-#include "SkillsData.h"
+#include "SkillBase.h"
 #include "UObject/NoExportTypes.h"
 #include "EnemyCombatEntity.generated.h"
 

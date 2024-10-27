@@ -6,7 +6,7 @@
 #include "UObject/NoExportTypes.h"
 #include "EnemyBeastiaryData.generated.h"
 
-enum class EElementalType;
+enum class EElementalType: uint8;
 /**
  * 
  */

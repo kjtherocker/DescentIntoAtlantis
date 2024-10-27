@@ -6,9 +6,11 @@
 #include "CombatEntity.h"
 #include "UObject/NoExportTypes.h"
 #include "CombatClass.h"
+#include "PassiveHandler.h"
 #include "PlayerCombatEntity.generated.h"
 
-enum class EClasses;
+
+enum class EClasses  : uint8;
 class UPartyHealthbarElement;
 /**
  * 
@@ -58,9 +60,8 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 	UPROPERTY(EditAnywhere)
 	TMap<EClasses,FCompleteClassData> unlockedPlayerClasses;
 
-//	UPROPERTY(EditAnywhere)
-//	TArray<FPassiveSkillsData> unlockedPassives;
-
+	UPROPERTY(EditAnywhere)
+	FPassiveHandlerData PassiveHandlerData;
 	UPROPERTY(EditAnywhere)
 	int jobPoints;
 	

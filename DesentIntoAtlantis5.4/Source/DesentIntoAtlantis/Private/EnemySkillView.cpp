@@ -3,7 +3,7 @@
 
 #include "EnemySkillView.h"
 
-#include "SkillsData.h"
+#include "SkillBase.h"
 #include "Components/TextBlock.h"
 
 void UEnemySkillView::SetSkill(FSkillsData aSkill, UEnemyCombatEntity* aEnemyCombatEntity)

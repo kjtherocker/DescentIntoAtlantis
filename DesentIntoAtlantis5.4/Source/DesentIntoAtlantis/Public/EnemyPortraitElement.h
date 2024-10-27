@@ -7,7 +7,7 @@
 #include "CombatGameModeBase.h"
 #include "EnemyPortraitElement.generated.h"
 
-enum class EStatusAilments;
+enum class EStatusAilments  : uint8;
 class UEnemyCombatEntity;
 class UImage;
 /**

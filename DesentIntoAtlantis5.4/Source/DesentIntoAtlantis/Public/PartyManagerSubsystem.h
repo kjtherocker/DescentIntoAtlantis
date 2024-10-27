@@ -11,10 +11,11 @@
 #include "UObject/NoExportTypes.h"
 #include "PartyManagerSubsystem.generated.h"
 
+class UPassiveSkillFactorySubsystem;
 class UPersistentGameinstance;
 class ACombatGameModeBase;
 struct FPlayerIdentityData;
-enum class EClasses;
+enum class EClasses  : uint8;
 class UPlayerCombatEntity;
 class UCombatEntity;
 class USkillFactorySubsystem;
@@ -53,6 +54,9 @@ private:
 	UPartyManagerSubsystem();
 	UPROPERTY()
 	USkillFactorySubsystem* skillFactory;
+
+	UPROPERTY()
+	UPassiveSkillFactorySubsystem* passiveSkillFactory;
 
 	TMap<int,int> LevelExperienceTable;
 	TMap<EClasses,FCompleteClassData> classDataTables;

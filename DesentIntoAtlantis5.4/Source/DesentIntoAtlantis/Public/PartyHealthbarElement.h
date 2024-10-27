@@ -8,7 +8,7 @@
 #include "Components/Image.h"
 #include "PartyHealthbarElement.generated.h"
 
-enum class EStatusAilments;
+enum class EStatusAilments  : uint8;
 class UPlayerCombatEntity;
 class UTextBlock;
 class UProgressBar;

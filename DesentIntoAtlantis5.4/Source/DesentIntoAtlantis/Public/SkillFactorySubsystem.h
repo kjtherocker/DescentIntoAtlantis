@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Subsystems/GameInstanceSubsystem.h"
-#include "SkillsData.h"
+#include "SkillBase.h"
 #include "SkillFactorySubsystem.generated.h"
 
 /**

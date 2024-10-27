@@ -8,7 +8,7 @@
 #include "PassiveHandler.h"
 #include "PassiveSkills.h"
 #include "SkillFactorySubsystem.h"
-#include "SkillsData.h"
+#include "SkillBase.h"
 
 
 void UCombatEntity::SetAWrapperToDefault(ECombatEntityWrapperType aShellType)
@@ -93,11 +93,21 @@ void UCombatEntity::InflictAilment(UAilmentShellTakeOver* aAliment,ECombatEntity
 
 void UCombatEntity::AddPassive(UPassiveSkills* aPassiveSkills)
 {
+    if(aPassiveSkills == nullptr)
+    {
+        return;
+    }
+    
     passiveHandler->AddPassive(aPassiveSkills);
 }
 
 void UCombatEntity::RemovePassive(UPassiveSkills* aPassiveSkills)
 {
+    if(aPassiveSkills == nullptr)
+    {
+        return;
+    }
+    
     passiveHandler->RemovePassive(aPassiveSkills);
 }
 

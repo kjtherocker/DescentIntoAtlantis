@@ -6,7 +6,8 @@
 #include "CombatEntity.h"
 #include "CombatStat.h"
 #include "PassiveHandler.h"
-#include "SkillsData.h"
+#include "SkillBase.h"
+#include "SkillDamageType.h"
 
 
 void UAilmentShellTakeOver::Initialize(UCombatEntity* aAttachedEntity,ECombatEntityWrapperType aWrapperType)

@@ -7,9 +7,9 @@
 
 class ACombatGameModeBase;
 class AAtlantisGameModeBase;
-enum class EPressTurnReactions;
+enum class EPressTurnReactions : uint8;
 class USkillBase;
-enum class ECharactertype;
+enum class ECharactertype  : uint8;
 class UTurnCounterView;
 class AFloorGameMode;
 class UCombatEntity;

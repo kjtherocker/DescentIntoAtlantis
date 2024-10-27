@@ -84,6 +84,7 @@ void UPlayerCombatEntity::GatherAndSavePlayerCompleteDataSet()
 {
 	playerCompleteDataSet.playerIdentityData    = playerIdentityData;
 	playerCompleteDataSet.mainClassData         = mainClass->completeClassData;
+//	playerCompleteDataSet.PassiveHandlerData    = passiveHandler->GetPassiveHandlerData();
 
 	playerCompleteDataSet.unlockedPlayerClasses.Add(mainClass->completeClassData.classIdentifer,mainClass->completeClassData);
 

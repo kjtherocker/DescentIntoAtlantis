@@ -9,7 +9,7 @@
 #include "Components/ProgressBar.h"
 #include "EnemySelectionElement.generated.h"
 
-enum class EElementalType;
+enum class EElementalType: uint8;
 class UEnemyCombatEntity;
 struct FEnemyEntityData;
 class UTextBlock;

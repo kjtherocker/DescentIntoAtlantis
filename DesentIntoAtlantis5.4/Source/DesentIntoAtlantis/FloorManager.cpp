@@ -7,7 +7,7 @@
 #include "EFloorIdentifier.h"
 #include "FloorPlayerController.h"
 #include "PersistentGameinstance.h"
-#include "SkillsData.h"
+#include "SkillBase.h"
 #include "Engine/DataTable.h"
 #include "EventManagerSubSystem.h"
 #include "FloorDoor.h"
