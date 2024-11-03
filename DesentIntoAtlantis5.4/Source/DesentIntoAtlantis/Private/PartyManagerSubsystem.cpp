@@ -4,6 +4,7 @@
 #include "PartyManagerSubsystem.h"
 #include "EDataTableTypes.h"
 #include "PassiveSkillFactorySubsystem.h"
+#include "PassiveSkillHandlerData.h"
 #include "PassiveSkills.h"
 #include "PersistentGameinstance.h"
 #include "PlayerCombatEntity.h"
@@ -172,8 +173,7 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 		PlayerCombatEntity->LevelUp(partyLevel);
 
 		//FPassiveHandlerData passiveHandler = playerCompleteDataSet.Value.PassiveHandlerData;
-//
-		//PlayerCombatEntity->AddPassive(passiveSkillFactory->GetPassiveSkill(EPassiveSkillIDS::DarkIncrease));		
+		
 		//for (auto AllCompleteClassData : passiveHandler.PassiveSkillsDatas)
 		//{
 		//	PlayerCombatEntity->AddPassive(passiveSkillFactory->GetPassiveSkill(AllCompleteClassData.passiveSkillID));			

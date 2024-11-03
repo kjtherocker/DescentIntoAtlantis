@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
 UENUM()
 enum class EElementalType : uint8
 {

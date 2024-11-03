@@ -8,9 +8,9 @@ void UPassiveSkillFactorySubsystem::InitializeDatabase(UDataTable* aPassiveDataT
 {
 
 
-	allPassiveSkills.Add(EPassiveSkillIDS::DarkIncrease,NewObject<UGenericOnAttackPassive>());
-	allPassiveSkills.Add(EPassiveSkillIDS::DarkResist,NewObject<UGenericOnAttackPassive>());
-	allPassiveSkills.Add(EPassiveSkillIDS::StatusAdept, NewObject<UGenericStatPassive>());
+	allPassiveSkills.Add(EPassiveSkillID::DarkIncrease,NewObject<UGenericOnAttackPassive>());
+	allPassiveSkills.Add(EPassiveSkillID::DarkResist,  NewObject<UGenericOnAttackPassive>());
+	allPassiveSkills.Add(EPassiveSkillID::StatusAdept, NewObject<UGenericStatPassive>());
 
 
 
@@ -20,7 +20,7 @@ void UPassiveSkillFactorySubsystem::InitializeDatabase(UDataTable* aPassiveDataT
 	{
 		for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
 		{
-			FPassiveSkillsData skillData = *datatable->FindRow<FPassiveSkillsData>(FName(FString::FromInt(i)),FString("Searching for Skills"),true);
+			FPassiveSkillData skillData = *datatable->FindRow<FPassiveSkillData>(FName(FString::FromInt(i)),FString("Searching for Skills"),true);
 			
 			allPassiveSkills[skillData.passiveSkillID]->InitializePassiveSkilData(skillData);
 
@@ -33,7 +33,7 @@ void UPassiveSkillFactorySubsystem::InitializeDatabase(UDataTable* aPassiveDataT
 	}
 }
 
-UPassiveSkills* UPassiveSkillFactorySubsystem::GetPassiveSkill(EPassiveSkillIDS aPassiveSkillID)
+UPassiveSkills* UPassiveSkillFactorySubsystem::GetPassiveSkill(EPassiveSkillID aPassiveSkillID)
 {
 	if(!allPassiveSkills.Contains(aPassiveSkillID))
 	{

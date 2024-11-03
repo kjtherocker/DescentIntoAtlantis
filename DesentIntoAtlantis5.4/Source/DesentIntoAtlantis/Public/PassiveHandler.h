@@ -3,24 +3,15 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PassiveSkillHandlerData.h"
 #include "UObject/NoExportTypes.h"
 #include "PassiveHandler.generated.h"
 
-struct FPassiveSkillsData;
+
 struct FSkillsData;
 class UPassiveSkills;
 class UCombatEntity;
-/**
- * 
- */
-USTRUCT()
-struct DESENTINTOATLANTIS_API FPassiveHandlerData:public  FTableRowBase
-{
-	GENERATED_USTRUCT_BODY()
-	UPROPERTY()
-	TArray<FPassiveSkillsData> PassiveSkillsDatas;
 
-};
 
 UCLASS()
 class DESENTINTOATLANTIS_API UPassiveHandler : public UObject
@@ -32,7 +23,8 @@ class DESENTINTOATLANTIS_API UPassiveHandler : public UObject
 
 	UPROPERTY()
 	UCombatEntity* ownedCombatEntity;
-
+	
+	UPROPERTY()
 	FPassiveHandlerData PassiveHandlerData;
 
 public:

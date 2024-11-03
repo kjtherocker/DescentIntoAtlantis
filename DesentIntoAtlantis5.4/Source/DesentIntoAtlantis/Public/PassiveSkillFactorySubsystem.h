@@ -7,7 +7,7 @@
 #include "PassiveSkillFactorySubsystem.generated.h"
 
 class UPassiveSkills;
-enum class EPassiveSkillIDS  : uint8;
+enum class EPassiveSkillID  : uint8;
 /**
  * 
  */
@@ -17,10 +17,10 @@ class DESENTINTOATLANTIS_API UPassiveSkillFactorySubsystem : public UGameInstanc
 	GENERATED_BODY()
 
 	UPROPERTY()
-	TMap<EPassiveSkillIDS,UPassiveSkills*> allPassiveSkills;
+	TMap<EPassiveSkillID,UPassiveSkills*> allPassiveSkills;
 
 
 public:
 	void InitializeDatabase(UDataTable*  aPassiveDataTable);
-	UPassiveSkills* GetPassiveSkill(EPassiveSkillIDS aPassiveSkillID);
+	UPassiveSkills* GetPassiveSkill(EPassiveSkillID aPassiveSkillID);
 };

@@ -84,12 +84,24 @@ void UPlayerCombatEntity::GatherAndSavePlayerCompleteDataSet()
 {
 	playerCompleteDataSet.playerIdentityData    = playerIdentityData;
 	playerCompleteDataSet.mainClassData         = mainClass->completeClassData;
-//	playerCompleteDataSet.PassiveHandlerData    = passiveHandler->GetPassiveHandlerData();
+	//playerCompleteDataSet.PassiveHandlerData    = passiveHandler->GetPassiveHandlerData();
 
 	playerCompleteDataSet.unlockedPlayerClasses.Add(mainClass->completeClassData.classIdentifer,mainClass->completeClassData);
 
 	playerCompleteDataSet.currentHP = currentHealth;
 	playerCompleteDataSet.currentMP = currentMana;
+}
+
+void UPlayerCombatEntity::AddPassive(UPassiveSkills* aPassiveSkills)
+{
+	Super::AddPassive(aPassiveSkills);
+	GatherAndSavePlayerCompleteDataSet();
+}
+
+void UPlayerCombatEntity::RemovePassive(UPassiveSkills* aPassiveSkills)
+{
+	Super::RemovePassive(aPassiveSkills);
+	GatherAndSavePlayerCompleteDataSet();
 }
 
 void UPlayerCombatEntity::SetAbilityScores()

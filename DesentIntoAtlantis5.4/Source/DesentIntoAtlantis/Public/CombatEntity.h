@@ -17,8 +17,8 @@
 class UCombatStat;
 class UPassiveHandler;
 class UPassiveSkills;
-struct FPassiveSkillsData;
-enum class EPassiveSkillIDS  : uint8;
+struct FPassiveSkillData;
+enum class EPassiveSkillID  : uint8;
 enum class EClasses : uint8;
 class UAilment;
 class USkillAliment;

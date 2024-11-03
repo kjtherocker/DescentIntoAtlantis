@@ -11,7 +11,7 @@
 #include "SkillUsage.h"
 
 
-void UPassiveSkills::InitializePassiveSkilData(FPassiveSkillsData aPassiveSkillsData)
+void UPassiveSkills::InitializePassiveSkilData(FPassiveSkillData aPassiveSkillsData)
 {
 	passiveSkillData = aPassiveSkillsData;
 }

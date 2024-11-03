@@ -3,80 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CombatEntity.h"
+#include "PassiveSkillData.h"
 #include "PassiveSkills.generated.h"
 
 /**
  * 
  */
-
-enum class ESkillDamageType : uint8;
-enum class ESkillRange : uint8;
-enum class ESkillUsage : uint8;
-enum class ESkillType : uint8;
-struct FSkillsData;
-enum class EAtlantisEvents : uint8;
-enum class EStatTypes : uint8;
-class FEventBase;
-class UCombatEntity;
-
-UENUM()
-enum class EPassiveSkillIDS   : uint8
-{
-	None                 = 0,
-	StatusAdept          = 1,
-	DarkIncrease         = 2,
-	DarkResist           = 3,
-};
-
-
-
-USTRUCT()
-struct DESENTINTOATLANTIS_API FPassiveSkillsData : public FTableRowBase
-{
-	GENERATED_USTRUCT_BODY()
-
-	UPROPERTY( EditAnywhere )
-	EPassiveSkillIDS passiveSkillID;
-
-	
-	
-	UPROPERTY( EditAnywhere )
-	int damageIncrease;
-
-	UPROPERTY( EditAnywhere )
-	int damagePercentageIncrease;
-
-    UPROPERTY( EditAnywhere )    
-    ESkillType      trigger1SkillType;
-    
-    UPROPERTY( EditAnywhere )    
-    ESkillUsage     trigger2SkillUsage;
-    
-    UPROPERTY( EditAnywhere )    
-    ESkillRange trigger3SkillRange ;
-    
-    UPROPERTY( EditAnywhere )    
-    ESkillDamageType trigger4DamageType;
-    
-  // UPROPERTY( EditAnywhere )    
-  // EElementalType trigger5ElementalType = EElementalType::None;
-
-	UPROPERTY()
-	TMap< EStatTypes,int> passiveStats;
-	
-	UPROPERTY( EditAnywhere )
-	FString passiveName;
-	
-	UPROPERTY( EditAnywhere )
-	FString passiveDescription;
-	
-	UPROPERTY( EditAnywhere )
-	UTexture2D* passiveIcon;
-
-	UPROPERTY( EditAnywhere )
-	int abilityScoreChangeDuration;
-};
-
 
 // ISkillable.h
 UINTERFACE(BlueprintType)
@@ -140,7 +73,7 @@ class DESENTINTOATLANTIS_API UPassiveSkills : public UObject
 	GENERATED_BODY()
 
 public:
-	void InitializePassiveSkilData(FPassiveSkillsData aPassiveSkillsData);
+	void InitializePassiveSkilData(FPassiveSkillData aPassiveSkillsData);
 	void AttachPassiveToOwner(UCombatEntity* aCombatEntity);
 	void RemovePassive();
 	void ActivatePassive();
@@ -155,7 +88,7 @@ public:
 	UPROPERTY()
 	int EffectValue;
 
-	FPassiveSkillsData passiveSkillData;
+	FPassiveSkillData passiveSkillData;
 private:
 
 
