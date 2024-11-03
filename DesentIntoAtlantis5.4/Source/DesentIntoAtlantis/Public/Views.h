@@ -36,6 +36,7 @@ enum class  EViews
 	LoadView             = 26,
 	SettingView          = 27,
 	TransitionView       = 28,
+	EquipView            = 29,
 };
 
 
@@ -61,5 +62,6 @@ enum class  EViewElements
 	MainMenuStatusElement    = 5,
 	SaveSlotElement          = 6,
 	SavePortraitElement      = 7,
+	PassiveSkillElement      = 8
 	
 };

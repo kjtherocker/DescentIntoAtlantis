@@ -172,12 +172,12 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 
 		PlayerCombatEntity->LevelUp(partyLevel);
 
-		//FPassiveHandlerData passiveHandler = playerCompleteDataSet.Value.PassiveHandlerData;
+		FPassiveHandlerData passiveHandler = playerCompleteDataSet.Value.PassiveHandlerData;
 		
-		//for (auto AllCompleteClassData : passiveHandler.PassiveSkillsDatas)
-		//{
-		//	PlayerCombatEntity->AddPassive(passiveSkillFactory->GetPassiveSkill(AllCompleteClassData.passiveSkillID));			
-		//}
+		for (auto AllCompleteClassData : passiveHandler.PassiveSkillsDatas)
+		{
+			PlayerCombatEntity->AddPassive(passiveSkillFactory->GetPassiveSkill(AllCompleteClassData.passiveSkillID));			
+		}
 
 		AddPlayerToActiveParty(partyMember);
 	}

@@ -6,6 +6,7 @@
 #include "CombatEntity.h"
 #include "UObject/NoExportTypes.h"
 #include "CombatClass.h"
+#include "PassiveSkillHandlerData.h"
 #include "PlayerCombatEntity.generated.h"
 
 
@@ -59,8 +60,8 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 	UPROPERTY(EditAnywhere)
 	TMap<EClasses,FCompleteClassData> unlockedPlayerClasses;
 
-	//UPROPERTY(EditAnywhere)
-	//FPassiveHandlerData PassiveHandlerData;
+	UPROPERTY(EditAnywhere)
+	FPassiveHandlerData PassiveHandlerData;
 	UPROPERTY(EditAnywhere)
 	int jobPoints;
 	

@@ -40,6 +40,7 @@ public:
 	virtual bool TryActivatePassive(UPassiveSkills* aPassiveSkills);
 	virtual void AddPassive(UPassiveSkills* aPassiveSkills);
 	virtual void RemovePassive(UPassiveSkills* aPassiveSkills);
+	virtual TArray<UPassiveSkills*> GetAllPassives();
 
 	virtual FPassiveHandlerData GetPassiveHandlerData();
 };

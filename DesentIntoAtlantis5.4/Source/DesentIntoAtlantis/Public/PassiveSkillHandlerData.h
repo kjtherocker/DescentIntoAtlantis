@@ -13,7 +13,7 @@ USTRUCT()
 struct DESENTINTOATLANTIS_API FPassiveHandlerData:public  FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
-	//UPROPERTY()
-	//TArray<FPassiveSkillData> PassiveSkillsDatas;
+	UPROPERTY()
+	TArray<FPassiveSkillData> PassiveSkillsDatas;
 
 };

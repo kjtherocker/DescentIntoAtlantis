@@ -11,6 +11,7 @@ enum class ESkillUsage      : uint8;
 enum class ESkillType       : uint8;
 enum class EAtlantisEvents  : uint8;
 enum class EStatTypes       : uint8;
+enum class EElementalType   : uint8;
 class FEventBase;
 
 
@@ -53,8 +54,8 @@ struct DESENTINTOATLANTIS_API FPassiveSkillData : public FTableRowBase
 	UPROPERTY( EditAnywhere )    
 	ESkillDamageType trigger4DamageType;
     
-	//UPROPERTY( EditAnywhere )    
-	//EElementalType trigger5ElementalType = EElementalType::None;
+	UPROPERTY( EditAnywhere )    
+	EElementalType trigger5ElementalType;
 
 	UPROPERTY()
 	TMap< EStatTypes,int> passiveStats;

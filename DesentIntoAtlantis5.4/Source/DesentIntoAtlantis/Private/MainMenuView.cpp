@@ -4,6 +4,7 @@
 #include "MainMenuView.h"
 
 #include "AtlantisGameModeBase.h"
+#include "EquipMenuView.h"
 #include "PartyHealthbarElement.h"
 #include "PartyManagerSubsystem.h"
 #include "PersistentGameinstance.h"
@@ -110,6 +111,8 @@ void UMainMenuView::Skills()
 
 void UMainMenuView::Class()
 {
+	UEquipMenuView* equipMenuView =  (UEquipMenuView*)gameModeBase->InGameHUD->PushAndGetView(EViews::EquipView,    EUiType::ActiveUi);
+	equipMenuView->SetEquipMenuView(persistentGameinstance->partyManagerSubsystem);
 }
 
 void UMainMenuView::Status()

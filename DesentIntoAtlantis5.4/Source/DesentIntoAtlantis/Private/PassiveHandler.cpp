@@ -57,7 +57,7 @@ void UPassiveHandler::AddPassive(UPassiveSkills* aPassiveSkills)
 		//godManagerSubsystem
 	}
 	passiveSkills.Add(aPassiveSkills);
-	//PassiveHandlerData.PassiveSkillsDatas.Add(aPassiveSkills->passiveSkillData);
+	PassiveHandlerData.PassiveSkillsDatas.Add(aPassiveSkills->passiveSkillData);
 }
 
 void UPassiveHandler::RemovePassive(UPassiveSkills* aPassiveSkills)
@@ -65,6 +65,11 @@ void UPassiveHandler::RemovePassive(UPassiveSkills* aPassiveSkills)
 	aPassiveSkills->RemoveEffect(ownedCombatEntity);
 	passiveSkills.Remove(aPassiveSkills);
 	//assiveHandlerData.PassiveSkillsDatas.Remove(aPassiveSkills->passiveSkillData);
+}
+
+TArray<UPassiveSkills*> UPassiveHandler::GetAllPassives()
+{
+	return passiveSkills;
 }
 
 

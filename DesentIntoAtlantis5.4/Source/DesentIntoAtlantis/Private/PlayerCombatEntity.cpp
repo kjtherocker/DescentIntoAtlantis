@@ -4,6 +4,7 @@
 #include "PlayerCombatEntity.h"
 #include "CombatGameModeBase.h"
 #include "PartyHealthbarElement.h"
+#include "PassiveHandler.h"
 #include "PersistentGameinstance.h"
 #include "PlayerCombatStat.h"
 
@@ -84,7 +85,7 @@ void UPlayerCombatEntity::GatherAndSavePlayerCompleteDataSet()
 {
 	playerCompleteDataSet.playerIdentityData    = playerIdentityData;
 	playerCompleteDataSet.mainClassData         = mainClass->completeClassData;
-	//playerCompleteDataSet.PassiveHandlerData    = passiveHandler->GetPassiveHandlerData();
+	playerCompleteDataSet.PassiveHandlerData    = passiveHandler->GetPassiveHandlerData();
 
 	playerCompleteDataSet.unlockedPlayerClasses.Add(mainClass->completeClassData.classIdentifer,mainClass->completeClassData);
 
