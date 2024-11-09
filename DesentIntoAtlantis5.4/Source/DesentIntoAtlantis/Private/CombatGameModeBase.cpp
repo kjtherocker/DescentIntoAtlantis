@@ -33,7 +33,8 @@ void ACombatGameModeBase::InitializeLevel()
 	ActorSpawnParameters.Owner = this;
 
 	godManagerSubsystem = persistentGameInstance->challengeManagerSubsystem;
-
+	passiveSkillFactorySubsystem = persistentGameInstance->passiveFactorySubsystem;
+	
 	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
 	combatCamera = Cast<ACombatCameraPawn>(GetWorld()->SpawnActor<AActor>(cameraReference, CAMERA_POSITION, CAMERA_ROTATION,ActorSpawnParameters));
 	
@@ -206,7 +207,7 @@ void ACombatGameModeBase::AddEnemyToCombat(FEnemyEntityData AEnemyEntityData,int
 	
 	UEnemyCombatEntity* EnemyCombatEntity = NewObject<UEnemyCombatEntity>();
 	
-	EnemyCombatEntity->SetCombatEntity(skillFactory);
+	EnemyCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactorySubsystem);
 	EnemyCombatEntity->SetTacticsEvents(this);
 	EnemyCombatEntity->SetEnemyEntityData(AEnemyEntityData,skillFactory,static_cast<EEnemyCombatPositions>(aPosition));
 	EnemyCombatEntity->beastiaryData = enemyFactory->GetBestiaryEntry(EnemyCombatEntity->enemyEntityData.characterName);

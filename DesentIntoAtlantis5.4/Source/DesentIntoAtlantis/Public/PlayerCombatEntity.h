@@ -62,8 +62,8 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 
 	UPROPERTY(EditAnywhere)
 	FPassiveHandlerData PassiveHandlerData;
-	UPROPERTY(EditAnywhere)
-	int jobPoints;
+	UPROPERTY()
+	int ClassPoints;
 	
 	UPROPERTY(EditAnywhere)
 	TArray<ESkillIDS> skillSlots;
@@ -108,16 +108,19 @@ public:
     virtual void InitializeStats(EStatTypes aAbilityScoreTypes) override;
 	virtual void LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet);
 	virtual void SetPlayerEntity(FPlayerIdentityData aPlayerEntityData);
-	virtual void SetCombatEntity(USkillFactorySubsystem* aSkillFactory) override;
+	virtual void SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassiveSkillFactorySubsystem* aPassiveSkillFactory) override;
 	
 	virtual void InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData, int aClassLevel);
 	virtual void SetMainClass(EClasses aClass);
 	virtual void Reset() override;
 	virtual void SetToDefaultState() override;
 
+	virtual void GiveClassPoints(int aClassPoints);
+	virtual void RemoveClassPoints(int aClassPoints);
+	virtual int  GetClassPoints();
 	virtual void GatherAndSavePlayerCompleteDataSet();
 
-	virtual void AddPassive(UPassiveSkills* aPassiveSkills) override;
+	virtual void AddPassive(UPassiveSkills* aPassiveSkills,EPassiveSkillSlotType passiveSkillSlot) override;
 	virtual void RemovePassive(UPassiveSkills* aPassiveSkills) override;
 
 	void SetAbilityScores();

@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "CombatEntity.h"
 #include "EDataTableTypes.h"
+#include "PassiveSkillData.h"
 #include "Engine/DataTable.h"
 #include "UObject/NoExportTypes.h"
 #include "SkillBase.h"
@@ -36,6 +37,8 @@ struct DESENTINTOATLANTIS_API FCompleteClassData  :public  FTableRowBase
 	UPROPERTY( EditAnywhere )
 	EClasses classIdentifer = EClasses::None;
 
+	UPROPERTY(EditAnywhere)
+	int ClassPointCostToUnlock = 0;
 	UPROPERTY( EditAnywhere )
 	FClassData classBaseStat;
 
@@ -49,9 +52,15 @@ struct DESENTINTOATLANTIS_API FCompleteClassData  :public  FTableRowBase
 
 	UPROPERTY()
 	TArray<FSkillsData> syncSkills;
+
 	
 	UPROPERTY()
 	FClassData classStatBase;
+
+	UPROPERTY(EditAnywhere)
+	EPassiveSkillID classLockedPassive;
+	UPROPERTY(EditAnywhere)
+	TArray<FPassiveSkillClassData> classPassives;
 	
 	UPROPERTY()
 	int currentLevel = 0;

@@ -35,10 +35,20 @@ void UPassiveSkillFactorySubsystem::InitializeDatabase(UDataTable* aPassiveDataT
 
 UPassiveSkills* UPassiveSkillFactorySubsystem::GetPassiveSkill(EPassiveSkillID aPassiveSkillID)
 {
+	if(aPassiveSkillID == EPassiveSkillID::None)
+	{
+		return nullptr;
+	}
+	
 	if(!allPassiveSkills.Contains(aPassiveSkillID))
 	{
 		UE_LOG(LogTemp, Log, TEXT("PassiveSkillNotSetIn PassiveSkillFactory"));
 		return nullptr;
 	}
 	return allPassiveSkills[aPassiveSkillID];
+}
+
+bool UPassiveSkillFactorySubsystem::DoesPassiveSkillExist(EPassiveSkillID aPassiveSkillID)
+{
+	return allPassiveSkills.Contains(aPassiveSkillID);
 }

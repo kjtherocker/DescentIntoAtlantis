@@ -24,6 +24,16 @@ enum class EPassiveSkillID   : uint8
 	DarkResist           = 3,
 };
 
+UENUM()
+enum class EPassiveSkillSlotType   : uint8
+{
+	None                 = 0,
+	Equip                = 1,
+	MainClass            = 2,
+	SubClass             = 3,
+	Equipment            = 4,
+	Debug                = 5,
+};
 
 
 USTRUCT()
@@ -59,6 +69,9 @@ struct DESENTINTOATLANTIS_API FPassiveSkillData : public FTableRowBase
 
 	UPROPERTY()
 	TMap< EStatTypes,int> passiveStats;
+
+	UPROPERTY()
+	EPassiveSkillSlotType passiveSkillPlacement;
 	
 	UPROPERTY( EditAnywhere )
 	FString passiveName;
@@ -71,4 +84,19 @@ struct DESENTINTOATLANTIS_API FPassiveSkillData : public FTableRowBase
 
 	UPROPERTY( EditAnywhere )
 	int abilityScoreChangeDuration;
+};
+
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FPassiveSkillClassData : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	UPROPERTY( EditAnywhere )
+	EPassiveSkillID passiveSkillID;
+
+	UPROPERTY(EditAnywhere)
+	int CPCost;
+
+	UPROPERTY()
+	bool isPassiveOwned = false;
 };

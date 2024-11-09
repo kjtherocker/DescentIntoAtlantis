@@ -23,4 +23,6 @@ class DESENTINTOATLANTIS_API UPassiveSkillFactorySubsystem : public UGameInstanc
 public:
 	void InitializeDatabase(UDataTable*  aPassiveDataTable);
 	UPassiveSkills* GetPassiveSkill(EPassiveSkillID aPassiveSkillID);
+
+	bool DoesPassiveSkillExist(EPassiveSkillID aPassiveSkillID);
 };

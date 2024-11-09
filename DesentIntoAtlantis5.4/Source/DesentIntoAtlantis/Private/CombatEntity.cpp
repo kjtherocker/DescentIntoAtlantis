@@ -24,7 +24,7 @@ void UCombatEntity::SetAWrapperToDefault(ECombatEntityWrapperType aShellType)
     }
 }
 
-void UCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory)
+void UCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassiveSkillFactorySubsystem* aPassiveSkillFactory)
 {
 
     for (int32 i = static_cast<int32>(EStatTypes::None) + 1; i < static_cast<int32>(EStatTypes::Max); ++i)
@@ -36,7 +36,7 @@ void UCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory)
     resetOneWrapperToDefault.AddDynamic(this,&UCombatEntity::SetAWrapperToDefault);
 
     passiveHandler          = NewObject<UPassiveHandler>();
-    passiveHandler->InitializePassiveHandler(this);
+    passiveHandler->InitializePassiveHandler(this,aPassiveSkillFactory);
 
     
     inUseCombatWrapper      = NewObject<UCombatEntityWrapper>();
@@ -91,14 +91,14 @@ void UCombatEntity::InflictAilment(UAilmentShellTakeOver* aAliment,ECombatEntity
 }
 
 
-void UCombatEntity::AddPassive(UPassiveSkills* aPassiveSkills)
+void UCombatEntity::AddPassive(UPassiveSkills* aPassiveSkills,EPassiveSkillSlotType passiveSkillSlot)
 {
     if(aPassiveSkills == nullptr)
     {
         return;
     }
     
-    passiveHandler->AddPassive(aPassiveSkills);
+    passiveHandler->AddPassive(aPassiveSkills,passiveSkillSlot);
 }
 
 void UCombatEntity::RemovePassive(UPassiveSkills* aPassiveSkills)

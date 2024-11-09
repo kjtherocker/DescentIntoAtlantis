@@ -61,7 +61,7 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembers aPlayer)
 	UPlayerCombatEntity* PlayerCombatEntity = NewObject<UPlayerCombatEntity>();
 
 	PlayerCombatEntity->SetPlayerEntity(playerIdenityMap[aPlayer]);
-	PlayerCombatEntity->SetCombatEntity(skillFactory);
+	PlayerCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactory);
 
 	EClasses initalClass = playerIdenityMap[aPlayer].initalClass;
 	if(classDataTables.Contains(initalClass))
@@ -90,8 +90,9 @@ void UPartyManagerSubsystem::AddPlayerToActiveParty(EPartyMembers aPlayer)
 
 void UPartyManagerSubsystem::SavePartyManager()
 {
-	CompletePartyManagerSubsystemData.partyLevel      = partyLevel;
-	CompletePartyManagerSubsystemData.totalExperience = totalExperience;
+	CompletePartyManagerSubsystemData.partyLevel       = partyLevel;
+	CompletePartyManagerSubsystemData.totalExperience  = totalExperience;
+	CompletePartyManagerSubsystemData.totalClassPoints = totalClassPoints;
 	PartyManagerHasChanged.Broadcast(CompletePartyManagerSubsystemData);
 }
 
@@ -137,6 +138,16 @@ void UPartyManagerSubsystem::AddPartyExperience(int aExperience)
 	SavePartyManager();
 }
 
+void UPartyManagerSubsystem::AddPartyClassPoints(int aClassPoints)
+{
+	totalClassPoints += aClassPoints;
+
+	for (auto PlayerCombatEntity : playerCombatEntity)
+	{
+		PlayerCombatEntity->GiveClassPoints(aClassPoints);
+	}
+}
+
 void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, FPlayerCompleteDataSet> aPlayerCompleteDataSets)
 {
 	playerCombatEntity.Empty();
@@ -154,7 +165,7 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 		PlayerCombatEntity->LoadSavedHPAndMP(playerCompleteData);
 
 		PlayerCombatEntity->SetPlayerEntity(playerIdenityMap[partyMember]);
-		PlayerCombatEntity->SetCombatEntity(skillFactory);
+		PlayerCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactory);
 		
 		TMap<EClasses, FCompleteClassData> allCompleteClassData = playerCompleteData.unlockedPlayerClasses;
 		
@@ -163,6 +174,14 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 			EClasses classIdentifier = playerClass.Key;
 			int level = playerClass.Value.currentLevel;
 			PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[classIdentifier],level);
+
+			for (auto classPassive : playerClass.Value.classPassives)
+			{
+				if(!passiveSkillFactory->DoesPassiveSkillExist(classPassive.passiveSkillID))
+				{
+					PlayerCombatEntity->GiveClassPoints(classPassive.CPCost);
+				}
+			}
 		}
 
 		EClasses mainClassIdentifier = playerCompleteData.mainClassData.classIdentifer;
@@ -174,9 +193,13 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 
 		FPassiveHandlerData passiveHandler = playerCompleteDataSet.Value.PassiveHandlerData;
 		
-		for (auto AllCompleteClassData : passiveHandler.PassiveSkillsDatas)
+		for (auto PassiveSkillData : passiveHandler.PassiveSkillsDatas)
 		{
-			PlayerCombatEntity->AddPassive(passiveSkillFactory->GetPassiveSkill(AllCompleteClassData.passiveSkillID));			
+			if(PassiveSkillData.passiveSkillPlacement == EPassiveSkillSlotType::Debug)
+			{
+				continue;
+			}
+			PlayerCombatEntity->AddPassive(passiveSkillFactory->GetPassiveSkill(PassiveSkillData.passiveSkillID),PassiveSkillData.passiveSkillPlacement);			
 		}
 
 		AddPlayerToActiveParty(partyMember);

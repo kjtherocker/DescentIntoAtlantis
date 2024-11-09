@@ -32,9 +32,9 @@ void UPlayerCombatEntity::SetPlayerEntity(FPlayerIdentityData aPlayerEntityData)
 	playerIdentityData                       = aPlayerEntityData;
 }
 
-void UPlayerCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory)
+void UPlayerCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassiveSkillFactorySubsystem* aPassiveSkillFactory)
 {
-	Super::SetCombatEntity(aSkillFactory);
+	Super::SetCombatEntity(aSkillFactory,aPassiveSkillFactory);
 	characterType = ECharactertype::Ally;
 	skillFactory  = aSkillFactory;
 }
@@ -59,6 +59,7 @@ void UPlayerCombatEntity::SetMainClass(EClasses aClass)
 	SetAbilityScores();
 	SetToDefaultState();
 	playerCompleteDataSet.mainClassData = mainClass->completeClassData;
+	passiveHandler->AddMainClassPassives(mainClass);
 }
 
 void UPlayerCombatEntity::Reset()
@@ -81,6 +82,30 @@ void UPlayerCombatEntity::SetToDefaultState()
 	}
 }
 
+void UPlayerCombatEntity::GiveClassPoints(int aClassPoints)
+{
+	playerCompleteDataSet.ClassPoints += aClassPoints;
+
+	if(playerCompleteDataSet.ClassPoints >= 9999)
+	{
+		playerCompleteDataSet.ClassPoints = 9999;
+	}
+}
+
+void UPlayerCombatEntity::RemoveClassPoints(int aClassPoints)
+{
+	playerCompleteDataSet.ClassPoints -= aClassPoints;
+	if(playerCompleteDataSet.ClassPoints <= 0)
+	{
+		playerCompleteDataSet.ClassPoints = 0;
+	}
+}
+
+int UPlayerCombatEntity::GetClassPoints()
+{
+	return playerCompleteDataSet.ClassPoints;
+}
+
 void UPlayerCombatEntity::GatherAndSavePlayerCompleteDataSet()
 {
 	playerCompleteDataSet.playerIdentityData    = playerIdentityData;
@@ -93,9 +118,9 @@ void UPlayerCombatEntity::GatherAndSavePlayerCompleteDataSet()
 	playerCompleteDataSet.currentMP = currentMana;
 }
 
-void UPlayerCombatEntity::AddPassive(UPassiveSkills* aPassiveSkills)
+void UPlayerCombatEntity::AddPassive(UPassiveSkills* aPassiveSkills,EPassiveSkillSlotType passiveSkillSlot)
 {
-	Super::AddPassive(aPassiveSkills);
+	Super::AddPassive(aPassiveSkills,passiveSkillSlot);
 	GatherAndSavePlayerCompleteDataSet();
 }
 

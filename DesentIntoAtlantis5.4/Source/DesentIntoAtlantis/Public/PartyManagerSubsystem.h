@@ -39,6 +39,8 @@ struct DESENTINTOATLANTIS_API FCompletePartyManagerSubsystemData:public  FTableR
 	int partyLevel = 0;
 	UPROPERTY(EditAnywhere)
 	int totalExperience = 0;
+	UPROPERTY(EditAnywhere)
+	int totalClassPoints = 0;
 };
 
 /**
@@ -65,6 +67,7 @@ private:
 
 	FCompletePartyManagerSubsystemData CompletePartyManagerSubsystemData;
 	int totalExperience = 0;
+	int totalClassPoints = 0;
 	int partyLevel      = 1;
 public:
 	FPartyManagerHasChanged PartyManagerHasChanged;
@@ -81,7 +84,7 @@ public:
 	int GetPartyLevel() const;
 
 	void AddPartyExperience(int aExperience);
-
+	void AddPartyClassPoints(int aClassPoints);
 	void LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, FPlayerCompleteDataSet> aPlayerCompleteDataSets);
 	void ResetActivePartyToDefaultState();
 	

@@ -14,11 +14,13 @@
 #include "CombatEntity.generated.h"
 
 
+class UPassiveSkillFactorySubsystem;
 class UCombatStat;
 class UPassiveHandler;
 class UPassiveSkills;
 struct FPassiveSkillData;
 enum class EPassiveSkillID  : uint8;
+enum class EPassiveSkillSlotType  : uint8;
 enum class EClasses : uint8;
 class UAilment;
 class USkillAliment;
@@ -111,7 +113,7 @@ public:
  
 	UFUNCTION()
 	virtual void SetAWrapperToDefault(ECombatEntityWrapperType aShellType);
-	virtual void SetCombatEntity(USkillFactorySubsystem*  aSkillFactory);
+	virtual void SetCombatEntity(USkillFactorySubsystem*  aSkillFactory,UPassiveSkillFactorySubsystem* aPassiveSkillFactory);
 	
 	virtual void SetTacticsEvents(ACombatGameModeBase* aCombatManager);
 
@@ -151,7 +153,7 @@ public:
 	virtual int GetAilmentInfliction(EStatusAilments aStatusAilment);
 
 	
-	virtual void AddPassive(UPassiveSkills* aPassiveSkills);
+	virtual void AddPassive(UPassiveSkills* aPassiveSkills,EPassiveSkillSlotType passiveSkillSlot);
 	virtual void RemovePassive(UPassiveSkills* aPassiveSkills);
 	
 	
