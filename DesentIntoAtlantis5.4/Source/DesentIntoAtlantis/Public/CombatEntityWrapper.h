@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "CombatEntityWrapper.generated.h"
 
+class UHealth;
 /**
  * 
  */
@@ -69,12 +70,12 @@ struct DESENTINTOATLANTIS_API FCompleteEntityWrapperInfo
 };
 
 UCLASS()
-class  DESENTINTOATLANTIS_API UAilmentShellTakeOver : public UObject
+class  DESENTINTOATLANTIS_API UWrapperTakeOver : public UObject
 {
 	GENERATED_BODY()
 public:
 	FAilmentInfo ailmentInfo;
-	virtual void Initialize(UCombatEntity* aAttachedEntity,ECombatEntityWrapperType aWrapperType);
+	virtual void Initialize(UHealth* aAttachedHealth,ECombatEntityWrapperType aWrapperType);
 	virtual int CalculateDamage(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker,FSkillsData aSkill);
 	virtual void SetAilmentTurnLength(int aActiveTurnLength);
 	virtual void TurnEnd();
@@ -82,7 +83,7 @@ public:
 
 
 UCLASS()
-class  DESENTINTOATLANTIS_API UCalculateDamage_Base : public UAilmentShellTakeOver
+class  DESENTINTOATLANTIS_API UCalculateDamage_Base : public UWrapperTakeOver
 {
 	GENERATED_BODY()
 public:
@@ -108,11 +109,11 @@ class DESENTINTOATLANTIS_API UCombatEntityWrapper : public UObject
 
 private:
 	UPROPERTY()
-	UAilmentShellTakeOver* calculateDamage;
+	UWrapperTakeOver* calculateDamage;
 	FResetOneWrapperToDefault resetOneWrapperToDefault;
 public:
 	UPROPERTY()
-	UCombatEntity* AttachedCombatEntity;
+	UHealth*  AttachedHealth;
 	UPROPERTY()
 	FCompleteEntityWrapperInfo completeEntityWrapperInfo;
 
@@ -123,12 +124,12 @@ public:
 	UFUNCTION()
 	virtual void RemoveAilment(ECombatEntityWrapperType aCombatEntityWrapperType);
 
-	virtual void SetAilment(UAilmentShellTakeOver* aAilment,ECombatEntityWrapperType aCombatEntityWrapperType);
-	virtual void SetAttachedCombatEntity(UCombatEntity* aCombatEntity);
-	virtual void SetCalculateDamageDefault(UAilmentShellTakeOver* aCalculateDamageWrapper);
-	virtual void SetCalculateDamageAilment(UAilmentShellTakeOver* aCalculateDamageWrapper);
+	virtual void SetAilment(UWrapperTakeOver* aAilment,ECombatEntityWrapperType aCombatEntityWrapperType);
+	virtual void SetAttachedCombatEntity(UHealth* aCombatEntity);
+	virtual void SetCalculateDamageDefault(UWrapperTakeOver* aCalculateDamageWrapper);
+	virtual void SetCalculateDamageWrapper(UWrapperTakeOver* aCalculateDamageWrapper);
 	virtual int ExecuteCalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
-	virtual UAilmentShellTakeOver* GetCalculateDamageWrapper();
+	virtual UWrapperTakeOver* GetCalculateDamageWrapper();
 	virtual void TurnEnd();
 	//virtual PressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
 	//virtual PressTurnReactions ApplyBuff(      UCombatEntity* aBuffer,   FSkillsData aSkill);

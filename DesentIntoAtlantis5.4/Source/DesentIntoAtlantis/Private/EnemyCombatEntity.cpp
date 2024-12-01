@@ -7,6 +7,7 @@
 #include "EnemyPortraitElement.h"
 #include "CombatGameModeBase.h"
 #include "CombatStat.h"
+#include "Health.h"
 #include "SkillFactorySubsystem.h"
 
 void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactorySubsystem * skillFactory,EEnemyCombatPositions aPortraitPosition)
@@ -30,7 +31,7 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,US
 	{
 		enemySkills.Add(skillFactory->GetSkill(enemyEntityData.skillIDS[i]));
 	}
-	
+	health->InitializeHealth(AEnemyEntityData.HealthData,this);
 	
 	SetAbilityScores();
 }

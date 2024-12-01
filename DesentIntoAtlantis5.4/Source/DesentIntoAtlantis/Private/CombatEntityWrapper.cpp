@@ -5,28 +5,29 @@
 
 #include "CombatEntity.h"
 #include "CombatStat.h"
+#include "Health.h"
 #include "PassiveHandler.h"
 #include "SkillBase.h"
 #include "SkillDamageType.h"
 
 
-void UAilmentShellTakeOver::Initialize(UCombatEntity* aAttachedEntity,ECombatEntityWrapperType aWrapperType)
+void UWrapperTakeOver::Initialize(UHealth* aAttachedHealth,ECombatEntityWrapperType aWrapperType)
 {
-    ailmentInfo.resetShellToDefault     = aAttachedEntity->resetOneWrapperToDefault;
+    ailmentInfo.resetShellToDefault     = aAttachedHealth->resetOneWrapperToDefault;
     ailmentInfo.combatEntityWrapperType = aWrapperType;
 }
 
-int UAilmentShellTakeOver::CalculateDamage(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill)
+int UWrapperTakeOver::CalculateDamage(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill)
 {
     return 0;
 }
 
-void UAilmentShellTakeOver::SetAilmentTurnLength(int aActiveTurnLength)
+void UWrapperTakeOver::SetAilmentTurnLength(int aActiveTurnLength)
 {
     ailmentInfo.ailmentLength = aActiveTurnLength;
 }
 
-void UAilmentShellTakeOver::TurnEnd()
+void UWrapperTakeOver::TurnEnd()
 {
     ailmentInfo.ailmentLength--;
     if(ailmentInfo.ailmentLength <= 0)
@@ -100,7 +101,7 @@ void UCombatEntityWrapper::RemoveAilment(ECombatEntityWrapperType aCombatEntityW
     completeEntityWrapperInfo.ailments.Remove(aCombatEntityWrapperType);
 }
 
-void UCombatEntityWrapper::SetAilment(UAilmentShellTakeOver* aAilment, ECombatEntityWrapperType aCombatEntityWrapperType)
+void UCombatEntityWrapper::SetAilment(UWrapperTakeOver* aAilment, ECombatEntityWrapperType aCombatEntityWrapperType)
 {
     completeEntityWrapperInfo.ailments.Add(aCombatEntityWrapperType,&aAilment->ailmentInfo);
     switch (aCombatEntityWrapperType)
@@ -108,29 +109,29 @@ void UCombatEntityWrapper::SetAilment(UAilmentShellTakeOver* aAilment, ECombatEn
     case ECombatEntityWrapperType::None:
         break;
     case ECombatEntityWrapperType::CalculateDamage:
-        SetCalculateDamageAilment( aAilment);
+        SetCalculateDamageWrapper( aAilment);
         break;
     }
 }
 
-void UCombatEntityWrapper::SetAttachedCombatEntity(UCombatEntity* aCombatEntity)
+void UCombatEntityWrapper::SetAttachedCombatEntity(UHealth*  aCombatEntity)
 {
    aCombatEntity->resetOneWrapperToDefault.AddDynamic(this,&UCombatEntityWrapper::RemoveAilment);
-    AttachedCombatEntity = aCombatEntity;
+    AttachedHealth = aCombatEntity;
 }
 
-void UCombatEntityWrapper::SetCalculateDamageDefault(UAilmentShellTakeOver* aCalculateDamageWrapper)
+void UCombatEntityWrapper::SetCalculateDamageDefault(UWrapperTakeOver* aCalculateDamageWrapper)
 {
-    UAilmentShellTakeOver* calculateDamageTemp = aCalculateDamageWrapper;
-    AttachedCombatEntity->onStatusAilmentEnd.Broadcast(calculateDamage->ailmentInfo.statusAilment);
-    calculateDamageTemp->Initialize(AttachedCombatEntity,ECombatEntityWrapperType::CalculateDamage);
+    UWrapperTakeOver* calculateDamageTemp = aCalculateDamageWrapper;
+    AttachedHealth->GetAttachedCombatEntity()->onStatusAilmentEnd.Broadcast(calculateDamage->ailmentInfo.statusAilment);
+    calculateDamageTemp->Initialize(AttachedHealth,ECombatEntityWrapperType::CalculateDamage);
     calculateDamage = calculateDamageTemp;
 }
 
-void UCombatEntityWrapper::SetCalculateDamageAilment(UAilmentShellTakeOver* aCalculateDamageWrapper)
+void UCombatEntityWrapper::SetCalculateDamageWrapper(UWrapperTakeOver* aCalculateDamageWrapper)
 {
-    UAilmentShellTakeOver* calculateDamageTemp = aCalculateDamageWrapper;
-    calculateDamageTemp->Initialize(AttachedCombatEntity,ECombatEntityWrapperType::CalculateDamage);
+    UWrapperTakeOver* calculateDamageTemp = aCalculateDamageWrapper;
+    calculateDamageTemp->Initialize(AttachedHealth,ECombatEntityWrapperType::CalculateDamage);
     calculateDamageTemp->SetAilmentTurnLength(3);
     calculateDamage = calculateDamageTemp;
 }
@@ -138,10 +139,10 @@ void UCombatEntityWrapper::SetCalculateDamageAilment(UAilmentShellTakeOver* aCal
 int UCombatEntityWrapper::ExecuteCalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
     resetOneWrapperToDefault = aAttacker->resetOneWrapperToDefault;
-    return calculateDamage->CalculateDamage(AttachedCombatEntity,aAttacker,aSkill);
+    return calculateDamage->CalculateDamage(AttachedHealth->GetAttachedCombatEntity(),aAttacker,aSkill);
 }
 
-UAilmentShellTakeOver* UCombatEntityWrapper::GetCalculateDamageWrapper()
+UWrapperTakeOver* UCombatEntityWrapper::GetCalculateDamageWrapper()
 {
     return calculateDamage;
 }

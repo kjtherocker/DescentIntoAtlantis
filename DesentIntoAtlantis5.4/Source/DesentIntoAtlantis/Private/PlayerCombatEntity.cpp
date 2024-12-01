@@ -3,6 +3,7 @@
 
 #include "PlayerCombatEntity.h"
 #include "CombatGameModeBase.h"
+#include "Health.h"
 #include "PartyHealthbarElement.h"
 #include "PassiveHandler.h"
 #include "PersistentGameinstance.h"
@@ -21,7 +22,7 @@ void UPlayerCombatEntity::InitializeStats(EStatTypes aAbilityScoreTypes)
 
 void UPlayerCombatEntity::LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet)
 {
-	currentHealth = aPlayerCompleteDataSet.currentHP;
+	health->InitializeHealth(aPlayerCompleteDataSet.currentHP,aPlayerCompleteDataSet.currentHP,this);
 	currentMana   = aPlayerCompleteDataSet.currentMP;
 	currentSync   = aPlayerCompleteDataSet.currentSync;
 }

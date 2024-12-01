@@ -5,6 +5,7 @@
 #include "CombatEntityWrapper.h"
 #include "UObject/NoExportTypes.h"
 #include "EElementalType.h"
+#include "HealthData.h"
 
 
 #include "PressTurnManager.h"
@@ -53,6 +54,9 @@ struct DESENTINTOATLANTIS_API FCombatEntityData :public  FTableRowBase
 	GENERATED_USTRUCT_BODY()
 	UPROPERTY( EditAnywhere )
 	int maxHealth = 0;
+
+	UPROPERTY()
+	FHealthData HealthData;
 	
 	UPROPERTY( EditAnywhere )
 	int maxMana = 0;
@@ -88,10 +92,6 @@ protected:
 	bool isMarkedForDeath = false;
 
 	TArray<UAilment*> skillAliments;
-	UPROPERTY()
-	UCombatEntityWrapper* inUseCombatWrapper;
-	UPROPERTY()
-	UCombatEntityWrapper* allDefaultCombatWrapper;
 
 	UPROPERTY( EditAnywhere )
 	TArray<UPassiveSkills*> passiveSkills;
@@ -125,7 +125,7 @@ public:
 	//SetStatusEffect(StatusEffects aStatusEffect);
 	virtual void InitializeStats(EStatTypes aAbilityScoreTypes);
 	virtual void SetHealth(int aHealth);
-	virtual void InflictAilment(UAilmentShellTakeOver* aAliment,ECombatEntityWrapperType aCombatEntityWrapperType);
+	virtual void InflictAilment(UWrapperTakeOver* aAliment,ECombatEntityWrapperType aCombatEntityWrapperType);
 	virtual int CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
 	virtual void Reset();
 	virtual void AlimentDecrementHealth(int aDamage);
@@ -137,7 +137,7 @@ public:
 	virtual void Resurrection();
 	void DeathCheck();
 	virtual void Death();
-
+	virtual void PostDamage(int aTotalDamage);
 
 	virtual void ActivateDamageHitEffect();
 	virtual void SetToDefaultState();
@@ -155,8 +155,7 @@ public:
 	
 	virtual void AddPassive(UPassiveSkills* aPassiveSkills,EPassiveSkillSlotType passiveSkillSlot);
 	virtual void RemovePassive(UPassiveSkills* aPassiveSkills);
-	
-	
+
 	bool GetIsMarkedForDeath();
 
 	
@@ -165,6 +164,9 @@ public:
 	EElementalType elementalWeakness;
 	
 	ECharactertype characterType;
+
+	UPROPERTY()
+	UHealth* health;
 	
 	UPROPERTY()
 	UPassiveHandler* passiveHandler;

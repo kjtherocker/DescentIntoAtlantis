@@ -5,6 +5,7 @@
 #include "CombatGameModeBase.h"
 #include "CombatStat.h"
 #include "EElementalType.h"
+#include "Health.h"
 #include "PassiveHandler.h"
 #include "PassiveSkills.h"
 #include "SkillFactorySubsystem.h"
@@ -13,15 +14,7 @@
 
 void UCombatEntity::SetAWrapperToDefault(ECombatEntityWrapperType aShellType)
 {
-    switch (aShellType)
-    {
-        case ECombatEntityWrapperType::None:
-            
-        break;
-        case ECombatEntityWrapperType::CalculateDamage:
-            inUseCombatWrapper->SetCalculateDamageDefault(allDefaultCombatWrapper->GetCalculateDamageWrapper());
-        break;
-    }
+    health->SetAWrapperToDefault(aShellType);
 }
 
 void UCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassiveSkillFactorySubsystem* aPassiveSkillFactory)
@@ -37,15 +30,8 @@ void UCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassi
 
     passiveHandler          = NewObject<UPassiveHandler>();
     passiveHandler->InitializePassiveHandler(this,aPassiveSkillFactory);
+    health                  = NewObject<UHealth>();
 
-    
-    inUseCombatWrapper      = NewObject<UCombatEntityWrapper>();
-    allDefaultCombatWrapper = NewObject<UCombatEntityWrapper>();
-    allDefaultCombatWrapper->SetAttachedCombatEntity(this);
-    allDefaultCombatWrapper->SetCalculateDamageAilment(NewObject<UCalculateDamage_Base>());
-    
-    inUseCombatWrapper->SetAttachedCombatEntity(this);
-    inUseCombatWrapper->SetCalculateDamageAilment(allDefaultCombatWrapper->GetCalculateDamageWrapper());
 }
 
 
@@ -75,7 +61,7 @@ void UCombatEntity::EndTurn()
     {
         abilityScore.Value->TurnEnd();
     }
-    inUseCombatWrapper->TurnEnd();
+    health->TurnEnd();
 }
 
 
@@ -84,10 +70,10 @@ void UCombatEntity::SetHealth(int aHealth)
 //    currentHealth = currentClass->currentClassLevel->maxHealth;
 }
 
-void UCombatEntity::InflictAilment(UAilmentShellTakeOver* aAliment,ECombatEntityWrapperType aCombatEntityWrapperType)
+void UCombatEntity::InflictAilment(UWrapperTakeOver* aAliment,ECombatEntityWrapperType aCombatEntityWrapperType)
 {
     onStatusAilmentStart.Broadcast(aAliment->ailmentInfo.statusAilment);
-    inUseCombatWrapper->SetAilment(aAliment,aCombatEntityWrapperType);
+    health->InflictAilment(aAliment,aCombatEntityWrapperType);
 }
 
 
@@ -114,7 +100,7 @@ void UCombatEntity::RemovePassive(UPassiveSkills* aPassiveSkills)
 
 int UCombatEntity::CalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
-    return inUseCombatWrapper->ExecuteCalculateDamage(aAttacker,aSkill);
+    return  health->CalculateDamage(aAttacker,aSkill);
 }
 
 void UCombatEntity::Reset()
@@ -139,46 +125,13 @@ void UCombatEntity::AlimentDecrementHealth(int aDamage)
 
 EPressTurnReactions UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
-    EPressTurnReactions reaction = EPressTurnReactions::Normal;
-	    
-    if (aSkill.elementalType == elementalWeakness)
-    {
-        reaction =  EPressTurnReactions::Weak;
-    }
-    if (aSkill.elementalType ==  elementalStrength)
-    {
-        reaction =  EPressTurnReactions::Strong;
-    }
-
-    currentHealth -= CalculateDamage(aAttacker,aSkill);
-    DeathCheck();
-    if(currentHealth < 0)
-    {
-        currentHealth = 0;
-    }
-    currentSync += 30;
-    hasHealthOrManaValuesChanged.Broadcast();
-    if(!isMarkedForDeath)
-    {
-        ActivateDamageHitEffect();
-    }
-
-  
-    return reaction;
+    return health->DecrementHealth(aAttacker,aSkill);
 }
 
 
 EPressTurnReactions UCombatEntity::IncrementHealth(UCombatEntity* aHealer, FSkillsData aSkill)
 {
-    int AmountOfHpToAdd =  aSkill.damage + (aHealer->abilityScoreMap[EStatTypes::Magic]->GetAllStats() / ABILITYSCORE_CONVERSION_RATIO);
-    currentHealth += AmountOfHpToAdd;
-    
-    if(currentHealth >= maxHealth)
-    {
-        currentHealth = maxHealth;
-    }
-    hasHealthOrManaValuesChanged.Broadcast();
-    return EPressTurnReactions::Normal;
+    return health->IncrementHealth(aHealer,aSkill);
 }
 
 EPressTurnReactions UCombatEntity::ApplyBuff(UCombatEntity* aBuffer, FSkillsData aSkill)
@@ -210,11 +163,22 @@ void UCombatEntity::DeathCheck()
     {
         isMarkedForDeath = true;
     }
+
+  
 }
 
 void UCombatEntity::Death()
 {
     wasKilled.Broadcast();
+}
+
+void UCombatEntity::PostDamage(int aTotalDamage)
+{
+    DeathCheck();
+    if(!isMarkedForDeath)
+    {
+        ActivateDamageHitEffect();
+    }
 }
 
 int UCombatEntity::GetHit()
@@ -254,16 +218,12 @@ void UCombatEntity::SetToDefaultState()
 
 float UCombatEntity::GetHealthPercentage()
 {
-    return 0;
+    return health->GetHealthPercentage();
 }
 
 float UCombatEntity::GetPotentialHealthPercentage(int aDamage)
 {
-    int tempCurrentHealth = currentHealth;
-    tempCurrentHealth -= aDamage;
-
-    return  (float)tempCurrentHealth / (float)maxHealth;
-    
+    return health->GetPotentialHealthPercentage(aDamage);
 }
 
 float UCombatEntity::GetManaPercentage()
