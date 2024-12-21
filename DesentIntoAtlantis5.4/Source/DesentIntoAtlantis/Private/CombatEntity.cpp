@@ -98,7 +98,7 @@ void UCombatEntity::RemovePassive(UPassiveSkills* aPassiveSkills)
 }
 
 
-int UCombatEntity::CalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
+FCombatLog_AttackDefense_Data UCombatEntity::CalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
     return  health->CalculateDamage(aAttacker,aSkill);
 }
@@ -123,7 +123,7 @@ void UCombatEntity::AlimentDecrementHealth(int aDamage)
     }
 }
 
-EPressTurnReactions UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
+FCombatLog_AttackDefense_Data UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
     return health->DecrementHealth(aAttacker,aSkill);
 }
@@ -159,12 +159,10 @@ void UCombatEntity::Resurrection()
 
 void UCombatEntity::DeathCheck()
 {
-    if(currentHealth <= 0)
+    if(health->GetHealth() <= 0)
     {
         isMarkedForDeath = true;
     }
-
-  
 }
 
 void UCombatEntity::Death()
@@ -214,6 +212,11 @@ void UCombatEntity::ActivateDamageHitEffect()
 
 void UCombatEntity::SetToDefaultState()
 {
+}
+
+FString UCombatEntity::GetEntityName()
+{
+    return "NOT INITIALIZED";
 }
 
 float UCombatEntity::GetHealthPercentage()

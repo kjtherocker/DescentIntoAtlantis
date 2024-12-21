@@ -74,6 +74,11 @@ void ULoadView::SpawnSaveSlots(USaveGameData* aSaveGameData, FString aSlotName)
 
 void ULoadView::LoadGame()
 {
+	if(!SaveSlots[cursorPosition]->isSaveSlotFilled)
+	{
+		return;
+	}
+	
 	SaveManagerSubsystem->LoadSaveDataAndTransitionToMap(SaveSlots[cursorPosition]->saveSlotName);
 }
 

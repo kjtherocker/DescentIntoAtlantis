@@ -17,9 +17,26 @@ void UWrapperTakeOver::Initialize(UHealth* aAttachedHealth,ECombatEntityWrapperT
     ailmentInfo.combatEntityWrapperType = aWrapperType;
 }
 
-int UWrapperTakeOver::CalculateDamage(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill)
+FCombatLog_AttackDefense_Data UWrapperTakeOver::CalculateDamage(FCombatLog_Damage_Data DamageLog,FCombatLog_Defense_Data DefenseLog)
 {
-    return 0;
+    FCombatLog_AttackDefense_Data AttackDefense_Data;
+    AttackDefense_Data.DamageData = DamageLog;
+    AttackDefense_Data.DefenceData = DefenseLog;
+    return AttackDefense_Data;
+}
+
+FCombatLog_Damage_Data UWrapperTakeOver::DamageLog(UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker,
+    FSkillsData aSkill)
+{
+    FCombatLog_Damage_Data damagelog;
+    return  damagelog;
+}
+
+FCombatLog_Defense_Data UWrapperTakeOver::DefenseLog(FCombatLog_Damage_Data DamageLog, UCombatEntity* aAttachedEntity,
+    UCombatEntity* aAttacker, FSkillsData aSkill)
+{
+    FCombatLog_Defense_Data defenseLog;
+    return  defenseLog;
 }
 
 void UWrapperTakeOver::SetAilmentTurnLength(int aActiveTurnLength)
@@ -36,6 +53,71 @@ void UWrapperTakeOver::TurnEnd()
         ailmentInfo.ailmentLength = 0;
     }
     
+}
+
+FCombatLog_Damage_Data UCalculateDamage_Base::DamageLog(UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker,
+    FSkillsData aSkill)
+{
+    FCombatLog_Damage_Data damageLog;
+    int decementBy = aSkill.damage;
+
+    UCombatEntity* attachedCombatEntity = aAttachedEntity;
+    int strengthAllStats =  aAttacker->abilityScoreMap[EStatTypes::Strength]->GetAllStats() / UCombatStat::ABILITYSCORE_CONVERSION_RATIO;
+    int magicAllStats    =  aAttacker->abilityScoreMap[EStatTypes::Magic]->GetAllStats();   // / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
+    
+    decementBy +=  magicAllStats;
+    damageLog.StatsAddedToDamage = magicAllStats;
+    
+    if (aSkill.elementalType == attachedCombatEntity->elementalWeakness)
+    {
+        decementBy = decementBy * UCombatEntity::WEAK_DAMAGE_INCREASE;
+    }
+    if (aSkill.elementalType == attachedCombatEntity->elementalStrength)
+    {
+        decementBy = decementBy * UCombatEntity::STRONG_DAMAGE_REDUCTION;
+    }
+
+    damageLog.DamageElementalConversion = decementBy;
+    
+    aAttacker->passiveHandler->CheckAttackDefencePassives(decementBy,aAttachedEntity,aAttacker,aSkill);
+
+    damageLog.FinalDamage = decementBy;
+    return damageLog;
+}
+
+FCombatLog_Defense_Data UCalculateDamage_Base::DefenseLog(FCombatLog_Damage_Data DamageLog,
+    UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker, FSkillsData aSkill)
+{
+
+    FCombatLog_Defense_Data Defense_Data;
+    int decementBy = aSkill.damage;
+
+    UCombatEntity* attachedCombatEntity = aAttachedEntity;
+
+    Defense_Data.DefaultDamageResistance =  aSkill.skillDamageType == ESkillDamageType::Strength ?
+        attachedCombatEntity->abilityScoreMap[EStatTypes::Defence]->GetAllStats()    / UCombatStat::ABILITYSCORE_CONVERSION_RATIO :
+        attachedCombatEntity->abilityScoreMap[EStatTypes::Resistance]->GetAllStats() / UCombatStat::ABILITYSCORE_CONVERSION_RATIO;
+    
+    aAttachedEntity->passiveHandler->CheckAttackDefencePassives(decementBy,aAttachedEntity,aAttacker,aSkill);
+    
+    return Defense_Data;
+}
+
+FCombatLog_AttackDefense_Data UCalculateDamage_Base::CalculateDamage(FCombatLog_Damage_Data DamageLog,
+    FCombatLog_Defense_Data DefenseLog)
+{
+    FCombatLog_AttackDefense_Data AttackDefense_Data;
+    AttackDefense_Data.DamageData = DamageLog;
+    AttackDefense_Data.DefenceData = DefenseLog;
+
+    AttackDefense_Data.FinalDamageResult = DamageLog.FinalDamage - DefenseLog.DefaultDamageResistance;
+
+    if(AttackDefense_Data.FinalDamageResult < 0)
+    {
+        AttackDefense_Data.FinalDamageResult = 0;
+    }
+    
+    return AttackDefense_Data;
 }
 
 int UCalculateDamage_Base::CalculateDamage(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill)
@@ -81,8 +163,17 @@ void UCalculateDamage_Base::TurnEnd()
     }
 }
 
+FCombatLog_AttackDefense_Data UCalculateDamage_Fear::CalculateDamage(FCombatLog_Damage_Data DamageLog,
+    FCombatLog_Defense_Data DefenseLog)
+{
+    FCombatLog_AttackDefense_Data FinalResult = UCalculateDamage_Base::CalculateDamage(DamageLog, DefenseLog);
+    FinalResult.FinalDamageResult = FinalResult.FinalDamageResult * 1.4;
+    return FinalResult;
+}
+
 int UCalculateDamage_Fear::CalculateDamage(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill)
 {
+
     return UCalculateDamage_Base::CalculateDamage(aAttachedEntity,aAttacker, aSkill) * 1.4;
 }
 
@@ -136,10 +227,12 @@ void UCombatEntityWrapper::SetCalculateDamageWrapper(UWrapperTakeOver* aCalculat
     calculateDamage = calculateDamageTemp;
 }
 
-int UCombatEntityWrapper::ExecuteCalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
+FCombatLog_AttackDefense_Data UCombatEntityWrapper::ExecuteCalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
     resetOneWrapperToDefault = aAttacker->resetOneWrapperToDefault;
-    return calculateDamage->CalculateDamage(AttachedHealth->GetAttachedCombatEntity(),aAttacker,aSkill);
+    FCombatLog_Damage_Data DamageLog = calculateDamage->DamageLog( AttachedHealth->GetAttachedCombatEntity(), aAttacker,aSkill);
+    FCombatLog_Defense_Data DefenceLog = calculateDamage->DefenseLog(DamageLog, AttachedHealth->GetAttachedCombatEntity(), aAttacker,aSkill);
+    return calculateDamage->CalculateDamage(DamageLog,DefenceLog);
 }
 
 UWrapperTakeOver* UCombatEntityWrapper::GetCalculateDamageWrapper()

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "ChallengeSubsystem.h"
+#include "CombatLog_AttackDefense_Data.h"
 #include "HealthData.h"
 
 #include "UObject/NoExportTypes.h"
@@ -36,11 +37,13 @@ class DESENTINTOATLANTIS_API UHealth : public UObject
 public:
 	virtual void InitializeHealth(int aCurrentHealth,int aMaxHealth, UCombatEntity* aCombatEntity);
 	virtual void InitializeHealth(FHealthData aHealthData, UCombatEntity* aCombatEntity);
+	virtual void SetHealth(int aHealth);
+	virtual int GetHealth();
 	
-	virtual EPressTurnReactions DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill);
+	virtual FCombatLog_AttackDefense_Data DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill);
 	virtual EPressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
 	
-	virtual int CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
+	virtual FCombatLog_AttackDefense_Data CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
 	virtual void TurnEnd();
 	virtual void SetAWrapperToDefault(ECombatEntityWrapperType aShellType);
 	virtual void InflictAilment(UWrapperTakeOver* aAliment,ECombatEntityWrapperType aCombatEntityWrapperType);

@@ -69,7 +69,7 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 	TArray<ESkillIDS> skillSlots;
 
 	UPROPERTY()
-	int currentHP;
+	FHealthData HealthData;
 	UPROPERTY()
 	int currentMP;
 	UPROPERTY()
@@ -114,6 +114,7 @@ public:
 	virtual void SetMainClass(EClasses aClass);
 	virtual void Reset() override;
 	virtual void SetToDefaultState() override;
+	virtual FString GetEntityName() override;
 
 	virtual void GiveClassPoints(int aClassPoints);
 	virtual void RemoveClassPoints(int aClassPoints);

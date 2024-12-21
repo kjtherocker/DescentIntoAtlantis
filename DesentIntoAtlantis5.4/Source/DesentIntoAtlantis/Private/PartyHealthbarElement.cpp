@@ -4,6 +4,7 @@
 #include "PartyHealthbarElement.h"
 
 #include "CombatEntity.h"
+#include "Health.h"
 #include "PlayerCombatEntity.h"
 #include "Components/ProgressBar.h"
 #include "Components/TextBlock.h"
@@ -21,7 +22,7 @@ void UPartyHealthbarElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 	aCombatEntity->wasDamaged.AddDynamic(this,
 		&UPartyHealthbarElement::TriggerHitEffect);
 	
-	aCombatEntity->hasHealthOrManaValuesChanged.AddDynamic(this,
+	aCombatEntity->health->hasHealthValuesChanged.AddDynamic(this,
 		&UPartyHealthbarElement::UpdateHealthbarElements);
 
 	aCombatEntity->wasKilled.AddDynamic(this,

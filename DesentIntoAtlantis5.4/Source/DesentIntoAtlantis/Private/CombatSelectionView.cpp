@@ -85,16 +85,18 @@ void UCombatSelectionView::SetCursorHud(bool aisActive)
 
 			if(hasCursor)
 			{
-				float potentialDamage = enemysInCombat[cursorPosition]->
-					GetPotentialHealthPercentage(enemysInCombat[cursorPosition]->CalculateDamage(combatManager->GetCurrentActivePartyMember(),skillData));
+				FCombatLog_AttackDefense_Data attackDefenseData = enemysInCombat[cursorPosition]->CalculateDamage(combatManager->GetCurrentActivePartyMember(),skillData);
+				
+				float potentialDamage = enemysInCombat[cursorPosition]->GetPotentialHealthPercentage(attackDefenseData.FinalDamageResult);
 				enemySelectionElements[enemysInCombat[cursorPosition]->portraitPosition]->SetHighlightSelectionElement(potentialDamage,opacity);
 			}
 			else
 			{
 				for(int i = 0 ; i < enemysInCombat.Num();i++)
 				{
-					float potentialDamage = enemysInCombat[i]->
-						GetPotentialHealthPercentage(enemysInCombat[i]->CalculateDamage(combatManager->GetCurrentActivePartyMember(),skillData));
+					FCombatLog_AttackDefense_Data attackDefenseData = enemysInCombat[i]->CalculateDamage(combatManager->GetCurrentActivePartyMember(),skillData);
+					
+					float potentialDamage = enemysInCombat[i]->GetPotentialHealthPercentage(attackDefenseData.FinalDamageResult);
 					enemySelectionElements[enemysInCombat[i]->portraitPosition]->SetHighlightSelectionElement(potentialDamage,opacity);
 				}
 			}

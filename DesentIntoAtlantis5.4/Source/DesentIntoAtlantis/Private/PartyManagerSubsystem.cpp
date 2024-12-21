@@ -3,6 +3,7 @@
 
 #include "PartyManagerSubsystem.h"
 #include "EDataTableTypes.h"
+#include "Health.h"
 #include "PassiveSkillFactorySubsystem.h"
 #include "PassiveSkillHandlerData.h"
 #include "PassiveSkills.h"
@@ -70,6 +71,8 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembers aPlayer)
 		PlayerCombatEntity->SetMainClass(initalClass);
 		PlayerCombatEntity->LevelUp(partyLevel);
 	}
+
+	PlayerCombatEntity->health->InitializeHealth(50,50,PlayerCombatEntity);
 	playerCombatEntity.Add(PlayerCombatEntity);
 	playerCombatEntityInfo.Add(aPlayer,PlayerCombatEntity);
 }
@@ -161,11 +164,12 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 		UPlayerCombatEntity* PlayerCombatEntity = NewObject<UPlayerCombatEntity>();
 
 		EPartyMembers partyMember =  playerCompleteData.playerIdentityData.characterIdentifier;
-
-		PlayerCombatEntity->LoadSavedHPAndMP(playerCompleteData);
+		
 
 		PlayerCombatEntity->SetPlayerEntity(playerIdenityMap[partyMember]);
 		PlayerCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactory);
+
+		PlayerCombatEntity->LoadSavedHPAndMP(playerCompleteData);
 		
 		TMap<EClasses, FCompleteClassData> allCompleteClassData = playerCompleteData.unlockedPlayerClasses;
 		

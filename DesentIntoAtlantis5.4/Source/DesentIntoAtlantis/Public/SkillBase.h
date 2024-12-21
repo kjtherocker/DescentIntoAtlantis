@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "CombatEntity.h"
+#include "CombatLog_Base_Data.h"
+#include "CombatLog_Hit_Data.h"
 #include "Engine/DataTable.h"
 #include "SkillData.h"
 #include "SkillBase.generated.h"
@@ -46,11 +48,12 @@ class USkillBase : public UObject
 public:
 
 	FSkillsData skillData;
-	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim);
+	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim);
 	
 	virtual void Initialize(FSkillsData aSkillData);
 
-	virtual bool CalculateHit(UCombatEntity* aAttacker, UCombatEntity* aVictim);
+	virtual FCombatLog_Hit_Data CalculateHit(UCombatEntity* aAttacker, UCombatEntity* aVictim);
+	virtual FCombatLog_Base_Data ExecuteSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim, USkillBase* aSkill);
 };
 
 // All the different variations of Skills
@@ -60,7 +63,7 @@ class USkillAttack : public USkillBase
 {
 	GENERATED_BODY()
 
-	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
 	
 };
 
@@ -69,7 +72,7 @@ class USyncSkill : public USkillAttack
 {
 	GENERATED_BODY()
 
-	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
 	
 };
 
@@ -87,7 +90,7 @@ class USkillAlimentAttack : public USkillAttack
 	int AilmentHitCalculation = 0;
 protected:
 	virtual bool CalculateAilmentInfliction(UCombatEntity* aAttacker, UCombatEntity* aVictim,EStatusAilments aAilment);
-	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
 	
 };
 
@@ -95,7 +98,7 @@ UCLASS()
 class USkillAlimentAttackFear: public USkillAlimentAttack
 {
 	GENERATED_BODY()
-	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
 
 };
 
@@ -104,7 +107,7 @@ class USkillHeal : public USkillBase
 {
 	GENERATED_BODY()
 
-	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
 	
 };
 
@@ -113,7 +116,7 @@ class USkillBuff : public USkillBase
 {
 	GENERATED_BODY()
 	
-	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
 	
 };
 
@@ -122,6 +125,6 @@ class USkillDebuff: public USkillBase
 {
 	GENERATED_BODY()
 	
-	virtual EPressTurnReactions UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
 	
 };

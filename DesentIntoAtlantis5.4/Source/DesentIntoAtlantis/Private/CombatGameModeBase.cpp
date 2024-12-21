@@ -16,6 +16,8 @@
 #include "CommandBoardView.h"
 #include "EnemyPortraitElement.h"
 #include "ChallengeSubsystem.h"
+#include "CombatLogView.h"
+#include "CombatLog_Base_Data.h"
 #include "PlayerCombatEntity.h"
 #include "SkillRange.h"
 #include "SkillUsage.h"
@@ -78,6 +80,8 @@ void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPos
 	TArray<EPressTurnReactions> turnReactions;
 
 	FSkillsData skillsData = aSkill->skillData;
+
+	TArray<FCombatLog_Base_Data> combatLogs;
 	
 	if(aAttacker->characterType == ECharactertype::Ally)
 	{
@@ -90,21 +94,27 @@ void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPos
 	
 	if(skillsData.skillRange == ESkillRange::Single)
 	{
-		turnReactions.Add(aSkill->UseSkill(aAttacker,entitySkillsAreUsedOn[aCursorPosition]));
+		combatLogs.Add(aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[aCursorPosition], aSkill));
 	}
 	else if (skillsData.skillRange == ESkillRange::Multi)
 	{
 		for(int i = 0 ; i <entitySkillsAreUsedOn.Num();i++)
 		{
-			turnReactions.Add(aSkill->UseSkill(aAttacker,entitySkillsAreUsedOn[i]));
+			combatLogs.Add(aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[i], aSkill));
 		}
-		
 	}
 
+	for (auto combatLog : combatLogs)
+	{
+		combatLogView->CreateCombatLog( combatLog);
+	}
+	
+	turnReactions.Add(EPressTurnReactions::Normal);
 	DamageEvent MyEvent(100,EPressTurnReactions::Normal,aSkill);
 	godManagerSubsystem->DispatchEvent(&MyEvent);
 	pressTurnManager->ProcessTurn(turnReactions);
 }
+
 
 void ACombatGameModeBase::CreateEnemyPortraits()
 {
@@ -174,7 +184,7 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 		//InGameHUD->PushView(EViews::CombatBackground,  EUiType::PersistentUi);
 		//UEnemyPortraits* enemyPortraits = (UEnemyPortraits*)InGameHUD->PushAndGetView(EViews::EnemyPortraits,    EUiType::PersistentUi);
 		//enemyPortraits->InitializePortraits(this);
-		
+		combatLogView  = (UCombatLogView*)InGameHUD->PushAndGetView(EViews::CombatLog,         EUiType::PersistentUi);
 		turnCounter     = (UTurnCounterView*)InGameHUD->PushAndGetView(EViews::TurnCounter,         EUiType::PersistentUi);
 		partyHealthbars = (UPartyHealthbarsView*)InGameHUD->PushAndGetView(EViews::Healthbars,  EUiType::PersistentUi);
 	}

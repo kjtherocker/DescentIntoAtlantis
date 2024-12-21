@@ -4,12 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "AtlantisGameModeBase.h"
+#include "CombatLog_Base_Data.h"
 #include "EnemyCombatEntity.h"
 #include "FloorEnum.h"
 #include "PlayerCombatEntity.h"
 #include "UObject/NoExportTypes.h"
 
 #include "CombatGameModeBase.generated.h"
+class UCombatLogView;
 class UChallengeSubsystem;
 class ACombatCameraPawn;
 class AAtlantisGameModeBase;
@@ -63,7 +65,9 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	UFUNCTION()
 	virtual void InitializeLevel() override;
 
-	
+		
+	UPROPERTY()
+	UCombatLogView*     combatLogView;
 	UPROPERTY()
 	UTurnCounterView*     turnCounter;
 	UPROPERTY()
@@ -142,6 +146,7 @@ public:
 	int GetEXP();
 	UFUNCTION()
 	void ActivateSkill(UCombatEntity* aAttacker, int aCursorPosition, USkillBase* aSkill);
+	
 	
 	UPlayerCombatEntity* GetCurrentActivePartyMember();
 	

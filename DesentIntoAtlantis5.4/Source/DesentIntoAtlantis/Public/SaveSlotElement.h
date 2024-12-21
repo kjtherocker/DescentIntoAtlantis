@@ -25,6 +25,7 @@ class DESENTINTOATLANTIS_API USaveSlotElement : public UBaseUserWidget
 
 public:
 	FString saveSlotName;
+	bool isSaveSlotFilled;
 	void SetupSaveSlot(USaveGameData* aSaveGameData, FString aSlotName);
 
 	void SpawnPlayerPortraits(FPlayerCompleteDataSet aCompleteDataSet);

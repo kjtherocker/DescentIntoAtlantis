@@ -37,6 +37,7 @@ enum class  EViews
 	SettingView          = 27,
 	TransitionView       = 28,
 	EquipView            = 29,
+	CombatLog            = 30,
 };
 
 

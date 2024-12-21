@@ -66,13 +66,17 @@ public:
 	void SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactorySubsystem * skillFactory,EEnemyCombatPositions aPortraitPosition);
 	virtual void Death() override;
 	virtual float GetHealthPercentage() override;
-	virtual EPressTurnReactions DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill) override;
+	virtual FCombatLog_AttackDefense_Data DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill) override;
 
 	EEnemyCombatPositions portraitPosition;
+
+	virtual FString GetEntityName() override;
 	
 	UPROPERTY()
 	TArray<USkillBase*> enemySkills;
 
+	
+	
 	UPROPERTY()
 	UEnemyBehaviour* enemyBehaviour; 
 	FEnemyBestiary* beastiaryData;

@@ -126,10 +126,10 @@ public:
 	virtual void InitializeStats(EStatTypes aAbilityScoreTypes);
 	virtual void SetHealth(int aHealth);
 	virtual void InflictAilment(UWrapperTakeOver* aAliment,ECombatEntityWrapperType aCombatEntityWrapperType);
-	virtual int CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
+	virtual FCombatLog_AttackDefense_Data CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
 	virtual void Reset();
 	virtual void AlimentDecrementHealth(int aDamage);
-	virtual EPressTurnReactions DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill);
+	virtual FCombatLog_AttackDefense_Data DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill);
 	virtual EPressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
 	virtual EPressTurnReactions ApplyBuff(      UCombatEntity* aBuffer,   FSkillsData aSkill);
 	virtual void DecrementMana(int aDecrementBy);
@@ -141,6 +141,8 @@ public:
 
 	virtual void ActivateDamageHitEffect();
 	virtual void SetToDefaultState();
+
+	virtual FString GetEntityName();
 	
 	virtual float GetHealthPercentage();
 	virtual float GetPotentialHealthPercentage(int aDamage);

@@ -20,6 +20,7 @@ void USaveSlotElement::SetupSaveSlot(USaveGameData* aSaveGameData,FString aSlotN
 	{
 		BW_Location->SetText(FText::FromString(""));
 		BW_Time->SetText(FText::FromString(""));
+		isSaveSlotFilled = false;
 	}
 	else
 	{
@@ -28,7 +29,8 @@ void USaveSlotElement::SetupSaveSlot(USaveGameData* aSaveGameData,FString aSlotN
 		for (TTuple<EPartyMembers, FPlayerCompleteDataSet> partyMember : playerCompleteDataSet)
 		{
 			SpawnPlayerPortraits(partyMember.Value);
-		};		
+		};
+		isSaveSlotFilled = true;
 	}
 
 }

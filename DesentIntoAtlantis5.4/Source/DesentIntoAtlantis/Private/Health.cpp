@@ -3,6 +3,7 @@
 
 #include "Health.h"
 
+#include "CombatLog_AttackDefense_Data.h"
 #include "CombatStat.h"
 #include "SkillData.h"
 
@@ -27,7 +28,17 @@ void UHealth::InitializeHealth(FHealthData aHealthData, UCombatEntity* aCombatEn
 	InitializeHealth(aHealthData.currentHealth, aHealthData.maxHealth,aCombatEntity);
 }
 
-EPressTurnReactions UHealth::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
+void UHealth::SetHealth(int aHealth)
+{
+	HealthData.currentHealth = aHealth;
+}
+
+int UHealth::GetHealth()
+{
+	return HealthData.currentHealth;
+}
+
+FCombatLog_AttackDefense_Data UHealth::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
 	EPressTurnReactions reaction = EPressTurnReactions::Normal;
 	    
@@ -40,7 +51,8 @@ EPressTurnReactions UHealth::DecrementHealth(UCombatEntity* aAttacker, FSkillsDa
 		reaction =  EPressTurnReactions::Strong;
 	}
 
-	int totalDamage = CalculateDamage(aAttacker,aSkill);
+	FCombatLog_AttackDefense_Data AttackDefense_Data = CalculateDamage(aAttacker,aSkill); 
+	int totalDamage = AttackDefense_Data.FinalDamageResult;
 	HealthData.currentHealth -= totalDamage;
 
 	if(HealthData.currentHealth < 0)
@@ -52,7 +64,7 @@ EPressTurnReactions UHealth::DecrementHealth(UCombatEntity* aAttacker, FSkillsDa
 	hasHealthValuesChanged.Broadcast();
 
   
-	return reaction;
+	return AttackDefense_Data;
 }
 
 EPressTurnReactions UHealth::IncrementHealth(UCombatEntity* aHealer, FSkillsData aSkill)
@@ -68,7 +80,7 @@ EPressTurnReactions UHealth::IncrementHealth(UCombatEntity* aHealer, FSkillsData
 	return EPressTurnReactions::Normal;
 }
 
-int UHealth::CalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
+FCombatLog_AttackDefense_Data UHealth::CalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
 	return inUseCombatWrapper->ExecuteCalculateDamage(aAttacker,aSkill);
 }

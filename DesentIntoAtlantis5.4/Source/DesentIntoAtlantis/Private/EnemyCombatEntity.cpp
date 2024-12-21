@@ -31,6 +31,10 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,US
 	{
 		enemySkills.Add(skillFactory->GetSkill(enemyEntityData.skillIDS[i]));
 	}
+
+	AEnemyEntityData.HealthData.currentHealth = AEnemyEntityData.maxHealth;
+	AEnemyEntityData.HealthData.maxHealth     = AEnemyEntityData.maxHealth;
+	
 	health->InitializeHealth(AEnemyEntityData.HealthData,this);
 	
 	SetAbilityScores();
@@ -48,10 +52,15 @@ float UEnemyCombatEntity::GetHealthPercentage()
 	return (float)currentHealth / (float)enemyEntityData.maxHealth;
 }
 
-EPressTurnReactions UEnemyCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
+FCombatLog_AttackDefense_Data UEnemyCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
 	beastiaryData->RevealElementalInfo(aSkill.elementalType);
 	return UCombatEntity::DecrementHealth(aAttacker, aSkill);
+}
+
+FString UEnemyCombatEntity::GetEntityName()
+{
+	return enemyEntityData.characterName;
 }
 
 void UEnemyCombatEntity::SetAbilityScores()

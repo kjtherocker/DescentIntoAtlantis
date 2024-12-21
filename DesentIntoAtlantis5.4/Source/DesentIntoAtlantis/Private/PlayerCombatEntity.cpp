@@ -22,7 +22,7 @@ void UPlayerCombatEntity::InitializeStats(EStatTypes aAbilityScoreTypes)
 
 void UPlayerCombatEntity::LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet)
 {
-	health->InitializeHealth(aPlayerCompleteDataSet.currentHP,aPlayerCompleteDataSet.currentHP,this);
+	health->InitializeHealth(aPlayerCompleteDataSet.HealthData,this);
 	currentMana   = aPlayerCompleteDataSet.currentMP;
 	currentSync   = aPlayerCompleteDataSet.currentSync;
 }
@@ -75,12 +75,19 @@ void UPlayerCombatEntity::SetToDefaultState()
 	maxHealth         =  mainClass->completeClassData.classStatBase.maxHealth;
 	currentHealth     =  maxHealth;
 	maxMana           =  mainClass->completeClassData.classStatBase.maxMana;
+
+	health->SetHealth(maxHealth);
 	currentMana       =  maxMana;
     isMarkedForDeath  =  false;
 	for (TTuple<EStatTypes, UCombatStat*> abilityStats : abilityScoreMap)
 	{
 		abilityStats.Value->ResetAbilityscore();
 	}
+}
+
+FString UPlayerCombatEntity::GetEntityName()
+{
+	return playerIdentityData.characterName;
 }
 
 void UPlayerCombatEntity::GiveClassPoints(int aClassPoints)
@@ -115,7 +122,7 @@ void UPlayerCombatEntity::GatherAndSavePlayerCompleteDataSet()
 
 	playerCompleteDataSet.unlockedPlayerClasses.Add(mainClass->completeClassData.classIdentifer,mainClass->completeClassData);
 
-	playerCompleteDataSet.currentHP = currentHealth;
+	playerCompleteDataSet.HealthData.currentHealth = health->GetHealth();
 	playerCompleteDataSet.currentMP = currentMana;
 }
 
@@ -154,7 +161,7 @@ void UPlayerCombatEntity::SetAbilityScores()
 
 float UPlayerCombatEntity::GetHealthPercentage()
 {
-	return  (float)currentHealth /  (float)maxHealth;
+	return  health->GetHealthPercentage();
 }
 
 float UPlayerCombatEntity::GetManaPercentage()

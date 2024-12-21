@@ -3,6 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CombatLog_AttackDefense_Data.h"
+#include "CombatLog_Defense_Data.h"
+#include "FCombatLog_Damage_Data.h"
 #include "CombatEntityWrapper.generated.h"
 
 class UHealth;
@@ -76,7 +79,11 @@ class  DESENTINTOATLANTIS_API UWrapperTakeOver : public UObject
 public:
 	FAilmentInfo ailmentInfo;
 	virtual void Initialize(UHealth* aAttachedHealth,ECombatEntityWrapperType aWrapperType);
-	virtual int CalculateDamage(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker,FSkillsData aSkill);
+	virtual FCombatLog_AttackDefense_Data CalculateDamage(FCombatLog_Damage_Data DamageLog,FCombatLog_Defense_Data DefenseLog);
+	
+	virtual FCombatLog_Damage_Data DamageLog(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker,FSkillsData aSkill);
+	virtual FCombatLog_Defense_Data DefenseLog(FCombatLog_Damage_Data DamageLog,UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker,FSkillsData aSkill);
+	
 	virtual void SetAilmentTurnLength(int aActiveTurnLength);
 	virtual void TurnEnd();
 };
@@ -88,7 +95,10 @@ class  DESENTINTOATLANTIS_API UCalculateDamage_Base : public UWrapperTakeOver
 	GENERATED_BODY()
 public:
 	int ailmentLength = 0;
-	virtual int CalculateDamage(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker,FSkillsData aSkill) override;
+	virtual FCombatLog_Damage_Data DamageLog(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker,FSkillsData aSkill) override;
+	virtual FCombatLog_Defense_Data DefenseLog(FCombatLog_Damage_Data DamageLog,UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker,FSkillsData aSkill) override;
+	virtual FCombatLog_AttackDefense_Data CalculateDamage(FCombatLog_Damage_Data DamageLog,FCombatLog_Defense_Data DefenseLog) override;
+	virtual int CalculateDamage(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker,FSkillsData aSkill);
 	virtual void TurnEnd() override;
 
 };
@@ -98,6 +108,7 @@ class DESENTINTOATLANTIS_API UCalculateDamage_Fear :public  UCalculateDamage_Bas
 {
 	GENERATED_BODY()
 public:
+	virtual FCombatLog_AttackDefense_Data CalculateDamage(FCombatLog_Damage_Data DamageLog,FCombatLog_Defense_Data DefenseLog) override;
 	virtual int CalculateDamage(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker,FSkillsData aSkill) override;
 	virtual void TurnEnd() override;
 };
@@ -128,7 +139,7 @@ public:
 	virtual void SetAttachedCombatEntity(UHealth* aCombatEntity);
 	virtual void SetCalculateDamageDefault(UWrapperTakeOver* aCalculateDamageWrapper);
 	virtual void SetCalculateDamageWrapper(UWrapperTakeOver* aCalculateDamageWrapper);
-	virtual int ExecuteCalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
+	virtual FCombatLog_AttackDefense_Data ExecuteCalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
 	virtual UWrapperTakeOver* GetCalculateDamageWrapper();
 	virtual void TurnEnd();
 	//virtual PressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
