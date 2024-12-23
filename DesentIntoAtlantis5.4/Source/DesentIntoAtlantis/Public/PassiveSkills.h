@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "CombatEntity.h"
 #include "PassiveSkillData.h"
+#include "SkillData.h"
 #include "PassiveSkills.generated.h"
 
 /**

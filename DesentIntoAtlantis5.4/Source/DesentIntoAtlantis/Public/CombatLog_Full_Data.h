@@ -7,13 +7,13 @@
 #include "CombatLog_Hit_Data.h"
 #include "Engine/DataTable.h" 
 #include "SkillData.h"
-#include "CombatLog_Base_Data.generated.h"
+#include "CombatLog_Full_Data.generated.h"
 
 enum class EPressTurnReactions : uint8;
 class UCombatEntity;
 
 USTRUCT()
-struct DESENTINTOATLANTIS_API FCombatLog_Base_Data : public FTableRowBase
+struct DESENTINTOATLANTIS_API FCombatLog_Full_Data : public FTableRowBase
 {
 	GENERATED_BODY()
 	

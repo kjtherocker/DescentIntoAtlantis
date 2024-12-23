@@ -15,7 +15,7 @@ class DESENTINTOATLANTIS_API UBaseUserWidgetMovingButtons : public UBaseUserWidg
 {
 	GENERATED_BODY()
 protected:
-	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
+
 
 	virtual void MoveUp() override;
 	virtual void MoveDown() override;
@@ -28,7 +28,7 @@ protected:
 	virtual void ActivateMenuSelection();
 
 public:
-
+	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 	UPROPERTY()
 	TArray<FViewSelection> MenuSelectionDelegates;
 	UPROPERTY()

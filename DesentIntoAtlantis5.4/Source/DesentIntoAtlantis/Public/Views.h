@@ -37,7 +37,10 @@ enum class  EViews
 	SettingView          = 27,
 	TransitionView       = 28,
 	EquipView            = 29,
-	CombatLog            = 30,
+	CombatLogSimplified  = 30,
+	CombatLogSelection   = 31,
+	CombatLogDetailed    = 32,
+	
 };
 
 
@@ -63,6 +66,13 @@ enum class  EViewElements
 	MainMenuStatusElement    = 5,
 	SaveSlotElement          = 6,
 	SavePortraitElement      = 7,
-	PassiveSkillElement      = 8
+	PassiveSkillElement      = 8,
+	CombatLogElement         = 10,
+	CombatLogHitElement      = 11,
+	CombatLogAttackElement   = 12,
+	CombatLogDefenceElement  = 13,
+	CombatLogDetailedElement = 14,
+	
+	
 	
 };

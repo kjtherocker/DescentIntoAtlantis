@@ -5,6 +5,7 @@
 
 #include "CombatEntity.h"
 #include "CombatGameModeBase.h"
+#include "CombatLogSelectionView.h"
 #include "CombatSelectionView.h"
 #include "EngineUtils.h"
 #include "ESkillID.h"
@@ -25,6 +26,7 @@ void UCommandBoardView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	InputComponent->BindAction("Up"      ,IE_Pressed ,this, &UCommandBoardView::MoveUp  );
 	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &UCommandBoardView::MoveDown  );
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UCommandBoardView::ActivateCommandboardFunction  );
+	InputComponent->BindAction("CombatLog"   ,IE_Pressed ,this, &UCommandBoardView::PushCombatLog  );
 	
 	SkillFactorySubsystem = persistentGameinstance->skillFactorySubsystem;
 
@@ -67,6 +69,17 @@ void UCommandBoardView::SetCommandBoard(ACombatGameModeBase* aCombatGameModeBase
 		
 	//	CommandBoardFunctions.Add();
 	SetCursorPositionInfo();
+}
+
+void UCommandBoardView::PushCombatLog()
+{
+	if(combatManager->last50CombatLogs.Num() == 0)
+	{
+		return;
+	}
+	
+	UCombatLogSelectionView* DetailedView = (UCombatLogSelectionView*)InGameHUD->PushAndGetView(EViews::CombatLogSelection,  EUiType::ActiveUi);
+	DetailedView->SetCombatLog(combatManager->last50CombatLogs);
 }
 
 void UCommandBoardView::SetCursorPositionInfo()

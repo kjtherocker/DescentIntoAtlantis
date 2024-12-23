@@ -16,8 +16,8 @@
 #include "CommandBoardView.h"
 #include "EnemyPortraitElement.h"
 #include "ChallengeSubsystem.h"
-#include "CombatLogView.h"
-#include "CombatLog_Base_Data.h"
+#include "CombatLogSimplifiedView.h"
+#include "CombatLog_Full_Data.h"
 #include "PlayerCombatEntity.h"
 #include "SkillRange.h"
 #include "SkillUsage.h"
@@ -81,7 +81,7 @@ void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPos
 
 	FSkillsData skillsData = aSkill->skillData;
 
-	TArray<FCombatLog_Base_Data> combatLogs;
+	TArray<FCombatLog_Full_Data> mostRecentCombatLogs;
 	
 	if(aAttacker->characterType == ECharactertype::Ally)
 	{
@@ -94,20 +94,17 @@ void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPos
 	
 	if(skillsData.skillRange == ESkillRange::Single)
 	{
-		combatLogs.Add(aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[aCursorPosition], aSkill));
+		mostRecentCombatLogs.Add(aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[aCursorPosition], aSkill));
 	}
 	else if (skillsData.skillRange == ESkillRange::Multi)
 	{
 		for(int i = 0 ; i <entitySkillsAreUsedOn.Num();i++)
 		{
-			combatLogs.Add(aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[i], aSkill));
+			mostRecentCombatLogs.Add(aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[i], aSkill));
 		}
 	}
 
-	for (auto combatLog : combatLogs)
-	{
-		combatLogView->CreateCombatLog( combatLog);
-	}
+	AddCombatLog(mostRecentCombatLogs);
 	
 	turnReactions.Add(EPressTurnReactions::Normal);
 	DamageEvent MyEvent(100,EPressTurnReactions::Normal,aSkill);
@@ -184,7 +181,7 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 		//InGameHUD->PushView(EViews::CombatBackground,  EUiType::PersistentUi);
 		//UEnemyPortraits* enemyPortraits = (UEnemyPortraits*)InGameHUD->PushAndGetView(EViews::EnemyPortraits,    EUiType::PersistentUi);
 		//enemyPortraits->InitializePortraits(this);
-		combatLogView  = (UCombatLogView*)InGameHUD->PushAndGetView(EViews::CombatLog,         EUiType::PersistentUi);
+		combatLogView  = (UCombatLogSimplifiedView*)InGameHUD->PushAndGetView(EViews::CombatLogSimplified,         EUiType::PersistentUi);
 		turnCounter     = (UTurnCounterView*)InGameHUD->PushAndGetView(EViews::TurnCounter,         EUiType::PersistentUi);
 		partyHealthbars = (UPartyHealthbarsView*)InGameHUD->PushAndGetView(EViews::Healthbars,  EUiType::PersistentUi);
 	}
@@ -424,6 +421,29 @@ void ACombatGameModeBase::EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEnt
 	int playerToAttack = aEnemyCombatEntity->enemyBehaviour->PlayerToAttack(partyMembersInCombat);
 
 	ActivateSkill(aEnemyCombatEntity,playerToAttack,skillObject);
+}
+
+void ACombatGameModeBase::AddCombatLog(TArray<FCombatLog_Full_Data> CombatLog_Base_Datas)
+{
+	int numberOfNewCombatLogs = CombatLog_Base_Datas.Num();
+	
+	if(last50CombatLogs.Num() + numberOfNewCombatLogs > 50)
+	{
+		int amountOfLogsToRemove = numberOfNewCombatLogs - last50CombatLogs.Num(); 
+
+		for(int i = 0 ; i < amountOfLogsToRemove; i++)
+		{
+			last50CombatLogs.RemoveAt(0);	
+		}
+	}
+
+	for (auto fullCombatLogData : CombatLog_Base_Datas)
+	{
+		last50CombatLogs.Add(fullCombatLogData);
+		combatLogView->CreateCombatLog( fullCombatLogData);
+	}
+	
+	
 }
 
 int ACombatGameModeBase::GetEXP()

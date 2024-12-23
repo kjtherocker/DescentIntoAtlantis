@@ -2,7 +2,7 @@
 #include "SkillBase.h"
 #include "CombatEntity.h"
 #include "CombatEntityWrapper.h"
-#include "CombatLog_Base_Data.h"
+#include "CombatLog_Full_Data.h"
 #include "CombatStat.h"
 
 
@@ -15,11 +15,14 @@ FCombatLog_Hit_Data USkillBase::CalculateHit(UCombatEntity* aAttacker, UCombatEn
 {
 	FCombatLog_Hit_Data hitData;
 	
-	hitData.victimEvasion =  aVictim->GetEvasion();
+
+	hitData.CombatLogEvasionData.victimEvasion = aVictim->GetEvasion();
 	hitData.AttackerHit   =  aAttacker->GetHit();
 	hitData.HitEvasionCalculation = (aAttacker->GetHit() - aVictim->GetEvasion()) / UCombatStat::ABILITYSCORE_CONVERSION_RATIO;
+	hitData.CombatLogEvasionData.HitEvasionCalculation = hitData.HitEvasionCalculation ;
 	hitData.skillHit = skillData.SkillHit;
-	
+
+	hitData.hitChance = hitData.skillHit + hitData.HitEvasionCalculation;
 	int RandomNumber =  FMath::RandRange(1, 100);
 	
 	hitData.RandomNumber = RandomNumber;
@@ -29,14 +32,16 @@ FCombatLog_Hit_Data USkillBase::CalculateHit(UCombatEntity* aAttacker, UCombatEn
 
 	hitData.FinalNumber = RandomNumber;
 	hitData.HitResult = RandomNumber > 100;
+
+	hitData.CombatLogEvasionData.totalEvasion = aVictim->GetEvasion();
 	return hitData;
 }
 
-FCombatLog_Base_Data USkillBase::ExecuteSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim, USkillBase* aSkill)
+FCombatLog_Full_Data USkillBase::ExecuteSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim, USkillBase* aSkill)
 {
 	FSkillsData skillsData = aSkill->skillData;
 	
-	FCombatLog_Base_Data CombatLog_Base_Data;
+	FCombatLog_Full_Data CombatLog_Base_Data;
 	CombatLog_Base_Data.skillUsed = skillsData;
 	CombatLog_Base_Data.Attacker  = aAttacker;
 	CombatLog_Base_Data.Victim    = aVictim;

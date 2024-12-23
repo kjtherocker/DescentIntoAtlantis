@@ -4,14 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "AtlantisGameModeBase.h"
-#include "CombatLog_Base_Data.h"
+#include "CombatLog_Full_Data.h"
 #include "EnemyCombatEntity.h"
 #include "FloorEnum.h"
 #include "PlayerCombatEntity.h"
 #include "UObject/NoExportTypes.h"
 
 #include "CombatGameModeBase.generated.h"
-class UCombatLogView;
+class UCombatLogSimplifiedView;
 class UChallengeSubsystem;
 class ACombatCameraPawn;
 class AAtlantisGameModeBase;
@@ -67,7 +67,7 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 
 		
 	UPROPERTY()
-	UCombatLogView*     combatLogView;
+	UCombatLogSimplifiedView*     combatLogView;
 	UPROPERTY()
 	UTurnCounterView*     turnCounter;
 	UPROPERTY()
@@ -129,6 +129,8 @@ public:
 	TSubclassOf<AActor> enemyPortraitElementReference;
 	
 	FTriggerNextEventStage triggerNextEventStage;
+	UPROPERTY()
+	TArray<FCombatLog_Full_Data> last50CombatLogs;
 	
 	UPROPERTY()
 	UPressTurnManager* pressTurnManager;
@@ -143,6 +145,9 @@ public:
 	void TriggerLevelupMenu(TArray<UPlayerCombatEntity*> aPlayerCombatEntity, int aExperience);
 	void EnemyStartTurn();
 	void EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEntity);
+
+	void AddCombatLog(TArray<FCombatLog_Full_Data> CombatLog_Base_Datas);
+	
 	int GetEXP();
 	UFUNCTION()
 	void ActivateSkill(UCombatEntity* aAttacker, int aCursorPosition, USkillBase* aSkill);

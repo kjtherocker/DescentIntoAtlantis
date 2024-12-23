@@ -7,7 +7,7 @@
 #include "EElementalType.h"
 #include "HealthData.h"
 
-
+#include "ESkillID.h"
 #include "PressTurnManager.h"
 
 #include "Components/Image.h"

@@ -32,6 +32,7 @@ class DESENTINTOATLANTIS_API UCommandBoardView : public UBaseUserWidget
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 public:
 	virtual void SetCommandBoard(ACombatGameModeBase* aCombatGameModeBase);
+	virtual void PushCombatLog();
 
 private:
 	UPROPERTY()

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CombatLog_Evasion_Data.h"
 #include "Engine/DataTable.h" 
 #include "CombatLog_Hit_Data.generated.h"
 
@@ -22,16 +23,16 @@ struct DESENTINTOATLANTIS_API FCombatLog_Hit_Data : public FTableRowBase
 	int32 skillHit;
 
 	UPROPERTY()
+	int32 hitChance;
+
+	UPROPERTY()
 	int32 FinalNumber;
 
 	UPROPERTY()
 	int32 AttackerHit;
 
 	UPROPERTY()
-	int32 victimEvasion;
-
-	UPROPERTY()
 	int32 HitEvasionCalculation;
-
-	
+	UPROPERTY()
+	FCombatLog_Evasion_Data CombatLogEvasionData;
 };

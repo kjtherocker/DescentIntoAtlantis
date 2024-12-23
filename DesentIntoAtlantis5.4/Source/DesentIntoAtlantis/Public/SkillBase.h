@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "CombatEntity.h"
-#include "CombatLog_Base_Data.h"
+#include "CombatLog_Full_Data.h"
 #include "CombatLog_Hit_Data.h"
 #include "Engine/DataTable.h"
 #include "SkillData.h"
@@ -53,7 +53,7 @@ public:
 	virtual void Initialize(FSkillsData aSkillData);
 
 	virtual FCombatLog_Hit_Data CalculateHit(UCombatEntity* aAttacker, UCombatEntity* aVictim);
-	virtual FCombatLog_Base_Data ExecuteSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim, USkillBase* aSkill);
+	virtual FCombatLog_Full_Data ExecuteSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim, USkillBase* aSkill);
 };
 
 // All the different variations of Skills
