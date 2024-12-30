@@ -4,6 +4,11 @@
 #include "CombatLogDetailedDamageElement.h"
 
 #include "CombatLog_Full_Data.h"
+#include "CombatLog_PassiveSkilData.h"
+#include "FCombatLog_Damage_Data.h"
+#include "CombatLog_Defense_Data.h"
+#include "CombatLog_Evasion_Data.h"
+#include "CombatLog_Hit_Data.h"
 #include "Components/RichTextBlock.h"
 
 void UCombatLogDetailedDamageElement::SetElement(FCombatLog_Full_Data CombatLog_Full_Data, AInGameHUD* aHud)
@@ -19,5 +24,9 @@ void UCombatLogDetailedDamageElement::SetElement(FCombatLog_Full_Data CombatLog_
 	CreateDetailedElement("Elemental Damage", FString::FromInt(CombatLog_Damage_Data.DamageElementalConversion));
 	CreateDetailedElement("Stats", FString::FromInt(CombatLog_Damage_Data.StatsAddedToDamage));
 
+	for (FCombatLog_PassiveSkilData& TotalDamage : CombatLog_Damage_Data.passivesActivated)
+	{
+		CreateDetailedElement(TotalDamage.PassiveSkillData.passiveName, FString::FromInt(TotalDamage.passiveResult));
+	}
 }
 

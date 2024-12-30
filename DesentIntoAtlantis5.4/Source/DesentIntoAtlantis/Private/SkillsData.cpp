@@ -3,6 +3,8 @@
 #include "CombatEntity.h"
 #include "CombatEntityWrapper.h"
 #include "CombatLog_Full_Data.h"
+#include "CombatLog_Evasion_Data.h"
+#include "CombatLog_Hit_Data.h"
 #include "CombatStat.h"
 
 

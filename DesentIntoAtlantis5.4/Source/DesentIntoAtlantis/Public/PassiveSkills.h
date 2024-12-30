@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "CombatEntity.h"
+#include "CombatLog_PassiveSkilData.h"
 #include "PassiveSkillData.h"
 #include "SkillData.h"
 #include "PassiveSkills.generated.h"
@@ -58,7 +59,7 @@ class IOnAttackDefencePassive
 
 public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category="Skill")
-	void ActivateAttackDefencePassive(int& CurrentDamage, UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker, FSkillsData aSkill);
+	FCombatLog_PassiveSkilData ActivateAttackDefencePassive(int& CurrentDamage, UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker, FSkillsData aSkill);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category="Skill")
 	bool IsPassiveTriggered(int& CurrentDamage, UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker, FSkillsData aSkill);
@@ -131,7 +132,7 @@ class DESENTINTOATLANTIS_API UGenericOnAttackPassive: public UPassiveSkills, pub
 
 public:
 	virtual bool IsPassiveTriggered_Implementation(int& CurrentDamage, UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker, FSkillsData aSkill) override;
-	virtual void ActivateAttackDefencePassive_Implementation(int& CurrentDamage, UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker, FSkillsData aSkill) override;
+	virtual FCombatLog_PassiveSkilData ActivateAttackDefencePassive_Implementation(int& CurrentDamage, UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker, FSkillsData aSkill) override;
 };
 
 

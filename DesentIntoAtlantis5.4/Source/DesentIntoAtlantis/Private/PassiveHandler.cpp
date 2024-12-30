@@ -23,19 +23,23 @@ void UPassiveHandler::InitializePassiveHandler(UCombatEntity* aOwnedCombatEntity
 	ownedCombatEntity   = aOwnedCombatEntity;
 }
 
-void UPassiveHandler::CheckAttackDefencePassives(int& CurrentDamage, UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker,
+TArray< FCombatLog_PassiveSkilData> UPassiveHandler::CheckAttackDefencePassives(int& CurrentDamage, UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker,
                                     FSkillsData aSkill)
 {
+	passiveSkillsUsed.Empty();
+	 
 	for (UPassiveSkills* passiveSkillWrapper : passiveSkills)
 	{
 		if (IOnAttackDefencePassive* attackDefencePassive = Cast<IOnAttackDefencePassive>(passiveSkillWrapper))
 		{
 			if(attackDefencePassive->Execute_IsPassiveTriggered(passiveSkillWrapper,CurrentDamage,aAttachedEntity, aAttacker,aSkill))
 			{
-				attackDefencePassive->Execute_ActivateAttackDefencePassive(passiveSkillWrapper,CurrentDamage,aAttachedEntity, aAttacker,aSkill);
+				passiveSkillsUsed.Add(attackDefencePassive->Execute_ActivateAttackDefencePassive(passiveSkillWrapper,CurrentDamage,aAttachedEntity, aAttacker,aSkill));
 			}
 		}
 	}
+
+	return passiveSkillsUsed;
 }
 
 void UPassiveHandler::AddMainClassPassives(UCombatClass* aCombatClass)

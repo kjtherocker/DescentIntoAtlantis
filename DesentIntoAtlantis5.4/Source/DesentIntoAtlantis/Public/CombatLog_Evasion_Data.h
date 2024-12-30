@@ -6,6 +6,8 @@
 #include "CombatLog_Evasion_Data.generated.h"
 
 
+struct FCombatLog_PassiveSkilData;
+
 USTRUCT()
 struct DESENTINTOATLANTIS_API FCombatLog_Evasion_Data : public FTableRowBase
 {
@@ -19,5 +21,8 @@ struct DESENTINTOATLANTIS_API FCombatLog_Evasion_Data : public FTableRowBase
 
 	UPROPERTY()
 	int32 HitEvasionCalculation;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Defense")
+	TArray<FCombatLog_PassiveSkilData> passivesActivated;
 	
 };

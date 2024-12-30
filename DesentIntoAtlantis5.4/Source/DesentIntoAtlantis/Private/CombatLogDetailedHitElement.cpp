@@ -6,6 +6,11 @@
 #include "CombatLogDetailedElement.h"
 #include "CombatLog_Full_Data.h"
 #include "CombatLog_Hit_Data.h"
+#include "FCombatLog_Damage_Data.h"
+#include "CombatLog_Defense_Data.h"
+#include "CombatLog_Evasion_Data.h"
+#include "CombatLog_Hit_Data.h"
+#include "CombatLog_PassiveSkilData.h"
 #include "Components/RichTextBlock.h"
 #include "Components/VerticalBox.h"
 
@@ -22,5 +27,11 @@ void UCombatLogDetailedHitElement::SetElement(FCombatLog_Full_Data CombatLog_Ful
 	CreateDetailedElement("Attacker Hit", FString::FromInt(CombatLog_Hit_Data.AttackerHit));
 	CreateDetailedElement("Skill Hit", FString::FromInt(CombatLog_Hit_Data.skillHit));
 	CreateDetailedElement("RNG", FString::FromInt(CombatLog_Hit_Data.RandomNumber));
+
+	
+	for (FCombatLog_PassiveSkilData& passiveData : CombatLog_Hit_Data.passivesActivated)
+	{
+		CreateDetailedElement(passiveData.PassiveSkillData.passiveName, FString::FromInt(passiveData.passiveResult));
+	}
 }
 

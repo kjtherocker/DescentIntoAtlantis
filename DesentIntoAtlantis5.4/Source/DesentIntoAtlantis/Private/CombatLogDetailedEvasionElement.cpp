@@ -4,6 +4,11 @@
 #include "CombatLogDetailedEvasionElement.h"
 
 #include "CombatLog_Full_Data.h"
+#include "CombatLog_PassiveSkilData.h"
+#include "FCombatLog_Damage_Data.h"
+#include "CombatLog_Defense_Data.h"
+#include "CombatLog_Evasion_Data.h"
+#include "CombatLog_Hit_Data.h"
 #include "Components/RichTextBlock.h"
 
 void UCombatLogDetailedEvasionElement::SetElement(FCombatLog_Full_Data CombatLog_Full_Data, AInGameHUD* aHud)
@@ -16,4 +21,9 @@ void UCombatLogDetailedEvasionElement::SetElement(FCombatLog_Full_Data CombatLog
 	BW_TotalEvasionText->SetText(FText(FText::FromString(hitChance)));
 	
 	CreateDetailedElement("Evasion", FString::FromInt(EvasionData.victimEvasion));
+
+	for (FCombatLog_PassiveSkilData& passiveData : EvasionData.passivesActivated)
+	{
+		CreateDetailedElement(passiveData.PassiveSkillData.passiveName, FString::FromInt(passiveData.passiveResult));
+	}
 }

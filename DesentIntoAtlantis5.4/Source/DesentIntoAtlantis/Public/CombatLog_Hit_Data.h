@@ -4,8 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "CombatLog_Evasion_Data.h"
-#include "Engine/DataTable.h" 
+#include "Engine/DataTable.h"
+#include "CombatLog_PassiveSkilData.h"
 #include "CombatLog_Hit_Data.generated.h"
+
 
 
 USTRUCT()
@@ -35,4 +37,7 @@ struct DESENTINTOATLANTIS_API FCombatLog_Hit_Data : public FTableRowBase
 	int32 HitEvasionCalculation;
 	UPROPERTY()
 	FCombatLog_Evasion_Data CombatLogEvasionData;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Defense")
+	TArray<FCombatLog_PassiveSkilData> passivesActivated;
 };

@@ -29,6 +29,7 @@ void UCombatLogSelectionView::SetCombatLog(TArray<FCombatLog_Full_Data> CombatLo
 		CreateCombatLogElement(combatLog);
 	}
 	
+	SetCursorPositionInfo();
 	SetDefaultMenuState();
 }
 

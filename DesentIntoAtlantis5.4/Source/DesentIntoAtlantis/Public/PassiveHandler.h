@@ -8,6 +8,7 @@
 #include "PassiveHandler.generated.h"
 
 
+struct FCombatLog_PassiveSkilData;
 class UPassiveSkillFactorySubsystem;
 class UCombatClass;
 struct FSkillsData;
@@ -31,11 +32,13 @@ class DESENTINTOATLANTIS_API UPassiveHandler : public UObject
 
 	UPROPERTY()
 	UPassiveSkillFactorySubsystem* passiveSkillFactory;
+	UPROPERTY()
+	TArray< FCombatLog_PassiveSkilData> passiveSkillsUsed;
 
 public:
 	virtual void InitializePassiveHandler(UCombatEntity* aOwnedCombatEntity,UPassiveSkillFactorySubsystem* aPassiveSkillFactorySubsystem);
 	
-	virtual void CheckAttackDefencePassives(int& CurrentDamage ,UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill);
+	virtual TArray< FCombatLog_PassiveSkilData> CheckAttackDefencePassives(int& CurrentDamage ,UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill);
 
 	//virtual void GetDamagePassive();
 	//virtual void GetHitPassive();

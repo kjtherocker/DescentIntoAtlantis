@@ -3,9 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "CombatLog_AttackDefense_Data.h"
-#include "CombatLog_Defense_Data.h"
-#include "FCombatLog_Damage_Data.h"
 #include "CombatEntityWrapper.generated.h"
 
 class UHealth;
@@ -13,7 +10,9 @@ class UHealth;
  * 
  */
 struct FSkillsData;
-
+struct FCombatLog_Damage_Data;
+struct FCombatLog_Defense_Data;
+struct FCombatLog_AttackDefense_Data;
 class UCombatEntity;
 
 UENUM()

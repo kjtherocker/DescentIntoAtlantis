@@ -6,6 +6,8 @@
 #include "Engine/DataTable.h" 
 #include "CombatLog_Defense_Data.generated.h"
 
+struct FCombatLog_PassiveSkilData;
+
 USTRUCT()
 struct DESENTINTOATLANTIS_API FCombatLog_Defense_Data : public FTableRowBase
 {
@@ -13,5 +15,7 @@ struct DESENTINTOATLANTIS_API FCombatLog_Defense_Data : public FTableRowBase
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Defense")
 	int32 DefaultDamageResistance = 0;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Defense")
+	TArray<FCombatLog_PassiveSkilData> passivesActivated;
 };
 

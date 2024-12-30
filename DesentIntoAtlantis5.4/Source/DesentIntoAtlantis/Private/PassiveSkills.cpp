@@ -8,6 +8,7 @@
 #include "SkillDamageType.h"
 #include "SkillRange.h"
 #include "SkillType.h"
+#include "CombatLog_PassiveSkilData.h"
 #include "SkillUsage.h"
 
 
@@ -112,14 +113,19 @@ bool UGenericOnAttackPassive::IsPassiveTriggered_Implementation(int& CurrentDama
 	return true;
 }
 
-void UGenericOnAttackPassive::ActivateAttackDefencePassive_Implementation(int& CurrentDamage, UCombatEntity* aAttachedEntity,
+FCombatLog_PassiveSkilData UGenericOnAttackPassive::ActivateAttackDefencePassive_Implementation(int& CurrentDamage, UCombatEntity* aAttachedEntity,
                                                                        UCombatEntity* aAttacker, FSkillsData aSkill)
 {
+	FCombatLog_PassiveSkilData CombatLog_PassiveSkilData;
+
+	CombatLog_PassiveSkilData.PassiveSkillData = passiveSkillData;
 	// Calculate the damage increase as a percentage of CurrentDamage
 	int DamageIncrease = aSkill.damage * (passiveSkillData.damagePercentageIncrease / 100.0f);
-    
+
+	CombatLog_PassiveSkilData.passiveResult = DamageIncrease;
 	// Add the calculated increase to CurrentDamage
 	CurrentDamage += DamageIncrease;
-
+	
+	return CombatLog_PassiveSkilData;
 }
 

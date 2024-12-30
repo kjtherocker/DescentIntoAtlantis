@@ -8,6 +8,10 @@
 #include "Health.h"
 #include "PassiveHandler.h"
 #include "SkillBase.h"
+#include "FCombatLog_Damage_Data.h"
+#include "CombatLog_Defense_Data.h"
+#include "CombatLog_Evasion_Data.h"
+#include "CombatLog_Hit_Data.h"
 #include "SkillDamageType.h"
 
 
@@ -59,6 +63,8 @@ FCombatLog_Damage_Data UCalculateDamage_Base::DamageLog(UCombatEntity* aAttached
     FSkillsData aSkill)
 {
     FCombatLog_Damage_Data damageLog;
+
+    damageLog.SkillDamage = aSkill.damage;
     int decementBy = aSkill.damage;
 
     UCombatEntity* attachedCombatEntity = aAttachedEntity;
@@ -67,19 +73,21 @@ FCombatLog_Damage_Data UCalculateDamage_Base::DamageLog(UCombatEntity* aAttached
     
     decementBy +=  magicAllStats;
     damageLog.StatsAddedToDamage = magicAllStats;
+
+    int originalValuePreElementalConversion = decementBy;
     
     if (aSkill.elementalType == attachedCombatEntity->elementalWeakness)
     {
         decementBy = decementBy * UCombatEntity::WEAK_DAMAGE_INCREASE;
+        damageLog.DamageElementalConversion = decementBy - originalValuePreElementalConversion ;
     }
     if (aSkill.elementalType == attachedCombatEntity->elementalStrength)
     {
         decementBy = decementBy * UCombatEntity::STRONG_DAMAGE_REDUCTION;
+        damageLog.DamageElementalConversion = decementBy - originalValuePreElementalConversion;
     }
-
-    damageLog.DamageElementalConversion = decementBy;
     
-    aAttacker->passiveHandler->CheckAttackDefencePassives(decementBy,aAttachedEntity,aAttacker,aSkill);
+    damageLog.passivesActivated = aAttacker->passiveHandler->CheckAttackDefencePassives(decementBy,aAttachedEntity,aAttacker,aSkill);
 
     damageLog.FinalDamage = decementBy;
     return damageLog;
@@ -98,7 +106,7 @@ FCombatLog_Defense_Data UCalculateDamage_Base::DefenseLog(FCombatLog_Damage_Data
         attachedCombatEntity->abilityScoreMap[EStatTypes::Defence]->GetAllStats()    / UCombatStat::ABILITYSCORE_CONVERSION_RATIO :
         attachedCombatEntity->abilityScoreMap[EStatTypes::Resistance]->GetAllStats() / UCombatStat::ABILITYSCORE_CONVERSION_RATIO;
     
-    aAttachedEntity->passiveHandler->CheckAttackDefencePassives(decementBy,aAttachedEntity,aAttacker,aSkill);
+   Defense_Data.passivesActivated = aAttachedEntity->passiveHandler->CheckAttackDefencePassives(decementBy,aAttachedEntity,aAttacker,aSkill);
     
     return Defense_Data;
 }

@@ -9,6 +9,8 @@
  * 
  */
 
+struct FCombatLog_PassiveSkilData;
+
 USTRUCT()
 struct DESENTINTOATLANTIS_API FCombatLog_Damage_Data : public FTableRowBase
 {
@@ -23,6 +25,7 @@ struct DESENTINTOATLANTIS_API FCombatLog_Damage_Data : public FTableRowBase
 	UPROPERTY()
 	int32 FinalDamage               = 0;
 
-	
+	UPROPERTY(EditAnywhere, Category = "Defense")
+	TArray<FCombatLog_PassiveSkilData> passivesActivated;
 };
 
