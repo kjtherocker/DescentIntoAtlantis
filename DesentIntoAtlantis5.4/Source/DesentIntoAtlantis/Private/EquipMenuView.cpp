@@ -3,6 +3,7 @@
 
 #include "EquipMenuView.h"
 
+#include "CombatEntityHub.h"
 #include "PassiveHandler.h"
 #include "PassiveSkillElement.h"
 #include "PassiveSkills.h"
@@ -29,7 +30,7 @@ void UEquipMenuView::SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsy
 	}
 	
 
-	TArray<UPassiveSkills*> passiveSkills = currentPlayer->passiveHandler->GetAllPassives();
+	TArray<UPassiveSkills*> passiveSkills = currentPlayer->combatEntityHub->passiveHandler->GetAllPassives();
 	for(int i = 0 ;i < passiveSkills.Num();i++ )
 	{
 		SetPassiveSkillBar(passiveSkills[i]->passiveSkillData,PassiveSkillElements[i]);		

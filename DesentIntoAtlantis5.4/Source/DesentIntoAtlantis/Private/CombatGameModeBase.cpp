@@ -16,6 +16,7 @@
 #include "CommandBoardView.h"
 #include "EnemyPortraitElement.h"
 #include "ChallengeSubsystem.h"
+#include "CombatEntityHub.h"
 #include "CombatLogSimplifiedView.h"
 #include "CombatLog_Full_Data.h"
 #include "PlayerCombatEntity.h"
@@ -336,6 +337,7 @@ void ACombatGameModeBase::AllyStartTurn()
 	
 	currentActivePosition = 0;
 	currentActivePartyMember = partyMembersInCombat[currentActivePosition];
+	currentActivePartyMember->combatEntityHub->combatTokenHandler->AddCombatToken(ECombatTokenID::MagicAttackUp);
 	partyHealthbars->SetHighlightHealthbar(currentActivePartyMember,FULL_OPACITY);
 	currentActivePartyMember->StartTurn();
 	combatCamera->shouldReturnToInitialPosition = true;

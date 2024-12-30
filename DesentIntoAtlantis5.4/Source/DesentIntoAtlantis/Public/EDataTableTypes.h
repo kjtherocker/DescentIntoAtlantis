@@ -19,7 +19,8 @@ enum class  EDataTableTypes
 	DialogueActor        = 10,
 	PartyExperienceTable = 11,
 	ChallengeTable       = 12,
-	PassiveSkills        = 13
+	PassiveSkills        = 13,
+	CombatTokens         = 14,
 };
 
 

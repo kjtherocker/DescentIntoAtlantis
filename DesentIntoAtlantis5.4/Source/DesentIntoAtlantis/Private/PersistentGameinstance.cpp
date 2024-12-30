@@ -44,9 +44,9 @@ void UPersistentGameinstance::Init()
 		skillFactorySubsystem->InitializeDatabase(dataTables[EDataTableTypes::Skills]);
 	}
 
-	if(dataTables.Contains(EDataTableTypes::PassiveSkills))
+	if(dataTables.Contains(EDataTableTypes::PassiveSkills) && dataTables.Contains(EDataTableTypes::CombatTokens))
 	{
-		passiveFactorySubsystem->InitializeDatabase(dataTables[EDataTableTypes::PassiveSkills]);
+		passiveFactorySubsystem->InitializeDatabase(dataTables[EDataTableTypes::PassiveSkills],dataTables[EDataTableTypes::CombatTokens]);
 	}
 	
 	if(dataTables.Contains(EDataTableTypes::ChallengeTable))

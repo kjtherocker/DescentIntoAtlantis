@@ -67,7 +67,7 @@ struct DESENTINTOATLANTIS_API FPassiveSkillData : public FTableRowBase
 	UPROPERTY( EditAnywhere )    
 	EElementalType trigger5ElementalType;
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 	TMap< EStatTypes,int> passiveStats;
 
 	UPROPERTY()

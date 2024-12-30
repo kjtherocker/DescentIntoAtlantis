@@ -4,6 +4,7 @@
 #include "CombatEntityWrapper.h"
 
 #include "CombatEntity.h"
+#include "CombatEntityHub.h"
 #include "CombatStat.h"
 #include "Health.h"
 #include "PassiveHandler.h"
@@ -87,7 +88,7 @@ FCombatLog_Damage_Data UCalculateDamage_Base::DamageLog(UCombatEntity* aAttached
         damageLog.DamageElementalConversion = decementBy - originalValuePreElementalConversion;
     }
     
-    damageLog.passivesActivated = aAttacker->passiveHandler->CheckAttackDefencePassives(decementBy,aAttachedEntity,aAttacker,aSkill);
+    damageLog.passivesActivated = aAttacker->combatEntityHub->CheckAttackDefencePassivesAndTokens(decementBy,aAttachedEntity,aAttacker,aSkill);
 
     damageLog.FinalDamage = decementBy;
     return damageLog;
@@ -106,7 +107,7 @@ FCombatLog_Defense_Data UCalculateDamage_Base::DefenseLog(FCombatLog_Damage_Data
         attachedCombatEntity->abilityScoreMap[EStatTypes::Defence]->GetAllStats()    / UCombatStat::ABILITYSCORE_CONVERSION_RATIO :
         attachedCombatEntity->abilityScoreMap[EStatTypes::Resistance]->GetAllStats() / UCombatStat::ABILITYSCORE_CONVERSION_RATIO;
     
-   Defense_Data.passivesActivated = aAttachedEntity->passiveHandler->CheckAttackDefencePassives(decementBy,aAttachedEntity,aAttacker,aSkill);
+   Defense_Data.passivesActivated = aAttachedEntity->combatEntityHub->CheckAttackDefencePassivesAndTokens(decementBy,aAttachedEntity,aAttacker,aSkill);
     
     return Defense_Data;
 }
@@ -150,8 +151,8 @@ int UCalculateDamage_Base::CalculateDamage(UCombatEntity* aAttachedEntity,UComba
         attachedCombatEntity->abilityScoreMap[EStatTypes::Defence]->GetAllStats()    / UCombatStat::ABILITYSCORE_CONVERSION_RATIO :
         attachedCombatEntity->abilityScoreMap[EStatTypes::Resistance]->GetAllStats() / UCombatStat::ABILITYSCORE_CONVERSION_RATIO;
 
-    aAttacker->passiveHandler->CheckAttackDefencePassives(decementBy,aAttachedEntity,aAttacker,aSkill);
-    aAttachedEntity->passiveHandler->CheckAttackDefencePassives(decementBy,aAttachedEntity,aAttacker,aSkill);
+    aAttacker->combatEntityHub->CheckAttackDefencePassivesAndTokens(decementBy,aAttachedEntity,aAttacker,aSkill);
+    aAttachedEntity->combatEntityHub->CheckAttackDefencePassivesAndTokens(decementBy,aAttachedEntity,aAttacker,aSkill);
 
     if(decementBy <= 0)
     {

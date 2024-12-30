@@ -2,6 +2,8 @@
 
 
 #include "PlayerCombatEntity.h"
+
+#include "CombatEntityHub.h"
 #include "CombatGameModeBase.h"
 #include "Health.h"
 #include "PartyHealthbarElement.h"
@@ -60,7 +62,7 @@ void UPlayerCombatEntity::SetMainClass(EClasses aClass)
 	SetAbilityScores();
 	SetToDefaultState();
 	playerCompleteDataSet.mainClassData = mainClass->completeClassData;
-	passiveHandler->AddMainClassPassives(mainClass);
+	combatEntityHub->passiveHandler->AddMainClassPassives(mainClass);
 }
 
 void UPlayerCombatEntity::Reset()
@@ -118,7 +120,7 @@ void UPlayerCombatEntity::GatherAndSavePlayerCompleteDataSet()
 {
 	playerCompleteDataSet.playerIdentityData    = playerIdentityData;
 	playerCompleteDataSet.mainClassData         = mainClass->completeClassData;
-	playerCompleteDataSet.PassiveHandlerData    = passiveHandler->GetPassiveHandlerData();
+	playerCompleteDataSet.PassiveHandlerData    = combatEntityHub->passiveHandler->GetPassiveHandlerData();
 
 	playerCompleteDataSet.unlockedPlayerClasses.Add(mainClass->completeClassData.classIdentifer,mainClass->completeClassData);
 

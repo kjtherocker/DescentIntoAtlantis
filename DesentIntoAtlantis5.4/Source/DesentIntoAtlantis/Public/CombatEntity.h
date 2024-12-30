@@ -15,6 +15,7 @@
 #include "CombatEntity.generated.h"
 
 
+class UCombatEntityHub;
 class UPassiveSkillFactorySubsystem;
 class UCombatStat;
 class UPassiveHandler;
@@ -171,7 +172,7 @@ public:
 	UHealth* health;
 	
 	UPROPERTY()
-	UPassiveHandler* passiveHandler;
+	UCombatEntityHub* combatEntityHub;
 	
 	UPROPERTY()
 	int maxHealth;

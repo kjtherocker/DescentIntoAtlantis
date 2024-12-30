@@ -35,6 +35,7 @@ class DESENTINTOATLANTIS_API UPassiveHandler : public UObject
 	UPROPERTY()
 	TArray< FCombatLog_PassiveSkilData> passiveSkillsUsed;
 
+
 public:
 	virtual void InitializePassiveHandler(UCombatEntity* aOwnedCombatEntity,UPassiveSkillFactorySubsystem* aPassiveSkillFactorySubsystem);
 	

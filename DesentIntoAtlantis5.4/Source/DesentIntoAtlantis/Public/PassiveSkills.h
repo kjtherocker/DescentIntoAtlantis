@@ -77,8 +77,8 @@ class DESENTINTOATLANTIS_API UPassiveSkills : public UObject
 public:
 	void InitializePassiveSkilData(FPassiveSkillData aPassiveSkillsData);
 	void AttachPassiveToOwner(UCombatEntity* aCombatEntity);
-	void RemovePassive();
-	void ActivatePassive();
+	virtual void RemovePassive();
+	virtual void ActivatePassive();
 
 	virtual void ApplyEffect(UCombatEntity* aCombatEntity);
 	virtual void RemoveEffect(UCombatEntity* aCombatEntity);

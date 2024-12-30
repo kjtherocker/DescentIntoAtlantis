@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "CombatEntity.h"
 
+#include "CombatEntityHub.h"
 #include "CombatEntityWrapper.h"
 #include "CombatGameModeBase.h"
 #include "CombatStat.h"
@@ -28,8 +29,8 @@ void UCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassi
 
     resetOneWrapperToDefault.AddDynamic(this,&UCombatEntity::SetAWrapperToDefault);
 
-    passiveHandler          = NewObject<UPassiveHandler>();
-    passiveHandler->InitializePassiveHandler(this,aPassiveSkillFactory);
+    combatEntityHub          = NewObject<UCombatEntityHub>();
+    combatEntityHub->InitializeCombatEntityHub(this,aPassiveSkillFactory);
     health                  = NewObject<UHealth>();
 
 }
@@ -84,7 +85,7 @@ void UCombatEntity::AddPassive(UPassiveSkills* aPassiveSkills,EPassiveSkillSlotT
         return;
     }
     
-    passiveHandler->AddPassive(aPassiveSkills,passiveSkillSlot);
+    combatEntityHub->passiveHandler->AddPassive(aPassiveSkills,passiveSkillSlot);
 }
 
 void UCombatEntity::RemovePassive(UPassiveSkills* aPassiveSkills)
@@ -94,7 +95,7 @@ void UCombatEntity::RemovePassive(UPassiveSkills* aPassiveSkills)
         return;
     }
     
-    passiveHandler->RemovePassive(aPassiveSkills);
+    combatEntityHub->passiveHandler->RemovePassive(aPassiveSkills);
 }
 
 

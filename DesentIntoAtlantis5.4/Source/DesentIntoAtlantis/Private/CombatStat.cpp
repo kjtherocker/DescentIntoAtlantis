@@ -28,7 +28,7 @@ void UCombatStat::TryAddStatPassive(UPassiveSkills* aPassiveSkills)
 		FString passiveSkillID = aPassiveSkills->passiveSkillData.passiveName;
 		if(!passives.Contains(passiveSkillID))
 		{
-			passives.Add(passiveSkillID,SkillableActor->GetStatIncrease(StatType));
+			passives.Add(passiveSkillID,SkillableActor->Execute_GetStatIncrease(aPassiveSkills,StatType));
 		}	
 	}
 }
