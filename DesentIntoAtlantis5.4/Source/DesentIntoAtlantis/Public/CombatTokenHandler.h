@@ -46,6 +46,8 @@ public:
 
 	UCombatToken_Base* CreateNewCombatTokenClass(ECombatTokenID aCombatTokenID );
 
+	void RemoveAllCombatTokens();
+
 	UFUNCTION()
 	void RemoveCombatToken(UCombatToken_Base* combatToken);
 	

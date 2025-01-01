@@ -4,6 +4,8 @@
 #include "PartyHealthbarElement.h"
 
 #include "CombatEntity.h"
+#include "CombatEntityHub.h"
+#include "CombatTokenRowElement.h"
 #include "Health.h"
 #include "PlayerCombatEntity.h"
 #include "Components/ProgressBar.h"
@@ -42,6 +44,12 @@ void UPartyHealthbarElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 	UpdateHealthbarElements();
 	previousHealthPercentage = currentHealthPercentage;
 	BW_Health_Slow->SetPercent(previousHealthPercentage);
+}
+
+void UPartyHealthbarElement::SetCombatTokenRow(UPlayerCombatEntity* aCombatEntity, AInGameHUD* aInGameHud)
+{
+	BW_CombatTokenRowElement->UiInitialize(gameModeBase);
+	BW_CombatTokenRowElement->InitializeCombatTokenRow(aCombatEntity->combatEntityHub->combatTokenHandler,aInGameHud);
 }
 
 void UPartyHealthbarElement::NativeTick(const FGeometry& MyGeometry, float DeltaTime)

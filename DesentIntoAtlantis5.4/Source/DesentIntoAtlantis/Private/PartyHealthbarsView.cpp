@@ -31,10 +31,11 @@ void UPartyHealthbarsView::CreateHealthbar(UPlayerCombatEntity* aCombatEntity)
 	UPartyHealthbarElement* baseUserWidget = (UPartyHealthbarElement*)partyStatusHealthbar;
 	baseUserWidget->UiInitialize(gameModeBase);
 	partyStatusHealthbar->AddToViewport();
-
+	baseUserWidget->InGameHUD = InGameHUD;
 	baseUserWidget->SetCombatEntity(aCombatEntity);
 	baseUserWidget->BW_BackgroundHighlight->SetOpacity(0);
 	healthBars.Add(baseUserWidget);
+	baseUserWidget->SetCombatTokenRow(aCombatEntity,InGameHUD);
 	BW_HorizontalBox->AddChild(partyStatusHealthbar);
 }
 

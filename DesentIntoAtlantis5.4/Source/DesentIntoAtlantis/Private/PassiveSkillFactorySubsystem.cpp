@@ -38,7 +38,7 @@ void UPassiveSkillFactorySubsystem::InitializeDatabase(UDataTable* aPassiveDataT
 		{
 			FCombatToken_Base_Data skillData = *combatTokenDataTable->FindRow<FCombatToken_Base_Data>(FName(FString::FromInt(i)),FString("Searching for Skills"),true);
 			
-			allCombatTokensData.Add(skillData.CombatTokenNames,skillData );
+			allCombatTokensData.Add(skillData.CombatTokenID,skillData );
 		}
 	}
 	else

@@ -28,7 +28,7 @@ void UCombatStat::TryAddStatPassive(UPassiveSkills* aPassiveSkills)
 		FString passiveSkillID = aPassiveSkills->passiveSkillData.passiveName;
 		if(!passives.Contains(passiveSkillID))
 		{
-			passives.Add(passiveSkillID,SkillableActor->Execute_GetStatIncrease(aPassiveSkills,StatType));
+			passives.Add(passiveSkillID,aPassiveSkills);
 		}	
 	}
 }
@@ -57,9 +57,14 @@ int UCombatStat::GetAllPassive()
 	}
 	
 	int PassiveValue = 0;
-	for (TTuple<FString, int> Element : passives)
+	
+	for (TTuple<FString, UPassiveSkills*> Element : passives)
 	{
-		PassiveValue += Element.Value;
+		if (IStatPassive* SkillableActor = Cast<IStatPassive>(Element.Value))
+		{
+			PassiveValue += SkillableActor->Execute_GetStatIncrease(Element.Value,StatType);
+		}
+		
 	}
 	
 	return PassiveValue;

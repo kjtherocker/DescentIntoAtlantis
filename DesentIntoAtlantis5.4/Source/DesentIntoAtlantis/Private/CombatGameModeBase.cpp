@@ -190,7 +190,7 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 	pressTurnManager->SetAmountOfTurns(partyMembersInCombat.Num(),currentTurnType);
 	AllyStartTurn();
 
-	
+	currentActivePartyMember->combatEntityHub->combatTokenHandler->AddCombatToken(ECombatTokenID::MagicAttackUp);
 	//GameHUD->PushView(EViews::Tutorial,    EUiType::PersistentUi);
 }
 
@@ -256,6 +256,9 @@ void ACombatGameModeBase::EndCombat(bool aHasWon)
 	{
 		enemysInCombat.RemoveAt(i);
 	}
+	
+	partyManager->RemoveAllCombatTokensFromParty();
+	partyManager->ResetActivePartyToDefaultState();
 	
 	enemyFactory->BestiaryDataHasChangedBroadcast();	
 	if(aHasWon)
@@ -337,7 +340,6 @@ void ACombatGameModeBase::AllyStartTurn()
 	
 	currentActivePosition = 0;
 	currentActivePartyMember = partyMembersInCombat[currentActivePosition];
-	currentActivePartyMember->combatEntityHub->combatTokenHandler->AddCombatToken(ECombatTokenID::MagicAttackUp);
 	partyHealthbars->SetHighlightHealthbar(currentActivePartyMember,FULL_OPACITY);
 	currentActivePartyMember->StartTurn();
 	combatCamera->shouldReturnToInitialPosition = true;

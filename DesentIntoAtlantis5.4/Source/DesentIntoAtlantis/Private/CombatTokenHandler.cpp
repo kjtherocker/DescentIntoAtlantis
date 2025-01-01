@@ -15,7 +15,7 @@ void UCombatTokenHandler::AddCombatToken(ECombatTokenID aCombatTokenID )
 {
 	 FCombatToken_Base_Data combatTokenData = passiveSkillFactorySubsystem->GetCombatTokenData(aCombatTokenID);
 
-	if(combatTokenData.CombatTokenNames == ECombatTokenID::None)
+	if(combatTokenData.CombatTokenID == ECombatTokenID::None)
 	{
 		return;
 	}
@@ -23,7 +23,7 @@ void UCombatTokenHandler::AddCombatToken(ECombatTokenID aCombatTokenID )
 	for(int i = 0 ; i < activeCombatTokens.Num();i++)
 	{
 		FCombatToken_Base_Data currentCombatTokenData = activeCombatTokens[i]->GetCombatTokenData();
-		if(currentCombatTokenData.CombatTokenNames == combatTokenData.CombatTokenNames)
+		if(currentCombatTokenData.CombatTokenID == combatTokenData.CombatTokenID)
 		{
 			activeCombatTokens[i]->SameCombatTokenWasAdded();
 			return;
@@ -66,6 +66,14 @@ UCombatToken_Base* UCombatTokenHandler::CreateNewCombatTokenClass(ECombatTokenID
 	return nullptr;
 }
 
+void UCombatTokenHandler::RemoveAllCombatTokens()
+{
+	for (int i = activeCombatTokens.Num() - 1; i >= 0; i--)
+	{
+		RemoveCombatToken(activeCombatTokens[i]);
+	}
+}
+
 void UCombatTokenHandler::RemoveCombatToken(UCombatToken_Base* combatToken)
 {
 	FCombatToken_Base_Data combatTokenData = combatToken->GetCombatTokenData();
@@ -73,8 +81,9 @@ void UCombatTokenHandler::RemoveCombatToken(UCombatToken_Base* combatToken)
 	for(int i = 0 ; i < activeCombatTokens.Num();i++)
 	{
 		FCombatToken_Base_Data currentCombatTokenData = activeCombatTokens[i]->GetCombatTokenData();
-		if(currentCombatTokenData.CombatTokenNames == combatTokenData.CombatTokenNames)
+		if(currentCombatTokenData.CombatTokenID == combatTokenData.CombatTokenID)
 		{
+			activeCombatTokens[i]->RemoveEffect(OwnedCombatEntity);
 			activeCombatTokens.RemoveAt(i);
 			return;
 		}
@@ -85,11 +94,13 @@ void UCombatTokenHandler::RemoveCombatToken(UCombatToken_Base* combatToken)
 
 void UCombatTokenHandler::NewCombatTokenWasAdded(UCombatToken_Base* combatToken,FCombatToken_Base_Data aCombatTokenBaseData)
 {
-	combatToken->SetCombatToken(aCombatTokenBaseData);
+	combatToken->AttachPassiveToOwner(OwnedCombatEntity);
+	
+	combatToken->SetCombatToken(aCombatTokenBaseData,OwnedCombatEntity);
 	combatToken->CombatTokenEndEffect.AddDynamic(this,&UCombatTokenHandler::RemoveCombatToken);
-	activeCombatTokens.Add(combatToken);
-
 	combatToken->ApplyEffect(OwnedCombatEntity);
+
+	activeCombatTokens.Add(combatToken);
 	onCombatTokenAdded.Broadcast(combatToken);
 }
 

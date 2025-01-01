@@ -46,7 +46,21 @@ void UPassiveSkills::RemoveEffect(UCombatEntity* aCombatEntity)
 
 int UGenericStatPassive::GetStatIncrease_Implementation(EStatTypes aStatType)
 {
-	return passiveSkillData.passiveStats[aStatType];
+	int statIncrease = 0;
+
+	switch (passiveSkillData.PassiveSkillStatType)
+	{
+	case EPassiveSkillStatType::None:
+		break;
+	case EPassiveSkillStatType::RawStat:
+		statIncrease = passiveSkillData.passiveStats[aStatType];
+		break;
+	case EPassiveSkillStatType::Percentage:
+		statIncrease = attachedCombatEntity->abilityScoreMap[aStatType]->base * (passiveSkillData.passiveStats[aStatType] / 100.0f);
+		break;
+	}
+	
+	return statIncrease;
 }
 
 void UGenericStatPassive::ApplyEffect(UCombatEntity* aCombatEntity)

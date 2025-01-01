@@ -91,7 +91,7 @@ public:
 	int EffectValue;
 
 	FPassiveSkillData passiveSkillData;
-private:
+protected:
 
 
 

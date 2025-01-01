@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CombatTokenStateInfo.h"
 #include "CombatToken_Base_Data.h"
 #include "PassiveSkills.h"
 #include "UObject/NoExportTypes.h"
@@ -11,6 +12,7 @@
 struct FCombatToken_Base_Data;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCombatTokenEndEffect,UCombatToken_Base*,combatToken);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCombatTokenChange,FCombatTokenStateInfo,combatTokenInfo);
 /**
  * 
  */
@@ -21,22 +23,31 @@ class DESENTINTOATLANTIS_API UCombatToken_Base : public UPassiveSkills
 
 protected:
 	FCombatToken_Base_Data CombatToken_Base_Data;
+	FCombatTokenStateInfo CombatTokenStateInfo;
 
-	int turnsRemaining;
 public:
 
+	FOnCombatTokenChange onCombatTokenChange;
 	FCombatTokenEndEffect CombatTokenEndEffect;
 	
 	virtual FCombatToken_Base_Data GetCombatTokenData(){ return CombatToken_Base_Data;}
+	virtual ECombatTokenID GetCombatTokenID() { return GetCombatTokenData().CombatTokenID;}
+	virtual FCombatTokenStateInfo  GetCombatTokenStateInfo(){ return CombatTokenStateInfo;}
+	virtual void SetCombatToken(FCombatToken_Base_Data combatToken,UCombatEntity* aCombatEntity);
 	
-	virtual void SetCombatToken(FCombatToken_Base_Data combatToken);
+	virtual void ValidateStackState();
+	virtual void AddNewTokenStack(int aAddedTokens);
+	virtual void RemoveTokenFromStack(int aRemovedToken);
+	virtual bool CanConsumeStack();
+
+	UFUNCTION()
 	virtual void RoundEnd();
 
 	virtual void RemovePassive() override;
 	virtual void ActivatePassive() override;
 
 	virtual void SameCombatTokenWasAdded();
-	
+	virtual void BroadCastCombatTokenChange();
 };
 
 UCLASS()

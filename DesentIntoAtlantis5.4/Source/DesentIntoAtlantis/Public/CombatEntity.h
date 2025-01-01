@@ -83,6 +83,7 @@ enum class ECharactertype  : uint8
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWasDamaged);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWasKilled);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FHasHealthOrManaValuesChanged);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FCombatEntityRoundEnd);
 
 UCLASS()
 class DESENTINTOATLANTIS_API UCombatEntity : public UObject
@@ -111,7 +112,7 @@ public:
 	FWasDamaged					       wasDamaged;
 	FHasHealthOrManaValuesChanged      hasHealthOrManaValuesChanged;
 	FResetOneWrapperToDefault          resetOneWrapperToDefault;
- 
+	FCombatEntityRoundEnd              OnRoundEnd;
 	UFUNCTION()
 	virtual void SetAWrapperToDefault(ECombatEntityWrapperType aShellType);
 	virtual void SetCombatEntity(USkillFactorySubsystem*  aSkillFactory,UPassiveSkillFactorySubsystem* aPassiveSkillFactory);

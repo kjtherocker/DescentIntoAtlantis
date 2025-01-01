@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PassiveSkills.h"
 #include "UObject/NoExportTypes.h"
 #include "CombatStat.generated.h"
 
@@ -32,7 +33,7 @@ public:
 	int domain  			= 0;
      
 	UPROPERTY(EditAnywhere)
-	TMap<FString,int> passives;
+	TMap<FString,UPassiveSkills*> passives;
 	UPROPERTY( EditAnywhere )
 	int passive  			= 0;
 	UPROPERTY( EditAnywhere )

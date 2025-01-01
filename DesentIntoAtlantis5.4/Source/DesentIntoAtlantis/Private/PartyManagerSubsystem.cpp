@@ -2,6 +2,8 @@
 
 
 #include "PartyManagerSubsystem.h"
+
+#include "CombatEntityHub.h"
 #include "EDataTableTypes.h"
 #include "Health.h"
 #include "PassiveSkillFactorySubsystem.h"
@@ -88,6 +90,14 @@ void UPartyManagerSubsystem::AddPlayerToActiveParty(EPartyMembers aPlayer)
 	{
 		persistentGameInstance->saveManagerSubsystem->SessionSaveGameObject->AddPlayerCompleteDataSet(aPlayer,playerCombatEntityInfo[aPlayer]->playerCompleteDataSet);
 		activePartyEntityData.Add(playerCombatEntityInfo[aPlayer]);
+	}
+}
+
+void UPartyManagerSubsystem::RemoveAllCombatTokensFromParty()
+{
+	for(int i = 0 ; i < activePartyEntityData.Num();i++)
+	{
+		activePartyEntityData[i]->combatEntityHub->combatTokenHandler->RemoveAllCombatTokens();
 	}
 }
 

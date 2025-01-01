@@ -81,6 +81,7 @@ void UPlayerCombatEntity::SetToDefaultState()
 	health->SetHealth(maxHealth);
 	currentMana       =  maxMana;
     isMarkedForDeath  =  false;
+
 	for (TTuple<EStatTypes, UCombatStat*> abilityStats : abilityScoreMap)
 	{
 		abilityStats.Value->ResetAbilityscore();

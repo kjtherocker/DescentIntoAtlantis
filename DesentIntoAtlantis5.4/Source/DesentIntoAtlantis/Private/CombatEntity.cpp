@@ -58,11 +58,13 @@ void UCombatEntity::StartTurn()
 
 void UCombatEntity::EndTurn()
 {
+    OnRoundEnd.Broadcast();
     for (TTuple<EStatTypes, UCombatStat*> abilityScore : abilityScoreMap)
     {
         abilityScore.Value->TurnEnd();
     }
     health->TurnEnd();
+   
 }
 
 

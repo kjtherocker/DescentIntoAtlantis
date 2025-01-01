@@ -28,10 +28,10 @@ struct DESENTINTOATLANTIS_API FCombatToken_Base_Data :public  FPassiveSkillData
 	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY(EditAnywhere)
-	ECombatTokenID CombatTokenNames;
+	ECombatTokenID CombatTokenID;
 	
 	UPROPERTY(EditAnywhere)
-	int32 MaxStack;
+	int32 MaxStack = 3;
 	UPROPERTY(EditAnywhere)
-	int32 startingTokenTurnLength;
+	int32 startingTokenTurnLength = 3;
 };

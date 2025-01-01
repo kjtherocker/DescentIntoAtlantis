@@ -77,6 +77,8 @@ public:
 	void CreatePlayerEntitys(EPartyMembers aPlayer);
 	void AddPlayerToActiveParty(EPartyMembers aPlayer);
 
+	void RemoveAllCombatTokensFromParty();
+	
 	void SavePartyManager();
 
 	void SavePlayerEntitys();

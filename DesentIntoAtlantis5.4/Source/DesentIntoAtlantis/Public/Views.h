@@ -40,6 +40,7 @@ enum class  EViews
 	CombatLogSimplified  = 30,
 	CombatLogSelection   = 31,
 	CombatLogDetailed    = 32,
+	CombatTokenUi        = 33
 	
 };
 
@@ -72,7 +73,8 @@ enum class  EViewElements
 	CombatLogAttackElement   = 12,
 	CombatLogDefenceElement  = 13,
 	CombatLogDetailedElement = 14,
-	
+	CombatTokenRowElement    = 15,
+	CombatTokenElement       = 16,
 	
 	
 };

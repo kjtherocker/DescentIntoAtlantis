@@ -75,6 +75,7 @@ void UMainMenuView::SpawnMainMenuStatusElement(UPlayerCombatEntity* aCombatEntit
 	baseUserWidget->UiInitialize(gameModeBase);
 	partyStatusHealthbar->AddToViewport();
 
+	baseUserWidget->InGameHUD = InGameHUD;
 	baseUserWidget->SetCombatEntity(aCombatEntity);
 	baseUserWidget->BW_BackgroundHighlight->SetOpacity(0);
 	statusMainMenuElements.Add(baseUserWidget);

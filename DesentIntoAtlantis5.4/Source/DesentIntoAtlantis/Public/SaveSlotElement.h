@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
+#include "UiElement.h"
 #include "SaveSlotElement.generated.h"
 
 struct FPlayerCompleteDataSet;
@@ -15,7 +16,7 @@ class USaveGameData;
  * 
  */
 UCLASS()
-class DESENTINTOATLANTIS_API USaveSlotElement : public UBaseUserWidget
+class DESENTINTOATLANTIS_API USaveSlotElement : public UUiElement
 {
 	GENERATED_BODY()
 

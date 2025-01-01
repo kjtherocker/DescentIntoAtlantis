@@ -8,6 +8,7 @@
 #include "Components/Image.h"
 #include "PartyHealthbarElement.generated.h"
 
+class UCombatTokenRowElement;
 enum class EStatusAilments  : uint8;
 class UPlayerCombatEntity;
 class UTextBlock;
@@ -33,6 +34,8 @@ public:
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 
 	virtual void SetCombatEntity(UPlayerCombatEntity* aCombatEntity);
+
+	virtual void SetCombatTokenRow(UPlayerCombatEntity* aCombatEntity, AInGameHUD* aInGameHud);
 	
 	bool isTriggeringHitEffect;
 	virtual void NativeTick(const FGeometry& MyGeometry, float DeltaTime) override;
@@ -74,4 +77,7 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_BackgroundHighlight;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UCombatTokenRowElement * BW_CombatTokenRowElement;
 };

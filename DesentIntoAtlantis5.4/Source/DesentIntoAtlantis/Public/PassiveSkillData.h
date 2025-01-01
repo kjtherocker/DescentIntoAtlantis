@@ -35,6 +35,13 @@ enum class EPassiveSkillSlotType   : uint8
 	Debug                = 5,
 };
 
+UENUM()
+enum class EPassiveSkillStatType : uint8
+{
+	None       = 0,
+	RawStat    = 1,
+	Percentage = 2,
+};
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FPassiveSkillData : public FTableRowBase
@@ -67,6 +74,10 @@ struct DESENTINTOATLANTIS_API FPassiveSkillData : public FTableRowBase
 	UPROPERTY( EditAnywhere )    
 	EElementalType trigger5ElementalType;
 
+
+	UPROPERTY(EditAnywhere)
+	EPassiveSkillStatType PassiveSkillStatType;
+	
 	UPROPERTY(EditAnywhere)
 	TMap< EStatTypes,int> passiveStats;
 
