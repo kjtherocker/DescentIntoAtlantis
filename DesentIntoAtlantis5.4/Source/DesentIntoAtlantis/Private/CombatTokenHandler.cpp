@@ -49,16 +49,16 @@ UCombatToken_Base* UCombatTokenHandler::CreateNewCombatTokenClass(ECombatTokenID
 	case ECombatTokenID::InFlame:
 		return NewObject<UCombatToken_GenericStat>();
 		break;
-	case ECombatTokenID::PhysicalAttackUp:
+	case ECombatTokenID::StrengthUp:
 		return NewObject<UCombatToken_GenericStat>();
 		break;
-	case ECombatTokenID::MagicAttackUp:
+	case ECombatTokenID::MagicUp:
 		return NewObject<UCombatToken_GenericStat>();
 		break;
-	case ECombatTokenID::PhysicalAttackDown:
+	case ECombatTokenID::StrengthDown:
 		return NewObject<UCombatToken_GenericStat>();
 		break;
-	case ECombatTokenID::MagicAttackDown:
+	case ECombatTokenID::MagicDown:
 		return NewObject<UCombatToken_GenericStat>();
 		break;
 	}

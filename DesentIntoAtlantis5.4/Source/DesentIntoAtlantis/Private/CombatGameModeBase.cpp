@@ -190,7 +190,7 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 	pressTurnManager->SetAmountOfTurns(partyMembersInCombat.Num(),currentTurnType);
 	AllyStartTurn();
 
-	currentActivePartyMember->combatEntityHub->combatTokenHandler->AddCombatToken(ECombatTokenID::MagicAttackUp);
+	currentActivePartyMember->combatEntityHub->combatTokenHandler->AddCombatToken(ECombatTokenID::MagicUp);
 	//GameHUD->PushView(EViews::Tutorial,    EUiType::PersistentUi);
 }
 

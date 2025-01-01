@@ -48,53 +48,49 @@ struct DESENTINTOATLANTIS_API FPassiveSkillData : public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 
-	UPROPERTY( EditAnywhere )
+	UPROPERTY( EditAnywhere , Category = "Identity")
 	EPassiveSkillID passiveSkillID;
 
+	UPROPERTY( EditAnywhere , Category = "Identity")
+	FString passiveName;
 	
+	UPROPERTY( EditAnywhere, Category = "Identity" )
+	FString passiveDescription;
 	
-	UPROPERTY( EditAnywhere )
+	UPROPERTY( EditAnywhere , Category = "Identity")
+	UTexture2D* passiveIcon;
+	
+	UPROPERTY( EditAnywhere, Category = "Damage" )
 	int damageIncrease;
 
-	UPROPERTY( EditAnywhere )
+	UPROPERTY( EditAnywhere , Category = "Damage")
 	int damagePercentageIncrease;
 
-	UPROPERTY( EditAnywhere )    
-	ESkillType      trigger1SkillType;
-    
-	UPROPERTY( EditAnywhere )    
-	ESkillUsage     trigger2SkillUsage;
-    
-	UPROPERTY( EditAnywhere )    
-	ESkillRange trigger3SkillRange ;
-    
-	UPROPERTY( EditAnywhere )    
-	ESkillDamageType trigger4DamageType;
-    
-	UPROPERTY( EditAnywhere )    
-	EElementalType trigger5ElementalType;
-
-
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "Stat")
 	EPassiveSkillStatType PassiveSkillStatType;
 	
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "Stat")
 	TMap< EStatTypes,int> passiveStats;
 
 	UPROPERTY()
 	EPassiveSkillSlotType passiveSkillPlacement;
 	
-	UPROPERTY( EditAnywhere )
-	FString passiveName;
 	
-	UPROPERTY( EditAnywhere )
-	FString passiveDescription;
-	
-	UPROPERTY( EditAnywhere )
-	UTexture2D* passiveIcon;
+	UPROPERTY( EditAnywhere , Category = "Trigger")    
+	ESkillType      trigger1SkillType;
+    
+	UPROPERTY( EditAnywhere , Category = "Trigger")    
+	ESkillUsage     trigger2SkillUsage;
+    
+	UPROPERTY( EditAnywhere , Category = "Trigger")    
+	ESkillRange trigger3SkillRange ;
+    
+	UPROPERTY( EditAnywhere , Category = "Trigger")    
+	ESkillDamageType trigger4DamageType;
+    
+	UPROPERTY( EditAnywhere , Category = "Trigger")    
+	EElementalType trigger5ElementalType;
 
-	UPROPERTY( EditAnywhere )
-	int abilityScoreChangeDuration;
 };
 
 

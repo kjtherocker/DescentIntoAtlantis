@@ -15,10 +15,29 @@ enum class ECombatTokenID   : uint8
 	DarkWeakness       = 1,
 	Evade              = 2,
 	InFlame            = 3,
-	PhysicalAttackUp   = 4,
-	MagicAttackUp      = 5,
-	PhysicalAttackDown = 6,
-	MagicAttackDown    = 7,
+	StrengthUp         = 4,
+	StrengthDown       = 5,
+	MagicUp            = 6,
+	MagicDown          = 7,
+	HitUp              = 8,
+	HitDown            = 9,
+	EvasionUp          = 10,
+	EvasionDown        = 11,
+	DefenceUp          = 12,
+	DefenceDown        = 13,
+	ResistanceUp       = 14,
+	ResistanceDown     = 15,
+};
+
+
+UENUM()
+enum class ECombatTokenType   : uint8
+{
+	None               = 0,
+	Positive           = 1,
+	Neutral            = 2,
+	Negative           = 3,
+	PositiveNegative   = 4,
 };
 
 
@@ -29,6 +48,12 @@ struct DESENTINTOATLANTIS_API FCombatToken_Base_Data :public  FPassiveSkillData
 
 	UPROPERTY(EditAnywhere)
 	ECombatTokenID CombatTokenID;
+
+	UPROPERTY(EditAnywhere)
+	ECombatTokenID InvertedCombatTokenID;
+
+	UPROPERTY(EditAnywhere)
+	ECombatTokenType CombatTokenType;
 	
 	UPROPERTY(EditAnywhere)
 	int32 MaxStack = 3;
