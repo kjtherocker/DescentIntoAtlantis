@@ -42,16 +42,12 @@ void UCombatClass::CreateAllClassSkillsForLevel(FCompleteClassData aCompleteClas
 {
 	for (TTuple<int, ESkillIDS> skillByLevel : aCompleteClassData.unlockableSkillByLevel)
 	{
-		int skillLevel = skillByLevel.Key;
-		if(skillLevel <= aCompleteClassData.currentLevel)
+		ESkillIDS skillName = skillByLevel.Value;
+		if(skillName != ESkillIDS::None)
 		{
-			ESkillIDS skillName = skillByLevel.Value;
-			if(skillName != ESkillIDS::None)
-			{
-				USkillBase* newSkill = skillFactory->GetSkill(skillName);
-				classSkills.Add(newSkill);
-				attachedCombatEntity->playerCompleteDataSet.skillSlots.Add(skillName);
-			}
+			USkillBase* newSkill = skillFactory->GetSkill(skillName);
+			classSkills.Add(newSkill);
+			attachedCombatEntity->playerCompleteDataSet.skillSlots.Add(skillName);
 		}
 	}
 }

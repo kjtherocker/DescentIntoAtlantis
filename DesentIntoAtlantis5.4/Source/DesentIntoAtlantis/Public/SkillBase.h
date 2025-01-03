@@ -8,6 +8,7 @@
 #include "CombatLog_Hit_Data.h"
 #include "Engine/DataTable.h"
 #include "SkillData.h"
+#include "SkillType.h"
 #include "SkillBase.generated.h"
 
 enum class EStatusAilments : uint8;
@@ -54,9 +55,24 @@ public:
 
 	virtual FCombatLog_Hit_Data CalculateHit(UCombatEntity* aAttacker, UCombatEntity* aVictim);
 	virtual FCombatLog_Full_Data ExecuteSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim, USkillBase* aSkill);
+	virtual bool CanUseSkill(UCombatEntity* aSkillOwner, ESkillResourceUsed SkillResourceUsed = ESkillResourceUsed::None);
+	virtual void SpendSkillCost(UCombatEntity* aSkillOwner, ESkillResourceUsed SkillResourceUsed = ESkillResourceUsed::None);
 };
 
 // All the different variations of Skills
+
+
+UCLASS()
+class USkillCombatToken : public USkillBase
+{
+	GENERATED_BODY()
+public:
+
+	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)override ;
+
+	virtual FCombatLog_Hit_Data CalculateHit(UCombatEntity* aAttacker, UCombatEntity* aVictim) override;
+	virtual FCombatLog_Full_Data ExecuteSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim, USkillBase* aSkill) override;
+};
 
 UCLASS()
 class USkillAttack : public USkillBase

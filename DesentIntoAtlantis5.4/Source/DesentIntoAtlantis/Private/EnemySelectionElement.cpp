@@ -3,6 +3,8 @@
 
 #include "EnemySelectionElement.h"
 
+#include "CombatEntityHub.h"
+#include "ElementalHandler.h"
 #include "EnemyBeastiaryData.h"
 #include "EnemyCombatEntity.h"
 #include "Components/TextBlock.h"
@@ -31,12 +33,14 @@ void UEnemySelectionElement::SetElementalText(UTextBlock* aElementalText,EElemen
 
 	if(aEnemyEntityData->beastiaryData->GetRevealedElementalType(aElementalType))
 	{
-		if(aEnemyEntityData->enemyEntityData.ElementalStrength == aElementalType)
+		EElementalReaction elementalReaction = aEnemyEntityData->combatEntityHub->elementalHandler->GetElementalReaction(aElementalType);
+		
+		if(elementalReaction == EElementalReaction::Resist)
 		{
 			aElementalText->SetText(FText(FText::FromString("STR")));
 			return;
 		}
-		if(aEnemyEntityData->enemyEntityData.ElementalWeakness == aElementalType)
+		if(elementalReaction == EElementalReaction::Weak)
 		{
 			aElementalText->SetText(FText(FText::FromString("WK")));
 			return;

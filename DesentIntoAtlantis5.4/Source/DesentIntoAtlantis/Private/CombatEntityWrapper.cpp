@@ -13,6 +13,7 @@
 #include "CombatLog_Defense_Data.h"
 #include "CombatLog_Evasion_Data.h"
 #include "CombatLog_Hit_Data.h"
+#include "ElementalHandler.h"
 #include "SkillDamageType.h"
 
 
@@ -69,20 +70,20 @@ FCombatLog_Damage_Data UCalculateDamage_Base::DamageLog(UCombatEntity* aAttached
     int decementBy = aSkill.damage;
 
     UCombatEntity* attachedCombatEntity = aAttachedEntity;
-    int strengthAllStats =  aAttacker->abilityScoreMap[EStatTypes::Strength]->GetAllStats() / UCombatStat::ABILITYSCORE_CONVERSION_RATIO;
-    int magicAllStats    =  aAttacker->abilityScoreMap[EStatTypes::Magic]->GetAllStats();   // / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
+
+    int skillStat = aAttacker->abilityScoreMap[aSkill.skillScaleStat]->GetAllStats() /  UCombatStat::ABILITYSCORE_CONVERSION_RATIO;
     
-    decementBy +=  magicAllStats;
-    damageLog.StatsAddedToDamage = magicAllStats;
+    decementBy +=  skillStat;
+    damageLog.StatsAddedToDamage = skillStat;
 
     int originalValuePreElementalConversion = decementBy;
     
-    if (aSkill.elementalType == attachedCombatEntity->elementalWeakness)
+    if (attachedCombatEntity->combatEntityHub->elementalHandler->GetElementalReaction(aSkill.elementalType) == EElementalReaction::Weak)
     {
         decementBy = decementBy * UCombatEntity::WEAK_DAMAGE_INCREASE;
         damageLog.DamageElementalConversion = decementBy - originalValuePreElementalConversion ;
     }
-    if (aSkill.elementalType == attachedCombatEntity->elementalStrength)
+    if (attachedCombatEntity->combatEntityHub->elementalHandler->GetElementalReaction(aSkill.elementalType) == EElementalReaction::Resist)
     {
         decementBy = decementBy * UCombatEntity::STRONG_DAMAGE_REDUCTION;
         damageLog.DamageElementalConversion = decementBy - originalValuePreElementalConversion;
@@ -103,7 +104,7 @@ FCombatLog_Defense_Data UCalculateDamage_Base::DefenseLog(FCombatLog_Damage_Data
 
     UCombatEntity* attachedCombatEntity = aAttachedEntity;
 
-    Defense_Data.DefaultDamageResistance =  aSkill.skillDamageType == ESkillDamageType::Strength ?
+    Defense_Data.DefaultDamageResistance =  aSkill.skillDamageType == ESkillDamageType::Physical ?
         attachedCombatEntity->abilityScoreMap[EStatTypes::Defence]->GetAllStats()    / UCombatStat::ABILITYSCORE_CONVERSION_RATIO :
         attachedCombatEntity->abilityScoreMap[EStatTypes::Resistance]->GetAllStats() / UCombatStat::ABILITYSCORE_CONVERSION_RATIO;
     
@@ -134,20 +135,21 @@ int UCalculateDamage_Base::CalculateDamage(UCombatEntity* aAttachedEntity,UComba
     int decementBy = aSkill.damage;
 
     UCombatEntity* attachedCombatEntity = aAttachedEntity;
-    int strengthAllStats =  aAttacker->abilityScoreMap[EStatTypes::Strength]->GetAllStats() / UCombatStat::ABILITYSCORE_CONVERSION_RATIO;
-    int magicAllStats    =  aAttacker->abilityScoreMap[EStatTypes::Magic]->GetAllStats();   // / UCombatAbilityStats::ABILITYSCORE_CONVERSION_RATIO;
-    decementBy +=  magicAllStats;
+    
+    int skillStat = aAttacker->abilityScoreMap[aSkill.skillScaleStat]->GetAllStats() /  UCombatStat::ABILITYSCORE_CONVERSION_RATIO;
+    
+    decementBy +=  skillStat;
 	
-    if (aSkill.elementalType == attachedCombatEntity->elementalWeakness)
+    if (attachedCombatEntity->combatEntityHub->elementalHandler->GetElementalReaction(aSkill.elementalType) == EElementalReaction::Weak)
     {
         decementBy = decementBy * UCombatEntity::WEAK_DAMAGE_INCREASE;
     }
-    if (aSkill.elementalType == attachedCombatEntity->elementalStrength)
+    if (attachedCombatEntity->combatEntityHub->elementalHandler->GetElementalReaction(aSkill.elementalType) == EElementalReaction::Resist)
     {
         decementBy = decementBy * UCombatEntity::STRONG_DAMAGE_REDUCTION;
     }
 
-    decementBy -=  aSkill.skillDamageType == ESkillDamageType::Strength ?
+    decementBy -=  aSkill.skillDamageType == ESkillDamageType::Physical ?
         attachedCombatEntity->abilityScoreMap[EStatTypes::Defence]->GetAllStats()    / UCombatStat::ABILITYSCORE_CONVERSION_RATIO :
         attachedCombatEntity->abilityScoreMap[EStatTypes::Resistance]->GetAllStats() / UCombatStat::ABILITYSCORE_CONVERSION_RATIO;
 

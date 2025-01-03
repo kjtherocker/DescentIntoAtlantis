@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "CombatEntity.h"
+#include "CompleteElementalHandlerData.h"
 #include "EDataTableTypes.h"
 #include "PassiveSkillData.h"
 #include "Engine/DataTable.h"
@@ -66,10 +67,7 @@ struct DESENTINTOATLANTIS_API FCompleteClassData  :public  FTableRowBase
 	int currentLevel = 0;
 
 	UPROPERTY( EditAnywhere )
-	EElementalType ElementalStrength;
-	
-	UPROPERTY( EditAnywhere )
-	EElementalType ElementalWeakness;
+	FCompleteElementalHandlerData CompleteElementalHandlerData;
 
 };
 

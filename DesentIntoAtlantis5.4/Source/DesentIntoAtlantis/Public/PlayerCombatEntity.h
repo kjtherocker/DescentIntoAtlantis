@@ -3,9 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ClassHandler.h"
 #include "CombatEntity.h"
 #include "UObject/NoExportTypes.h"
 #include "CombatClass.h"
+#include "CompleteClassHandlerData.h"
+#include "CompleteElementalHandlerData.h"
 #include "PassiveSkillHandlerData.h"
 #include "PlayerCombatEntity.generated.h"
 
@@ -55,15 +58,11 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 	FPlayerIdentityData playerIdentityData;
 
 	UPROPERTY()
-	FCompleteClassData mainClassData;
-	
-	UPROPERTY(EditAnywhere)
-	TMap<EClasses,FCompleteClassData> unlockedPlayerClasses;
+	FCompleteClassHandlerData CompleteClassHandlerData;
 
 	UPROPERTY(EditAnywhere)
 	FPassiveHandlerData PassiveHandlerData;
-	UPROPERTY()
-	int ClassPoints;
+
 	
 	UPROPERTY(EditAnywhere)
 	TArray<ESkillIDS> skillSlots;
@@ -74,6 +73,9 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 	int currentMP;
 	UPROPERTY()
 	float currentSync;
+	
+	UPROPERTY()
+	FCompleteElementalHandlerData CompleteElementalHandlerData;
 };
 
 UCLASS()
@@ -87,9 +89,9 @@ private:
 	UPROPERTY()
 	int currentLevel;
 public:
-	
+
 	UPROPERTY()
-	UCombatClass* mainClass;
+	UClassHandler* classHandler;
 
 	UPROPERTY()
 	TMap<EClasses,UCombatClass*> unlockedClasses;

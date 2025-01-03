@@ -10,6 +10,14 @@
 void UCombatLogElement::SetCommandLogHit(FCombatLog_Full_Data CombatLog_Base_Data)
 {
 	FullCombatLog = CombatLog_Base_Data;
+
+	if(CombatLog_Base_Data.Attacker == nullptr ||
+		CombatLog_Base_Data.Victim == nullptr)
+	{
+		return;
+	}
+
+	
 	FString result = CombatLog_Base_Data.CombatLog_Hit_Data.HitResult ? " <Hit>Hit</> " : "<Miss>Miss</> ";
 	
 	FString hit = CombatLog_Base_Data.Attacker->GetEntityName() + result + CombatLog_Base_Data.Victim->GetEntityName() + " with " +  CombatLog_Base_Data.skillUsed.skillName;

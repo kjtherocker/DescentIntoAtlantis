@@ -34,6 +34,8 @@ public:
 	virtual ECombatTokenID GetCombatTokenID() { return GetCombatTokenData().CombatTokenID;}
 	virtual FCombatTokenStateInfo  GetCombatTokenStateInfo(){ return CombatTokenStateInfo;}
 	virtual void SetCombatToken(FCombatToken_Base_Data combatToken,UCombatEntity* aCombatEntity);
+
+	virtual void InvertCombatToken(FCombatToken_Base_Data combatToken);
 	
 	virtual void ValidateStackState();
 	virtual void AddNewTokenStack(int aAddedTokens);

@@ -19,6 +19,16 @@ enum class EElementalType : uint8
 };
 
 UENUM()
+enum class EElementalReaction: uint8
+{
+	None      = 0,
+	Resist    = 1,
+	Null      = 2,
+	Weak      = 3,
+	Normal    = 4,
+};
+
+UENUM()
 enum class  EPressTurnReactions : uint8
 {
 	Normal,

@@ -3,6 +3,7 @@
 
 #include "CombatEntityHub.h"
 
+#include "ElementalHandler.h"
 #include "PassiveHandler.h"
 
 void UCombatEntityHub::InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEntity,
@@ -10,8 +11,12 @@ void UCombatEntityHub::InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEnti
 {
 	passiveHandler     = NewObject<UPassiveHandler>();
 	combatTokenHandler = NewObject<UCombatTokenHandler>();
+	elementalHandler   = NewObject<UElementalHandler>();
+	
+	elementalHandler->Initialize(aOwnedCombatEntity);
 	passiveHandler->InitializePassiveHandler(aOwnedCombatEntity,aPassiveSkillFactorySubsystem);
 	combatTokenHandler->InitializeCombatTokenHandler(aOwnedCombatEntity,aPassiveSkillFactorySubsystem);
+
 }
 
 TArray<FCombatLog_PassiveSkilData> UCombatEntityHub::CheckAttackDefencePassivesAndTokens(int& CurrentDamage,

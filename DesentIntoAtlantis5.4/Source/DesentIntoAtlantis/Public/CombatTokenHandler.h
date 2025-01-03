@@ -44,6 +44,8 @@ public:
 	
 	void AddCombatToken(ECombatTokenID aCombatTokenID );
 
+	void InvertCombatToken(ECombatTokenID aCurrentTokenID);
+	
 	UCombatToken_Base* CreateNewCombatTokenClass(ECombatTokenID aCombatTokenID );
 
 	void RemoveAllCombatTokens();

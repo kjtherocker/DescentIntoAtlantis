@@ -5,6 +5,7 @@
 
 #include "CombatEntityHub.h"
 #include "CombatGameModeBase.h"
+#include "ElementalHandler.h"
 #include "Health.h"
 #include "PartyHealthbarElement.h"
 #include "PassiveHandler.h"
@@ -40,29 +41,20 @@ void UPlayerCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,
 	Super::SetCombatEntity(aSkillFactory,aPassiveSkillFactory);
 	characterType = ECharactertype::Ally;
 	skillFactory  = aSkillFactory;
+	
+	classHandler = NewObject<UClassHandler>();
+	classHandler->InitializeClassHandler(this,skillFactory);
 }
 
 void UPlayerCombatEntity::InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData, int aClassLevel)
 {
-	UCombatClass* newClass = NewObject<UCombatClass>();
-	newClass->InitializeDependencys(skillFactory,this );
-	newClass->CreateClass(aCompleteClassData,aClassLevel);
-	playerCompleteDataSet.unlockedPlayerClasses.Add(aCompleteClassData.classIdentifer,newClass->completeClassData);
-	unlockedClasses.Add(aCompleteClassData.classIdentifer,newClass);
+	classHandler->InitializeAndUnlockCombatClassFromDataTable(aCompleteClassData,aClassLevel);
 }
 
 
 void UPlayerCombatEntity::SetMainClass(EClasses aClass)
 {
-	mainClass = unlockedClasses[aClass];
-	
-	elementalStrength = mainClass->completeClassData.ElementalStrength;
-	elementalWeakness = mainClass->completeClassData.ElementalWeakness;
-	
-	SetAbilityScores();
-	SetToDefaultState();
-	playerCompleteDataSet.mainClassData = mainClass->completeClassData;
-	combatEntityHub->passiveHandler->AddMainClassPassives(mainClass);
+	classHandler->SetClass(aClass,EClassSlot::Main);
 }
 
 void UPlayerCombatEntity::Reset()
@@ -74,9 +66,9 @@ void UPlayerCombatEntity::Reset()
 void UPlayerCombatEntity::SetToDefaultState()
 {
 	Super::SetToDefaultState();
-	maxHealth         =  mainClass->completeClassData.classStatBase.maxHealth;
+	maxHealth         =  classHandler->mainClass->completeClassData.classStatBase.maxHealth;
 	currentHealth     =  maxHealth;
-	maxMana           =  mainClass->completeClassData.classStatBase.maxMana;
+	maxMana           =  classHandler->mainClass->completeClassData.classStatBase.maxMana;
 
 	health->SetHealth(maxHealth);
 	currentMana       =  maxMana;
@@ -95,35 +87,25 @@ FString UPlayerCombatEntity::GetEntityName()
 
 void UPlayerCombatEntity::GiveClassPoints(int aClassPoints)
 {
-	playerCompleteDataSet.ClassPoints += aClassPoints;
-
-	if(playerCompleteDataSet.ClassPoints >= 9999)
-	{
-		playerCompleteDataSet.ClassPoints = 9999;
-	}
+	classHandler->GiveClassPoints(aClassPoints);
 }
 
 void UPlayerCombatEntity::RemoveClassPoints(int aClassPoints)
 {
-	playerCompleteDataSet.ClassPoints -= aClassPoints;
-	if(playerCompleteDataSet.ClassPoints <= 0)
-	{
-		playerCompleteDataSet.ClassPoints = 0;
-	}
+	classHandler->RemoveClassPoints(aClassPoints);
 }
 
 int UPlayerCombatEntity::GetClassPoints()
 {
-	return playerCompleteDataSet.ClassPoints;
+	return classHandler->GetClassPoints();
 }
 
 void UPlayerCombatEntity::GatherAndSavePlayerCompleteDataSet()
 {
-	playerCompleteDataSet.playerIdentityData    = playerIdentityData;
-	playerCompleteDataSet.mainClassData         = mainClass->completeClassData;
-	playerCompleteDataSet.PassiveHandlerData    = combatEntityHub->passiveHandler->GetPassiveHandlerData();
-
-	playerCompleteDataSet.unlockedPlayerClasses.Add(mainClass->completeClassData.classIdentifer,mainClass->completeClassData);
+	playerCompleteDataSet.playerIdentityData              = playerIdentityData;
+	playerCompleteDataSet.CompleteClassHandlerData        = classHandler->CompleteClassHandlerData;
+	playerCompleteDataSet.CompleteElementalHandlerData    = combatEntityHub->elementalHandler->CompleteElementalHandlerData;
+	playerCompleteDataSet.PassiveHandlerData              = combatEntityHub->passiveHandler->GetPassiveHandlerData();
 
 	playerCompleteDataSet.HealthData.currentHealth = health->GetHealth();
 	playerCompleteDataSet.currentMP = currentMana;
@@ -143,7 +125,7 @@ void UPlayerCombatEntity::RemovePassive(UPassiveSkills* aPassiveSkills)
 
 void UPlayerCombatEntity::SetAbilityScores()
 {
-	if(mainClass != nullptr)
+	if(classHandler->mainClass != nullptr)
 	{
 		for (int32 i = static_cast<int32>(EStatTypes::None) + 1; i < static_cast<int32>(EStatTypes::Max); ++i)
 		{
@@ -155,7 +137,7 @@ void UPlayerCombatEntity::SetAbilityScores()
 			}
         
 			UPlayerCombatStats* PlayerStats = Cast<UPlayerCombatStats>(abilityScoreMap[statType]);
-			PlayerStats->AddClassStatBase(mainClass->completeClassData);
+			PlayerStats->AddClassStatBase(classHandler->mainClass->completeClassData);
 
 			abilityScoreMap[statType] = PlayerStats;
 		}
@@ -179,7 +161,7 @@ float UPlayerCombatEntity::GetSyncPercentage()
 
 float UPlayerCombatEntity::GetMainClassEXPPercentage()
 {
-	float expCurrent    = mainClass->experience;
+	float expCurrent    = classHandler->mainClass->experience;
 	float expNextLevel  = 1;
 	float expPercentage = expCurrent / expNextLevel;
 	return expPercentage;

@@ -31,18 +31,25 @@ void USkillView::InitializeSkills(ACombatGameModeBase* aCombatGameMode)
 {
 	combatGameMode = aCombatGameMode;
 	currentActivePartyMember = aCombatGameMode->GetCurrentActivePartyMember();
-	UCombatClass* combatClass = currentActivePartyMember->mainClass;
+	TArray<USkillBase*> combatClass = currentActivePartyMember->classHandler->GetClassSkills(EClassSlot::Main);
 
 	BW_CharacterName->SetText(FText(FText::FromString(currentActivePartyMember->playerIdentityData.characterName)));
-	BW_ClassName->SetText(FText(FText::FromString(currentActivePartyMember->mainClass->completeClassData.className)));
+	BW_ClassName->SetText(FText(FText::FromString(currentActivePartyMember->classHandler->mainClass->completeClassData.className)));
 	
-	for(int i = 0 ; i < combatClass->classSkills.Num();i++)
+	for(int i = 0 ; i < combatClass.Num();i++)
 	{
-		CreateSkillbar(combatClass->classSkills[i]->skillData);
+		if(combatClass[i] != nullptr)
+		{
+			CreateSkillbar(combatClass[i]->skillData);	
+		}
 	}
 
-	skillBarElements[cursorPosition]->BW_BackgroundHighlight->SetOpacity(1);
-	SkillSelection(combatClass->classSkills[cursorPosition]->skillData);
+	if(skillBarElements[cursorPosition] != nullptr)
+	{
+		skillBarElements[cursorPosition]->BW_BackgroundHighlight->SetOpacity(1);
+		SkillSelection(combatClass[cursorPosition]->skillData);	
+	}
+	
 	SetCursorPositionInfo();
 }
 
@@ -60,7 +67,7 @@ void USkillView::MoveUp()
 
 	Super::MoveUp();
 	
-	SkillSelection(currentActivePartyMember->mainClass->classSkills[cursorPosition]->skillData);
+	SkillSelection(currentActivePartyMember->classHandler->GetClassSkills(EClassSlot::Main)[cursorPosition]->skillData);
 	skillBarElements[cursorPosition]->BW_BackgroundHighlight->SetOpacity(1);
 }
 
@@ -70,7 +77,7 @@ void USkillView::MoveDown()
 
 	Super::MoveDown();
 	
-	SkillSelection(currentActivePartyMember->mainClass->classSkills[cursorPosition]->skillData);
+	SkillSelection(currentActivePartyMember->classHandler->GetClassSkills(EClassSlot::Main)[cursorPosition]->skillData);
 	skillBarElements[cursorPosition]->BW_BackgroundHighlight->SetOpacity(1);
 }
 
@@ -99,10 +106,9 @@ void USkillView::SkillSelection(FSkillsData aSkill)
 
 void USkillView::SelectSkill()
 {
-	UCombatClass* combatClass = currentActivePartyMember->mainClass;
-	int skillCost = combatClass->classSkills[cursorPosition]->skillData.costToUse;
+	UCombatClass* combatClass = currentActivePartyMember->classHandler->mainClass;
 	
-	if(currentActivePartyMember->currentMana >= skillCost)
+	if(combatClass->classSkills[cursorPosition]->CanUseSkill(currentActivePartyMember))
 	{
 		InGameHUD->PopMostRecentActiveView();
 		UCombatSelectionView* SelectionView = (UCombatSelectionView*)InGameHUD->PushAndGetView(EViews::CombatSelection,  EUiType::ActiveUi);

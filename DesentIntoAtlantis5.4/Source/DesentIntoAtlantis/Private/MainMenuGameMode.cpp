@@ -35,7 +35,7 @@ void AMainMenuGameMode::CreateMainMenu()
 
 void AMainMenuGameMode::StartGame()
 {
-	partyManager->AddPlayerToActiveParty(EPartyMembers::Fide);
+	partyManager->AddPlayerToActiveParty(EPartyMembers::Kriede);
 	
 	if (persistentGameInstance)
 	{

@@ -33,6 +33,22 @@ void UCombatTokenHandler::AddCombatToken(ECombatTokenID aCombatTokenID )
 	NewCombatTokenWasAdded(CreateNewCombatTokenClass(aCombatTokenID),combatTokenData);
 }
 
+void UCombatTokenHandler::InvertCombatToken(ECombatTokenID aCurrentTokenID)
+{
+	for (auto CombatToken : activeCombatTokens)
+	{
+		if(CombatToken->GetCombatTokenID() == aCurrentTokenID)
+		{
+			FCombatToken_Base_Data combatTokenData = passiveSkillFactorySubsystem->
+			GetCombatTokenData(CombatToken->GetCombatTokenData().InvertedCombatTokenID);
+			CombatToken->RemoveEffect(OwnedCombatEntity);
+			CombatToken->InvertCombatToken(combatTokenData);
+			CombatToken->ApplyEffect(OwnedCombatEntity);
+			return;
+		}
+	}
+}
+
 UCombatToken_Base* UCombatTokenHandler::CreateNewCombatTokenClass(ECombatTokenID aCombatTokenID)
 {
 	switch (aCombatTokenID)
@@ -59,6 +75,30 @@ UCombatToken_Base* UCombatTokenHandler::CreateNewCombatTokenClass(ECombatTokenID
 		return NewObject<UCombatToken_GenericStat>();
 		break;
 	case ECombatTokenID::MagicDown:
+		return NewObject<UCombatToken_GenericStat>();
+		break;
+	case ECombatTokenID::HitUp:
+		return NewObject<UCombatToken_GenericStat>();
+		break;
+	case ECombatTokenID::HitDown:
+		return NewObject<UCombatToken_GenericStat>();
+		break;
+	case ECombatTokenID::EvasionUp:
+		return NewObject<UCombatToken_GenericStat>();
+		break;
+	case ECombatTokenID::EvasionDown:
+		return NewObject<UCombatToken_GenericStat>();
+		break;
+	case ECombatTokenID::DefenceUp:
+		return NewObject<UCombatToken_GenericStat>();
+		break;
+	case ECombatTokenID::DefenceDown:
+		return NewObject<UCombatToken_GenericStat>();
+		break;
+	case ECombatTokenID::ResistanceUp:
+		return NewObject<UCombatToken_GenericStat>();
+		break;
+	case ECombatTokenID::ResistanceDown:
 		return NewObject<UCombatToken_GenericStat>();
 		break;
 	}

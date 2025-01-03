@@ -2,11 +2,14 @@
 
 
 #include "EnemyCombatEntity.h"
+
+#include "CombatEntityHub.h"
 #include "EnemyBeastiaryData.h"
 #include "EnemyBehaviour.h"
 #include "EnemyPortraitElement.h"
 #include "CombatGameModeBase.h"
 #include "CombatStat.h"
+#include "ElementalHandler.h"
 #include "Health.h"
 #include "SkillFactorySubsystem.h"
 
@@ -20,10 +23,9 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,US
 	currentMana     = enemyEntityData.maxMana;
 
 	portraitPosition = aPortraitPosition;
-
-	elementalStrength = AEnemyEntityData.ElementalStrength;
-	elementalWeakness = AEnemyEntityData.ElementalWeakness;
-
+	
+	combatEntityHub->elementalHandler->LoadSavedInfo(AEnemyEntityData.CompleteElementalHandlerData);
+	
 	enemyBehaviour = NewObject<UEnemyBehaviour>();
 	enemyBehaviour->Initialize(this);
 

@@ -64,7 +64,7 @@ struct DESENTINTOATLANTIS_API FCombatEntityData :public  FTableRowBase
 	
 	UPROPERTY( EditAnywhere )
 	TMap< EStatTypes,int> baseStats;
-
+	
 //	UPROPERTY( EditAnywhere )
 //	TMap<EPassiveSkillIDS, FPassiveSkillsData> passiveSkills;
 };
@@ -162,11 +162,6 @@ public:
 
 	bool GetIsMarkedForDeath();
 
-	
-	EElementalType elementalStrength;
-	
-	EElementalType elementalWeakness;
-	
 	ECharactertype characterType;
 
 	UPROPERTY()

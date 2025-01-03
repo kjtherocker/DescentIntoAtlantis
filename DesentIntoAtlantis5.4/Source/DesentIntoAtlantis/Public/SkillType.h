@@ -10,10 +10,20 @@ enum class ESkillType  : uint8
 	None,
 	Attack,
 	Heal,
-	Buff,
-	Debuff,
-	HealBuff,
-	AttackDebuff,
-	Start
+	PositiveCombatToken,
+	NegativeCombatToken,
+	HealPositiveCombatToken,
+	AttackNegativeCombatToken,
+	Start,
+	Unique
 
 };
+
+UENUM()
+enum class ESkillResourceUsed  : uint8
+{
+	None,
+	Mana,
+	Health,
+};
+

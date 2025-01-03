@@ -8,6 +8,7 @@
 #include "PassiveHandler.h"
 #include "CombatEntityHub.generated.h"
 
+class UElementalHandler;
 /**
  * 
  */
@@ -25,4 +26,10 @@ public:
 
 	UPROPERTY()
 	UCombatTokenHandler* combatTokenHandler;
+
+	UPROPERTY()
+	UElementalHandler* elementalHandler;
+
+
+	
 };

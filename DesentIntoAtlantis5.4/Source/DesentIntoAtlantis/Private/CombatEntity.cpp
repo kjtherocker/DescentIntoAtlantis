@@ -139,7 +139,7 @@ EPressTurnReactions UCombatEntity::IncrementHealth(UCombatEntity* aHealer, FSkil
 
 EPressTurnReactions UCombatEntity::ApplyBuff(UCombatEntity* aBuffer, FSkillsData aSkill)
 {
-     abilityScoreMap[aSkill.ablityScoreToBuffOrDebuff]->AttachAbilityScoreChange(aSkill.abilityScoreChangeDuration,true);
+   //  abilityScoreMap[aSkill.ablityScoreToBuffOrDebuff]->AttachAbilityScoreChange(aSkill.abilityScoreChangeDuration,true);
 
 
     return EPressTurnReactions::Normal;

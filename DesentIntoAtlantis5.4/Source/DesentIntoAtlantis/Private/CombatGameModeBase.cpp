@@ -157,8 +157,8 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 
 	if(partyMembersInCombat.Num() == 0)
 	{
-		partyManager->AddPlayerToActiveParty(EPartyMembers::Fide);
-		partyManager->AddPlayerToActiveParty(EPartyMembers::Fienne);
+		partyManager->AddPlayerToActiveParty(EPartyMembers::Kriede);
+		partyManager->AddPlayerToActiveParty(EPartyMembers::Feienne);
 		partyManager->AddPlayerToActiveParty(EPartyMembers::Rain);
 		partyManager->AddPlayerToActiveParty(EPartyMembers::Gram);
 		partyMembersInCombat       = partyManager->ReturnActiveParty();

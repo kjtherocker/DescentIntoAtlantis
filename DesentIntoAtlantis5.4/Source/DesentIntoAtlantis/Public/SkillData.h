@@ -3,9 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CombatToken_Base_Data.h"
 #include "Engine/DataTable.h"
 #include "SkillData.generated.h"
 
+enum class ESkillResourceUsed : uint8;
 enum class EStatTypes : uint8;
 enum class EElementalType : uint8;
 enum class ESkillRange : uint8;
@@ -19,42 +21,45 @@ struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
 {
 	GENERATED_BODY()
 	
-	UPROPERTY( EditAnywhere )
+	UPROPERTY( EditAnywhere, Category = "Identity" )
 	ESkillIDS skillID;
-	
-	UPROPERTY( EditAnywhere )
-	int costToUse;
-	
-	UPROPERTY( EditAnywhere )
-	int damage;
 
-	UPROPERTY(EditAnywhere)
-	int SkillHit;
-	UPROPERTY(EditAnywhere)
-	int AilmentHit;
-	
-	UPROPERTY( EditAnywhere )    
-	EElementalType elementalType;
-	UPROPERTY( EditAnywhere )    
-	ESkillDamageType skillDamageType;
-	UPROPERTY( EditAnywhere )    
-	ESkillType      skillType;
-	UPROPERTY( EditAnywhere )    
-	ESkillUsage     skillUsage;
-	UPROPERTY( EditAnywhere )    
-	ESkillRange skillRange;
-	UPROPERTY( EditAnywhere )
-	EStatTypes ablityScoreToBuffOrDebuff;
-	
-	UPROPERTY( EditAnywhere )
+	UPROPERTY( EditAnywhere , Category = "Identity")
 	FString skillName;
 	
-	UPROPERTY( EditAnywhere )
+	UPROPERTY( EditAnywhere , Category = "Identity")
 	FString skillDescription;
 	
-	UPROPERTY( EditAnywhere )
+	UPROPERTY( EditAnywhere , Category = "Identity")
 	UTexture2D* skillIcon;
 
-	UPROPERTY( EditAnywhere )
-	int abilityScoreChangeDuration;
+
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")    
+	ESkillResourceUsed SkillResourceUsed;
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")
+	int costToUse;
+	
+	UPROPERTY( EditAnywhere, Category = "DefaultInfo" )
+	int damage;
+
+	UPROPERTY(EditAnywhere, Category = "DefaultInfo")
+	int SkillHit;
+	
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")    
+	EElementalType elementalType;
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")    
+	ESkillDamageType skillDamageType;
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")    
+	EStatTypes skillScaleStat;
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")    
+	ESkillType skillType;
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")    
+	ESkillUsage skillUsage;
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")    
+	ESkillRange skillRange;
+
+	UPROPERTY( EditAnywhere , Category = "CombatToken")
+	TArray<ECombatTokenID> combatTokensUsedOnSkill;
+	UPROPERTY(EditAnywhere, Category = "CombatToken")
+	int CombatTokenHit;
 };

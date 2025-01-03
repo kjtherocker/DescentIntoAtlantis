@@ -9,6 +9,7 @@ UENUM()
 enum class ESkillDamageType : uint8
 {
 	None     = 0,
-	Strength = 1,
+	Physical = 1,
 	Magic    = 2,
+	Almighty = 3
 };

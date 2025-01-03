@@ -1,11 +1,14 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "SkillBase.h"
 #include "CombatEntity.h"
+#include "CombatEntityHub.h"
 #include "CombatEntityWrapper.h"
 #include "CombatLog_Full_Data.h"
 #include "CombatLog_Evasion_Data.h"
 #include "CombatLog_Hit_Data.h"
 #include "CombatStat.h"
+#include "Health.h"
+#include "SkillType.h"
 
 
 void USkillBase::Initialize(FSkillsData aSkillData)
@@ -64,6 +67,55 @@ FCombatLog_Full_Data USkillBase::ExecuteSkill(UCombatEntity* aAttacker, UCombatE
 	return CombatLog_Base_Data;
 }
 
+bool USkillBase::CanUseSkill(UCombatEntity* aSkillOwner, ESkillResourceUsed SkillResourceUsed)
+{
+	ESkillResourceUsed skillResouce = SkillResourceUsed ==
+		ESkillResourceUsed::None ? skillData.SkillResourceUsed : SkillResourceUsed;
+
+	switch (skillResouce)
+	{
+	case ESkillResourceUsed::None:
+		break;
+	case ESkillResourceUsed::Mana:
+		return aSkillOwner->currentMana > skillData.costToUse;
+		break;
+	case ESkillResourceUsed::Health:
+		return aSkillOwner->health->GetHealth() > skillData.costToUse;
+		break;
+	}
+
+	return false;
+}
+
+void USkillBase::SpendSkillCost(UCombatEntity* aSkillOwner, ESkillResourceUsed SkillResourceUsed )
+{
+	ESkillResourceUsed skillResouce = SkillResourceUsed ==
+		ESkillResourceUsed::None ? skillData.SkillResourceUsed : SkillResourceUsed;
+	
+	switch (skillResouce)
+	{
+	    case ESkillResourceUsed::None:
+	    	break;
+	    case ESkillResourceUsed::Mana:
+	    	aSkillOwner->DecrementMana(skillData.costToUse);
+	    	break;
+	    case ESkillResourceUsed::Health:
+	    	aSkillOwner->DecrementHealth(aSkillOwner,skillData);
+	    	break;
+	}
+}
+
+FCombatLog_AttackDefense_Data USkillCombatToken::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+{
+	
+	for (auto Element : skillData.combatTokensUsedOnSkill)
+	{
+		aVictim->combatEntityHub->combatTokenHandler->AddCombatToken(Element);	
+	}
+	
+	return Super::UseSkill(aAttacker, aVictim);
+}
+
 void UAilment::Initialize(FSkillsData aSkillData)
 {
 }
@@ -88,8 +140,24 @@ bool USkillAlimentAttack::CalculateAilmentInfliction(UCombatEntity* aAttacker, U
 {
 	AilmentHitCalculation =  FMath::RandRange(1, 100);
 	AilmentHitCalculation += (aAttacker->GetAilmentInfliction(aAilment) - aVictim->GetAilmentResistance(aAilment));
-	AilmentHitCalculation += skillData.AilmentHit; 
+	AilmentHitCalculation += skillData.CombatTokenHit; 
 	return AilmentHitCalculation > 100;
+}
+
+FCombatLog_Hit_Data USkillCombatToken::CalculateHit(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+{
+	FCombatLog_Hit_Data Hit_Data;
+	Hit_Data.HitResult = true;
+	return Hit_Data;
+}
+
+FCombatLog_Full_Data USkillCombatToken::ExecuteSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim, USkillBase* aSkill)
+{
+	FCombatLog_Full_Data CombatLog_Full_Data;
+
+	UseSkill(aAttacker, aVictim);
+	
+	return CombatLog_Full_Data;
 }
 
 // Each of these are structs that inherit from Skill_Base

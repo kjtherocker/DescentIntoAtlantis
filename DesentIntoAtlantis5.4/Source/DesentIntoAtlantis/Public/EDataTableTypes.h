@@ -34,14 +34,23 @@ enum class  EClasses  : uint8
 	LaidOffExecutioner   = 4,
 };
 
+UENUM()
+enum class  EClassSlot  : uint8
+{
+	None                 = 0,
+	Main                 = 1,
+	Sub                  = 2,
+};
+
+
 
 UENUM()
 enum class  EPartyMembers
 {
 	None                = 0,
-	Fide                = 1,
+	Kriede              = 1,
 	Rain                = 2,
-	Fienne              = 3,
+	Feienne             = 3,
 	Gram                = 4,
 };
 

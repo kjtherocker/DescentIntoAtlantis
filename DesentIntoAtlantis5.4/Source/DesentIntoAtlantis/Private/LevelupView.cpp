@@ -29,7 +29,7 @@ void ULevelupView::InitializeCombatEntitysToLevelUp(int newLevel,TArray<UPlayerC
 
 void ULevelupView::SetupLevelupView(int newLevel, UPlayerCombatEntity* aPlayerCombatEntity)
 {
-	FCompleteClassData completeClassData = aPlayerCombatEntity->mainClass->completeClassData;
+	FCompleteClassData completeClassData = aPlayerCombatEntity->classHandler->mainClass->completeClassData;
 
 	int previousLevel = aPlayerCombatEntity->GetCurrentLevel();
 	FPlayerIdentityData PlayerIdentityData = aPlayerCombatEntity->playerIdentityData;

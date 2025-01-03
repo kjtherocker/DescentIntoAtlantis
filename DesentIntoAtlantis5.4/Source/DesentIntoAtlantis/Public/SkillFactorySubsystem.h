@@ -28,6 +28,6 @@ public:
 	void InitializeDatabase(UDataTable*  aSkillDataTable);
 	USkillBase* GetSkill(ESkillIDS aSkillID);
 	UAilment* GetAilment(EStatusAilments aAilment);
-
+	USkillBase* GetSkillClass(FSkillsData skillData);
 	
 };

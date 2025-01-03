@@ -53,6 +53,12 @@ void UCombatToken_Base::SetCombatToken(FCombatToken_Base_Data combatToken,UComba
 	CombatTokenStateInfo.currentTokenStack = 1;
 }
 
+void UCombatToken_Base::InvertCombatToken(FCombatToken_Base_Data combatToken)
+{
+	CombatToken_Base_Data = combatToken;
+	BroadCastCombatTokenChange();
+}
+
 void UCombatToken_Base::RoundEnd()
 {
 	CombatTokenStateInfo.turnsRemaining --;

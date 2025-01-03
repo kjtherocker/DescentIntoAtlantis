@@ -42,14 +42,14 @@ FCombatLog_AttackDefense_Data UHealth::DecrementHealth(UCombatEntity* aAttacker,
 {
 	EPressTurnReactions reaction = EPressTurnReactions::Normal;
 	    
-	if (aSkill.elementalType == OwnedCombatEntity->elementalWeakness)
-	{
-		reaction =  EPressTurnReactions::Weak;
-	}
-	if (aSkill.elementalType ==  OwnedCombatEntity->elementalStrength)
-	{
-		reaction =  EPressTurnReactions::Strong;
-	}
+	//if (aSkill.elementalType == OwnedCombatEntity->elementalWeakness)
+	//{
+	//	reaction =  EPressTurnReactions::Weak;
+	//}
+	//if (aSkill.elementalType ==  OwnedCombatEntity->elementalStrength)
+	//{
+	//	reaction =  EPressTurnReactions::Strong;
+	//}
 
 	FCombatLog_AttackDefense_Data AttackDefense_Data = CalculateDamage(aAttacker,aSkill); 
 	int totalDamage = AttackDefense_Data.FinalDamageResult;

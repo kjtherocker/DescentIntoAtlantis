@@ -181,7 +181,7 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 
 		PlayerCombatEntity->LoadSavedHPAndMP(playerCompleteData);
 		
-		TMap<EClasses, FCompleteClassData> allCompleteClassData = playerCompleteData.unlockedPlayerClasses;
+		TMap<EClasses, FCompleteClassData> allCompleteClassData = playerCompleteData.CompleteClassHandlerData.unlockedPlayerClasses;
 		
 		for (TTuple<EClasses, FCompleteClassData> playerClass : allCompleteClassData)
 		{
@@ -198,7 +198,7 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 			}
 		}
 
-		EClasses mainClassIdentifier = playerCompleteData.mainClassData.classIdentifer;
+		EClasses mainClassIdentifier = playerCompleteData.CompleteClassHandlerData.mainClassData.classIdentifer;
 		PlayerCombatEntity->SetMainClass(mainClassIdentifier);
 		playerCombatEntity.Add(PlayerCombatEntity);
 		playerCombatEntityInfo.Add(partyMember,PlayerCombatEntity);

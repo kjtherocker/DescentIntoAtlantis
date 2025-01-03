@@ -39,9 +39,12 @@ void UCombatSelectionView::SetCombatGameMode(ACombatGameModeBase* aCombatGameMod
 
 void UCombatSelectionView::ActivateSkill()
 {
-	SetCursorHud(false);
-	combatManager->GetCurrentActivePartyMember()->DecrementMana(currentSkill->skillData.costToUse);
-	combatManager->ActivateSkill(combatManager->GetCurrentActivePartyMember(),cursorPosition,currentSkill);
+	if(currentSkill->CanUseSkill(combatManager->GetCurrentActivePartyMember()))
+	{
+		SetCursorHud(false);
+		currentSkill->SpendSkillCost(combatManager->GetCurrentActivePartyMember());
+		combatManager->ActivateSkill(combatManager->GetCurrentActivePartyMember(),cursorPosition,currentSkill);	
+	}
 }
 
 void UCombatSelectionView::MoveCursorLeft()
