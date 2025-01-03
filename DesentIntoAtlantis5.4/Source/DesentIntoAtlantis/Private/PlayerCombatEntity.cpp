@@ -48,7 +48,7 @@ void UPlayerCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,
 
 void UPlayerCombatEntity::InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData, int aClassLevel)
 {
-	classHandler->InitializeAndUnlockCombatClassFromDataTable(aCompleteClassData,aClassLevel);
+	classHandler->InitializeAndUnlockCombatClassFromDataTable(aCompleteClassData);
 }
 
 

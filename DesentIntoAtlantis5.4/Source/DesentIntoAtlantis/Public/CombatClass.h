@@ -62,9 +62,7 @@ struct DESENTINTOATLANTIS_API FCompleteClassData  :public  FTableRowBase
 	EPassiveSkillID classLockedPassive;
 	UPROPERTY(EditAnywhere)
 	TArray<FPassiveSkillClassData> classPassives;
-	
-	UPROPERTY()
-	int currentLevel = 0;
+
 
 	UPROPERTY( EditAnywhere )
 	FCompleteElementalHandlerData CompleteElementalHandlerData;
@@ -86,7 +84,7 @@ public:
 	void InitializeDependencys(USkillFactorySubsystem* aSkillFactory, UPlayerCombatEntity* aCombatEntity);
 
 
-	void CreateClass(FCompleteClassData aLoadedClass,int aClassLevel);
+	void CreateClass(FCompleteClassData aLoadedClass);
 	UPROPERTY()
 	UPlayerCombatEntity* attachedCombatEntity;
 
@@ -101,7 +99,6 @@ public:
 	UPROPERTY()
 	int currentClassIndex;
 	
-	bool AddExperience(int aExperience);
 	void CreateAllClassSkillsForLevel(FCompleteClassData aCompleteClassData);
 
 	int experience;

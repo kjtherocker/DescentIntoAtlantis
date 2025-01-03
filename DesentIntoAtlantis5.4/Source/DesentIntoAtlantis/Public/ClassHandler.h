@@ -38,7 +38,7 @@ public:
 	UPlayerCombatEntity* playerCombatEntity;
 	virtual void LoadSavedClassHandler(	FCompleteClassHandlerData aCompleteClassHandlerData);
 	virtual void InitializeClassHandler(UPlayerCombatEntity* aPlayerCombatEntity, USkillFactorySubsystem* SkillFactorySubsystem);
-	virtual void InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData, int aClassLevel);
+	virtual void InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData);
 	virtual void SetClass(EClasses aClass, EClassSlot ClassSlot);
 	virtual TArray<USkillBase*> GetClassSkills(EClassSlot ClassSlot);
 	

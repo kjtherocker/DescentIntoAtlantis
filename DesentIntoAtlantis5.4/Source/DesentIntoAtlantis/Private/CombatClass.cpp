@@ -17,26 +17,14 @@ void UCombatClass::InitializeDependencys(USkillFactorySubsystem* aSkillFactory, 
 	attachedCombatEntity = aCombatEntity;
 }
 
-void UCombatClass::CreateClass(FCompleteClassData aLoadedClass,int aClassLevel)
+void UCombatClass::CreateClass(FCompleteClassData aLoadedClass)
 {
 	completeClassData = aLoadedClass;
-	completeClassData.currentLevel = aClassLevel;
 	completeClassData.classStatBase = completeClassData.classBaseStat;
 	CreateAllClassSkillsForLevel(completeClassData);
 }
 
-bool UCombatClass::AddExperience(int aExperience)
-{
-	experience += aExperience;
-	//if(completeClassData.classBaseStat.Num() > 0)
-	//{
-	//	if(experience > completeClassData.currentLevelClassData.expToNextClassLevel)
-	//	{
-			return false;
-	//	}
-	//}
-//	return false;
-}
+
 
 void UCombatClass::CreateAllClassSkillsForLevel(FCompleteClassData aCompleteClassData)
 {

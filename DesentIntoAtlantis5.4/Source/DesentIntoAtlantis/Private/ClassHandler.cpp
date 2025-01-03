@@ -13,7 +13,7 @@ void UClassHandler::LoadSavedClassHandler(FCompleteClassHandlerData aCompleteCla
 
 	for (auto Element : CompleteClassHandlerData.unlockedPlayerClasses)
 	{
-		InitializeAndUnlockCombatClassFromDataTable(Element.Value,1);
+		InitializeAndUnlockCombatClassFromDataTable(Element.Value);
 	}
 	
 }
@@ -24,11 +24,11 @@ void UClassHandler::InitializeClassHandler(UPlayerCombatEntity* aPlayerCombatEnt
 	playerCombatEntity    = aPlayerCombatEntity;
 }
 
-void UClassHandler::InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData, int aClassLevel)
+void UClassHandler::InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData)
 {
 	UCombatClass* newClass = NewObject<UCombatClass>();
 	newClass->InitializeDependencys(skillfactorySubsystem, playerCombatEntity);
-	newClass->CreateClass(aCompleteClassData,aClassLevel);
+	newClass->CreateClass(aCompleteClassData);
 	CompleteClassHandlerData.unlockedPlayerClasses.Add(aCompleteClassData.classIdentifer,newClass->completeClassData);
 	unlockedClasses.Add(aCompleteClassData.classIdentifer,newClass);
 }
