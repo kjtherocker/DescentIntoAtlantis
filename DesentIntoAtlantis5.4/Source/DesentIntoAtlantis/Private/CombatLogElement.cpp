@@ -11,8 +11,14 @@ void UCombatLogElement::SetCommandLogHit(FCombatLog_Full_Data CombatLog_Base_Dat
 {
 	FullCombatLog = CombatLog_Base_Data;
 
+	if(!FullCombatLog.CombatLog_Hit_Data.wasHitInitializedOnSkill)
+	{
+		return;
+	}
+	
 	if(CombatLog_Base_Data.Attacker == nullptr ||
-		CombatLog_Base_Data.Victim == nullptr)
+		CombatLog_Base_Data.Victim == nullptr ||
+		CombatLog_Base_Data.skillUsed.skillID == ESkillIDS::Uninitialized)
 	{
 		return;
 	}
@@ -28,6 +34,21 @@ void UCombatLogElement::SetCommandLogHit(FCombatLog_Full_Data CombatLog_Base_Dat
 void UCombatLogElement::SetCommandLogAttackDefence(FCombatLog_Full_Data CombatLog_Base_Data)
 {
 	FullCombatLog = CombatLog_Base_Data;
+	
+
+	if(CombatLog_Base_Data.Attacker == nullptr ||
+		CombatLog_Base_Data.Victim == nullptr ||
+		CombatLog_Base_Data.skillUsed.skillID == ESkillIDS::Uninitialized)
+	{
+		return;
+	}
+	
+	FString result = " dealt  <Miss> " + FString::FromInt(CombatLog_Base_Data.CombatLog_AttackDefense_Data.DamageData.FinalDamage)+" </> ";
+	
+	FString hit = CombatLog_Base_Data.Attacker->GetEntityName() + result + " Damage with " +
+		CombatLog_Base_Data.skillUsed.skillName + " to " + CombatLog_Base_Data.Victim->GetEntityName() ;
+	
+	BW_CombatLogText->SetText(FText(FText::FromString(hit)));
 }
 
 void UCombatLogElement::SetCommandLogFull(FCombatLog_Full_Data CombatLog_Base_Data)

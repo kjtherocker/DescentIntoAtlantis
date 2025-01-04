@@ -16,6 +16,8 @@ void UEnemySelectionElement::SetEnemySelectionElement(UEnemyCombatEntity* aEnemy
 	BW_EnemyName->SetText(FText(FText::FromString(enemyCombatEntity->enemyEntityData.characterName)));
 	BW_Healthbar_MainBar->SetPercent(aEnemyCombatEntity->GetHealthPercentage());
 	BW_Healthbar_Temporary->SetPercent(aEnemyCombatEntity->GetHealthPercentage());
+	BW_CombatTokenRow->UiInitialize(gameModeBase);
+	BW_CombatTokenRow->InitializeCombatTokenRow(aEnemyCombatEntity->combatEntityHub->combatTokenHandler,InGameHUD);
 	
 	SetElementalText(BW_NullText,     EElementalType::Null	    ,enemyCombatEntity);
 	SetElementalText(BW_FireText,     EElementalType::Fire		,enemyCombatEntity);

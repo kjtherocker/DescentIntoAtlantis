@@ -45,12 +45,12 @@ bool UCombatToken_Base::CanConsumeStack()
 	return CombatTokenStateInfo.currentTokenStack > 0;
 }
 
-void UCombatToken_Base::SetCombatToken(FCombatToken_Base_Data combatToken,UCombatEntity* aCombatEntity)
+void UCombatToken_Base::SetCombatToken(FCombatToken_Base_Data combatToken,UCombatEntity* aCombatEntity,int aStack)
 {
 	CombatToken_Base_Data = combatToken;
 	aCombatEntity->OnRoundEnd.AddDynamic(this,&UCombatToken_Base::RoundEnd);
 	CombatTokenStateInfo.turnsRemaining = combatToken.startingTokenTurnLength;
-	CombatTokenStateInfo.currentTokenStack = 1;
+	CombatTokenStateInfo.currentTokenStack = aStack;
 }
 
 void UCombatToken_Base::InvertCombatToken(FCombatToken_Base_Data combatToken)
@@ -83,10 +83,10 @@ void UCombatToken_Base::ActivatePassive()
 	Super::ActivatePassive();
 }
 
-void UCombatToken_Base::SameCombatTokenWasAdded()
+void UCombatToken_Base::SameCombatTokenWasAdded(int aStack)
 {
 	CombatTokenStateInfo.turnsRemaining = CombatToken_Base_Data.startingTokenTurnLength;
-	AddNewTokenStack(1);
+	AddNewTokenStack(aStack);
 	ValidateStackState();
 }
 

@@ -49,11 +49,6 @@ void UEnemyCombatEntity::Death()
 	wasKilled.Broadcast();
 }
 
-float UEnemyCombatEntity::GetHealthPercentage()
-{
-	return (float)currentHealth / (float)enemyEntityData.maxHealth;
-}
-
 FCombatLog_AttackDefense_Data UEnemyCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
 	beastiaryData->RevealElementalInfo(aSkill.elementalType);

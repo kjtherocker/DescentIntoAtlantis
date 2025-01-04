@@ -18,12 +18,17 @@ struct DESENTINTOATLANTIS_API FCombatLog_Full_Data : public FTableRowBase
 	GENERATED_BODY()
 	
 	UPROPERTY()
+	bool wasHitInitializedOnSkill = false;
+	UPROPERTY()
 	EPressTurnReactions PressTurnReaction;
 	UPROPERTY()
 	UCombatEntity* Attacker;
 	
 	UPROPERTY()
 	UCombatEntity* Victim;
+
+	UPROPERTY()
+	FCombatLog_CombatToken CombatLog_CombatToken_Data;
 	
 	UPROPERTY()
 	FSkillsData skillUsed;

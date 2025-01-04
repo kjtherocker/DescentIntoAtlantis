@@ -31,7 +31,7 @@ public:
 
 	void CreateCombatLog(FCombatLog_Full_Data CombatLog_Base_Data);
 	void CreateCombatTab(FCombatLog_Full_Data CombatLog_Base_Data,ECombatLogType aCombatLogType);
-
+	void RemoveCombatTab();
 	UPROPERTY()
 	TArray<UCombatLogElement*> commandLogTabs;
 	

@@ -11,6 +11,11 @@ void UCombatTokenRowElement::InitializeCombatTokenRow(UCombatTokenHandler* aComb
 	InGameHUD2 = aInGameHUD;
 	combatTokenHandler = aCombatTokenHandler;
 	combatTokenHandler->onCombatTokenAdded.AddDynamic(this,&UCombatTokenRowElement::SpawnNewCombatToken);
+
+	for (auto Element : combatTokenHandler->activeCombatTokens)
+	{
+		SpawnNewCombatToken(Element);
+	}
 }
 
 void UCombatTokenRowElement::SpawnNewCombatToken(UCombatToken_Base* aCombatToken)

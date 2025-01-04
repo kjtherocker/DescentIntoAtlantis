@@ -16,6 +16,9 @@ struct DESENTINTOATLANTIS_API FCombatLog_Hit_Data : public FTableRowBase
 	GENERATED_BODY()
 
 	UPROPERTY()
+	bool wasHitInitializedOnSkill = false;
+	
+	UPROPERTY()
 	bool HitResult;
 
 	UPROPERTY()

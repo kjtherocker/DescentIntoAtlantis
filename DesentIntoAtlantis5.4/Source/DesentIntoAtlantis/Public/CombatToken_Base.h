@@ -31,9 +31,10 @@ public:
 	FCombatTokenEndEffect CombatTokenEndEffect;
 	
 	virtual FCombatToken_Base_Data GetCombatTokenData(){ return CombatToken_Base_Data;}
+	virtual ECombatTokenType GetCombatTokenType(){ return GetCombatTokenData().CombatTokenType;}
 	virtual ECombatTokenID GetCombatTokenID() { return GetCombatTokenData().CombatTokenID;}
 	virtual FCombatTokenStateInfo  GetCombatTokenStateInfo(){ return CombatTokenStateInfo;}
-	virtual void SetCombatToken(FCombatToken_Base_Data combatToken,UCombatEntity* aCombatEntity);
+	virtual void SetCombatToken(FCombatToken_Base_Data combatToken,UCombatEntity* aCombatEntity,int aStack = 1);
 
 	virtual void InvertCombatToken(FCombatToken_Base_Data combatToken);
 	
@@ -48,7 +49,7 @@ public:
 	virtual void RemovePassive() override;
 	virtual void ActivatePassive() override;
 
-	virtual void SameCombatTokenWasAdded();
+	virtual void SameCombatTokenWasAdded(int aStack = 1);
 	virtual void BroadCastCombatTokenChange();
 };
 

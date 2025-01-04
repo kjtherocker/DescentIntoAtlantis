@@ -11,13 +11,12 @@ void UCombatTokenHandler::CombatEnd()
 	activeCombatTokens.Empty();
 }
 
-void UCombatTokenHandler::AddCombatToken(ECombatTokenID aCombatTokenID )
+FCombatToken_Base_Data UCombatTokenHandler::AddCombatToken(ECombatTokenID aCombatTokenID, int aStackAmount )
 {
 	 FCombatToken_Base_Data combatTokenData = passiveSkillFactorySubsystem->GetCombatTokenData(aCombatTokenID);
-
 	if(combatTokenData.CombatTokenID == ECombatTokenID::None)
 	{
-		return;
+		return combatTokenData;
 	}
 	
 	for(int i = 0 ; i < activeCombatTokens.Num();i++)
@@ -25,12 +24,13 @@ void UCombatTokenHandler::AddCombatToken(ECombatTokenID aCombatTokenID )
 		FCombatToken_Base_Data currentCombatTokenData = activeCombatTokens[i]->GetCombatTokenData();
 		if(currentCombatTokenData.CombatTokenID == combatTokenData.CombatTokenID)
 		{
-			activeCombatTokens[i]->SameCombatTokenWasAdded();
-			return;
+			activeCombatTokens[i]->SameCombatTokenWasAdded(aStackAmount);
+			return combatTokenData;
 		}
 	}
 	
-	NewCombatTokenWasAdded(CreateNewCombatTokenClass(aCombatTokenID),combatTokenData);
+	NewCombatTokenWasAdded(CreateNewCombatTokenClass(aCombatTokenID),combatTokenData,aStackAmount);
+	return combatTokenData;
 }
 
 void UCombatTokenHandler::InvertCombatToken(ECombatTokenID aCurrentTokenID)
@@ -46,6 +46,14 @@ void UCombatTokenHandler::InvertCombatToken(ECombatTokenID aCurrentTokenID)
 			CombatToken->ApplyEffect(OwnedCombatEntity);
 			return;
 		}
+	}
+}
+
+void UCombatTokenHandler::InvertAllCombatToken()
+{
+	for (auto Element : activeCombatTokens)
+	{
+		InvertCombatToken(Element->GetCombatTokenID());
 	}
 }
 
@@ -106,14 +114,6 @@ UCombatToken_Base* UCombatTokenHandler::CreateNewCombatTokenClass(ECombatTokenID
 	return nullptr;
 }
 
-void UCombatTokenHandler::RemoveAllCombatTokens()
-{
-	for (int i = activeCombatTokens.Num() - 1; i >= 0; i--)
-	{
-		RemoveCombatToken(activeCombatTokens[i]);
-	}
-}
-
 void UCombatTokenHandler::RemoveCombatToken(UCombatToken_Base* combatToken)
 {
 	FCombatToken_Base_Data combatTokenData = combatToken->GetCombatTokenData();
@@ -128,15 +128,48 @@ void UCombatTokenHandler::RemoveCombatToken(UCombatToken_Base* combatToken)
 			return;
 		}
 	}
-
-	
 }
 
-void UCombatTokenHandler::NewCombatTokenWasAdded(UCombatToken_Base* combatToken,FCombatToken_Base_Data aCombatTokenBaseData)
+void UCombatTokenHandler::RemoveAllCombatTokens()
+{
+	for (int i = activeCombatTokens.Num() - 1; i >= 0; i--)
+	{
+		RemoveCombatToken(activeCombatTokens[i]);
+	}
+}
+
+void UCombatTokenHandler::RemoveAllCombatTokens(ECombatTokenType aCombatTokenType)
+{
+	for (int i = activeCombatTokens.Num() - 1; i >= 0; i--)
+	{
+		if(activeCombatTokens[i]->GetCombatTokenType() == aCombatTokenType)
+		{
+			RemoveCombatToken(activeCombatTokens[i]);	
+		}
+	}
+}
+
+TArray<UCombatToken_Base*> UCombatTokenHandler::GetAllCombatTokens(ECombatTokenType aCombatTokenType)
+{
+	TArray<UCombatToken_Base*> combatTokensToReturn;
+
+	
+	for (auto CombatTokensToReturn : activeCombatTokens)
+	{
+		if(CombatTokensToReturn->GetCombatTokenData().CombatTokenType == aCombatTokenType)
+		{
+			combatTokensToReturn.Add(CombatTokensToReturn);
+		}
+	}
+
+	return combatTokensToReturn;
+}
+
+void UCombatTokenHandler::NewCombatTokenWasAdded(UCombatToken_Base* combatToken,FCombatToken_Base_Data aCombatTokenBaseData,int aStack)
 {
 	combatToken->AttachPassiveToOwner(OwnedCombatEntity);
 	
-	combatToken->SetCombatToken(aCombatTokenBaseData,OwnedCombatEntity);
+	combatToken->SetCombatToken(aCombatTokenBaseData,OwnedCombatEntity,aStack);
 	combatToken->CombatTokenEndEffect.AddDynamic(this,&UCombatTokenHandler::RemoveCombatToken);
 	combatToken->ApplyEffect(OwnedCombatEntity);
 
@@ -144,8 +177,27 @@ void UCombatTokenHandler::NewCombatTokenWasAdded(UCombatToken_Base* combatToken,
 	onCombatTokenAdded.Broadcast(combatToken);
 }
 
+void UCombatTokenHandler::AddAStackOfAllCombatTokens(int aStacks)
+{
+	for (auto CombatTokensToReturn : activeCombatTokens)
+	{
+		CombatTokensToReturn->SameCombatTokenWasAdded(aStacks);
+	}
+}
+
+void UCombatTokenHandler::AddAStackOfAllCombatTokens(ECombatTokenType aCombatTokenType,int aStacks)
+{
+	for (auto CombatTokensToReturn : activeCombatTokens)
+	{
+		if(CombatTokensToReturn->GetCombatTokenData().CombatTokenType == aCombatTokenType)
+		{
+			CombatTokensToReturn->SameCombatTokenWasAdded(aStacks);
+		}
+	}
+}
+
 void UCombatTokenHandler::InitializeCombatTokenHandler(UCombatEntity* aOwnedCombatEntity,
-	UPassiveSkillFactorySubsystem* aPassiveSkillFactorySubsystem)
+                                                       UPassiveSkillFactorySubsystem* aPassiveSkillFactorySubsystem)
 {
 	passiveSkillFactorySubsystem = aPassiveSkillFactorySubsystem;
 	OwnedCombatEntity            = aOwnedCombatEntity;

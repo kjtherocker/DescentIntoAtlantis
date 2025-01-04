@@ -37,7 +37,6 @@ void UClassHandler::SetClass(EClasses aClass, EClassSlot ClassSlot)
 {
 	mainClass = unlockedClasses[aClass];
 	
-	playerCombatEntity->combatEntityHub->elementalHandler->LoadSavedInfo(mainClass->completeClassData.CompleteElementalHandlerData);
 	
 	playerCombatEntity->SetAbilityScores();
 	playerCombatEntity->SetToDefaultState();
@@ -47,6 +46,8 @@ void UClassHandler::SetClass(EClasses aClass, EClassSlot ClassSlot)
 	    case EClassSlot::None:
 	    	break;
 	    case EClassSlot::Main:
+	    	playerCombatEntity->combatEntityHub->elementalHandler->ResetAllElements();
+	    	playerCombatEntity->combatEntityHub->elementalHandler->LoadSavedInfo(mainClass->completeClassData.CompleteElementalHandlerData);
 	    	CompleteClassHandlerData.mainClassData = mainClass->completeClassData;
 	    	playerCombatEntity->combatEntityHub->passiveHandler->AddMainClassPassives(mainClass);	
 	    	break;

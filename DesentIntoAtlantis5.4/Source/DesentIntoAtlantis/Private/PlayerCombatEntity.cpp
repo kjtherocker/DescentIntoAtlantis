@@ -46,7 +46,7 @@ void UPlayerCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,
 	classHandler->InitializeClassHandler(this,skillFactory);
 }
 
-void UPlayerCombatEntity::InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData, int aClassLevel)
+void UPlayerCombatEntity::InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData)
 {
 	classHandler->InitializeAndUnlockCombatClassFromDataTable(aCompleteClassData);
 }
@@ -191,9 +191,11 @@ void UPlayerCombatEntity::LevelUp(int aNewLevel)
 	//}
 
 	currentLevel = aNewLevel;
-	
+
 	maxHealth     = 10 * aNewLevel;
-	maxMana       = 25 * aNewLevel;
+	
+	maxMana       = 99;
+	maxMana       += 25 * aNewLevel;
 	currentHealth = maxHealth;
 	currentMana   = maxMana;
 

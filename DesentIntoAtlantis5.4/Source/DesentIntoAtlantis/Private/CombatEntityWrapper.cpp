@@ -26,6 +26,7 @@ void UWrapperTakeOver::Initialize(UHealth* aAttachedHealth,ECombatEntityWrapperT
 FCombatLog_AttackDefense_Data UWrapperTakeOver::CalculateDamage(FCombatLog_Damage_Data DamageLog,FCombatLog_Defense_Data DefenseLog)
 {
     FCombatLog_AttackDefense_Data AttackDefense_Data;
+    AttackDefense_Data.wasInitializedOnSkill = true;
     AttackDefense_Data.DamageData = DamageLog;
     AttackDefense_Data.DefenceData = DefenseLog;
     return AttackDefense_Data;
@@ -120,6 +121,8 @@ FCombatLog_AttackDefense_Data UCalculateDamage_Base::CalculateDamage(FCombatLog_
     AttackDefense_Data.DamageData = DamageLog;
     AttackDefense_Data.DefenceData = DefenseLog;
 
+    AttackDefense_Data.wasInitializedOnSkill = true;
+    
     AttackDefense_Data.FinalDamageResult = DamageLog.FinalDamage - DefenseLog.DefaultDamageResistance;
 
     if(AttackDefense_Data.FinalDamageResult < 0)

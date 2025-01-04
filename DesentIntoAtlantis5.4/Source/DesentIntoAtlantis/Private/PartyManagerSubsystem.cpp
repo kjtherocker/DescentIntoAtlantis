@@ -69,7 +69,7 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembers aPlayer)
 	EClasses initalClass = playerIdenityMap[aPlayer].initalClass;
 	if(classDataTables.Contains(initalClass))
 	{
-		PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[initalClass],partyLevel);
+		PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[initalClass]);
 		PlayerCombatEntity->SetMainClass(initalClass);
 		PlayerCombatEntity->LevelUp(partyLevel);
 	}
@@ -186,8 +186,7 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 		for (TTuple<EClasses, FCompleteClassData> playerClass : allCompleteClassData)
 		{
 			EClasses classIdentifier = playerClass.Key;
-			int level = playerClass.Value.currentLevel;
-			PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[classIdentifier],level);
+			PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[classIdentifier]);
 
 			for (auto classPassive : playerClass.Value.classPassives)
 			{

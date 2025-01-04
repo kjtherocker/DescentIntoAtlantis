@@ -45,7 +45,7 @@ private:
 
 	USkillFactorySubsystem* SkillFactorySubsystem;
 	UPROPERTY()
-	USkillAttack* defaultAttack;
+	UDefaultSkillAttack* defaultAttack;
 	protected:
 
 	TArray<FViewSelection> commandBoardSelections;

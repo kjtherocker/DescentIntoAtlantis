@@ -19,7 +19,7 @@ void USkillBase::Initialize(FSkillsData aSkillData)
 FCombatLog_Hit_Data USkillBase::CalculateHit(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
 	FCombatLog_Hit_Data hitData;
-	
+	hitData.wasHitInitializedOnSkill = true;
 
 	hitData.CombatLogEvasionData.victimEvasion = aVictim->GetEvasion();
 	hitData.AttackerHit   =  aAttacker->GetHit();
@@ -53,11 +53,22 @@ FCombatLog_Full_Data USkillBase::ExecuteSkill(UCombatEntity* aAttacker, UCombatE
 	
 	CombatLog_Base_Data.PressTurnReaction = EPressTurnReactions::Normal;
 
-	CombatLog_Base_Data.CombatLog_Hit_Data = aSkill->CalculateHit(aAttacker,aVictim);
+	bool isSkillExecuted = true;
 
-	if(CombatLog_Base_Data.CombatLog_Hit_Data.HitResult)
+	if (ISkillHit* skillHit = Cast<ISkillHit>(this))
 	{
-		CombatLog_Base_Data.CombatLog_AttackDefense_Data = aSkill->UseSkill(aAttacker,aVictim);	
+		CombatLog_Base_Data.CombatLog_Hit_Data = skillHit->I_CalculateHit_Implementation(aAttacker,aVictim);
+		isSkillExecuted = CombatLog_Base_Data.CombatLog_Hit_Data.HitResult;
+	}
+	
+	if(isSkillExecuted)
+	{
+		CombatLog_Base_Data.CombatLog_AttackDefense_Data = aSkill->UseSkill(aAttacker,aVictim);
+		if (IOnGiveCombatToken* attackDefencePassive = Cast<IOnGiveCombatToken>(this))
+		{
+			int skillAmount = 1;
+			attackDefencePassive->I_GiveCombatToken_Implementation(skillAmount,aVictim,skillData);
+		}
 	}
 	else
 	{
@@ -105,15 +116,17 @@ void USkillBase::SpendSkillCost(UCombatEntity* aSkillOwner, ESkillResourceUsed S
 	}
 }
 
-FCombatLog_AttackDefense_Data USkillCombatToken::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+FCombatLog_CombatToken USkillBase::GiveCombatToken(int& aAmount, UCombatEntity* aEntityToGiveToken, FSkillsData aSkillData)
 {
-	
+	FCombatLog_CombatToken combatLogCombatToken;
 	for (auto Element : skillData.combatTokensUsedOnSkill)
 	{
-		aVictim->combatEntityHub->combatTokenHandler->AddCombatToken(Element);	
+		combatLogCombatToken.combatTokenData
+		.Add(aEntityToGiveToken->combatEntityHub->combatTokenHandler->AddCombatToken(Element.combatTokenID,Element.stackAmount));
+		combatLogCombatToken.passiveTokenAmount = aAmount;
 	}
-	
-	return Super::UseSkill(aAttacker, aVictim);
+
+	return combatLogCombatToken;
 }
 
 void UAilment::Initialize(FSkillsData aSkillData)
@@ -144,25 +157,33 @@ bool USkillAlimentAttack::CalculateAilmentInfliction(UCombatEntity* aAttacker, U
 	return AilmentHitCalculation > 100;
 }
 
-FCombatLog_Hit_Data USkillCombatToken::CalculateHit(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+FCombatLog_AttackDefense_Data USkillCoupDeGrace::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
-	FCombatLog_Hit_Data Hit_Data;
-	Hit_Data.HitResult = true;
-	return Hit_Data;
-}
+	TArray<UCombatToken_Base*> negativeCombatTokens =
+		aVictim->combatEntityHub->combatTokenHandler->GetAllCombatTokens(ECombatTokenType::Negative);
 
-FCombatLog_Full_Data USkillCombatToken::ExecuteSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim, USkillBase* aSkill)
-{
-	FCombatLog_Full_Data CombatLog_Full_Data;
+	int additonalDamageStackCount = 0;
 
-	UseSkill(aAttacker, aVictim);
+	for (auto Element : negativeCombatTokens)
+	{
+		additonalDamageStackCount += Element->GetCombatTokenStateInfo().currentTokenStack;
+	}
 	
-	return CombatLog_Full_Data;
+	int originalSkillDamage = skillData.damage;
+	skillData.damage += additonalDamageStackCount * 5;
+	FCombatLog_AttackDefense_Data attackDefenceCombatLog = aVictim->DecrementHealth(aAttacker,skillData);
+	skillData.damage = originalSkillDamage;
+
+	aVictim->combatEntityHub->combatTokenHandler->RemoveAllCombatTokens(ECombatTokenType::Negative);
+    	
+	return attackDefenceCombatLog;
+	
 }
 
-// Each of these are structs that inherit from Skill_Base
-FCombatLog_AttackDefense_Data USkillAttack::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+FCombatLog_AttackDefense_Data USkillSpreadTheInfection::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
+	aVictim->combatEntityHub->combatTokenHandler->AddAStackOfAllCombatTokens(ECombatTokenType::Negative);
+
 	return aVictim->DecrementHealth(aAttacker,skillData);
 }
 
@@ -198,27 +219,3 @@ FCombatLog_AttackDefense_Data USkillAlimentAttackFear::UseSkill(UCombatEntity* a
 
 	return Combatlog;
 }
-
-
-
-FCombatLog_AttackDefense_Data USkillHeal::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
-{
-	//TODO: make a combatlog setup for healing and buffs
-	aVictim->IncrementHealth(aAttacker, skillData);
-	FCombatLog_AttackDefense_Data emptyAttackDefences;
-	return emptyAttackDefences;
-}
-
-FCombatLog_AttackDefense_Data USkillBuff::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
-{
-	aVictim->ApplyBuff(aAttacker,skillData);
-	FCombatLog_AttackDefense_Data emptyAttackDefences;
-	return emptyAttackDefences;
-}
-
-FCombatLog_AttackDefense_Data USkillDebuff::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
-{
-	return aVictim->DecrementHealth(aAttacker,skillData);
-}
-
-

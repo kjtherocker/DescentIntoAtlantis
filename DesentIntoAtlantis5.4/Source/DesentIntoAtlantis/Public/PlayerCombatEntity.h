@@ -112,7 +112,7 @@ public:
 	virtual void SetPlayerEntity(FPlayerIdentityData aPlayerEntityData);
 	virtual void SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassiveSkillFactorySubsystem* aPassiveSkillFactory) override;
 	
-	virtual void InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData, int aClassLevel);
+	virtual void InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData);
 	virtual void SetMainClass(EClasses aClass);
 	virtual void Reset() override;
 	virtual void SetToDefaultState() override;

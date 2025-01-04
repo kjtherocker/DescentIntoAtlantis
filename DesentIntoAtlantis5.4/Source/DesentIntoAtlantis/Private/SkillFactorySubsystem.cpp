@@ -7,6 +7,7 @@
 #include "Engine/DataTable.h"
 #include "SkillBase.h"
 #include "SkillType.h"
+#include "SkillUsage.h"
 
 
 void USkillFactorySubsystem::InitializeDatabase(UDataTable*  aSkillDataTable)
@@ -18,10 +19,9 @@ void USkillFactorySubsystem::InitializeDatabase(UDataTable*  aSkillDataTable)
 	
 	if(datatable)
 	{
-		for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
+		for (auto Element : datatable->GetRowNames())
 		{
-			FSkillsData skillData = *datatable->FindRow<FSkillsData>(FName(FString::FromInt(i)),FString("Searching for Skills"),true);
-
+			FSkillsData skillData = *datatable->FindRow<FSkillsData>(FName(Element),FString("Searching for Skills"),true);
 			
 			USkillBase* skillBase = GetSkillClass(skillData);
 			if(skillBase != nullptr)
@@ -29,7 +29,6 @@ void USkillFactorySubsystem::InitializeDatabase(UDataTable*  aSkillDataTable)
 				skillBase->Initialize(skillData);
 				allSkillsMap.Add(skillData.skillID,skillBase);
 			}
-
 		}
 	}
 	else
@@ -45,7 +44,19 @@ void USkillFactorySubsystem::InitializeDatabase(UDataTable*  aSkillDataTable)
 
 USkillBase* USkillFactorySubsystem::GetSkill(ESkillIDS aSkillID)
 {
-	return allSkillsMap.FindRef(aSkillID);
+	USkillBase* skillToReturn = allSkillsMap.FindRef(aSkillID);
+	if(skillToReturn == nullptr)
+	{
+		FSkillsData skillData;
+		skillData.skillName    = "Doesnt Exist";
+		skillData.skillID      = ESkillIDS::Uninitialized;
+		skillData.skillType    = ESkillType::Attack;
+		skillData.skillUsage   = ESkillUsage::Opponents;
+		
+		return GetSkillClass( skillData);
+	}
+	
+	return skillToReturn;
 }
 
 UAilment* USkillFactorySubsystem::GetAilment(EStatusAilments aAilment)
@@ -58,19 +69,31 @@ USkillBase* USkillFactorySubsystem::GetSkillClass(FSkillsData skillData)
 	//Unique Hand made skills that have there own classes 
 	switch (skillData.skillID)
 	{
+		case ESkillIDS::Uninitialized:
+			return NewObject<UDefaultSkillAttack>();
+		break;
 		case ESkillIDS::Bonk:
-			return NewObject<USkillAlimentAttackFear>();
+			return NewObject<USkillAttackCombatToken>();
 			break;
 		case ESkillIDS::Boo:
 			return NewObject<USkillAlimentAttackFear>();
 			break;
+		case ESkillIDS::CoupDeGrace:
+			return NewObject<USkillCoupDeGrace>();
+			break;
+		case ESkillIDS::SpreadInfection:
+			return NewObject<USkillSpreadTheInfection>();
+			break;
+		//case ESkillIDS::FeyDuality:
+		//	return NewObject<UFeyDuality>();
+		//	break;
 	}
 
 	//More generic Easily Flexible skills
 	switch (skillData.skillType)
 	{
 		case ESkillType::Attack:
-			return NewObject<USkillAttack>();
+			return NewObject<UDefaultSkillAttack>();
 			break;
 		case ESkillType::Heal:
 			return NewObject<USkillHeal>();

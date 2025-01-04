@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
+#include "CombatTokenRowElement.h"
 #include "Blueprint/UserWidget.h"
 #include "Components/Image.h"
 #include "Components/ProgressBar.h"
@@ -68,6 +69,8 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UProgressBar* BW_Healthbar_Temporary;
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UCombatTokenRowElement* BW_CombatTokenRow;
 	
 	
 };

@@ -11,18 +11,32 @@ class UCombatLogElement;
 
 void UCombatLogSimplifiedView::CreateCombatLog(FCombatLog_Full_Data CombatLog_Base_Data)
 {
-	CreateCombatTab( CombatLog_Base_Data,ECombatLogType::Hit);
+
+	if(CombatLog_Base_Data.CombatLog_Hit_Data.wasHitInitializedOnSkill)
+	{
+		CreateCombatTab( CombatLog_Base_Data,ECombatLogType::Hit);	
+	}
+	if(CombatLog_Base_Data.CombatLog_AttackDefense_Data.wasInitializedOnSkill)
+	{
+		CreateCombatTab( CombatLog_Base_Data,ECombatLogType::AttackDefence);
+	}
 }
 
 void UCombatLogSimplifiedView::CreateCombatTab(FCombatLog_Full_Data CombatLog_Base_Data,ECombatLogType aCombatLogType)
 {
+	if(commandLogTabs.Num() > 7)
+	{
+		RemoveCombatTab();
+	}
+	
 	UUserWidget* commandLogelement = CreateWidget(this, InGameHUD->GetElement(EViewElements::CombatLogElement));
 
 	UCombatLogElement* baseUserWidget = (UCombatLogElement*)commandLogelement;
 	baseUserWidget->UiInitialize(gameModeBase);
 	commandLogelement->AddToViewport();
 
-	switch (aCombatLogType) {
+	switch (aCombatLogType)
+	{
 	case ECombatLogType::None:
 		break;
 	case ECombatLogType::Hit:
@@ -40,4 +54,10 @@ void UCombatLogSimplifiedView::CreateCombatTab(FCombatLog_Full_Data CombatLog_Ba
 	commandLogTabs.Add(baseUserWidget);
 	
 	BW_VerticalBox->AddChild(commandLogelement);
+}
+
+void UCombatLogSimplifiedView::RemoveCombatTab()
+{
+	commandLogTabs[0]->RemoveFromParent();
+	commandLogTabs.RemoveAt(0);
 }

@@ -86,6 +86,11 @@ void UCombatLogSelectionView::SetDefaultMenuState()
 
 void UCombatLogSelectionView::ActivateMenuSelection()
 {
+	if(CombatLogElements[cursorPosition] == nullptr)
+	{
+		return;
+	}
+	
 	UCombatLogDetailedView* detailedCombatLog = (UCombatLogDetailedView*)InGameHUD->PushAndGetView(EViews::CombatLogDetailed,  EUiType::ActiveUi);
 	detailedCombatLog->SetDetailedLog(CombatLogElements[cursorPosition]->FullCombatLog);
 }

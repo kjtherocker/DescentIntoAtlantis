@@ -17,8 +17,13 @@
 void UCombatLogDetailedHitElement::SetElement(FCombatLog_Full_Data CombatLog_Full_Data, AInGameHUD* aHud)
 {
 	Super::SetElement(CombatLog_Full_Data, aHud);
-	
 	FCombatLog_Hit_Data CombatLog_Hit_Data = CombatLog_Full_Data.CombatLog_Hit_Data;
+	
+	if(!CombatLog_Hit_Data.wasHitInitializedOnSkill)
+	{
+		return;
+	}
+		
 	
 	FString hitChance = FString::FromInt(CombatLog_Hit_Data.hitChance) + "%";
 	BW_HitChanceText->SetText(FText(FText::FromString(hitChance)));

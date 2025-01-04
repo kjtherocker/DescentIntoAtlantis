@@ -18,6 +18,8 @@ struct DESENTINTOATLANTIS_API FCombatLog_AttackDefense_Data : public FTableRowBa
 	GENERATED_BODY()
 
 	UPROPERTY()
+	bool wasInitializedOnSkill = false;
+	UPROPERTY()
 	int32 FinalDamageResult = 0;
 	UPROPERTY()
 	FCombatLog_Defense_Data DefenceData;

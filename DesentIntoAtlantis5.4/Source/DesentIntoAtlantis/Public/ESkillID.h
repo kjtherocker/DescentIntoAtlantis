@@ -8,6 +8,7 @@ UENUM(BlueprintType)
 enum class ESkillIDS : uint8
 {
 	None                   UMETA(DisplayName = "None"),
+	Uninitialized          UMETA(DisplayName = "Uninitialized"),
 	DefaultAttack          UMETA(DisplayName = "Default Attack"),
 	//Banshee
 	Bonk                   UMETA(DisplayName = "Bonk"),
@@ -28,5 +29,6 @@ enum class ESkillIDS : uint8
 	MarkForDeath           UMETA(DisplayName = "MarkForDeath"),
 	MockingTaunt           UMETA(DisplayName = "MockingTaunt"),
 	AbsoluteGuard          UMETA(DisplayName = "AbsoluteGuard"),
-	SelfIndulgentRevenge   UMETA(DisplayName = "SelfIndulgentRevenge"),
+	FeyDuality             UMETA(DisplayName = "FeyDuality"),
+
 };

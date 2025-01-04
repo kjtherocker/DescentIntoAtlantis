@@ -63,7 +63,6 @@ public:
 	void SetAbilityScores();
 	void SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactorySubsystem * skillFactory,EEnemyCombatPositions aPortraitPosition);
 	virtual void Death() override;
-	virtual float GetHealthPercentage() override;
 	virtual FCombatLog_AttackDefense_Data DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill) override;
 
 	EEnemyCombatPositions portraitPosition;
