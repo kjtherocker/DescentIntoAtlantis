@@ -43,7 +43,7 @@ void UCombatLogElement::SetCommandLogAttackDefence(FCombatLog_Full_Data CombatLo
 		return;
 	}
 	
-	FString result = " dealt  <Miss> " + FString::FromInt(CombatLog_Base_Data.CombatLog_AttackDefense_Data.DamageData.FinalDamage)+" </> ";
+	FString result = " dealt  <Miss> " + FString::FromInt(CombatLog_Base_Data.CombatLog_AttackDefense_Data.FinalDamageResult)+" </> ";
 	
 	FString hit = CombatLog_Base_Data.Attacker->GetEntityName() + result + " Damage with " +
 		CombatLog_Base_Data.skillUsed.skillName + " to " + CombatLog_Base_Data.Victim->GetEntityName() ;

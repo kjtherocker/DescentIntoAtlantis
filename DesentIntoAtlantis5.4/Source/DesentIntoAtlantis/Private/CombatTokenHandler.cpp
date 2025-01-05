@@ -11,25 +11,27 @@ void UCombatTokenHandler::CombatEnd()
 	activeCombatTokens.Empty();
 }
 
-FCombatToken_Base_Data UCombatTokenHandler::AddCombatToken(ECombatTokenID aCombatTokenID, int aStackAmount )
+FCombatToken_Base_Data UCombatTokenHandler::AddCombatToken(ECombatTokenID aCombatTokenID, FCombatTokenStackData aCombatTokenStackData)
 {
 	 FCombatToken_Base_Data combatTokenData = passiveSkillFactorySubsystem->GetCombatTokenData(aCombatTokenID);
+	
 	if(combatTokenData.CombatTokenID == ECombatTokenID::None)
 	{
 		return combatTokenData;
 	}
-	
-	for(int i = 0 ; i < activeCombatTokens.Num();i++)
+
+	UCombatToken_Base* token = GetCombatTokenByID(aCombatTokenID);
+
+	if(token != nullptr)
 	{
-		FCombatToken_Base_Data currentCombatTokenData = activeCombatTokens[i]->GetCombatTokenData();
-		if(currentCombatTokenData.CombatTokenID == combatTokenData.CombatTokenID)
-		{
-			activeCombatTokens[i]->SameCombatTokenWasAdded(aStackAmount);
-			return combatTokenData;
-		}
+		token->SameCombatTokenWasAdded(aCombatTokenStackData);
+	}
+	else
+	{
+		NewCombatTokenWasAdded(CreateNewCombatTokenClass(aCombatTokenID),combatTokenData,aCombatTokenStackData);	
 	}
 	
-	NewCombatTokenWasAdded(CreateNewCombatTokenClass(aCombatTokenID),combatTokenData,aStackAmount);
+	
 	return combatTokenData;
 }
 
@@ -134,7 +136,7 @@ void UCombatTokenHandler::RemoveAllCombatTokens()
 {
 	for (int i = activeCombatTokens.Num() - 1; i >= 0; i--)
 	{
-		RemoveCombatToken(activeCombatTokens[i]);
+		activeCombatTokens[i]->RemovePassive();
 	}
 }
 
@@ -144,9 +146,23 @@ void UCombatTokenHandler::RemoveAllCombatTokens(ECombatTokenType aCombatTokenTyp
 	{
 		if(activeCombatTokens[i]->GetCombatTokenType() == aCombatTokenType)
 		{
-			RemoveCombatToken(activeCombatTokens[i]);	
+			activeCombatTokens[i]->RemovePassive();
 		}
 	}
+}
+
+UCombatToken_Base* UCombatTokenHandler::GetCombatTokenByID(ECombatTokenID aCombatTokenID)
+{
+	for(int i = 0 ; i < activeCombatTokens.Num();i++)
+	{
+		FCombatToken_Base_Data currentCombatTokenData = activeCombatTokens[i]->GetCombatTokenData();
+		if(currentCombatTokenData.CombatTokenID == aCombatTokenID)
+		{
+			return activeCombatTokens[i];
+		}
+	}
+
+	return  nullptr;
 }
 
 TArray<UCombatToken_Base*> UCombatTokenHandler::GetAllCombatTokens(ECombatTokenType aCombatTokenType)
@@ -165,11 +181,11 @@ TArray<UCombatToken_Base*> UCombatTokenHandler::GetAllCombatTokens(ECombatTokenT
 	return combatTokensToReturn;
 }
 
-void UCombatTokenHandler::NewCombatTokenWasAdded(UCombatToken_Base* combatToken,FCombatToken_Base_Data aCombatTokenBaseData,int aStack)
+void UCombatTokenHandler::NewCombatTokenWasAdded(UCombatToken_Base* combatToken,FCombatToken_Base_Data aCombatTokenBaseData,FCombatTokenStackData combatTokenStackData)
 {
 	combatToken->AttachPassiveToOwner(OwnedCombatEntity);
 	
-	combatToken->SetCombatToken(aCombatTokenBaseData,OwnedCombatEntity,aStack);
+	combatToken->InitializeCombatToken(aCombatTokenBaseData,combatTokenStackData,OwnedCombatEntity);
 	combatToken->CombatTokenEndEffect.AddDynamic(this,&UCombatTokenHandler::RemoveCombatToken);
 	combatToken->ApplyEffect(OwnedCombatEntity);
 
@@ -181,7 +197,11 @@ void UCombatTokenHandler::AddAStackOfAllCombatTokens(int aStacks)
 {
 	for (auto CombatTokensToReturn : activeCombatTokens)
 	{
-		CombatTokensToReturn->SameCombatTokenWasAdded(aStacks);
+		FCombatTokenStackData combatTokenStackData;
+		combatTokenStackData.stackAmount = aStacks;
+		combatTokenStackData.TurnLength  = CombatTokensToReturn->GetTurnResetValue();
+		combatTokenStackData.combatTokenID = CombatTokensToReturn->GetCombatTokenID();
+		CombatTokensToReturn->SameCombatTokenWasAdded(combatTokenStackData);
 	}
 }
 
@@ -191,7 +211,11 @@ void UCombatTokenHandler::AddAStackOfAllCombatTokens(ECombatTokenType aCombatTok
 	{
 		if(CombatTokensToReturn->GetCombatTokenData().CombatTokenType == aCombatTokenType)
 		{
-			CombatTokensToReturn->SameCombatTokenWasAdded(aStacks);
+			FCombatTokenStackData combatTokenStackData;
+			combatTokenStackData.stackAmount = aStacks;
+			combatTokenStackData.TurnLength  = CombatTokensToReturn->GetTurnResetValue();
+			combatTokenStackData.combatTokenID = CombatTokensToReturn->GetCombatTokenID();
+			CombatTokensToReturn->SameCombatTokenWasAdded(combatTokenStackData);
 		}
 	}
 }

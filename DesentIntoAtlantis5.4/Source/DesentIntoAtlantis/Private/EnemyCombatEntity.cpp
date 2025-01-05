@@ -17,9 +17,7 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,US
 {
 	characterType   = ECharactertype::Enemy;
 	enemyEntityData = AEnemyEntityData;
-
-	maxHealth       = enemyEntityData.maxHealth;
-	currentHealth   = enemyEntityData.maxHealth;
+	
 	currentMana     = enemyEntityData.maxMana;
 
 	portraitPosition = aPortraitPosition;
@@ -33,9 +31,6 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,US
 	{
 		enemySkills.Add(skillFactory->GetSkill(enemyEntityData.skillIDS[i]));
 	}
-
-	AEnemyEntityData.HealthData.currentHealth = AEnemyEntityData.maxHealth;
-	AEnemyEntityData.HealthData.maxHealth     = AEnemyEntityData.maxHealth;
 	
 	health->InitializeHealth(AEnemyEntityData.HealthData,this);
 	

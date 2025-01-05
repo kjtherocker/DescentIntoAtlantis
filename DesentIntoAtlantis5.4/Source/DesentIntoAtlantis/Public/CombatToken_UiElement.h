@@ -24,7 +24,7 @@ public:
 	UPROPERTY()
 	ECombatTokenID CombatTokenID;
 	UFUNCTION()
-	void UpdateCombatToken(FCombatTokenStateInfo aStateInfo);
+	void UpdateCombatToken(FCombatTokenCurrentStatInfo aStateInfo);
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	URichTextBlock* BW_CombatTokenStack;

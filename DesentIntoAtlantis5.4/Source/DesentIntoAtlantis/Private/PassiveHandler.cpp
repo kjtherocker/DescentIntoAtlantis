@@ -16,15 +16,36 @@ FPassiveHandlerData UPassiveHandler::GetPassiveHandlerData()
 	return PassiveHandlerData;
 }
 
+void UPassiveHandler::InitializeCombatArena()
+{
+
+}
+
 void UPassiveHandler::InitializePassiveHandler(UCombatEntity* aOwnedCombatEntity,UPassiveSkillFactorySubsystem* aPassiveSkillFactorySubsystem)
 {
-	
+	sendPassiveTrigger.AddDynamic(this,&UPassiveHandler::CheckGenericTriggerPassives);
 	passiveSkillFactory = aPassiveSkillFactorySubsystem;
 	ownedCombatEntity   = aOwnedCombatEntity;
 }
 
+void UPassiveHandler::CheckGenericTriggerPassives(EPassiveGenericTrigger aPassiveTrigger)
+{
+	passiveSkillsUsed.Empty();
+	 
+	for (UPassiveSkills* passiveSkillWrapper : passiveSkills)
+	{
+		if (IOnGenericPassive* genericTriggerPassive = Cast<IOnGenericPassive>(passiveSkillWrapper))
+		{
+			if(genericTriggerPassive->IsPassiveTriggered_Implementation(aPassiveTrigger))
+			{
+				passiveSkillsUsed.Add(genericTriggerPassive->ActivateGenericPassive_Implementation(ownedCombatEntity));
+			}
+		}
+	}
+}
+
 TArray< FCombatLog_PassiveSkilData> UPassiveHandler::CheckAttackDefencePassives(int& CurrentDamage, UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker,
-                                    FSkillsData aSkill)
+                                                                                FSkillsData aSkill)
 {
 	passiveSkillsUsed.Empty();
 	 

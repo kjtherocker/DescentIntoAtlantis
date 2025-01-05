@@ -18,7 +18,7 @@ class DESENTINTOATLANTIS_API UCombatTokenHandler : public UObject
 	GENERATED_BODY()
 
 protected:
-	void NewCombatTokenWasAdded(UCombatToken_Base* combatToken,FCombatToken_Base_Data aCombatTokenBaseData,int aStack = 1);
+	void NewCombatTokenWasAdded(UCombatToken_Base* combatToken,FCombatToken_Base_Data aCombatTokenBaseData,FCombatTokenStackData combatTokenStackData);
 
 	UPROPERTY()
 	UPassiveSkillFactorySubsystem* passiveSkillFactorySubsystem;
@@ -42,6 +42,7 @@ public:
 	void RemoveAllCombatTokens();
 	virtual void RemoveAllCombatTokens(ECombatTokenType aCombatTokenType);
 
+	virtual UCombatToken_Base* GetCombatTokenByID(ECombatTokenID aCombatTokenID);
 	virtual TArray<UCombatToken_Base*> GetAllCombatTokens(ECombatTokenType aCombatTokenType);
 	virtual  TArray<UCombatToken_Base*> GetAllCombatTokens(){return activeCombatTokens;};
 
@@ -52,7 +53,7 @@ public:
 
 	virtual TArray< FCombatLog_PassiveSkilData> CheckAttackDefenceTokens(int& CurrentDamage ,UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill);
 	
-	FCombatToken_Base_Data AddCombatToken(ECombatTokenID aCombatTokenID, int aStackAmount = 1 );
+	FCombatToken_Base_Data AddCombatToken(ECombatTokenID aCombatTokenID, FCombatTokenStackData aCombatTokenStackData );
 
 	void InvertCombatToken(ECombatTokenID aCurrentTokenID);
 	void InvertAllCombatToken();

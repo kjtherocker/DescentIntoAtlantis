@@ -12,7 +12,7 @@ void UCombatToken_UiElement::SetCombatTokenUiElement(UCombatToken_Base* aCombatT
 	//BW_TokenIcon->SetBrushFromTexture(aTokenImage);
 }
 
-void UCombatToken_UiElement::UpdateCombatToken(FCombatTokenStateInfo aStateInfo)
+void UCombatToken_UiElement::UpdateCombatToken(FCombatTokenCurrentStatInfo aStateInfo)
 {
 	FString stackNumber = FString::FromInt(aStateInfo.currentTokenStack);
 	FString turnNumber  = FString::FromInt(aStateInfo.turnsRemaining);

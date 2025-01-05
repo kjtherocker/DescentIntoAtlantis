@@ -8,17 +8,6 @@
 #include "CombatLog_PassiveSkilData.generated.h"
 
 USTRUCT()
-struct DESENTINTOATLANTIS_API FCombatLog_PassiveSkilData : public FTableRowBase
-{
-	GENERATED_BODY()
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Defense")
-	FPassiveSkillData PassiveSkillData;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Defense")
-	int passiveResult = 0;
-};
-
-USTRUCT()
 struct DESENTINTOATLANTIS_API FCombatLog_CombatToken : public FTableRowBase
 {
 	GENERATED_BODY()
@@ -28,4 +17,20 @@ struct DESENTINTOATLANTIS_API FCombatLog_CombatToken : public FTableRowBase
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Defense")
 	int passiveTokenAmount;
 };
+
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FCombatLog_PassiveSkilData : public FTableRowBase
+{
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Defense")
+	FPassiveSkillData PassiveSkillData;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Defense")
+	int passiveResult = 0;
+
+	UPROPERTY(EditAnywhere)
+	FCombatLog_CombatToken combatTokenData;
+};
+
 

@@ -34,11 +34,16 @@ class DESENTINTOATLANTIS_API UHealth : public UObject
 	UPROPERTY()
 	UCombatEntityWrapper* allDefaultCombatWrapper;
 
+	UPROPERTY()
+	FCombatLog_AttackDefense_Data lastAttackDefenceData;
+
 public:
 	virtual void InitializeHealth(int aCurrentHealth,int aMaxHealth, UCombatEntity* aCombatEntity);
 	virtual void InitializeHealth(FHealthData aHealthData, UCombatEntity* aCombatEntity);
+	virtual void GiveMaxHp();
+	virtual void SetHealth(FHealthData aHealthData);
 	virtual void SetHealth(int aHealth);
-	virtual int GetHealth();
+	virtual int GetCurrentHealth();
 	
 	virtual FCombatLog_AttackDefense_Data DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill);
 	virtual EPressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);

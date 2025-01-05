@@ -16,6 +16,8 @@ struct DESENTINTOATLANTIS_API FCombatLog_Defense_Data : public FTableRowBase
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Defense")
 	int32 DefaultDamageResistance = 0;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Defense")
+	int32 FinalDamageResistance = 0;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Defense")
 	TArray<FCombatLog_PassiveSkilData> passivesActivated;
 };
 

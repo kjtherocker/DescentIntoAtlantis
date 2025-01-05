@@ -84,9 +84,12 @@ USkillBase* USkillFactorySubsystem::GetSkillClass(FSkillsData skillData)
 		case ESkillIDS::SpreadInfection:
 			return NewObject<USkillSpreadTheInfection>();
 			break;
-		//case ESkillIDS::FeyDuality:
-		//	return NewObject<UFeyDuality>();
-		//	break;
+		case ESkillIDS::WavesSweetRelease:
+			return NewObject<UWavesSweetRelease>();
+			break;
+		case ESkillIDS::FeyDuality:
+			return NewObject<UFeyDuality>();
+			break;
 	}
 
 	//More generic Easily Flexible skills

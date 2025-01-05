@@ -44,6 +44,27 @@ void UPassiveSkills::RemoveEffect(UCombatEntity* aCombatEntity)
 }
 
 
+FCombatLog_PassiveSkilData UGenericTriggerPassive::ActivateGenericPassive_Implementation(UCombatEntity* aCombatEntity)
+{
+	return IOnGenericPassive::ActivateGenericPassive_Implementation(aCombatEntity);
+}
+
+bool UGenericTriggerPassive::IsPassiveTriggered_Implementation(EPassiveGenericTrigger aPassiveGenericTrigger)
+{
+	return passiveSkillData.triggerGeneric == aPassiveGenericTrigger;
+}
+
+FCombatLog_PassiveSkilData UGenericTriggerPassiveCombatToken::ActivateGenericPassive_Implementation(UCombatEntity* aCombatEntity)
+{
+	FCombatLog_PassiveSkilData PassiveSkilData;
+	for (auto Element : PassiveSkilData.PassiveSkillData.combatTokensOnPassive)
+	{
+		PassiveSkilData.combatTokenData.combatTokenData.Add(aCombatEntity->combatEntityHub->combatTokenHandler->AddCombatToken(Element.combatTokenID,Element));
+	}
+
+	return PassiveSkilData;
+}
+
 int UGenericStatPassive::GetStatIncrease_Implementation(EStatTypes aStatType)
 {
 	int statIncrease = 0;

@@ -4,13 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "CombatTokenStateInfo.generated.h"
+#include "CombatTokenCurrentStatInfo.generated.h"
 
 
 
 
 USTRUCT()
-struct DESENTINTOATLANTIS_API FCombatTokenStateInfo :public  FTableRowBase
+struct DESENTINTOATLANTIS_API FCombatTokenCurrentStatInfo :public  FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 	

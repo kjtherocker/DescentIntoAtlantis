@@ -219,7 +219,21 @@ class USkillHeal : public USkillBase
 	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override
 	{
 		//TODO: make a combatlog setup for healing and buffs
-		aVictim->IncrementHealth(aAttacker, skillData);
+		aVictim->IncrementHealth(aAttacker,skillData);
+		FCombatLog_AttackDefense_Data emptyAttackDefences;
+		return emptyAttackDefences;
+	};
+	
+};
+
+UCLASS()
+class UWavesSweetRelease : public USkillBase
+{
+	GENERATED_BODY()
+
+	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override
+	{
+		aVictim->combatEntityHub->combatTokenHandler->RemoveAllCombatTokens();
 		FCombatLog_AttackDefense_Data emptyAttackDefences;
 		return emptyAttackDefences;
 	};

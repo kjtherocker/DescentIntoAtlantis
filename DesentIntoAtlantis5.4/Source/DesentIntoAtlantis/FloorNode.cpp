@@ -99,19 +99,19 @@ void AFloorNode::SetWalkableDirections(short aWalkabledirections)
 	}
 
 	SetFloorNodeWallInfo(ECardinalNodeDirections::Up,
-	                     FVector(0, -110, 200),
+	                     FVector(0, -124., 200),
 	                     FRotator(0, 0, 0));
 
 	SetFloorNodeWallInfo(ECardinalNodeDirections::Right,
-	                     FVector(116.0, -1.0, 200),
+	                     FVector(]]]]]]105.0, 0, 200),
 	                     FRotator(0, 90, 0));
 
 	SetFloorNodeWallInfo(ECardinalNodeDirections::Down,
-	                     FVector(0.0, 120, 200),
+	                     FVector(0.0, 124., 200),
 	                     FRotator(0, 180, 0));
 
 	SetFloorNodeWallInfo(ECardinalNodeDirections::Left,
-	                     FVector(-121.0, -8, 200),
+	                     FVector(-105.0, 0, 200),
 	                     FRotator(0, 270, 0));
 
 	SetLevelNode(floorNodeData.walkableDirections);

@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "CombatToken_Base_Data.h"
 #include "Engine/DataTable.h"
 #include "SkillData.generated.h"
 
@@ -15,18 +14,6 @@ enum class ESkillUsage : uint8;
 enum class ESkillType : uint8;
 enum class ESkillDamageType : uint8;
 enum class ESkillIDS : uint8;
-
-USTRUCT()
-struct DESENTINTOATLANTIS_API FCombatTokenStackData : public FTableRowBase
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere)
-	ECombatTokenID combatTokenID;
-
-	UPROPERTY(EditAnywhere)
-	int stackAmount = 1;
-};
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
@@ -55,7 +42,7 @@ struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
 	int damage;
 
 	UPROPERTY(EditAnywhere, Category = "DefaultInfo")
-	int SkillHit;
+	int SkillHit = 90;
 	
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")    
 	EElementalType elementalType;

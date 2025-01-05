@@ -31,4 +31,8 @@ enum class ESkillIDS : uint8
 	AbsoluteGuard          UMETA(DisplayName = "AbsoluteGuard"),
 	FeyDuality             UMETA(DisplayName = "FeyDuality"),
 
+
+	//SharkFiend
+	WaterBlast             UMETA(DisplayName = "WaterBlast"),
+
 };

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "EventDispatcherSubsystem.h"
 #include "EventManagerSubSystem.h"
 
 #include "Engine/GameInstance.h"
@@ -77,7 +78,9 @@ public:
 	UEnemyFactorySubSystem*    enemyFactorySubSystem;
 	UPROPERTY()
 	UPassiveSkillFactorySubsystem*  passiveFactorySubsystem;
-
+	UPROPERTY()
+	UEventDispatcherSubsystem*       eventDispatcherSubsystem;
+	
 	UPROPERTY()
 	UTutorialManagerSubsystem* tutorialManagerSubsystem;
 	UPROPERTY()

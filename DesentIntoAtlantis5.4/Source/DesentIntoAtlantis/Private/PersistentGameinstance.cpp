@@ -36,6 +36,7 @@ void UPersistentGameinstance::Init()
 	EventManagerSubSystem           = GetSubsystem<UEventManagerSubSystem>();
 	saveManagerSubsystem            = GetSubsystem<USaveManagerSubsystem>();
 	levelProgressionSubsystem       = GetSubsystem<ULevelProgressionSubsystem>();
+	eventDispatcherSubsystem        = GetSubsystem<UEventDispatcherSubsystem>();
 
 	levelProgressionSubsystem->InitializeSubsystem(this);
 	
@@ -104,6 +105,8 @@ void UPersistentGameinstance::Init()
 			EventManagerSubSystem->InitializeEventManager(floorFactory,this);
 		}
 	}
+	
+	eventDispatcherSubsystem->InitializeEventDispatcherSubsystem(challengeManagerSubsystem);
 	saveManagerSubsystem->InitializeSubsystem(this);
 
 

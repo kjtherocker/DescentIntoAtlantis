@@ -76,7 +76,7 @@ void UPartyHealthbarElement::UpdateHealthbarElements()
 	//previousHealthPercentage = currentHealthPercentage;
 	currentHealthPercentage = playerCombatEntity->GetHealthPercentage();
 	BW_Health->SetPercent(currentHealthPercentage);
-	BW_HealthText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->currentHealth)));
+	BW_HealthText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->health->GetCurrentHealth())));
 	
 	BW_Mana->SetPercent(playerCombatEntity->GetManaPercentage());
 	BW_ManaText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->currentMana)));

@@ -111,6 +111,11 @@ FCombatLog_Defense_Data UCalculateDamage_Base::DefenseLog(FCombatLog_Damage_Data
     
    Defense_Data.passivesActivated = aAttachedEntity->combatEntityHub->CheckAttackDefencePassivesAndTokens(decementBy,aAttachedEntity,aAttacker,aSkill);
     
+    int MitagationLimit = DamageLog.FinalDamage * 0.8;
+    int rawDefence = DamageLog.FinalDamage  * (Defense_Data.DefaultDamageResistance / 100.0f);
+    
+    Defense_Data.FinalDamageResistance = rawDefence > MitagationLimit ? MitagationLimit : rawDefence ;
+    
     return Defense_Data;
 }
 
@@ -122,12 +127,12 @@ FCombatLog_AttackDefense_Data UCalculateDamage_Base::CalculateDamage(FCombatLog_
     AttackDefense_Data.DefenceData = DefenseLog;
 
     AttackDefense_Data.wasInitializedOnSkill = true;
-    
-    AttackDefense_Data.FinalDamageResult = DamageLog.FinalDamage - DefenseLog.DefaultDamageResistance;
+
+    AttackDefense_Data.FinalDamageResult = DamageLog.FinalDamage - DefenseLog.FinalDamageResistance;
 
     if(AttackDefense_Data.FinalDamageResult < 0)
     {
-        AttackDefense_Data.FinalDamageResult = 0;
+        AttackDefense_Data.FinalDamageResult = 1;
     }
     
     return AttackDefense_Data;

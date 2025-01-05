@@ -91,7 +91,7 @@ bool USkillBase::CanUseSkill(UCombatEntity* aSkillOwner, ESkillResourceUsed Skil
 		return aSkillOwner->currentMana > skillData.costToUse;
 		break;
 	case ESkillResourceUsed::Health:
-		return aSkillOwner->health->GetHealth() > skillData.costToUse;
+		return aSkillOwner->health->GetCurrentHealth() > skillData.costToUse;
 		break;
 	}
 
@@ -122,7 +122,7 @@ FCombatLog_CombatToken USkillBase::GiveCombatToken(int& aAmount, UCombatEntity* 
 	for (auto Element : skillData.combatTokensUsedOnSkill)
 	{
 		combatLogCombatToken.combatTokenData
-		.Add(aEntityToGiveToken->combatEntityHub->combatTokenHandler->AddCombatToken(Element.combatTokenID,Element.stackAmount));
+		.Add(aEntityToGiveToken->combatEntityHub->combatTokenHandler->AddCombatToken(Element.combatTokenID,Element));
 		combatLogCombatToken.passiveTokenAmount = aAmount;
 	}
 

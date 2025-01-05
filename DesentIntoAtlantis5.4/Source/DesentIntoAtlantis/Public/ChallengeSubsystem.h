@@ -21,6 +21,9 @@ class UChallengeSubsystem;
 /**
  * 
  */
+
+
+
 class DESENTINTOATLANTIS_API FEventBase
 {
 public:
@@ -59,6 +62,7 @@ private:
 	EPressTurnReactions pressturnReaction;
 	USkillBase* skillBase;
 };
+
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FChallengeData:public  FTableRowBase

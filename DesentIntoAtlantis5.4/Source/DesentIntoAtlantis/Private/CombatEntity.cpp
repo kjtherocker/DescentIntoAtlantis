@@ -113,17 +113,17 @@ void UCombatEntity::Reset()
 
 void UCombatEntity::AlimentDecrementHealth(int aDamage)
 {
-    currentHealth -= aDamage;
-    DeathCheck();
-    if(currentHealth < 0)
-    {
-        currentHealth = 0;
-    }
-    hasHealthOrManaValuesChanged.Broadcast();
-    if(!isMarkedForDeath)
-    {
-        ActivateDamageHitEffect();
-    }
+//    currentHealth -= aDamage;
+//    DeathCheck();
+//    if(currentHealth < 0)
+//    {
+//        currentHealth = 0;
+//    }
+//    hasHealthOrManaValuesChanged.Broadcast();
+//    if(!isMarkedForDeath)
+//    {
+//        ActivateDamageHitEffect();
+//    }
 }
 
 FCombatLog_AttackDefense_Data UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
@@ -162,7 +162,7 @@ void UCombatEntity::Resurrection()
 
 void UCombatEntity::DeathCheck()
 {
-    if(health->GetHealth() <= 0)
+    if(health->GetCurrentHealth() <= 0)
     {
         isMarkedForDeath = true;
     }

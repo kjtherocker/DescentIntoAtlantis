@@ -28,12 +28,23 @@ void UHealth::InitializeHealth(FHealthData aHealthData, UCombatEntity* aCombatEn
 	InitializeHealth(aHealthData.currentHealth, aHealthData.maxHealth,aCombatEntity);
 }
 
+void UHealth::GiveMaxHp()
+{
+	HealthData.currentHealth = HealthData.maxHealth;
+}
+
+void UHealth::SetHealth(FHealthData aHealthData)
+{
+	HealthData = aHealthData;
+	HealthData.currentHealth = HealthData.maxHealth;
+}
+
 void UHealth::SetHealth(int aHealth)
 {
 	HealthData.currentHealth = aHealth;
 }
 
-int UHealth::GetHealth()
+int UHealth::GetCurrentHealth()
 {
 	return HealthData.currentHealth;
 }
@@ -51,8 +62,8 @@ FCombatLog_AttackDefense_Data UHealth::DecrementHealth(UCombatEntity* aAttacker,
 	//	reaction =  EPressTurnReactions::Strong;
 	//}
 
-	FCombatLog_AttackDefense_Data AttackDefense_Data = CalculateDamage(aAttacker,aSkill); 
-	int totalDamage = AttackDefense_Data.FinalDamageResult;
+	lastAttackDefenceData = CalculateDamage(aAttacker,aSkill); 
+	int totalDamage = lastAttackDefenceData.FinalDamageResult;
 	HealthData.currentHealth -= totalDamage;
 
 	if(HealthData.currentHealth < 0)
@@ -64,7 +75,7 @@ FCombatLog_AttackDefense_Data UHealth::DecrementHealth(UCombatEntity* aAttacker,
 	hasHealthValuesChanged.Broadcast();
 
   
-	return AttackDefense_Data;
+	return lastAttackDefenceData;
 }
 
 EPressTurnReactions UHealth::IncrementHealth(UCombatEntity* aHealer, FSkillsData aSkill)

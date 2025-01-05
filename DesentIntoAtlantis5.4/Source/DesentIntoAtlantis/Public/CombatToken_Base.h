@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "CombatTokenStateInfo.h"
+#include "CombatTokenCurrentStatInfo.h"
 #include "CombatToken_Base_Data.h"
 #include "PassiveSkills.h"
 #include "UObject/NoExportTypes.h"
@@ -12,7 +12,7 @@
 struct FCombatToken_Base_Data;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCombatTokenEndEffect,UCombatToken_Base*,combatToken);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCombatTokenChange,FCombatTokenStateInfo,combatTokenInfo);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCombatTokenChange,FCombatTokenCurrentStatInfo,combatTokenInfo);
 /**
  * 
  */
@@ -23,7 +23,7 @@ class DESENTINTOATLANTIS_API UCombatToken_Base : public UPassiveSkills
 
 protected:
 	FCombatToken_Base_Data CombatToken_Base_Data;
-	FCombatTokenStateInfo CombatTokenStateInfo;
+	FCombatTokenCurrentStatInfo CombatTokenStateInfo;
 
 public:
 
@@ -33,10 +33,12 @@ public:
 	virtual FCombatToken_Base_Data GetCombatTokenData(){ return CombatToken_Base_Data;}
 	virtual ECombatTokenType GetCombatTokenType(){ return GetCombatTokenData().CombatTokenType;}
 	virtual ECombatTokenID GetCombatTokenID() { return GetCombatTokenData().CombatTokenID;}
-	virtual FCombatTokenStateInfo  GetCombatTokenStateInfo(){ return CombatTokenStateInfo;}
-	virtual void SetCombatToken(FCombatToken_Base_Data combatToken,UCombatEntity* aCombatEntity,int aStack = 1);
-
+	virtual FCombatTokenCurrentStatInfo  GetCombatTokenStateInfo(){ return CombatTokenStateInfo;}
+	virtual void InitializeCombatToken(FCombatToken_Base_Data combatToken,FCombatTokenStackData aCombatTokenStackData,UCombatEntity* aCombatEntity);
+	virtual void SetTurnsRemaining(FCombatTokenStackData aCombatTokenStateInfo);
 	virtual void InvertCombatToken(FCombatToken_Base_Data combatToken);
+
+	virtual int GetTurnResetValue();
 	
 	virtual void ValidateStackState();
 	virtual void AddNewTokenStack(int aAddedTokens);
@@ -49,7 +51,7 @@ public:
 	virtual void RemovePassive() override;
 	virtual void ActivatePassive() override;
 
-	virtual void SameCombatTokenWasAdded(int aStack = 1);
+	virtual void SameCombatTokenWasAdded(FCombatTokenStackData aCombatTokenStackData);
 	virtual void BroadCastCombatTokenChange();
 };
 

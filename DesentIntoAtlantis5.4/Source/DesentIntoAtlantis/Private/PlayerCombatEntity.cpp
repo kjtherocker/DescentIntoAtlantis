@@ -66,11 +66,10 @@ void UPlayerCombatEntity::Reset()
 void UPlayerCombatEntity::SetToDefaultState()
 {
 	Super::SetToDefaultState();
-	maxHealth         =  classHandler->mainClass->completeClassData.classStatBase.maxHealth;
-	currentHealth     =  maxHealth;
-	maxMana           =  classHandler->mainClass->completeClassData.classStatBase.maxMana;
 
-	health->SetHealth(maxHealth);
+	maxMana           =  classHandler->mainClass->completeClassData.classStatBase.maxMana;
+	health->GiveMaxHp();
+	
 	currentMana       =  maxMana;
     isMarkedForDeath  =  false;
 
@@ -107,7 +106,7 @@ void UPlayerCombatEntity::GatherAndSavePlayerCompleteDataSet()
 	playerCompleteDataSet.CompleteElementalHandlerData    = combatEntityHub->elementalHandler->CompleteElementalHandlerData;
 	playerCompleteDataSet.PassiveHandlerData              = combatEntityHub->passiveHandler->GetPassiveHandlerData();
 
-	playerCompleteDataSet.HealthData.currentHealth = health->GetHealth();
+	playerCompleteDataSet.HealthData.currentHealth = health->GetCurrentHealth();
 	playerCompleteDataSet.currentMP = currentMana;
 }
 
@@ -192,11 +191,15 @@ void UPlayerCombatEntity::LevelUp(int aNewLevel)
 
 	currentLevel = aNewLevel;
 
-	maxHealth     = 10 * aNewLevel;
+	FHealthData HealthData;
+	HealthData.maxHealth = 50;
+	HealthData.maxHealth += 5 * aNewLevel;
+	health->SetHealth(HealthData);
 	
-	maxMana       = 99;
-	maxMana       += 25 * aNewLevel;
-	currentHealth = maxHealth;
+	maxMana       = 50;
+	maxMana       += 5 * aNewLevel;
+
+
 	currentMana   = maxMana;
 
 	SetAbilityScores();

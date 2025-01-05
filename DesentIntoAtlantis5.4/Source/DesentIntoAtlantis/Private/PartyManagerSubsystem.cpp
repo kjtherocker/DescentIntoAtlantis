@@ -34,10 +34,14 @@ void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UData
 	LevelExperienceTable = PartyExperienceTable.LevelExpValue;
 	
 	UDataTable* classDatatable = aClassDataTable;
-	for(int i = 0 ; i < classDatatable->GetRowMap().Num(); i ++)
+
+	if(classDatatable)
 	{
-		FCompleteClassData completeClassData = *classDatatable->FindRow<FCompleteClassData>(FName(FString::FromInt(i)),FString("Searching for Classes"),true) ;
-		classDataTables.Add(completeClassData.classIdentifer,completeClassData);
+		for (auto Element : classDatatable->GetRowNames())
+		{
+			FCompleteClassData completeClassData = *classDatatable->FindRow<FCompleteClassData>(FName(Element),FString("Searching for Classes"),true) ;
+			classDataTables.Add(completeClassData.classIdentifer,completeClassData);
+		}
 	}
 	
 	// Cast the game instance to your custom game instance class
@@ -46,17 +50,17 @@ void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UData
 	passiveSkillFactory = persistentGameInstance->GetSubsystem<UPassiveSkillFactorySubsystem>();
 	
 	UDataTable* datatable = aPlayerData;
-	for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
+	
+	if(datatable)
 	{
-		playerEntityData.Add(*datatable->FindRow<FPlayerIdentityData>(FName(FString::FromInt(i)),FString("Searching for Players"),true));
+		for (auto Element : datatable->GetRowNames())
+		{
+			playerEntityData.Add(*datatable->FindRow<FPlayerIdentityData>(FName(Element),FString("Searching for Players"),true));
+			EPartyMembers partyMember = playerEntityData.Last().characterIdentifier;
+			playerIdenityMap.Add(partyMember,playerEntityData.Last());
+		}
 	}
 	
-	for(int i = 0;i < playerEntityData.Num();i++)
-	{
-		//if we dont get back the correct information from the datatable
-		EPartyMembers partyMember = playerEntityData[i].characterIdentifier;
-		playerIdenityMap.Add(partyMember,playerEntityData[i]);
-	}
 }
 
 void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembers aPlayer)

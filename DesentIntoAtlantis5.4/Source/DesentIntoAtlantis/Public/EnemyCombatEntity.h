@@ -44,7 +44,7 @@ struct DESENTINTOATLANTIS_API FEnemyEntityData :public  FCombatEntityData
 
 	UPROPERTY( EditAnywhere )
 	FString Behaviour;
-
+	
 	UPROPERTY( EditAnywhere )
 	FCompleteElementalHandlerData CompleteElementalHandlerData;
 

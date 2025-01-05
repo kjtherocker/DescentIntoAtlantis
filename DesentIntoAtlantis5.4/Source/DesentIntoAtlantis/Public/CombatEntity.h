@@ -53,10 +53,8 @@ USTRUCT()
 struct DESENTINTOATLANTIS_API FCombatEntityData :public  FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
-	UPROPERTY( EditAnywhere )
-	int maxHealth = 0;
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 	FHealthData HealthData;
 	
 	UPROPERTY( EditAnywhere )
@@ -170,10 +168,6 @@ public:
 	UPROPERTY()
 	UCombatEntityHub* combatEntityHub;
 	
-	UPROPERTY()
-	int maxHealth;
-	UPROPERTY()
-	int currentHealth;
 	UPROPERTY()
 	int maxMana;
 	UPROPERTY()
