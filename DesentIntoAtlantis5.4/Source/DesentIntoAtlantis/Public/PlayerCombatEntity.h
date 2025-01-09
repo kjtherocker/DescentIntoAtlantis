@@ -9,6 +9,7 @@
 #include "CombatClass.h"
 #include "CompleteClassHandlerData.h"
 #include "CompleteElementalHandlerData.h"
+#include "EquipmentHandler.h"
 #include "PassiveSkillHandlerData.h"
 #include "PlayerCombatEntity.generated.h"
 
@@ -30,7 +31,9 @@ struct DESENTINTOATLANTIS_API FPlayerIdentityData :public  FTableRowBase
 	UPROPERTY( EditAnywhere )
 	EClasses initalClass;
 
-
+	UPROPERTY(EditAnywhere)
+	FEquipmentHandlerData DefaultSpawnEquipmentHandlerData;
+	
 	UPROPERTY(EditAnywhere)
 	FCombatEntityData playerStatGrowths;
 	UPROPERTY(EditAnywhere)
@@ -62,7 +65,9 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 
 	UPROPERTY(EditAnywhere)
 	FPassiveHandlerData PassiveHandlerData;
-
+	
+	UPROPERTY( EditAnywhere )
+	FEquipmentHandlerData EquipmentHandlerData;
 	
 	UPROPERTY(EditAnywhere)
 	TArray<ESkillIDS> skillSlots;
@@ -110,7 +115,7 @@ public:
     virtual void InitializeStats(EStatTypes aAbilityScoreTypes) override;
 	virtual void LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet);
 	virtual void SetPlayerEntity(FPlayerIdentityData aPlayerEntityData);
-	virtual void SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassiveSkillFactorySubsystem* aPassiveSkillFactory) override;
+	virtual void SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassiveFactorySubsystem* aPassiveSkillFactory) override;
 	
 	virtual void InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData);
 	virtual void SetMainClass(EClasses aClass);

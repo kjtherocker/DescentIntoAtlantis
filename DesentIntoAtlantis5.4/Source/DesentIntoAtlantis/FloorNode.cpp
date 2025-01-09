@@ -103,7 +103,7 @@ void AFloorNode::SetWalkableDirections(short aWalkabledirections)
 	                     FRotator(0, 0, 0));
 
 	SetFloorNodeWallInfo(ECardinalNodeDirections::Right,
-	                     FVector(]]]]]]105.0, 0, 200),
+	                     FVector(105.0, 0, 200),
 	                     FRotator(0, 90, 0));
 
 	SetFloorNodeWallInfo(ECardinalNodeDirections::Down,

@@ -9,7 +9,7 @@
 #include "Engine/GameInstance.h"
 #include "PersistentGameinstance.generated.h"
 
-class UPassiveSkillFactorySubsystem;
+class UPassiveFactorySubsystem;
 class UChallengeSubsystem;
 enum class EElementalType: uint8;
 class ULevelProgressionSubsystem;
@@ -77,7 +77,7 @@ public:
 	UPROPERTY()
 	UEnemyFactorySubSystem*    enemyFactorySubSystem;
 	UPROPERTY()
-	UPassiveSkillFactorySubsystem*  passiveFactorySubsystem;
+	UPassiveFactorySubsystem*  passiveFactorySubsystem;
 	UPROPERTY()
 	UEventDispatcherSubsystem*       eventDispatcherSubsystem;
 	

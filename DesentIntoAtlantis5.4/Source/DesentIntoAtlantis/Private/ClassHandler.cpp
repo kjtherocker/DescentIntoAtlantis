@@ -81,6 +81,29 @@ TArray<USkillBase*> UClassHandler::GetClassSkills(EClassSlot ClassSlot)
 	return Skills;
 }
 
+FString UClassHandler::GetClassName(EClassSlot aClass)
+{
+	switch (aClass)
+	{
+	case EClassSlot::None:
+		break;
+	case EClassSlot::Main:
+		if(mainClass != nullptr)
+		{
+			return mainClass->completeClassData.className;
+		}
+		break;
+	case EClassSlot::Sub:
+		if(subClass != nullptr)
+		{
+			return subClass->completeClassData.className;
+		}
+		break;
+	}
+
+	return "";
+}
+
 void UClassHandler::GiveClassPoints(int aClassPoints)
 {
 	CompleteClassHandlerData.ClassPoints += aClassPoints;

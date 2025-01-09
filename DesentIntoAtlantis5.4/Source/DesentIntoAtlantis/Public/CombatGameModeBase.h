@@ -114,7 +114,7 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	UPROPERTY()
 	UChallengeSubsystem* godManagerSubsystem;
 	UPROPERTY()
-	UPassiveSkillFactorySubsystem* passiveSkillFactorySubsystem;
+	UPassiveFactorySubsystem* passiveSkillFactorySubsystem;
 	
 public:
 	UPROPERTY(BlueprintAssignable, Category = "Test")

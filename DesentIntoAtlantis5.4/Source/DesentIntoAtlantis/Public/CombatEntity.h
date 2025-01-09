@@ -16,7 +16,7 @@
 
 
 class UCombatEntityHub;
-class UPassiveSkillFactorySubsystem;
+class UPassiveFactorySubsystem;
 class UCombatStat;
 class UPassiveHandler;
 class UPassiveSkills;
@@ -62,6 +62,7 @@ struct DESENTINTOATLANTIS_API FCombatEntityData :public  FTableRowBase
 	
 	UPROPERTY( EditAnywhere )
 	TMap< EStatTypes,int> baseStats;
+	
 	
 //	UPROPERTY( EditAnywhere )
 //	TMap<EPassiveSkillIDS, FPassiveSkillsData> passiveSkills;
@@ -113,7 +114,7 @@ public:
 	FCombatEntityRoundEnd              OnRoundEnd;
 	UFUNCTION()
 	virtual void SetAWrapperToDefault(ECombatEntityWrapperType aShellType);
-	virtual void SetCombatEntity(USkillFactorySubsystem*  aSkillFactory,UPassiveSkillFactorySubsystem* aPassiveSkillFactory);
+	virtual void SetCombatEntity(USkillFactorySubsystem*  aSkillFactory,UPassiveFactorySubsystem* aPassiveSkillFactory);
 	
 	virtual void SetTacticsEvents(ACombatGameModeBase* aCombatManager);
 

@@ -57,13 +57,22 @@ enum class EPassiveSkillID   : uint8
 	StatusAdept          = 1,
 	DarkIncrease         = 2,
 	DarkResist           = 3,
+	Hydrocity            = 4,
+};
+
+UENUM()
+enum class EEquipmentID   : uint8
+{
+	None                 = 0,
+	statup               = 1,
+	BracletOfWater       = 2
 };
 
 UENUM()
 enum class EPassiveSkillSlotType   : uint8
 {
 	None                 = 0,
-	Equip                = 1,
+	FreePassive          = 1,
 	MainClass            = 2,
 	SubClass             = 3,
 	Equipment            = 4,
@@ -164,8 +173,32 @@ struct DESENTINTOATLANTIS_API FPassiveSkillClassData : public FTableRowBase
 	EPassiveSkillID passiveSkillID;
 
 	UPROPERTY(EditAnywhere)
-	int CPCost;
+	int CPCost = 1;
 
 	UPROPERTY()
 	bool isPassiveOwned = false;
+};
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FEquipmentPassiveData : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+
+
+	UPROPERTY( EditAnywhere , Category = "Equipment")
+	EEquipmentID EquipmentID;
+	
+	UPROPERTY()
+	int slotNumber;
+	
+	UPROPERTY( EditAnywhere, Category = "Equipment" )
+	int EquipmentMaxStack = 5;
+
+	UPROPERTY( EditAnywhere , Category = "Equipment")
+	int Amount = 1;
+	
+	UPROPERTY( EditAnywhere , Category = "Skill")
+	EPassiveSkillID attachedPassive;
+
+
 };

@@ -32,41 +32,43 @@ struct DESENTINTOATLANTIS_API FCompleteClassData  :public  FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 
-	UPROPERTY( EditAnywhere )
-	FString className;
-	
-	UPROPERTY( EditAnywhere )
+	UPROPERTY( EditAnywhere , Category = "Identity")
 	EClasses classIdentifer = EClasses::None;
+	
+	UPROPERTY( EditAnywhere, Category = "Identity" )
+	FString className;
 
-	UPROPERTY(EditAnywhere)
-	int ClassPointCostToUnlock = 0;
-	UPROPERTY( EditAnywhere )
+	UPROPERTY(EditAnywhere, Category = "Identity")
+	EClassArchetype Archetype;
+
+	UPROPERTY(EditAnywhere, Category = "Identity")
+	EClassSubArchetype subArchetype;
+
+	UPROPERTY( EditAnywhere, Category = "Identity" )
+	FCompleteElementalHandlerData CompleteElementalHandlerData;
+
+	UPROPERTY( EditAnywhere , Category = "Stat")
 	FClassData classBaseStat;
-
-	UPROPERTY( EditAnywhere )
-
+	
+	UPROPERTY(EditAnywhere , Category = "Cost")
+	int ClassPointCostToUnlock = 0;
+	
+	UPROPERTY( EditAnywhere , Category = "SkillDefinition")
 	TMap<int,ESkillIDS> unlockableSkillByLevel;
 
+	UPROPERTY(EditAnywhere , Category = "SkillDefinition")
+	EPassiveSkillID classLockedPassive;
+	UPROPERTY(EditAnywhere, Category = "SkillDefinition")
+	TArray<FPassiveSkillClassData> classPassives;
 	
 	UPROPERTY()
 	EPartyMembers attachedEntityIdentifier = EPartyMembers::None;
 
 	UPROPERTY()
 	TArray<FSkillsData> syncSkills;
-
 	
 	UPROPERTY()
 	FClassData classStatBase;
-
-	UPROPERTY(EditAnywhere)
-	EPassiveSkillID classLockedPassive;
-	UPROPERTY(EditAnywhere)
-	TArray<FPassiveSkillClassData> classPassives;
-
-
-	UPROPERTY( EditAnywhere )
-	FCompleteElementalHandlerData CompleteElementalHandlerData;
-
 };
 
 

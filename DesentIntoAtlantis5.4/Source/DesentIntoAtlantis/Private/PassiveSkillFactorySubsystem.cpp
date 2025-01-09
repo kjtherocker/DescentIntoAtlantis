@@ -2,53 +2,56 @@
 
 
 #include "PassiveSkillFactorySubsystem.h"
+
+#include "EquipmentPassive.h"
 #include "PassiveSkills.h"
 
-void UPassiveSkillFactorySubsystem::InitializeDatabase(UDataTable* aPassiveDataTable,UDataTable*  aCombatTokenDataTable)
+void UPassiveFactorySubsystem::InitializeDatabase(UDataTable* aPassiveDataTable,UDataTable*  aCombatTokenDataTable,UDataTable*  aEquipmentDataTable)
 {
 
 
 	allPassiveSkills.Add(EPassiveSkillID::DarkIncrease,NewObject<UGenericOnAttackPassive>());
 	allPassiveSkills.Add(EPassiveSkillID::DarkResist,  NewObject<UGenericOnAttackPassive>());
 	allPassiveSkills.Add(EPassiveSkillID::StatusAdept, NewObject<UGenericStatPassive>());
+	allPassiveSkills.Add(EPassiveSkillID::Hydrocity, NewObject<UGenericOnAttackPassive>());
 
-	
-	
+
+
 	UDataTable*  datatable = aPassiveDataTable;
 	if(datatable)
 	{
-		for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
+		for (auto Element : datatable->GetRowNames())
 		{
-			FPassiveSkillData skillData = *datatable->FindRow<FPassiveSkillData>(FName(FString::FromInt(i)),FString("Searching for Skills"),true);
-			
+			FPassiveSkillData skillData = *datatable->FindRow<FPassiveSkillData>(FName(Element),FString("Searching for Classes"),true) ;
 			allPassiveSkills[skillData.passiveSkillID]->InitializePassiveSkilData(skillData);
-
 		}
 	}
-	else
-	{
-		UE_LOG(LogTemp, Log, TEXT("SkillFactory isnt receving the correct Skills Datatable"));
-
-	}
-
+	
+	
 	UDataTable*  combatTokenDataTable = aCombatTokenDataTable;
 	if(combatTokenDataTable)
 	{
-		for(int i = 0 ; i < combatTokenDataTable->GetRowMap().Num(); i ++)
+		for (auto Element : combatTokenDataTable->GetRowNames())
 		{
-			FCombatToken_Base_Data skillData = *combatTokenDataTable->FindRow<FCombatToken_Base_Data>(FName(FString::FromInt(i)),FString("Searching for Skills"),true);
-			
-			allCombatTokensData.Add(skillData.CombatTokenID,skillData );
+			FCombatToken_Base_Data equipmentData = *combatTokenDataTable->FindRow<FCombatToken_Base_Data>(FName(Element),FString("Searching for Classes"),true) ;
+			allCombatTokensData.Add(equipmentData.CombatTokenID,equipmentData );
 		}
 	}
-	else
-	{
-		UE_LOG(LogTemp, Log, TEXT("SkillFactory isnt receving the correct Skills Datatable"));
+	
+	
 
+	UDataTable*  equipmentDatatable = aEquipmentDataTable;
+	if(equipmentDatatable)
+	{
+		for (auto Element : equipmentDatatable->GetRowNames())
+		{
+			FEquipmentPassiveData equipmentData = *equipmentDatatable->FindRow<FEquipmentPassiveData>(FName(Element),FString("Searching for Classes"),true) ;
+			allEquipmentData.Add(equipmentData.EquipmentID,equipmentData);
+		}
 	}
 }
 
-UPassiveSkills* UPassiveSkillFactorySubsystem::GetPassiveSkill(EPassiveSkillID aPassiveSkillID)
+UPassiveSkills* UPassiveFactorySubsystem::GetPassiveSkill(EPassiveSkillID aPassiveSkillID)
 {
 	if(aPassiveSkillID == EPassiveSkillID::None)
 	{
@@ -63,7 +66,7 @@ UPassiveSkills* UPassiveSkillFactorySubsystem::GetPassiveSkill(EPassiveSkillID a
 	return allPassiveSkills[aPassiveSkillID];
 }
 
-FCombatToken_Base_Data UPassiveSkillFactorySubsystem::GetCombatTokenData(ECombatTokenID combatTokenID)
+FCombatToken_Base_Data UPassiveFactorySubsystem::GetCombatTokenData(ECombatTokenID combatTokenID)
 {
 	FCombatToken_Base_Data empty;
 	if(combatTokenID == ECombatTokenID::None)
@@ -80,7 +83,28 @@ FCombatToken_Base_Data UPassiveSkillFactorySubsystem::GetCombatTokenData(ECombat
 	return allCombatTokensData[combatTokenID];
 }
 
-bool UPassiveSkillFactorySubsystem::DoesPassiveSkillExist(EPassiveSkillID aPassiveSkillID)
+bool UPassiveFactorySubsystem::DoesPassiveSkillExist(EPassiveSkillID aPassiveSkillID)
 {
 	return allPassiveSkills.Contains(aPassiveSkillID);
+}
+
+UEquipmentPassive* UPassiveFactorySubsystem::CreateEquipment(EEquipmentID aEquipmentID)
+{
+	UEquipmentPassive* newEquipment = NewObject<UEquipmentPassive>();
+	switch (aEquipmentID)
+	{
+	case EEquipmentID::None:
+		return nullptr;
+		break;
+	case EEquipmentID::statup:
+		newEquipment = NewObject<UEquipmentPassive>();
+		break;
+	}
+
+	if(newEquipment != nullptr)
+	{
+		newEquipment->InitializeEquipmentPassive(GetPassiveSkill(allEquipmentData[aEquipmentID].attachedPassive));
+	}
+
+	return newEquipment;
 }

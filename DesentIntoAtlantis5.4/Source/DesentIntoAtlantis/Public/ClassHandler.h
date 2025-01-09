@@ -41,6 +41,8 @@ public:
 	virtual void InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData);
 	virtual void SetClass(EClasses aClass, EClassSlot ClassSlot);
 	virtual TArray<USkillBase*> GetClassSkills(EClassSlot ClassSlot);
+
+	virtual FString GetClassName(EClassSlot aClass);
 	
 	virtual void GiveClassPoints(int aClassPoints);
 	virtual void RemoveClassPoints(int aClassPoints);

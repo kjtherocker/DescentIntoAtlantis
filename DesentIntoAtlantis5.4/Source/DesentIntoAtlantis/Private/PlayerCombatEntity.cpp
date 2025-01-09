@@ -36,7 +36,7 @@ void UPlayerCombatEntity::SetPlayerEntity(FPlayerIdentityData aPlayerEntityData)
 	playerIdentityData                       = aPlayerEntityData;
 }
 
-void UPlayerCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassiveSkillFactorySubsystem* aPassiveSkillFactory)
+void UPlayerCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassiveFactorySubsystem* aPassiveSkillFactory)
 {
 	Super::SetCombatEntity(aSkillFactory,aPassiveSkillFactory);
 	characterType = ECharactertype::Ally;

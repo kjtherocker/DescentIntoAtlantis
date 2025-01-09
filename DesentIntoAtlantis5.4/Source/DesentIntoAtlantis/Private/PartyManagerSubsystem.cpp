@@ -13,6 +13,7 @@
 #include "PlayerCombatEntity.h"
 #include "SaveGameData.h"
 #include "SaveManagerSubsystem.h"
+#include "UPartyInventory.h"
 
 
 UPartyManagerSubsystem::UPartyManagerSubsystem()
@@ -24,6 +25,8 @@ void UPartyManagerSubsystem::LoadSavedPartyManagerSubsystem(FCompletePartyManage
 	CompletePartyManagerSubsystemData = aPartyManagerSubsystemData;
 	totalExperience                   = aPartyManagerSubsystemData.totalExperience;
 	partyLevel                        = aPartyManagerSubsystemData.partyLevel;
+
+	PartyInventory->InitializePartyInventory(aPartyManagerSubsystemData.PartyInventoryCompleteData,persistentGameInstance->passiveFactorySubsystem);
 }
 
 void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UDataTable* aClassDataTable, UDataTable* aPartyExperienceTable)
@@ -47,7 +50,8 @@ void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UData
 	// Cast the game instance to your custom game instance class
 	persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
 	skillFactory = persistentGameInstance->GetSubsystem<USkillFactorySubsystem>();
-	passiveSkillFactory = persistentGameInstance->GetSubsystem<UPassiveSkillFactorySubsystem>();
+	passiveSkillFactory = persistentGameInstance->GetSubsystem<UPassiveFactorySubsystem>();
+	PartyInventory = NewObject<UPartyInventory>();
 	
 	UDataTable* datatable = aPlayerData;
 	
@@ -60,6 +64,8 @@ void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UData
 			playerIdenityMap.Add(partyMember,playerEntityData.Last());
 		}
 	}
+
+	PartyInventory->InitializePartyInventory(CompletePartyManagerSubsystemData.PartyInventoryCompleteData,persistentGameInstance->passiveFactorySubsystem);
 	
 }
 
@@ -78,6 +84,19 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembers aPlayer)
 		PlayerCombatEntity->LevelUp(partyLevel);
 	}
 
+	FEquipmentHandlerData equipmentHandlerData = playerIdenityMap[aPlayer].DefaultSpawnEquipmentHandlerData;
+
+	for (auto EquipmentPassiveData : equipmentHandlerData.equipmentPassiveData)
+	{
+		FEquipmentRequestInfo EquipmentRequestInfo;
+		EquipmentRequestInfo.equipmentID = EquipmentPassiveData.EquipmentID;
+		EquipmentRequestInfo.amount	     = EquipmentPassiveData.Amount;
+
+		PartyInventory->AddEquipmentToInventory(EquipmentRequestInfo);
+	}
+	
+	PlayerCombatEntity->combatEntityHub->equipmentHandler->SetEquipmentState(equipmentHandlerData);
+	
 	PlayerCombatEntity->health->InitializeHealth(50,50,PlayerCombatEntity);
 	playerCombatEntity.Add(PlayerCombatEntity);
 	playerCombatEntityInfo.Add(aPlayer,PlayerCombatEntity);
@@ -110,6 +129,7 @@ void UPartyManagerSubsystem::SavePartyManager()
 	CompletePartyManagerSubsystemData.partyLevel       = partyLevel;
 	CompletePartyManagerSubsystemData.totalExperience  = totalExperience;
 	CompletePartyManagerSubsystemData.totalClassPoints = totalClassPoints;
+	CompletePartyManagerSubsystemData.PartyInventoryCompleteData = PartyInventory->GetPartyInventoryCompleteData();
 	PartyManagerHasChanged.Broadcast(CompletePartyManagerSubsystemData);
 }
 
@@ -208,16 +228,8 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 
 		PlayerCombatEntity->LevelUp(partyLevel);
 
-		FPassiveHandlerData passiveHandler = playerCompleteDataSet.Value.PassiveHandlerData;
-		
-		for (auto PassiveSkillData : passiveHandler.PassiveSkillsDatas)
-		{
-			if(PassiveSkillData.passiveSkillPlacement == EPassiveSkillSlotType::Debug)
-			{
-				continue;
-			}
-			PlayerCombatEntity->AddPassive(passiveSkillFactory->GetPassiveSkill(PassiveSkillData.passiveSkillID),PassiveSkillData.passiveSkillPlacement);			
-		}
+		PlayerCombatEntity->combatEntityHub->equipmentHandler->SetEquipmentState(playerCompleteDataSet.Value.EquipmentHandlerData);
+		PlayerCombatEntity->combatEntityHub->passiveHandler->SetPassiveHandlerState(playerCompleteDataSet.Value.PassiveHandlerData);
 
 		AddPlayerToActiveParty(partyMember);
 	}

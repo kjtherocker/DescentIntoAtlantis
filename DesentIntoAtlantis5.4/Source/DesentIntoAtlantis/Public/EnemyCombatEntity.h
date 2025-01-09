@@ -6,6 +6,7 @@
 #include "CombatEntity.h"
 #include "CompleteElementalHandlerData.h"
 #include "EnemyBeastiaryData.h"
+#include "EquipmentHandler.h"
 #include "SkillBase.h"
 #include "UObject/NoExportTypes.h"
 #include "EnemyCombatEntity.generated.h"
@@ -46,6 +47,8 @@ struct DESENTINTOATLANTIS_API FEnemyEntityData :public  FCombatEntityData
 	FString Behaviour;
 	
 	UPROPERTY( EditAnywhere )
+	FEquipmentHandlerData EquipmentHandlerData;
+	UPROPERTY( EditAnywhere )
 	FCompleteElementalHandlerData CompleteElementalHandlerData;
 
 	UPROPERTY(EditAnywhere)
@@ -59,6 +62,7 @@ class DESENTINTOATLANTIS_API UEnemyCombatEntity : public UCombatEntity
 {
 	GENERATED_BODY()
 private:
+	
 public:
 	void SetAbilityScores();
 	void SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactorySubsystem * skillFactory,EEnemyCombatPositions aPortraitPosition);
@@ -68,6 +72,8 @@ public:
 	EEnemyCombatPositions portraitPosition;
 
 	virtual FString GetEntityName() override;
+
+	
 	
 	UPROPERTY()
 	TArray<USkillBase*> enemySkills;

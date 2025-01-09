@@ -17,17 +17,17 @@ void UPassiveSkills::InitializePassiveSkilData(FPassiveSkillData aPassiveSkillsD
 	passiveSkillData = aPassiveSkillsData;
 }
 
-void UPassiveSkills::AttachPassiveToOwner(UCombatEntity* aCombatEntity)
+void UPassives::AttachPassiveToOwner(UCombatEntity* aCombatEntity)
 {
 	attachedCombatEntity = aCombatEntity;
 }
 
-void UPassiveSkills::RemovePassive()
+void UPassives::RemovePassive()
 {
 	attachedCombatEntity = nullptr;
 }
 
-void UPassiveSkills::ActivatePassive()
+void UPassives::ActivatePassive()
 {
 	if(isDisabled)
 	{
@@ -35,11 +35,11 @@ void UPassiveSkills::ActivatePassive()
 	}
 }
 
-void UPassiveSkills::ApplyEffect(UCombatEntity* aCombatEntity)
+void UPassives::ApplyEffect(UCombatEntity* aCombatEntity)
 {
 }
 
-void UPassiveSkills::RemoveEffect(UCombatEntity* aCombatEntity)
+void UPassives::RemoveEffect(UCombatEntity* aCombatEntity)
 {
 }
 
@@ -140,11 +140,11 @@ bool UGenericOnAttackPassive::IsPassiveTriggered_Implementation(int& CurrentDama
 	{
 		return false;
 	}
-	//if(passiveSkillData.trigger5ElementalType != skillData.elementalType
-	//	&& passiveSkillData.trigger5ElementalType != EElementalType::None)
-	//{
-	//	return false;
-	//}
+	if(passiveSkillData.trigger5ElementalType != skillData.elementalType
+		&& passiveSkillData.trigger5ElementalType != EElementalType::None)
+	{
+		return false;
+	}
 	return true;
 }
 

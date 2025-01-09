@@ -86,7 +86,7 @@ void UTitleView::ExitGame()
 void UTitleView::ActivateTitleMenuSelection()
 {
 	const ETitleStates titleStateToActivate = static_cast<ETitleStates>(cursorPosition);
-	commandboardSelections[titleStateToActivate].Broadcast();
+	ViewSelection[titleStateToActivate].Broadcast();
 	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Accept);
 	
 }
@@ -95,7 +95,7 @@ void UTitleView::CreateAndBindDelegateOption(ETitleStates aTitleState,typename T
 {
 	FViewSelection newViewSelection;
 	newViewSelection.__Internal_AddDynamic(this,InFunc,FuncName);
-	commandboardSelections.Add(aTitleState,newViewSelection );
+	ViewSelection.Add(aTitleState,newViewSelection );
 }
 
 void UTitleView::SetStartGameDelegate(FStartGameDelegate aStartGameDelegate)

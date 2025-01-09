@@ -12,13 +12,25 @@ struct FPassiveSkillData;
 /**
  * 
  */
+
+UENUM()
+enum class  EEquipmentMenuSlot  : uint8
+{
+	None             = 0,
+	MainClass        = 1,
+	SubClass         = 2,
+	Equipment        = 3,
+	Passive          = 4,
+};
+
+
 UCLASS()
 class DESENTINTOATLANTIS_API UEquipMenuView : public UBaseUserWidgetMovingButtons
 {
 	GENERATED_BODY()
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 
-	void CreatePassiveSkillbar();
+	void CreatePassiveSkillbar(EEquipmentMenuSlot aEquipmentSlot,FPassiveSkillData aSkill);
 	void SetPassiveSkillBar(FPassiveSkillData aSkill, UPassiveSkillElement* PassiveSkillElement);
 
 	virtual void SetCursorPositionInfo() override;
@@ -26,11 +38,42 @@ class DESENTINTOATLANTIS_API UEquipMenuView : public UBaseUserWidgetMovingButton
 	virtual void MoveUp() override;
 	virtual void MoveDown() override;
 
+	UFUNCTION()
+	virtual void MainClassClicked();
+	UFUNCTION()
+	virtual void SubClassClicked();
+	UFUNCTION()
+	virtual void EquipmentClicked();
+	UFUNCTION()
+	virtual void PassiveClicked();
+	UFUNCTION()
+	virtual void ActivateEquipMenuSelection();
+	UPROPERTY()
+	TMap<EEquipmentMenuSlot,FViewSelection > ViewSelection;
+
+	UPROPERTY()
+	UPartyManagerSubsystem* PartyManagerSubsystem;
+
 public:
 	void SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsystem);
-	
+
+	void CreateAndBindDelegateOption(EEquipmentMenuSlot aTitleState,typename TMemFunPtrType<false, UEquipMenuView, void()>::Type InFunc, const FName& FuncName );
+
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UTextBlock* BW_CharacterNameText;
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UTextBlock* BW_CPAmount;
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UTextBlock* BW_MainClassText;
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UTextBlock* BW_SubClassText;
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	class UVerticalBox* BW_VerticalEquipBox;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	class UVerticalBox* BW_VerticalPassiveBox;
 	UPROPERTY()
-	TArray<UPassiveSkillElement*> PassiveSkillElements;
+	TArray<UPassiveSkillElement*> PassiveSkillSlots;
+	UPROPERTY()
+	TArray<UPassiveSkillElement*> equipmentSlots;
 };

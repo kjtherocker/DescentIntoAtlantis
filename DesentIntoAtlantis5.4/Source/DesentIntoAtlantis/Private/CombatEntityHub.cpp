@@ -4,23 +4,30 @@
 #include "CombatEntityHub.h"
 
 #include "ElementalHandler.h"
+#include "EquipmentHandler.h"
 #include "PassiveHandler.h"
+#include "PassiveSkillFactorySubsystem.h"
+#include "SkillData.h"
 
 void UCombatEntityHub::InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEntity,
-                                                 UPassiveSkillFactorySubsystem* aPassiveSkillFactorySubsystem)
+                                                 UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem)
 {
+	passiveSkillFactorySubsystem = aPassiveSkillFactorySubsystem;
+	
 	passiveHandler     = NewObject<UPassiveHandler>();
 	combatTokenHandler = NewObject<UCombatTokenHandler>();
 	elementalHandler   = NewObject<UElementalHandler>();
+	equipmentHandler   = NewObject<UEquipmentHandler>();
 	
 	elementalHandler->Initialize(aOwnedCombatEntity);
 	passiveHandler->InitializePassiveHandler(aOwnedCombatEntity,aPassiveSkillFactorySubsystem);
 	combatTokenHandler->InitializeCombatTokenHandler(aOwnedCombatEntity,aPassiveSkillFactorySubsystem);
-
+	equipmentHandler->InitializeEquipmentHandler(passiveHandler,aOwnedCombatEntity,aPassiveSkillFactorySubsystem);
 }
 
+
 TArray<FCombatLog_PassiveSkilData> UCombatEntityHub::CheckAttackDefencePassivesAndTokens(int& CurrentDamage,
-	UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker, FSkillsData aSkill)
+                                                                                         UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker, FSkillsData aSkill)
 {
 	TArray<FCombatLog_PassiveSkilData> PassiveSkilDatas;
 

@@ -27,6 +27,8 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,US
 	enemyBehaviour = NewObject<UEnemyBehaviour>();
 	enemyBehaviour->Initialize(this);
 
+	combatEntityHub->equipmentHandler->SetEquipmentState(AEnemyEntityData.EquipmentHandlerData);
+	
 	for(int i = 0 ; i < enemyEntityData.skillIDS.Num();i++)
 	{
 		enemySkills.Add(skillFactory->GetSkill(enemyEntityData.skillIDS[i]));

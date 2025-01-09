@@ -14,7 +14,7 @@ enum class EPassiveSkillID  : uint8;
  * 
  */
 UCLASS()
-class DESENTINTOATLANTIS_API UPassiveSkillFactorySubsystem : public UGameInstanceSubsystem
+class DESENTINTOATLANTIS_API UPassiveFactorySubsystem : public UGameInstanceSubsystem
 {
 	GENERATED_BODY()
 
@@ -24,11 +24,16 @@ class DESENTINTOATLANTIS_API UPassiveSkillFactorySubsystem : public UGameInstanc
 	UPROPERTY()
 	TMap<ECombatTokenID,FCombatToken_Base_Data> allCombatTokensData;
 
+	UPROPERTY()
+	TMap<EEquipmentID,FEquipmentPassiveData> allEquipmentData;
+
 
 public:
-	void InitializeDatabase(UDataTable*  aPassiveDataTable,UDataTable*  aCombatTokenDataTable);
+	void InitializeDatabase(UDataTable*  aPassiveDataTable,UDataTable*  aCombatTokenDataTable,UDataTable*  aEquipmentDataTable);
 	UPassiveSkills* GetPassiveSkill(EPassiveSkillID aPassiveSkillID);
 
 	FCombatToken_Base_Data GetCombatTokenData(ECombatTokenID combatTokenID);
 	bool DoesPassiveSkillExist(EPassiveSkillID aPassiveSkillID);
+
+	UEquipmentPassive* CreateEquipment(EEquipmentID aEquipmentID);
 };

@@ -85,14 +85,12 @@ public:
 
 
 
-
 UCLASS()
-class DESENTINTOATLANTIS_API UPassiveSkills : public UObject
+class DESENTINTOATLANTIS_API UPassives : public UObject
 {
 	GENERATED_BODY()
 
 public:
-	void InitializePassiveSkilData(FPassiveSkillData aPassiveSkillsData);
 	void AttachPassiveToOwner(UCombatEntity* aCombatEntity);
 	virtual void RemovePassive();
 	virtual void ActivatePassive();
@@ -102,12 +100,11 @@ public:
 	
 
 
-//	bool VerifyTriggers(DamageEvent* aDamageEvent);
+	//	bool VerifyTriggers(DamageEvent* aDamageEvent);
 
 	UPROPERTY()
 	int EffectValue;
 
-	FPassiveSkillData passiveSkillData;
 protected:
 
 
@@ -116,6 +113,17 @@ protected:
 	UPROPERTY()
 	UCombatEntity* attachedCombatEntity;
 	
+};
+
+
+UCLASS()
+class DESENTINTOATLANTIS_API UPassiveSkills : public UPassives
+{
+	GENERATED_BODY()
+
+public:
+	void InitializePassiveSkilData(FPassiveSkillData aPassiveSkillsData);
+	FPassiveSkillData passiveSkillData;
 };
 
 UCLASS()

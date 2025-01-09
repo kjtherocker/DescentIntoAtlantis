@@ -21,18 +21,32 @@ void UPassiveHandler::InitializeCombatArena()
 
 }
 
-void UPassiveHandler::InitializePassiveHandler(UCombatEntity* aOwnedCombatEntity,UPassiveSkillFactorySubsystem* aPassiveSkillFactorySubsystem)
+void UPassiveHandler::InitializePassiveHandler(UCombatEntity* aOwnedCombatEntity,UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem)
 {
 	sendPassiveTrigger.AddDynamic(this,&UPassiveHandler::CheckGenericTriggerPassives);
 	passiveSkillFactory = aPassiveSkillFactorySubsystem;
 	ownedCombatEntity   = aOwnedCombatEntity;
 }
 
+void UPassiveHandler::SetPassiveHandlerState(FPassiveHandlerData aPassiveHandler)
+{
+	FPassiveHandlerData passiveHandler = aPassiveHandler;
+		
+	for (auto PassiveSkillData : passiveHandler.PassiveSkillsDatas)
+	{
+		if(PassiveSkillData.passiveSkillPlacement == EPassiveSkillSlotType::Debug)
+		{
+			continue;
+		}
+		AddPassive(passiveSkillFactory->GetPassiveSkill(PassiveSkillData.passiveSkillID),PassiveSkillData.passiveSkillPlacement);			
+	}
+}
+
 void UPassiveHandler::CheckGenericTriggerPassives(EPassiveGenericTrigger aPassiveTrigger)
 {
 	passiveSkillsUsed.Empty();
 	 
-	for (UPassiveSkills* passiveSkillWrapper : passiveSkills)
+	for (UPassiveSkills* passiveSkillWrapper : allPassiveSkills)
 	{
 		if (IOnGenericPassive* genericTriggerPassive = Cast<IOnGenericPassive>(passiveSkillWrapper))
 		{
@@ -49,7 +63,7 @@ TArray< FCombatLog_PassiveSkilData> UPassiveHandler::CheckAttackDefencePassives(
 {
 	passiveSkillsUsed.Empty();
 	 
-	for (UPassiveSkills* passiveSkillWrapper : passiveSkills)
+	for (UPassiveSkills* passiveSkillWrapper : allPassiveSkills)
 	{
 		if (IOnAttackDefencePassive* attackDefencePassive = Cast<IOnAttackDefencePassive>(passiveSkillWrapper))
 		{
@@ -120,32 +134,51 @@ void UPassiveHandler::AddPassive(UPassiveSkills* aPassiveSkills,EPassiveSkillSlo
 		//UChallengeSubsystem godManagerSubsystem = persistentGameInstance->challengeManagerSubsystem;
 		//godManagerSubsystem
 	}
+	
 	aPassiveSkills->passiveSkillData.passiveSkillPlacement = passiveSkillSlot;
-	passiveSkills.Add(aPassiveSkills);
+	allPassiveSkills.Add(aPassiveSkills);
 	PassiveHandlerData.PassiveSkillsDatas.Add(aPassiveSkills->passiveSkillData);
 }
 
 void UPassiveHandler::RemovePassive(UPassiveSkills* aPassiveSkills)
 {
 	aPassiveSkills->RemoveEffect(ownedCombatEntity);
-	passiveSkills.Remove(aPassiveSkills);
+	allPassiveSkills.Remove(aPassiveSkills);
 	//assiveHandlerData.PassiveSkillsDatas.Remove(aPassiveSkills->passiveSkillData);
 }
 
 void UPassiveHandler::RemovePassiveBySlotType(EPassiveSkillSlotType passiveSkillSlot)
 {
-	for (int32 i = passiveSkills.Num() - 1; i >= 0; i--)
+	for (int32 i = allPassiveSkills.Num() - 1; i >= 0; i--)
 	{
-		if(passiveSkills[i]->passiveSkillData.passiveSkillPlacement == passiveSkillSlot)
+		if(allPassiveSkills[i]->passiveSkillData.passiveSkillPlacement == passiveSkillSlot)
 		{
-			RemovePassive(passiveSkills[i]);
+			RemovePassive(allPassiveSkills[i]);
 		}
 	}
 }
 
 TArray<UPassiveSkills*> UPassiveHandler::GetAllPassives()
 {
-	return passiveSkills;
+	return allPassiveSkills;
 }
+
+TArray<UPassiveSkills*> UPassiveHandler::GetAllFreeSlotPassives()
+{
+	TArray<UPassiveSkills*> passives;
+	
+	for(int i = 0 ; i < allPassiveSkills.Num();i++)
+	{
+		EPassiveSkillSlotType currentPassiveData = allPassiveSkills[i]->passiveSkillData.passiveSkillPlacement;
+		if(currentPassiveData == EPassiveSkillSlotType::FreePassive)
+		{
+			passives.Add(allPassiveSkills[i]);
+		}
+	}
+	
+	return passives;
+}
+
+
 
 

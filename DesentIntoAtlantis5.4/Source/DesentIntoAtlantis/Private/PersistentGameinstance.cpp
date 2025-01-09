@@ -30,7 +30,7 @@ void UPersistentGameinstance::Init()
 	partyManagerSubsystem           = GetSubsystem<UPartyManagerSubsystem>();
 	skillFactorySubsystem           = GetSubsystem<USkillFactorySubsystem>();
 	enemyFactorySubSystem           = GetSubsystem<UEnemyFactorySubSystem>();
-	passiveFactorySubsystem         = GetSubsystem<UPassiveSkillFactorySubsystem>();
+	passiveFactorySubsystem         = GetSubsystem<UPassiveFactorySubsystem>();
 	tutorialManagerSubsystem        = GetSubsystem<UTutorialManagerSubsystem>();
 	dialogueManagerSubsystem        = GetSubsystem<UDialogueFactorySubsystem>();
 	EventManagerSubSystem           = GetSubsystem<UEventManagerSubSystem>();
@@ -47,7 +47,8 @@ void UPersistentGameinstance::Init()
 
 	if(dataTables.Contains(EDataTableTypes::PassiveSkills) && dataTables.Contains(EDataTableTypes::CombatTokens))
 	{
-		passiveFactorySubsystem->InitializeDatabase(dataTables[EDataTableTypes::PassiveSkills],dataTables[EDataTableTypes::CombatTokens]);
+		passiveFactorySubsystem->InitializeDatabase(dataTables[EDataTableTypes::PassiveSkills],
+			dataTables[EDataTableTypes::CombatTokens],dataTables[EDataTableTypes::Equipment]);
 	}
 	
 	if(dataTables.Contains(EDataTableTypes::ChallengeTable))

@@ -21,7 +21,7 @@ protected:
 	void NewCombatTokenWasAdded(UCombatToken_Base* combatToken,FCombatToken_Base_Data aCombatTokenBaseData,FCombatTokenStackData combatTokenStackData);
 
 	UPROPERTY()
-	UPassiveSkillFactorySubsystem* passiveSkillFactorySubsystem;
+	UPassiveFactorySubsystem* passiveSkillFactorySubsystem;
 
 	UPROPERTY()
 	TArray< FCombatLog_PassiveSkilData> passiveSkillsUsed;
@@ -49,7 +49,7 @@ public:
 	virtual void AddAStackOfAllCombatTokens(int aStacks = 1);
 	virtual void AddAStackOfAllCombatTokens(ECombatTokenType aCombatTokenType,int aStacks = 1);
 	
-	virtual void InitializeCombatTokenHandler(UCombatEntity* aOwnedCombatEntity,UPassiveSkillFactorySubsystem* aPassiveSkillFactorySubsystem);
+	virtual void InitializeCombatTokenHandler(UCombatEntity* aOwnedCombatEntity,UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem);
 
 	virtual TArray< FCombatLog_PassiveSkilData> CheckAttackDefenceTokens(int& CurrentDamage ,UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill);
 	

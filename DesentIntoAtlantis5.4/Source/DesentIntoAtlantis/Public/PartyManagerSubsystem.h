@@ -5,13 +5,15 @@
 
 #include "CoreMinimal.h"
 #include "PlayerCombatEntity.h"
+#include "UPartyInventory.h"
 
 #include "Engine/DataTable.h"
 
 #include "UObject/NoExportTypes.h"
 #include "PartyManagerSubsystem.generated.h"
 
-class UPassiveSkillFactorySubsystem;
+class UPartyInventory;
+class UPassiveFactorySubsystem;
 class UPersistentGameinstance;
 class ACombatGameModeBase;
 struct FPlayerIdentityData;
@@ -41,6 +43,9 @@ struct DESENTINTOATLANTIS_API FCompletePartyManagerSubsystemData:public  FTableR
 	int totalExperience = 0;
 	UPROPERTY(EditAnywhere)
 	int totalClassPoints = 0;
+
+	UPROPERTY()
+	FPartyInventoryCompleteData PartyInventoryCompleteData;
 };
 
 /**
@@ -58,7 +63,7 @@ private:
 	USkillFactorySubsystem* skillFactory;
 
 	UPROPERTY()
-	UPassiveSkillFactorySubsystem* passiveSkillFactory;
+	UPassiveFactorySubsystem* passiveSkillFactory;
 
 	TMap<int,int> LevelExperienceTable;
 	TMap<EClasses,FCompleteClassData> classDataTables;
@@ -92,7 +97,9 @@ public:
 	
 	TArray<UPlayerCombatEntity*> ReturnActiveParty();
 
-	
+
+	UPROPERTY()
+	UPartyInventory* PartyInventory;
 	
 	TMap<EPartyMembers,FPlayerIdentityData> playerIdenityMap;
 	UPROPERTY()

@@ -25,6 +25,8 @@ protected:
 
 	UPROPERTY()
 	UPersistentGameinstance* persistentGameinstance;
+
+
 	
 	FLinearColor unhightlighedColor        = FLinearColor(0.0,0.0,0.0,1.0);
 	FLinearColor unhightlighedColorNoAlpha = FLinearColor(0.0,0.0,0.0,0.0);
@@ -39,7 +41,8 @@ public:
 	virtual void MoveDown();
 	virtual void ReturnToPreviousScreen();
 	virtual void PopMostActiveView();
-	
+
+
 	UPROPERTY()
 	AInGameHUD* InGameHUD;
 	EViews viewName;

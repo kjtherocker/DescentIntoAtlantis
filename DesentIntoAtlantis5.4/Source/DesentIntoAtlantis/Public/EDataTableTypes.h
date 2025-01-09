@@ -21,6 +21,7 @@ enum class  EDataTableTypes
 	ChallengeTable       = 12,
 	PassiveSkills        = 13,
 	CombatTokens         = 14,
+	Equipment            = 15,
 };
 
 
@@ -33,6 +34,30 @@ enum class  EClasses  : uint8
 	GemThief             = 3,
 	LaidOffExecutioner   = 4,
 };
+
+UENUM()
+enum class  EClassArchetype  : uint8
+{
+	None           = 0,
+	DPS            = 1,
+	Tank           = 2,
+	Healer         = 3,
+	Support        = 4,
+};
+
+UENUM()
+enum class  EClassSubArchetype  : uint8
+{
+	None           = 0,
+	Debuffer       = 1,
+	Buffer         = 2,
+	Evasion        = 3,
+	Juggernaut     = 4,
+	MagicResist    = 5,
+	Shifter        = 6,
+	PayOff         = 7,
+};
+
 
 UENUM()
 enum class  EClassSlot  : uint8

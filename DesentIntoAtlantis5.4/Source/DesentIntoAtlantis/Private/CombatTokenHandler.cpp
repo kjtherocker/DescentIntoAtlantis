@@ -221,7 +221,7 @@ void UCombatTokenHandler::AddAStackOfAllCombatTokens(ECombatTokenType aCombatTok
 }
 
 void UCombatTokenHandler::InitializeCombatTokenHandler(UCombatEntity* aOwnedCombatEntity,
-                                                       UPassiveSkillFactorySubsystem* aPassiveSkillFactorySubsystem)
+                                                       UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem)
 {
 	passiveSkillFactorySubsystem = aPassiveSkillFactorySubsystem;
 	OwnedCombatEntity            = aOwnedCombatEntity;
