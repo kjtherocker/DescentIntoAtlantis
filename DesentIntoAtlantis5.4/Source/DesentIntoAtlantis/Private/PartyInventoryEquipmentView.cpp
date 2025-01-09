@@ -11,7 +11,7 @@ class UPassiveSkillElement;
 
 void UPartyInventoryEquipmentView::ActivateEquipMenu(UPartyManagerSubsystem* aPartyManagerSubsystem)
 {
-
+///
 	UPartyInventory* PartyInventory = aPartyManagerSubsystem->PartyInventory;
 	TMap<EEquipmentID, UEquipmentPassive*> allEquipment = PartyInventory->GetAllEquipment();
 
