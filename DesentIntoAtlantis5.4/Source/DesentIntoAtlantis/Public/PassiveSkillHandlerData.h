@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "PassiveSkillData.h"
+#include "PassiveSlotHandler.h"
 #include "PassiveSkillHandlerData.generated.h"
 
 /**
@@ -15,5 +16,8 @@ struct DESENTINTOATLANTIS_API FPassiveHandlerData:public  FTableRowBase
 	GENERATED_USTRUCT_BODY()
 	UPROPERTY()
 	TArray<FPassiveSkillData> PassiveSkillsDatas;
+
+	UPROPERTY()
+	FPassiveSlotHandlerData PassiveSlotHandlerData;
 
 };

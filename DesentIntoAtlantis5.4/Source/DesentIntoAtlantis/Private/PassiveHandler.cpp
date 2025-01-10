@@ -23,6 +23,8 @@ void UPassiveHandler::InitializeCombatArena()
 
 void UPassiveHandler::InitializePassiveHandler(UCombatEntity* aOwnedCombatEntity,UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem)
 {
+	PassiveSlotHandler = NewObject<UPassiveSlotHandler>();
+	PassiveSlotHandler->InitializePassiveSlotHandler(this,aOwnedCombatEntity,aPassiveSkillFactorySubsystem);
 	sendPassiveTrigger.AddDynamic(this,&UPassiveHandler::CheckGenericTriggerPassives);
 	passiveSkillFactory = aPassiveSkillFactorySubsystem;
 	ownedCombatEntity   = aOwnedCombatEntity;
@@ -31,7 +33,8 @@ void UPassiveHandler::InitializePassiveHandler(UCombatEntity* aOwnedCombatEntity
 void UPassiveHandler::SetPassiveHandlerState(FPassiveHandlerData aPassiveHandler)
 {
 	FPassiveHandlerData passiveHandler = aPassiveHandler;
-		
+
+	PassiveSlotHandler->SetPassiveSlotState(passiveHandler.PassiveSlotHandlerData);
 	for (auto PassiveSkillData : passiveHandler.PassiveSkillsDatas)
 	{
 		if(PassiveSkillData.passiveSkillPlacement == EPassiveSkillSlotType::Debug)
@@ -170,7 +173,7 @@ TArray<UPassiveSkills*> UPassiveHandler::GetAllFreeSlotPassives()
 	for(int i = 0 ; i < allPassiveSkills.Num();i++)
 	{
 		EPassiveSkillSlotType currentPassiveData = allPassiveSkills[i]->passiveSkillData.passiveSkillPlacement;
-		if(currentPassiveData == EPassiveSkillSlotType::FreePassive)
+		if(currentPassiveData == EPassiveSkillSlotType::SlotPassive)
 		{
 			passives.Add(allPassiveSkills[i]);
 		}

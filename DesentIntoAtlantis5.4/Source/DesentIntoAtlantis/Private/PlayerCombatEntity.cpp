@@ -105,7 +105,9 @@ void UPlayerCombatEntity::GatherAndSavePlayerCompleteDataSet()
 	playerCompleteDataSet.CompleteClassHandlerData        = classHandler->CompleteClassHandlerData;
 	playerCompleteDataSet.CompleteElementalHandlerData    = combatEntityHub->elementalHandler->CompleteElementalHandlerData;
 	playerCompleteDataSet.PassiveHandlerData              = combatEntityHub->passiveHandler->GetPassiveHandlerData();
+	playerCompleteDataSet.PassiveHandlerData.PassiveSlotHandlerData = combatEntityHub->passiveHandler->PassiveSlotHandler->GetPassiveSlotData();
 
+	playerCompleteDataSet.EquipmentHandlerData           = combatEntityHub->equipmentHandler->GetEquipmentHandlerData();
 	playerCompleteDataSet.HealthData.currentHealth = health->GetCurrentHealth();
 	playerCompleteDataSet.currentMP = currentMana;
 }

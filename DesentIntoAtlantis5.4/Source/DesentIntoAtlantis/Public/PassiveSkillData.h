@@ -72,7 +72,7 @@ UENUM()
 enum class EPassiveSkillSlotType   : uint8
 {
 	None                 = 0,
-	FreePassive          = 1,
+	SlotPassive          = 1,
 	MainClass            = 2,
 	SubClass             = 3,
 	Equipment            = 4,

@@ -9,16 +9,48 @@
 
 class UPassiveSkillElement;
 
-void UPartyInventoryEquipmentView::ActivateEquipMenu(UPartyManagerSubsystem* aPartyManagerSubsystem)
+void UPartyInventoryEquipmentView::ActivateEquipMenu(UCombatEntity* aCombatEntity,UPartyManagerSubsystem* aPartyManagerSubsystem, int aEquipmentSlot)
 {
-//////
+	combatEntity = aCombatEntity;
+	equipmentSlot = aEquipmentSlot;
+	
+	InitializeInputComponent();
+	InputComponent->BindAction("Up"      ,IE_Pressed ,this, &UPartyInventoryEquipmentView::MoveUp  );
+	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &UPartyInventoryEquipmentView::MoveDown  );
+	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UPartyInventoryEquipmentView::ActivateInventoryMenuSelection  );
+	InputComponent->BindAction("Escape"   ,IE_Pressed ,this, &UPartyInventoryEquipmentView::PopMostActiveView  );
+
+
 	UPartyInventory* PartyInventory = aPartyManagerSubsystem->PartyInventory;
 	TMap<EEquipmentID, UEquipmentPassive*> allEquipment = PartyInventory->GetAllEquipment();
 
 	for (auto AllEquipment : allEquipment)
 	{
 		CreatePassiveSkillbar(AllEquipment.Value->GetPassiveSkill()->passiveSkillData);
+		EquipmentIds.Add(AllEquipment.Key);
 	}
+}
+
+void UPartyInventoryEquipmentView::MoveUp()
+{
+	PassiveSkillSlots[cursorPosition]->BW_BackgroundHighlight->SetColorAndOpacity(unhightlighedColorNoAlpha);
+	Super::MoveUp();
+	PassiveSkillSlots[cursorPosition]->BW_BackgroundHighlight->SetColorAndOpacity(highlightedColor);
+}
+
+void UPartyInventoryEquipmentView::MoveDown()
+{
+	PassiveSkillSlots[cursorPosition]->BW_BackgroundHighlight->SetColorAndOpacity(unhightlighedColorNoAlpha);
+	Super::MoveDown();
+	PassiveSkillSlots[cursorPosition]->BW_BackgroundHighlight->SetColorAndOpacity(highlightedColor);
+}
+
+void UPartyInventoryEquipmentView::ActivateInventoryMenuSelection()
+{
+	EEquipmentID EquipmentID = EquipmentIds[cursorPosition];
+	combatEntity->combatEntityHub->equipmentHandler->EquipEquipment(EquipmentID,equipmentSlot);
+	characterChange.Broadcast();
+	PopMostActiveView();
 }
 
 void UPartyInventoryEquipmentView::CreatePassiveSkillbar(FPassiveSkillData aSkill)

@@ -13,16 +13,18 @@ void UEquipmentHandler::InitializeEquipmentHandler(UPassiveHandler* aPassiveHand
 		equipedEquipment.Add(nullptr);
 	}
 
+	
+
 	PassiveFactorySubsystem = aPassiveSkillFactorySubsystem;
 	ownedCombatEntity = aOwnedCombatEntity;
 	passiveHandler    = aPassiveHandler;
 }
 
-void UEquipmentHandler::SetEquipmentState(FEquipmentHandlerData EquipmentHandlerData)
+void UEquipmentHandler::SetEquipmentState(FEquipmentHandlerData aEquipmentHandlerData)
 {
-	for(int i = 0 ; i <  EquipmentHandlerData.equipmentPassiveData.Num(); i++)
+	for(int i = 0 ; i <  aEquipmentHandlerData.equipmentPassiveData.Num(); i++)
 	{
-		EEquipmentID EquipmentID = EquipmentHandlerData.equipmentPassiveData[i].EquipmentID;
+		EEquipmentID EquipmentID = aEquipmentHandlerData.equipmentPassiveData[i].EquipmentID;
 		EquipEquipment(EquipmentID, i);
 	}
 }

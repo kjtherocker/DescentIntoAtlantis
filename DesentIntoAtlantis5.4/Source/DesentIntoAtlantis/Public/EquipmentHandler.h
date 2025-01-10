@@ -30,23 +30,24 @@ class DESENTINTOATLANTIS_API UEquipmentHandler : public UObject
 private:
 	UPROPERTY()
 	TArray<UEquipmentPassive*> equipedEquipment;
-
 	UPROPERTY()
 	UCombatEntity* ownedCombatEntity;
-	
 	UPROPERTY()
 	UPassiveFactorySubsystem* PassiveFactorySubsystem;
 	UPROPERTY()
 	UPassiveHandler* passiveHandler;
+	
+	UEquipmentPassive* CreateEquipment(EEquipmentID EquipmentID);
+	FEquipmentHandlerData EquipmentHandlerData;
 public:
 	const int AMOUNT_OF_EQUIPMENT_SLOTS = 4;
 	
 	 void InitializeEquipmentHandler(UPassiveHandler* aPassiveHandler,UCombatEntity* aOwnedCombatEntity,UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem);
-	 void SetEquipmentState(FEquipmentHandlerData EquipmentHandlerData);
+	 void SetEquipmentState(FEquipmentHandlerData aEquipmentHandlerData);
 	 void EquipEquipment(EEquipmentID EquipmentID, int aSlot = -1);
 	 void RemoveEquipment(int aSlot);
-	 UEquipmentPassive* CreateEquipment(EEquipmentID EquipmentID);
+
 	 bool isEquipmentInHandler(	EEquipmentID  aEquipmentID);
 	 TArray<UEquipmentPassive*> GetAllEquipment() {return equipedEquipment; }
-	
+	 FEquipmentHandlerData GetEquipmentHandlerData(){ return EquipmentHandlerData;}
 };

@@ -36,7 +36,9 @@ class DESENTINTOATLANTIS_API UPassiveHandler : public UObject
 	TArray< FCombatLog_PassiveSkilData> passiveSkillsUsed;
 
 public:
-	const int AMOUNT_OF_PASSIVE_SLOTS = 4;
+
+	UPROPERTY()
+	UPassiveSlotHandler* PassiveSlotHandler;
 	
 	FSendPassiveTrigger sendPassiveTrigger;
 	virtual void InitializeCombatArena();

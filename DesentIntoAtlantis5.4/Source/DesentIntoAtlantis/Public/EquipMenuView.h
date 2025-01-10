@@ -37,6 +37,9 @@ class DESENTINTOATLANTIS_API UEquipMenuView : public UBaseUserWidgetMovingButton
 
 	virtual void MoveUp() override;
 	virtual void MoveDown() override;
+	
+	UFUNCTION()
+	virtual void UpdateEquipScreen();
 
 	UFUNCTION()
 	virtual void MainClassClicked();
@@ -53,6 +56,9 @@ class DESENTINTOATLANTIS_API UEquipMenuView : public UBaseUserWidgetMovingButton
 
 	UPROPERTY()
 	UPartyManagerSubsystem* PartyManagerSubsystem;
+
+	UPROPERTY()
+	UPlayerCombatEntity* currentPlayer;
 
 public:
 	void SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsystem);
