@@ -10,6 +10,11 @@ void UBaseHighlightElement::ActivateButton()
 	ViewSelection.Broadcast();
 }
 
+void UBaseHighlightElement::SetMainText(FString aText)
+{
+	BW_MainText->SetText(FText::FromString(aText));
+}
+
 void UBaseHighlightElement::Highlight()
 {
 	BW_BackgroundHighlight->SetColorAndOpacity(highlightedColor);

@@ -22,8 +22,7 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_PassiveSkillIcon;
-	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UTextBlock* BW_PassiveSkillName;
+
 
 	
 };

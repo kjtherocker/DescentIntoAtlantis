@@ -8,6 +8,7 @@
 #include "PassiveSkillElement.h"
 #include "EquipMenuView.generated.h"
 
+class UClassElement;
 struct FPassiveSkillData;
 /**
  * 
@@ -63,15 +64,14 @@ public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_CPAmount;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UTextBlock* BW_MainClassText;
+	UClassElement* BW_MainClassElement;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UTextBlock* BW_SubClassText;
+	UClassElement* BW_SubClassElement;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	class UVerticalBox* BW_VerticalEquipBox;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	class UVerticalBox* BW_VerticalPassiveBox;
 	UPROPERTY()
-	TArray<UPassiveSkillElement*> passiveHighlightElements;
-	UPROPERTY()
-	TArray<UPassiveSkillElement*> equipmentSlots;
+	TArray<UBaseHighlightElement*> passiveHighlightElements;
+
 };

@@ -6,7 +6,8 @@
 void UPassiveSkillElement::SetPassiveSkill(FPassiveSkillData aSkill)
 {
 	BW_PassiveSkillIcon->SetBrushFromTexture(aSkill.passiveIcon);
-	BW_PassiveSkillName->SetText(FText(FText::FromString(aSkill.passiveName)));
+
+	SetMainText(aSkill.passiveName);
 
 	BW_BackgroundHighlight->SetOpacity(0);
 }

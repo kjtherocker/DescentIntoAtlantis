@@ -3,6 +3,7 @@
 
 #include "EquipMenuView.h"
 
+#include "ClassElement.h"
 #include "CombatEntityHub.h"
 #include "PartyInventoryEquipmentView.h"
 #include "PassiveHandler.h"
@@ -28,10 +29,15 @@ void UEquipMenuView::SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsy
 	
 	BW_CPAmount->SetText(FText::FromString(FString::FromInt(currentPlayer->classHandler->GetClassPoints())));
 
-	BW_MainClassText->SetText(FText::FromString(currentPlayer->classHandler->GetClassName(EClassSlot::Main)));
-	BW_SubClassText->SetText(FText::FromString(currentPlayer->classHandler->GetClassName(EClassSlot::Sub)));
+	BW_MainClassElement->SetMainText(currentPlayer->classHandler->GetClassName(EClassSlot::Main));
+	BW_SubClassElement->SetMainText(currentPlayer->classHandler->GetClassName(EClassSlot::Sub));
 
-
+	BW_MainClassElement->ViewSelection.AddDynamic(this,&UEquipMenuView::MainClassClicked);
+	BW_SubClassElement->ViewSelection.AddDynamic(this,&UEquipMenuView::SubClassClicked);
+	
+	passiveHighlightElements.Add(BW_MainClassElement);
+	passiveHighlightElements.Add(BW_SubClassElement);
+	
 	UEquipmentHandler* EquipmentHandler =  currentPlayer->combatEntityHub->equipmentHandler;
 	TArray<UEquipmentPassive*> Equipment = EquipmentHandler->GetAllEquipment();
 	FPassiveSkillData genericNotData;
@@ -65,7 +71,7 @@ void UEquipMenuView::SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsy
 		}
 	}
 
-	SetHighLightElements((TArray<UBaseHighlightElement*>)passiveHighlightElements);
+	SetHighLightElements(passiveHighlightElements);
 	SetDefaultMenuState();
 }
 
@@ -78,6 +84,8 @@ void UEquipMenuView::CreatePassiveSkillbar(EEquipmentMenuSlot aEquipmentSlot,FPa
 	skillBarElement->AddToViewport();
 	
 	passiveHighlightElements.Add(baseUserWidget);
+
+	baseUserWidget->SetMainText("");
 
 	baseUserWidget->BW_BackgroundHighlight->SetColorAndOpacity(unhightlighedColorNoAlpha);
 
@@ -114,7 +122,6 @@ void UEquipMenuView::SetCursorPositionInfo()
 	cursorPosition    =  0;
 	minCursorPosition =  0;
 	int classOffset   = 2;
-	int equipSlots    = equipmentSlots.Num()-1;
 	int passiveSlots  = passiveHighlightElements.Num()-1;
 	maxCursorPosition = passiveHighlightElements.Num()-1;
 	passiveHighlightElements[cursorPosition]->BW_BackgroundHighlight->SetColorAndOpacity(highlightedColor);
@@ -123,6 +130,8 @@ void UEquipMenuView::SetCursorPositionInfo()
 
 void UEquipMenuView::UpdateEquipScreen()
 {
+	int classOffset = 2;
+	
 	UEquipmentHandler* EquipmentHandler =  currentPlayer->combatEntityHub->equipmentHandler;
 	TArray<UEquipmentPassive*> Equipment = EquipmentHandler->GetAllEquipment();
 	FPassiveSkillData genericNotData;
@@ -131,7 +140,7 @@ void UEquipMenuView::UpdateEquipScreen()
 	{
 		if(Equipment[i] != nullptr)
 		{
-			SetPassiveSkillBar(Equipment[i]->GetPassiveSkill()->passiveSkillData,passiveHighlightElements[i]);		
+			SetPassiveSkillBar(Equipment[i]->GetPassiveSkill()->passiveSkillData,(UPassiveSkillElement*)passiveHighlightElements[i+classOffset]);		
 		}
 		else
 		{
@@ -141,7 +150,7 @@ void UEquipMenuView::UpdateEquipScreen()
 	
 	UPassiveHandler* PassiveHandler =  currentPlayer->combatEntityHub->passiveHandler;
 	TArray<UPassiveSkills*> passiveSkills = currentPlayer->combatEntityHub->passiveHandler->PassiveSlotHandler->GetAllSlotedPassives();
-	int offSet = EquipmentHandler->AMOUNT_OF_EQUIPMENT_SLOTS;
+	int offSet = EquipmentHandler->AMOUNT_OF_EQUIPMENT_SLOTS + classOffset;
 	
 	for(int i = 0 ; i <  PassiveHandler->PassiveSlotHandler->AMOUNT_OF_PASSIVE_SLOTS;i++)
 	{
@@ -149,7 +158,7 @@ void UEquipMenuView::UpdateEquipScreen()
 		{
 			if(passiveSkills[i] != nullptr)
 			{
-				SetPassiveSkillBar(passiveSkills[i]->passiveSkillData,passiveHighlightElements[i + offSet]);
+				SetPassiveSkillBar(passiveSkills[i]->passiveSkillData,(UPassiveSkillElement*)passiveHighlightElements[i + offSet]);
 			}
 		}
 		

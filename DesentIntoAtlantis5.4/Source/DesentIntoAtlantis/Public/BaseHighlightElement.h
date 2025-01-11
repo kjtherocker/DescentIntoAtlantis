@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
+#include "Components/RichTextBlock.h"
 #include "BaseHighlightElement.generated.h"
 
 class UImage;
@@ -23,9 +24,14 @@ public:
 	FViewSelection ViewSelection;
 	
 	virtual void ActivateButton();
+
+	virtual void SetMainText(FString aText);
 	
 	virtual void Highlight();
 	virtual void UnHightlight();
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	URichTextBlock* BW_MainText;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_BackgroundHighlight;

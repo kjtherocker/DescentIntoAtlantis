@@ -24,8 +24,7 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* SkillIcon;
-	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UTextBlock* SkillName;
+
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* SkillCost;
 	
