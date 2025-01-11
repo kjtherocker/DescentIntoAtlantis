@@ -34,12 +34,10 @@ private:
 	UPROPERTY()
 	UPassiveSkills* passiveSkill;
 public:
-
 	
-	
-	void InitializeEquipmentPassive(UPassiveSkills* aPassiveSkill);
+	void InitializeEquipmentPassive(EEquipmentID aEquipmentID,UPassiveSkills* aPassiveSkill);
+	void SetEquipment(FEquipmentPassiveData aEquipmentPassiveData);
 	UPassiveSkills* GetPassiveSkill(){ return passiveSkill;}
 	EEquipmentID GetEquipmentID() {return GetEquipmentData().EquipmentID;}
 	FEquipmentPassiveData GetEquipmentData(){ return EquipmentPassiveData; }
-	void RequestEquipment(FEquipmentRequestInfo aEquipmentStateInfo);
 };

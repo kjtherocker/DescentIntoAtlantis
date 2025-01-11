@@ -86,16 +86,17 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembers aPlayer)
 
 	FEquipmentHandlerData equipmentHandlerData = playerIdenityMap[aPlayer].DefaultSpawnEquipmentHandlerData;
 
-	for (auto EquipmentPassiveData : equipmentHandlerData.equipmentPassiveData)
+	for (int i = 0 ; i < equipmentHandlerData.equipmentPassiveData.Num();i++)
 	{
+		FEquipmentPassiveData EquipmentPassiveData = equipmentHandlerData.equipmentPassiveData[i];
 		FEquipmentRequestInfo EquipmentRequestInfo;
 		EquipmentRequestInfo.equipmentID = EquipmentPassiveData.EquipmentID;
-		EquipmentRequestInfo.amount	     = EquipmentPassiveData.Amount;
+		EquipmentRequestInfo.amount	     = 1;
 
+		EPartyMembers PartyMembers = PlayerCombatEntity->GetPartyMember();
 		PartyInventory->AddEquipmentToInventory(EquipmentRequestInfo);
+		PlayerCombatEntity->combatEntityHub->equipmentHandler->EquipEquipment(PartyInventory->TakeOutEquipment(PartyMembers,EquipmentPassiveData.EquipmentID),i);
 	}
-	
-	PlayerCombatEntity->combatEntityHub->equipmentHandler->SetEquipmentState(equipmentHandlerData);
 	
 	PlayerCombatEntity->health->InitializeHealth(50,50,PlayerCombatEntity);
 	playerCombatEntity.Add(PlayerCombatEntity);
@@ -137,6 +138,7 @@ void UPartyManagerSubsystem::SavePlayerEntitys()
 {
 	for(int i = 0 ; i < activePartyEntityData.Num();i++)
 	{
+		activePartyEntityData[i]->GatherAndSavePlayerCompleteDataSet();
 		persistentGameInstance->saveManagerSubsystem->SessionSaveGameObject->AddPlayerCompleteDataSet(activePartyEntityData[i]->playerCompleteDataSet.playerIdentityData.characterIdentifier,
 			activePartyEntityData[i]->playerCompleteDataSet); activePartyEntityData[i]->playerCompleteDataSet;
 	}
@@ -228,7 +230,7 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 
 		PlayerCombatEntity->LevelUp(partyLevel);
 
-		PlayerCombatEntity->combatEntityHub->equipmentHandler->SetEquipmentState(playerCompleteDataSet.Value.EquipmentHandlerData);
+		PlayerCombatEntity->SetEquipmentState(playerCompleteDataSet.Value.EquipmentHandlerData);
 		PlayerCombatEntity->combatEntityHub->passiveHandler->SetPassiveHandlerState(playerCompleteDataSet.Value.PassiveHandlerData);
 
 		AddPlayerToActiveParty(partyMember);

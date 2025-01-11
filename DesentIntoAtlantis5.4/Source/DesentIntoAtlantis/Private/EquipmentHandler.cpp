@@ -11,6 +11,9 @@ void UEquipmentHandler::InitializeEquipmentHandler(UPassiveHandler* aPassiveHand
 	for(int i = 0 ; i < AMOUNT_OF_EQUIPMENT_SLOTS;i++)
 	{
 		equipedEquipment.Add(nullptr);
+		FEquipmentPassiveData equipmentPassiveData;
+		equipmentPassiveData.EquipmentID = EEquipmentID::None;
+		EquipmentHandlerData.equipmentPassiveData.Add(equipmentPassiveData);
 	}
 
 	
@@ -25,21 +28,34 @@ void UEquipmentHandler::SetEquipmentState(FEquipmentHandlerData aEquipmentHandle
 	for(int i = 0 ; i <  aEquipmentHandlerData.equipmentPassiveData.Num(); i++)
 	{
 		EEquipmentID EquipmentID = aEquipmentHandlerData.equipmentPassiveData[i].EquipmentID;
-		EquipEquipment(EquipmentID, i);
+		EquipEquipment(CreateEquipment(EquipmentID), i);
 	}
 }
 
-void UEquipmentHandler::EquipEquipment(EEquipmentID EquipmentID, int aSlot)
+void UEquipmentHandler::EquipEquipment(UEquipmentPassive* aEquipment, int aSlot)
 {
+	if(aEquipment == nullptr)
+	{
+		return;
+	}
+	
 	if(equipedEquipment.Num() < aSlot)
 	{
 		return;
 	}
 	
-	UEquipmentPassive* EquipmentPassive = CreateEquipment(EquipmentID);
+	UEquipmentPassive* EquipmentPassive = aEquipment;
 
+	if(EquipmentPassive == nullptr)
+	{
+		return;
+	}
+	
+	EquipmentHandlerData.equipmentPassiveData[aSlot].EquipmentID = EquipmentPassive->GetEquipmentID();
+	
 	equipedEquipment[aSlot] = EquipmentPassive;
 	passiveHandler->AddPassive(EquipmentPassive->GetPassiveSkill(),EPassiveSkillSlotType::Equipment);
+	
 }
 
 void UEquipmentHandler::RemoveEquipment(int aSlot)
@@ -54,6 +70,7 @@ void UEquipmentHandler::RemoveEquipment(int aSlot)
 	passiveHandler->RemovePassive(EquipmentPassive->GetPassiveSkill());
 
 	equipedEquipment[aSlot] = nullptr;
+	EquipmentHandlerData.equipmentPassiveData[aSlot].EquipmentID = EEquipmentID::None;
 }
 
  UEquipmentPassive* UEquipmentHandler::CreateEquipment(EEquipmentID EquipmentID)

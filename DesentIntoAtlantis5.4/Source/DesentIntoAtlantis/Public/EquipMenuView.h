@@ -34,9 +34,6 @@ class DESENTINTOATLANTIS_API UEquipMenuView : public UBaseUserWidgetMovingButton
 	void SetPassiveSkillBar(FPassiveSkillData aSkill, UPassiveSkillElement* PassiveSkillElement);
 
 	virtual void SetCursorPositionInfo() override;
-
-	virtual void MoveUp() override;
-	virtual void MoveDown() override;
 	
 	UFUNCTION()
 	virtual void UpdateEquipScreen();
@@ -49,8 +46,6 @@ class DESENTINTOATLANTIS_API UEquipMenuView : public UBaseUserWidgetMovingButton
 	virtual void EquipmentClicked();
 	UFUNCTION()
 	virtual void PassiveClicked();
-	UFUNCTION()
-	virtual void ActivateEquipMenuSelection();
 	UPROPERTY()
 	TMap<EEquipmentMenuSlot,FViewSelection > ViewSelection;
 
@@ -62,10 +57,7 @@ class DESENTINTOATLANTIS_API UEquipMenuView : public UBaseUserWidgetMovingButton
 
 public:
 	void SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsystem);
-
-	void CreateAndBindDelegateOption(EEquipmentMenuSlot aTitleState,typename TMemFunPtrType<false, UEquipMenuView, void()>::Type InFunc, const FName& FuncName );
-
-
+	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_CharacterNameText;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
@@ -79,7 +71,7 @@ public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	class UVerticalBox* BW_VerticalPassiveBox;
 	UPROPERTY()
-	TArray<UPassiveSkillElement*> PassiveSkillSlots;
+	TArray<UPassiveSkillElement*> passiveHighlightElements;
 	UPROPERTY()
 	TArray<UPassiveSkillElement*> equipmentSlots;
 };

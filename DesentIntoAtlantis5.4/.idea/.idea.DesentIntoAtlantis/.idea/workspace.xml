@@ -10,22 +10,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PassiveSlotHandler.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PassiveSlotHandler.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/BaseHighlightElement.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/ClassElement.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/BaseHighlightElement.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/ClassElement.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Texture/Kriede_FullBody_Redesign.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Texture/Kriede_FullBody_Redesign.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Texture/Kriede_HalfBody_Redesign.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Texture/Kriede_HalfBody_Redesign.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/Player/Rain/texture/4096x4096_rain.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Player/Rain/texture/4096x4096_rain.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Combat/DT_PlayerCharacters.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_PlayerCharacters.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Ui/EquipView/BP_EquipMenuView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/EquipView/BP_EquipMenuView.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/EquipView/BP_PassiveSkillElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/EquipView/BP_PassiveSkillElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/EquipView/EquipmentView/BP_EquipmentView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/EquipView/EquipmentView/BP_EquipmentView.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/MainMenu/BP_MainMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/MainMenu/BP_MainMenu.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/BaseUserWidgetMovingButtons.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/BaseUserWidgetMovingButtons.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatLogSelectionView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatLogSelectionView.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EquipMenuView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EquipMenuView.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EquipmentHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EquipmentHandler.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EquipmentPassive.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EquipmentPassive.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/MainMenuGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/MainMenuGameMode.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyInventoryEquipmentView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyInventoryEquipmentView.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PassiveHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PassiveHandler.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyManagerSubsystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyManagerSubsystem.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PassiveSkillFactorySubsystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PassiveSkillFactorySubsystem.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PlayerCombatEntity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PlayerCombatEntity.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillView.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/UPartyInventory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/UPartyInventory.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/BaseUserWidgetMovingButtons.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/BaseUserWidgetMovingButtons.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatLogSelectionView.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatLogSelectionView.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EquipMenuView.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EquipMenuView.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EquipmentHandler.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EquipmentHandler.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EquipmentPassive.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EquipmentPassive.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/OptionView.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/OptionView.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyInventoryEquipmentView.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyInventoryEquipmentView.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PassiveHandler.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PassiveHandler.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PassiveSkillData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PassiveSkillData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PassiveSkillHandlerData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PassiveSkillHandlerData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PassiveSkillElement.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PassiveSkillElement.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PassiveSkillFactorySubsystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PassiveSkillFactorySubsystem.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PlayerCombatEntity.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PlayerCombatEntity.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillBarElement.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillBarElement.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/UPartyInventory.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/UPartyInventory.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +59,178 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -65,6 +260,7 @@
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/AtlantisGameModeBase.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/BaseUserWidget.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/ChallengeSubsystem.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/ClassElement.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/ClassHandler.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatBackground.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatClass.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -136,6 +332,7 @@
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/Views.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/BaseUserWidget.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/BehaviorTreeTaskTest.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/ClassElement.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatBackground.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatClass.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatEntity.h" root0="FORCE_HIGHLIGHTING" />
@@ -657,7 +854,7 @@
       <workItem from="1736269170467" duration="772000" />
       <workItem from="1736273992815" duration="5364000" />
       <workItem from="1736435117684" duration="19239000" />
-      <workItem from="1736524112342" duration="4716000" />
+      <workItem from="1736524112342" duration="21215000" />
     </task>
     <servers />
   </component>

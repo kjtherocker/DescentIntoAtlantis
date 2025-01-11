@@ -36,6 +36,9 @@ void AMainMenuGameMode::CreateMainMenu()
 void AMainMenuGameMode::StartGame()
 {
 	partyManager->AddPlayerToActiveParty(EPartyMembers::Kriede);
+	partyManager->AddPlayerToActiveParty(EPartyMembers::Feienne);
+	partyManager->AddPlayerToActiveParty(EPartyMembers::Gram);
+	partyManager->AddPlayerToActiveParty(EPartyMembers::Rain);
 	
 	if (persistentGameInstance)
 	{

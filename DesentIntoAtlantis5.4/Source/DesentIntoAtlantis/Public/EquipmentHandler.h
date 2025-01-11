@@ -44,7 +44,7 @@ public:
 	
 	 void InitializeEquipmentHandler(UPassiveHandler* aPassiveHandler,UCombatEntity* aOwnedCombatEntity,UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem);
 	 void SetEquipmentState(FEquipmentHandlerData aEquipmentHandlerData);
-	 void EquipEquipment(EEquipmentID EquipmentID, int aSlot = -1);
+	 void EquipEquipment(UEquipmentPassive* aEquipment, int aSlot = -1);
 	 void RemoveEquipment(int aSlot);
 
 	 bool isEquipmentInHandler(	EEquipmentID  aEquipmentID);

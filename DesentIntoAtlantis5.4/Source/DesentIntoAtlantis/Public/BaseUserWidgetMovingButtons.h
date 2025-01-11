@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BaseHighlightElement.h"
 #include "BaseUserWidget.h"
 #include "BaseUserWidgetMovingButtons.generated.h"
 
@@ -17,6 +18,8 @@ class DESENTINTOATLANTIS_API UBaseUserWidgetMovingButtons : public UBaseUserWidg
 protected:
 
 
+	virtual void SetHighLightElements(TArray<UBaseHighlightElement*> aHighlightElements);
+	
 	virtual void MoveUp() override;
 	virtual void MoveDown() override;
 
@@ -29,8 +32,12 @@ protected:
 
 public:
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
+	virtual void ActivateHighLightSelection();
+
 	UPROPERTY()
 	TArray<FViewSelection> MenuSelectionDelegates;
 	UPROPERTY()
-	TArray<UBorder*> menuSelections;
+	TArray<UBaseHighlightElement*> highlightElements;
+
+	
 };

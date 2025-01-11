@@ -46,6 +46,18 @@ void UPlayerCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,
 	classHandler->InitializeClassHandler(this,skillFactory);
 }
 
+void UPlayerCombatEntity::EquipEquipment(UEquipmentPassive* aEquipment, int aSlot)
+{
+	combatEntityHub->equipmentHandler->EquipEquipment(aEquipment,aSlot);
+	GatherAndSavePlayerCompleteDataSet();
+}
+
+void UPlayerCombatEntity::SetEquipmentState(FEquipmentHandlerData aEquipmentHandlerData)
+{
+	combatEntityHub->equipmentHandler->SetEquipmentState(aEquipmentHandlerData);
+	GatherAndSavePlayerCompleteDataSet();
+}
+
 void UPlayerCombatEntity::InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData)
 {
 	classHandler->InitializeAndUnlockCombatClassFromDataTable(aCompleteClassData);

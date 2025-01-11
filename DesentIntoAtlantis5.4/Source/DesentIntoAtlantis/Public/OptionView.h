@@ -28,6 +28,10 @@ class DESENTINTOATLANTIS_API UOptionView : public UBaseUserWidgetMovingButtons
 	UFUNCTION()
 	void Exit();
 public:
+
+	UPROPERTY()
+	TArray<UBorder*> menuSelections;
+	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UBorder* BW_Load;
 

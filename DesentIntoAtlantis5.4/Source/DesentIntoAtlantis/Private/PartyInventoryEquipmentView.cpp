@@ -9,46 +9,46 @@
 
 class UPassiveSkillElement;
 
-void UPartyInventoryEquipmentView::ActivateEquipMenu(UCombatEntity* aCombatEntity,UPartyManagerSubsystem* aPartyManagerSubsystem, int aEquipmentSlot)
+void UPartyInventoryEquipmentView::ActivateEquipMenu(UPlayerCombatEntity* aPlayerCombatEntity,UPartyManagerSubsystem* aPartyManagerSubsystem, int aEquipmentSlot)
 {
-	combatEntity = aCombatEntity;
+	playerCombatEntity = aPlayerCombatEntity;
 	equipmentSlot = aEquipmentSlot;
 	
 	InitializeInputComponent();
 	InputComponent->BindAction("Up"      ,IE_Pressed ,this, &UPartyInventoryEquipmentView::MoveUp  );
 	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &UPartyInventoryEquipmentView::MoveDown  );
-	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UPartyInventoryEquipmentView::ActivateInventoryMenuSelection  );
+	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UPartyInventoryEquipmentView::ActivateHighLightSelection  );
 	InputComponent->BindAction("Escape"   ,IE_Pressed ,this, &UPartyInventoryEquipmentView::PopMostActiveView  );
 
 
-	UPartyInventory* PartyInventory = aPartyManagerSubsystem->PartyInventory;
-	TMap<EEquipmentID, UEquipmentPassive*> allEquipment = PartyInventory->GetAllEquipment();
+	PartyInventory = aPartyManagerSubsystem->PartyInventory;
+	TMap<EEquipmentID,  FEquipmentPassiveInventoryInfo> allEquipment = PartyInventory->GetAllEquipment();
+
+	if(allEquipment.Num() == 0)
+	{
+		PopMostActiveView();
+	}
 
 	for (auto AllEquipment : allEquipment)
 	{
-		CreatePassiveSkillbar(AllEquipment.Value->GetPassiveSkill()->passiveSkillData);
+		CreatePassiveSkillbar(PartyInventory->GetEquipmentPassiveSkillData(AllEquipment.Key) );
 		EquipmentIds.Add(AllEquipment.Key);
 	}
+
+	SetHighLightElements((TArray<UBaseHighlightElement*>)PassiveSkillSlots);
+	SetDefaultMenuState();
 }
 
-void UPartyInventoryEquipmentView::MoveUp()
-{
-	PassiveSkillSlots[cursorPosition]->BW_BackgroundHighlight->SetColorAndOpacity(unhightlighedColorNoAlpha);
-	Super::MoveUp();
-	PassiveSkillSlots[cursorPosition]->BW_BackgroundHighlight->SetColorAndOpacity(highlightedColor);
-}
-
-void UPartyInventoryEquipmentView::MoveDown()
-{
-	PassiveSkillSlots[cursorPosition]->BW_BackgroundHighlight->SetColorAndOpacity(unhightlighedColorNoAlpha);
-	Super::MoveDown();
-	PassiveSkillSlots[cursorPosition]->BW_BackgroundHighlight->SetColorAndOpacity(highlightedColor);
-}
 
 void UPartyInventoryEquipmentView::ActivateInventoryMenuSelection()
 {
 	EEquipmentID EquipmentID = EquipmentIds[cursorPosition];
-	combatEntity->combatEntityHub->equipmentHandler->EquipEquipment(EquipmentID,equipmentSlot);
+	if(!PartyInventory->isEquipmentFreeToTake(EquipmentID))
+	{
+		return;
+	}
+	EPartyMembers partyMember = playerCombatEntity->playerIdentityData.characterIdentifier;
+	playerCombatEntity->EquipEquipment(PartyInventory->TakeOutEquipment(partyMember,EquipmentID),equipmentSlot);
 	characterChange.Broadcast();
 	PopMostActiveView();
 }
@@ -66,6 +66,7 @@ void UPartyInventoryEquipmentView::CreatePassiveSkillbar(FPassiveSkillData aSkil
 	baseUserWidget->BW_BackgroundHighlight->SetColorAndOpacity(unhightlighedColorNoAlpha);
 	BW_VerticalEquipBox->AddChild(skillBarElement);
 
+	baseUserWidget->ViewSelection.AddDynamic(this,&UPartyInventoryEquipmentView::ActivateInventoryMenuSelection );
 	SetPassiveSkillBar(aSkill, baseUserWidget);
 }
 

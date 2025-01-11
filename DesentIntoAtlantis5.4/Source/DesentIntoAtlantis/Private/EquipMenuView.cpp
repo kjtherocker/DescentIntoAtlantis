@@ -16,7 +16,7 @@ void UEquipMenuView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 
 	InputComponent->BindAction("Up"      ,IE_Pressed ,this, &UEquipMenuView::MoveUp  );
 	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &UEquipMenuView::MoveDown  );
-	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UEquipMenuView::ActivateEquipMenuSelection  );
+	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UEquipMenuView::ActivateHighLightSelection  );
 	InputComponent->BindAction("Escape"   ,IE_Pressed ,this, &UEquipMenuView::PopMostActiveView  );
 
 }
@@ -31,10 +31,6 @@ void UEquipMenuView::SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsy
 	BW_MainClassText->SetText(FText::FromString(currentPlayer->classHandler->GetClassName(EClassSlot::Main)));
 	BW_SubClassText->SetText(FText::FromString(currentPlayer->classHandler->GetClassName(EClassSlot::Sub)));
 
-	CreateAndBindDelegateOption(EEquipmentMenuSlot::MainClass, &UEquipMenuView::MainClassClicked ,TEXT("MainClassClicked"));
-	CreateAndBindDelegateOption(EEquipmentMenuSlot::SubClass, &UEquipMenuView::SubClassClicked ,TEXT("SubClassClicked"));
-	CreateAndBindDelegateOption(EEquipmentMenuSlot::Equipment, &UEquipMenuView::EquipmentClicked ,TEXT("EquipmentClicked"));
-	CreateAndBindDelegateOption(EEquipmentMenuSlot::Passive, &UEquipMenuView::PassiveClicked ,TEXT("PassiveClicked"));
 
 	UEquipmentHandler* EquipmentHandler =  currentPlayer->combatEntityHub->equipmentHandler;
 	TArray<UEquipmentPassive*> Equipment = EquipmentHandler->GetAllEquipment();
@@ -68,16 +64,9 @@ void UEquipMenuView::SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsy
 			CreatePassiveSkillbar(EEquipmentMenuSlot::Passive,passiveSkills[i]->passiveSkillData);		
 		}
 	}
-	
-	SetCursorPositionInfo();
-}
 
-void UEquipMenuView::CreateAndBindDelegateOption(EEquipmentMenuSlot aTitleState,
-	TMemFunPtrType<false, UEquipMenuView, void()>::Type InFunc, const FName& FuncName)
-{
-	FViewSelection newViewSelection;
-	newViewSelection.__Internal_AddDynamic(this,InFunc,FuncName);
-	ViewSelection.Add(aTitleState,newViewSelection );
+	SetHighLightElements((TArray<UBaseHighlightElement*>)passiveHighlightElements);
+	SetDefaultMenuState();
 }
 
 void UEquipMenuView::CreatePassiveSkillbar(EEquipmentMenuSlot aEquipmentSlot,FPassiveSkillData aSkill)
@@ -88,7 +77,7 @@ void UEquipMenuView::CreatePassiveSkillbar(EEquipmentMenuSlot aEquipmentSlot,FPa
 	baseUserWidget->UiInitialize(gameModeBase);
 	skillBarElement->AddToViewport();
 	
-	PassiveSkillSlots.Add(baseUserWidget);
+	passiveHighlightElements.Add(baseUserWidget);
 
 	baseUserWidget->BW_BackgroundHighlight->SetColorAndOpacity(unhightlighedColorNoAlpha);
 
@@ -99,9 +88,11 @@ void UEquipMenuView::CreatePassiveSkillbar(EEquipmentMenuSlot aEquipmentSlot,FPa
 
 		case EEquipmentMenuSlot::Equipment:
 			BW_VerticalEquipBox->AddChild(skillBarElement);
+		    baseUserWidget->ViewSelection.AddDynamic(this, &UEquipMenuView::EquipmentClicked);
 			break;
 		case EEquipmentMenuSlot::Passive:
 			BW_VerticalPassiveBox->AddChild(skillBarElement);
+		    baseUserWidget->ViewSelection.AddDynamic(this, &UEquipMenuView::PassiveClicked);
 			break;
 	}
 	
@@ -124,24 +115,11 @@ void UEquipMenuView::SetCursorPositionInfo()
 	minCursorPosition =  0;
 	int classOffset   = 2;
 	int equipSlots    = equipmentSlots.Num()-1;
-	int passiveSlots  = PassiveSkillSlots.Num()-1;
-	maxCursorPosition = PassiveSkillSlots.Num()-1;
-	PassiveSkillSlots[cursorPosition]->BW_BackgroundHighlight->SetColorAndOpacity(highlightedColor);
+	int passiveSlots  = passiveHighlightElements.Num()-1;
+	maxCursorPosition = passiveHighlightElements.Num()-1;
+	passiveHighlightElements[cursorPosition]->BW_BackgroundHighlight->SetColorAndOpacity(highlightedColor);
 }
 
-void UEquipMenuView::MoveUp()
-{
-	PassiveSkillSlots[cursorPosition]->BW_BackgroundHighlight->SetColorAndOpacity(unhightlighedColorNoAlpha);
-	Super::Super::MoveUp();
-	PassiveSkillSlots[cursorPosition]->BW_BackgroundHighlight->SetColorAndOpacity(highlightedColor);
-}
-
-void UEquipMenuView::MoveDown()
-{
-	PassiveSkillSlots[cursorPosition]->BW_BackgroundHighlight->SetColorAndOpacity(unhightlighedColorNoAlpha);
-	Super::Super::MoveDown();
-	PassiveSkillSlots[cursorPosition]->BW_BackgroundHighlight->SetColorAndOpacity(highlightedColor);
-}
 
 void UEquipMenuView::UpdateEquipScreen()
 {
@@ -153,7 +131,7 @@ void UEquipMenuView::UpdateEquipScreen()
 	{
 		if(Equipment[i] != nullptr)
 		{
-			SetPassiveSkillBar(Equipment[i]->GetPassiveSkill()->passiveSkillData,PassiveSkillSlots[i]);		
+			SetPassiveSkillBar(Equipment[i]->GetPassiveSkill()->passiveSkillData,passiveHighlightElements[i]);		
 		}
 		else
 		{
@@ -167,11 +145,11 @@ void UEquipMenuView::UpdateEquipScreen()
 	
 	for(int i = 0 ; i <  PassiveHandler->PassiveSlotHandler->AMOUNT_OF_PASSIVE_SLOTS;i++)
 	{
-		if(PassiveSkillSlots[i + offSet])
+		if(passiveHighlightElements[i + offSet])
 		{
 			if(passiveSkills[i] != nullptr)
 			{
-				SetPassiveSkillBar(passiveSkills[i]->passiveSkillData,PassiveSkillSlots[i + offSet]);
+				SetPassiveSkillBar(passiveSkills[i]->passiveSkillData,passiveHighlightElements[i + offSet]);
 			}
 		}
 		
@@ -188,15 +166,11 @@ void UEquipMenuView::SubClassClicked()
 
 void UEquipMenuView::EquipmentClicked()
 {
+	UPartyInventoryEquipmentView* partyInventoryEquipment = (UPartyInventoryEquipmentView*)InGameHUD->PushAndGetView(EViews::PartyInventoryEquipment,  EUiType::ActiveUi);
+	partyInventoryEquipment->characterChange.AddDynamic(this,&UEquipMenuView::UEquipMenuView::UpdateEquipScreen);
+	partyInventoryEquipment->ActivateEquipMenu(currentPlayer,PartyManagerSubsystem,1);
 }
 
 void UEquipMenuView::PassiveClicked()
 {
-}
-
-void UEquipMenuView::ActivateEquipMenuSelection()
-{
-	UPartyInventoryEquipmentView* partyInventoryEquipment = (UPartyInventoryEquipmentView*)InGameHUD->PushAndGetView(EViews::PartyInventoryEquipment,  EUiType::ActiveUi);
-	partyInventoryEquipment->characterChange.AddDynamic(this,&UEquipMenuView::UEquipMenuView::UpdateEquipScreen);
-	partyInventoryEquipment->ActivateEquipMenu(currentPlayer,PartyManagerSubsystem,1);
 }

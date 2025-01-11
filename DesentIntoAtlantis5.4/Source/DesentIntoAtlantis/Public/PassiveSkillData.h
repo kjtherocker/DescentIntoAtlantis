@@ -6,7 +6,7 @@
 #include "PassiveSkillData.generated.h"
 
 
-
+enum class EPartyMembers;
 enum class ESkillDamageType : uint8;
 enum class ESkillRange      : uint8;
 enum class ESkillUsage      : uint8;
@@ -180,25 +180,33 @@ struct DESENTINTOATLANTIS_API FPassiveSkillClassData : public FTableRowBase
 };
 
 USTRUCT()
-struct DESENTINTOATLANTIS_API FEquipmentPassiveData : public FTableRowBase
+struct DESENTINTOATLANTIS_API FEquipmentPassiveInventoryInfo : public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
-
-
+	
 	UPROPERTY( EditAnywhere , Category = "Equipment")
-	EEquipmentID EquipmentID;
-	
-	UPROPERTY()
-	int slotNumber;
-	
+	EEquipmentID EquipmentID = EEquipmentID::None;
+
 	UPROPERTY( EditAnywhere, Category = "Equipment" )
 	int EquipmentMaxStack = 5;
 
-	UPROPERTY( EditAnywhere , Category = "Equipment")
+	UPROPERTY()
+	TArray<EPartyMembers> equipmentOwners;
+
+	UPROPERTY()
 	int Amount = 1;
+	
+};
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FEquipmentPassiveData : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	
+	UPROPERTY( EditAnywhere , Category = "Equipment")
+	EEquipmentID EquipmentID;
 	
 	UPROPERTY( EditAnywhere , Category = "Skill")
 	EPassiveSkillID attachedPassive;
-
-
+	
 };

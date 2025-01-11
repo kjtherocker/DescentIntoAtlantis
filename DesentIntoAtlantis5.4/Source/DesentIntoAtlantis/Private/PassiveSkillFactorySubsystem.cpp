@@ -103,8 +103,27 @@ UEquipmentPassive* UPassiveFactorySubsystem::CreateEquipment(EEquipmentID aEquip
 
 	if(newEquipment != nullptr)
 	{
-		newEquipment->InitializeEquipmentPassive(GetPassiveSkill(allEquipmentData[aEquipmentID].attachedPassive));
+		newEquipment->InitializeEquipmentPassive(aEquipmentID,GetPassiveSkill(allEquipmentData[aEquipmentID].attachedPassive));
 	}
 
 	return newEquipment;
+}
+
+FPassiveSkillData UPassiveFactorySubsystem::GetEquipmentPassiveSkillData(EEquipmentID aEquipmentID)
+{
+	FPassiveSkillData PassiveSkillData;
+
+	if(!allEquipmentData.Contains(aEquipmentID))
+	{
+		return PassiveSkillData;
+	}
+
+	if(!allPassiveSkills.Contains(allEquipmentData[aEquipmentID].attachedPassive))
+	{
+		return PassiveSkillData;
+	}
+
+	PassiveSkillData = allPassiveSkills[allEquipmentData[aEquipmentID].attachedPassive]->passiveSkillData;
+	
+	return PassiveSkillData;
 }

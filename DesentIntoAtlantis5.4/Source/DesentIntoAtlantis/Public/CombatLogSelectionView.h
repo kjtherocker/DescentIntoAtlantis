@@ -42,4 +42,5 @@ public:
 	
 	virtual void SetDefaultMenuState() override;
 	virtual void ActivateMenuSelection() override;
+
 };

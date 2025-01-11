@@ -112,11 +112,16 @@ public:
 	UPROPERTY()
 	TArray<UAilment*> activeAilments;
 
+	virtual EPartyMembers GetPartyMember(){ return playerIdentityData.characterIdentifier; }
+	
     virtual void InitializeStats(EStatTypes aAbilityScoreTypes) override;
 	virtual void LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet);
 	virtual void SetPlayerEntity(FPlayerIdentityData aPlayerEntityData);
 	virtual void SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassiveFactorySubsystem* aPassiveSkillFactory) override;
-	
+	virtual void EquipEquipment(UEquipmentPassive* aEquipment, int aSlot);
+	virtual void SetEquipmentState(FEquipmentHandlerData aEquipmentHandlerData);
+
+
 	virtual void InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData);
 	virtual void SetMainClass(EClasses aClass);
 	virtual void Reset() override;

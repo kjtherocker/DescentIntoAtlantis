@@ -19,7 +19,7 @@ struct DESENTINTOATLANTIS_API FPartyInventoryCompleteData:public  FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 	UPROPERTY(EditAnywhere)
-	TArray<FEquipmentPassiveData> equipmentPassiveSkillData;
+	TMap<EEquipmentID,FEquipmentPassiveInventoryInfo> equipmentInventoryInfo;
 };
 
 
@@ -31,9 +31,7 @@ class DESENTINTOATLANTIS_API UPartyInventory : public UObject
 private:
 	UPROPERTY()
 	FPartyInventoryCompleteData partyInventoryCompleteData;
-
-	UPROPERTY()
-	TMap<EEquipmentID,UEquipmentPassive*> AllEquipment;
+	
 
 	UPROPERTY()
 	UPassiveFactorySubsystem* passiveFactorySubsystem;
@@ -45,12 +43,21 @@ public:
 
 	void InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem );
 
+	void AddMoreStacksOfEquipment(FEquipmentRequestInfo aEquipmentRequest);
+
+	void ReturnEquipment(EPartyMembers aOldOwner,EEquipmentID aEquipmentID);
+	UEquipmentPassive* TakeOutEquipment(EPartyMembers aNewOwner,EEquipmentID aEquipmentID);
+	
+	
 	FPartyInventoryCompleteData GetPartyInventoryCompleteData(){return partyInventoryCompleteData;}
 
-	virtual UEquipmentPassive*  GetEquipment(EEquipmentID aEquipmentID);
+	virtual bool isEquipmentFreeToTake(EEquipmentID aEquipmentID);
 
-	virtual TMap<EEquipmentID,UEquipmentPassive*> GetAllEquipment(){ return AllEquipment;}
-	
+	virtual  FEquipmentPassiveInventoryInfo  GetEquipment(EEquipmentID aEquipmentID);
+
+	virtual TMap<EEquipmentID,FEquipmentPassiveInventoryInfo> GetAllEquipment(){ return GetPartyInventoryCompleteData().equipmentInventoryInfo;}
+
+	virtual FPassiveSkillData GetEquipmentPassiveSkillData(EEquipmentID aEquipmentID);
 	void AddEquipmentToInventory(FEquipmentRequestInfo aEquipmentRequest);
 
 

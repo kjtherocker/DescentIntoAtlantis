@@ -6,8 +6,10 @@
 #include "BaseUserWidget.h"
 #include "CombatEntity.h"
 #include "UPartyInventory.h"
+#include "BaseUserWidgetMovingButtons.h"
 #include "PartyInventoryEquipmentView.generated.h"
 
+class UPlayerCombatEntity;
 class UPartyManagerSubsystem;
 class UPassiveSkillElement;
 struct FPassiveSkillData;
@@ -17,7 +19,7 @@ struct FPassiveSkillData;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnCharacterChange);
 UCLASS()
-class DESENTINTOATLANTIS_API UPartyInventoryEquipmentView : public UBaseUserWidget
+class DESENTINTOATLANTIS_API UPartyInventoryEquipmentView : public UBaseUserWidgetMovingButtons
 {
 	GENERATED_BODY()
 
@@ -25,8 +27,11 @@ private:
 	UPROPERTY()
 	int equipmentSlot;
 	UPROPERTY()
-	UCombatEntity* combatEntity;
+	UPlayerCombatEntity* playerCombatEntity;
 	TArray<EEquipmentID> EquipmentIds;
+
+	UPROPERTY()
+	UPartyInventory* PartyInventory;
 public:
 
 	FOnCharacterChange characterChange;
@@ -36,10 +41,7 @@ public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	class UVerticalBox* BW_VerticalEquipBox;
 	
-	void ActivateEquipMenu(UCombatEntity* aCombatEntity, UPartyManagerSubsystem* aPartyManagerSubsystem, int aEquipmentSlot);
-
-	virtual void MoveUp() override;
-	virtual void MoveDown() override;
+	void ActivateEquipMenu(UPlayerCombatEntity* aPlayerCombatEntity, UPartyManagerSubsystem* aPartyManagerSubsystem, int aEquipmentSlot);
 
 	UFUNCTION()
 	virtual void ActivateInventoryMenuSelection();

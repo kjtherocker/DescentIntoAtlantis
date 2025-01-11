@@ -12,18 +12,28 @@ void UBaseUserWidgetMovingButtons::UiInitialize(AAtlantisGameModeBase* aGameMode
 	InitializeInputComponent();
 }
 
+void UBaseUserWidgetMovingButtons::ActivateHighLightSelection()
+{
+	highlightElements[cursorPosition]->ActivateButton();
+}
+
+void UBaseUserWidgetMovingButtons::SetHighLightElements(TArray<UBaseHighlightElement*> aHighlightElements)
+{
+	highlightElements = aHighlightElements;
+}
+
 void UBaseUserWidgetMovingButtons::MoveUp()
 {
-	menuSelections[cursorPosition]->SetBrushColor(unhightlighedColor);
+	highlightElements[cursorPosition]->UnHightlight();
 	Super::MoveUp();
-	menuSelections[cursorPosition]->SetBrushColor(highlightedColor);
+	highlightElements[cursorPosition]->Highlight();
 }
 
 void UBaseUserWidgetMovingButtons::MoveDown()
 {
-	menuSelections[cursorPosition]->SetBrushColor(unhightlighedColor);
+	highlightElements[cursorPosition]->UnHightlight();
 	Super::MoveDown();
-	menuSelections[cursorPosition]->SetBrushColor(highlightedColor);
+	highlightElements[cursorPosition]->Highlight();
 }
 
 void UBaseUserWidgetMovingButtons::SetCursorPositionInfo()
@@ -31,18 +41,18 @@ void UBaseUserWidgetMovingButtons::SetCursorPositionInfo()
 	Super::SetCursorPositionInfo();
 	cursorPosition    =  0;
 	minCursorPosition =  0;
-	maxCursorPosition = menuSelections.Num()-1;
+	maxCursorPosition = highlightElements.Num()-1;
 }
 
 void UBaseUserWidgetMovingButtons::SetDefaultMenuState()
 {
-	for(int i = 0 ; i < menuSelections.Num();i++)
+	for(int i = 0 ; i < highlightElements.Num();i++)
 	{
-		menuSelections[i]->SetBrushColor(unhightlighedColor);
+		highlightElements[i]->UnHightlight();;
 	}
 
 	SetCursorPositionInfo();
-	menuSelections[0]->SetBrushColor(highlightedColor);
+	highlightElements[0]->Highlight();
 }
 
 void UBaseUserWidgetMovingButtons::ActivateMenuSelection()

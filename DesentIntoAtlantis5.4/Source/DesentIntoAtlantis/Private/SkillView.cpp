@@ -63,22 +63,22 @@ void USkillView::SetCursorPositionInfo()
 
 void USkillView::MoveUp()
 {
-	skillBarElements[cursorPosition]->BW_BackgroundHighlight->SetOpacity(0);
+	skillBarElements[cursorPosition]->UnHightlight();
 
 	Super::MoveUp();
 	
 	SkillSelection(currentActivePartyMember->classHandler->GetClassSkills(EClassSlot::Main)[cursorPosition]->skillData);
-	skillBarElements[cursorPosition]->BW_BackgroundHighlight->SetOpacity(1);
+	skillBarElements[cursorPosition]->Highlight();
 }
 
 void USkillView::MoveDown()
 {
-	skillBarElements[cursorPosition]->BW_BackgroundHighlight->SetOpacity(0);
+	skillBarElements[cursorPosition]->UnHightlight();
 
 	Super::MoveDown();
 	
 	SkillSelection(currentActivePartyMember->classHandler->GetClassSkills(EClassSlot::Main)[cursorPosition]->skillData);
-	skillBarElements[cursorPosition]->BW_BackgroundHighlight->SetOpacity(1);
+	skillBarElements[cursorPosition]->Highlight();
 }
 
 

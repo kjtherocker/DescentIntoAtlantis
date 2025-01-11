@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BaseHighlightElement.h"
 #include "BaseUserWidget.h"
 #include "SkillBase.h"
 #include "Components/Image.h"
@@ -13,7 +14,7 @@
  * 
  */
 UCLASS()
-class DESENTINTOATLANTIS_API USkillBarElement : public UBaseUserWidget
+class DESENTINTOATLANTIS_API USkillBarElement : public UBaseHighlightElement
 {
 	GENERATED_BODY()
 
@@ -27,8 +28,5 @@ public:
 	UTextBlock* SkillName;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* SkillCost;
-
-	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UImage* BW_BackgroundHighlight;
 	
 };

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BaseHighlightElement.h"
 #include "BaseUserWidget.h"
 #include "PassiveSkillData.h"
 #include "Components/Image.h"
@@ -13,7 +14,7 @@
  * 
  */
 UCLASS()
-class DESENTINTOATLANTIS_API UPassiveSkillElement : public UBaseUserWidget
+class DESENTINTOATLANTIS_API UPassiveSkillElement : public UBaseHighlightElement
 {
 	GENERATED_BODY()
 public:
@@ -24,6 +25,5 @@ public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_PassiveSkillName;
 
-	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UImage* BW_BackgroundHighlight;
+	
 };

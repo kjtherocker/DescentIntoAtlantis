@@ -12,35 +12,90 @@ void UPartyInventory::InitializePartyInventory(FPartyInventoryCompleteData aPart
 	passiveFactorySubsystem    = aPassiveFactorySubsystem;
 }
 
-UEquipmentPassive*  UPartyInventory::GetEquipment(EEquipmentID aEquipmentID)
+
+void UPartyInventory::AddMoreStacksOfEquipment(FEquipmentRequestInfo aEquipmentRequest)
 {
-	if(AllEquipment.Contains(aEquipmentID))
+	 FEquipmentPassiveInventoryInfo PassiveInventoryInfo = partyInventoryCompleteData.equipmentInventoryInfo[aEquipmentRequest.equipmentID];
+
+	PassiveInventoryInfo.Amount = PassiveInventoryInfo.Amount + aEquipmentRequest.amount >= PassiveInventoryInfo.EquipmentMaxStack
+	?  PassiveInventoryInfo.EquipmentMaxStack : PassiveInventoryInfo.Amount + aEquipmentRequest.amount ;
+	
+	partyInventoryCompleteData.equipmentInventoryInfo[aEquipmentRequest.equipmentID] = PassiveInventoryInfo;
+}
+
+void UPartyInventory::ReturnEquipment(EPartyMembers aOldOwner, EEquipmentID aEquipmentID)
+{
+	 FEquipmentPassiveInventoryInfo equipmentInventoryInfo = GetEquipment( aEquipmentID);
+	int numberOfEquipmentOwners = 	equipmentInventoryInfo.equipmentOwners.Num();
+
+	for(int i = 0 ; i < numberOfEquipmentOwners;i++)
 	{
-		return AllEquipment[aEquipmentID];		
+		if(aOldOwner == equipmentInventoryInfo.equipmentOwners[i])
+		{
+			equipmentInventoryInfo.equipmentOwners.RemoveAt(i);
+			break;
+		}
 	}
-	else
+	
+	partyInventoryCompleteData.equipmentInventoryInfo[aEquipmentID] = equipmentInventoryInfo;
+}
+
+UEquipmentPassive* UPartyInventory::TakeOutEquipment(EPartyMembers aNewOwner, EEquipmentID aEquipmentID)
+{
+	if(!isEquipmentFreeToTake(aEquipmentID))
 	{
 		return nullptr;
 	}
+	
+	partyInventoryCompleteData.equipmentInventoryInfo[aEquipmentID].equipmentOwners.Add(aNewOwner);
+	
+	UEquipmentPassive* EquipmentPassive = passiveFactorySubsystem->CreateEquipment(aEquipmentID);
+
+	return EquipmentPassive;
+}
+
+bool UPartyInventory::isEquipmentFreeToTake(EEquipmentID aEquipmentID)
+{
+	FEquipmentPassiveInventoryInfo equipmentPassiveInventory = GetEquipment( aEquipmentID);
+	return  equipmentPassiveInventory.equipmentOwners.Num()
+	        < equipmentPassiveInventory.Amount;
+}
+
+FEquipmentPassiveInventoryInfo  UPartyInventory::GetEquipment(EEquipmentID aEquipmentID)
+{
+	if(partyInventoryCompleteData.equipmentInventoryInfo.Contains(aEquipmentID))
+	{
+		return partyInventoryCompleteData.equipmentInventoryInfo[aEquipmentID];		
+	}
+	else
+	{
+		FEquipmentPassiveInventoryInfo empty;
+		return empty;
+	}
+}
+
+FPassiveSkillData UPartyInventory::GetEquipmentPassiveSkillData(EEquipmentID aEquipmentID)
+{
+	return passiveFactorySubsystem->GetEquipmentPassiveSkillData(aEquipmentID);
 }
 
 void UPartyInventory::AddEquipmentToInventory(FEquipmentRequestInfo aEquipmentRequest)
 {
 
 	EEquipmentID EquipmentID = aEquipmentRequest.equipmentID;
-	UEquipmentPassive* getEquipment = GetEquipment( EquipmentID);
+	FEquipmentPassiveInventoryInfo getEquipment = GetEquipment( EquipmentID);
 
-	if(getEquipment != nullptr)
+	if(getEquipment.EquipmentID != EEquipmentID::None)
 	{
-		getEquipment->RequestEquipment(aEquipmentRequest);
+		AddMoreStacksOfEquipment(aEquipmentRequest);
 		return;
 	}
 	
-	UEquipmentPassive* newEquipment = passiveFactorySubsystem->CreateEquipment( EquipmentID);
-	if(newEquipment != nullptr)
-	{
-		newEquipment->RequestEquipment(aEquipmentRequest);
-		AllEquipment.Add(EquipmentID,newEquipment);
-	}
+	FEquipmentPassiveInventoryInfo newEquipment;
+	newEquipment.EquipmentID = EquipmentID;
+	newEquipment.Amount      = aEquipmentRequest.amount;
+	newEquipment.EquipmentMaxStack = 5;
+	
+	partyInventoryCompleteData.equipmentInventoryInfo.Add(EquipmentID,newEquipment);
 }
 

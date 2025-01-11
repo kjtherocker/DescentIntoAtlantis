@@ -75,7 +75,7 @@ void UCombatLogSelectionView::SetCursorPositionInfo()
 
 void UCombatLogSelectionView::SetDefaultMenuState()
 {
-	for(int i = 0 ; i < menuSelections.Num();i++)
+	for(int i = 0 ; i < CombatLogElements.Num();i++)
 	{
 		CombatLogElements[i]->BW_BackgroundHighlight->SetColorAndOpacity(unhightlighedColor);
 	}
@@ -94,3 +94,4 @@ void UCombatLogSelectionView::ActivateMenuSelection()
 	UCombatLogDetailedView* detailedCombatLog = (UCombatLogDetailedView*)InGameHUD->PushAndGetView(EViews::CombatLogDetailed,  EUiType::ActiveUi);
 	detailedCombatLog->SetDetailedLog(CombatLogElements[cursorPosition]->FullCombatLog);
 }
+

@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "CombatToken_Base.h"
 #include "CombatToken_Base_Data.h"
+#include "EquipmentPassive.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "PassiveSkillFactorySubsystem.generated.h"
 
@@ -36,4 +37,6 @@ public:
 	bool DoesPassiveSkillExist(EPassiveSkillID aPassiveSkillID);
 
 	UEquipmentPassive* CreateEquipment(EEquipmentID aEquipmentID);
+
+	FPassiveSkillData GetEquipmentPassiveSkillData(EEquipmentID aEquipmentID);
 };

@@ -3,12 +3,14 @@
 
 #include "EquipmentPassive.h"
 
-void UEquipmentPassive::InitializeEquipmentPassive(UPassiveSkills* aPassiveSkill)
+void UEquipmentPassive::InitializeEquipmentPassive(EEquipmentID aEquipmentID,UPassiveSkills* aPassiveSkill)
 {
+	EquipmentPassiveData.EquipmentID = aEquipmentID;
 	passiveSkill = aPassiveSkill; 
 }
 
-void UEquipmentPassive::RequestEquipment(FEquipmentRequestInfo aEquipmentStateInfo)
+void UEquipmentPassive::SetEquipment(FEquipmentPassiveData aEquipmentPassiveData)
 {
-	EquipmentPassiveData.Amount += aEquipmentStateInfo.amount;
+	EquipmentPassiveData = aEquipmentPassiveData;
 }
+
