@@ -11,13 +11,11 @@ void UElementalInfo::Initialize(EElementalType aElementalType, EElementalReactio
 
 void UElementalHandler::LoadSavedInfo(FCompleteElementalHandlerData aCompleteElementalHandlerData)
 {
-	CompleteElementalHandlerData = aCompleteElementalHandlerData;
-
-	for (auto Element : CompleteElementalHandlerData.elementalInfo)
+	
+	for (auto Element : aCompleteElementalHandlerData.elementalInfo)
 	{
 		SetElementalReaction(Element.Key, Element.Value.elementalReaction);
 	}
-	
 }
 
 void UElementalHandler::Initialize(UCombatEntity* aCombatEntity)

@@ -76,10 +76,11 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembers aPlayer)
 	PlayerCombatEntity->SetPlayerEntity(playerIdenityMap[aPlayer]);
 	PlayerCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactory);
 
-	EClasses initalClass = playerIdenityMap[aPlayer].initalClass;
+	EClassID initalClass = playerIdenityMap[aPlayer].initalClass;
 	if(classDataTables.Contains(initalClass))
 	{
 		PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[initalClass]);
+		PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[EClassID::GemThief]);
 		PlayerCombatEntity->SetMainClass(initalClass);
 		PlayerCombatEntity->LevelUp(partyLevel);
 	}
@@ -207,11 +208,11 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 
 		PlayerCombatEntity->LoadSavedHPAndMP(playerCompleteData);
 		
-		TMap<EClasses, FCompleteClassData> allCompleteClassData = playerCompleteData.CompleteClassHandlerData.unlockedPlayerClasses;
+		TMap<EClassID, FCompleteClassData> allCompleteClassData = playerCompleteData.CompleteClassHandlerData.unlockedPlayerClasses;
 		
-		for (TTuple<EClasses, FCompleteClassData> playerClass : allCompleteClassData)
+		for (TTuple<EClassID, FCompleteClassData> playerClass : allCompleteClassData)
 		{
-			EClasses classIdentifier = playerClass.Key;
+			EClassID classIdentifier = playerClass.Key;
 			PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[classIdentifier]);
 
 			for (auto classPassive : playerClass.Value.classPassives)
@@ -223,7 +224,7 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 			}
 		}
 
-		EClasses mainClassIdentifier = playerCompleteData.CompleteClassHandlerData.mainClassData.classIdentifer;
+		EClassID mainClassIdentifier = playerCompleteData.CompleteClassHandlerData.mainClassData.classIdentifer;
 		PlayerCombatEntity->SetMainClass(mainClassIdentifier);
 		playerCombatEntity.Add(PlayerCombatEntity);
 		playerCombatEntityInfo.Add(partyMember,PlayerCombatEntity);

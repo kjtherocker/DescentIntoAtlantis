@@ -26,7 +26,7 @@ enum class  EDataTableTypes
 
 
 UENUM()
-enum class  EClasses  : uint8
+enum class  EClassID  : uint8
 {
 	None                 = 0,
 	Banshee              = 1,

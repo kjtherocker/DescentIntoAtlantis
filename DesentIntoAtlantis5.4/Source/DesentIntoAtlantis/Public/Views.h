@@ -41,7 +41,8 @@ enum class  EViews
 	CombatLogSelection      = 31,
 	CombatLogDetailed       = 32,
 	CombatTokenUi           = 33,
-	PartyInventoryEquipment = 34
+	PartyInventoryEquipment = 34,
+	ClassSelectionView      = 35
 };
 
 
@@ -58,23 +59,23 @@ enum class  EUiType
 
 UENUM()
 enum class  EViewElements
-{
-	None                     = 0,
-	PartyStatusHealthbar     = 1,
-	SkillBar                 = 2,
-	EnemySelectionElement    = 3,
-	TurnCounterElement       = 4,
-	MainMenuStatusElement    = 5,
-	SaveSlotElement          = 6,
-	SavePortraitElement      = 7,
-	PassiveSkillElement      = 8,
-	CombatLogElement         = 10,
-	CombatLogHitElement      = 11,
-	CombatLogAttackElement   = 12,
-	CombatLogDefenceElement  = 13,
-	CombatLogDetailedElement = 14,
-	CombatTokenRowElement    = 15,
-	CombatTokenElement       = 16,
-	
-	
+{   
+	None                        = 0,
+	PartyStatusHealthbar        = 1,
+	SkillBar                    = 2,
+	EnemySelectionElement       = 3,
+	TurnCounterElement          = 4,
+	MainMenuStatusElement       = 5,
+	SaveSlotElement             = 6,
+	SavePortraitElement         = 7,
+	PassiveSkillElement         = 8,
+	CombatLogElement            = 10,
+	CombatLogHitElement         = 11,
+	CombatLogAttackElement      = 12,
+	CombatLogDefenceElement     = 13,
+	CombatLogDetailedElement    = 14,
+	CombatTokenRowElement       = 15,
+	CombatTokenElement          = 16,
+	ClassSelectionElement       = 17,
+	ClassSkillHightlightElement = 18,
 };

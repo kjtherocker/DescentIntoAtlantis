@@ -3,6 +3,8 @@
 
 #include "BaseUserWidgetMovingButtons.h"
 
+#include "PassiveSkillElement.h"
+#include "PassiveSkillFactorySubsystem.h"
 #include "Components/Border.h"
 
 
@@ -58,5 +60,15 @@ void UBaseUserWidgetMovingButtons::SetDefaultMenuState()
 void UBaseUserWidgetMovingButtons::ActivateMenuSelection()
 {
 	MenuSelectionDelegates[cursorPosition].Broadcast();
+}
+
+void UBaseUserWidgetMovingButtons::SetPassiveSkillBar(FPassiveSkillData aSkill,
+	UPassiveSkillElement* PassiveSkillElement)
+{
+	if(aSkill.passiveSkillID == EPassiveSkillID::None)
+	{
+		return;
+	}
+	PassiveSkillElement->SetPassiveSkill(aSkill);
 }
 

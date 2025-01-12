@@ -22,7 +22,7 @@ public:
 
 	UPROPERTY()
 	UPassiveSkills* passiveSkills;
-
+	UPROPERTY()
 	FCompleteElementalInfo CompleteElementalInfo;
 
 

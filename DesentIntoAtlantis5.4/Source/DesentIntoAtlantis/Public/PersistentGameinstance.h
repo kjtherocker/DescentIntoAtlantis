@@ -22,7 +22,7 @@ class UPartyManagerSubsystem;
 class UTutorialManagerSubsystem;
 class UDialogueFactorySubsystem;
 enum class ESkillType : uint8;
-enum class EClasses  : uint8;
+enum class EClassID  : uint8;
 class UDataTable;
 enum class EDataTableTypes;
 /**
@@ -64,7 +64,7 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Data")
 	TMap<EDataTableTypes,UDataTable*> dataTables;
 	UPROPERTY(EditAnywhere, Category = "Data")
-	TMap<EClasses,UDataTable*> dataTablesClasses;
+	TMap<EClassID,UDataTable*> dataTablesClasses;
 	UPROPERTY(EditAnywhere, Category = "Data")
 	TMap<ESkillType,UDataTable*> dataTablesSkills;
 

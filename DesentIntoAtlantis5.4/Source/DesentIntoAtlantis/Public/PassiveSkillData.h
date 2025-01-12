@@ -7,6 +7,7 @@
 
 
 enum class EPartyMembers;
+enum class ESkillIDS : uint8;
 enum class ESkillDamageType : uint8;
 enum class ESkillRange      : uint8;
 enum class ESkillUsage      : uint8;
@@ -175,9 +176,25 @@ struct DESENTINTOATLANTIS_API FPassiveSkillClassData : public FTableRowBase
 	UPROPERTY(EditAnywhere)
 	int CPCost = 1;
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 	bool isPassiveOwned = false;
 };
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FSkillClassData : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	UPROPERTY( EditAnywhere )
+	ESkillIDS SkillIds;
+
+	UPROPERTY(EditAnywhere)
+	int CPCost = 1;
+
+	UPROPERTY(EditAnywhere)
+	bool isSkillOwned = false;
+};
+
+
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FEquipmentPassiveInventoryInfo : public FTableRowBase

@@ -42,7 +42,8 @@ void UCommandBoardView::SetCommandBoard(ACombatGameModeBase* aCombatGameModeBase
 	BW_FullBodyPortrait->SetBrushFromTexture(currentActivePartyMember->playerIdentityData.fullBodyCharacterPortrait);
 	
 	commandBoards.Add(BW_Attack);
-	commandBoards.Add(BW_Skill);
+	commandBoards.Add(BW_MainSkill);
+	commandBoards.Add(BW_SubSkill);
 	commandBoards.Add(BW_Escape);
 	commandBoards.Add(BW_Pass);
 
@@ -54,8 +55,11 @@ void UCommandBoardView::SetCommandBoard(ACombatGameModeBase* aCombatGameModeBase
 	commandBoardSelectionAttack.AddDynamic(this, &UCommandBoardView::Attack);
 	commandboardSelections.Add(ECommandBoardStates::Attack,commandBoardSelectionAttack );
 	
-	commandBoardSelectionSkill.AddDynamic(this,  &UCommandBoardView::Skill);
-	commandboardSelections.Add(ECommandBoardStates::Skill,commandBoardSelectionSkill );
+	commandBoardSelectionMainSkill.AddDynamic(this,  &UCommandBoardView::MainClassSkill);
+	commandboardSelections.Add(ECommandBoardStates::MainSkill,commandBoardSelectionMainSkill );
+
+	commandBoardSelectionSubSkill.AddDynamic(this,  &UCommandBoardView::SubClassSkill);
+	commandboardSelections.Add(ECommandBoardStates::SubSkill,commandBoardSelectionSubSkill );
 	
 	commandBoardSelectionEscape.AddDynamic(this, &UCommandBoardView::Escape);
 	commandboardSelections.Add(ECommandBoardStates::Escape,commandBoardSelectionEscape );
@@ -120,11 +124,30 @@ void UCommandBoardView::Attack()
 	SelectionView->SetSkill(defaultAttack);
 }
 
-void UCommandBoardView::Skill()
+void UCommandBoardView::MainClassSkill()
 {
+	if(currentActivePartyMember->classHandler->mainClass == nullptr)
+	{
+		return;
+	}
+	
 	InGameHUD->PopMostRecentActiveView();
 	USkillView* SelectionView = (USkillView*)InGameHUD->PushAndGetView(EViews::Skill,  EUiType::ActiveUi);
+	SelectionView->InitializeSkills((ACombatGameModeBase*)gameModeBase,EClassSlot::Main);
 }
+
+void UCommandBoardView::SubClassSkill()
+{
+	if(currentActivePartyMember->classHandler->subClass == nullptr)
+	{
+		return;
+	}
+	
+	InGameHUD->PopMostRecentActiveView();
+	USkillView* SelectionView = (USkillView*)InGameHUD->PushAndGetView(EViews::Skill,  EUiType::ActiveUi);
+	SelectionView->InitializeSkills((ACombatGameModeBase*)gameModeBase,EClassSlot::Sub);
+}
+
 void UCommandBoardView::Escape()
 {
 	InGameHUD->PopMostRecentActiveView();

@@ -17,7 +17,7 @@ class UPassiveFactorySubsystem;
 class UPersistentGameinstance;
 class ACombatGameModeBase;
 struct FPlayerIdentityData;
-enum class EClasses  : uint8;
+enum class EClassID  : uint8;
 class UPlayerCombatEntity;
 class UCombatEntity;
 class USkillFactorySubsystem;
@@ -66,7 +66,7 @@ private:
 	UPassiveFactorySubsystem* passiveSkillFactory;
 
 	TMap<int,int> LevelExperienceTable;
-	TMap<EClasses,FCompleteClassData> classDataTables;
+	TMap<EClassID,FCompleteClassData> classDataTables;
 	UPROPERTY()
 	UPersistentGameinstance* persistentGameInstance;
 

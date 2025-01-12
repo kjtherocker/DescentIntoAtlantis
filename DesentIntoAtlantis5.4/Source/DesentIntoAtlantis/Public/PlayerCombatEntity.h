@@ -14,7 +14,7 @@
 #include "PlayerCombatEntity.generated.h"
 
 
-enum class EClasses  : uint8;
+enum class EClassID  : uint8;
 class UPartyHealthbarElement;
 /**
  * 
@@ -29,7 +29,7 @@ struct DESENTINTOATLANTIS_API FPlayerIdentityData :public  FTableRowBase
 	EPartyMembers characterIdentifier;
 		
 	UPROPERTY( EditAnywhere )
-	EClasses initalClass;
+	EClassID initalClass;
 
 	UPROPERTY(EditAnywhere)
 	FEquipmentHandlerData DefaultSpawnEquipmentHandlerData;
@@ -99,7 +99,7 @@ public:
 	UClassHandler* classHandler;
 
 	UPROPERTY()
-	TMap<EClasses,UCombatClass*> unlockedClasses;
+	TMap<EClassID,UCombatClass*> unlockedClasses;
 
 	UPROPERTY()
 	FPlayerCompleteDataSet playerCompleteDataSet;
@@ -123,7 +123,7 @@ public:
 
 
 	virtual void InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData);
-	virtual void SetMainClass(EClasses aClass);
+	virtual void SetMainClass(EClassID aClass);
 	virtual void Reset() override;
 	virtual void SetToDefaultState() override;
 	virtual FString GetEntityName() override;

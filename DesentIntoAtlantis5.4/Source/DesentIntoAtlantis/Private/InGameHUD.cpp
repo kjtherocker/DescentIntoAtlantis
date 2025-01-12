@@ -20,11 +20,15 @@ void AInGameHUD::PushView(EViews aView, EUiType aUiType)
     UBaseUserWidget* newView = CreateWidget<UBaseUserWidget>(GetWorld(),userWidgets[aView]);
     if(newView)
     {
-        newView->InGameHUD = this;
+        newView->SetInGameHud(this);
+       // newView->InGameHUD = this;
+        
         newView->UiInitialize(gameModeBase);
         newView->SetViewInfo(aView, aUiType);
+
         newView->AddToViewport();
         newView->viewName = aView;
+        
         switch (aUiType)
         { 
             case EUiType::ActiveUi:
@@ -66,7 +70,7 @@ UUserWidget* AInGameHUD::GetActiveHUDView(EViews aView, EUiType aUiType)
 
 void AInGameHUD::PopMostRecentActiveView()
 {
-    if(activeViewStack.Num() > 0)
+        if(activeViewStack.Num() > 0)
     {
         int lastActiveElement = activeViewStack.Num() -1;
         activeViewStack[lastActiveElement]->RemoveFromParent();
@@ -133,4 +137,17 @@ TSubclassOf<UUserWidget> AInGameHUD::GetElement(EViewElements aViewElement)
         return viewElements[aViewElement];
     }
     return nullptr;
+}
+
+UUserWidget* AInGameHUD::CreateElement(UUserWidget* aOwner,EViewElements aViewElement)
+{
+    UUserWidget* newElement = CreateWidget(aOwner, GetElement(aViewElement));
+    UBaseUserWidget* baseUserWidget = (UBaseUserWidget*)newElement;
+    if(baseUserWidget)
+    {
+        baseUserWidget->SetInGameHud(this);
+        baseUserWidget->UiInitialize(gameModeBase);
+    }
+   
+   return newElement;
 }

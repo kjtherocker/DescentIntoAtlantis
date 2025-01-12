@@ -64,7 +64,7 @@ void UPlayerCombatEntity::InitializeAndUnlockCombatClassFromDataTable(FCompleteC
 }
 
 
-void UPlayerCombatEntity::SetMainClass(EClasses aClass)
+void UPlayerCombatEntity::SetMainClass(EClassID aClass)
 {
 	classHandler->SetClass(aClass,EClassSlot::Main);
 }

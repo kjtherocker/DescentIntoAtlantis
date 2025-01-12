@@ -53,3 +53,8 @@ void UBaseUserWidget::PopMostActiveView()
 	InGameHUD->PopMostRecentActiveView();
 }
 
+void UBaseUserWidget::SetText(URichTextBlock* aTextBlock, FString aText)
+{
+	aTextBlock->SetText(FText::FromString(aText));
+}
+

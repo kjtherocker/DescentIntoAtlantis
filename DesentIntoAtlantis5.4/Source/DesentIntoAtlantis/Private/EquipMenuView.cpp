@@ -4,6 +4,8 @@
 #include "EquipMenuView.h"
 
 #include "ClassElement.h"
+#include "ClassSelectionElement.h"
+#include "ClassSelectionView.h"
 #include "CombatEntityHub.h"
 #include "PartyInventoryEquipmentView.h"
 #include "PassiveHandler.h"
@@ -14,7 +16,7 @@
 void UEquipMenuView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
-
+	InitializeInputComponent();
 	InputComponent->BindAction("Up"      ,IE_Pressed ,this, &UEquipMenuView::MoveUp  );
 	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &UEquipMenuView::MoveDown  );
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UEquipMenuView::ActivateHighLightSelection  );
@@ -107,14 +109,7 @@ void UEquipMenuView::CreatePassiveSkillbar(EEquipmentMenuSlot aEquipmentSlot,FPa
 	SetPassiveSkillBar(aSkill, baseUserWidget);
 }
 
-void UEquipMenuView::SetPassiveSkillBar(FPassiveSkillData aSkill, UPassiveSkillElement* PassiveSkillElement)
-{
-	if(aSkill.passiveSkillID == EPassiveSkillID::None)
-	{
-		return;
-	}
-	PassiveSkillElement->SetPassiveSkill(aSkill);
-}
+
 
 void UEquipMenuView::SetCursorPositionInfo()
 {
@@ -131,6 +126,10 @@ void UEquipMenuView::SetCursorPositionInfo()
 void UEquipMenuView::UpdateEquipScreen()
 {
 	int classOffset = 2;
+	
+	BW_MainClassElement->SetMainText(currentPlayer->classHandler->GetClassName(EClassSlot::Main));
+	BW_SubClassElement->SetMainText(currentPlayer->classHandler->GetClassName(EClassSlot::Sub));
+
 	
 	UEquipmentHandler* EquipmentHandler =  currentPlayer->combatEntityHub->equipmentHandler;
 	TArray<UEquipmentPassive*> Equipment = EquipmentHandler->GetAllEquipment();
@@ -167,10 +166,16 @@ void UEquipMenuView::UpdateEquipScreen()
 
 void UEquipMenuView::MainClassClicked()
 {
+	UClassSelectionView* partyInventoryEquipment = (UClassSelectionView*)InGameHUD->PushAndGetView(EViews::ClassSelectionView,  EUiType::ActiveUi);
+	partyInventoryEquipment->characterChange.AddDynamic(this,&UEquipMenuView::UEquipMenuView::UpdateEquipScreen);
+	partyInventoryEquipment->ActivateClassSelectionView(currentPlayer,PartyManagerSubsystem,EClassSlot::Main);
 }
 
 void UEquipMenuView::SubClassClicked()
 {
+	UClassSelectionView* partyInventoryEquipment = (UClassSelectionView*)InGameHUD->PushAndGetView(EViews::ClassSelectionView,  EUiType::ActiveUi);
+	partyInventoryEquipment->characterChange.AddDynamic(this,&UEquipMenuView::UEquipMenuView::UpdateEquipScreen);
+	partyInventoryEquipment->ActivateClassSelectionView(currentPlayer,PartyManagerSubsystem,EClassSlot::Sub);
 }
 
 void UEquipMenuView::EquipmentClicked()

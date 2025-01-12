@@ -9,16 +9,22 @@
 
 class UPassiveSkillElement;
 
-void UPartyInventoryEquipmentView::ActivateEquipMenu(UPlayerCombatEntity* aPlayerCombatEntity,UPartyManagerSubsystem* aPartyManagerSubsystem, int aEquipmentSlot)
+void UPartyInventoryEquipmentView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
-	playerCombatEntity = aPlayerCombatEntity;
-	equipmentSlot = aEquipmentSlot;
-	
+	Super::UiInitialize(aGameModeBase);
 	InitializeInputComponent();
 	InputComponent->BindAction("Up"      ,IE_Pressed ,this, &UPartyInventoryEquipmentView::MoveUp  );
 	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &UPartyInventoryEquipmentView::MoveDown  );
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UPartyInventoryEquipmentView::ActivateHighLightSelection  );
 	InputComponent->BindAction("Escape"   ,IE_Pressed ,this, &UPartyInventoryEquipmentView::PopMostActiveView  );
+}
+
+void UPartyInventoryEquipmentView::ActivateEquipMenu(UPlayerCombatEntity* aPlayerCombatEntity,UPartyManagerSubsystem* aPartyManagerSubsystem, int aEquipmentSlot)
+{
+	playerCombatEntity = aPlayerCombatEntity;
+	equipmentSlot = aEquipmentSlot;
+	
+	
 
 
 	PartyInventory = aPartyManagerSubsystem->PartyInventory;
@@ -68,16 +74,6 @@ void UPartyInventoryEquipmentView::CreatePassiveSkillbar(FPassiveSkillData aSkil
 
 	baseUserWidget->ViewSelection.AddDynamic(this,&UPartyInventoryEquipmentView::ActivateInventoryMenuSelection );
 	SetPassiveSkillBar(aSkill, baseUserWidget);
-}
-
-void UPartyInventoryEquipmentView::SetPassiveSkillBar(FPassiveSkillData aSkill,
-	UPassiveSkillElement* PassiveSkillElement)
-{
-	if(aSkill.passiveSkillID == EPassiveSkillID::None)
-	{
-		return;
-	}
-	PassiveSkillElement->SetPassiveSkill(aSkill);
 }
 
 

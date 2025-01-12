@@ -51,4 +51,5 @@ public:
 	 TSubclassOf<UUserWidget> GetUserWidget(EViews aView);
 	
 	TSubclassOf<UUserWidget> GetElement(EViewElements aViewElement);
+	UUserWidget* CreateElement(UUserWidget* aOwner,EViewElements aViewElement);
 };

@@ -34,6 +34,7 @@ private:
 	UPartyInventory* PartyInventory;
 public:
 
+	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 	FOnCharacterChange characterChange;
 	
 	UPROPERTY()
@@ -47,5 +48,4 @@ public:
 	virtual void ActivateInventoryMenuSelection();
 
 	void CreatePassiveSkillbar(FPassiveSkillData aSkill);
-	void SetPassiveSkillBar(FPassiveSkillData aSkill, UPassiveSkillElement* PassiveSkillElement);
 };

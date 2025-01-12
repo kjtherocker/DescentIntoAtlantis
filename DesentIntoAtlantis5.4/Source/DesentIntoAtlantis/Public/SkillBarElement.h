@@ -19,8 +19,7 @@ class DESENTINTOATLANTIS_API USkillBarElement : public UBaseHighlightElement
 	GENERATED_BODY()
 
 public:
-
-	void SetSkill(FSkillsData aSkill);
+	virtual void SetSkill(FSkillsData aSkill);
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* SkillIcon;

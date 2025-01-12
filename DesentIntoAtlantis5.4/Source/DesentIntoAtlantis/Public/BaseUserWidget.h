@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "InGameHUD.h"
 #include "Blueprint/UserWidget.h"
+#include "Components/RichTextBlock.h"
 #include "BaseUserWidget.generated.h"
 
 class UPersistentGameinstance;
@@ -31,17 +32,21 @@ protected:
 	FLinearColor unhightlighedColor        = FLinearColor(0.0,0.0,0.0,1.0);
 	FLinearColor unhightlighedColorNoAlpha = FLinearColor(0.0,0.0,0.0,0.0);
 	FLinearColor highlightedColor          = FLinearColor(1.0,1.0,1.0,1.0);
+	FLinearColor greyColor                 = FLinearColor(0.1,0.1,0.1,1.0);
+	
 	const int MAX_OPACITY = 100;
 	const int NO_OPACITY  = 0;
 public:
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase);
 	virtual void SetViewInfo(EViews aView, EUiType aUiType);
+	virtual void SetInGameHud(AInGameHUD* aInGameHud){InGameHUD = aInGameHud;  }
 	virtual void SetCursorPositionInfo();
 	virtual void MoveUp();
 	virtual void MoveDown();
 	virtual void ReturnToPreviousScreen();
 	virtual void PopMostActiveView();
 
+	virtual void SetText(URichTextBlock* aTextBlock, FString aText);
 
 	UPROPERTY()
 	AInGameHUD* InGameHUD;

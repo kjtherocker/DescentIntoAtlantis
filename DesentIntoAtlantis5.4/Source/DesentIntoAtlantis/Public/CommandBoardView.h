@@ -19,9 +19,10 @@ UENUM()
 enum class ECommandBoardStates
 {
 	Attack = 0,
-	Skill  = 1,
-	Escape = 2,
-	Pass   = 3
+	MainSkill  = 1,
+	SubSkill  = 2,
+	Escape = 3,
+	Pass   = 4
 };
 
 
@@ -39,7 +40,8 @@ private:
 	ACombatGameModeBase* combatManager;
 	TMap<ECommandBoardStates,FViewSelection > commandboardSelections;
 	FViewSelection commandBoardSelectionAttack;
-	FViewSelection commandBoardSelectionSkill;
+	FViewSelection commandBoardSelectionMainSkill;
+	FViewSelection commandBoardSelectionSubSkill;
 	FViewSelection commandBoardSelectionEscape;
 	FViewSelection commandBoardSelectionPass;
 
@@ -54,7 +56,10 @@ private:
 	UBorder* BW_Attack;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	 UBorder* BW_Skill;
+	 UBorder* BW_MainSkill;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UBorder* BW_SubSkill;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	 UBorder* BW_Escape;
@@ -92,7 +97,9 @@ private:
 	UFUNCTION()
 	void Attack();
 	UFUNCTION()
-	void Skill();
+	void MainClassSkill();
+	UFUNCTION()
+	void SubClassSkill();
 	UFUNCTION()
 	void Escape();
 	UFUNCTION()

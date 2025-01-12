@@ -23,7 +23,7 @@ class UPassiveSkills;
 struct FPassiveSkillData;
 enum class EPassiveSkillID  : uint8;
 enum class EPassiveSkillSlotType  : uint8;
-enum class EClasses : uint8;
+enum class EClassID : uint8;
 class UAilment;
 class USkillAliment;
 struct FSkillsData;

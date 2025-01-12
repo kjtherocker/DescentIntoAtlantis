@@ -33,27 +33,28 @@ void UClassHandler::InitializeAndUnlockCombatClassFromDataTable(FCompleteClassDa
 	unlockedClasses.Add(aCompleteClassData.classIdentifer,newClass);
 }
 
-void UClassHandler::SetClass(EClasses aClass, EClassSlot ClassSlot)
+void UClassHandler::SetClass(EClassID aClass, EClassSlot ClassSlot)
 {
-	mainClass = unlockedClasses[aClass];
 	
-	
-	playerCombatEntity->SetAbilityScores();
-	playerCombatEntity->SetToDefaultState();
 
 	switch (ClassSlot)
 	{
 	    case EClassSlot::None:
 	    	break;
 	    case EClassSlot::Main:
+	    	mainClass = unlockedClasses[aClass];
 	    	playerCombatEntity->combatEntityHub->elementalHandler->ResetAllElements();
 	    	playerCombatEntity->combatEntityHub->elementalHandler->LoadSavedInfo(mainClass->completeClassData.CompleteElementalHandlerData);
 	    	CompleteClassHandlerData.mainClassData = mainClass->completeClassData;
-	    	playerCombatEntity->combatEntityHub->passiveHandler->AddMainClassPassives(mainClass);	
+	    	playerCombatEntity->combatEntityHub->passiveHandler->AddMainClassPassives(mainClass);
+			playerCombatEntity->SetAbilityScores();
 	    	break;
 	    case EClassSlot::Sub:
+	    	subClass = unlockedClasses[aClass];
+			CompleteClassHandlerData.subClassData = subClass->completeClassData;
 	    	break;
 	}
+	
 }
 
 TArray<USkillBase*> UClassHandler::GetClassSkills(EClassSlot ClassSlot)

@@ -32,7 +32,7 @@ class DESENTINTOATLANTIS_API UEquipMenuView : public UBaseUserWidgetMovingButton
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 
 	void CreatePassiveSkillbar(EEquipmentMenuSlot aEquipmentSlot,FPassiveSkillData aSkill);
-	void SetPassiveSkillBar(FPassiveSkillData aSkill, UPassiveSkillElement* PassiveSkillElement);
+
 
 	virtual void SetCursorPositionInfo() override;
 	

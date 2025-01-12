@@ -29,10 +29,13 @@ class DESENTINTOATLANTIS_API USkillView : public UBaseUserWidget
 	ACombatGameModeBase* combatGameMode;
 public:
 	
-	void InitializeSkills(ACombatGameModeBase* aCombatGameMode);
+	void InitializeSkills(ACombatGameModeBase* aCombatGameMode,EClassSlot aClassSlot);
 
+	UCombatClass* GetCombatClass();
+
+	UPROPERTY()
+	EClassSlot ClassSlot;
 	
-
 	UPROPERTY()
 	UPlayerCombatEntity* currentActivePartyMember;
 	

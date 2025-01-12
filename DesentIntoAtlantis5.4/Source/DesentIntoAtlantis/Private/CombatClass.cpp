@@ -21,16 +21,21 @@ void UCombatClass::CreateClass(FCompleteClassData aLoadedClass)
 {
 	completeClassData = aLoadedClass;
 	completeClassData.classStatBase = completeClassData.classBaseStat;
-	CreateAllClassSkillsForLevel(completeClassData);
+	CreateAllUnlockedClassSkills(completeClassData);
 }
 
 
 
-void UCombatClass::CreateAllClassSkillsForLevel(FCompleteClassData aCompleteClassData)
+void UCombatClass::CreateAllUnlockedClassSkills(FCompleteClassData aCompleteClassData)
 {
-	for (TTuple<int, ESkillIDS> skillByLevel : aCompleteClassData.unlockableSkillByLevel)
+	for (FSkillClassData skillByLevel : aCompleteClassData.skillClassData)
 	{
-		ESkillIDS skillName = skillByLevel.Value;
+		if(skillByLevel.isSkillOwned == false)
+		{
+			continue;
+		}
+		
+		ESkillIDS skillName = skillByLevel.SkillIds;
 		if(skillName != ESkillIDS::None)
 		{
 			USkillBase* newSkill = skillFactory->GetSkill(skillName);

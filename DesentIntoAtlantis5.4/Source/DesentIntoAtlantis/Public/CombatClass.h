@@ -33,7 +33,7 @@ struct DESENTINTOATLANTIS_API FCompleteClassData  :public  FTableRowBase
 	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY( EditAnywhere , Category = "Identity")
-	EClasses classIdentifer = EClasses::None;
+	EClassID classIdentifer = EClassID::None;
 	
 	UPROPERTY( EditAnywhere, Category = "Identity" )
 	FString className;
@@ -54,7 +54,7 @@ struct DESENTINTOATLANTIS_API FCompleteClassData  :public  FTableRowBase
 	int ClassPointCostToUnlock = 0;
 	
 	UPROPERTY( EditAnywhere , Category = "SkillDefinition")
-	TMap<int,ESkillIDS> unlockableSkillByLevel;
+	TArray<FSkillClassData> skillClassData;
 
 	UPROPERTY(EditAnywhere , Category = "SkillDefinition")
 	EPassiveSkillID classLockedPassive;
@@ -101,7 +101,7 @@ public:
 	UPROPERTY()
 	int currentClassIndex;
 	
-	void CreateAllClassSkillsForLevel(FCompleteClassData aCompleteClassData);
+	void CreateAllUnlockedClassSkills(FCompleteClassData aCompleteClassData);
 
 	int experience;
 };

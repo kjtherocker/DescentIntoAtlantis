@@ -40,7 +40,7 @@ int UPlayerCombatStats::GetClassBases()
 		return classBase;
 	}
 		
-	for (TTuple<EClasses, int> Element : classStatBases)
+	for (TTuple<EClassID, int> Element : classStatBases)
 	{
 		classBase += Element.Value;
 	}

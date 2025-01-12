@@ -23,18 +23,21 @@ void USkillView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &USkillView::MoveDown  );
 	InputComponent->BindAction("E"       ,IE_Pressed ,this, &USkillView::ReturnToPreviousScreen  );
 
-	InitializeSkills((ACombatGameModeBase*) aGameModeBase);
 	
 }
 
-void USkillView::InitializeSkills(ACombatGameModeBase* aCombatGameMode)
+void USkillView::InitializeSkills(ACombatGameModeBase* aCombatGameMode,EClassSlot aClassSlot)
 {
+	ClassSlot = aClassSlot;
 	combatGameMode = aCombatGameMode;
 	currentActivePartyMember = aCombatGameMode->GetCurrentActivePartyMember();
-	TArray<USkillBase*> combatClass = currentActivePartyMember->classHandler->GetClassSkills(EClassSlot::Main);
+	TArray<USkillBase*> combatClass = currentActivePartyMember->classHandler->GetClassSkills(aClassSlot);
 
 	BW_CharacterName->SetText(FText(FText::FromString(currentActivePartyMember->playerIdentityData.characterName)));
-	BW_ClassName->SetText(FText(FText::FromString(currentActivePartyMember->classHandler->mainClass->completeClassData.className)));
+	
+	FString className = GetCombatClass()->completeClassData.className;
+	
+	BW_ClassName->SetText(FText(FText::FromString(className)));
 	
 	for(int i = 0 ; i < combatClass.Num();i++)
 	{
@@ -53,6 +56,22 @@ void USkillView::InitializeSkills(ACombatGameModeBase* aCombatGameMode)
 	SetCursorPositionInfo();
 }
 
+UCombatClass* USkillView::GetCombatClass()
+{
+	switch (ClassSlot)
+	{
+	case EClassSlot::None:
+		break;
+	case EClassSlot::Main:
+		return currentActivePartyMember->classHandler->mainClass;
+		break;
+	case EClassSlot::Sub:
+		return currentActivePartyMember->classHandler->subClass;
+		break;
+	}
+	return nullptr;
+}
+
 void USkillView::SetCursorPositionInfo()
 {
 	Super::SetCursorPositionInfo();
@@ -63,6 +82,11 @@ void USkillView::SetCursorPositionInfo()
 
 void USkillView::MoveUp()
 {
+	if(skillBarElements.Num() == 0)
+	{
+		return;
+	}
+	
 	skillBarElements[cursorPosition]->UnHightlight();
 
 	Super::MoveUp();
@@ -73,6 +97,12 @@ void USkillView::MoveUp()
 
 void USkillView::MoveDown()
 {
+	if(skillBarElements.Num() == 0)
+	{
+		return;
+	}
+
+	
 	skillBarElements[cursorPosition]->UnHightlight();
 
 	Super::MoveDown();
@@ -106,7 +136,7 @@ void USkillView::SkillSelection(FSkillsData aSkill)
 
 void USkillView::SelectSkill()
 {
-	UCombatClass* combatClass = currentActivePartyMember->classHandler->mainClass;
+	UCombatClass* combatClass = GetCombatClass();
 	
 	if(combatClass->classSkills[cursorPosition]->CanUseSkill(currentActivePartyMember))
 	{

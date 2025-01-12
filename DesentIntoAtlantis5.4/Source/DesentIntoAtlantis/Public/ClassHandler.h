@@ -9,7 +9,7 @@
 #include "ClassHandler.generated.h"
 
 
-enum class EClasses : uint8;
+enum class EClassID : uint8;
 class UCombatClass;
 /**
  * 
@@ -29,7 +29,7 @@ public:
 	USkillFactorySubsystem* skillfactorySubsystem;
 	
 	UPROPERTY()
-	TMap<EClasses,UCombatClass*> unlockedClasses;
+	TMap<EClassID,UCombatClass*> unlockedClasses;
 
 	UPROPERTY()
 	FCompleteClassHandlerData CompleteClassHandlerData;
@@ -39,7 +39,7 @@ public:
 	virtual void LoadSavedClassHandler(	FCompleteClassHandlerData aCompleteClassHandlerData);
 	virtual void InitializeClassHandler(UPlayerCombatEntity* aPlayerCombatEntity, USkillFactorySubsystem* SkillFactorySubsystem);
 	virtual void InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData);
-	virtual void SetClass(EClasses aClass, EClassSlot ClassSlot);
+	virtual void SetClass(EClassID aClass, EClassSlot ClassSlot);
 	virtual TArray<USkillBase*> GetClassSkills(EClassSlot ClassSlot);
 
 	virtual FString GetClassName(EClassSlot aClass);

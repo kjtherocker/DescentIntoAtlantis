@@ -10,7 +10,7 @@
 
 struct FCompleteClassData;
 struct FPlayerIdentityData;
-enum class EClasses  : uint8;
+enum class EClassID  : uint8;
 /**
  * 
  */
@@ -21,7 +21,7 @@ class DESENTINTOATLANTIS_API UPlayerCombatStats : public UCombatStat
 public:
 
 	UPROPERTY(EditAnywhere)
-	TMap<EClasses,int> classStatBases;
+	TMap<EClassID,int> classStatBases;
 	
 	inline static const float ABILITYSCORE_CONVERSION_RATIO = 3;
 

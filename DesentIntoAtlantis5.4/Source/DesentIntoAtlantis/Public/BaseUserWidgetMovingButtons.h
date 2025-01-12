@@ -7,6 +7,8 @@
 #include "BaseUserWidget.h"
 #include "BaseUserWidgetMovingButtons.generated.h"
 
+class UPassiveSkillElement;
+struct FPassiveSkillData;
 class UBorder;
 /**
  * 
@@ -30,6 +32,7 @@ protected:
 
 	virtual void ActivateMenuSelection();
 
+	void SetPassiveSkillBar(FPassiveSkillData aSkill, UPassiveSkillElement* PassiveSkillElement);
 public:
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 	virtual void ActivateHighLightSelection();
