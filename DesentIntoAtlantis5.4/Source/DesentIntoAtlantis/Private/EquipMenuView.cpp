@@ -29,13 +29,13 @@ void UEquipMenuView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 
 void UEquipMenuView::SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsystem)
 {
-	combatStatView = (UCombatStatView*)InGameHUD->PushAndGetView(EViews::CombatStatView,  EUiType::PersistentUi);
-	combatStatView->UiInitialize(gameModeBase);
+	
+	BW_CombatStatView->UiInitialize(gameModeBase);
 	
 	currentPlayer = aPartyManagerSubsystem->playerCombatEntity[0];
 	PartyManagerSubsystem = aPartyManagerSubsystem;
 
-	combatStatView->SetPlayerStatView(currentPlayer,currentPlayer->classHandler->mainClass);
+	BW_CombatStatView->SetPlayerStatView(currentPlayer,currentPlayer->classHandler->mainClass);
 	
 	BW_CPAmount->SetText(FText::FromString(FString::FromInt(currentPlayer->classHandler->GetClassPoints())));
 
@@ -135,7 +135,7 @@ void UEquipMenuView::UpdateEquipScreen()
 {
 	int classOffset = 2;
 	
-	combatStatView->SetPlayerStatView(currentPlayer,currentPlayer->classHandler->mainClass);
+	BW_CombatStatView->SetPlayerStatView(currentPlayer,currentPlayer->classHandler->mainClass);
 	BW_MainClassElement->SetMainText(currentPlayer->classHandler->GetClassName(EClassSlot::Main));
 	BW_SubClassElement->SetMainText(currentPlayer->classHandler->GetClassName(EClassSlot::Sub));
 

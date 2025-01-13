@@ -30,10 +30,12 @@ void UPassiveSelectionView::ActivatePassiveMenu(UPlayerCombatEntity* aPlayerComb
 	UPassiveFactorySubsystem* PassiveFactorySubsystem = persistentGameinstance->passiveFactorySubsystem;
 	
 	TMap<EPassiveSkillID, FPassiveSkillClassData> UnlockedPassives = playerCombatEntity->classHandler->GetUnlockedPassives();
+	
 
 	if(UnlockedPassives.Num() == 0)
 	{
 		PopMostActiveView();
+		return;
 	}
 
 	for (auto AllEquipment : UnlockedPassives)

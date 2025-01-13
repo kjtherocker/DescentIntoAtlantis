@@ -60,8 +60,8 @@ class DESENTINTOATLANTIS_API UEquipMenuView : public UBaseUserWidgetMovingButton
 public:
 	void SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsystem);
 
-	UPROPERTY()
-	UCombatStatView* combatStatView;
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UCombatStatView* BW_CombatStatView;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_CharacterNameText;
