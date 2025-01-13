@@ -7,8 +7,11 @@
 #include "ClassSelectionElement.h"
 #include "ClassSelectionView.h"
 #include "CombatEntityHub.h"
+#include "CombatStat.h"
+#include "CombatStatView.h"
 #include "PartyInventoryEquipmentView.h"
 #include "PassiveHandler.h"
+#include "PassiveSelectionView.h"
 #include "PassiveSkillElement.h"
 #include "PassiveSkills.h"
 #include "Components/VerticalBox.h"
@@ -21,13 +24,18 @@ void UEquipMenuView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &UEquipMenuView::MoveDown  );
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UEquipMenuView::ActivateHighLightSelection  );
 	InputComponent->BindAction("Escape"   ,IE_Pressed ,this, &UEquipMenuView::PopMostActiveView  );
-
+	
 }
 
 void UEquipMenuView::SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsystem)
 {
+	combatStatView = (UCombatStatView*)InGameHUD->PushAndGetView(EViews::CombatStatView,  EUiType::PersistentUi);
+	combatStatView->UiInitialize(gameModeBase);
+	
 	currentPlayer = aPartyManagerSubsystem->playerCombatEntity[0];
 	PartyManagerSubsystem = aPartyManagerSubsystem;
+
+	combatStatView->SetPlayerStatView(currentPlayer,currentPlayer->classHandler->mainClass);
 	
 	BW_CPAmount->SetText(FText::FromString(FString::FromInt(currentPlayer->classHandler->GetClassPoints())));
 
@@ -48,11 +56,11 @@ void UEquipMenuView::SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsy
 	{
 		if(Equipment[i] != nullptr)
 		{
-		   CreatePassiveSkillbar(EEquipmentMenuSlot::Equipment,Equipment[i]->GetPassiveSkill()->passiveSkillData);		
+		   CreatePassiveSkillbar(EEquipmentMenuSlot::Equipment,Equipment[i]->GetPassiveSkill()->passiveSkillData,i);		
 		}
 		else
 		{
-			CreatePassiveSkillbar(EEquipmentMenuSlot::Equipment,genericNotData);	
+			CreatePassiveSkillbar(EEquipmentMenuSlot::Equipment,genericNotData,i);	
 		}
 	}
 	
@@ -63,13 +71,13 @@ void UEquipMenuView::SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsy
 	{
 		if(passiveSkills[i] == nullptr )
 		{
-			CreatePassiveSkillbar(EEquipmentMenuSlot::Passive,genericNotData);
+			CreatePassiveSkillbar(EEquipmentMenuSlot::Passive,genericNotData,i);
 			continue;
 		}
 		
 		if(passiveSkills[i])
 		{
-			CreatePassiveSkillbar(EEquipmentMenuSlot::Passive,passiveSkills[i]->passiveSkillData);		
+			CreatePassiveSkillbar(EEquipmentMenuSlot::Passive,passiveSkills[i]->passiveSkillData,i);		
 		}
 	}
 
@@ -77,7 +85,7 @@ void UEquipMenuView::SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsy
 	SetDefaultMenuState();
 }
 
-void UEquipMenuView::CreatePassiveSkillbar(EEquipmentMenuSlot aEquipmentSlot,FPassiveSkillData aSkill)
+void UEquipMenuView::CreatePassiveSkillbar(EEquipmentMenuSlot aEquipmentSlot,FPassiveSkillData aSkill,int aSlot)
 {
 	UUserWidget* skillBarElement = CreateWidget(this, InGameHUD->GetElement(EViewElements::PassiveSkillElement));
 
@@ -88,7 +96,7 @@ void UEquipMenuView::CreatePassiveSkillbar(EEquipmentMenuSlot aEquipmentSlot,FPa
 	passiveHighlightElements.Add(baseUserWidget);
 
 	baseUserWidget->SetMainText("");
-
+	baseUserWidget->slot = aSlot;
 	baseUserWidget->BW_BackgroundHighlight->SetColorAndOpacity(unhightlighedColorNoAlpha);
 
 	switch (aEquipmentSlot)
@@ -127,6 +135,7 @@ void UEquipMenuView::UpdateEquipScreen()
 {
 	int classOffset = 2;
 	
+	combatStatView->SetPlayerStatView(currentPlayer,currentPlayer->classHandler->mainClass);
 	BW_MainClassElement->SetMainText(currentPlayer->classHandler->GetClassName(EClassSlot::Main));
 	BW_SubClassElement->SetMainText(currentPlayer->classHandler->GetClassName(EClassSlot::Sub));
 
@@ -180,11 +189,24 @@ void UEquipMenuView::SubClassClicked()
 
 void UEquipMenuView::EquipmentClicked()
 {
-	UPartyInventoryEquipmentView* partyInventoryEquipment = (UPartyInventoryEquipmentView*)InGameHUD->PushAndGetView(EViews::PartyInventoryEquipment,  EUiType::ActiveUi);
-	partyInventoryEquipment->characterChange.AddDynamic(this,&UEquipMenuView::UEquipMenuView::UpdateEquipScreen);
-	partyInventoryEquipment->ActivateEquipMenu(currentPlayer,PartyManagerSubsystem,1);
+	UPassiveSkillElement* baseUserWidget = (UPassiveSkillElement*)highlightElements[cursorPosition];
+
+	if(baseUserWidget)
+	{
+		UPartyInventoryEquipmentView* partyInventoryEquipment = (UPartyInventoryEquipmentView*)InGameHUD->PushAndGetView(EViews::PartyInventoryEquipment,  EUiType::ActiveUi);
+		partyInventoryEquipment->characterChange.AddDynamic(this,&UEquipMenuView::UEquipMenuView::UpdateEquipScreen);
+		partyInventoryEquipment->ActivateEquipMenu(currentPlayer,PartyManagerSubsystem,baseUserWidget->slot);
+	}
 }
 
 void UEquipMenuView::PassiveClicked()
 {
+	UPassiveSkillElement* baseUserWidget = (UPassiveSkillElement*)highlightElements[cursorPosition];
+
+	if(baseUserWidget)
+	{
+		UPassiveSelectionView* passiveSelectionView = (UPassiveSelectionView*)InGameHUD->PushAndGetView(EViews::PassiveSelectionView,  EUiType::ActiveUi);
+		passiveSelectionView->characterChange.AddDynamic(this,&UEquipMenuView::UEquipMenuView::UpdateEquipScreen);
+		passiveSelectionView->ActivatePassiveMenu(currentPlayer,baseUserWidget->slot);	
+	}
 }

@@ -8,6 +8,7 @@
 #include "PassiveSkillElement.h"
 #include "EquipMenuView.generated.h"
 
+class UCombatStatView;
 class UClassElement;
 struct FPassiveSkillData;
 /**
@@ -31,7 +32,7 @@ class DESENTINTOATLANTIS_API UEquipMenuView : public UBaseUserWidgetMovingButton
 	GENERATED_BODY()
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 
-	void CreatePassiveSkillbar(EEquipmentMenuSlot aEquipmentSlot,FPassiveSkillData aSkill);
+	void CreatePassiveSkillbar(EEquipmentMenuSlot aEquipmentSlot,FPassiveSkillData aSkill,int aSlot);
 
 
 	virtual void SetCursorPositionInfo() override;
@@ -58,6 +59,9 @@ class DESENTINTOATLANTIS_API UEquipMenuView : public UBaseUserWidgetMovingButton
 
 public:
 	void SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsystem);
+
+	UPROPERTY()
+	UCombatStatView* combatStatView;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_CharacterNameText;

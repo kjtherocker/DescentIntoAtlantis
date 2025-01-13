@@ -42,6 +42,8 @@ public:
 	virtual void SetClass(EClassID aClass, EClassSlot ClassSlot);
 	virtual TArray<USkillBase*> GetClassSkills(EClassSlot ClassSlot);
 
+	virtual TMap<EPassiveSkillID,FPassiveSkillClassData> GetUnlockedPassives(){return  CompleteClassHandlerData.unlockedPassives;}
+	
 	virtual FString GetClassName(EClassSlot aClass);
 	void UnlockSkill(EClassID aClassID,ESkillIDS aSkillID);
 	void UnlockPassiveSkill(EClassID aClassID,EPassiveSkillID aSkillID);

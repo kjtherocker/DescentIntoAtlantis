@@ -119,9 +119,9 @@ public:
 	virtual void SetPlayerEntity(FPlayerIdentityData aPlayerEntityData);
 	virtual void SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassiveFactorySubsystem* aPassiveSkillFactory) override;
 	virtual void EquipEquipment(UEquipmentPassive* aEquipment, int aSlot);
+	virtual void EquipPassive(UPassiveSkills* aPassive, int aSlot);
 	virtual void SetEquipmentState(FEquipmentHandlerData aEquipmentHandlerData);
-
-
+	
 	virtual void InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData);
 	virtual void SetMainClass(EClassID aClass);
 	virtual void Reset() override;

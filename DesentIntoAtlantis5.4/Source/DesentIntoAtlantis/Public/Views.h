@@ -43,7 +43,9 @@ enum class  EViews
 	CombatTokenUi           = 33,
 	PartyInventoryEquipment = 34,
 	ClassSelectionView      = 35,
-	DialoguePopupbox        = 36
+	DialoguePopupbox        = 36,
+	PassiveSelectionView    = 37,
+	CombatStatView          = 38
 };
 
 

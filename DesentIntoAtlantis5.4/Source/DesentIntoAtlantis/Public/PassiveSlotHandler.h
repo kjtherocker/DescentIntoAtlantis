@@ -17,7 +17,7 @@ struct DESENTINTOATLANTIS_API FPassiveSlotHandlerData:public  FTableRowBase
 	GENERATED_BODY()
 	
 	UPROPERTY( EditAnywhere )
-	TArray<EPassiveSkillID> equipmentPassiveData;
+	TArray<EPassiveSkillID> passiveSlotData;
 
 };
 

@@ -20,6 +20,7 @@ class DESENTINTOATLANTIS_API UPassiveSkillElement : public UBaseHighlightElement
 public:
 	void SetPassiveSkill(FPassiveSkillData aSkill);
 
+	int slot;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_PassiveSkillIcon;
 

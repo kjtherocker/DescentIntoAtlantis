@@ -52,6 +52,12 @@ void UPlayerCombatEntity::EquipEquipment(UEquipmentPassive* aEquipment, int aSlo
 	GatherAndSavePlayerCompleteDataSet();
 }
 
+void UPlayerCombatEntity::EquipPassive(UPassiveSkills* aPassive, int aSlot)
+{
+	combatEntityHub->passiveHandler->PassiveSlotHandler->EquipPassiveInSlot(aPassive->passiveSkillData.passiveSkillID,aSlot);
+	GatherAndSavePlayerCompleteDataSet();
+}
+
 void UPlayerCombatEntity::SetEquipmentState(FEquipmentHandlerData aEquipmentHandlerData)
 {
 	combatEntityHub->equipmentHandler->SetEquipmentState(aEquipmentHandlerData);
@@ -150,6 +156,7 @@ void UPlayerCombatEntity::SetAbilityScores()
 			}
         
 			UPlayerCombatStats* PlayerStats = Cast<UPlayerCombatStats>(abilityScoreMap[statType]);
+			PlayerStats->classStatBases.Empty();
 			PlayerStats->AddClassStatBase(classHandler->mainClass->completeClassData);
 
 			abilityScoreMap[statType] = PlayerStats;

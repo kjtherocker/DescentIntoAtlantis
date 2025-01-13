@@ -15,6 +15,9 @@ enum class ESkillType : uint8;
 enum class ESkillDamageType : uint8;
 enum class ESkillIDS : uint8;
 
+
+struct FCombatTokenStackData;
+
 USTRUCT()
 struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
 {
