@@ -3,22 +3,17 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "BaseHighlightElement.h"
-#include "SkillBarElement.h"
-#include "SkillData.h"
-#include "ClassSkillHighlightElement.generated.h"
+#include "PassiveSkillElement.h"
+#include "ClassPassiveSkillElement.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class DESENTINTOATLANTIS_API UClassSkillHighlightElement : public USkillBarElement
+class DESENTINTOATLANTIS_API UClassPassiveSkillElement : public UPassiveSkillElement
 {
 	GENERATED_BODY()
-
 public:
-
-		
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_Background;
 
@@ -29,12 +24,11 @@ public:
 	URichTextBlock* BW_TitleText;
 
 	UPROPERTY()
-	FSkillClassData SkillClassData;
+	FPassiveSkillClassData passiveSkillClassData;
 
 	UPROPERTY()
 	FString skillName;
 	
-	virtual void SetClassInformation(FSkillClassData aSkillClassData);
-	virtual void SetSkill(FSkillsData aSkill) override;
+	virtual void SetClassInformation(FPassiveSkillClassData aSkillClassData);
 	void SetSkillLock(bool aIsLocked);
 };

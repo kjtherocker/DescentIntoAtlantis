@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidgetMovingButtons.h"
+#include "ClassHandler.h"
 #include "SkillData.h"
 #include "ClassDetailedView.generated.h"
 
@@ -22,6 +23,14 @@ class DESENTINTOATLANTIS_API UClassDetailedView : public UBaseUserWidgetMovingBu
 {
 	GENERATED_BODY()
 
+private:
+
+	UPROPERTY()
+	UPlayerCombatEntity* playerCombatEntity;
+
+	UPROPERTY()
+	FCompleteClassData classData;
+	
 public:
 
 	FViewSelection ReturnToPreviousMenu;
@@ -44,10 +53,16 @@ public:
 	void ActivateInput();
 	
 	void CreateSkillbar(FSkillClassData aClassData,FSkillsData aSkillData);
-	void CreatePassiveSkillbar(FPassiveSkillData aSkill);
+	UFUNCTION()
+	void UnlockSkill();
+	UFUNCTION()
+	void UnlockPassive();
+	void CreatePassiveSkillbar(FPassiveSkillData aSkill,FPassiveSkillClassData passiveClassData);
 	void SetDetailedClassView(FCompleteClassData aClassData, UPlayerCombatEntity* aPlayerCombatEntity,
 											  UPersistentGameinstance* aPersistentGameinstance, EClassSlot aClassSlot);
 	void ReturnToPreviousScreen() override;
+
+
 	
 	void ResetUI();
 	UFUNCTION()

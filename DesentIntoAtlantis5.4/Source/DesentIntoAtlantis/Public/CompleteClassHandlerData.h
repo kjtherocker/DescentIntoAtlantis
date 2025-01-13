@@ -24,6 +24,9 @@ struct DESENTINTOATLANTIS_API FCompleteClassHandlerData: public FTableRowBase
 	
 	UPROPERTY(EditAnywhere)
 	TMap<EClassID,FCompleteClassData> unlockedPlayerClasses;
+	
+	UPROPERTY(EditAnywhere)
+	TMap<EPassiveSkillID,FPassiveSkillClassData> unlockedPassives;
 
 	UPROPERTY()
 	int ClassPoints;

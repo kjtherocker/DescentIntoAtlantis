@@ -17,17 +17,17 @@ void UCombatClass::InitializeDependencys(USkillFactorySubsystem* aSkillFactory, 
 	attachedCombatEntity = aCombatEntity;
 }
 
-void UCombatClass::CreateClass(FCompleteClassData aLoadedClass)
+void UCombatClass::SetClass(FCompleteClassData aLoadedClass)
 {
 	completeClassData = aLoadedClass;
 	completeClassData.classStatBase = completeClassData.classBaseStat;
 	CreateAllUnlockedClassSkills(completeClassData);
 }
 
-
-
 void UCombatClass::CreateAllUnlockedClassSkills(FCompleteClassData aCompleteClassData)
 {
+	classSkills.Reset();
+	
 	for (FSkillClassData skillByLevel : aCompleteClassData.skillClassData)
 	{
 		if(skillByLevel.isSkillOwned == false)
@@ -40,7 +40,6 @@ void UCombatClass::CreateAllUnlockedClassSkills(FCompleteClassData aCompleteClas
 		{
 			USkillBase* newSkill = skillFactory->GetSkill(skillName);
 			classSkills.Add(newSkill);
-			attachedCombatEntity->playerCompleteDataSet.skillSlots.Add(skillName);
 		}
 	}
 }

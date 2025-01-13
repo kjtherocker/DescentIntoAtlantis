@@ -44,6 +44,7 @@ public:
 	virtual void MoveUp();
 	virtual void MoveDown();
 	virtual void ReturnToPreviousScreen();
+	UFUNCTION()
 	virtual void PopMostActiveView();
 
 	virtual void SetText(URichTextBlock* aTextBlock, FString aText);

@@ -85,8 +85,9 @@ public:
 
 	void InitializeDependencys(USkillFactorySubsystem* aSkillFactory, UPlayerCombatEntity* aCombatEntity);
 
+	EClassID GetClassID(){ return completeClassData.classIdentifer;}
 
-	void CreateClass(FCompleteClassData aLoadedClass);
+	void SetClass(FCompleteClassData aLoadedClass);
 	UPROPERTY()
 	UPlayerCombatEntity* attachedCombatEntity;
 

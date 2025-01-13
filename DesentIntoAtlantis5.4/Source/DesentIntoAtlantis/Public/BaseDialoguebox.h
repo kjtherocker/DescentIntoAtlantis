@@ -19,11 +19,21 @@ public:
 
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 	virtual void ActivateHighLightSelection() override;
-	FViewSelection OnYes;
-	FViewSelection OnNo;
+
+	void SetTitleText(FString aText);
+	void SetDescriptionText(FString aText);
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	URichTextBlock* BW_DialogueText;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	URichTextBlock* BW_TitleText;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UBaseHighlightElement* BW_YesElement;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UBaseHighlightElement* BW_NoElement;
 	
 	
 };

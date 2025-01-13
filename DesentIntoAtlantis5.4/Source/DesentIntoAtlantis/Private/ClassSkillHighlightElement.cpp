@@ -16,6 +16,7 @@ void UClassSkillHighlightElement::SetClassInformation(FSkillClassData aSkillClas
 void UClassSkillHighlightElement::SetSkill(FSkillsData aSkill)
 {
 	Super::SetSkill(aSkill);
+	skillName = aSkill.skillName;
 }
 
 void UClassSkillHighlightElement::SetSkillLock(bool aIsLocked)

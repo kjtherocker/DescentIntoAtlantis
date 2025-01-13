@@ -43,6 +43,8 @@ public:
 	virtual TArray<USkillBase*> GetClassSkills(EClassSlot ClassSlot);
 
 	virtual FString GetClassName(EClassSlot aClass);
+	void UnlockSkill(EClassID aClassID,ESkillIDS aSkillID);
+	void UnlockPassiveSkill(EClassID aClassID,EPassiveSkillID aSkillID);
 	
 	virtual void GiveClassPoints(int aClassPoints);
 	virtual void RemoveClassPoints(int aClassPoints);

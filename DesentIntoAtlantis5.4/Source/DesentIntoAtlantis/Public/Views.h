@@ -42,7 +42,8 @@ enum class  EViews
 	CombatLogDetailed       = 32,
 	CombatTokenUi           = 33,
 	PartyInventoryEquipment = 34,
-	ClassSelectionView      = 35
+	ClassSelectionView      = 35,
+	DialoguePopupbox        = 36
 };
 
 
@@ -78,4 +79,5 @@ enum class  EViewElements
 	CombatTokenElement          = 16,
 	ClassSelectionElement       = 17,
 	ClassSkillHightlightElement = 18,
+	ClassPassiveSkillElement    = 19
 };
