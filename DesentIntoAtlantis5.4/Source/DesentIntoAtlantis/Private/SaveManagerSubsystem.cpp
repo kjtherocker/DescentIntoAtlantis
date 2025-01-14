@@ -48,6 +48,10 @@ void USaveManagerSubsystem::AutoSave()
 
 void USaveManagerSubsystem::SaveGameInSlot(FString saveGameName)
 {
+	persistentGameinstance->partyManagerSubsystem->SavePartyManager();
+	SessionSaveGameObject->completePartyManagerData =
+		persistentGameinstance->partyManagerSubsystem->GetPartyManagerData();
+	
 	UGameplayStatics::SaveGameToSlot(SessionSaveGameObject,saveGameName, 0);
 }
 
@@ -72,8 +76,7 @@ void USaveManagerSubsystem::LoadSaveDataAndTransitionToMap(FString saveGameName)
 	InitializeSessionSave(SessionSaveGameObject);
 	//Need to load the party Manager itself first
 	persistentGameinstance->partyManagerSubsystem->LoadSavedPartyManagerSubsystem(SessionSaveGameObject->completePartyManagerData);
-	persistentGameinstance->partyManagerSubsystem->LoadAndCreateAllPlayerEntitys(LoadedSaveGameObject->playerCompleteDataSet);
-	
+
 	persistentGameinstance->EventManagerSubSystem->LoadSavedFloorEventData(LoadedSaveGameObject->eventManagerData);
 	persistentGameinstance->levelProgressionSubsystem->LoadCompleteProgressionData(LoadedSaveGameObject->completeProgressionData);
 	persistentGameinstance->levelProgressionSubsystem->SetCompleteFloorPawnData(SessionSaveGameObject->completeFloorPawnData);

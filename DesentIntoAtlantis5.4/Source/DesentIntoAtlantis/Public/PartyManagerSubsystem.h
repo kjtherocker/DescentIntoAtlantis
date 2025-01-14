@@ -46,6 +46,12 @@ struct DESENTINTOATLANTIS_API FCompletePartyManagerSubsystemData:public  FTableR
 
 	UPROPERTY()
 	FPartyInventoryCompleteData PartyInventoryCompleteData;
+
+	UPROPERTY()
+	TArray<EPartyMembers> activePartyMembers;
+	
+	UPROPERTY()
+	TMap<EPartyMembers, FPlayerCompleteDataSet> playerCompleteDataSet;
 };
 
 /**
@@ -77,6 +83,7 @@ private:
 public:
 	FPartyManagerHasChanged PartyManagerHasChanged;
 
+	FCompletePartyManagerSubsystemData GetPartyManagerData(){return CompletePartyManagerSubsystemData;}
 	void LoadSavedPartyManagerSubsystem(FCompletePartyManagerSubsystemData APartyManagerSubsystemData);
 	void InitializeDataTable(UDataTable* aPlayerData,UDataTable* aClassDataTable, UDataTable* aPartyExperienceTable);
 	void CreatePlayerEntitys(EPartyMembers aPlayer);

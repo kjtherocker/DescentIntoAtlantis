@@ -43,7 +43,11 @@ public:
 	virtual TArray<USkillBase*> GetClassSkills(EClassSlot ClassSlot);
 
 	virtual TMap<EPassiveSkillID,FPassiveSkillClassData> GetUnlockedPassives(){return  CompleteClassHandlerData.unlockedPassives;}
-	
+
+	virtual void UpdateMainClassAndSubclassData();
+	virtual FCompleteClassData ValidateSavedClassAndDataClass(FCompleteClassData aSavedClass,FCompleteClassData aDatatableClass);
+	virtual TArray<FSkillClassData> ValidateSkills(FCompleteClassData aSavedClass,FCompleteClassData aDatatableClass);
+	virtual TArray<FPassiveSkillClassData> ValidatePassives(FCompleteClassData aSavedClass,FCompleteClassData aDatatableClass);
 	virtual FString GetClassName(EClassSlot aClass);
 	void UnlockSkill(EClassID aClassID,ESkillIDS aSkillID);
 	void UnlockPassiveSkill(EClassID aClassID,EPassiveSkillID aSkillID);

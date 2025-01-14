@@ -27,6 +27,7 @@ void UPartyManagerSubsystem::LoadSavedPartyManagerSubsystem(FCompletePartyManage
 	partyLevel                        = aPartyManagerSubsystemData.partyLevel;
 
 	PartyInventory->InitializePartyInventory(aPartyManagerSubsystemData.PartyInventoryCompleteData,persistentGameInstance->passiveFactorySubsystem);
+	LoadAndCreateAllPlayerEntitys(aPartyManagerSubsystemData.playerCompleteDataSet);
 }
 
 void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UDataTable* aClassDataTable, UDataTable* aPartyExperienceTable)
@@ -132,6 +133,21 @@ void UPartyManagerSubsystem::SavePartyManager()
 	CompletePartyManagerSubsystemData.totalExperience  = totalExperience;
 	CompletePartyManagerSubsystemData.totalClassPoints = totalClassPoints;
 	CompletePartyManagerSubsystemData.PartyInventoryCompleteData = PartyInventory->GetPartyInventoryCompleteData();
+
+	for (auto Element : playerCombatEntityInfo)
+	{
+		Element.Value->GatherAndSavePlayerCompleteDataSet();
+		if(!CompletePartyManagerSubsystemData.playerCompleteDataSet.Contains(Element.Key))
+		{
+			CompletePartyManagerSubsystemData.playerCompleteDataSet.Add(Element.Key,Element.Value->playerCompleteDataSet);	
+		}
+		else
+		{
+			CompletePartyManagerSubsystemData.playerCompleteDataSet[Element.Key] = Element.Value->playerCompleteDataSet;		
+		}
+	
+	}
+	
 	PartyManagerHasChanged.Broadcast(CompletePartyManagerSubsystemData);
 }
 
@@ -207,31 +223,40 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 		PlayerCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactory);
 
 		PlayerCombatEntity->LoadSavedHPAndMP(playerCompleteData);
-		
+
+		//Class
 		TMap<EClassID, FCompleteClassData> allCompleteClassData = playerCompleteData.CompleteClassHandlerData.unlockedPlayerClasses;
 		
 		for (TTuple<EClassID, FCompleteClassData> playerClass : allCompleteClassData)
 		{
 			EClassID classIdentifier = playerClass.Key;
-			PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[classIdentifier]);
-
-			for (auto classPassive : playerClass.Value.classPassives)
+			
+			if(!classDataTables.Contains(classIdentifier))
 			{
-				if(!passiveSkillFactory->DoesPassiveSkillExist(classPassive.passiveSkillID))
-				{
-					PlayerCombatEntity->GiveClassPoints(classPassive.CPCost);
-				}
+				continue;
 			}
+			
+			FCompleteClassData CompleteClassData =
+				PlayerCombatEntity->classHandler->ValidateSavedClassAndDataClass(playerClass.Value,classDataTables[classIdentifier]);
+			
+			PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(CompleteClassData);
 		}
 
 		EClassID mainClassIdentifier = playerCompleteData.CompleteClassHandlerData.mainClassData.classIdentifer;
-		PlayerCombatEntity->SetMainClass(mainClassIdentifier);
+		EClassID subclassIdentifier  = playerCompleteData.CompleteClassHandlerData.subClassData.classIdentifer;
+		
+		PlayerCombatEntity->classHandler->SetClass(mainClassIdentifier,EClassSlot::Main);
+		PlayerCombatEntity->classHandler->SetClass(subclassIdentifier,EClassSlot::Sub);
+
+		//Setting
 		playerCombatEntity.Add(PlayerCombatEntity);
 		playerCombatEntityInfo.Add(partyMember,PlayerCombatEntity);
 
 		PlayerCombatEntity->LevelUp(partyLevel);
-
+		
+		//Equipment
 		PlayerCombatEntity->SetEquipmentState(playerCompleteDataSet.Value.EquipmentHandlerData);
+		//Passive
 		PlayerCombatEntity->combatEntityHub->passiveHandler->SetPassiveHandlerState(playerCompleteDataSet.Value.PassiveHandlerData);
 
 		AddPlayerToActiveParty(partyMember);
