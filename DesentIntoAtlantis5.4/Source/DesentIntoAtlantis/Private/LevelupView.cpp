@@ -36,16 +36,7 @@ void ULevelupView::SetupLevelupView(int newLevel, UPlayerCombatEntity* aPlayerCo
 	
 	aPlayerCombatEntity->LevelUp(newLevel);
 	TMap<EStatTypes, UCombatStat*> abilityStatScores    = aPlayerCombatEntity->abilityScoreMap;
-
-	//if(completeClassData.unlockableSkillByLevel.Contains(completeClassData.currentLevel+ 1))
-	//{
-	//	ESkillIDS newSkillName = completeClassData.unlockableSkillByLevel[completeClassData.currentLevel + 1];
-	//	FSkillsData newSKill = persistentGameinstance->skillFactorySubsystem->GetSkill(newSkillName)->skillData;
-	//	BW_Skillbar->SetSkill(newSKill);
-//
-	//	BW_LevelupConversationalText->SetText(FText(FText::FromString(newSKill.skillDescription)));
-	//}
-
+	
 	BW_CharacterPortrait->SetBrushFromTexture(aPlayerCombatEntity->playerIdentityData.fullBodyCharacterPortrait);
 	
 	BW_PreviousLevelNumber->SetText(FText(FText::AsNumber(previousLevel)));

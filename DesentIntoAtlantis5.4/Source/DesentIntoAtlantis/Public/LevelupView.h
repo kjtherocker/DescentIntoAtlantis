@@ -41,21 +41,15 @@ public:
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_CharacterPortrait;
-
-	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UTextBlock* BW_Name;
-
-	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UTextBlock* BW_LevelupConversationalText;
+	
+	
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_PreviousLevelNumber;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_CurrentLevelNumber;
-
-	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	USkillBarElement* BW_Skillbar;
+	
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	ULevelupPanelElement * BW_StrengthLevelpanel;

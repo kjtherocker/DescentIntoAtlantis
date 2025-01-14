@@ -44,7 +44,7 @@ public:
 	inline FRotator  static INITIAL_CAMERA_ROTATION = FRotator(0,0,0);
 
 	inline float     static CAMERA_DISTANCE     = 2.5f;
-	inline float     static CAMERA_OFFSET_RANGE = 9.5f;
+	inline float     static CAMERA_OFFSET_RANGE = 13.5f;
 	inline int       static CAMERA_SPEED        = 2000;
 	//Enemy
 	inline FVector3d static ENEMY_POSITION1 = FVector3d(900,-475,-260);

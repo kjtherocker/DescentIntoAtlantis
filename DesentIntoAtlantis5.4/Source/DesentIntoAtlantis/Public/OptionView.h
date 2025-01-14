@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
 #include "BaseUserWidgetMovingButtons.h"
+#include "OptionMenuHighlightElement.h"
 #include "OptionView.generated.h"
 
 /**
@@ -16,9 +17,7 @@ class DESENTINTOATLANTIS_API UOptionView : public UBaseUserWidgetMovingButtons
 	GENERATED_BODY()
 
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
-	virtual void CreateAndBindDelegateOption(typename TMemFunPtrType<false, UOptionView, void()>::Type InFunc, const FName& FuncName, UBorder* aMenuSelection);
-
-
+	
 	UFUNCTION()
 	void Load();
 	UFUNCTION()
@@ -33,14 +32,14 @@ public:
 	TArray<UBorder*> menuSelections;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UBorder* BW_Load;
+	UOptionMenuHighlightElement* BW_Load;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UBorder* BW_Save;
+	UOptionMenuHighlightElement* BW_Save;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UBorder* BW_Setting;
+	UOptionMenuHighlightElement* BW_Setting;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UBorder* BW_Exit;
+	UOptionMenuHighlightElement* BW_Exit;
 };
