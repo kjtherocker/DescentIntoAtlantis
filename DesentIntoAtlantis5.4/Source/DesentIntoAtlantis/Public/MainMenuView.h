@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
+#include "BaseUserWidgetMovingButtons.h"
 #include "MainMenuView.generated.h"
 
 class UPlayerCombatEntity;
@@ -25,17 +26,13 @@ enum class EMainMenuStates
 };
 
 UCLASS()
-class DESENTINTOATLANTIS_API UMainMenuView : public UBaseUserWidget
+class DESENTINTOATLANTIS_API UMainMenuView : public UBaseUserWidgetMovingButtons
 {
 	GENERATED_BODY()
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
-	void CreateAndBindDelegateOption(typename TMemFunPtrType<false, UMainMenuView, void()>::Type InFunc, const FName& FuncName);
 
 	void SpawnMainMenuStatusElement(UPlayerCombatEntity* aCombatEntity);
-	
-	virtual void MoveUp() override;
-	virtual void MoveDown() override;
-	void ActivateMenuSelection();
+
 	UFUNCTION()
 	void Item();
 	UFUNCTION()
@@ -47,30 +44,23 @@ class DESENTINTOATLANTIS_API UMainMenuView : public UBaseUserWidget
 	UFUNCTION()
 	void Option();
 	
-	UPROPERTY()
-	TArray<UStatusMainMenuElement*> statusMainMenuElements;
+
 	
 public:
-	virtual void SetCursorPositionInfo() override;
-	UPROPERTY()
-	TArray<FViewSelection > MainMenuSelection;
-
-	UPROPERTY()
-	TArray<UBorder*> menuSelections;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UBorder* BW_Item;
+	UBaseHighlightElement* BW_Item;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UBorder* BW_Skills;
+	UBaseHighlightElement* BW_Skills;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UBorder* BW_Classes;
+	UBaseHighlightElement* BW_Classes;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UBorder* BW_Status;
+	UBaseHighlightElement* BW_Status;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UBorder* BW_Option;
+	UBaseHighlightElement* BW_Option;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UHorizontalBox* BW_PartyHorizontalBox;
 };

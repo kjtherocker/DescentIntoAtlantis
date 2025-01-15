@@ -10,16 +10,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Ui/CombatToken/CombatTokenV1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/Assets/font/RichTextSheet/CombatLog.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/Assets/font/RichTextSheet/MenuStyles.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/Assets/font/RichTextSheet/RichTextStyleSheet.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/EquipView/ClassSelectionView/BansheeIcon.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/EquipView/ClassSelectionView/BansheeIcon2.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/EquipView/ClassSelectionView/Guilotine2.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/EquipView/StatView/BP_StatGrowthElement.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/Healthbar/HealthbarV3.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/Healthbar/HealthbarV4.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/MainMenu/BP_MainMenuHighlightElement.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatSelection/BP_EnemySelectionBar1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatSelection/BP_EnemySelectionBar1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueComplete.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueComplete.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Assets/font/CombatLog.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Assets/font/RichTextStyleSheet.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatLog/BP_CombatLogElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatLog/BP_CombatLogElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatLog/BP_DetailedElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatLog/BP_DetailedElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_DamageElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_DamageElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_DefenceElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_DefenceElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_EvasionElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_EvasionElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_HitElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_HitElement.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Ui/CombatToken/BP_CombatTokenElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatToken/BP_CombatTokenElement.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/ClassDetailedView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/ClassDetailedView.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Commandboard/BP_Skillbar.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/Commandboard/BP_Skillbar.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/EquipView/BP_ClassElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/EquipView/BP_ClassElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/EquipView/BP_EquipMenuView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/EquipView/BP_EquipMenuView.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/EquipView/BP_PassiveSkillElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/EquipView/BP_PassiveSkillElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/EquipView/BP_StatGrowthElement.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/EquipView/ClassSelectionView/BP_ClassDetailedView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/EquipView/ClassSelectionView/BP_ClassDetailedView.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/EquipView/ClassSelectionView/BP_ClassPassiveHighlight.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/EquipView/ClassSelectionView/BP_ClassPassiveHighlight.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/EquipView/ClassSelectionView/BP_ClassSelectionElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/EquipView/ClassSelectionView/BP_ClassSelectionElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/EquipView/ClassSelectionView/BP_ClassSkillHighlightElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/EquipView/ClassSelectionView/BP_ClassSkillHighlightElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/EquipView/StatView/BP_CombatStatView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/EquipView/StatView/BP_CombatStatView.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/MainMenu/BP_MainMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/MainMenu/BP_MainMenu.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/MapView/BP_MapView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/MapView/BP_MapView.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Option/BP_OptionHighlight.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/Option/BP_OptionHighlight.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/PopupDialogueBox/BP_BaseDialogueBox.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/PopupDialogueBox/BP_BaseDialogueBox.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/PopupDialogueBox/NoButton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/PopupDialogueBox/NoButton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/PopupDialogueBox/YesButton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/PopupDialogueBox/YesButton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/TransitionView/BP_TransitionView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/TransitionView/BP_TransitionView.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/BaseHighlightElement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/BaseHighlightElement.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/ClassHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/ClassHandler.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyManagerSubsystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyManagerSubsystem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SaveManagerSubsystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SaveManagerSubsystem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/ClassHandler.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/ClassHandler.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyManagerSubsystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyManagerSubsystem.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/ClassSelectionElement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/ClassSelectionElement.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatStatView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatStatView.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/DialogueView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/DialogueView.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EquipMenuView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EquipMenuView.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/MainMenuGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/MainMenuGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/MainMenuView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/MainMenuView.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyInventoryEquipmentView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyInventoryEquipmentView.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PassiveHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PassiveHandler.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PassiveSlotHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PassiveSlotHandler.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/StatGrowthElement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/StatGrowthElement.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/BaseHighlightElement.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/BaseHighlightElement.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/MainMenuView.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/MainMenuView.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/StatGrowthElement.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/StatGrowthElement.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,94 +74,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -772,7 +728,9 @@
       <workItem from="1736686093917" duration="12960000" />
       <workItem from="1736700334601" duration="4684000" />
       <workItem from="1736776093611" duration="16043000" />
-      <workItem from="1736861642055" duration="15114000" />
+      <workItem from="1736861642055" duration="17427000" />
+      <workItem from="1736890709903" duration="3364000" />
+      <workItem from="1736948316248" duration="7639000" />
     </task>
     <servers />
   </component>
@@ -807,11 +765,6 @@
           <url>file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Classes/GameFramework/Controller.h</url>
           <line>227</line>
           <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyManagerSubsystem.cpp</url>
-          <line>111</line>
-          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -7,7 +7,7 @@ void UClassSelectionElement::SetClassSelectionElement(FCompleteClassData aComple
 {
 
 	classID = aCompleteClassData.classIdentifer;
-	SetMainText(aCompleteClassData.className);
+	SetMainText("<TitleStyling>"+ aCompleteClassData.className +"</>");
 	//BW_ArchtypeText->SetText(FText::FromString()) 
 	
 }

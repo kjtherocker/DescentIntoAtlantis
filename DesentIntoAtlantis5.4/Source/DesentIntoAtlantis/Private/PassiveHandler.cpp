@@ -33,8 +33,7 @@ void UPassiveHandler::InitializePassiveHandler(UCombatEntity* aOwnedCombatEntity
 void UPassiveHandler::SetPassiveHandlerState(FPassiveHandlerData aPassiveHandler)
 {
 	FPassiveHandlerData passiveHandler = aPassiveHandler;
-
-	PassiveSlotHandler->SetPassiveSlotState(passiveHandler.PassiveSlotHandlerData);
+	
 	for (auto PassiveSkillData : passiveHandler.PassiveSkillsDatas)
 	{
 		if(PassiveSkillData.passiveSkillPlacement == EPassiveSkillSlotType::Debug)
@@ -43,6 +42,8 @@ void UPassiveHandler::SetPassiveHandlerState(FPassiveHandlerData aPassiveHandler
 		}
 		AddPassive(passiveSkillFactory->GetPassiveSkill(PassiveSkillData.passiveSkillID),PassiveSkillData.passiveSkillPlacement);			
 	}
+
+	PassiveSlotHandler->SetPassiveSlotState(passiveHandler.PassiveSlotHandlerData);
 }
 
 void UPassiveHandler::CheckGenericTriggerPassives(EPassiveGenericTrigger aPassiveTrigger)

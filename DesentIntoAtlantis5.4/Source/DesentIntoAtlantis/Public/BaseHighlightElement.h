@@ -13,6 +13,16 @@ class UImage;
  */
 
 
+UENUM()
+enum class ETextStyle   : uint8
+{
+	None               = 0,
+	TitleStyling       = 1,
+	ClassHighlight     = 2,
+};
+
+
+
 UCLASS()
 class DESENTINTOATLANTIS_API UBaseHighlightElement : public UBaseUserWidget
 {
@@ -26,6 +36,8 @@ public:
 	virtual void ActivateButton();
 
 	virtual void SetMainText(FString aText);
+
+	virtual FString WrapTextInStyle(FString aText,ETextStyle aTextStyle);
 	
 	virtual void Highlight();
 	virtual void UnHightlight();

@@ -88,7 +88,7 @@ void UDialogueView::SetNextDialogue(bool audio)
 	
 	if(audio)
 	{
-		gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Accept);
+	//	gameModeBase->soundManager->PlayAudio(EAudioSources::OverworldSoundEffect,EAudio::Accept);
 	}
 
 	if(nextDialogueData.musicToPlay != EAudio::None)

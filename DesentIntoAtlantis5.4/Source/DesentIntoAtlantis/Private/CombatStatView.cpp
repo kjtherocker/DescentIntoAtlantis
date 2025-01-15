@@ -45,5 +45,7 @@ void UCombatStatView::SetGrowthElement(FString aStatName,EStatTypes aStatType,US
 	FString  letterGradeText  = letterGrade[StatGrowth];
 	FString  DamageNumberText = FString::FromInt(playerCombatStats->GetAllStats());
 
-	aStatGrowthElement->SetStatGrowthElement(letterGradeText,aStatName,DamageNumberText);
+
+	float percentage = (float)playerCombatStats->GetAllStats() /99.0f;
+	aStatGrowthElement->SetStatGrowthElement(letterGradeText,aStatName,DamageNumberText,percentage);
 }

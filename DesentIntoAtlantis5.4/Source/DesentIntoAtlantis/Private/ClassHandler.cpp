@@ -45,13 +45,14 @@ void UClassHandler::SetClass(EClassID aClass, EClassSlot ClassSlot)
 	    case EClassSlot::None:
 	    	break;
 	    case EClassSlot::Main:
-			if(subClass != nullptr)
-			{
-				if(subClass->GetClassID()== aClass)
-				{
-					return;
-				}
-			}
+	    	if(subClass != nullptr)
+	    	{
+	    		
+	    		if(subClass->GetClassID() == aClass)
+	    		{
+	    			return;   
+	    		}
+	    	}
 	    	
 	    	mainClass = unlockedClasses[aClass];
 	    	playerCombatEntity->combatEntityHub->elementalHandler->ResetAllElements();
@@ -66,7 +67,7 @@ void UClassHandler::SetClass(EClassID aClass, EClassSlot ClassSlot)
 	    	{
 	    		if(mainClass->GetClassID() == aClass)
 	    		{
-	    			return;
+				    	return;   
 	    		}
 	    	}
 		

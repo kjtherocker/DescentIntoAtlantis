@@ -38,9 +38,9 @@ void UEquipMenuView::SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsy
 	BW_CombatStatView->SetPlayerStatView(currentPlayer,currentPlayer->classHandler->mainClass);
 	
 	BW_CPAmount->SetText(FText::FromString(FString::FromInt(currentPlayer->classHandler->GetClassPoints())));
-
-	BW_MainClassElement->SetMainText(currentPlayer->classHandler->GetClassName(EClassSlot::Main));
-	BW_SubClassElement->SetMainText(currentPlayer->classHandler->GetClassName(EClassSlot::Sub));
+	
+	BW_MainClassElement->SetMainText("<TitleStyling>"+currentPlayer->classHandler->GetClassName(EClassSlot::Main)+"</>");
+	BW_SubClassElement->SetMainText("<TitleStyling>"+currentPlayer->classHandler->GetClassName(EClassSlot::Sub)+"</>");
 
 	BW_MainClassElement->ViewSelection.AddDynamic(this,&UEquipMenuView::MainClassClicked);
 	BW_SubClassElement->ViewSelection.AddDynamic(this,&UEquipMenuView::SubClassClicked);
@@ -136,8 +136,8 @@ void UEquipMenuView::UpdateEquipScreen()
 	int classOffset = 2;
 	
 	BW_CombatStatView->SetPlayerStatView(currentPlayer,currentPlayer->classHandler->mainClass);
-	BW_MainClassElement->SetMainText(currentPlayer->classHandler->GetClassName(EClassSlot::Main));
-	BW_SubClassElement->SetMainText(currentPlayer->classHandler->GetClassName(EClassSlot::Sub));
+	BW_MainClassElement->SetMainText("<TitleStyling>"+currentPlayer->classHandler->GetClassName(EClassSlot::Main)+"</>");
+	BW_SubClassElement->SetMainText("<TitleStyling>"+currentPlayer->classHandler->GetClassName(EClassSlot::Sub)+"</>");
 
 	
 	UEquipmentHandler* EquipmentHandler =  currentPlayer->combatEntityHub->equipmentHandler;

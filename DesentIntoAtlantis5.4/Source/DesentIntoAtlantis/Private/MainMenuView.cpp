@@ -19,29 +19,29 @@ void UMainMenuView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	
 	InputComponent->BindAction("Left"      ,IE_Pressed ,this, &UMainMenuView::MoveUp  );
 	InputComponent->BindAction("Right"    ,IE_Pressed ,this, &UMainMenuView::MoveDown  );
-	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UMainMenuView::ActivateMenuSelection  );
+	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UMainMenuView::ActivateHighLightSelection  );
 	InputComponent->BindAction("Escape"   ,IE_Pressed ,this, &UMainMenuView::PopMostActiveView  );
 
-	CreateAndBindDelegateOption(&UMainMenuView::Item        ,TEXT("Item"));
-	CreateAndBindDelegateOption(&UMainMenuView::Skills       ,TEXT("Skills"));
-	CreateAndBindDelegateOption(&UMainMenuView::Class        ,TEXT("Class"));
-	CreateAndBindDelegateOption(&UMainMenuView::Status       ,TEXT("Status"));
-	CreateAndBindDelegateOption(&UMainMenuView::Option       ,TEXT("Option"));
-
-	menuSelections.Add(BW_Item);
-	menuSelections.Add(BW_Skills);
-	menuSelections.Add(BW_Classes);
-	menuSelections.Add(BW_Status);
-	menuSelections.Add(BW_Option);
-
-	for(int i = 0 ; i < menuSelections.Num();i++)
-	{
-		menuSelections[i]->SetBrushColor(unhightlighedColorNoAlpha);
-	}
-
-	SetCursorPositionInfo();
-	menuSelections[0]->SetBrushColor(highlightedColor);
-
+	BW_Item->ViewSelection.AddDynamic(this,&UMainMenuView::Item);
+	highlightElements.Add(BW_Item);
+	BW_Item->SetMainText(BW_Item->WrapTextInStyle("Item",ETextStyle::TitleStyling));
+	
+	BW_Skills->ViewSelection.AddDynamic(this,&UMainMenuView::Skills);
+	highlightElements.Add(BW_Skills);
+	BW_Skills->SetMainText(BW_Skills->WrapTextInStyle("Skill",ETextStyle::TitleStyling));
+	
+	BW_Classes->ViewSelection.AddDynamic(this,&UMainMenuView::Class);
+	highlightElements.Add(BW_Classes);
+	BW_Classes->SetMainText(BW_Classes->WrapTextInStyle("Equip",ETextStyle::TitleStyling));
+	
+	BW_Status->ViewSelection.AddDynamic(this,&UMainMenuView::Status);
+	highlightElements.Add(BW_Status);
+	BW_Status->SetMainText(BW_Status->WrapTextInStyle("Status",ETextStyle::TitleStyling));
+	
+	BW_Option->ViewSelection.AddDynamic(this,&UMainMenuView::Option);
+	highlightElements.Add(BW_Option);
+	BW_Option->SetMainText(BW_Option->WrapTextInStyle("Option",ETextStyle::TitleStyling));
+	
 	UPartyManagerSubsystem* partyManagerSubsystem = persistentGameinstance->partyManagerSubsystem;
 
 	TArray<UPlayerCombatEntity*> activePartyCombatEntityData = partyManagerSubsystem->activePartyEntityData;
@@ -50,22 +50,11 @@ void UMainMenuView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	{
 		SpawnMainMenuStatusElement(activePartyCombatEntityData[i]);
 	}
+
+	SetDefaultMenuState();
 }
 
-void UMainMenuView::SetCursorPositionInfo()
-{
-	Super::SetCursorPositionInfo();
-	cursorPosition    =  0;
-	minCursorPosition =  0;
-	maxCursorPosition = menuSelections.Num()-1;
-}
 
-void UMainMenuView::CreateAndBindDelegateOption(typename TMemFunPtrType<false, UMainMenuView, void()>::Type InFunc, const FName& FuncName)
-{
-	FViewSelection newViewSelection;
-	newViewSelection.__Internal_AddDynamic(this,InFunc,FuncName);
-	MainMenuSelection.Add(newViewSelection );
-}
 
 void UMainMenuView::SpawnMainMenuStatusElement(UPlayerCombatEntity* aCombatEntity)
 {
@@ -78,28 +67,8 @@ void UMainMenuView::SpawnMainMenuStatusElement(UPlayerCombatEntity* aCombatEntit
 	baseUserWidget->InGameHUD = InGameHUD;
 	baseUserWidget->SetCombatEntity(aCombatEntity);
 	baseUserWidget->BW_BackgroundHighlight->SetOpacity(0);
-	statusMainMenuElements.Add(baseUserWidget);
+
 	BW_PartyHorizontalBox->AddChild(partyStatusHealthbar);
-}
-
-
-void UMainMenuView::MoveUp()
-{
-	menuSelections[cursorPosition]->SetBrushColor(unhightlighedColorNoAlpha);
-	Super::MoveUp();
-	menuSelections[cursorPosition]->SetBrushColor(highlightedColor);
-}
-
-void UMainMenuView::MoveDown()
-{
-	menuSelections[cursorPosition]->SetBrushColor(unhightlighedColorNoAlpha);
-	Super::MoveDown();
-	menuSelections[cursorPosition]->SetBrushColor(highlightedColor);
-}
-
-void UMainMenuView::ActivateMenuSelection()
-{
-	MainMenuSelection[cursorPosition].Broadcast();
 }
 
 void UMainMenuView::Item()

@@ -11,6 +11,7 @@ void UPassiveSlotHandler::InitializePassiveSlotHandler(UPassiveHandler* aPassive
 {
 	for(int i = 0 ; i < AMOUNT_OF_PASSIVE_SLOTS;i++)
 	{
+		PassiveSlotHandlerData.passiveSlotData.Add(EPassiveSkillID::None);
 		equipedPassives.Add(nullptr);
 	}
 
@@ -37,7 +38,7 @@ void UPassiveSlotHandler::EquipPassiveInSlot(EPassiveSkillID passiveSkillID, int
 	}
 	
 	UPassiveSkills* passiveInSlot = PassiveSkillFactorySubsystem->GetPassiveSkill(passiveSkillID);
-
+	PassiveSlotHandlerData.passiveSlotData[aSlot] = passiveSkillID;
 	equipedPassives[aSlot] = passiveInSlot;
 	PassiveHandler->AddPassive(passiveInSlot,EPassiveSkillSlotType::SlotPassive);
 }

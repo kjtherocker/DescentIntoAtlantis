@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
+#include "Components/ProgressBar.h"
 #include "StatGrowthElement.generated.h"
 
 /**
@@ -24,7 +25,10 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	URichTextBlock* BW_StatNumber;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UProgressBar* BW_ProgressBar;
 	
 	
-	void SetStatGrowthElement(FString aLetterGrade,FString aStatName,FString aStatNumber);
+	void SetStatGrowthElement(FString aLetterGrade,FString aStatName,FString aStatNumber, float aPercentage);
 };

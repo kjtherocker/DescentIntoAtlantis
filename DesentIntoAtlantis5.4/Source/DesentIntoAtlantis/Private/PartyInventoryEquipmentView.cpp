@@ -33,6 +33,7 @@ void UPartyInventoryEquipmentView::ActivateEquipMenu(UPlayerCombatEntity* aPlaye
 	if(allEquipment.Num() == 0)
 	{
 		PopMostActiveView();
+		return;
 	}
 
 	for (auto AllEquipment : allEquipment)
