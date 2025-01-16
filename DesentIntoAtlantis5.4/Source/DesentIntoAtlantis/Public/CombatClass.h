@@ -47,6 +47,10 @@ struct DESENTINTOATLANTIS_API FCompleteClassData  :public  FTableRowBase
 	UPROPERTY( EditAnywhere, Category = "Identity" )
 	FCompleteElementalHandlerData CompleteElementalHandlerData;
 
+	UPROPERTY( EditAnywhere , Category = "Identity")
+	UTexture2D* classIcon;
+
+
 	UPROPERTY( EditAnywhere , Category = "Stat")
 	FClassData classBaseStat;
 	

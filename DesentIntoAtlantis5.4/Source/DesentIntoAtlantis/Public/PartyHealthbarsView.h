@@ -23,7 +23,7 @@ public:
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 	void CreateHealthbar(UPlayerCombatEntity* aCombatEntity);
 	void SetHighlightHealthbar(UPlayerCombatEntity* aPlayerCombatEntity, float aOpacity);
-	
+	void ResetAllHighlights();
 	TSubclassOf<UUserWidget> BP_PartyStatus;
 	TArray<UPartyHealthbarElement*> healthBars;
 

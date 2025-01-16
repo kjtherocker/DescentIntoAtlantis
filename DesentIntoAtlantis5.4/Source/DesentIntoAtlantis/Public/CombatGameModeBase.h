@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AtlantisGameModeBase.h"
+#include "CombatInterruptData.h"
 #include "CombatLog_Full_Data.h"
 #include "EnemyCombatEntity.h"
 #include "FloorEnum.h"
@@ -11,6 +12,7 @@
 #include "UObject/NoExportTypes.h"
 
 #include "CombatGameModeBase.generated.h"
+class UCombatInterruptHandler;
 class UCombatLogSimplifiedView;
 class UChallengeSubsystem;
 class ACombatCameraPawn;
@@ -54,6 +56,18 @@ public:
 
 };
 
+UENUM()
+enum class ECombatState  : uint8
+{
+	None,
+	Player,
+	Enemy,
+	SwitchState,
+	Interruption,
+	SuccessfulEnd,
+	FailedEnd,
+};
+
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FRoundEndDelegate);
 UCLASS()
@@ -81,7 +95,7 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	int combatExp = 0;
 	
 	UPROPERTY()
-	ECharactertype currentTurnType;
+	ECharactertype CharacterTypeTurn;
 
 	UPROPERTY(EditAnywhere)
 	FVector3d CAMERA_POSITION = UCombatSettings::INITIAL_CAMERA_POSITION;
@@ -115,6 +129,9 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	UChallengeSubsystem* godManagerSubsystem;
 	UPROPERTY()
 	UPassiveFactorySubsystem* passiveSkillFactorySubsystem;
+
+	UPROPERTY()
+	ECombatState currentCombatState;
 	
 public:
 	UPROPERTY(BlueprintAssignable, Category = "Test")
@@ -131,23 +148,34 @@ public:
 	FTriggerNextEventStage triggerNextEventStage;
 	UPROPERTY()
 	TArray<FCombatLog_Full_Data> last50CombatLogs;
-	
+
+
+	UPROPERTY()
+	UCombatInterruptHandler* combatInterruptHandler;
 	UPROPERTY()
 	UPressTurnManager* pressTurnManager;
 	
 	void StartCombat(FString aEnemyGroupName);
-	void RemoveDeadPartyMembersFromCombat();
-	void EndCombat(bool aHasWon = true);
+	void SetCombatState(ECombatState aCombatState);
+
 	void AddEnemyToCombat(FEnemyEntityData AEnemyEntityData,int aPosition);
-	void SwitchCombatSides();
-	void TurnFinished();
-	void AllyStartTurn();
+	void SetRoundSide(ECharactertype aCharacterType);
+	void TurnEnd();
+	void TriggerTurnEndTimers();
 	void TriggerLevelupMenu(TArray<UPlayerCombatEntity*> aPlayerCombatEntity, int aExperience);
+	void AllyStartTurn();
 	void EnemyStartTurn();
 	void EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEntity);
 
+	void IterateToNextPlayer();
+
+	void SwitchCombatSides();
+
+	void AddInterruption(UCombatInterrupt* aCombatInterrupt);
+
 	void AddCombatLog(TArray<FCombatLog_Full_Data> CombatLog_Base_Datas);
-	
+	void RemoveDeadPartyMembersFromCombat();
+	void EndCombat(bool aHasWon = true);	
 	int GetEXP();
 	UFUNCTION()
 	void ActivateSkill(UCombatEntity* aAttacker, int aCursorPosition, USkillBase* aSkill);

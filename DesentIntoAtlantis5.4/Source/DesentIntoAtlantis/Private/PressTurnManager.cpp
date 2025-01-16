@@ -125,7 +125,7 @@ void UPressTurnManager::ConsumeTurn(int aAmountOfTurnsConsumed)
 	}
 	turnCounter->SetTurnOrder(activePressTurns.Num(),characterType);
 	
-	combatManager->TurnFinished();
+	combatManager->TriggerTurnEndTimers();
 }
 
 void UPressTurnManager::EmpowerTurn()
@@ -136,7 +136,7 @@ void UPressTurnManager::EmpowerTurn()
 	{
 		activePressTurns[ActivePositionTurn]->isEmpowered = true;
 		turnCounter->SetEmpowerTurnIcon(ActivePositionTurn);
-		combatManager->TurnFinished();
+		combatManager->TurnEnd();
 	}
 	else
 	{

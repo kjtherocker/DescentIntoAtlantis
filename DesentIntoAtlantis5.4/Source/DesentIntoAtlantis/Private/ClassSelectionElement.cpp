@@ -8,6 +8,7 @@ void UClassSelectionElement::SetClassSelectionElement(FCompleteClassData aComple
 
 	classID = aCompleteClassData.classIdentifer;
 	SetMainText("<TitleStyling>"+ aCompleteClassData.className +"</>");
+	BW_ClassIcon->SetBrushFromTexture(aCompleteClassData.classIcon);
 	//BW_ArchtypeText->SetText(FText::FromString()) 
 	
 }

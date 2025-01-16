@@ -30,4 +30,7 @@ public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	URichTextBlock* BW_SubArchtypeText;
 
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UImage* BW_ClassIcon;
+
 };

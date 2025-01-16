@@ -49,3 +49,11 @@ void UPartyHealthbarsView::SetHighlightHealthbar(UPlayerCombatEntity* aPlayerCom
 		}
 	}
 }
+
+void UPartyHealthbarsView::ResetAllHighlights()
+{
+	for(int i = 0 ; i < healthBars.Num();i++)
+	{
+		healthBars[i]->BW_BackgroundHighlight->SetOpacity(0);	
+	}
+}
