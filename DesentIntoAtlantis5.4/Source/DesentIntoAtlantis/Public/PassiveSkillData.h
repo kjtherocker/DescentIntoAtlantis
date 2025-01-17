@@ -91,8 +91,8 @@ enum class EPassiveSkillStatType : uint8
 UENUM()
 enum class EPassiveGenericTrigger : uint8
 {
-	None       = 0,
-	Start      = 1,
+	None                 = 0,
+	InitialCombatStart   = 1,
 };
 
 USTRUCT()

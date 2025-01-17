@@ -5,6 +5,7 @@
 
 #include "ElementalHandler.h"
 #include "EquipmentHandler.h"
+#include "InterruptHandler.h"
 #include "PassiveHandler.h"
 #include "PassiveSkillFactorySubsystem.h"
 #include "SkillData.h"
@@ -18,11 +19,13 @@ void UCombatEntityHub::InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEnti
 	combatTokenHandler = NewObject<UCombatTokenHandler>();
 	elementalHandler   = NewObject<UElementalHandler>();
 	equipmentHandler   = NewObject<UEquipmentHandler>();
+	InterruptHandler   = NewObject<UInterruptHandler>();
 	
 	elementalHandler->Initialize(aOwnedCombatEntity);
 	passiveHandler->InitializePassiveHandler(aOwnedCombatEntity,aPassiveSkillFactorySubsystem);
 	combatTokenHandler->InitializeCombatTokenHandler(aOwnedCombatEntity,aPassiveSkillFactorySubsystem);
 	equipmentHandler->InitializeEquipmentHandler(passiveHandler,aOwnedCombatEntity,aPassiveSkillFactorySubsystem);
+	InterruptHandler->InitializeInterruptHandler(aOwnedCombatEntity);
 }
 
 

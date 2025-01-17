@@ -93,7 +93,7 @@ protected:
 	USaveManagerSubsystem*   saveManagerSubsystem;
 
 	UPROPERTY()
-	UDialogueFactorySubsystem*   dialogueFactory;
+	UDialogueManagerSubsystem*   dialogueFactory;
 	UPROPERTY()
 	ULevelProgressionSubsystem*   levelProgressionSubsystem;
 	UPersistentGameinstance* persistentGameInstance;

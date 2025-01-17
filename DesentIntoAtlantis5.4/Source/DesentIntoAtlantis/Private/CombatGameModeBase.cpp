@@ -17,7 +17,7 @@
 #include "EnemyPortraitElement.h"
 #include "ChallengeSubsystem.h"
 #include "CombatEntityHub.h"
-#include "CombatInterruptHandler.h"
+#include "CombatInterruptManager.h"
 #include "CombatLogSimplifiedView.h"
 #include "CombatLog_Full_Data.h"
 #include "PlayerCombatEntity.h"
@@ -56,7 +56,7 @@ void ACombatGameModeBase::InitializeLevel()
 	pressTurnManager = NewObject<UPressTurnManager>();
 	pressTurnManager->Initialize(this);
 
-	combatInterruptHandler = NewObject<UCombatInterruptHandler>();
+	combatInterruptHandler = NewObject<UCombatInterruptManager>();
 	
 	FCombatArenaData arenaData = persistentGameInstance->ConsumeArenaDataFlag();
 	persistentGameInstance->EventManagerSubSystem->SetCombatGameMode(this);
@@ -90,7 +90,8 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 	soundManager->SetAudioPauseState(EAudioSources::OverworldSoundEffect,true);
 	
 	hasCombatStarted = true;
-
+	combatInterruptHandler     = NewObject<UCombatInterruptManager>();
+	combatInterruptHandler->InitializeCombatInterruptHandler(this);
 	partyMembersInCombat       = partyManager->ReturnActiveParty();
 
 	for(int i = 0 ; i < partyMembersInCombat.Num();i++)
@@ -132,6 +133,17 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 	
 	SetRoundSide(ECharactertype::Ally);
 	//GameHUD->PushView(EViews::Tutorial,    EUiType::PersistentUi);
+
+	UDialogueInterrupt* DialogueInterrupt = NewObject<UDialogueInterrupt>();
+	DialogueInterrupt->SetInterrupt(persistentGameInstance);
+	
+	FCombatInterruptData InterruptData;
+	InterruptData.interruptType = EInterruptType::Dialogue;
+	InterruptData.DialogueTriggers = EDialogueTriggers::FinalBossStart;
+	DialogueInterrupt->SetCombatInterruptData(InterruptData);
+	
+	AddInterruption(DialogueInterrupt);
+	
 }
 
 void ACombatGameModeBase::AddEnemyToCombat(FEnemyEntityData AEnemyEntityData,int aPosition)
@@ -177,9 +189,7 @@ void ACombatGameModeBase::SetCombatState(ECombatState aCombatState)
 		AllyStartTurn();
 		break;
 	case ECombatState::Enemy:
-		{
-			EnemyStartTurn();
-		}
+		EnemyStartTurn();
 		break;
 	case ECombatState::SwitchState:
 		SwitchCombatSides();
@@ -198,6 +208,8 @@ void ACombatGameModeBase::SetCombatState(ECombatState aCombatState)
 
 void ACombatGameModeBase::TurnEnd()
 {
+	CheckAllEntitysForInterruptions();
+	
 	if( combatInterruptHandler->HasInterruptions())
 	{
 		SetCombatState(ECombatState::Interruption);
@@ -262,6 +274,9 @@ void ACombatGameModeBase::TriggerTurnEndTimers()
 	case ECharactertype::Ally:
 		{
 			TurnEnd();
+
+			//FTimerHandle handle;
+			//world->GetTimerManager().SetTimer(handle,this,&ACombatGameModeBase::TurnEnd,ENEMY_TURN_TIME,false);		
 		}
 		break;
 	case ECharactertype::Enemy:
@@ -405,6 +420,39 @@ void ACombatGameModeBase::IterateToNextPlayer()
 void ACombatGameModeBase::SwitchCombatSides()
 {
 	SetRoundSide(CharacterTypeTurn == ECharactertype::Ally ?  ECharactertype::Enemy : ECharactertype::Ally);
+}
+
+void ACombatGameModeBase::CheckAllEntitysForInterruptions()
+{
+	for (auto Element : enemysInCombat)
+	{
+		TArray<UCombatInterrupt*> combatInterrupt = Element->combatEntityHub->InterruptHandler->GetCombatInterrupts();
+
+		if(combatInterrupt.Num() == 0)
+		{
+			continue;
+		}
+
+		for(int i = 0 ; i < combatInterrupt.Num();i++)
+		{
+			AddInterruption(combatInterrupt[i]);
+		}
+	}
+
+	for (auto Element : GetPlayersInCombat())
+	{
+		TArray<UCombatInterrupt*> combatInterrupt = Element->combatEntityHub->InterruptHandler->GetCombatInterrupts();
+
+		if(combatInterrupt.Num() == 0)
+		{
+			continue;
+		}
+
+		for(int i = 0 ; i < combatInterrupt.Num();i++)
+		{
+			AddInterruption(combatInterrupt[i]);
+		}
+	}
 }
 
 void ACombatGameModeBase::AddInterruption(UCombatInterrupt* aCombatInterrupt)

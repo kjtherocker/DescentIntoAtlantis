@@ -20,7 +20,7 @@ class UEnemyFactorySubSystem;
 class USkillFactorySubsystem;
 class UPartyManagerSubsystem;
 class UTutorialManagerSubsystem;
-class UDialogueFactorySubsystem;
+class UDialogueManagerSubsystem;
 enum class ESkillType : uint8;
 enum class EClassID  : uint8;
 class UDataTable;
@@ -84,7 +84,7 @@ public:
 	UPROPERTY()
 	UTutorialManagerSubsystem* tutorialManagerSubsystem;
 	UPROPERTY()
-	UDialogueFactorySubsystem* dialogueManagerSubsystem;
+	UDialogueManagerSubsystem* dialogueManagerSubsystem;
 	UPROPERTY()
 	UEventManagerSubSystem*    EventManagerSubSystem;
 	UPROPERTY()

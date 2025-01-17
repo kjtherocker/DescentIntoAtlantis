@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
-#include "DialogueFactorySubsystem.h"
+#include "DialogueManagerSubsystem.h"
 #include "Components/TextBlock.h"
 #include "DialogueView.generated.h"
 
@@ -17,6 +17,8 @@ class UPersistentGameinstance;
 enum class EFloorEventStates;
 struct FDialogueData;
 class UImage;
+
+
 
 UCLASS()
 class DESENTINTOATLANTIS_API UDialogueView : public UBaseUserWidget
@@ -46,6 +48,8 @@ public:
 	UTextBlock* BW_DialogueText;
 
 	EFloorEventStates      triggerOnEnd;
+
+	FOnDialogueEnd onDialogueEnd;
 	
 	UPROPERTY()
 	TArray<FDialogueData> dialogueData;

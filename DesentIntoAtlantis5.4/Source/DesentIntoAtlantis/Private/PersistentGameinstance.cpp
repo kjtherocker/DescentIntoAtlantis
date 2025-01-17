@@ -7,7 +7,7 @@
 #include "SkillFactorySubsystem.h"
 #include "PartyManagerSubsystem.h"
 #include "TutorialManagerSubsystem.h"
-#include "DialogueFactorySubsystem.h"
+#include "DialogueManagerSubsystem.h"
 #include "ChallengeSubsystem.h"
 #include "LevelProgressionSubsystem.h"
 #include "PassiveSkillFactorySubsystem.h"
@@ -32,7 +32,7 @@ void UPersistentGameinstance::Init()
 	enemyFactorySubSystem           = GetSubsystem<UEnemyFactorySubSystem>();
 	passiveFactorySubsystem         = GetSubsystem<UPassiveFactorySubsystem>();
 	tutorialManagerSubsystem        = GetSubsystem<UTutorialManagerSubsystem>();
-	dialogueManagerSubsystem        = GetSubsystem<UDialogueFactorySubsystem>();
+	dialogueManagerSubsystem        = GetSubsystem<UDialogueManagerSubsystem>();
 	EventManagerSubSystem           = GetSubsystem<UEventManagerSubSystem>();
 	saveManagerSubsystem            = GetSubsystem<USaveManagerSubsystem>();
 	levelProgressionSubsystem       = GetSubsystem<ULevelProgressionSubsystem>();

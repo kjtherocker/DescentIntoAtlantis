@@ -28,6 +28,7 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,US
 	enemyBehaviour->Initialize(this);
 
 	combatEntityHub->equipmentHandler->SetEquipmentState(AEnemyEntityData.EquipmentHandlerData);
+	combatEntityHub->InterruptHandler->SetInterruptData(enemyEntityData.EnemyInterruptData);
 	
 	for(int i = 0 ; i < enemyEntityData.skillIDS.Num();i++)
 	{
@@ -49,7 +50,9 @@ void UEnemyCombatEntity::Death()
 FCombatLog_AttackDefense_Data UEnemyCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
 	beastiaryData->RevealElementalInfo(aSkill.elementalType);
-	return UCombatEntity::DecrementHealth(aAttacker, aSkill);
+	FCombatLog_AttackDefense_Data attackDefenceData = UCombatEntity::DecrementHealth(aAttacker, aSkill);
+	
+	return attackDefenceData;
 }
 
 FString UEnemyCombatEntity::GetEntityName()

@@ -4,9 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "CombatEntity.h"
+#include "CombatInterruptData.h"
 #include "CompleteElementalHandlerData.h"
 #include "EnemyBeastiaryData.h"
 #include "EquipmentHandler.h"
+#include "InterruptHandler.h"
 #include "SkillBase.h"
 #include "UObject/NoExportTypes.h"
 #include "EnemyCombatEntity.generated.h"
@@ -53,6 +55,9 @@ struct DESENTINTOATLANTIS_API FEnemyEntityData :public  FCombatEntityData
 
 	UPROPERTY(EditAnywhere)
 	TArray<ESkillIDS> skillIDS;
+
+	UPROPERTY(EditAnywhere)
+	FInterruptData EnemyInterruptData;
 	
 };
 
@@ -72,8 +77,6 @@ public:
 	EEnemyCombatPositions portraitPosition;
 
 	virtual FString GetEntityName() override;
-
-	
 	
 	UPROPERTY()
 	TArray<USkillBase*> enemySkills;

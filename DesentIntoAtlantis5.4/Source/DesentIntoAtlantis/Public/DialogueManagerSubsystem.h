@@ -5,11 +5,11 @@
 #include "CoreMinimal.h"
 #include "FloorEnum.h"
 #include "Engine/DataTable.h"
-#include "UObject/NoExportTypes.h"
-#include "FloorEnum.h"
-#include "DialogueFactorySubsystem.generated.h"
+#include "DialogueManagerSubsystem.generated.h"
 
 
+class AInGameHUD;
+class AFloorManager;
 enum class EAudio;
 
 
@@ -87,12 +87,15 @@ struct DESENTINTOATLANTIS_API FAllDialogueActors : public FTableRowBase
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> actorReference;
 };
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDialogueEnd);
 
 UCLASS()
-class DESENTINTOATLANTIS_API UDialogueFactorySubsystem : public UGameInstanceSubsystem
+class DESENTINTOATLANTIS_API UDialogueManagerSubsystem : public UGameInstanceSubsystem
 {
 	GENERATED_BODY()
 public:
+	FOnDialogueEnd onDialogueEnd;
+	
 	void InitializeDatabase(UDataTable* aDialogueDatabase, UDataTable* aDialogueActorDatabase);
 	FDialogueCompleteData GetDialogueDataByTrigger(EDialogueTriggers aDialogueData);
 	FAllDialogueActors GetDialogueActorDataByLabel(EDialogueActorsLabel aActorData);
@@ -102,4 +105,12 @@ public:
 	
 	UPROPERTY(EditAnywhere)
 	TMap<EDialogueTriggers, FDialogueCompleteData> dialogueData;
+
+	UFUNCTION()
+	void DialogueFinished();
+	
+	void StartDialogue(EDialogueTriggers aDialogueData, AInGameHUD* aInGameHud);
+	
+	void StartDialogue(EDialogueTriggers aDialogueData, EFloorEventStates aTriggerOnEnd,
+	FTriggerNextEventStage aTriggerNextEventStage, AFloorManager* aFloorManager , AInGameHUD* aInGameHud);
 };

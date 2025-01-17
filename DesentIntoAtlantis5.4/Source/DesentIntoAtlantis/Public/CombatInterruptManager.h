@@ -5,23 +5,26 @@
 #include "CoreMinimal.h"
 #include "CombatInterruptData.h"
 #include "UObject/NoExportTypes.h"
-#include "CombatInterruptHandler.generated.h"
+#include "CombatInterruptManager.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class DESENTINTOATLANTIS_API UCombatInterruptHandler : public UObject
+class DESENTINTOATLANTIS_API UCombatInterruptManager : public UObject
 {
 	GENERATED_BODY()
 
+private:
+	UPROPERTY()
+	ACombatGameModeBase* CombatGameModeBase;
+	
 public:
-
-	
-	
 	UPROPERTY()
 	TArray<UCombatInterrupt*> CombatInterrupts;
+
 	
+	void InitializeCombatInterruptHandler(ACombatGameModeBase* aCombatGameModeBase);
 	UFUNCTION()
 	void AddCombatInterrupt(UCombatInterrupt* aCombatInterrupt);
 
@@ -33,4 +36,6 @@ public:
 
 	void StartTriggeringInterruptions();
 	void TriggerInterruption();
+	UFUNCTION()
+	void CombatInterruptsEnd();
 };

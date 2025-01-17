@@ -8,6 +8,7 @@
 #include "PassiveHandler.h"
 #include "CombatEntityHub.generated.h"
 
+class UInterruptHandler;
 class UEquipmentHandler;
 class UElementalHandler;
 /**
@@ -27,6 +28,8 @@ public:
 	UPROPERTY()
 	UPassiveHandler* passiveHandler;
 
+	UPROPERTY()
+	UInterruptHandler* InterruptHandler;
 	UPROPERTY()
 	UCombatTokenHandler* combatTokenHandler;
 

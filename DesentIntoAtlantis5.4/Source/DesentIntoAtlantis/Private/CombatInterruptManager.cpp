@@ -1,9 +1,16 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "CombatInterruptHandler.h"
+#include "CombatInterruptManager.h"
 
-void UCombatInterruptHandler::AddCombatInterrupt(UCombatInterrupt* aCombatInterrupt)
+#include "CombatGameModeBase.h"
+
+void UCombatInterruptManager::InitializeCombatInterruptHandler(ACombatGameModeBase* aCombatGameModeBase)
+{
+	CombatGameModeBase = aCombatGameModeBase;
+}
+
+void UCombatInterruptManager::AddCombatInterrupt(UCombatInterrupt* aCombatInterrupt)
 {
 	UCombatInterrupt* newCombatInterrupt = aCombatInterrupt;
 	SetInterruptionValueByType( newCombatInterrupt);
@@ -35,7 +42,7 @@ void UCombatInterruptHandler::AddCombatInterrupt(UCombatInterrupt* aCombatInterr
 	}
 }
 
-void UCombatInterruptHandler::SetInterruptionValueByType(UCombatInterrupt* aCombatInterrupt)
+void UCombatInterruptManager::SetInterruptionValueByType(UCombatInterrupt* aCombatInterrupt)
 {
 	///Higher number
 	switch (aCombatInterrupt->GetInterruptionType())
@@ -55,29 +62,36 @@ void UCombatInterruptHandler::SetInterruptionValueByType(UCombatInterrupt* aComb
 	}
 }
 
-void UCombatInterruptHandler::SetInterruptionTriggerOrder()
+void UCombatInterruptManager::SetInterruptionTriggerOrder()
 {
 	
 	
 }
 
-void UCombatInterruptHandler::StartTriggeringInterruptions()
+void UCombatInterruptManager::StartTriggeringInterruptions()
 {
 	if(!HasInterruptions())
 	{
+		CombatInterruptsEnd();
 		return;
 	}
 	
 	TriggerInterruption();
 }
 
-void UCombatInterruptHandler::TriggerInterruption()
+void UCombatInterruptManager::TriggerInterruption()
 {
 	if(!HasInterruptions())
 	{
+		CombatInterruptsEnd();
 		return;
 	}
-	
+	CombatInterrupts[0]->OnInterruptEnd.AddDynamic(this,&UCombatInterruptManager::CombatInterruptsEnd);
 	CombatInterrupts[0]->ActivateInterrupt();
 	CombatInterrupts.RemoveAt(0);
+}
+
+void UCombatInterruptManager::CombatInterruptsEnd()
+{
+	CombatGameModeBase->TurnEnd();
 }

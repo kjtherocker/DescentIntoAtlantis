@@ -3,7 +3,7 @@
 
 #include "DialogueView.h"
 
-#include "DialogueFactorySubsystem.h"
+#include "DialogueManagerSubsystem.h"
 #include "EventManagerSubSystem.h"
 #include "PersistentGameinstance.h"
 #include "SoundManager.h"
@@ -133,13 +133,15 @@ void UDialogueView::SpawnActor(EDialogueActorsLabel aActorLabel, TSubclassOf<AAc
 void UDialogueView::DialogueFinished()
 {
 	InGameHUD->PopMostRecentActiveView();
-	if(reactivatePawnInputOnEnd)
-	{
-		gameModeBase->floorPawn->SetFloorPawnInput(true);
-	}
-	
+
+
+	onDialogueEnd.Broadcast();
 	if(triggerOnEnd != EFloorEventStates::None)
 	{
+		if(reactivatePawnInputOnEnd)
+		{
+			gameModeBase->floorPawn->SetFloorPawnInput(true);
+		}
 		triggerNextEventStage.Broadcast(triggerOnEnd);
 	}
 }

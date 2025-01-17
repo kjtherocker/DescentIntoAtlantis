@@ -12,7 +12,7 @@
 #include "UObject/NoExportTypes.h"
 
 #include "CombatGameModeBase.generated.h"
-class UCombatInterruptHandler;
+class UCombatInterruptManager;
 class UCombatLogSimplifiedView;
 class UChallengeSubsystem;
 class ACombatCameraPawn;
@@ -151,7 +151,7 @@ public:
 
 
 	UPROPERTY()
-	UCombatInterruptHandler* combatInterruptHandler;
+	UCombatInterruptManager* combatInterruptHandler;
 	UPROPERTY()
 	UPressTurnManager* pressTurnManager;
 	
@@ -170,6 +170,8 @@ public:
 	void IterateToNextPlayer();
 
 	void SwitchCombatSides();
+
+	void CheckAllEntitysForInterruptions();
 
 	void AddInterruption(UCombatInterrupt* aCombatInterrupt);
 
