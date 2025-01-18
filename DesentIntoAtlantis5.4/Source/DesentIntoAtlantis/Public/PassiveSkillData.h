@@ -89,7 +89,7 @@ enum class EPassiveSkillStatType : uint8
 };
 
 UENUM()
-enum class EPassiveGenericTrigger : uint8
+enum class EGenericTrigger : uint8
 {
 	None                 = 0,
 	InitialCombatStart   = 1,
@@ -146,7 +146,7 @@ struct DESENTINTOATLANTIS_API FPassiveSkillData : public FTableRowBase
 	EPassiveSkillSlotType passiveSkillPlacement;
 
 	UPROPERTY( EditAnywhere , Category = "General Trigger")    
-	EPassiveGenericTrigger  triggerGeneric;
+	EGenericTrigger  triggerGeneric;
 	
 	UPROPERTY( EditAnywhere , Category = "Attack Triggers")    
 	ESkillType      trigger1SkillType;

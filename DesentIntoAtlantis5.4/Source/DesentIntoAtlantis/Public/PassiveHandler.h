@@ -15,7 +15,7 @@ struct FSkillsData;
 class UPassiveSkills;
 class UCombatEntity;
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSendPassiveTrigger,EPassiveGenericTrigger,combatToken);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSendPassiveTrigger,EGenericTrigger,combatToken);
 UCLASS()
 class DESENTINTOATLANTIS_API UPassiveHandler : public UObject
 {
@@ -45,7 +45,7 @@ public:
 	virtual void InitializePassiveHandler(UCombatEntity* aOwnedCombatEntity,UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem);
 	virtual void SetPassiveHandlerState(FPassiveHandlerData aPassiveHandler);
 	UFUNCTION()
-	virtual void CheckGenericTriggerPassives(EPassiveGenericTrigger aPassiveTrigger);
+	virtual void CheckGenericTriggerPassives(EGenericTrigger aPassiveTrigger);
 	virtual TArray< FCombatLog_PassiveSkilData> CheckAttackDefencePassives(int& CurrentDamage ,UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill);
 	
 	virtual void AddMainClassPassives(UCombatClass* aCombatClass);

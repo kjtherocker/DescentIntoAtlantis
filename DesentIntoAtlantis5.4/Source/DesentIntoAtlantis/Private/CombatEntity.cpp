@@ -18,7 +18,7 @@ void UCombatEntity::SetAWrapperToDefault(ECombatEntityWrapperType aShellType)
     health->SetAWrapperToDefault(aShellType);
 }
 
-void UCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassiveFactorySubsystem* aPassiveSkillFactory)
+void UCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassiveFactorySubsystem* aPassiveSkillFactory, UPersistentGameinstance* aPersistentGameinstance)
 {
 
     for (int32 i = static_cast<int32>(EStatTypes::None) + 1; i < static_cast<int32>(EStatTypes::Max); ++i)
@@ -30,7 +30,7 @@ void UCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassi
     resetOneWrapperToDefault.AddDynamic(this,&UCombatEntity::SetAWrapperToDefault);
 
     combatEntityHub          = NewObject<UCombatEntityHub>();
-    combatEntityHub->InitializeCombatEntityHub(this,aPassiveSkillFactory);
+    combatEntityHub->InitializeCombatEntityHub(this,aPassiveSkillFactory,aPersistentGameinstance);
     health                  = NewObject<UHealth>();
 
 }
@@ -173,7 +173,7 @@ void UCombatEntity::Death()
     wasKilled.Broadcast();
 }
 
-void UCombatEntity::PostDamage(int aTotalDamage)
+void UCombatEntity::PostDamage()
 {
     DeathCheck();
     if(!isMarkedForDeath)

@@ -8,7 +8,18 @@
 #include "Components/RichTextBlock.h"
 #include "BaseUserWidget.generated.h"
 
+
 class UPersistentGameinstance;
+
+
+UENUM()
+enum class ETextStyle   : uint8
+{
+	None               = 0,
+	TitleStyling       = 1,
+	ClassHighlight     = 2,
+};
+
 /**
  * 
  */
@@ -46,7 +57,7 @@ public:
 	virtual void ReturnToPreviousScreen();
 	UFUNCTION()
 	virtual void PopMostActiveView();
-
+	virtual FString WrapTextInStyle(FString aText,ETextStyle aTextStyle);
 	virtual void SetText(URichTextBlock* aTextBlock, FString aText);
 
 	UPROPERTY()

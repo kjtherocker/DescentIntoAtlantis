@@ -8,6 +8,7 @@
 #include "PassiveHandler.h"
 #include "CombatEntityHub.generated.h"
 
+class UPersistentGameinstance;
 class UInterruptHandler;
 class UEquipmentHandler;
 class UElementalHandler;
@@ -23,7 +24,7 @@ private:
 	UPassiveFactorySubsystem* passiveSkillFactorySubsystem;
 	
 public:
-	virtual void InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEntity,UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem);
+	virtual void InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEntity,UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem,UPersistentGameinstance* aPersistentGameinstance);
 	virtual TArray< FCombatLog_PassiveSkilData> CheckAttackDefencePassivesAndTokens(int& CurrentDamage ,UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill);
 	UPROPERTY()
 	UPassiveHandler* passiveHandler;

@@ -12,6 +12,7 @@
 #include "UObject/NoExportTypes.h"
 
 #include "CombatGameModeBase.generated.h"
+class UNumbersUIView;
 class UCombatInterruptManager;
 class UCombatLogSimplifiedView;
 class UChallengeSubsystem;
@@ -60,6 +61,7 @@ UENUM()
 enum class ECombatState  : uint8
 {
 	None,
+	Start,
 	Player,
 	Enemy,
 	SwitchState,
@@ -86,7 +88,10 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	UTurnCounterView*     turnCounter;
 	UPROPERTY()
 	UPartyHealthbarsView* partyHealthbars;
-
+	UPROPERTY()
+	APlayerController* PlayerController;
+	UPROPERTY()
+	UNumbersUIView* NumbersUIView;
 	
 	const float FULL_OPACITY    = 100;
 	const int   ENEMY_TURN_TIME = 2;

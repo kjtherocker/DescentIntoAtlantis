@@ -4,9 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "CombatInterruptData.h"
+#include "InterruptHandler.h"
 #include "UObject/NoExportTypes.h"
 #include "CombatInterruptManager.generated.h"
 
+class UEnemyCombatEntity;
 /**
  * 
  */
@@ -20,16 +22,26 @@ private:
 	ACombatGameModeBase* CombatGameModeBase;
 	
 public:
+
+	UPROPERTY()
+	TArray<UInterruptHandler*> currentInterruptHandlers;
+	
 	UPROPERTY()
 	TArray<UCombatInterrupt*> CombatInterrupts;
 
 	
 	void InitializeCombatInterruptHandler(ACombatGameModeBase* aCombatGameModeBase);
+
+	void SetAllInterruptHandlers(TArray<UPlayerCombatEntity*> aPartyMembersInCombat,TArray<UEnemyCombatEntity*> aEnemyCombatEntitys );
+	
 	UFUNCTION()
 	void AddCombatInterrupt(UCombatInterrupt* aCombatInterrupt);
 
-	bool HasInterruptions(){return CombatInterrupts.Num() > 0; }
+	bool HasInterruptions(){return CombatInterrupts.Num() > 0;}
 
+	void CheckGenericTriggerInerrptions(EGenericTrigger aGenericTrigger);
+	void CheckAllEntitysForInterruptions();
+	
 	void SetInterruptionValueHardSet(UCombatInterrupt* aCombatInterrupt, int aValue){aCombatInterrupt->SetInterruptionValue(aValue); }
 	void SetInterruptionValueByType(UCombatInterrupt* aCombatInterrupt);
 	void SetInterruptionTriggerOrder();

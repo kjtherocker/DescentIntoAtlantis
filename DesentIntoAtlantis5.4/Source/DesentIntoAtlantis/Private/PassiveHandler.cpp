@@ -46,7 +46,7 @@ void UPassiveHandler::SetPassiveHandlerState(FPassiveHandlerData aPassiveHandler
 	PassiveSlotHandler->SetPassiveSlotState(passiveHandler.PassiveSlotHandlerData);
 }
 
-void UPassiveHandler::CheckGenericTriggerPassives(EPassiveGenericTrigger aPassiveTrigger)
+void UPassiveHandler::CheckGenericTriggerPassives(EGenericTrigger aPassiveTrigger)
 {
 	passiveSkillsUsed.Empty();
 	 

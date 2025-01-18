@@ -3,6 +3,7 @@
 
 #include "BaseUserWidget.h"
 
+#include "BaseHighlightElement.h"
 #include "PersistentGameinstance.h"
 #include "SoundManager.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
@@ -51,6 +52,29 @@ void UBaseUserWidget::ReturnToPreviousScreen()
 void UBaseUserWidget::PopMostActiveView()
 {
 	InGameHUD->PopMostRecentActiveView();
+}
+
+FString UBaseUserWidget::WrapTextInStyle(FString aText, ETextStyle aTextStyle)
+{
+	FString start;
+	FString end = "</>";
+	
+	switch (aTextStyle)
+	{
+	case ETextStyle::None:
+		break;
+	case ETextStyle::TitleStyling:
+		start = "<TitleStyling>";
+		
+		break;
+	case ETextStyle::ClassHighlight:
+		start = "<Classhighlight>";
+		break;
+	}
+
+	FString finalString = start + aText + end;
+
+	return finalString;
 }
 
 void UBaseUserWidget::SetText(URichTextBlock* aTextBlock, FString aText)

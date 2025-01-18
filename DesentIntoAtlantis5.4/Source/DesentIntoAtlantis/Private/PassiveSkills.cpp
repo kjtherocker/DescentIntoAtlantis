@@ -49,7 +49,7 @@ FCombatLog_PassiveSkilData UGenericTriggerPassive::ActivateGenericPassive_Implem
 	return IOnGenericPassive::ActivateGenericPassive_Implementation(aCombatEntity);
 }
 
-bool UGenericTriggerPassive::IsPassiveTriggered_Implementation(EPassiveGenericTrigger aPassiveGenericTrigger)
+bool UGenericTriggerPassive::IsPassiveTriggered_Implementation(EGenericTrigger aPassiveGenericTrigger)
 {
 	return passiveSkillData.triggerGeneric == aPassiveGenericTrigger;
 }

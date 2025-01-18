@@ -45,7 +45,8 @@ enum class  EViews
 	ClassSelectionView      = 35,
 	DialoguePopupbox        = 36,
 	PassiveSelectionView    = 37,
-	CombatStatView          = 38
+	CombatStatView          = 38,
+	NumbersUIView           = 39
 };
 
 
@@ -81,5 +82,6 @@ enum class  EViewElements
 	CombatTokenElement          = 16,
 	ClassSelectionElement       = 17,
 	ClassSkillHightlightElement = 18,
-	ClassPassiveSkillElement    = 19
+	ClassPassiveSkillElement    = 19,
+	NumberElement               = 20
 };

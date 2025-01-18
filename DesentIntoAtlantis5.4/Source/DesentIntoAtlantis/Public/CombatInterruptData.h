@@ -45,7 +45,7 @@ struct DESENTINTOATLANTIS_API FCombatInterruptData : public FTableRowBase
 	FString whoTriggeredInterrupt = "UnSet";
 
 	UPROPERTY( EditAnywhere, Category = "Generic" )
-	EPassiveGenericTrigger GenericTrigger;
+	EGenericTrigger GenericTrigger;
 	
 	UPROPERTY( EditAnywhere, Category = "Dialogue" )
 	EDialogueTriggers DialogueTriggers;

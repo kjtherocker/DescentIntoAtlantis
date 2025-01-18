@@ -11,7 +11,8 @@
 #include "SkillData.h"
 
 void UCombatEntityHub::InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEntity,
-                                                 UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem)
+                                                 UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem,
+                                                 UPersistentGameinstance* aPersistentGameinstance)
 {
 	passiveSkillFactorySubsystem = aPassiveSkillFactorySubsystem;
 	
@@ -20,12 +21,17 @@ void UCombatEntityHub::InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEnti
 	elementalHandler   = NewObject<UElementalHandler>();
 	equipmentHandler   = NewObject<UEquipmentHandler>();
 	InterruptHandler   = NewObject<UInterruptHandler>();
+
+	
+
+	// Cast the game instance to your custom game instance class
+	UPersistentGameinstance* persistentGameinstance = aPersistentGameinstance;
 	
 	elementalHandler->Initialize(aOwnedCombatEntity);
 	passiveHandler->InitializePassiveHandler(aOwnedCombatEntity,aPassiveSkillFactorySubsystem);
 	combatTokenHandler->InitializeCombatTokenHandler(aOwnedCombatEntity,aPassiveSkillFactorySubsystem);
 	equipmentHandler->InitializeEquipmentHandler(passiveHandler,aOwnedCombatEntity,aPassiveSkillFactorySubsystem);
-	InterruptHandler->InitializeInterruptHandler(aOwnedCombatEntity);
+	InterruptHandler->InitializeInterruptHandler(aOwnedCombatEntity,persistentGameinstance);
 }
 
 

@@ -71,7 +71,8 @@ FCombatLog_AttackDefense_Data UHealth::DecrementHealth(UCombatEntity* aAttacker,
 		HealthData.currentHealth = 0;
 	}
 	
-	OwnedCombatEntity->PostDamage(totalDamage);
+	OwnedCombatEntity->PostDamage();
+	OnDecrementHealth.Broadcast(lastAttackDefenceData,OwnedCombatEntity);
 	hasHealthValuesChanged.Broadcast();
 
   

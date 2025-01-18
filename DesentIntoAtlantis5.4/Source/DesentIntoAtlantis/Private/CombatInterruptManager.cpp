@@ -10,6 +10,26 @@ void UCombatInterruptManager::InitializeCombatInterruptHandler(ACombatGameModeBa
 	CombatGameModeBase = aCombatGameModeBase;
 }
 
+void UCombatInterruptManager::SetAllInterruptHandlers(TArray<UPlayerCombatEntity*> aPartyMembersInCombat,
+	TArray<UEnemyCombatEntity*> aEnemyCombatEntitys)
+{
+	currentInterruptHandlers.Empty();
+	
+	TArray<UInterruptHandler*> InterruptHandlers;
+
+	for (auto InterruptHandler : aPartyMembersInCombat)
+	{
+		InterruptHandlers.Add(InterruptHandler->combatEntityHub->InterruptHandler);
+	}
+	
+	for (auto InterruptHandler : aEnemyCombatEntitys)
+	{
+		InterruptHandlers.Add(InterruptHandler->combatEntityHub->InterruptHandler);
+	}
+
+	currentInterruptHandlers = InterruptHandlers;
+}
+
 void UCombatInterruptManager::AddCombatInterrupt(UCombatInterrupt* aCombatInterrupt)
 {
 	UCombatInterrupt* newCombatInterrupt = aCombatInterrupt;
@@ -38,6 +58,42 @@ void UCombatInterruptManager::AddCombatInterrupt(UCombatInterrupt* aCombatInterr
 				CombatInterrupts.Insert(newCombatInterrupt,i);
 				break;
 			}	
+		}
+	}
+}
+
+void UCombatInterruptManager::CheckGenericTriggerInerrptions(EGenericTrigger aGenericTrigger)
+{
+	for (auto Element : currentInterruptHandlers)
+	{
+		TArray<UCombatInterrupt*> combatInterrupt = Element->CheckGenericTriggerInterrupts(aGenericTrigger);
+
+		if(combatInterrupt.Num() == 0)
+		{
+			continue;
+		}
+
+		for(int i = 0 ; i < combatInterrupt.Num();i++)
+		{
+			AddCombatInterrupt(combatInterrupt[i]);
+		}
+	}
+}
+
+void UCombatInterruptManager::CheckAllEntitysForInterruptions()
+{
+	for (auto Element : currentInterruptHandlers)
+	{
+		TArray<UCombatInterrupt*> combatInterrupt = Element->GetCombatInterrupts();
+
+		if(combatInterrupt.Num() == 0)
+		{
+			continue;
+		}
+
+		for(int i = 0 ; i < combatInterrupt.Num();i++)
+		{
+			AddCombatInterrupt(combatInterrupt[i]);
 		}
 	}
 }
@@ -75,6 +131,7 @@ void UCombatInterruptManager::StartTriggeringInterruptions()
 		CombatInterruptsEnd();
 		return;
 	}
+
 	
 	TriggerInterruption();
 }

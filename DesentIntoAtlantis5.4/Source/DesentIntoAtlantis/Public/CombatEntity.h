@@ -3,18 +3,16 @@
 
 #include "CoreMinimal.h"
 #include "CombatEntityWrapper.h"
-#include "UObject/NoExportTypes.h"
 #include "EElementalType.h"
 #include "HealthData.h"
 
-#include "ESkillID.h"
 #include "PressTurnManager.h"
 
-#include "Components/Image.h"
 #include "Engine/DataTable.h"
 #include "CombatEntity.generated.h"
 
 
+class UPersistentGameinstance;
 class UCombatEntityHub;
 class UPassiveFactorySubsystem;
 class UCombatStat;
@@ -112,9 +110,11 @@ public:
 	FHasHealthOrManaValuesChanged      hasHealthOrManaValuesChanged;
 	FResetOneWrapperToDefault          resetOneWrapperToDefault;
 	FCombatEntityRoundEnd              OnRoundEnd;
+
+	
 	UFUNCTION()
 	virtual void SetAWrapperToDefault(ECombatEntityWrapperType aShellType);
-	virtual void SetCombatEntity(USkillFactorySubsystem*  aSkillFactory,UPassiveFactorySubsystem* aPassiveSkillFactory);
+	virtual void SetCombatEntity(USkillFactorySubsystem*  aSkillFactory,UPassiveFactorySubsystem* aPassiveSkillFactory, UPersistentGameinstance* aPersistentGameinstance);
 	
 	virtual void SetTacticsEvents(ACombatGameModeBase* aCombatManager);
 
@@ -138,7 +138,7 @@ public:
 	virtual void Resurrection();
 	void DeathCheck();
 	virtual void Death();
-	virtual void PostDamage(int aTotalDamage);
+	virtual void PostDamage();
 
 	virtual void ActivateDamageHitEffect();
 	virtual void SetToDefaultState();

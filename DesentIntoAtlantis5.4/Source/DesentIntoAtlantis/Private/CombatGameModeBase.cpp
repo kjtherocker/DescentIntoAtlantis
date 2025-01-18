@@ -20,6 +20,7 @@
 #include "CombatInterruptManager.h"
 #include "CombatLogSimplifiedView.h"
 #include "CombatLog_Full_Data.h"
+#include "NumbersUIView.h"
 #include "PlayerCombatEntity.h"
 #include "SkillRange.h"
 #include "SkillUsage.h"
@@ -39,7 +40,7 @@ void ACombatGameModeBase::InitializeLevel()
 	godManagerSubsystem = persistentGameInstance->challengeManagerSubsystem;
 	passiveSkillFactorySubsystem = persistentGameInstance->passiveFactorySubsystem;
 	
-	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
+	PlayerController = GetWorld()->GetFirstPlayerController();
 	combatCamera = Cast<ACombatCameraPawn>(GetWorld()->SpawnActor<AActor>(cameraReference, CAMERA_POSITION, CAMERA_ROTATION,ActorSpawnParameters));
 	
 	if (PlayerController->GetPawn()) // If the player controller has a pawn
@@ -129,21 +130,22 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 		combatLogView  = (UCombatLogSimplifiedView*)InGameHUD->PushAndGetView(EViews::CombatLogSimplified,         EUiType::PersistentUi);
 		turnCounter     = (UTurnCounterView*)InGameHUD->PushAndGetView(EViews::TurnCounter,         EUiType::PersistentUi);
 		partyHealthbars = (UPartyHealthbarsView*)InGameHUD->PushAndGetView(EViews::Healthbars,  EUiType::PersistentUi);
+		NumbersUIView = (UNumbersUIView*)InGameHUD->PushAndGetView(EViews::NumbersUIView,  EUiType::PersistentUi);
+		NumbersUIView->InitializePlayerController(PlayerController);
+		NumbersUIView->SubscribeAllCombatEntitysToView(GetPlayersInCombat(),GetEnemysInCombat());
 	}
 	
-	SetRoundSide(ECharactertype::Ally);
-	//GameHUD->PushView(EViews::Tutorial,    EUiType::PersistentUi);
-
-	UDialogueInterrupt* DialogueInterrupt = NewObject<UDialogueInterrupt>();
-	DialogueInterrupt->SetInterrupt(persistentGameInstance);
-	
-	FCombatInterruptData InterruptData;
-	InterruptData.interruptType = EInterruptType::Dialogue;
-	InterruptData.DialogueTriggers = EDialogueTriggers::FinalBossStart;
-	DialogueInterrupt->SetCombatInterruptData(InterruptData);
-	
-	AddInterruption(DialogueInterrupt);
-	
+	hasCombatStarted = false;
+	combatInterruptHandler->SetAllInterruptHandlers(GetPlayersInCombat(),GetEnemysInCombat());
+	combatInterruptHandler->CheckGenericTriggerInerrptions(EGenericTrigger::InitialCombatStart);
+	if( combatInterruptHandler->HasInterruptions())
+	{
+		SetCombatState(ECombatState::Interruption);
+	}
+	else
+	{
+		SetCombatState(ECombatState::Start);
+	}
 }
 
 void ACombatGameModeBase::AddEnemyToCombat(FEnemyEntityData AEnemyEntityData,int aPosition)
@@ -155,7 +157,7 @@ void ACombatGameModeBase::AddEnemyToCombat(FEnemyEntityData AEnemyEntityData,int
 	
 	UEnemyCombatEntity* EnemyCombatEntity = NewObject<UEnemyCombatEntity>();
 	
-	EnemyCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactorySubsystem);
+	EnemyCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactorySubsystem,persistentGameInstance);
 	EnemyCombatEntity->SetTacticsEvents(this);
 	EnemyCombatEntity->SetEnemyEntityData(AEnemyEntityData,skillFactory,static_cast<EEnemyCombatPositions>(aPosition));
 	EnemyCombatEntity->beastiaryData = enemyFactory->GetBestiaryEntry(EnemyCombatEntity->enemyEntityData.characterName);
@@ -185,6 +187,10 @@ void ACombatGameModeBase::SetCombatState(ECombatState aCombatState)
 	{
 	case ECombatState::None:
 		break;
+	case ECombatState::Start:
+		hasCombatStarted = true;
+		SetRoundSide(ECharactertype::Ally);
+		break;
 	case ECombatState::Player:
 		AllyStartTurn();
 		break;
@@ -195,6 +201,7 @@ void ACombatGameModeBase::SetCombatState(ECombatState aCombatState)
 		SwitchCombatSides();
 		break;
 	case ECombatState::Interruption:
+		InGameHUD->PopAllActiveViews();
 		combatInterruptHandler->StartTriggeringInterruptions();
 		break;
 	case ECombatState::SuccessfulEnd:
@@ -208,11 +215,17 @@ void ACombatGameModeBase::SetCombatState(ECombatState aCombatState)
 
 void ACombatGameModeBase::TurnEnd()
 {
-	CheckAllEntitysForInterruptions();
+	combatInterruptHandler->CheckAllEntitysForInterruptions();
 	
 	if( combatInterruptHandler->HasInterruptions())
 	{
 		SetCombatState(ECombatState::Interruption);
+		return;
+	}
+
+	if(!hasCombatStarted)
+	{
+		SetCombatState(ECombatState::Start);
 		return;
 	}
 	
@@ -422,38 +435,7 @@ void ACombatGameModeBase::SwitchCombatSides()
 	SetRoundSide(CharacterTypeTurn == ECharactertype::Ally ?  ECharactertype::Enemy : ECharactertype::Ally);
 }
 
-void ACombatGameModeBase::CheckAllEntitysForInterruptions()
-{
-	for (auto Element : enemysInCombat)
-	{
-		TArray<UCombatInterrupt*> combatInterrupt = Element->combatEntityHub->InterruptHandler->GetCombatInterrupts();
 
-		if(combatInterrupt.Num() == 0)
-		{
-			continue;
-		}
-
-		for(int i = 0 ; i < combatInterrupt.Num();i++)
-		{
-			AddInterruption(combatInterrupt[i]);
-		}
-	}
-
-	for (auto Element : GetPlayersInCombat())
-	{
-		TArray<UCombatInterrupt*> combatInterrupt = Element->combatEntityHub->InterruptHandler->GetCombatInterrupts();
-
-		if(combatInterrupt.Num() == 0)
-		{
-			continue;
-		}
-
-		for(int i = 0 ; i < combatInterrupt.Num();i++)
-		{
-			AddInterruption(combatInterrupt[i]);
-		}
-	}
-}
 
 void ACombatGameModeBase::AddInterruption(UCombatInterrupt* aCombatInterrupt)
 {

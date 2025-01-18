@@ -17,6 +17,7 @@ AEnemyPortraitElement::AEnemyPortraitElement()
 
 void AEnemyPortraitElement::SetCombatEntity(UEnemyCombatEntity* aCombatEntity)
 {
+	aCombatEntity->enemyPortrait = this;
 	//BW_Portrait->SetBrushFromTexture(aCombatEntity->enemyEntityData.fullBodyCharacterPortrait);
 	aCombatEntity->wasDamaged.AddDynamic(this,&AEnemyPortraitElement::TriggerHitEffect);
 	aCombatEntity->wasKilled.AddDynamic(this,&AEnemyPortraitElement::TriggerDisappear);

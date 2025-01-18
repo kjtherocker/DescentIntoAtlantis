@@ -4,12 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "CombatEntity.h"
+#include "CombatInterruptData.h"
+#include "PassiveSkillData.h"
+#include "PersistentGameinstance.h"
 #include "UObject/NoExportTypes.h"
 #include "InterruptHandler.generated.h"
 
 
-enum class EInterruptType : uint8;
-struct FCombatInterruptData;
+
+enum class EInterruptType         : uint8;
+
 class UCombatInterrupt;
 /**
  * 
@@ -21,8 +25,10 @@ struct DESENTINTOATLANTIS_API FInterruptData :public  FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 
-	//UPROPERTY( EditAnywhere, Category = "Identity" )
-	//TMap<EPassiveGenericTrigger,FCombatInterruptData> GenericInterruptTriggers;
+	UPROPERTY( EditAnywhere, Category = "Identity" )
+	TArray<FCombatInterruptData> GenericInterruptTriggers;
+	
+	
 	UPROPERTY( EditAnywhere, Category = "Identity" )
 	TArray<FCombatInterruptData> HealthPercentageTriggers;
 };
@@ -38,11 +44,15 @@ protected:
 	FInterruptData InterruptData;
 	UPROPERTY()
 	UCombatEntity* ownedCombatEntity;
+	UPROPERTY()
+	UPersistentGameinstance* persistantGameInstance;
 public:
 	UCombatInterrupt* CreateInterrupt(EInterruptType aInterruptType, FCombatInterruptData aCombatInterruptData);
-	void InitializeInterruptHandler(UCombatEntity* aOwnedCombatEntity) {ownedCombatEntity = aOwnedCombatEntity ;}
+	void InitializeInterruptHandler(UCombatEntity* aOwnedCombatEntity,UPersistentGameinstance* aPersistantGameInstance);
 	void SetInterruptData(FInterruptData aInterruptData);
 
+	TArray<UCombatInterrupt*> CheckGenericTriggerInterrupts(EGenericTrigger aGenericTrigger);
+	
 	TArray<UCombatInterrupt*> CheckHealthRelatedInterrupt();
 	TArray<UCombatInterrupt*> GetCombatInterrupts();
 	

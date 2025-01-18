@@ -75,7 +75,7 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembers aPlayer)
 	UPlayerCombatEntity* PlayerCombatEntity = NewObject<UPlayerCombatEntity>();
 
 	PlayerCombatEntity->SetPlayerEntity(playerIdenityMap[aPlayer]);
-	PlayerCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactory);
+	PlayerCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactory,persistentGameInstance);
 
 	EClassID initalClass = playerIdenityMap[aPlayer].initalClass;
 	if(classDataTables.Contains(initalClass))
@@ -220,7 +220,7 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 		
 
 		PlayerCombatEntity->SetPlayerEntity(playerIdenityMap[partyMember]);
-		PlayerCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactory);
+		PlayerCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactory,persistentGameInstance);
 
 		PlayerCombatEntity->LoadSavedHPAndMP(playerCompleteData);
 

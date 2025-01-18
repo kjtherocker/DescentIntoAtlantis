@@ -21,8 +21,16 @@ UCombatInterrupt* UInterruptHandler::CreateInterrupt(EInterruptType aInterruptTy
 		break;
 	}
 	aCombatInterruptData.whoTriggeredInterrupt = ownedCombatEntity->GetEntityName();
+	CombatInterrupt->SetInterrupt(persistantGameInstance);
 	CombatInterrupt->SetCombatInterruptData(aCombatInterruptData);
 	return CombatInterrupt;
+}
+
+void UInterruptHandler::InitializeInterruptHandler(UCombatEntity* aOwnedCombatEntity,
+	UPersistentGameinstance* aPersistantGameInstance)
+{
+	ownedCombatEntity = aOwnedCombatEntity;
+	persistantGameInstance = aPersistantGameInstance;
 }
 
 void UInterruptHandler::SetInterruptData(FInterruptData aInterruptData)
@@ -30,26 +38,56 @@ void UInterruptHandler::SetInterruptData(FInterruptData aInterruptData)
 	InterruptData = aInterruptData;
 }
 
+TArray<UCombatInterrupt*> UInterruptHandler::CheckGenericTriggerInterrupts(EGenericTrigger aGenericTrigger)
+{
+	TArray<UCombatInterrupt*> CombatInterrupts;
+
+	for (int i = 0 ; i < InterruptData.GenericInterruptTriggers.Num();i++)
+	{
+		FCombatInterruptData CombatInterruptDatas = InterruptData.GenericInterruptTriggers[i];
+		if(CombatInterruptDatas.GenericTrigger != aGenericTrigger)
+		{
+			continue;
+		}
+
+		CombatInterrupts.Add(CreateInterrupt( CombatInterruptDatas.interruptType,CombatInterruptDatas));
+		if(CombatInterruptDatas.isConsumedOnUse)
+		{
+			CombatInterruptDatas.isDisabled = true;			
+		}
+
+		InterruptData.GenericInterruptTriggers[i] = CombatInterruptDatas;
+	}
+		
+
+	return CombatInterrupts;
+}
+
 TArray<UCombatInterrupt*> UInterruptHandler::CheckHealthRelatedInterrupt()
 {
 	TArray<UCombatInterrupt*> CombatInterrupts;
 
-	for (auto combatInterruptData : InterruptData.HealthPercentageTriggers)
+	for(int i = 0 ; i < InterruptData.HealthPercentageTriggers.Num();i++)
 	{
-		if(combatInterruptData.isDisabled)
+		FCombatInterruptData CombatInterruptData = InterruptData.HealthPercentageTriggers[i];
+		if(CombatInterruptData.isDisabled)
 		{
 			continue;
 		}
 		float healthpercentage = ownedCombatEntity->GetHealthPercentage();
-		if(combatInterruptData.HealthThresholdData.LowPercent >= healthpercentage &&
-			healthpercentage <= combatInterruptData.HealthThresholdData.TopPercent )
+		if(healthpercentage > CombatInterruptData.HealthThresholdData.LowPercent )
 		{
-			CombatInterrupts.Add(CreateInterrupt( combatInterruptData.interruptType,combatInterruptData));
-			if(combatInterruptData.isConsumedOnUse)
+			if(healthpercentage < CombatInterruptData.HealthThresholdData.TopPercent )
 			{
-				combatInterruptData.isDisabled = true;			
+				CombatInterrupts.Add(CreateInterrupt( CombatInterruptData.interruptType,CombatInterruptData));
+				if(CombatInterruptData.isConsumedOnUse)
+				{
+					CombatInterruptData.isDisabled = true;			
+				}	
 			}
 		}
+
+		InterruptData.HealthPercentageTriggers[i] = CombatInterruptData;
 	}
 
 	return CombatInterrupts;

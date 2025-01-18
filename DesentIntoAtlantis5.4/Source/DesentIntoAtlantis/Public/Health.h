@@ -16,6 +16,7 @@ class UCombatEntity;
 
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FHasHealthValuesChanged);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnDecrementHealth,FCombatLog_AttackDefense_Data, combatlogFullData,UCombatEntity*,combatEntity);
 
 UCLASS()
 class DESENTINTOATLANTIS_API UHealth : public UObject
@@ -57,6 +58,7 @@ public:
 	virtual float GetHealthPercentage();
 	virtual float GetPotentialHealthPercentage(int aDamage);
 	
+	FOnDecrementHealth                 OnDecrementHealth;
 	FResetOneWrapperToDefault          resetOneWrapperToDefault;
 	FHasHealthOrManaValuesChanged      hasHealthValuesChanged;
 };

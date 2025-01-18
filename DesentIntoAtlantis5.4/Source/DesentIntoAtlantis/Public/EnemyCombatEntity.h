@@ -77,7 +77,8 @@ public:
 	EEnemyCombatPositions portraitPosition;
 
 	virtual FString GetEntityName() override;
-	
+	UPROPERTY()
+	AEnemyPortraitElement* enemyPortrait;
 	UPROPERTY()
 	TArray<USkillBase*> enemySkills;
 	

@@ -80,7 +80,7 @@ public:
 	FCombatLog_PassiveSkilData ActivateGenericPassive(UCombatEntity* aCombatEntity);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category="Skill")
-	bool IsPassiveTriggered(EPassiveGenericTrigger aPassiveGenericTrigger);
+	bool IsPassiveTriggered(EGenericTrigger aPassiveGenericTrigger);
 };
 
 
@@ -134,7 +134,7 @@ class DESENTINTOATLANTIS_API UGenericTriggerPassive : public UPassiveSkills, pub
 public:
 
 	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation(UCombatEntity* aCombatEntity) override;
-	virtual bool IsPassiveTriggered_Implementation(EPassiveGenericTrigger aPassiveGenericTrigger) override;
+	virtual bool IsPassiveTriggered_Implementation(EGenericTrigger aPassiveGenericTrigger) override;
 };
 
 UCLASS()
