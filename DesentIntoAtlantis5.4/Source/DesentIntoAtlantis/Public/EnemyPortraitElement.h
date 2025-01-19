@@ -19,9 +19,13 @@ class DESENTINTOATLANTIS_API AEnemyPortraitElement : public AActor
 	GENERATED_BODY()
 
 private:
+	UPROPERTY()
 	float hitEffectTimer           = 0;
+	UPROPERTY()
 	float disappearTimer           = 1;
+	UPROPERTY()
 	bool  isTriggeringDisappear    = false;
+	UPROPERTY()
 	bool isTriggeringHitEffect;
 	void HitEffect(float DeltaTime);
 	void Disappear(float DeltaTime);
@@ -29,9 +33,12 @@ private:
 	UMaterialInstanceDynamic* materialInstanceDynamic;
 	const FRotator DEFAULT_ROTATION         = UCombatSettings::ENEMY_ROTATION;
 	const FVector3d INITIAL_CAMERA_POSITION = UCombatSettings::INITIAL_CAMERA_POSITION;
+
+	FVector CenterOfPortraitPosition;
 public:
 
-	AEnemyPortraitElement();	
+	AEnemyPortraitElement();
+	FVector GetCenterOfPortraitPosition(){return CenterOfPortraitPosition;}
 	void SetCombatEntity(UEnemyCombatEntity* aCombatEntity);
 	virtual void Tick(float DeltaTime) override;
 	void RotateTowardsCamera();

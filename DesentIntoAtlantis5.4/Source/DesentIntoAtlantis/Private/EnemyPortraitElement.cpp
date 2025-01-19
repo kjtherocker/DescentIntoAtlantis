@@ -37,11 +37,10 @@ void AEnemyPortraitElement::SetCombatEntity(UEnemyCombatEntity* aCombatEntity)
 	{
 		UMaterialInterface* CurrentMaterial = currentEnemyMaterialInterface;
 		materialInstanceDynamic = UMaterialInstanceDynamic::Create(CurrentMaterial, this);
-
 		if (materialInstanceDynamic != nullptr) 
 		{
 			//materialInstanceDynamic->SetScalarParameterValue(FName("Red"), 1);
-			
+			CenterOfPortraitPosition = MeshComponent->GetComponentLocation();
 			MeshComponent->SetMaterial(0, materialInstanceDynamic);
 		}
 	}

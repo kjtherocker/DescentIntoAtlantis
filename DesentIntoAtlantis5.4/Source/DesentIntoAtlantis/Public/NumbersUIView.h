@@ -23,6 +23,12 @@ class DESENTINTOATLANTIS_API UNumbersUIView : public UBaseUserWidget
 private:
 	UPROPERTY()
 	APlayerController* PlayerController;
+
+	UPROPERTY()
+	FVector Testtttttt0;
+
+	UPROPERTY()
+	FVector Testttttttddawdawdwd;
 	
 public:
 
