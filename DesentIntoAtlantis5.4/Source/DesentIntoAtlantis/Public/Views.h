@@ -46,7 +46,8 @@ enum class  EViews
 	DialoguePopupbox        = 36,
 	PassiveSelectionView    = 37,
 	CombatStatView          = 38,
-	NumbersUIView           = 39
+	NumbersUIView           = 39,
+	SubSkillView            = 40,
 };
 
 

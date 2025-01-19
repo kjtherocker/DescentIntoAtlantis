@@ -23,6 +23,10 @@ void USkillView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &USkillView::MoveDown  );
 	InputComponent->BindAction("E"       ,IE_Pressed ,this, &USkillView::ReturnToPreviousScreen  );
 
+	if(ClassSlot != EClassSlot::None)
+	{
+		InitializeSkills((ACombatGameModeBase*)aGameModeBase,ClassSlot);
+	}
 	
 }
 

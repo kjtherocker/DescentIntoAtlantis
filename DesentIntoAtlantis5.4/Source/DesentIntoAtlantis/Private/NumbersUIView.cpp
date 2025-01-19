@@ -108,7 +108,7 @@ void UNumbersUIView::SpawnEnemyEvadedAttack(FCombatLog_Hit_Data aEvasionLog,
 	UEnemyCombatEntity* EnemyCombatEntity = (UEnemyCombatEntity*)CombatEntity;
 
 	FVector2D ScreenPosition;
-	if (PlayerController->ProjectWorldLocationToScreen(EnemyCombatEntity->enemyPortrait->GetActorLocation() + FVector(0,-130,450), ScreenPosition))
+	if (PlayerController->ProjectWorldLocationToScreen(EnemyCombatEntity->enemyPortrait->GetActorLocation() + FVector(0,-140,450), ScreenPosition))
 	{
 		// Adjust for DPI scaling
 		const float Scale = UWidgetLayoutLibrary::GetViewportScale(PlayerController);

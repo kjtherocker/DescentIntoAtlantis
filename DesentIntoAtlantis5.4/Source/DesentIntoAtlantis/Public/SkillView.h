@@ -27,13 +27,17 @@ class DESENTINTOATLANTIS_API USkillView : public UBaseUserWidget
 	virtual void SetCursorPositionInfo() override;
 
 	ACombatGameModeBase* combatGameMode;
+
+protected:
+	
+	
 public:
 	
 	void InitializeSkills(ACombatGameModeBase* aCombatGameMode,EClassSlot aClassSlot);
 
 	UCombatClass* GetCombatClass();
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 	EClassSlot ClassSlot;
 	
 	UPROPERTY()
@@ -41,6 +45,8 @@ public:
 	
 	UPROPERTY()
 	TArray<USkillBarElement*> skillBarElements;
+
+	
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_CharacterName;
@@ -57,3 +63,5 @@ public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	class UVerticalBox* BW_VerticalBox;
 };
+
+

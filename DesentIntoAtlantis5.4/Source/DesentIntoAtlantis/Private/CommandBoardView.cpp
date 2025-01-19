@@ -133,7 +133,6 @@ void UCommandBoardView::MainClassSkill()
 	
 	InGameHUD->PopMostRecentActiveView();
 	USkillView* SelectionView = (USkillView*)InGameHUD->PushAndGetView(EViews::Skill,  EUiType::ActiveUi);
-	SelectionView->InitializeSkills((ACombatGameModeBase*)gameModeBase,EClassSlot::Main);
 }
 
 void UCommandBoardView::SubClassSkill()
@@ -144,8 +143,7 @@ void UCommandBoardView::SubClassSkill()
 	}
 	
 	InGameHUD->PopMostRecentActiveView();
-	USkillView* SelectionView = (USkillView*)InGameHUD->PushAndGetView(EViews::Skill,  EUiType::ActiveUi);
-	SelectionView->InitializeSkills((ACombatGameModeBase*)gameModeBase,EClassSlot::Sub);
+	USkillView* SelectionView = (USkillView*)InGameHUD->PushAndGetView(EViews::SubSkillView,  EUiType::ActiveUi);
 }
 
 void UCommandBoardView::Escape()
