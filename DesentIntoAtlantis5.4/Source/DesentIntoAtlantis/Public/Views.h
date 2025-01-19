@@ -83,5 +83,6 @@ enum class  EViewElements
 	ClassSelectionElement       = 17,
 	ClassSkillHightlightElement = 18,
 	ClassPassiveSkillElement    = 19,
-	NumberElement               = 20
+	NumberElement               = 20,
+	MissedElement               = 21,
 };

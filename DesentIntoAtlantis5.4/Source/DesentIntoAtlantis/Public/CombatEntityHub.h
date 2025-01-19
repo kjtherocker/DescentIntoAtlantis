@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CombatLog_Hit_Data.h"
 #include "CombatTokenHandler.h"
 #include "UObject/NoExportTypes.h"
 #include "PassiveHandler.h"
@@ -15,6 +16,8 @@ class UElementalHandler;
 /**
  * 
  */
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FAttackEvaded,FCombatLog_Hit_Data, Evasion_Data,UCombatEntity*,CombatEntity);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FEvadedAttack,FCombatLog_Hit_Data, Evasion_Data,UCombatEntity*,CombatEntity);
 UCLASS()
 class DESENTINTOATLANTIS_API UCombatEntityHub : public UObject
 {
@@ -22,10 +25,20 @@ class DESENTINTOATLANTIS_API UCombatEntityHub : public UObject
 private:
 
 	UPassiveFactorySubsystem* passiveSkillFactorySubsystem;
+
+	UPROPERTY()
+	UCombatEntity* OwnedCombatEntity;
 	
 public:
 	virtual void InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEntity,UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem,UPersistentGameinstance* aPersistentGameinstance);
 	virtual TArray< FCombatLog_PassiveSkilData> CheckAttackDefencePassivesAndTokens(int& CurrentDamage ,UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill);
+
+	FAttackEvaded                      AttackEvaded;
+	FEvadedAttack                      EvadedAttack;
+
+	virtual void OnAttackEvaded(FCombatLog_Hit_Data aEvasionData);
+	virtual void OnEvadedAttack(FCombatLog_Hit_Data aEvasionData);
+	
 	UPROPERTY()
 	UPassiveHandler* passiveHandler;
 

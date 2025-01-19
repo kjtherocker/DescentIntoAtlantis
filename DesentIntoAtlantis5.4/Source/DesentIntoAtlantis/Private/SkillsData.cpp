@@ -72,6 +72,9 @@ FCombatLog_Full_Data USkillBase::ExecuteSkill(UCombatEntity* aAttacker, UCombatE
 	}
 	else
 	{
+	   aAttacker->combatEntityHub->OnAttackEvaded(	CombatLog_Base_Data.CombatLog_Hit_Data);
+	   aVictim->combatEntityHub->OnEvadedAttack(	CombatLog_Base_Data.CombatLog_Hit_Data);
+		
 		CombatLog_Base_Data.PressTurnReaction = EPressTurnReactions::Dodge;
 	}
 	

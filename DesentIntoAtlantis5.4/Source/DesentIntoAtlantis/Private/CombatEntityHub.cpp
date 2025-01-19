@@ -3,6 +3,7 @@
 
 #include "CombatEntityHub.h"
 
+#include "CombatLog_Hit_Data.h"
 #include "ElementalHandler.h"
 #include "EquipmentHandler.h"
 #include "InterruptHandler.h"
@@ -14,6 +15,7 @@ void UCombatEntityHub::InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEnti
                                                  UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem,
                                                  UPersistentGameinstance* aPersistentGameinstance)
 {
+	OwnedCombatEntity = aOwnedCombatEntity;
 	passiveSkillFactorySubsystem = aPassiveSkillFactorySubsystem;
 	
 	passiveHandler     = NewObject<UPassiveHandler>();
@@ -52,4 +54,14 @@ TArray<FCombatLog_PassiveSkilData> UCombatEntityHub::CheckAttackDefencePassivesA
 	
 
 	return PassiveSkilDatas;
+}
+
+void UCombatEntityHub::OnAttackEvaded(FCombatLog_Hit_Data aEvasionData)
+{
+	AttackEvaded.Broadcast(aEvasionData,OwnedCombatEntity);
+}
+
+void UCombatEntityHub::OnEvadedAttack(FCombatLog_Hit_Data aEvasionData)
+{
+	EvadedAttack.Broadcast(aEvasionData,OwnedCombatEntity);
 }

@@ -208,6 +208,7 @@ int UCombatEntity::GetAilmentInfliction(EStatusAilments aStatusAilment)
     return 0;
 }
 
+
 void UCombatEntity::ActivateDamageHitEffect()
 {
     wasDamaged.Broadcast();

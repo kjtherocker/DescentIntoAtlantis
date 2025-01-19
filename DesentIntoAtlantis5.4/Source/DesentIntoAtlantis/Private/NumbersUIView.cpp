@@ -16,13 +16,30 @@ void UNumbersUIView::SubscribeAllCombatEntitysToView(TArray<UPlayerCombatEntity*
 	for (auto Element : aPartyMembersInCombat)
 	{
 		Element->health->OnDecrementHealth.AddDynamic(this,&UNumbersUIView::OnDecrement);
+		Element->combatEntityHub->EvadedAttack.AddDynamic(this,&UNumbersUIView::OnEvadedAttack );
 	}
 
 	for (auto Element : aEnemyCombatEntitys)
 	{
 		Element->health->OnDecrementHealth.AddDynamic(this,&UNumbersUIView::OnDecrement);
+		Element->combatEntityHub->EvadedAttack.AddDynamic(this,&UNumbersUIView::OnEvadedAttack );
 	}
 	
+}
+
+UMissedElement* UNumbersUIView::CreateMissedElementForNumberView()
+{
+	return CreateMissedElement(this);
+}
+
+UMissedElement* UNumbersUIView::CreateMissedElement(UBaseUserWidget* aBaseUserWidget)
+{
+	UUserWidget* baseUserWidget = InGameHUD->CreateElement(aBaseUserWidget,EViewElements::MissedElement);
+	UMissedElement* MissedElement = (UMissedElement*)baseUserWidget;
+	MissedElement->UiInitialize(gameModeBase);
+	baseUserWidget->AddToViewport();
+
+	return MissedElement;
 }
 
 UNumberElement* UNumbersUIView::CreateNumberElementForNumberView()
@@ -56,8 +73,53 @@ void UNumbersUIView::OnDecrement(FCombatLog_AttackDefense_Data aAttackDefenceLog
 	}
 }
 
-void UNumbersUIView::SpawnPartyMemberNumbers(FCombatLog_AttackDefense_Data aAttackDefenceLog,
+void UNumbersUIView::OnEvadedAttack(FCombatLog_Hit_Data aEvasionLog,UCombatEntity* CombatEntity)
+{
+	switch (CombatEntity->characterType)
+	{
+	case ECharactertype::Undefined:
+		break;
+	case ECharactertype::Ally:
+		SpawnPartyMemberEvadedAttack( aEvasionLog, CombatEntity);
+		break;
+	case ECharactertype::Enemy:
+		SpawnEnemyEvadedAttack( aEvasionLog, CombatEntity);
+		break;
+	}
+}
+
+void UNumbersUIView::SpawnPartyMemberEvadedAttack(FCombatLog_Hit_Data aEvasionLog,
 	UCombatEntity* CombatEntity)
+{
+	UPlayerCombatEntity* playerCombatEntity = (UPlayerCombatEntity*)CombatEntity;
+	UPartyHealthbarElement* playerHealthbar = playerCombatEntity->partyHealthbarElement;
+	
+	UMissedElement* newlySpawnedNumber = CreateMissedElementForNumberView();
+
+
+	playerHealthbar->BW_DamageSpawnPoint->AddChildToCanvas(newlySpawnedNumber);
+}
+
+void UNumbersUIView::SpawnEnemyEvadedAttack(FCombatLog_Hit_Data aEvasionLog,
+	UCombatEntity* CombatEntity)
+{
+	UMissedElement* newlySpawnedNumber = CreateMissedElementForNumberView();
+
+	UEnemyCombatEntity* EnemyCombatEntity = (UEnemyCombatEntity*)CombatEntity;
+
+	FVector2D ScreenPosition;
+	if (PlayerController->ProjectWorldLocationToScreen(EnemyCombatEntity->enemyPortrait->GetActorLocation() + FVector(0,0,450), ScreenPosition))
+	{
+		// Adjust for DPI scaling
+		const float Scale = UWidgetLayoutLibrary::GetViewportScale(PlayerController);
+
+		// Set the position in the viewport
+		newlySpawnedNumber->SetPositionInViewport(ScreenPosition / Scale, true); // true to maintain anchor position
+	}
+}
+
+void UNumbersUIView::SpawnPartyMemberNumbers(FCombatLog_AttackDefense_Data aAttackDefenceLog,
+                                             UCombatEntity* CombatEntity)
 {
 	UPlayerCombatEntity* playerCombatEntity = (UPlayerCombatEntity*)CombatEntity;
 	UPartyHealthbarElement* playerHealthbar = playerCombatEntity->partyHealthbarElement;
