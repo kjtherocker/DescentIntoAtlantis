@@ -5,9 +5,12 @@
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
 #include "Blueprint/UserWidget.h"
+#include "Components/CanvasPanel.h"
+#include "Components/CanvasPanelSlot.h"
 #include "Components/Image.h"
 #include "PartyHealthbarElement.generated.h"
 
+struct FCombatLog_AttackDefense_Data;
 class UCombatTokenRowElement;
 enum class EStatusAilments  : uint8;
 class UPlayerCombatEntity;
@@ -53,6 +56,9 @@ public:
 	virtual void MoveUp();
 	virtual void ResetTranslation();
 	FString characterName;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UCanvasPanel* BW_DamageSpawnPoint;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UProgressBar* BW_Mana;

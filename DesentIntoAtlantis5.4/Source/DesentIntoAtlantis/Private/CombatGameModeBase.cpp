@@ -286,10 +286,9 @@ void ACombatGameModeBase::TriggerTurnEndTimers()
 		break;
 	case ECharactertype::Ally:
 		{
-			TurnEnd();
-
-			//FTimerHandle handle;
-			//world->GetTimerManager().SetTimer(handle,this,&ACombatGameModeBase::TurnEnd,ENEMY_TURN_TIME,false);		
+			//TurnEnd();
+			FTimerHandle handle;
+			world->GetTimerManager().SetTimer(handle,this,&ACombatGameModeBase::TurnEnd,1.5f,false);		
 		}
 		break;
 	case ECharactertype::Enemy:

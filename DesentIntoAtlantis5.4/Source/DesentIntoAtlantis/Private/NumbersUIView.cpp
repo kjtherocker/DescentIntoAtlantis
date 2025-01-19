@@ -7,6 +7,7 @@
 #include "EnemyCombatEntity.h"
 #include "EnemyPortraitElement.h"
 #include "Health.h"
+#include "PartyHealthbarElement.h"
 #include "PlayerCombatEntity.h"
 #include "Blueprint/WidgetLayoutLibrary.h"
 
@@ -24,16 +25,20 @@ void UNumbersUIView::SubscribeAllCombatEntitysToView(TArray<UPlayerCombatEntity*
 	
 }
 
-UNumberElement* UNumbersUIView::CreateNumberElement()
+UNumberElement* UNumbersUIView::CreateNumberElementForNumberView()
 {
-	UUserWidget* baseUserWidget = InGameHUD->CreateElement(this,EViewElements::NumberElement);
+	return CreateNumberElement(this);
+}
+
+UNumberElement* UNumbersUIView::CreateNumberElement(UBaseUserWidget* aBaseUserWidget)
+{
+	UUserWidget* baseUserWidget = InGameHUD->CreateElement(aBaseUserWidget,EViewElements::NumberElement);
 	UNumberElement* NumberElement = (UNumberElement*)baseUserWidget;
 	NumberElement->UiInitialize(gameModeBase);
 	baseUserWidget->AddToViewport();
 
 	return NumberElement;
 }
-
 
 
 void UNumbersUIView::OnDecrement(FCombatLog_AttackDefense_Data aAttackDefenceLog, UCombatEntity* CombatEntity)
@@ -54,13 +59,18 @@ void UNumbersUIView::OnDecrement(FCombatLog_AttackDefense_Data aAttackDefenceLog
 void UNumbersUIView::SpawnPartyMemberNumbers(FCombatLog_AttackDefense_Data aAttackDefenceLog,
 	UCombatEntity* CombatEntity)
 {
-	//UNumberElement* newlySpawnedNumber = CreateNumberElement();
+	UPlayerCombatEntity* playerCombatEntity = (UPlayerCombatEntity*)CombatEntity;
+	UPartyHealthbarElement* playerHealthbar = playerCombatEntity->partyHealthbarElement;
+	
+	UNumberElement* newlySpawnedNumber = CreateNumberElement(playerHealthbar);
 
+	newlySpawnedNumber->SetNumbersText(aAttackDefenceLog);
+	playerHealthbar->BW_DamageSpawnPoint->AddChildToCanvas(newlySpawnedNumber);
 }
 
 void UNumbersUIView::SpawnEnemyNumbers(FCombatLog_AttackDefense_Data aAttackDefenceLog, UCombatEntity* CombatEntity)
 {
-	UNumberElement* newlySpawnedNumber = CreateNumberElement();
+	UNumberElement* newlySpawnedNumber = CreateNumberElementForNumberView();
 	newlySpawnedNumber->SetNumbersText(aAttackDefenceLog);
 
 	UEnemyCombatEntity* EnemyCombatEntity = (UEnemyCombatEntity*)CombatEntity;

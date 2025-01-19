@@ -73,7 +73,7 @@ void UPressTurnManager::ProcessTurn(TArray<EPressTurnReactions> aAllTurnReaction
 	{
 		if (reaction == EPressTurnReactions::Null)
 		{
-			ConsumeTurn(activePressTurns.Num());
+			ConsumeTurn(activePressTurns.Num(),reaction);
 			return;
 		}
 	}
@@ -86,31 +86,31 @@ void UPressTurnManager::ProcessTurn(TArray<EPressTurnReactions> aAllTurnReaction
 		if (reaction == EPressTurnReactions::Dodge ||
 			reaction == EPressTurnReactions::Strong )
 		{
-			ConsumeTurn(2);
+			ConsumeTurn(2,reaction);
 			return;
 		}
 	}
         
 	//If weakness is hit correctly then the turn that was used will be empowered
-        
+
 	for (EPressTurnReactions reaction : aAllTurnReactions)
 	{
 		if (reaction == EPressTurnReactions::Weak || 
 			reaction == EPressTurnReactions::Pass)
 		{
-			EmpowerTurn();
+			EmpowerTurn(reaction);
 			return;
 		}
 	}
         
         
 	//Normal action Consume 1 empowered or normal pressturn
-	ConsumeTurn(1);
+	ConsumeTurn(1, EPressTurnReactions::Normal);
 	//Passing will turn a whole icon into a empowered one but will consume an empowered one if it is
 
 }
 
-void UPressTurnManager::ConsumeTurn(int aAmountOfTurnsConsumed)
+void UPressTurnManager::ConsumeTurn(int aAmountOfTurnsConsumed,EPressTurnReactions aPressTurnReaction)
 {
 	
 	int TurnsRemaining =  (activePressTurns.Num() - 1)  - aAmountOfTurnsConsumed;
@@ -125,10 +125,32 @@ void UPressTurnManager::ConsumeTurn(int aAmountOfTurnsConsumed)
 	}
 	turnCounter->SetTurnOrder(activePressTurns.Num(),characterType);
 	
-	combatManager->TriggerTurnEndTimers();
+	switch (aPressTurnReaction)
+	{
+	case EPressTurnReactions::Normal:
+		combatManager->TriggerTurnEndTimers();
+		break;
+	case EPressTurnReactions::Weak:
+		combatManager->TriggerTurnEndTimers();
+		break;
+	case EPressTurnReactions::Strong:
+		combatManager->TriggerTurnEndTimers();
+		break;
+	case EPressTurnReactions::Dodge:
+		combatManager->TriggerTurnEndTimers();
+		break;
+	case EPressTurnReactions::Null:
+		break;
+	case EPressTurnReactions::Pass:
+		combatManager->TurnEnd();
+		break;
+	}
+
+	
+	
 }
 
-void UPressTurnManager::EmpowerTurn()
+void UPressTurnManager::EmpowerTurn(EPressTurnReactions aPressTurnReaction)
 {
 	int ActivePositionTurn = activePressTurns.Num() - 1;
         
@@ -140,6 +162,6 @@ void UPressTurnManager::EmpowerTurn()
 	}
 	else
 	{
-		ConsumeTurn(1);
+		ConsumeTurn(1,aPressTurnReaction);
 	}
 }

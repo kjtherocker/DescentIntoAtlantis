@@ -49,8 +49,8 @@ private:
 	TArray<UPressTurn*> inActivePressTurns;
 	ECharactertype characterType;
 	
-	void ConsumeTurn(int aAmountOfTurnsConsumed);
-	void EmpowerTurn();
+	void ConsumeTurn(int aAmountOfTurnsConsumed,EPressTurnReactions aPressTurnReaction);
+	void EmpowerTurn(EPressTurnReactions aPressTurnReaction);
 public:
 	
 

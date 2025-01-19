@@ -29,7 +29,8 @@ public:
 	
 	void InitializePlayerController(APlayerController* aPlayerController){PlayerController = aPlayerController;}
 	void SubscribeAllCombatEntitysToView(TArray<UPlayerCombatEntity*> aPartyMembersInCombat,TArray<UEnemyCombatEntity*> aEnemyCombatEntitys );
-	UNumberElement* CreateNumberElement();
+	UNumberElement* CreateNumberElementForNumberView();
+	UNumberElement* CreateNumberElement(UBaseUserWidget* aBaseUserWidget);
 	UFUNCTION()
 	void OnDecrement(FCombatLog_AttackDefense_Data aAttackDefenceLog,UCombatEntity* CombatEntity);
 
