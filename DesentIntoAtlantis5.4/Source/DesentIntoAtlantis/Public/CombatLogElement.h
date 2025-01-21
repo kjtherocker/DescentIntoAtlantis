@@ -14,7 +14,7 @@ class URichTextBlock;
  * 
  */
 UCLASS()
-class DESENTINTOATLANTIS_API UCombatLogElement : public UBaseUserWidgetMovingButtons
+class DESENTINTOATLANTIS_API UCombatLogElement : public UBaseHighlightElement
 {
 	GENERATED_BODY()
 public:
@@ -26,9 +26,4 @@ public:
 	void SetCommandLogAttackDefence(FCombatLog_Full_Data CombatLog_Base_Data);
 	void SetCommandLogFull(FCombatLog_Full_Data CombatLog_Base_Data);
 	
-	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	URichTextBlock* BW_CombatLogText;
-
-	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UImage* BW_BackgroundHighlight;
 };

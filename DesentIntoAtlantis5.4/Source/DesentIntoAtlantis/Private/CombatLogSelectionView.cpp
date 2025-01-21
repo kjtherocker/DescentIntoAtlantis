@@ -18,7 +18,7 @@ void UCombatLogSelectionView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	InputComponent->BindAction("Up"      ,IE_Pressed ,this, &UCombatLogSelectionView::MoveUp  );
 	InputComponent->BindAction("Down"    ,IE_Pressed ,this, &UCombatLogSelectionView::MoveDown  );
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UCombatLogSelectionView::ActivateMenuSelection  );
-	InputComponent->BindAction("Escape"   ,IE_Pressed ,this, &UCombatLogSelectionView::PopMostActiveView  );
+	InputComponent->BindAction("Escape"   ,IE_Pressed ,this, &UCombatLogSelectionView::DisableInput  );
 
 }
 

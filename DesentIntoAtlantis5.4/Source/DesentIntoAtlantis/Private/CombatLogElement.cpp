@@ -5,6 +5,7 @@
 
 #include "CombatEntity.h"
 #include "CombatLog_Full_Data.h"
+#include "ESkillID.h"
 #include "Components/RichTextBlock.h"
 
 void UCombatLogElement::SetCommandLogHit(FCombatLog_Full_Data CombatLog_Base_Data)
@@ -27,7 +28,7 @@ void UCombatLogElement::SetCommandLogHit(FCombatLog_Full_Data CombatLog_Base_Dat
 	FString result = CombatLog_Base_Data.CombatLog_Hit_Data.HitResult ? " <Hit>Hit</> " : "<Miss>Miss</> ";
 	
 	FString hit = CombatLog_Base_Data.Attacker->GetEntityName() + result + CombatLog_Base_Data.Victim->GetEntityName() + " with " +  CombatLog_Base_Data.skillUsed.skillName;
-	BW_CombatLogText->SetText(FText(FText::FromString(hit)));
+	BW_MainText->SetText(FText(FText::FromString(hit)));
 
 }
 
@@ -48,7 +49,7 @@ void UCombatLogElement::SetCommandLogAttackDefence(FCombatLog_Full_Data CombatLo
 	FString hit = CombatLog_Base_Data.Attacker->GetEntityName() + result + " Damage with " +
 		CombatLog_Base_Data.skillUsed.skillName + " to " + CombatLog_Base_Data.Victim->GetEntityName() ;
 	
-	BW_CombatLogText->SetText(FText(FText::FromString(hit)));
+	BW_MainText->SetText(FText(FText::FromString(hit)));
 }
 
 void UCombatLogElement::SetCommandLogFull(FCombatLog_Full_Data CombatLog_Base_Data)

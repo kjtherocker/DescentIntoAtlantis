@@ -28,9 +28,9 @@ protected:
 	virtual void SetCursorPositionInfo() override;
 
 	virtual void SetDefaultMenuState();
-
-
+	virtual void TurnAllHighlightsOff();
 	virtual void ActivateMenuSelection();
+	virtual void DisableInput();
 
 	void SetPassiveSkillBar(FPassiveSkillData aSkill, UPassiveSkillElement* PassiveSkillElement);
 public:

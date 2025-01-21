@@ -6,6 +6,7 @@
 #include "CombatEntity.h"
 #include "CombatGameModeBase.h"
 #include "CombatLogSelectionView.h"
+#include "CombatLogSimplifiedView.h"
 #include "CombatSelectionView.h"
 #include "EngineUtils.h"
 #include "ESkillID.h"
@@ -81,9 +82,9 @@ void UCommandBoardView::PushCombatLog()
 	{
 		return;
 	}
-	
-	UCombatLogSelectionView* DetailedView = (UCombatLogSelectionView*)InGameHUD->PushAndGetView(EViews::CombatLogSelection,  EUiType::ActiveUi);
-	DetailedView->SetCombatLog(combatManager->last50CombatLogs);
+
+	UCombatLogSimplifiedView* DetailedView = (UCombatLogSimplifiedView*)InGameHUD->GetActiveHUDView(EViews::CombatLogSimplified,  EUiType::PersistentUi);
+	DetailedView->EnableInput();
 }
 
 void UCommandBoardView::SetCursorPositionInfo()

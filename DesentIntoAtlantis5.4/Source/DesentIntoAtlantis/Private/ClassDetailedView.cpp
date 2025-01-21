@@ -160,13 +160,14 @@ void UClassDetailedView::UnlockPassive()
 
 void UClassDetailedView::ReturnToPreviousScreen()
 {
-	if(InputComponent == nullptr)
-	{
-		return;
-	}
-	
-	InputComponent->Deactivate();
-	ReturnToPreviousMenu.Broadcast();
+	//if(InputComponent == nullptr)
+	//{
+	//	return;
+	//}
+
+	DisableInput();
+	//InputComponent->Deactivate();
+	//ReturnToPreviousMenu.Broadcast();
 }
 
 void UClassDetailedView::ResetUI()

@@ -54,7 +54,15 @@ void UBaseUserWidgetMovingButtons::SetDefaultMenuState()
 	}
 
 	SetCursorPositionInfo();
-	highlightElements[0]->Highlight();
+	highlightElements[cursorPosition]->Highlight();
+}
+
+void UBaseUserWidgetMovingButtons::TurnAllHighlightsOff()
+{
+	for (auto Element : highlightElements)
+	{
+		Element->UnHightlight();
+	}
 }
 
 void UBaseUserWidgetMovingButtons::ActivateMenuSelection()
@@ -62,8 +70,20 @@ void UBaseUserWidgetMovingButtons::ActivateMenuSelection()
 	MenuSelectionDelegates[cursorPosition].Broadcast();
 }
 
+void UBaseUserWidgetMovingButtons::DisableInput()
+{
+	TurnAllHighlightsOff();
+	if (InputComponent)
+	{
+		InputComponent->ClearActionBindings(); // Clear all input bindings
+		InputComponent->UnregisterComponent(); // Unregister the component
+		InputComponent->DestroyComponent();    // Destroy the component
+		InputComponent = nullptr;              // Nullify the reference
+	}
+}
+
 void UBaseUserWidgetMovingButtons::SetPassiveSkillBar(FPassiveSkillData aSkill,
-	UPassiveSkillElement* PassiveSkillElement)
+                                                      UPassiveSkillElement* PassiveSkillElement)
 {
 	if(aSkill.passiveSkillID == EPassiveSkillID::None)
 	{

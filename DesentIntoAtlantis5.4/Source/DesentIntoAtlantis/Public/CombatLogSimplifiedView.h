@@ -23,15 +23,19 @@ enum class ECombatLogType : uint8
  * 
  */
 UCLASS()
-class DESENTINTOATLANTIS_API UCombatLogSimplifiedView : public UBaseUserWidget
+class DESENTINTOATLANTIS_API UCombatLogSimplifiedView : public UBaseUserWidgetMovingButtons
 {
 	GENERATED_BODY()
 
 public:
-
+	void EnableInput();
+	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase);
 	void CreateCombatLog(FCombatLog_Full_Data CombatLog_Base_Data);
 	void CreateCombatTab(FCombatLog_Full_Data CombatLog_Base_Data,ECombatLogType aCombatLogType);
 	void RemoveCombatTab();
+	UFUNCTION()
+	virtual void ActivateMenuSelection() override;
+	virtual void SetCursorPositionInfo() override;
 	UPROPERTY()
 	TArray<UCombatLogElement*> commandLogTabs;
 	
