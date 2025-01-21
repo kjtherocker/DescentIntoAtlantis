@@ -64,6 +64,7 @@ FCombatLog_Full_Data USkillBase::ExecuteSkill(UCombatEntity* aAttacker, UCombatE
 	if(isSkillExecuted)
 	{
 		CombatLog_Base_Data.CombatLog_AttackDefense_Data = aSkill->UseSkill(aAttacker,aVictim);
+		aVictim->combatEntityHub->SpawnParticles(skillsData.SkillInWorldParticle);
 		if (IOnGiveCombatToken* attackDefencePassive = Cast<IOnGiveCombatToken>(this))
 		{
 			int skillAmount = 1;

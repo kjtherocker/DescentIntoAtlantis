@@ -25,7 +25,8 @@ class DESENTINTOATLANTIS_API UEnemySelectionElement : public UBaseUserWidget
 private:
 	UPROPERTY()
 	UEnemyCombatEntity* enemyCombatEntity;
-
+	float previousHealthPercentage;
+	float currentHealthPercentage;
 public:
 	
 	void SetEnemySelectionElement(UEnemyCombatEntity* aEnemyCombatEntity);
@@ -33,6 +34,9 @@ public:
 	void SetElementalText(UTextBlock* aElementalText, EElementalType aElementalType ,UEnemyCombatEntity* aEnemyEntityData );
 
 	void SetHighlightSelectionElement(float aDamageValue,int Opacity);
+	UFUNCTION()
+	void UpdateHealthbarElements();
+	virtual void NativeTick(const FGeometry& MyGeometry, float DeltaTime) override;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_BackgroundHighlight;

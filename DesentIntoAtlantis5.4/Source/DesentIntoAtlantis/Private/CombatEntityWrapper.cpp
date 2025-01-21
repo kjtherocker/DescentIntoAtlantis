@@ -101,7 +101,7 @@ FCombatLog_Defense_Data UCalculateDamage_Base::DefenseLog(FCombatLog_Damage_Data
 {
 
     FCombatLog_Defense_Data Defense_Data;
-    int decementBy = aSkill.damage;
+    int decementBy = DamageLog.FinalDamage;
 
     UCombatEntity* attachedCombatEntity = aAttachedEntity;
 
@@ -113,14 +113,15 @@ FCombatLog_Defense_Data UCalculateDamage_Base::DefenseLog(FCombatLog_Damage_Data
     
     int MitagationLimit = DamageLog.FinalDamage * 0.8;
     int rawDefence = DamageLog.FinalDamage  * (Defense_Data.DefaultDamageResistance / 100.0f);
+    Defense_Data.DamageMitigationLimit = MitagationLimit;
     
     Defense_Data.FinalDamageResistance = rawDefence > MitagationLimit ? MitagationLimit : rawDefence ;
     
     return Defense_Data;
 }
 
-FCombatLog_AttackDefense_Data UCalculateDamage_Base::CalculateDamage(FCombatLog_Damage_Data DamageLog,
-    FCombatLog_Defense_Data DefenseLog)
+FCombatLog_AttackDefense_Data UCalculateDamage_Base::CalculateDamage(const FCombatLog_Damage_Data DamageLog,
+                                                                     const FCombatLog_Defense_Data DefenseLog)
 {
     FCombatLog_AttackDefense_Data AttackDefense_Data;
     AttackDefense_Data.DamageData = DamageLog;
@@ -251,7 +252,8 @@ FCombatLog_AttackDefense_Data UCombatEntityWrapper::ExecuteCalculateDamage(UComb
     resetOneWrapperToDefault = aAttacker->resetOneWrapperToDefault;
     FCombatLog_Damage_Data DamageLog = calculateDamage->DamageLog( AttachedHealth->GetAttachedCombatEntity(), aAttacker,aSkill);
     FCombatLog_Defense_Data DefenceLog = calculateDamage->DefenseLog(DamageLog, AttachedHealth->GetAttachedCombatEntity(), aAttacker,aSkill);
-    return calculateDamage->CalculateDamage(DamageLog,DefenceLog);
+    FCombatLog_AttackDefense_Data attackDefence = calculateDamage->CalculateDamage(DamageLog,DefenceLog);
+    return attackDefence;
 }
 
 UWrapperTakeOver* UCombatEntityWrapper::GetCalculateDamageWrapper()

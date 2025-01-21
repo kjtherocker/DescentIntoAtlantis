@@ -303,6 +303,7 @@ void ACombatGameModeBase::TriggerTurnEndTimers()
 
 void ACombatGameModeBase::SetRoundSide(ECharactertype aCharacterType)
 {
+	ResetEnemyPortraits();
 	ECharactertype previousType = CharacterTypeTurn;
 	CharacterTypeTurn = aCharacterType;
 	
@@ -348,11 +349,7 @@ void ACombatGameModeBase::EnemyStartTurn()
 {
 	InGameHUD->PopMostRecentActiveView();
 	
-	for (UEnemyCombatEntity* Element : enemysInCombat)
-	{
-		EEnemyCombatPositions portraitPosition = Element->portraitPosition;
-		Portraits[portraitPosition]->ResetPortraitRotationToDefault();
-	}
+	ResetEnemyPortraits();
 
 	currentActivePosition = currentActivePosition <= enemysInCombat.Num() -1 ?  currentActivePosition++ : 0;
 	
@@ -388,6 +385,13 @@ void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPos
 	
 	if(skillsData.skillRange == ESkillRange::Single)
 	{
+		if(aAttacker->characterType == ECharactertype::Ally)
+		{
+			//EEnemyCombatPositions portraitPosition = enemysInCombat[aCursorPosition]->portraitPosition;
+			//Portraits[portraitPosition]->RotateTowardsCamera();
+			//combatCamera->RotateCameraToActor(Portraits[portraitPosition]);
+			//combatCamera->ZoomCameraInTowardsActor(Portraits[portraitPosition]);
+		}
 		mostRecentCombatLogs.Add(aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[aCursorPosition], aSkill));
 	}
 	else if (skillsData.skillRange == ESkillRange::Multi)
@@ -418,6 +422,14 @@ void ACombatGameModeBase::EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEnt
 	int playerToAttack = aEnemyCombatEntity->enemyBehaviour->PlayerToAttack(partyMembersInCombat);
 
 	ActivateSkill(aEnemyCombatEntity,playerToAttack,skillObject);
+}
+
+void ACombatGameModeBase::ResetEnemyPortraits()
+{
+	for (auto Element : enemysInCombat)
+	{
+		Element->enemyPortrait->ResetPortraitRotationToDefault();
+	}
 }
 
 void ACombatGameModeBase::IterateToNextPlayer()

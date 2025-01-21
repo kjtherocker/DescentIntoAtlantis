@@ -18,6 +18,7 @@ class UElementalHandler;
  */
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FAttackEvaded,FCombatLog_Hit_Data, Evasion_Data,UCombatEntity*,CombatEntity);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FEvadedAttack,FCombatLog_Hit_Data, Evasion_Data,UCombatEntity*,CombatEntity);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FSpawnSkillParticles,UNiagaraSystem*, NiagaraSystem,UCombatEntity*,CombatEntity);
 UCLASS()
 class DESENTINTOATLANTIS_API UCombatEntityHub : public UObject
 {
@@ -35,7 +36,9 @@ public:
 
 	FAttackEvaded                      AttackEvaded;
 	FEvadedAttack                      EvadedAttack;
+	FSpawnSkillParticles               SpawnSkillParticles;
 
+	virtual void SpawnParticles(UNiagaraSystem* aNiagaraSystem);
 	virtual void OnAttackEvaded(FCombatLog_Hit_Data aEvasionData);
 	virtual void OnEvadedAttack(FCombatLog_Hit_Data aEvasionData);
 	

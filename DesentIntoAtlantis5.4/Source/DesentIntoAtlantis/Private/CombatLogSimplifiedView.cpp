@@ -107,5 +107,8 @@ void UCombatLogSimplifiedView::ActivateMenuSelection()
 	}
 	
 	UCombatLogDetailedView* detailedCombatLog = (UCombatLogDetailedView*)InGameHUD->PushAndGetView(EViews::CombatLogDetailed,  EUiType::ActiveUi);
-	detailedCombatLog->SetDetailedLog(commandLogTabs[cursorPosition]->FullCombatLog);
+	detailedCombatLog->SetDetailedLog(
+		commandLogTabs[cursorPosition]->FullCombatLog,
+		commandLogTabs[cursorPosition]->combatlogConfiguration,
+		commandLogTabs[cursorPosition]->logText);
 }

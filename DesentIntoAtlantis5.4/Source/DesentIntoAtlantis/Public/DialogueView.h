@@ -62,7 +62,7 @@ public:
 	void DialogueFinished();
 	void ActivateNextDialogue();
 	void SetNextDialogue(bool audio = false);
-	
+
 };
 
 

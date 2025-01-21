@@ -235,7 +235,7 @@ float UCombatEntity::GetPotentialHealthPercentage(int aDamage)
 
 float UCombatEntity::GetManaPercentage()
 {
-    return 0;
+    return (float)currentMana / (float)maxMana;
 }
 
 float UCombatEntity::GetSyncPercentage()

@@ -7,6 +7,7 @@
 #include "ElementalHandler.h"
 #include "EnemyBeastiaryData.h"
 #include "EnemyCombatEntity.h"
+#include "Health.h"
 #include "Components/TextBlock.h"
 
 void UEnemySelectionElement::SetEnemySelectionElement(UEnemyCombatEntity* aEnemyCombatEntity)
@@ -27,6 +28,12 @@ void UEnemySelectionElement::SetEnemySelectionElement(UEnemyCombatEntity* aEnemy
 	SetElementalText(BW_LightningText,EElementalType::Lighting	,enemyCombatEntity);
 	SetElementalText(BW_LightText,    EElementalType::Light		,enemyCombatEntity);
 	SetElementalText(BW_ShadowText,   EElementalType::Shadow	,enemyCombatEntity);
+
+	currentHealthPercentage  = enemyCombatEntity->GetHealthPercentage();
+	previousHealthPercentage = currentHealthPercentage;
+	
+	aEnemyCombatEntity->health->hasHealthValuesChanged.AddDynamic(this,
+	&UEnemySelectionElement::UpdateHealthbarElements);
 						
 }
 
@@ -70,4 +77,29 @@ void UEnemySelectionElement::SetHighlightSelectionElement(float aDamageValue, in
 	}
 	
 	
+}
+
+void UEnemySelectionElement::UpdateHealthbarElements()
+{
+	currentHealthPercentage = enemyCombatEntity->GetHealthPercentage();
+	
+	if(previousHealthPercentage < currentHealthPercentage)
+	{
+		previousHealthPercentage = currentHealthPercentage;
+	}
+}
+
+void UEnemySelectionElement::NativeTick(const FGeometry& MyGeometry, float DeltaTime)
+{
+	if(previousHealthPercentage != currentHealthPercentage &&
+		previousHealthPercentage >  currentHealthPercentage)
+	{
+		previousHealthPercentage -= DeltaTime *0.4;
+	}
+	//else if(previousHealthPercentage != currentHealthPercentage &&
+	//	previousHealthPercentage <  currentHealthPercentage)
+	//{
+	//	previousHealthPercentage += DeltaTime *0.1;
+	//}
+	BW_Healthbar_MainBar->SetPercent(previousHealthPercentage);
 }

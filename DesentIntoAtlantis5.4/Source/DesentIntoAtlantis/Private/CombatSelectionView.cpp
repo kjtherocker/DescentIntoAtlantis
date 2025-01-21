@@ -41,7 +41,7 @@ void UCombatSelectionView::ActivateSkill()
 {
 	if(currentSkill->CanUseSkill(combatManager->GetCurrentActivePartyMember()))
 	{
-		SetCursorHud(false);
+		//SetCursorHud(false);
 		currentSkill->SpendSkillCost(combatManager->GetCurrentActivePartyMember());
 		combatManager->ActivateSkill(combatManager->GetCurrentActivePartyMember(),cursorPosition,currentSkill);	
 	}

@@ -201,7 +201,8 @@ enum class EDialogueTriggers
 	SeresFightStart = 5,
 	SeresFightEnd   = 6,
 	FinalBossStart  = 7,
-	FinalBossEnd    = 8
+	FinalBossEnd    = 8,
+	IntroDialogue   = 9, 
 };
 
 UENUM()

@@ -2,7 +2,7 @@
 
 
 #include "NumbersUIView.h"
-
+#include "NiagaraFunctionLibrary.h"
 #include "CombatLog_AttackDefense_Data.h"
 #include "EnemyCombatEntity.h"
 #include "EnemyPortraitElement.h"
@@ -17,12 +17,14 @@ void UNumbersUIView::SubscribeAllCombatEntitysToView(TArray<UPlayerCombatEntity*
 	{
 		Element->health->OnDecrementHealth.AddDynamic(this,&UNumbersUIView::OnDecrement);
 		Element->combatEntityHub->EvadedAttack.AddDynamic(this,&UNumbersUIView::OnEvadedAttack );
+		Element->combatEntityHub->SpawnSkillParticles.AddDynamic(this,&UNumbersUIView::OnParticleEffectSpawn );
 	}
 
 	for (auto Element : aEnemyCombatEntitys)
 	{
 		Element->health->OnDecrementHealth.AddDynamic(this,&UNumbersUIView::OnDecrement);
 		Element->combatEntityHub->EvadedAttack.AddDynamic(this,&UNumbersUIView::OnEvadedAttack );
+		Element->combatEntityHub->SpawnSkillParticles.AddDynamic(this,&UNumbersUIView::OnParticleEffectSpawn );
 	}
 	
 }
@@ -55,6 +57,27 @@ UNumberElement* UNumbersUIView::CreateNumberElement(UBaseUserWidget* aBaseUserWi
 	baseUserWidget->AddToViewport();
 
 	return NumberElement;
+}
+
+void UNumbersUIView::OnParticleEffectSpawn(UNiagaraSystem* aNiagaraSystem, UCombatEntity* CombatEntity)
+{
+	switch (CombatEntity->characterType)
+	{
+	case ECharactertype::Undefined:
+		break;
+	case ECharactertype::Ally:
+	
+		break;
+	case ECharactertype::Enemy:
+		UEnemyCombatEntity* EnemyCombatEntity = (UEnemyCombatEntity*)CombatEntity;
+		UNiagaraFunctionLibrary::SpawnSystemAtLocation(
+		EnemyCombatEntity->enemyPortrait->GetWorld(),
+		aNiagaraSystem,
+		EnemyCombatEntity->enemyPortrait->GetCenterOfPortraitPosition() + FVector(-100,0,100),
+		FRotator()
+	);
+		break;
+	}
 }
 
 

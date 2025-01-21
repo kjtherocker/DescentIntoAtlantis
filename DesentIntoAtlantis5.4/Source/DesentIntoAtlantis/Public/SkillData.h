@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
+#include "NiagaraComponent.h"
 #include "SkillData.generated.h"
 
 enum class ESkillResourceUsed : uint8;
@@ -34,8 +35,12 @@ struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
 	
 	UPROPERTY( EditAnywhere , Category = "Identity")
 	UTexture2D* skillIcon;
+	
+	UPROPERTY( EditAnywhere , Category = "Identity")
+	UNiagaraSystem* SkillInWorldParticle;
 
 
+	
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")    
 	ESkillResourceUsed SkillResourceUsed;
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")

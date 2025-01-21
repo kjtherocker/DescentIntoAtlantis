@@ -7,6 +7,7 @@
 #include "EventManagerSubSystem.h"
 #include "PersistentGameinstance.h"
 #include "SoundManager.h"
+#include "Components/Image.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -33,7 +34,7 @@ void UDialogueView::SetFloorEventDialogueData(EDialogueTriggers aDialogueData, E
 	for(int i = 0 ; i < dialogueActorData.Num();i++)
 	{
 		EDialogueActorsLabel dialogueActor = dialogueActorData[i].dialogueActor;
-		TSubclassOf<AActor> newActor = persistentGameinstance->dialogueManagerSubsystem->GetDialogueActorDataByLabel(dialogueActor).actorReference;
+		TSubclassOf<AActor> newActor = persistentGameinstance->dialogueManagerSubsystem->GetDialogueActorDataByLabel(dialogueActor).actorReference[ECharacterCostume::DefaultOutFit];
 		aFloorManager->SpawnCutsceneFloorPawn(dialogueActorData[i],newActor);
 	
 	}
@@ -69,8 +70,8 @@ void UDialogueView::SetNextDialogue(bool audio)
 	FDialogueData nextDialogueData = dialogueData[0];
 	dialogueData.RemoveAt(0);
 
-	BW_Name->SetText(FText(FText::FromString(nextDialogueData.SpeakerName)));
-	BW_DialogueText->SetText(FText(FText::FromString(nextDialogueData.Dialogue)));
+	BW_Name->SetText(FText(FText::FromString(nextDialogueData.SpeakerName[ELanguages::English])));
+	BW_DialogueText->SetText(FText(FText::FromString(nextDialogueData.Dialogue[ELanguages::English])));
 	
 	SetDialogueImages(nextDialogueData.LeftPortrait, BW_LeftCharacterPortrait);
 	SetDialogueImages(nextDialogueData.CenterPortrait,BW_CenterCharacterPortrait);

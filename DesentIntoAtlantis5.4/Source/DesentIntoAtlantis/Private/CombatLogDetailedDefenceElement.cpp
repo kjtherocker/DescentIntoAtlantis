@@ -17,11 +17,12 @@ void UCombatLogDetailedDefenceElement::SetElement(FCombatLog_Full_Data CombatLog
 	
 	FCombatLog_Defense_Data CombatLog_Defence_Data = CombatLog_Full_Data.CombatLog_AttackDefense_Data.DefenceData;
 	
-	FString totalDamage = FString::FromInt(CombatLog_Defence_Data.DefaultDamageResistance) + "";
+	FString totalDamage = FString::FromInt(CombatLog_Defence_Data.FinalDamageResistance);
 	BW_TotalDefence->SetText(FText(FText::FromString(totalDamage)));
-	
-	CreateDetailedElement("Damage Resist", FString::FromInt(CombatLog_Defence_Data.DefaultDamageResistance));
 
+	FString DamageResistance = FString::FromInt(CombatLog_Defence_Data.DefaultDamageResistance)+"%";
+	CreateDetailedElement("Damage Resist", DamageResistance);
+	CreateDetailedElement("Mitigation Max",  FString::FromInt(CombatLog_Defence_Data.DamageMitigationLimit));
 	for (FCombatLog_PassiveSkilData& passiveSkillData : CombatLog_Defence_Data.passivesActivated)
 	{
 		CreateDetailedElement(passiveSkillData.PassiveSkillData.passiveName, FString::FromInt(passiveSkillData.passiveResult));

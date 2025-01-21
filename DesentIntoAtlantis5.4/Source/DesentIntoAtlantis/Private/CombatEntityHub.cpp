@@ -56,6 +56,11 @@ TArray<FCombatLog_PassiveSkilData> UCombatEntityHub::CheckAttackDefencePassivesA
 	return PassiveSkilDatas;
 }
 
+void UCombatEntityHub::SpawnParticles(UNiagaraSystem* aNiagaraSystem)
+{
+	SpawnSkillParticles.Broadcast(aNiagaraSystem,OwnedCombatEntity);
+}
+
 void UCombatEntityHub::OnAttackEvaded(FCombatLog_Hit_Data aEvasionData)
 {
 	AttackEvaded.Broadcast(aEvasionData,OwnedCombatEntity);

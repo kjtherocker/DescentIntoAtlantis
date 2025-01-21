@@ -26,5 +26,9 @@ public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	URichTextBlock* BW_HitChanceText;
 
+		
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	URichTextBlock* BW_TotalHit;
+
 	
 };

@@ -38,6 +38,9 @@ public:
 
 	
 	UFUNCTION()
+	void OnParticleEffectSpawn(UNiagaraSystem* aNiagaraSystem,UCombatEntity* CombatEntity);
+	
+	UFUNCTION()
 	void OnDecrement(FCombatLog_AttackDefense_Data aAttackDefenceLog,UCombatEntity* CombatEntity);
 
 	UFUNCTION()

@@ -13,6 +13,17 @@
 
 class UScrollBox;
 struct FCombatLog_Full_Data;
+
+UENUM()
+enum class ECombatLogConfiguration  : uint8
+{
+	None               = 0,
+	Full               = 1,
+	AttackDefense      = 2,
+	HitEvasion         = 3,
+};
+
+
 /**
  * 
  */
@@ -25,12 +36,19 @@ public:
 
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 	virtual void SetDetailedLog(FCombatLog_Full_Data aFullCombatLog);
+	virtual void SetDetailedLog(FCombatLog_Full_Data aFullCombatLog,
+		ECombatLogConfiguration aCombatLogConfiguration,FString logText);
 
 	virtual void MoveUp() override;
 	virtual void MoveDown() override;
 
+	virtual void RemoveFromScrollBox(UUserWidget* aUserWidget);
+
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UScrollBox* BW_ScrollBox;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	URichTextBlock* BW_LogText;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UCombatLogDetailedHitElement* BW_HitElement;

@@ -26,9 +26,12 @@ void UCombatLogDetailedHitElement::SetElement(FCombatLog_Full_Data CombatLog_Ful
 		
 	
 	FString hitChance = FString::FromInt(CombatLog_Hit_Data.hitChance) + "%";
-	BW_HitChanceText->SetText(FText(FText::FromString(hitChance)));
+
+	FString TotalNumber = FString::FromInt(CombatLog_Hit_Data.FinalNumber);
+	FString result = CombatLog_Full_Data.CombatLog_Hit_Data.HitResult ? " <Hit>"+TotalNumber+"</>" : "<Miss>"+TotalNumber+"</>";
 	
-	CreateDetailedElement("Final Result", FString::FromInt(CombatLog_Hit_Data.FinalNumber));
+	BW_HitChanceText->SetText(FText(FText::FromString(hitChance)));
+	SetText(BW_TotalHit,result);
 	CreateDetailedElement("Attacker Hit", FString::FromInt(CombatLog_Hit_Data.AttackerHit));
 	CreateDetailedElement("Skill Hit", FString::FromInt(CombatLog_Hit_Data.skillHit));
 	CreateDetailedElement("RNG", FString::FromInt(CombatLog_Hit_Data.RandomNumber));

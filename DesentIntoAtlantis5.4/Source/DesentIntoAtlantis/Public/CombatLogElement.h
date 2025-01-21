@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidgetMovingButtons.h"
+#include "CombatLogDetailedView.h"
 #include "CombatLog_Full_Data.h"
 #include "CombatLogElement.generated.h"
 
@@ -20,7 +21,12 @@ class DESENTINTOATLANTIS_API UCombatLogElement : public UBaseHighlightElement
 public:
 
 	UPROPERTY()
+	FString logText;
+	UPROPERTY()
 	FCombatLog_Full_Data FullCombatLog;
+
+	UPROPERTY()
+	ECombatLogConfiguration combatlogConfiguration;
 	
 	void SetCommandLogHit(FCombatLog_Full_Data CombatLog_Base_Data);
 	void SetCommandLogAttackDefence(FCombatLog_Full_Data CombatLog_Base_Data);
