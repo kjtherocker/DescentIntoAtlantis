@@ -10,51 +10,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/ParticleEffects/Blood/BloodSplatter.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/ParticleEffects/Blood/Material_Bubble1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/ParticleEffects/BoilBlood/BoilBlood.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/ParticleEffects/Test/Explosion.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/ParticleEffects/bubble/Material_Bubble.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/CombatToken/NegativeCombatToken.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Combat/DT_Classes.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_Classes.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Datatables/Combat/DT_SkillData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_SkillData.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueInWorldActors.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Map/Prison/PrisonCombat.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/Prison/PrisonCombat.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/TwilightsCallModels/24_-_Default.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Models/TwilightsCallModels/24_-_Default.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/TwilightsCallModels/Material.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Models/TwilightsCallModels/Material.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Models/TwilightsCallModels/Material__25.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Models/TwilightsCallModels/Material__25.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Objects/Particles/NewNiagaraSystem.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Objects/Particles/NewNiagaraSystem.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PersistentObjects/BP_PersistentGameInstance.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PersistentObjects/BP_PersistentGameInstance.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PostProcessing/fog/Material_Bubble.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_CombatLogDetailedView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_CombatLogDetailedView.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_HitElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_HitElement.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/DesentIntoAtlantis.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/DesentIntoAtlantis.Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatToken/BP_CombatTokenElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatToken/BP_CombatTokenElement.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatEntity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatEntity.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatEntityHub.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatEntityHub.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatEntityWrapper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatEntityWrapper.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatGameModeBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatGameModeBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatLogDetailedDefenceElement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatLogDetailedDefenceElement.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatLogDetailedHitElement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatLogDetailedHitElement.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatLogDetailedView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatLogDetailedView.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatLogElement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatLogElement.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatLogSimplifiedView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatLogSimplifiedView.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatSelectionView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatSelectionView.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/DialogueView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/DialogueView.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EnemySelectionElement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EnemySelectionElement.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/NumbersUIView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/NumbersUIView.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatTokenHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatTokenHandler.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatToken_UiElement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatToken_UiElement.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillFactorySubsystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillFactorySubsystem.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillsData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillsData.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatEntityHub.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatEntityHub.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatEntity.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatEntity.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatGameModeBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatGameModeBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatLogDetailedHitElement.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatLogDetailedHitElement.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatLogDetailedView.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatLogDetailedView.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatLogElement.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatLogElement.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatLog_Defense_Data.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatLog_Defense_Data.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/DialogueManagerSubsystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/DialogueManagerSubsystem.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/DialogueView.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/DialogueView.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EnemySelectionElement.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EnemySelectionElement.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/FloorEnum.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/FloorEnum.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/NumbersUIView.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/NumbersUIView.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatTokenHandler.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatTokenHandler.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatToken_UiElement.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatToken_UiElement.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/ESkillID.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/ESkillID.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillType.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillType.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -910,7 +884,8 @@
       <workItem from="1736948316248" duration="25740000" />
       <workItem from="1737134084019" duration="14151000" />
       <workItem from="1737222504299" duration="34941000" />
-      <workItem from="1737483157437" duration="11855000" />
+      <workItem from="1737483157437" duration="13519000" />
+      <workItem from="1737558911002" duration="4277000" />
     </task>
     <servers />
   </component>
@@ -950,6 +925,11 @@
           <url>file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatEntityWrapper.cpp</url>
           <line>29</line>
           <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatGameModeBase.cpp</url>
+          <line>283</line>
+          <option name="timeStamp" value="71" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -139,6 +139,20 @@ class UDefaultSkillAttack : public USkillBase , public ISkillHit
 	
 };
 
+UCLASS()
+class UBansheesGaze : public UDefaultSkillAttack 
+{
+	GENERATED_BODY()
+	
+	
+	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+	{
+		aVictim->combatEntityHub->combatTokenHandler->InvertAllCombatToken(ECombatTokenType::Positive);
+		return aVictim->DecrementHealth(aAttacker,skillData);
+	}
+};
+
+
 
 UCLASS()
 class USkillCoupDeGrace : public UDefaultSkillAttack 

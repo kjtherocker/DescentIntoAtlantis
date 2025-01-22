@@ -68,6 +68,7 @@ enum class ECombatState  : uint8
 	Interruption,
 	SuccessfulEnd,
 	FailedEnd,
+	NewRoundStart,
 };
 
 
@@ -98,6 +99,13 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	bool hasCombatStarted;
 	int currentActivePosition;
 	int combatExp = 0;
+
+
+	UPROPERTY()
+	TArray<ECharactertype> roundOrder;
+
+	UPROPERTY()
+	TArray<ECharactertype> currentRoundOrder;
 	
 	UPROPERTY()
 	ECharactertype CharacterTypeTurn;
@@ -162,6 +170,7 @@ public:
 	
 	void StartCombat(FString aEnemyGroupName);
 	void SetCombatState(ECombatState aCombatState);
+	void StartNewRound();
 
 	void AddEnemyToCombat(FEnemyEntityData AEnemyEntityData,int aPosition);
 	void SetRoundSide(ECharactertype aCharacterType);
@@ -179,6 +188,8 @@ public:
 	void SwitchCombatSides();
 
 	void CheckAllEntitysForInterruptions();
+
+	ECharactertype RemoveAndGetFirstInRoundOrder();
 
 	void AddInterruption(UCombatInterrupt* aCombatInterrupt);
 

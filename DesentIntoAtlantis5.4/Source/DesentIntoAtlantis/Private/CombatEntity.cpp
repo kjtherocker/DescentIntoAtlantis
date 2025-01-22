@@ -151,6 +151,12 @@ void UCombatEntity::DecrementMana(int aDecrementBy)
     hasHealthOrManaValuesChanged.Broadcast();
 }
 
+void UCombatEntity::DecrementSync(int aDecrementBy)
+{
+    currentSync -= aDecrementBy;
+    hasHealthOrManaValuesChanged.Broadcast();
+}
+
 ECharactertype UCombatEntity::GetCharactertype()
 {
     return characterType;

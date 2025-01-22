@@ -134,6 +134,7 @@ public:
 	virtual EPressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
 	virtual EPressTurnReactions ApplyBuff(      UCombatEntity* aBuffer,   FSkillsData aSkill);
 	virtual void DecrementMana(int aDecrementBy);
+	virtual void DecrementSync(int aDecrementBy);
 	virtual ECharactertype GetCharactertype();
 	virtual void Resurrection();
 	void DeathCheck();

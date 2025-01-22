@@ -5,9 +5,11 @@
 
 void UCombatToken_UiElement::SetCombatTokenUiElement(UCombatToken_Base* aCombatToken, UTexture2D* aTokenImage)
 {
+	CombatToken_Base = aCombatToken;
 	CombatTokenID = aCombatToken->GetCombatTokenData().CombatTokenID;
 	aCombatToken->onCombatTokenChange.AddDynamic(this,&UCombatToken_UiElement::UpdateCombatToken);
 	UpdateCombatToken(aCombatToken->GetCombatTokenStateInfo());
+	UpdateTokenBackground(aCombatToken->GetCombatTokenType());
 
 	//BW_TokenIcon->SetBrushFromTexture(aTokenImage);
 }
@@ -18,4 +20,11 @@ void UCombatToken_UiElement::UpdateCombatToken(FCombatTokenCurrentStatInfo aStat
 	FString turnNumber  = FString::FromInt(aStateInfo.turnsRemaining);
 	BW_CombatTokenStack->SetText(FText(FText::FromString(stackNumber)));
 	BW_CombatTokenTurnsLeft->SetText(FText(FText::FromString(turnNumber)));
+	UpdateTokenBackground(CombatToken_Base->GetCombatTokenType());
+}
+
+void UCombatToken_UiElement::UpdateTokenBackground(ECombatTokenType aCombatTokenType)
+{
+	ECombatTokenType tokenType = aCombatTokenType;
+	BW_TokenBackground->SetBrushFromTexture(combatTokenTextures[tokenType]);
 }

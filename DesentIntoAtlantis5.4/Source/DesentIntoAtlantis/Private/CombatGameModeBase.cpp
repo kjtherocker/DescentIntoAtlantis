@@ -134,6 +134,11 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 		NumbersUIView->InitializePlayerController(PlayerController);
 		NumbersUIView->SubscribeAllCombatEntitysToView(GetPlayersInCombat(),GetEnemysInCombat());
 	}
+
+	roundOrder.Add(ECharactertype::Ally);
+	roundOrder.Add(ECharactertype::Enemy);
+
+	currentRoundOrder = roundOrder;
 	
 	hasCombatStarted = false;
 	combatInterruptHandler->SetAllInterruptHandlers(GetPlayersInCombat(),GetEnemysInCombat());
@@ -181,15 +186,18 @@ void ACombatGameModeBase::CreateEnemyPortraits()
 
 void ACombatGameModeBase::SetCombatState(ECombatState aCombatState)
 {
-	currentCombatState = aCombatState;
+
 	
 	switch (aCombatState)
 	{
 	case ECombatState::None:
 		break;
 	case ECombatState::Start:
-		hasCombatStarted = true;
-		SetRoundSide(ECharactertype::Ally);
+		{
+			hasCombatStarted = true;
+			ECharactertype Charactertype = RemoveAndGetFirstInRoundOrder();
+			SetRoundSide(Charactertype);
+		}
 		break;
 	case ECombatState::Player:
 		AllyStartTurn();
@@ -198,7 +206,10 @@ void ACombatGameModeBase::SetCombatState(ECombatState aCombatState)
 		EnemyStartTurn();
 		break;
 	case ECombatState::SwitchState:
-		SwitchCombatSides();
+		{
+			ECharactertype switchType = RemoveAndGetFirstInRoundOrder();
+			SetRoundSide(switchType);
+		}
 		break;
 	case ECombatState::Interruption:
 		InGameHUD->PopAllActiveViews();
@@ -210,7 +221,22 @@ void ACombatGameModeBase::SetCombatState(ECombatState aCombatState)
 	case ECombatState::FailedEnd:
 		InGameHUD->PushView(EViews::Death,    EUiType::PersistentUi);
 		break;
+	case ECombatState::NewRoundStart:
+		StartNewRound();
+		break;
 	}
+
+	currentCombatState = aCombatState;
+}
+
+void ACombatGameModeBase::StartNewRound()
+{
+	currentRoundOrder = roundOrder;
+	OnRoundEndDelegate.Broadcast();
+
+	ECharactertype startRoundCharacterType = RemoveAndGetFirstInRoundOrder();
+	
+	SetRoundSide(startRoundCharacterType);
 }
 
 void ACombatGameModeBase::TurnEnd()
@@ -255,7 +281,15 @@ void ACombatGameModeBase::TurnEnd()
 	
 	if(pressTurnManager->GetNumberOfActivePressTurns() == 0)
 	{
-		SetCombatState(ECombatState::SwitchState);
+		if(currentRoundOrder.Num() == 0)
+		{
+			SetCombatState(ECombatState::NewRoundStart);
+		}
+		else
+		{
+			SetCombatState(ECombatState::SwitchState);		
+		}
+	
 		return;
 	}
 	else
@@ -317,7 +351,7 @@ void ACombatGameModeBase::SetRoundSide(ECharactertype aCharacterType)
 	
 	pressTurnManager->SetAmountOfTurns(numberOfTurns,newCharacterTurnType);
 	InGameHUD->PopAllActiveViews();
-
+	
 	switch (newCharacterTurnType)
 	{
 	case ECharactertype::Undefined:
@@ -329,13 +363,12 @@ void ACombatGameModeBase::SetRoundSide(ECharactertype aCharacterType)
 		SetCombatState(ECombatState::Enemy);
 		break;
 	}
-
+	
 }
 
 void ACombatGameModeBase::AllyStartTurn()
 {
 	InGameHUD->PopAllActiveViews();
-	OnRoundEndDelegate.Broadcast();
 	
 	currentActivePartyMember = partyMembersInCombat[currentActivePosition];
 	partyHealthbars->SetHighlightHealthbar(currentActivePartyMember,FULL_OPACITY);
@@ -447,6 +480,18 @@ void ACombatGameModeBase::SwitchCombatSides()
 }
 
 
+ECharactertype ACombatGameModeBase::RemoveAndGetFirstInRoundOrder()
+{
+	if(currentRoundOrder.Num() == 0)
+	{
+		return ECharactertype::Undefined;
+	}
+	
+	ECharactertype Charactertype = currentRoundOrder[0];
+	currentRoundOrder.RemoveAt(0);
+
+	return Charactertype;
+}
 
 void ACombatGameModeBase::AddInterruption(UCombatInterrupt* aCombatInterrupt)
 {

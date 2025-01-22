@@ -15,6 +15,7 @@ enum class ESkillIDS : uint8
 	Boo                    UMETA(DisplayName = "Boo"),
 	RejuvenatingLink       UMETA(DisplayName = "RejuvenatingLink"),
 	WailingScream          UMETA(DisplayName = "WailingScream"),
+	BansheesGaze           UMETA(DisplayName = "BansheesGaze"),
 	//Gem Thief
 	Lunge                  UMETA(DisplayName = "Lunge"),
 	SpreadInfection        UMETA(DisplayName = "SpreadInfection"),

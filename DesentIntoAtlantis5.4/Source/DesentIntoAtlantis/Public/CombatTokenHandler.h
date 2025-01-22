@@ -57,6 +57,7 @@ public:
 
 	void InvertCombatToken(ECombatTokenID aCurrentTokenID);
 	void InvertAllCombatToken();
+	void InvertAllCombatToken(ECombatTokenType aTokenType);
 	
 	UCombatToken_Base* CreateNewCombatTokenClass(ECombatTokenID aCombatTokenID );
 

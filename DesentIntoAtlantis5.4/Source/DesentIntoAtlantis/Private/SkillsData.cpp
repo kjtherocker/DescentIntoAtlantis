@@ -97,6 +97,9 @@ bool USkillBase::CanUseSkill(UCombatEntity* aSkillOwner, ESkillResourceUsed Skil
 	case ESkillResourceUsed::Health:
 		return aSkillOwner->health->GetCurrentHealth() > skillData.costToUse;
 		break;
+	case ESkillResourceUsed::Sync:
+		return aSkillOwner->currentSync > skillData.costToUse;
+		break;
 	}
 
 	return false;
@@ -117,6 +120,9 @@ void USkillBase::SpendSkillCost(UCombatEntity* aSkillOwner, ESkillResourceUsed S
 	    case ESkillResourceUsed::Health:
 	    	aSkillOwner->DecrementHealth(aSkillOwner,skillData);
 	    	break;
+		case ESkillResourceUsed::Sync:
+			 aSkillOwner->DecrementSync(skillData.costToUse);
+			break;
 	}
 }
 
@@ -160,6 +166,8 @@ bool USkillAlimentAttack::CalculateAilmentInfliction(UCombatEntity* aAttacker, U
 	AilmentHitCalculation += skillData.CombatTokenHit; 
 	return AilmentHitCalculation > 100;
 }
+
+
 
 FCombatLog_AttackDefense_Data USkillCoupDeGrace::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {

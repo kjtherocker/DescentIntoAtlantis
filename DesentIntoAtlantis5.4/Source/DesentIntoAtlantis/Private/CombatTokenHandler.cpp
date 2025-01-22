@@ -51,6 +51,17 @@ void UCombatTokenHandler::InvertCombatToken(ECombatTokenID aCurrentTokenID)
 	}
 }
 
+void UCombatTokenHandler::InvertAllCombatToken(ECombatTokenType aTokenType)
+{
+	for (auto Element : activeCombatTokens)
+	{
+		if(Element->GetCombatTokenType() ==  aTokenType)
+		{
+			InvertCombatToken(Element->GetCombatTokenID());	
+		}
+	}
+}
+
 void UCombatTokenHandler::InvertAllCombatToken()
 {
 	for (auto Element : activeCombatTokens)

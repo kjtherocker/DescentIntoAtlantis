@@ -4,6 +4,7 @@
 #include "SkillFactorySubsystem.h"
 
 #include "CombatEntity.h"
+#include "ESkillID.h"
 #include "Engine/DataTable.h"
 #include "SkillBase.h"
 #include "SkillType.h"
@@ -89,6 +90,9 @@ USkillBase* USkillFactorySubsystem::GetSkillClass(FSkillsData skillData)
 			break;
 		case ESkillIDS::FeyDuality:
 			return NewObject<UFeyDuality>();
+			break;
+		case ESkillIDS::BansheesGaze:
+			return NewObject<UBansheesGaze>();
 			break;
 	}
 
