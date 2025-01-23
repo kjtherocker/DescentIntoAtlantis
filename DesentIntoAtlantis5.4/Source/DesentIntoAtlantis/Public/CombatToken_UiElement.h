@@ -29,6 +29,7 @@ public:
 	void UpdateCombatToken(FCombatTokenCurrentStatInfo aStateInfo);
 
 	void UpdateTokenBackground(ECombatTokenType aCombatTokenType);
+	int GetCombatTokenSlotNumber();
 
 	UPROPERTY(EditAnywhere)
 	TMap<ECombatTokenType,UTexture2D*> combatTokenTextures;

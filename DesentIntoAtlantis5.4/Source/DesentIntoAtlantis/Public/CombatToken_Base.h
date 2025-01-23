@@ -38,6 +38,7 @@ public:
 	virtual void SetTurnsRemaining(FCombatTokenStackData aCombatTokenStateInfo);
 	virtual void InvertCombatToken(FCombatToken_Base_Data combatToken);
 
+	virtual void SetCombatTokenSlotPosition(int aSlotPosition);
 	virtual int GetTurnResetValue();
 	
 	virtual void ValidateStackState();

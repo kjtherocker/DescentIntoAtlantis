@@ -446,8 +446,8 @@ void AFloorManager::PlacePlayerFloorPawn(FVector2D aPositionInGrid,ECardinalNode
 			return;
 		}
 		
-		FVector PositionOffset       = FVector(0,0,300);
-		FVector ActorFinalSpawnPoint = floorNodes[startPositionIndex]->GetActorLocation() + PositionOffset;
+
+		FVector ActorFinalSpawnPoint = floorNodes[startPositionIndex]->GetActorLocation() + FLOOR_PAWN_HEIGHT_OFFSET;
 
 		//Rotation
 		FRotator rotator = GetActorRotation();

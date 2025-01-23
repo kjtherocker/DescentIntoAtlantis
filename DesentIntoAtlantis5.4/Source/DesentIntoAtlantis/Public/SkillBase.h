@@ -147,8 +147,9 @@ class UBansheesGaze : public UDefaultSkillAttack
 	
 	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 	{
+		FCombatLog_AttackDefense_Data AttackDefense_Data = aVictim->DecrementHealth(aAttacker,skillData);
 		aVictim->combatEntityHub->combatTokenHandler->InvertAllCombatToken(ECombatTokenType::Positive);
-		return aVictim->DecrementHealth(aAttacker,skillData);
+		return AttackDefense_Data;
 	}
 };
 

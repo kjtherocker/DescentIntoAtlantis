@@ -31,6 +31,9 @@ public :
 	void SpawnNewCombatToken(UCombatToken_Base* aCombatToken);
 	UFUNCTION()
 	void RemoveCombatToken(UCombatToken_Base* aCombatToken);
+
+	UFUNCTION()
+	void UpdateRowPositions();
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UHorizontalBox* BW_HorizontalBox;

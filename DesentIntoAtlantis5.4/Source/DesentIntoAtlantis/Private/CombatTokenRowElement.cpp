@@ -5,16 +5,22 @@
 
 #include "AtlantisGameModeBase.h"
 #include "PersistentGameinstance.h"
+#include "Components/HorizontalBoxSlot.h"
 
 void UCombatTokenRowElement::InitializeCombatTokenRow(UCombatTokenHandler* aCombatTokenHandler,AInGameHUD* aInGameHUD)
 {
 	InGameHUD2 = aInGameHUD;
 	combatTokenHandler = aCombatTokenHandler;
 	combatTokenHandler->onCombatTokenAdded.AddDynamic(this,&UCombatTokenRowElement::SpawnNewCombatToken);
+	combatTokenHandler->OnTokenSlotChange.AddDynamic(this,&UCombatTokenRowElement::UpdateRowPositions);
 
-	for (auto Element : combatTokenHandler->activeCombatTokens)
+	for (auto Element : combatTokenHandler->activeCombatTokensSlots)
 	{
-		SpawnNewCombatToken(Element);
+		if(Element.Value == nullptr)
+		{
+			continue;
+		}
+		SpawnNewCombatToken(Element.Value);
 	}
 }
 
@@ -35,6 +41,7 @@ void UCombatTokenRowElement::SpawnNewCombatToken(UCombatToken_Base* aCombatToken
 	aCombatToken->CombatTokenEndEffect.AddDynamic(this,&UCombatTokenRowElement::RemoveCombatToken);
 	CombatTokenUiElements.Add(CombatLogElement);
 	BW_HorizontalBox->AddChild(baseUserWidget);
+	UpdateRowPositions();
 }
 
 void UCombatTokenRowElement::RemoveCombatToken(UCombatToken_Base* aCombatToken)
@@ -48,4 +55,36 @@ void UCombatTokenRowElement::RemoveCombatToken(UCombatToken_Base* aCombatToken)
 			return;
 		}
 	}
+	UpdateRowPositions();
+}
+
+void UCombatTokenRowElement::UpdateRowPositions()
+{
+	if(CombatTokenUiElements.Num() == 0)
+	{
+		return;
+	}
+	
+
+	TMap<int, UCombatToken_Base*> activeSlots = combatTokenHandler->activeCombatTokensSlots;
+
+	for (auto currentSlot : activeSlots)
+	{
+		if(!CombatTokenUiElements.IsValidIndex(currentSlot.Key))
+		{
+			return;
+		}
+
+		CombatTokenUiElements[currentSlot.Key]->SetCombatTokenUiElement(currentSlot.Value,nullptr);
+	}
+
+ 	if(CombatTokenUiElements.Num() > activeSlots.Num())
+	{
+		for(int i = activeSlots.Num(); i < CombatTokenUiElements.Num();i++)
+		{
+			BW_HorizontalBox->RemoveChild(CombatTokenUiElements[i]);
+			CombatTokenUiElements[i]->RemoveFromParent();
+		}
+	}
+	
 }

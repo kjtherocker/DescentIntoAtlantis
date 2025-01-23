@@ -5,6 +5,16 @@
 
 void UCombatToken_UiElement::SetCombatTokenUiElement(UCombatToken_Base* aCombatToken, UTexture2D* aTokenImage)
 {
+	if(aCombatToken == nullptr)
+	{
+		return;
+	}
+	
+	if(CombatToken_Base != nullptr)
+	{
+		CombatToken_Base->onCombatTokenChange.RemoveDynamic(this,&UCombatToken_UiElement::UpdateCombatToken);
+	}
+	
 	CombatToken_Base = aCombatToken;
 	CombatTokenID = aCombatToken->GetCombatTokenData().CombatTokenID;
 	aCombatToken->onCombatTokenChange.AddDynamic(this,&UCombatToken_UiElement::UpdateCombatToken);
@@ -27,4 +37,9 @@ void UCombatToken_UiElement::UpdateTokenBackground(ECombatTokenType aCombatToken
 {
 	ECombatTokenType tokenType = aCombatTokenType;
 	BW_TokenBackground->SetBrushFromTexture(combatTokenTextures[tokenType]);
+}
+
+int UCombatToken_UiElement::GetCombatTokenSlotNumber()
+{
+	return CombatToken_Base->GetCombatTokenData().slotPosition;
 }

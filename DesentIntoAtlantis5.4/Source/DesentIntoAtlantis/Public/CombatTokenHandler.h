@@ -12,6 +12,7 @@
  */
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCombatTokenAdded,UCombatToken_Base*,combatToken);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnTokenSlotChange);
 UCLASS()
 class DESENTINTOATLANTIS_API UCombatTokenHandler : public UObject
 {
@@ -28,11 +29,17 @@ protected:
 
 	UPROPERTY()
 	UCombatEntity* OwnedCombatEntity;
+
+	const int defaultCombatTokenMax = 4;
 public:
 	UPROPERTY()
 	TArray<UCombatToken_Base*> activeCombatTokens;
 	
 	FCombatTokenAdded onCombatTokenAdded;
+	FOnTokenSlotChange OnTokenSlotChange;
+
+	UPROPERTY()
+	TMap<int,UCombatToken_Base*> activeCombatTokensSlots;
 	
 	UFUNCTION()
 	void CombatEnd();
@@ -48,6 +55,8 @@ public:
 
 	virtual void AddAStackOfAllCombatTokens(int aStacks = 1);
 	virtual void AddAStackOfAllCombatTokens(ECombatTokenType aCombatTokenType,int aStacks = 1);
+
+	virtual void SlideCombatTokenToStart(UCombatToken_Base* aCombatToken);
 	
 	virtual void InitializeCombatTokenHandler(UCombatEntity* aOwnedCombatEntity,UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem);
 

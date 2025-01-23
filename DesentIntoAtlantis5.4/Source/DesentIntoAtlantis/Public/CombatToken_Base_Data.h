@@ -12,6 +12,9 @@ struct DESENTINTOATLANTIS_API FCombatToken_Base_Data :public  FPassiveSkillData
 {
 	GENERATED_USTRUCT_BODY()
 
+	UPROPERTY()
+	int slotPosition;
+
 	UPROPERTY(EditAnywhere)
 	ECombatTokenID CombatTokenID;
 

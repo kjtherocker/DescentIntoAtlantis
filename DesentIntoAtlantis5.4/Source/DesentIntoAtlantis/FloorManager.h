@@ -112,8 +112,9 @@ protected:
 	void SpawnObjectInGrid(FVector2D aPositionInGrid, TSubclassOf<AActor> objectToSpawn);
 
 private:
-	const double FLOOR_EVENT_HEIGHT_OFFSET = 240;
-	const double SPAWNED_OBJECT_OFFSET = 210;
+	const double FLOOR_EVENT_HEIGHT_OFFSET = 25;
+	const double SPAWNED_OBJECT_OFFSET = 0;
+	const double FLOOR_PAWN_HEIGHT_OFFSET = 50;
 	void SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes,UFloorBase* aFloorBase);
 
 	UPersistentGameinstance* persistentGameInstance;

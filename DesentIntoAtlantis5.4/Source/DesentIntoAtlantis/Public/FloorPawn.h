@@ -70,7 +70,7 @@ protected:
 	virtual void MoveForward();
 	TSubclassOf<AActor> commandBoardTest;
 
-	FVector positionOffSet = FVector(0,0,80);
+	FVector positionOffSet = FVector(0,0,50);
 	double newRotation;
 
 	const double FULL_MOVEMENT       = 360;

@@ -66,6 +66,11 @@ void UCombatToken_Base::InvertCombatToken(FCombatToken_Base_Data combatToken)
 	BroadCastCombatTokenChange();
 }
 
+void UCombatToken_Base::SetCombatTokenSlotPosition(int aSlotPosition)
+{
+	CombatToken_Base_Data.slotPosition = aSlotPosition;
+}
+
 int UCombatToken_Base::GetTurnResetValue()
 {
 	return CombatToken_Base_Data.startingTokenTurnLength;
@@ -88,6 +93,7 @@ void UCombatToken_Base::RemovePassive()
 	Super::RemovePassive();
 	CombatTokenStateInfo.currentTokenStack = 0;
 	CombatTokenEndEffect.Broadcast(this);
+	BroadCastCombatTokenChange();
 }
 
 void UCombatToken_Base::ActivatePassive()

@@ -200,6 +200,7 @@ void UCombatTokenHandler::NewCombatTokenWasAdded(UCombatToken_Base* combatToken,
 	combatToken->CombatTokenEndEffect.AddDynamic(this,&UCombatTokenHandler::RemoveCombatToken);
 	combatToken->ApplyEffect(OwnedCombatEntity);
 
+	SlideCombatTokenToStart(combatToken);
 	activeCombatTokens.Add(combatToken);
 	onCombatTokenAdded.Broadcast(combatToken);
 }
@@ -231,11 +232,41 @@ void UCombatTokenHandler::AddAStackOfAllCombatTokens(ECombatTokenType aCombatTok
 	}
 }
 
+void UCombatTokenHandler::SlideCombatTokenToStart(UCombatToken_Base* aCombatToken)
+{
+	UCombatToken_Base* slidingCombatToken = aCombatToken;
+	
+	for(int i = 0 ; i < activeCombatTokensSlots.Num();i++)
+	{	
+		if(slidingCombatToken == nullptr)
+		{
+			break;
+		}
+		
+		UCombatToken_Base* currentlyInSlot = activeCombatTokensSlots[i];
+		activeCombatTokensSlots[i] = slidingCombatToken;
+		activeCombatTokensSlots[i]->SetCombatTokenSlotPosition(i);
+		slidingCombatToken = currentlyInSlot;
+	}
+
+	if(slidingCombatToken != nullptr)
+	{
+		slidingCombatToken->RemovePassive();
+	}
+
+	OnTokenSlotChange.Broadcast();
+}
+
 void UCombatTokenHandler::InitializeCombatTokenHandler(UCombatEntity* aOwnedCombatEntity,
                                                        UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem)
 {
 	passiveSkillFactorySubsystem = aPassiveSkillFactorySubsystem;
 	OwnedCombatEntity            = aOwnedCombatEntity;
+
+	for (int i = 0 ; i < defaultCombatTokenMax;i++)
+	{
+		activeCombatTokensSlots.Add(i,nullptr);
+	}
 }
 
 TArray<FCombatLog_PassiveSkilData> UCombatTokenHandler::CheckAttackDefenceTokens(int& CurrentDamage,
