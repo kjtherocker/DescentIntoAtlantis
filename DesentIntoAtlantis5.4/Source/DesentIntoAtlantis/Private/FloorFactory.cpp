@@ -3,7 +3,7 @@
 
 #include "FloorFactory.h"
 
-void UFloorFactory::InitializeDatabase(UDataTable* aFloorDatabase,UDataTable* aFloorEventDatabase)
+void UFloorFactory::InitializeDatabase(UDataTable* aFloorDatabase,UDataTable* aFloorEventDatabase,UDataTable* aAllFloorTileSet)
 {
 	FloorDatabase = aFloorDatabase;
 	
@@ -26,6 +26,16 @@ void UFloorFactory::InitializeDatabase(UDataTable* aFloorDatabase,UDataTable* aF
 		floorEventData.Add( i,*datatable2->FindRow<FFloorEventData>(FName(FString::FromInt(i)),FString("Searching for Floors Events"),true));
 	}
 
+
+	UDataTable*  floorTileSet = aAllFloorTileSet;
+	if(floorTileSet)
+	{
+		for (auto Element : floorTileSet->GetRowNames())
+		{
+			allFloorTileSet = *floorTileSet->FindRow<FAllFloorTileSet>(FName(Element),FString("Searching for TileSet"),true) ;
+		}
+	}
+	
 	int amountOfloorEventData = floorEventData.Num();
 	
 	for(int i = 0 ; i < amountOfloorEventData; i++)

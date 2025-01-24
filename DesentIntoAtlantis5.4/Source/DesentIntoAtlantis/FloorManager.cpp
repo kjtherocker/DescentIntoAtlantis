@@ -26,7 +26,7 @@ AFloorManager::AFloorManager()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
-void AFloorManager::Initialize(AAtlantisGameModeBase* aGameModeBase,UEventManagerSubSystem* aFloorEventManager)
+void AFloorManager::Initialize(AAtlantisGameModeBase* aGameModeBase,UEventManagerSubSystem* aFloorEventManager,UFloorFactory* aFloorFactory)
 {
 	cardinalPositions.Add(ECardinalNodeDirections::Up,    FVector2D(0,-1));
 	cardinalPositions.Add(ECardinalNodeDirections::Down,  FVector2D(0,1));
@@ -44,7 +44,8 @@ void AFloorManager::Initialize(AAtlantisGameModeBase* aGameModeBase,UEventManage
 
 	eventManagerSubSystem     =  persistentGameInstance->EventManagerSubSystem;
 	levelProgressionSubsystem = persistentGameInstance->levelProgressionSubsystem;
-	
+
+	floorFactory = aFloorFactory;
 	floorEventManager = aFloorEventManager;
 	floorGameModeBase = aGameModeBase;
 }
@@ -68,12 +69,20 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 				continue;
 			}
 
-			SpawnFloorNode(Row , Column,LevelIndex );
+			ECardinalNodeDirections directionOfNode = (ECardinalNodeDirections)aFloor->floorData.floorBlueprint[LevelIndex];
+
+			TSubclassOf<AActor> floorNodeActorToSpawn = 
+			floorFactory->allFloorTileSet.tileSetData[ETileSets::Prison].TileSet[ETileVariants::Default].TileVariant[directionOfNode].FloorNode;
+			
+			SpawnFloorNode(Row , Column,LevelIndex ,floorNodeActorToSpawn);
 			floorNodes[LevelIndex]->SetWalkableDirections(aFloor->floorData.floorBlueprint[LevelIndex]);
 			entireFloorNodeData[LevelIndex] = floorNodes[LevelIndex]->floorNodeData;
 			
 			FVector2D positionInGrid = FVector2D(Row,Column);
-	
+
+
+			
+			//Extra stuff
 			if(aFloor->floorEventData.Contains(positionInGrid) && !eventManagerSubSystem->isEventCompleted(positionInGrid))
 			{
 				floorNodes[LevelIndex]->hasFloorEvent = true;
@@ -171,7 +180,7 @@ void AFloorManager::CreateFloor(EFloorIdentifier aFloorIdentifier)
 }
 
 
-void AFloorManager::SpawnFloorNode(int aRow, int aColumn, int aIndex)
+void AFloorManager::SpawnFloorNode(int aRow, int aColumn, int aIndex,TSubclassOf<AActor> aFloorNodePrefab)
 {
 	//Setting new Positon
 	FVector PositionOffset;
@@ -188,7 +197,7 @@ void AFloorManager::SpawnFloorNode(int aRow, int aColumn, int aIndex)
 	AFloorNode* floorNode;
 
 
-	floorNode = Cast<AFloorNode>(GetWorld()->SpawnActor<AActor>(floorNodeReference, ActorFinalSpawnPoint, rotator));
+	floorNode = Cast<AFloorNode>(GetWorld()->SpawnActor<AActor>(aFloorNodePrefab, ActorFinalSpawnPoint, rotator));
 	floorNode->SetPositionInGrid(PositionInGrid);
 	USceneComponent* ParentRootComponent = this->GetRootComponent();
 

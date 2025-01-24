@@ -12,6 +12,7 @@
 #include "FloorBase.h"
 #include "FloorPlayerPawn.h"
 #include "FloorEventMarker.h"
+#include "FloorFactory.h"
 #include "Gimmick_Base.h"
 #include "FloorManager.generated.h"
 
@@ -27,11 +28,11 @@ class DESENTINTOATLANTIS_API AFloorManager : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AFloorManager();
-	void Initialize(AAtlantisGameModeBase* aGameModeBase,UEventManagerSubSystem* aFloorEventManager);
+	void Initialize(AAtlantisGameModeBase* aGameModeBase,UEventManagerSubSystem* aFloorEventManager,UFloorFactory* aFloorFactor);
 	
 	void CreateGrid(UFloorBase* aFloor);
 	void CreateFloor(EFloorIdentifier aFloorIdentifier);
-	void SpawnFloorNode(int aRow, int aColumn,int aIndex);
+	void SpawnFloorNode(int aRow, int aColumn,int aIndex,TSubclassOf<AActor> aFloorNodePrefab);
 	void SpawnFloorEventTriggers(FFloorEventData AFloorEventData);
 	void SpawnFloor(UFloorBase* aFloorBase);
 	void SpawnEnemysInFloor(UFloorBase* aFloorBase);
@@ -57,6 +58,9 @@ public:
 	TArray<FVector2D> GetPositionsOfEnemysBesidesOne(AFloor_EnemyPawn* aEnemyPawn);
 	UPROPERTY()
 	TArray<AFloorNode*> floorNodes;
+
+	UPROPERTY()
+	UFloorFactory* floorFactory;
 
 	UPROPERTY()
 	TArray<FFloorNodeAiData> entireFloorNodeData;

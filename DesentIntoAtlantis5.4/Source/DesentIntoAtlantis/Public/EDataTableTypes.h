@@ -22,6 +22,7 @@ enum class  EDataTableTypes
 	PassiveSkills        = 13,
 	CombatTokens         = 14,
 	Equipment            = 15,
+	AllFloorNodeTileSet  = 16,
 };
 
 

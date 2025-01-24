@@ -19,7 +19,7 @@ void ULevelGeneratorUtilityWidget::NativeConstruct()
 			   &&dataTables[EDataTableTypes::FloorEvent] != nullptr)
 	{
 		floorFactory = NewObject<UFloorFactory>();
-		floorFactory->InitializeDatabase(dataTables[EDataTableTypes::Floor],dataTables[EDataTableTypes::FloorEvent]);
+		floorFactory->InitializeDatabase(dataTables[EDataTableTypes::Floor],dataTables[EDataTableTypes::FloorEvent],dataTables[EDataTableTypes::AllFloorNodeTileSet]);
 	}
 	
 	BW_GenerateButton->OnClicked.AddDynamic(this, &ULevelGeneratorUtilityWidget::GenerateLevel);
@@ -138,7 +138,7 @@ void ULevelGeneratorUtilityWidget::RefreshGridGimmicks()
 		   &&dataTables[EDataTableTypes::FloorEvent] != nullptr)
 	{
 		floorFactory = NewObject<UFloorFactory>();
-		floorFactory->InitializeDatabase(dataTables[EDataTableTypes::Floor],dataTables[EDataTableTypes::FloorEvent]);
+		floorFactory->InitializeDatabase(dataTables[EDataTableTypes::Floor],dataTables[EDataTableTypes::FloorEvent],dataTables[EDataTableTypes::AllFloorNodeTileSet]);
 	}
 
 	//setting event icons

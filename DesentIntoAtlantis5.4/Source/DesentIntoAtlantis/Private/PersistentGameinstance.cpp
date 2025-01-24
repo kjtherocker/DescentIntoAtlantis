@@ -102,7 +102,11 @@ void UPersistentGameinstance::Init()
 			&&dataTables[EDataTableTypes::FloorEvent] != nullptr)
 		{
 			floorFactory = NewObject<UFloorFactory>();
-			floorFactory->InitializeDatabase(dataTables[EDataTableTypes::Floor],dataTables[EDataTableTypes::FloorEvent]);
+			floorFactory->InitializeDatabase(
+				dataTables[EDataTableTypes::Floor],
+			dataTables[EDataTableTypes::FloorEvent],
+				dataTables[EDataTableTypes::AllFloorNodeTileSet]);
+			
 			EventManagerSubSystem->InitializeEventManager(floorFactory,this);
 		}
 	}

@@ -47,7 +47,7 @@ void AFloorGameMode::InitializeLevel()
     mapView->SetFloorPawnDelegates(floorPawn);
     
     floorManager = Cast<AFloorManager>(world->SpawnActor<AActor>(floorManagerReference, FVector::Zero(), rotator));
-    floorManager->Initialize(this,floorEventManager);
+    floorManager->Initialize(this,floorEventManager,floorFactory);
 
   
     floorManager->CreateFloor(levelProgressionSubsystem->GetCurrentFlooridentifier());

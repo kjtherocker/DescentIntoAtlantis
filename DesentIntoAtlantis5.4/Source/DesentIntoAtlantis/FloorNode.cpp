@@ -98,23 +98,23 @@ void AFloorNode::SetWalkableDirections(short aWalkabledirections)
 		break;
 	}
 
-	SetFloorNodeWallInfo(ECardinalNodeDirections::Up,
-	                     FVector(0, -124, 200),
-	                     FRotator(0, 0, 0));
-
-	SetFloorNodeWallInfo(ECardinalNodeDirections::Right,
-	                     FVector(116.0, -1, 200),
-	                     FRotator(0, 90, 0));
-
-	SetFloorNodeWallInfo(ECardinalNodeDirections::Down,
-	                     FVector(0.0, 124, 200),
-	                     FRotator(0, 180, 0));
-
-	SetFloorNodeWallInfo(ECardinalNodeDirections::Left,
-	                     FVector(-121.0, -1, 200),
-	                     FRotator(0, 270, 0));
-
-	SetLevelNode(floorNodeData.walkableDirections);
+	//SetFloorNodeWallInfo(ECardinalNodeDirections::Up,
+	//                     FVector(0, -124, 200),
+	//                     FRotator(0, 0, 0));
+//
+	//SetFloorNodeWallInfo(ECardinalNodeDirections::Right,
+	//                     FVector(116.0, -1, 200),
+	//                     FRotator(0, 90, 0));
+//
+	//SetFloorNodeWallInfo(ECardinalNodeDirections::Down,
+	//                     FVector(0.0, 124, 200),
+	//                     FRotator(0, 180, 0));
+//
+	//SetFloorNodeWallInfo(ECardinalNodeDirections::Left,
+	//                     FVector(-121.0, -1, 200),
+	//                     FRotator(0, 270, 0));
+//
+	//SetLevelNode(floorNodeData.walkableDirections);
 }
 
 void AFloorNode::SetLevelNode(TArray<ECardinalNodeDirections> aWalkableDirections)
@@ -128,7 +128,7 @@ void AFloorNode::SetLevelNode(TArray<ECardinalNodeDirections> aWalkableDirection
 		{
 			if (floorNodeWallInfos.Contains(direction))
 			{
-				floorNodeWallInfos[direction]->wallActor = SpawnNodeWall(floorNodeWallInfos[direction], direction);
+			//	floorNodeWallInfos[direction]->wallActor = SpawnNodeWall(floorNodeWallInfos[direction], direction);
 			}
 		}
 	}
