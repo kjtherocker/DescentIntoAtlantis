@@ -21,9 +21,11 @@ void UFloorFactory::InitializeDatabase(UDataTable* aFloorDatabase,UDataTable* aF
 
 	FloorEventDatabase = aFloorEventDatabase;
 	UDataTable* datatable2 = aFloorEventDatabase;
-	for(int i = 0 ; i < datatable2->GetRowMap().Num(); i ++)
+	int iterator = 0;
+	for (auto Element : datatable2->GetRowNames())
 	{
-		floorEventData.Add( i,*datatable2->FindRow<FFloorEventData>(FName(FString::FromInt(i)),FString("Searching for Floors Events"),true));
+		floorEventData.Add( iterator,*datatable2->FindRow<FFloorEventData>(FName(Element),FString("Searching for TileSet"),true));
+		iterator++;
 	}
 
 

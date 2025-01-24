@@ -41,6 +41,7 @@ void UCombatSelectionView::ActivateSkill()
 {
 	if(currentSkill->CanUseSkill(combatManager->GetCurrentActivePartyMember()))
 	{
+		DisableInput();
 		//SetCursorHud(false);
 		currentSkill->SpendSkillCost(combatManager->GetCurrentActivePartyMember());
 		combatManager->ActivateSkill(combatManager->GetCurrentActivePartyMember(),cursorPosition,currentSkill);	

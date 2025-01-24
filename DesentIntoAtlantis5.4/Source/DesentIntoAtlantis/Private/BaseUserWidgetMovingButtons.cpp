@@ -73,14 +73,9 @@ void UBaseUserWidgetMovingButtons::ActivateMenuSelection()
 void UBaseUserWidgetMovingButtons::DisableInput()
 {
 	TurnAllHighlightsOff();
-	if (InputComponent)
-	{
-		InputComponent->ClearActionBindings(); // Clear all input bindings
-		InputComponent->UnregisterComponent(); // Unregister the component
-		InputComponent->DestroyComponent();    // Destroy the component
-		InputComponent = nullptr;              // Nullify the reference
-	}
+	Super::DisableInput();
 }
+
 
 void UBaseUserWidgetMovingButtons::SetPassiveSkillBar(FPassiveSkillData aSkill,
                                                       UPassiveSkillElement* PassiveSkillElement)

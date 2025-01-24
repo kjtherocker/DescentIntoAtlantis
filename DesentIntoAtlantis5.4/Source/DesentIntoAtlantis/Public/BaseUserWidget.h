@@ -55,6 +55,7 @@ public:
 	virtual void MoveUp();
 	virtual void MoveDown();
 	virtual void ReturnToPreviousScreen();
+	virtual void DisableInput();
 	UFUNCTION()
 	virtual void PopMostActiveView();
 	virtual FString WrapTextInStyle(FString aText,ETextStyle aTextStyle);

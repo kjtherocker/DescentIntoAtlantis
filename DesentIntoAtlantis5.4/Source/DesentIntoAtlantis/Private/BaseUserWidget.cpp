@@ -49,6 +49,17 @@ void UBaseUserWidget::ReturnToPreviousScreen()
 	InGameHUD->ReturnToPreviousActiveView();
 }
 
+void UBaseUserWidget::DisableInput()
+{
+	if (InputComponent)
+	{
+		InputComponent->ClearActionBindings(); // Clear all input bindings
+		InputComponent->UnregisterComponent(); // Unregister the component
+		InputComponent->DestroyComponent();    // Destroy the component
+		InputComponent = nullptr;              // Nullify the reference
+	}
+}
+
 void UBaseUserWidget::PopMostActiveView()
 {
 	InGameHUD->PopMostRecentActiveView();

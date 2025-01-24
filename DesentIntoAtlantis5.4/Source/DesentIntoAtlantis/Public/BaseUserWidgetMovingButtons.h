@@ -30,7 +30,7 @@ protected:
 	virtual void SetDefaultMenuState();
 	virtual void TurnAllHighlightsOff();
 	virtual void ActivateMenuSelection();
-	virtual void DisableInput();
+	virtual void DisableInput() override;
 
 	void SetPassiveSkillBar(FPassiveSkillData aSkill, UPassiveSkillElement* PassiveSkillElement);
 public:
