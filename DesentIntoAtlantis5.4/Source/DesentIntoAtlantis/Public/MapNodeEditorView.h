@@ -7,6 +7,7 @@
 #include "MapEventEditorView.h"
 #include "Blueprint/UserWidget.h"
 #include "Components/GridPanel.h"
+#include "Components/ComboBoxString.h"
 #include "Components/HorizontalBox.h"
 #include "MapNodeEditorView.generated.h"
 
@@ -27,14 +28,26 @@ class DESENTINTOATLANTIS_API UMapNodeEditorView : public UUserWidget
 	const int MAP_NODE_POSITION_OFFSET = 50;
 	
 public:
+
+	const FString TILE_SETS_ENUM_NAME = TEXT("ETileSets");
+	const FString TILE_VARIANT_ENUM_NAME = TEXT("ETileVariants");
 	
 	void InitializeEditor();
 
 	void SetUpMapNodePanel(UMapButtonElement* aMapNodeElement);
-	
+	TArray<FName> GetAllEnumNames(UEnum* EnumType);
 	UFUNCTION(BlueprintCallable, Category = "MyEditorUtility")
 	void ChangeNodeDirection(UMapButtonElement* aMapNodeElement);
 
+	void InitializeComboBox(UComboBoxString* aCombobox,FString aEnumName);
+
+
+	UFUNCTION()
+	void SetTileSet( FString SelectedItem, ESelectInfo::Type SelectionType);
+
+	UFUNCTION()
+	void SetTileVariant(FString SelectedItem, ESelectInfo::Type SelectionType);
+	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UHorizontalBox*  BW_MapNodePanel;
 	
@@ -43,6 +56,12 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UMapEventEditorView* BW_MapEventEditorView;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UComboBoxString* BW_TileSet;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UComboBoxString* BW_Variant;
 	
 };
 

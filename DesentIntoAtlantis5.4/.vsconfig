@@ -8,6 +8,12 @@
     "Microsoft.VisualStudio.Workload.CoreEditor",
     "Microsoft.VisualStudio.Workload.ManagedDesktop",
     "Microsoft.VisualStudio.Workload.NativeDesktop",
-    "Microsoft.VisualStudio.Workload.NativeGame"
+    "Microsoft.VisualStudio.Workload.NativeGame",
+	"Microsoft.VisualStudio.Component.VC.ATLMFC", 
+    "Microsoft.VisualStudio.Component.VC.ClangC2", 
+    "Microsoft.VisualStudio.Component.VC.CMake.Project",
+    "Microsoft.VisualStudio.Component.VC.Llvm.ClangToolset",
+    "Microsoft.VisualStudio.Component.Unreal",
+    "Microsoft.VisualStudio.Component.VC.Tools.ARM64"
   ]
 }

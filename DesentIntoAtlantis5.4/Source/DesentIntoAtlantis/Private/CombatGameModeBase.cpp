@@ -322,7 +322,7 @@ void ACombatGameModeBase::TriggerTurnEndTimers()
 		{
 			//TurnEnd();
 			FTimerHandle handle;
-			world->GetTimerManager().SetTimer(handle,this,&ACombatGameModeBase::TurnEnd,1.5f,false);		
+			world->GetTimerManager().SetTimer(handle,this,&ACombatGameModeBase::TurnEnd,1.0f,false);		
 		}
 		break;
 	case ECharactertype::Enemy:

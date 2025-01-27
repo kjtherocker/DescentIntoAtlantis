@@ -34,6 +34,9 @@ public:
 	FFloorEventData currentFloorEventData;
 
 	UPROPERTY()
+	FWorldGenerationFloorNodeInfo worldGenFloorNodeInfo;
+	
+	UPROPERTY()
 	FVector2D positionInGrid;
 	
 	UPROPERTY()
@@ -51,8 +54,9 @@ public:
 
 	UPROPERTY(EditAnywhere,meta=(BindWidget))
 	TMap<ECardinalNodeDirections,UTexture2D*> MapIcons;
-	
-	void SetMapIcon(ECardinalNodeDirections aCardinalNodeDirection);
+
+	void SetMapIcon(ECardinalNodeDirections aNodeDirection);
+	void InitializeMapButton(FWorldGenerationFloorNodeInfo aFloorNodeInfo);
 	void SetFloorEvent(FFloorEventData aFloorEventData,int afloorEventDataTableIndex);
 	void SetEventIcon(bool aIsActive);
 	UFUNCTION(BlueprintCallable)

@@ -160,36 +160,6 @@ struct DESENTINTOATLANTIS_API FDoorComplete : public FTableRowBase
 
 
 
-USTRUCT()
-struct DESENTINTOATLANTIS_API FFloorData : public FTableRowBase
-{
-	GENERATED_USTRUCT_BODY()
-	
-	UPROPERTY( EditAnywhere )
-	TArray<int> floorBlueprint;
-	
-	UPROPERTY( EditAnywhere )
-	EFloorIdentifier floorIdentifier = EFloorIdentifier::None;
-	
-	UPROPERTY( EditAnywhere )
-	FVector2D startPosition = FVector2d::Zero();
-	UPROPERTY(EditAnywhere)
-	ECardinalNodeDirections startRotation = ECardinalNodeDirections::Up;
-
-	UPROPERTY(EditAnywhere)
-	TArray<FTeleporterGimmick> teleporterGimmicks;
-
-	UPROPERTY(EditAnywhere)
-	TArray<FForcedMovementGimmick> forcedMovementGimmick;
-
-	UPROPERTY(EditAnywhere)
-	TArray<FDoorComplete> doorGimmick;
-
-	UPROPERTY(EditAnywhere)
-	TArray<FFloorEnemyPawnCompleteData> EnemyPawns;
-};
-
-
 UENUM()
 enum class EDialogueTriggers
 {
@@ -304,4 +274,113 @@ struct DESENTINTOATLANTIS_API FTutorialData : public FTableRowBase
 	
 	UPROPERTY( EditAnywhere )
 	UTexture2D* characterPortrait;
+};
+
+
+//If you change this name you have to go into UMapNodeEditorView and change the string there
+UENUM()
+enum class ETileSets
+{
+	None,
+	Prison
+};
+//If you change this name you have to go into UMapNodeEditorView and change the string there
+UENUM()
+enum class ETileVariants
+{
+	None,
+	Default,
+	Variant1,
+	Variant2,
+	Variant3,
+	Variant4,
+	Variant5
+};
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FTileData : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> FloorNode;
+};
+
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FTileVariantData : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+
+	UPROPERTY(EditAnywhere)
+	TMap<ECardinalNodeDirections,FTileData> TileVariant;
+};
+
+
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FTileSetCompleteData : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	UPROPERTY(EditAnywhere)
+	TMap<ETileVariants,FTileVariantData> TileSet;
+
+};
+
+
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FAllFloorTileSet : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	
+	UPROPERTY(EditAnywhere)
+	TMap<ETileSets,FTileSetCompleteData> tileSetData;
+};
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FWorldGenerationFloorNodeInfo : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	
+	UPROPERTY(EditAnywhere)
+	int floorDirection;
+	
+	UPROPERTY(EditAnywhere)
+	ETileSets TileSets = ETileSets::Prison;
+
+	UPROPERTY(EditAnywhere)
+	ETileVariants TileVariants = ETileVariants::Default;
+	
+};
+
+
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FFloorData : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	
+	UPROPERTY( EditAnywhere )
+	TArray<FWorldGenerationFloorNodeInfo> floorBlueprint;
+	
+	UPROPERTY( EditAnywhere )
+	EFloorIdentifier floorIdentifier = EFloorIdentifier::None;
+	
+	UPROPERTY( EditAnywhere )
+	FVector2D startPosition = FVector2d::Zero();
+	UPROPERTY(EditAnywhere)
+	ECardinalNodeDirections startRotation = ECardinalNodeDirections::Up;
+
+	UPROPERTY(EditAnywhere)
+	TArray<FTeleporterGimmick> teleporterGimmicks;
+
+	UPROPERTY(EditAnywhere)
+	TArray<FForcedMovementGimmick> forcedMovementGimmick;
+
+	UPROPERTY(EditAnywhere)
+	TArray<FDoorComplete> doorGimmick;
+
+	UPROPERTY(EditAnywhere)
+	TArray<FFloorEnemyPawnCompleteData> EnemyPawns;
 };

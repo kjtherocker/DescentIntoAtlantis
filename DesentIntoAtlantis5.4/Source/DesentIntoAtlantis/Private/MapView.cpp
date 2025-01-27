@@ -46,10 +46,10 @@ void UMapView::CreateFullGrid(UFloorBase* aFloor)
 		{
 			int LevelIndex = aFloor->GetIndex(x, y);
 			SpawnMapButton(x , y,LevelIndex );
-			MapButtons[LevelIndex]->SetMapIcon(static_cast<ECardinalNodeDirections>(aFloor->floorData.floorBlueprint[LevelIndex]));
+			MapButtons[LevelIndex]->SetMapIcon(static_cast<ECardinalNodeDirections>(aFloor->floorData.floorBlueprint[LevelIndex].floorDirection));
 			MapButtons[LevelIndex]->SetEventIcon(false);
 			//If there is no node then continue
-			if (tempfloor->floorData.floorBlueprint[LevelIndex] == (short)ECardinalNodeDirections::Empty)
+			if (tempfloor->floorData.floorBlueprint[LevelIndex].floorDirection == (short)ECardinalNodeDirections::Empty)
 			{
 				continue;
 			}
@@ -109,7 +109,7 @@ void UMapView::CreatePlayerGrid(UFloorBase* aFloor)
 			MapButtons[LevelIndex]->SetMapIcon(static_cast<ECardinalNodeDirections>(0));
 			MapButtons[LevelIndex]->SetEventIcon(false);
 			//If there is no node then continue
-			if (tempfloor->floorData.floorBlueprint[LevelIndex] == (short)ECardinalNodeDirections::Empty)
+			if (tempfloor->floorData.floorBlueprint[LevelIndex].floorDirection == (short)ECardinalNodeDirections::Empty)
 			{
 				continue;
 			}
@@ -225,7 +225,8 @@ void UMapView::SetPlayerPosition(FCompleteFloorPawnData aFloorPawnData)
 				int LevelIndex = tempfloor->GetIndex(Rows, Column);
 				if(levelProgressionSubsystem->HasNodeBeenRevealed(LevelIndex))
 				{
-					MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetMapIcon(static_cast<ECardinalNodeDirections>(tempfloor->floorData.floorBlueprint[LevelIndex]));
+					MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetMapIcon
+					(static_cast<ECardinalNodeDirections>(tempfloor->floorData.floorBlueprint[LevelIndex].floorDirection));
 					MapButtons[ tempfloor->GetIndex(actualGridPositionX, actualGridPositionY)]->SetEventIcon(false);
 				}
 				else

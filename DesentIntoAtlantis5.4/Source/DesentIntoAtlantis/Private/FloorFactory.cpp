@@ -57,7 +57,7 @@ void UFloorFactory::InitializeDatabase(UDataTable* aFloorDatabase,UDataTable* aF
 	}
 }
 
-void UFloorFactory::OverwriteFloorMapData(EFloorIdentifier aOverwrittenFloor,TArray<int> aNewMapData)
+void UFloorFactory::OverwriteFloorMapData(EFloorIdentifier aOverwrittenFloor,TArray<FWorldGenerationFloorNodeInfo> aNewMapData)
 {
 	UDataTable* DataTable = FloorDatabase;
 
@@ -69,8 +69,6 @@ void UFloorFactory::OverwriteFloorMapData(EFloorIdentifier aOverwrittenFloor,TAr
 		// Update the specified column with the new TArray<int32>
 		FloorData->floorBlueprint = aNewMapData;
 	}
-
-	
 }
 
 void UFloorFactory::OverwriteFloorEventData(int aFloorEventDataTableIndex, FFloorEventData aNewEventData)

@@ -6,10 +6,17 @@
 #include "Components/Image.h"
 
 
-void UMapButtonElement::SetMapIcon(ECardinalNodeDirections aCardinalNodeDirection)
+void UMapButtonElement::SetMapIcon(ECardinalNodeDirections aNodeDirection)
 {
-	CurrentNodeDirection = aCardinalNodeDirection;
-	BW_MapIcon->SetBrushFromTexture(MapIcons[aCardinalNodeDirection]);
+	CurrentNodeDirection = aNodeDirection;
+	worldGenFloorNodeInfo.floorDirection = (int)CurrentNodeDirection;
+	BW_MapIcon->SetBrushFromTexture(MapIcons[CurrentNodeDirection]);
+}
+
+void UMapButtonElement::InitializeMapButton(FWorldGenerationFloorNodeInfo aFloorNodeInfo)
+{
+	worldGenFloorNodeInfo = aFloorNodeInfo;
+	SetMapIcon((ECardinalNodeDirections)worldGenFloorNodeInfo.floorDirection);
 }
 
 void UMapButtonElement::SetFloorEvent(FFloorEventData aFloorEventData,int afloorEventDataTableIndex)

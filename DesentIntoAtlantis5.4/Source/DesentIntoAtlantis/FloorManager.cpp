@@ -64,18 +64,21 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 		{
 			int LevelIndex = aFloor->GetIndex(Row, Column);
 			//If there is no node then continue
-			if (tempfloor->floorData.floorBlueprint[LevelIndex] == (short)ECardinalNodeDirections::Empty)
+			if (tempfloor->floorData.floorBlueprint[LevelIndex].floorDirection == (short)ECardinalNodeDirections::Empty)
 			{
 				continue;
 			}
 
-			ECardinalNodeDirections directionOfNode = (ECardinalNodeDirections)aFloor->floorData.floorBlueprint[LevelIndex];
+			FWorldGenerationFloorNodeInfo WorldGenerationFloorNodeInfo = aFloor->floorData.floorBlueprint[LevelIndex];
+			
+			ECardinalNodeDirections directionOfNode = (ECardinalNodeDirections)WorldGenerationFloorNodeInfo.floorDirection;
 
 			TSubclassOf<AActor> floorNodeActorToSpawn = 
-			floorFactory->allFloorTileSet.tileSetData[ETileSets::Prison].TileSet[ETileVariants::Default].TileVariant[directionOfNode].FloorNode;
+			floorFactory->allFloorTileSet.
+			tileSetData[WorldGenerationFloorNodeInfo.TileSets].TileSet[WorldGenerationFloorNodeInfo.TileVariants].TileVariant[directionOfNode].FloorNode;
 			
 			SpawnFloorNode(Row , Column,LevelIndex ,floorNodeActorToSpawn);
-			floorNodes[LevelIndex]->SetWalkableDirections(aFloor->floorData.floorBlueprint[LevelIndex]);
+			floorNodes[LevelIndex]->SetWalkableDirections(aFloor->floorData.floorBlueprint[LevelIndex].floorDirection);
 			entireFloorNodeData[LevelIndex] = floorNodes[LevelIndex]->floorNodeData;
 			
 			FVector2D positionInGrid = FVector2D(Row,Column);

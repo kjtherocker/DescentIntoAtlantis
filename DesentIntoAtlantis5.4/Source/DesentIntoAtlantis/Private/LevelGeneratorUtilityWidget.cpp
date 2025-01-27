@@ -64,10 +64,10 @@ void ULevelGeneratorUtilityWidget::CreateGrid(UFloorBase* aFloor)
 		{
 			int LevelIndex = aFloor->GetIndex(Row, Column);
 			SpawnMapButton(Row , Column,LevelIndex );
-			MapButtons[LevelIndex]->SetMapIcon(static_cast<ECardinalNodeDirections>(aFloor->floorData.floorBlueprint[LevelIndex]));
+			MapButtons[LevelIndex]->InitializeMapButton(aFloor->floorData.floorBlueprint[LevelIndex]);
 			MapButtons[LevelIndex]->SetEventIcon(false);
 			//If there is no node then continue
-			if (tempfloor->floorData.floorBlueprint[LevelIndex] == (short)ECardinalNodeDirections::Empty)
+			if (tempfloor->floorData.floorBlueprint[LevelIndex].floorDirection == (short)ECardinalNodeDirections::Empty)
 			{
 				continue;
 			}
@@ -161,10 +161,10 @@ void ULevelGeneratorUtilityWidget::ActivateMapNodeEditor(UMapButtonElement* aMap
 
 void ULevelGeneratorUtilityWidget::SaveCurrentMap()
 {
-	TArray<int> newMapData;
+	TArray<FWorldGenerationFloorNodeInfo> newMapData;
 	for(int i = 0 ;i < MapButtons.Num();i++)
 	{
-		newMapData.Add(static_cast<int>(MapButtons[i]->CurrentNodeDirection));
+		newMapData.Add(MapButtons[i]->worldGenFloorNodeInfo);
 	}
 	
 	floorFactory->OverwriteFloorMapData(FloorIdentifier,newMapData);

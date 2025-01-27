@@ -118,7 +118,7 @@ protected:
 private:
 	const double FLOOR_EVENT_HEIGHT_OFFSET = 25;
 	const double SPAWNED_OBJECT_OFFSET = 0;
-	const double FLOOR_PAWN_HEIGHT_OFFSET = 100;
+	const FVector FLOOR_PAWN_HEIGHT_OFFSET = FVector(0,0,100);
 	void SetFloorNodeNeightbors(TArray<AFloorNode*> aFloorNodes,UFloorBase* aFloorBase);
 
 	UPersistentGameinstance* persistentGameInstance;
