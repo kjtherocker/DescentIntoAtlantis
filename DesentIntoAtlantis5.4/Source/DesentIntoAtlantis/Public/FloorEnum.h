@@ -294,7 +294,8 @@ enum class ETileVariants
 	Variant2,
 	Variant3,
 	Variant4,
-	Variant5
+	Variant5,
+	VendingMachine,
 };
 
 USTRUCT()
