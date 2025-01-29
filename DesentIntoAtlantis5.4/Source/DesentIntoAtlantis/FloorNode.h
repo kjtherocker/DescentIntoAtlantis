@@ -83,7 +83,6 @@ public:
 	virtual void SetLevelNode(TArray<ECardinalNodeDirections> aWalkableDirections);
 	virtual void SetPositionInGrid(FVector2D aPosition);
 	bool IsDirectionWalkable(ECardinalNodeDirections aDirection);
-	void SetFloorNodeWallInfo(ECardinalNodeDirections aCardinalDirection, FVector aWallPosition, FRotator aRotation);
 	//	WalkOntopTriggerTypes m_WalkOnTopTriggerTypes;
 	void PlayerIsOnTopOfNode();
 	void SetAdditionalLockedDirections(ECardinalNodeDirections aCardinalNodeDirections);
@@ -93,7 +92,9 @@ public:
 	UPROPERTY( EditAnywhere )
 	bool hasFloorEvent;
 
-	AActor* SpawnNodeWall(UFloorNodeWallInfo* nodeWallInfo,ECardinalNodeDirections aCardinalDirection);
+	UPROPERTY( EditAnywhere )
+	bool IsWalkable = true;
+	
 	TMap<ECardinalNodeDirections,UFloorNodeWallInfo*> floorNodeWallInfos;
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> wallReference;

@@ -350,7 +350,16 @@ void AFloorManager::SpawnCutsceneFloorPawn(FDialogueActorData aDialogueActor,TSu
 
 	FCompleteFloorPawnData completeFloorPawnData = aDialogueActor.pawnData;
 	EDialogueActorsLabel dialogueActor = aDialogueActor.dialogueActor;
-	FVector ActorFinalSpawnPoint = GetNode(completeFloorPawnData.currentNodePositionInGrid)->GetActorLocation() + PositionOffset;
+
+
+	AFloorNode* node = GetNode(completeFloorPawnData.currentNodePositionInGrid);
+
+	if(node == nullptr)
+	{
+		return;
+	}
+	
+	FVector ActorFinalSpawnPoint = node->GetActorLocation() + PositionOffset;
 
 	//Rotation
 	FRotator rotator = GetActorRotation();

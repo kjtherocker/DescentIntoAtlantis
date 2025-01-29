@@ -123,6 +123,11 @@ void AFloorPawn::MoveForward()
 	
 	if(nodeToMoveTo != nullptr)
 	{
+		if(!nodeToMoveTo->IsWalkable)
+		{
+			return;
+		}
+		
 		nodeToMoveTowards = nodeToMoveTo;
 		currentNodePawnIsOn = nullptr;
 	}
@@ -224,20 +229,39 @@ void AFloorPawn::RotatePawn(float aDeltatime)
 	{
 		return;
     }
-	
-	if( FMath::Abs(currentRotationConversion - newRotation) > ROTATION_DIFFERENCE)
+
+	if (FMath::IsNearlyEqual(currentRotationConversion, newRotation, ROTATION_DIFFERENCE))
 	{
-		double currentPosition = currentRotationConversion + rotationAngle * ( ROTATION_SPEED * aDeltatime);
-		SetActorRotation(FRotator(0,currentPosition,0));
+		// Rotation is already at the target, no need to proceed
+		return;
 	}
-	else
+	
+	double deltaRotation = newRotation - currentRotationConversion;
+	if (deltaRotation > 180.0)
 	{
-		if(currentRotationConversion != newRotation)
-		{
-			//Rotation Finished
-			hasRotationFinished = true;
-			SetActorRotation(FRotator(0,newRotation,0));
-		}
+		deltaRotation -= 360.0;
+	}
+	else if (deltaRotation < -180.0)
+	{
+		deltaRotation += 360.0;
+	}
+
+	// Apply rotation based on the shortest direction
+	double rotationStep = FMath::Sign(deltaRotation) * ROTATION_SPEED * aDeltatime;
+	double newPosition = currentRotationConversion + rotationStep;
+
+	// Wrap around if necessary
+	newPosition = FMath::Fmod(newPosition + FULL_MOVEMENT, FULL_MOVEMENT);
+
+	// Set the new rotation
+	SetActorRotation(FRotator(0, newPosition, 0));
+
+	// Check if the rotation has finished
+	if (FMath::IsNearlyEqual(newPosition, newRotation, ROTATION_DIFFERENCE))
+	{
+		// Rotation Finished
+		hasRotationFinished = true;
+		SetActorRotation(FRotator(0, newRotation, 0));
 	}
 }
 

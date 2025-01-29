@@ -70,8 +70,17 @@ void UDialogueView::SetNextDialogue(bool audio)
 	FDialogueData nextDialogueData = dialogueData[0];
 	dialogueData.RemoveAt(0);
 
-	BW_Name->SetText(FText(FText::FromString(nextDialogueData.SpeakerName[ELanguages::English])));
-	BW_DialogueText->SetText(FText(FText::FromString(nextDialogueData.Dialogue[ELanguages::English])));
+	if(nextDialogueData.SpeakerName.Contains(ELanguages::English))
+	{
+		BW_Name->SetText(FText(FText::FromString(nextDialogueData.SpeakerName[ELanguages::English])));	
+	}
+
+	if(nextDialogueData.Dialogue.Contains(ELanguages::English))
+	{
+		BW_DialogueText->SetText(FText(FText::FromString(nextDialogueData.Dialogue[ELanguages::English])));
+	}
+	
+
 	
 	SetDialogueImages(nextDialogueData.LeftPortrait, BW_LeftCharacterPortrait);
 	SetDialogueImages(nextDialogueData.CenterPortrait,BW_CenterCharacterPortrait);

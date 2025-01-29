@@ -10,8 +10,195 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/--Default/BP_PrisonFloorNode_Default.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/--Default/BP_PrisonFloorNode_DownLeftRight.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/--Default/FloorNode.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/--Default/Material.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/--Default/Material_001.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/--Default/Material_004.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/--Default/Material_ncl1_1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/--Default/PrisonStone_Wall_Tex.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/--Default/StonePrison_WallNode_All_DownWall_Down_L_basicWallSquareV2_blend_Dupli_.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/--Default/StonePrison_WallNode_All_FloorNode_Cube_L_FloorNode_blend_Dupli_.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/--Default/StonePrison_WallNode_All_LeftWall_Down_L_basicWallSquareV2_blend_Dupli_.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/--Default/StonePrison_WallNode_All_RightWall_Down_L_basicWallSquareV2_blend_Dupli_.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/--Default/StonePrison_WallNode_All_UpWall_Down_L_basicWallSquareV2_blend_Dupli_.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-1-Up/BP_PrisonFloorNode_Up.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-1-Up/FloorNode.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-1-Up/Material.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-1-Up/Material_001.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-1-Up/Material_004.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-1-Up/Material_ncl1_1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-1-Up/PrisonStone_Wall_Tex.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-1-Up/StonePrison_WallNode_Up_DownWall_Down_L_basicWallSquareV2_blend_Dupli_.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-1-Up/StonePrison_WallNode_Up_FloorNode_Cube_L_FloorNode_blend_Dupli_.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-1-Up/StonePrison_WallNode_Up_LeftWall_Down_L_basicWallSquareV2_blend_Dupli_.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-1-Up/StonePrison_WallNode_Up_RightWall_Down_L_basicWallSquareV2_blend_Dupli_.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-2-Down/BP_PrisonFloorNode_Down.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-3-Left/BP_PrisonFloorNode_Left.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-4-Right/BP_PrisonFloorNode_Right.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-5-allSidesOpen/BP_PrisonFloorNode_AllSidesOpen.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-5-allSidesOpen/BP_PrisonFloorNode_AllSidesOpen_Variant1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-6-Updown/BP_PrisonFloorNode_UpDown.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-7-upleft/BP_PrisonFloorNode_UpLeft.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-8-upright/BP_PrisonFloorNode_UpRight.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-9-leftDown/BP_PrisonFloorNode_LeftDown.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/10-rightDown/BP_PrisonFloorNode_RightDown.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/10-rightDown/BP_PrisonFloorNode_RightDown_BreakT.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/10-rightDown/BP_PrisonFloorNode_RightDown_Variant2.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/11-leftRight/BP_PrisonFloorNode_LeftRight.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/12-UpLeftRight/BP_PrisonFloorNode_UpLeftRight.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/12-UpLeftRight/BP_PrisonFloorNode_UpLeftRight_VendingMachine.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/13-UpLeftDown/BP_PrisonFloorNode_UpLeftDown.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/14-UpRightDown/BP_PrisonFloorNode_UpRightDown.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/15-DownLeftRight/BP_PrisonFloorNode_DownLeftRight.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/FloorNode.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_001.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_005.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_008.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_015.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_016.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_018.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Cube.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Screw.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Screw_001.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Screw_002.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Screw_003.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Shell.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Texture_ncl1_1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Texture_ncl1_2.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Texture_ncl1_3.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Texture_ncl1_4.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/BreakTable/BreakTable_Cylinder.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/BreakTable/BreakTable_Cylinder_001.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/BreakTable/BreakTable_Cylinder_002.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/BreakTable/BreakTable_Cylinder_003.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/BreakTable/Material_BreakTable.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/VendingMachine/Material_VendingMachine.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/PrisonWall/Material.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/PrisonWall/Material_004.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/PrisonWall/PrisonStone_Wall_Tex.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/PrisonWall/basicCubeWallv3.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TempleWall3.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/360_F_403249195_s7XmAFBFFJTEqYAn.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/7d9541048e8023cac33375d4dab56d15.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/Mat_Combat_PrisonFloor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/Material_Rock.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/Material_Wall.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/Material_WallTest.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/Material_WallTest1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/Material__25.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/Screenshot.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/Screenshot_3.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/Screenshot_744.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/Screenshot_746.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/TempleWall.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/Tex_StoneWall.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/Wall.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/emission_map.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/ju-howe-ghibliestone-wip2-flat.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/ju-howe-ghibliestone-wip2-flat_Mat.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/porthole.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/stone-wall-texture_1110-425.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/stone-wall-texture_1110-425_Mat.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/wallTest.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/Wall3.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/wall.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/wall1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/wall2.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/wallPlaneTest.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/FloorEnum.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/FloorEnum.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/--Default/BP_PrisonFloorNode_Default.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/--Default/BP_PrisonFloorNode_DownLeftRight.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/--Default/FloorNode.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/--Default/Material.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/--Default/Material_001.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/--Default/Material_004.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/--Default/Material_ncl1_1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/--Default/PrisonStone_Wall_Tex.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/--Default/StonePrison_WallNode_All_DownWall_Down_L_basicWallSquareV2_blend_Dupli_.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/--Default/StonePrison_WallNode_All_FloorNode_Cube_L_FloorNode_blend_Dupli_.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/--Default/StonePrison_WallNode_All_LeftWall_Down_L_basicWallSquareV2_blend_Dupli_.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/--Default/StonePrison_WallNode_All_RightWall_Down_L_basicWallSquareV2_blend_Dupli_.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/--Default/StonePrison_WallNode_All_UpWall_Down_L_basicWallSquareV2_blend_Dupli_.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-1-Up/BP_PrisonFloorNode_Up.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-1-Up/FloorNode.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-1-Up/Material.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-1-Up/Material_001.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-1-Up/Material_004.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-1-Up/Material_ncl1_1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-1-Up/PrisonStone_Wall_Tex.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-1-Up/StonePrison_WallNode_Up_DownWall_Down_L_basicWallSquareV2_blend_Dupli_.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-1-Up/StonePrison_WallNode_Up_FloorNode_Cube_L_FloorNode_blend_Dupli_.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-1-Up/StonePrison_WallNode_Up_LeftWall_Down_L_basicWallSquareV2_blend_Dupli_.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-1-Up/StonePrison_WallNode_Up_RightWall_Down_L_basicWallSquareV2_blend_Dupli_.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-2-Down/BP_PrisonFloorNode_Down.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-3-Left/BP_PrisonFloorNode_Left.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-4-Right/BP_PrisonFloorNode_Right.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-5-allSidesOpen/BP_PrisonFloorNode_AllSidesOpen.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-5-allSidesOpen/BP_PrisonFloorNode_AllSidesOpen_Variant1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-6-Updown/BP_PrisonFloorNode_UpDown.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-7-upleft/BP_PrisonFloorNode_UpLeft.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-8-upright/BP_PrisonFloorNode_UpRight.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/-9-leftDown/BP_PrisonFloorNode_LeftDown.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/10-rightDown/BP_PrisonFloorNode_RightDown.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/11-leftRight/BP_PrisonFloorNode_LeftRight.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/12-UpLeftRight/BP_PrisonFloorNode_UpLeftRight.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/13-UpLeftDown/BP_PrisonFloorNode_UpLeftDown.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/14-UpRightDown/BP_PrisonFloorNode_UpRightDown.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/DirectionalTileSet/15-DownLeftRight/BP_PrisonFloorNode_DownLeftRight.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/PrisonBase/BP_FloorNode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/FloorNode/PrisonBase/BP_FloorNode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/PrisonWall/Material.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/PrisonWall/Material_004.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/PrisonWall/PrisonStone_Wall_Tex.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/PrisonWall/basicCubeWallv3.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TempleWall3.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/360_F_403249195_s7XmAFBFFJTEqYAn.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/7d9541048e8023cac33375d4dab56d15.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/Mat_Combat_PrisonFloor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/Mat_Combat_PrisonFloor.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/Material_Rock.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/Material_Wall.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/Material_WallTest.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/Material_WallTest1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/Material__25.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/Screenshot.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/Screenshot_3.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/Screenshot_744.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/Screenshot_746.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/TempleWall.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/Tex_StoneWall.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/Wall.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/emission_map.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/ju-howe-ghibliestone-wip2-flat.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/ju-howe-ghibliestone-wip2-flat_Mat.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/porthole.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/stone-wall-texture_1110-425.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/stone-wall-texture_1110-425_Mat.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/TextMat_Walls/wallTest.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/Wall3.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/Wall3.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/wall.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/wall.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/wall1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/wall2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Prison/wallPlaneTest.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Frame.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Frame.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Texture.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Texture.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/VendingMachine/Material.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/VendingMachine/Material.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/VendingMachine/Material_001.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/VendingMachine/Material_001.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/TempleWall/TempleWall8.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/TempleWall/TempleWall8.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Walls/wall2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Walls/wall2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Combat/DT_EnemyGroup.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_EnemyGroup.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueComplete.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueComplete.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Floor/DT_AllFloorTiles.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Floor/DT_AllFloorTiles.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Floor/DT_Floor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Floor/DT_Floor.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Floor/DT_FloorEvent.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Floor/DT_FloorEvent.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Commandboard/BP_Skillbar.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/Commandboard/BP_Skillbar.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/EquipView/ClassSelectionView/BP_ClassSkillHighlightElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/EquipView/ClassSelectionView/BP_ClassSkillHighlightElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/FloorManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/FloorManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/FloorNode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/FloorNode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/FloorNode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/FloorNode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/FloorPawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/FloorPawn.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +209,20 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -698,7 +899,7 @@
       <workItem from="1737989873534" duration="4265000" />
       <workItem from="1737994474663" duration="158000" />
       <workItem from="1737994696679" duration="355000" />
-      <workItem from="1737995151007" duration="1967000" />
+      <workItem from="1737995151007" duration="6433000" />
     </task>
     <servers />
   </component>

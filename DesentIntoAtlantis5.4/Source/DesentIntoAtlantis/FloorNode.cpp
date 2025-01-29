@@ -169,36 +169,6 @@ void AFloorNode::BeginPlay()
 	floorNodeData.cardinalNodeDirections.Add(ECardinalNodeDirections::Right);
 }
 
-AActor* AFloorNode::SpawnNodeWall(UFloorNodeWallInfo* nodeWallInfo, ECardinalNodeDirections aCardinalDirection)
-{
-	AActor* wallActor;
-	const FAttachmentTransformRules AttachmentTransformRules = FAttachmentTransformRules(
-		EAttachmentRule::KeepRelative, true);
-	FRotator rotator = GetActorRotation() + nodeWallInfo->rotation;
-
-	wallActor = Cast<AActor>(
-		GetWorld()->SpawnActor<AActor>(wallReference, nodeWallInfo->wallPosition + FVector::Zero(), rotator));
-	//wallActor->SetActorLabel(FString(UEnum::GetDisplayValueAsText(aCardinalDirection).ToString()));
-	wallActor->AttachToActor(this, AttachmentTransformRules, "directionName");
-
-	return wallActor;
-}
-
-void AFloorNode::SetFloorNodeWallInfo(ECardinalNodeDirections aCardinalDirection, FVector aWallPosition,
-                                      FRotator aRotation)
-{
-	if (wallReference == nullptr)
-	{
-		return;
-	}
-
-	UFloorNodeWallInfo* floorNodeWallInfo = NewObject<UFloorNodeWallInfo>();
-
-	floorNodeWallInfo->wallPosition = aWallPosition;
-	floorNodeWallInfo->rotation = aRotation;
-
-	floorNodeWallInfos.Add(aCardinalDirection, floorNodeWallInfo);
-}
 
 void AFloorNode::PlayerIsOnTopOfNode()
 {
