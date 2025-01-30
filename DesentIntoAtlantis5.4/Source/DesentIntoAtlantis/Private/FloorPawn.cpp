@@ -222,7 +222,18 @@ void AFloorPawn::SetToStartRotation(double aDirection)
 
 void AFloorPawn::RotatePawn(float aDeltatime)
 {
+	if(directionPositionInfo.Num() == 0)
+	{
+		return;
+	}
+	
 	double actorRotation = GetActorRotation().Yaw;
+	
+	if(actorRotation == newRotation)
+	{
+		return;
+	}
+	
 	double currentRotationConversion = FMath::Fmod(actorRotation + FULL_MOVEMENT,FULL_MOVEMENT);
 
 	if(currentRotationConversion == newRotation)
@@ -302,7 +313,10 @@ void AFloorPawn::SetRotationWithoutAnimation(ECardinalNodeDirections aCardinalNo
 			break;
 		}
 	}
-	SetActorRotation(directionPositionInfo[completeFloorPawnData.currentFacingDirection]->rotation);
+	SetActorRotation(FRotator(0, directionPositionInfo[completeFloorPawnData.currentFacingDirection]->rotation.Yaw, 0) );
+
+	newRotation = directionPositionInfo[completeFloorPawnData.currentFacingDirection]->rotation.Yaw;
+	hasRotationFinished = true;
 }
 
 void AFloorPawn::SetNodeToMoveTowards(AFloorNode* aFloorNode)
