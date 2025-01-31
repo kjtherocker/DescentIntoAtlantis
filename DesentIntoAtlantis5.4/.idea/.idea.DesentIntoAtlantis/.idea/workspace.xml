@@ -10,16 +10,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-5-allSidesOpen/BP_PrisonFloorNode_AllSidesOpen_StairsUp.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/Prison_StairsUp.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/Prison_Stairs_Highlight.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/Prison_Stairs_Material.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/BP_Box.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Frame_001.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Frame_002.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Frame_003.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Frame_004.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Floor/DT_AllFloorTiles.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Floor/DT_AllFloorTiles.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Floor/DT_Floor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Floor/DT_Floor.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-5-allSidesOpen/BP_PrisonFloorNode_AllSidesOpen_StairsUp.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-5-allSidesOpen/BP_PrisonFloorNode_AllSidesOpen_StairsUp.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-7-upleft/BP_PrisonFloorNode_UpLeft.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-7-upleft/BP_PrisonFloorNode_UpLeft.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/FloorNode.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_001.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_005.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_005.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_008.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_015.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_016.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_018.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_Prison_Box.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_Prison_Box.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Cube.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Frame.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Frame.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Screw.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Screw_001.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Screw_002.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Screw_003.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Shell.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Texture.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Texture_ncl1_1.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Texture_ncl1_2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Texture_ncl1_3.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Texture_ncl1_4.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/Prison_StairsUp.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/Prison_StairsUp.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/FloorPawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/FloorPawn.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/FloorEnum.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/FloorEnum.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -728,7 +749,7 @@
       <workItem from="1737989873534" duration="4265000" />
       <workItem from="1737994474663" duration="158000" />
       <workItem from="1737994696679" duration="355000" />
-      <workItem from="1737995151007" duration="11294000" />
+      <workItem from="1737995151007" duration="13678000" />
     </task>
     <servers />
   </component>
