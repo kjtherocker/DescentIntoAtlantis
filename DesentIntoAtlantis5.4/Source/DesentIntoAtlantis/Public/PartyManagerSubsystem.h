@@ -106,8 +106,11 @@ public:
 	void AddPartyClassPoints(int aClassPoints);
 	void SetPartyLevel(int aPartyLevel);
 	
+	
 	void LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, FPlayerCompleteDataSet> aPlayerCompleteDataSets);
 	void ResetActivePartyToDefaultState();
+
+	FCompleteClassData GetClassData(EClassID aClassID){ return classDataTables[aClassID];}
 	
 	TArray<UPlayerCombatEntity*> ReturnActiveParty();
 

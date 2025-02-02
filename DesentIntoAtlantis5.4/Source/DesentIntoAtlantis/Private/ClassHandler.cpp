@@ -5,6 +5,7 @@
 
 #include "CombatEntityHub.h"
 #include "ElementalHandler.h"
+#include "PartyManagerSubsystem.h"
 #include "PlayerCombatEntity.h"
 
 void UClassHandler::LoadSavedClassHandler(FCompleteClassHandlerData aCompleteClassHandlerData)
@@ -18,8 +19,10 @@ void UClassHandler::LoadSavedClassHandler(FCompleteClassHandlerData aCompleteCla
 	
 }
 
-void UClassHandler::InitializeClassHandler(UPlayerCombatEntity* aPlayerCombatEntity, USkillFactorySubsystem* SkillFactorySubsystem)
+void UClassHandler::InitializeClassHandler(UPlayerCombatEntity* aPlayerCombatEntity,
+	USkillFactorySubsystem* SkillFactorySubsystem,UPartyManagerSubsystem* aPlayerManager)
 {
+	partyManager          = aPlayerManager;
 	skillfactorySubsystem = SkillFactorySubsystem;
 	playerCombatEntity    = aPlayerCombatEntity;
 }
@@ -103,6 +106,20 @@ TArray<USkillBase*> UClassHandler::GetClassSkills(EClassSlot ClassSlot)
 	}
 
 	return Skills;
+}
+
+void UClassHandler::UnlockClass(EClassID aClass)
+{
+	if(aClass == EClassID::None)
+	{
+		return;
+	}
+	
+	UCombatClass* newClass = NewObject<UCombatClass>();
+	newClass->InitializeDependencys(skillfactorySubsystem, playerCombatEntity);
+	newClass->SetClass(partyManager->GetClassData(aClass));
+	CompleteClassHandlerData.unlockedPlayerClasses.Add(aClass,newClass->completeClassData);
+	unlockedClasses.Add(aClass,newClass);
 }
 
 void UClassHandler::UpdateMainClassAndSubclassData()
@@ -285,6 +302,25 @@ void UClassHandler::UnlockPassiveSkill(EClassID aClassID, EPassiveSkillID aSkill
 	}
 	UpdateMainClassAndSubclassData();
 	playerCombatEntity->GatherAndSavePlayerCompleteDataSet();
+}
+
+void UClassHandler::UnlockAllSkills()
+{
+	for (auto Element : unlockedClasses)
+	{
+		Element.Value->UnlockAllClassSkills();
+		
+	}
+}
+
+void UClassHandler::UnlockAllMainClassPassives()
+{
+	int numberOfSkillClassData = CompleteClassHandlerData.unlockedPlayerClasses[mainClass->GetClassID()].classPassives.Num();
+	for(int i = 0 ; i <numberOfSkillClassData;i++ )
+	{
+		UnlockPassiveSkill(mainClass->GetClassID(),
+			CompleteClassHandlerData.unlockedPlayerClasses[mainClass->GetClassID()].classPassives[i].passiveSkillID);
+	}
 }
 
 void UClassHandler::GiveClassPoints(int aClassPoints)

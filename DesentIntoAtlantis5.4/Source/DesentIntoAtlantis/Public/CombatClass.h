@@ -106,7 +106,9 @@ public:
 	UPROPERTY()
 	int currentClassIndex;
 	
-	void CreateAllUnlockedClassSkills(FCompleteClassData aCompleteClassData);
+	void CreateUnlockedClassSkills(FCompleteClassData aCompleteClassData);
+
+	void UnlockAllClassSkills();
 
 	int experience;
 };

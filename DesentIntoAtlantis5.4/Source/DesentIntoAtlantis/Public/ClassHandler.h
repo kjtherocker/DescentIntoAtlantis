@@ -9,6 +9,7 @@
 #include "ClassHandler.generated.h"
 
 
+class UPartyManagerSubsystem;
 enum class EClassID : uint8;
 class UCombatClass;
 /**
@@ -27,6 +28,9 @@ public:
 
 	UPROPERTY()
 	USkillFactorySubsystem* skillfactorySubsystem;
+
+	UPROPERTY()
+	UPartyManagerSubsystem* partyManager;
 	
 	UPROPERTY()
 	TMap<EClassID,UCombatClass*> unlockedClasses;
@@ -37,13 +41,14 @@ public:
 	UPROPERTY()
 	UPlayerCombatEntity* playerCombatEntity;
 	virtual void LoadSavedClassHandler(	FCompleteClassHandlerData aCompleteClassHandlerData);
-	virtual void InitializeClassHandler(UPlayerCombatEntity* aPlayerCombatEntity, USkillFactorySubsystem* SkillFactorySubsystem);
+	virtual void InitializeClassHandler(UPlayerCombatEntity* aPlayerCombatEntity, USkillFactorySubsystem* SkillFactorySubsystem,UPartyManagerSubsystem* aPlayerManager);
 	virtual void InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData);
 	virtual void SetClass(EClassID aClass, EClassSlot ClassSlot);
 	virtual TArray<USkillBase*> GetClassSkills(EClassSlot ClassSlot);
 
 	virtual TMap<EPassiveSkillID,FPassiveSkillClassData> GetUnlockedPassives(){return  CompleteClassHandlerData.unlockedPassives;}
 
+	virtual void UnlockClass(EClassID aClass);
 	virtual void UpdateMainClassAndSubclassData();
 	virtual FCompleteClassData ValidateSavedClassAndDataClass(FCompleteClassData aSavedClass,FCompleteClassData aDatatableClass);
 	virtual TArray<FSkillClassData> ValidateSkills(FCompleteClassData aSavedClass,FCompleteClassData aDatatableClass);
@@ -51,6 +56,10 @@ public:
 	virtual FString GetClassName(EClassSlot aClass);
 	void UnlockSkill(EClassID aClassID,ESkillIDS aSkillID);
 	void UnlockPassiveSkill(EClassID aClassID,EPassiveSkillID aSkillID);
+
+	void UnlockAllSkills();
+	
+	void UnlockAllMainClassPassives();
 	
 	virtual void GiveClassPoints(int aClassPoints);
 	virtual void RemoveClassPoints(int aClassPoints);

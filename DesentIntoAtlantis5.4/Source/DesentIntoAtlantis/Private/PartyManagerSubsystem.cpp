@@ -147,9 +147,32 @@ void UPartyManagerSubsystem::CreateTestParty()
 	{
 		FDefaultTestPlayerFightData PlayerFightData = DefaultTestFightData[0].PlayerFightData[i];
 		AddPlayerToActiveParty(PlayerFightData.characterIdentifier);
-		activePartyEntityData[i]->classHandler->LoadSavedClassHandler(PlayerFightData.CompleteClassHandlerData);
-		activePartyEntityData[i]->classHandler->SetClass(PlayerFightData.CompleteClassHandlerData.mainClassData.classIdentifer,EClassSlot::Main);
-		activePartyEntityData[i]->classHandler->SetClass(PlayerFightData.CompleteClassHandlerData.subClassData.classIdentifer,EClassSlot::Sub);
+		
+		activePartyEntityData[i]->classHandler->UnlockClass(PlayerFightData.CompleteClassHandlerData.mainClassData.classIdentifer);
+		activePartyEntityData[i]->classHandler->UnlockClass(PlayerFightData.CompleteClassHandlerData.subClassData.classIdentifer);
+
+		if(PlayerFightData.CompleteClassHandlerData.mainClassData.classIdentifer != EClassID::None)
+		{
+			activePartyEntityData[i]->classHandler->SetClass(PlayerFightData.CompleteClassHandlerData.mainClassData.classIdentifer,EClassSlot::Main);	
+		}
+
+		if(PlayerFightData.CompleteClassHandlerData.subClassData.classIdentifer != EClassID::None)
+		{
+			activePartyEntityData[i]->classHandler->SetClass(PlayerFightData.CompleteClassHandlerData.subClassData.classIdentifer,EClassSlot::Sub);
+		}
+		
+		activePartyEntityData[i]->SetEquipmentState(PlayerFightData.DefaultSpawnEquipmentHandlerData);
+
+		activePartyEntityData[i]->combatEntityHub->passiveHandler->PassiveSlotHandler->SetPassiveSlotState(PlayerFightData.PassiveSlotHandlerData);
+		switch (PlayerFightData.TestCharacterState)
+		{
+		case ETestCharacterState::None:
+			break;
+		case ETestCharacterState::UnlockEverything:
+			activePartyEntityData[i]->classHandler->UnlockAllSkills();
+			activePartyEntityData[i]->classHandler->UnlockAllMainClassPassives();
+			break;
+		}
 	}
 }
 
@@ -234,6 +257,7 @@ void UPartyManagerSubsystem::SetPartyLevel(int aPartyLevel)
 {
 	partyLevel = aPartyLevel;
 }
+
 
 void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, FPlayerCompleteDataSet> aPlayerCompleteDataSets)
 {

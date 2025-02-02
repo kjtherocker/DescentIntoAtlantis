@@ -21,10 +21,10 @@ void UCombatClass::SetClass(FCompleteClassData aLoadedClass)
 {
 	completeClassData = aLoadedClass;
 	completeClassData.classStatBase = completeClassData.classBaseStat;
-	CreateAllUnlockedClassSkills(completeClassData);
+	CreateUnlockedClassSkills(completeClassData);
 }
 
-void UCombatClass::CreateAllUnlockedClassSkills(FCompleteClassData aCompleteClassData)
+void UCombatClass::CreateUnlockedClassSkills(FCompleteClassData aCompleteClassData)
 {
 	classSkills.Reset();
 	
@@ -35,6 +35,21 @@ void UCombatClass::CreateAllUnlockedClassSkills(FCompleteClassData aCompleteClas
 			continue;
 		}
 		
+		ESkillIDS skillName = skillByLevel.SkillIds;
+		if(skillName != ESkillIDS::None)
+		{
+			USkillBase* newSkill = skillFactory->GetSkill(skillName);
+			classSkills.Add(newSkill);
+		}
+	}
+}
+
+void UCombatClass::UnlockAllClassSkills()
+{
+	classSkills.Reset();
+	
+	for (FSkillClassData skillByLevel : completeClassData.skillClassData)
+	{
 		ESkillIDS skillName = skillByLevel.SkillIds;
 		if(skillName != ESkillIDS::None)
 		{
