@@ -4,6 +4,7 @@
 
 
 #include "CoreMinimal.h"
+#include "DefaultTestFightData.h"
 #include "PlayerCombatEntity.h"
 #include "UPartyInventory.h"
 
@@ -81,15 +82,19 @@ private:
 	int totalClassPoints = 0;
 	int partyLevel      = 1;
 public:
+
+	TArray<FDefaultTestFightData> DefaultTestFightData;
 	FPartyManagerHasChanged PartyManagerHasChanged;
 
 	FCompletePartyManagerSubsystemData GetPartyManagerData(){return CompletePartyManagerSubsystemData;}
 	void LoadSavedPartyManagerSubsystem(FCompletePartyManagerSubsystemData APartyManagerSubsystemData);
-	void InitializeDataTable(UDataTable* aPlayerData,UDataTable* aClassDataTable, UDataTable* aPartyExperienceTable);
+	void InitializeDataTable(UDataTable* aPlayerData,UDataTable* aClassDataTable, UDataTable* aPartyExperienceTable, UDataTable* aTestCombatInfo);
 	void CreatePlayerEntitys(EPartyMembers aPlayer);
 	void AddPlayerToActiveParty(EPartyMembers aPlayer);
 
 	void RemoveAllCombatTokensFromParty();
+
+	void CreateTestParty();
 	
 	void SavePartyManager();
 
@@ -99,6 +104,8 @@ public:
 
 	void AddPartyExperience(int aExperience);
 	void AddPartyClassPoints(int aClassPoints);
+	void SetPartyLevel(int aPartyLevel);
+	
 	void LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, FPlayerCompleteDataSet> aPlayerCompleteDataSets);
 	void ResetActivePartyToDefaultState();
 	

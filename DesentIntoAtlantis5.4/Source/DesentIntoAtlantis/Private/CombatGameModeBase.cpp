@@ -81,6 +81,8 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 	{
 		return;
 	}
+
+	FString enemyGroupName = aEnemyGroupName;
 	
 	soundManager->PlayAudio(EAudioSources::CombatMusic,EAudio::Combat);
 
@@ -102,17 +104,16 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 
 	if(partyMembersInCombat.Num() == 0)
 	{
-		partyManager->AddPlayerToActiveParty(EPartyMembers::Kriede);
-		partyManager->AddPlayerToActiveParty(EPartyMembers::Feienne);
-		partyManager->AddPlayerToActiveParty(EPartyMembers::Rain);
-		partyManager->AddPlayerToActiveParty(EPartyMembers::Gram);
+		partyManager->SetPartyLevel(partyManager->DefaultTestFightData[0].PartyLevel);
+		partyManager->CreateTestParty();
 		partyMembersInCombat       = partyManager->ReturnActiveParty();
+		enemyGroupName             = partyManager->DefaultTestFightData[0].EnemyGroupID;
 	}
 	  
 	currentActivePartyMember   = partyMembersInCombat[0];
 	CharacterTypeTurn            = ECharactertype::Ally;
 	
-	TArray<FString> EnemyNames = enemyFactory->ReturnEnemyGroupData(aEnemyGroupName);
+	TArray<FString> EnemyNames = enemyFactory->ReturnEnemyGroupData(enemyGroupName);
 		
 	for(int i = 0 ; i < EnemyNames.Num();i++)
 	{

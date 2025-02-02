@@ -74,7 +74,7 @@ void UPersistentGameinstance::Init()
 		if(dataTables[EDataTableTypes::PlayerCharacters] != nullptr)
 		{
 			partyManagerSubsystem->InitializeDataTable(dataTables[EDataTableTypes::PlayerCharacters], dataTables[EDataTableTypes::Classes],
-				dataTables[EDataTableTypes::PartyExperienceTable]);
+				dataTables[EDataTableTypes::PartyExperienceTable],dataTables[EDataTableTypes::TestCombat]);
 		}
 	}
 

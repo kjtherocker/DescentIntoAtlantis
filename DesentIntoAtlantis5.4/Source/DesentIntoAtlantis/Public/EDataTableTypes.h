@@ -23,6 +23,7 @@ enum class  EDataTableTypes
 	CombatTokens         = 14,
 	Equipment            = 15,
 	AllFloorNodeTileSet  = 16,
+	TestCombat           = 17,
 };
 
 

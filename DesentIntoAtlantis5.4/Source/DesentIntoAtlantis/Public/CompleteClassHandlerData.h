@@ -16,10 +16,10 @@ struct DESENTINTOATLANTIS_API FCompleteClassHandlerData: public FTableRowBase
 {
 	GENERATED_BODY()
 	
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 	FCompleteClassData mainClassData;
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 	FCompleteClassData subClassData;
 	
 	UPROPERTY(EditAnywhere)

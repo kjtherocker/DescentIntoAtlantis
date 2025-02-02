@@ -30,10 +30,11 @@ void UPartyManagerSubsystem::LoadSavedPartyManagerSubsystem(FCompletePartyManage
 	LoadAndCreateAllPlayerEntitys(aPartyManagerSubsystemData.playerCompleteDataSet);
 }
 
-void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UDataTable* aClassDataTable, UDataTable* aPartyExperienceTable)
+void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UDataTable* aClassDataTable, UDataTable* aPartyExperienceTable, UDataTable* aTestCombatInfo)
 {
 
 
+	 
 	FPartyExperienceTable PartyExperienceTable = *aPartyExperienceTable->FindRow<FPartyExperienceTable>(FName(FString::FromInt(0)),FString("Searching for Classes"),true) ;
 	LevelExperienceTable = PartyExperienceTable.LevelExpValue;
 	
@@ -67,6 +68,19 @@ void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UData
 	}
 
 	PartyInventory->InitializePartyInventory(CompletePartyManagerSubsystemData.PartyInventoryCompleteData,persistentGameInstance->passiveFactorySubsystem);
+
+
+	UDataTable* combatTestInfo = aTestCombatInfo;
+	
+	if(combatTestInfo)
+	{
+		for (auto Element : combatTestInfo->GetRowNames())
+		{
+			DefaultTestFightData.Add(*combatTestInfo->FindRow<FDefaultTestFightData>(FName(Element),FString("Searching for Players"),true));
+		}
+	}
+
+	
 	
 }
 
@@ -124,6 +138,18 @@ void UPartyManagerSubsystem::RemoveAllCombatTokensFromParty()
 	for(int i = 0 ; i < activePartyEntityData.Num();i++)
 	{
 		activePartyEntityData[i]->combatEntityHub->combatTokenHandler->RemoveAllCombatTokens();
+	}
+}
+
+void UPartyManagerSubsystem::CreateTestParty()
+{
+	for (int i = 0 ; i < DefaultTestFightData[0].PlayerFightData.Num();i++)
+	{
+		FDefaultTestPlayerFightData PlayerFightData = DefaultTestFightData[0].PlayerFightData[i];
+		AddPlayerToActiveParty(PlayerFightData.characterIdentifier);
+		activePartyEntityData[i]->classHandler->LoadSavedClassHandler(PlayerFightData.CompleteClassHandlerData);
+		activePartyEntityData[i]->classHandler->SetClass(PlayerFightData.CompleteClassHandlerData.mainClassData.classIdentifer,EClassSlot::Main);
+		activePartyEntityData[i]->classHandler->SetClass(PlayerFightData.CompleteClassHandlerData.subClassData.classIdentifer,EClassSlot::Sub);
 	}
 }
 
@@ -202,6 +228,11 @@ void UPartyManagerSubsystem::AddPartyClassPoints(int aClassPoints)
 	{
 		PlayerCombatEntity->GiveClassPoints(aClassPoints);
 	}
+}
+
+void UPartyManagerSubsystem::SetPartyLevel(int aPartyLevel)
+{
+	partyLevel = aPartyLevel;
 }
 
 void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, FPlayerCompleteDataSet> aPlayerCompleteDataSets)

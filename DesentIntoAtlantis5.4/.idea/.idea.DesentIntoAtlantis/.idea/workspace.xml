@@ -10,37 +10,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/BP_Box.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Frame_001.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Frame_002.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Frame_003.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Frame_004.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/SolitaryDoor/Material_Door.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/SolitaryDoor/Material_Prison_SolitaryDoor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/SolitaryDoor/SolitaryDoor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Combat/Test/DT_TestArenaData.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/DefaultTestFightData.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/DefaultTestFightData.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-5-allSidesOpen/BP_PrisonFloorNode_AllSidesOpen_StairsUp.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-5-allSidesOpen/BP_PrisonFloorNode_AllSidesOpen_StairsUp.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-7-upleft/BP_PrisonFloorNode_UpLeft.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-7-upleft/BP_PrisonFloorNode_UpLeft.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/FloorNode.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_001.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_005.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_005.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_008.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_015.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_016.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_018.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_Prison_Box.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Material_Prison_Box.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Cube.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Frame.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Frame.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Screw.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Screw_001.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Screw_002.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Screw_003.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Shell.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Texture.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Texture_ncl1_1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Texture_ncl1_2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Texture_ncl1_3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/Box/Prison_Box_Texture_ncl1_4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/Prison_StairsUp.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/Prison_StairsUp.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vsconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.vsconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/15-DownLeftRight/BP_PrisonFloorNode_DownLeftRight_Variant1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/15-DownLeftRight/BP_PrisonFloorNode_DownLeftRight_Variant1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/SolitaryDoor/Material_001.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/SolitaryDoor/Material_Window.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/SolitaryDoor/Material_Window.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/SolitaryDoor/SolitaryConfinementDoor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/SolitaryDoor/SolitaryConfinementDoor.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/VendingMachine/Material_001.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/VendingMachine/Material_001.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Combat/DT_EnemyGroup.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_EnemyGroup.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Floor/DT_Floor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Floor/DT_Floor.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatGameModeBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatGameModeBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/MainMenuGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/MainMenuGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyManagerSubsystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyManagerSubsystem.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PersistentGameinstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PersistentGameinstance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CompleteClassHandlerData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CompleteClassHandlerData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EDataTableTypes.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EDataTableTypes.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyManagerSubsystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyManagerSubsystem.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,38 +43,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Plugins/EnhancedInput/Source/EnhancedInput/Private/EnhancedPlayerInput.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/GameplayStateTree/Source/GameplayStateTreeModule/Public/Components/StateTreeComponent.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/StateTree/Source/StateTreeModule/Public/StateTree.h" root0="SKIP_HIGHLIGHTING" />
@@ -132,6 +92,7 @@
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatToken_Base.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatToken_Base_Data.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatToken_UiElement.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/DefaultTestFightData.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/DialogueView.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EAtlantisEvents.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EDataTableTypes.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -749,7 +710,8 @@
       <workItem from="1737989873534" duration="4265000" />
       <workItem from="1737994474663" duration="158000" />
       <workItem from="1737994696679" duration="355000" />
-      <workItem from="1737995151007" duration="13678000" />
+      <workItem from="1737995151007" duration="17275000" />
+      <workItem from="1738420129338" duration="4887000" />
     </task>
     <servers />
   </component>
