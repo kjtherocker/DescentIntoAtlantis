@@ -30,10 +30,12 @@ void UPlayerCombatEntity::LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerComplet
 	currentSync   = aPlayerCompleteDataSet.currentSync;
 }
 
-void UPlayerCombatEntity::SetPlayerEntity(FPlayerIdentityData aPlayerEntityData)
+void UPlayerCombatEntity::SetPlayerEntity(FPlayerIdentityData aPlayerEntityData,FCharacterCostumeData aDialogueCostumeData)
 {
 	playerCompleteDataSet.playerIdentityData = aPlayerEntityData;
 	playerIdentityData                       = aPlayerEntityData;
+
+	SetCurrentCostume(aDialogueCostumeData);
 }
 
 void UPlayerCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory
@@ -129,6 +131,11 @@ void UPlayerCombatEntity::GatherAndSavePlayerCompleteDataSet()
 	playerCompleteDataSet.EquipmentHandlerData           = combatEntityHub->equipmentHandler->GetEquipmentHandlerData();
 	playerCompleteDataSet.HealthData.currentHealth = health->GetCurrentHealth();
 	playerCompleteDataSet.currentMP = currentMana;
+}
+
+void UPlayerCombatEntity::SetCurrentCostume(FCharacterCostumeData aCostumeData)
+{
+	currentCostumeData = aCostumeData;
 }
 
 void UPlayerCombatEntity::AddPassive(UPassiveSkills* aPassiveSkills,EPassiveSkillSlotType passiveSkillSlot)

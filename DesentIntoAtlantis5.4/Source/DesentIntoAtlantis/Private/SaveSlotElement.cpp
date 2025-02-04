@@ -46,7 +46,7 @@ void USaveSlotElement::SpawnPlayerPortraits(FPlayerCompleteDataSet aCompleteData
 	baseUserWidget->UiInitialize(gameModeBase);
 	partyStatusHealthbar->AddToViewport();
 	EPartyMembers currentPartyMember = aCompleteDataSet.playerIdentityData.characterIdentifier;
-	UTexture2D* texture = PartyManagerSubsystem->playerIdenityMap[currentPartyMember].halfBodyCharacterPortrait;
+	UTexture2D* texture = PartyManagerSubsystem->playerIdenityMap[currentPartyMember].SaveIcon;
 	
 	baseUserWidget->SetPortrait(texture);
 	BW_HorizontalBox->AddChild(baseUserWidget);

@@ -7,6 +7,7 @@
 #include "CombatEntityHub.h"
 #include "CombatTokenRowElement.h"
 #include "Health.h"
+#include "PersistentGameinstance.h"
 #include "PlayerCombatEntity.h"
 #include "Components/ProgressBar.h"
 #include "Components/TextBlock.h"
@@ -31,10 +32,11 @@ void UPartyHealthbarElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 		&UPartyHealthbarElement::TriggerGreyScale);
 	
 	characterName = playerCombatEntity->playerIdentityData.characterName;
-
-	if(aCombatEntity->playerIdentityData.characterPortrait)
+    FCharacterCostumeData DialogueActor = playerCombatEntity->GetCurrentCostumeData();
+	
+	if(DialogueActor.healthbarPortrait != nullptr)
 	{
-		UMaterialInterface* CurrentMaterial = aCombatEntity->playerIdentityData.characterPortrait;
+		UMaterialInterface* CurrentMaterial = DialogueActor.healthbarPortrait;
 		UMaterialInterface*  materialInstanceDynamic = UMaterialInstanceDynamic::Create(CurrentMaterial, this);
 		BW_CharacterPortrait->SetBrushFromMaterial(materialInstanceDynamic);
 	}

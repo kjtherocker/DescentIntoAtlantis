@@ -358,8 +358,18 @@ void AFloorManager::SpawnCutsceneFloorPawn(FDialogueActorData aDialogueActor,TSu
 	{
 		return;
 	}
+
+	FVector ActorFinalSpawnPoint;
 	
-	FVector ActorFinalSpawnPoint = node->GetActorLocation() + PositionOffset;
+	if(aDialogueActor.dialogueActor == EDialogueActorsLabel::CutsceneCamera)
+	{
+		ActorFinalSpawnPoint = node->GetActorLocation() + FLOOR_PAWN_HEIGHT_OFFSET;
+	}
+	else
+	{
+		ActorFinalSpawnPoint = node->GetActorLocation() + PositionOffset;
+	}
+	
 
 	//Rotation
 	FRotator rotator = GetActorRotation();
@@ -392,7 +402,18 @@ void AFloorManager::SpawnCutsceneFloorPawn(FDialogueActorData aDialogueActor,TSu
 
 void AFloorManager::MoveCutscenePawnToLocation(FDialogueActorData actorData)
 {
+	if(actorData.pawnData.currentNodePositionInGrid == FVector2d(-1,-1))
+	{
+		return;
+	}
+	
 	EDialogueActorsLabel dialogueActorsLabel       = actorData.dialogueActor;
+	
+	if(!spawnedDialogueActors.Contains(dialogueActorsLabel))
+	{
+		return;
+	}
+
 	FCompleteFloorPawnData CompleteFloorPawnData   = actorData.pawnData;
 	FVector2D positionInGrid                       = CompleteFloorPawnData.currentNodePositionInGrid;
 	

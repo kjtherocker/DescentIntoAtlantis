@@ -19,6 +19,9 @@ void UDialogueView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UDialogueView::ActivateNextDialogue);
 	InputComponent->BindAction("Tab"  ,IE_Pressed ,this, &UDialogueView::DialogueFinished);
 
+	DialoguePortraitImages.Add(EDialoguePortraitPositions::Left,BW_LeftCharacterPortrait);
+	DialoguePortraitImages.Add(EDialoguePortraitPositions::Center,BW_CenterCharacterPortrait);
+	DialoguePortraitImages.Add(EDialoguePortraitPositions::Right,BW_RightCharacterPortrait);
 	persistentGameinstance = Cast<UPersistentGameinstance>( GetGameInstance());
 }
 
@@ -34,7 +37,7 @@ void UDialogueView::SetFloorEventDialogueData(EDialogueTriggers aDialogueData, E
 	for(int i = 0 ; i < dialogueActorData.Num();i++)
 	{
 		EDialogueActorsLabel dialogueActor = dialogueActorData[i].dialogueActor;
-		TSubclassOf<AActor> newActor = persistentGameinstance->dialogueManagerSubsystem->GetDialogueActorDataByLabel(dialogueActor).actorReference[ECharacterCostume::DefaultOutFit];
+		TSubclassOf<AActor> newActor = persistentGameinstance->dialogueManagerSubsystem->GetDialogueDataByLabel(dialogueActor).actorReference[ECharacterCostume::DefaultOutFit];
 		aFloorManager->SpawnCutsceneFloorPawn(dialogueActorData[i],newActor);
 	
 	}
@@ -67,25 +70,20 @@ void UDialogueView::SetNextDialogue(bool audio)
 		return;
 	}
 	
-	FDialogueData nextDialogueData = dialogueData[0];
+	FCutsceneData nextDialogueData = dialogueData[0];
 	dialogueData.RemoveAt(0);
 
-	if(nextDialogueData.SpeakerName.Contains(ELanguages::English))
+	ELanguages currentLanguage = ELanguages::English;
+	
+	if(nextDialogueData.dialogueData.Contains(currentLanguage))
 	{
-		BW_Name->SetText(FText(FText::FromString(nextDialogueData.SpeakerName[ELanguages::English])));	
-	}
+		FDialogueData textData =  nextDialogueData.dialogueData[currentLanguage];
 
-	if(nextDialogueData.Dialogue.Contains(ELanguages::English))
-	{
-		BW_DialogueText->SetText(FText(FText::FromString(nextDialogueData.Dialogue[ELanguages::English])));
+		BW_Name->SetText(FText(FText::FromString(textData.SpeakerName)));
+		BW_DialogueText->SetText(FText(FText::FromString(textData.Dialogue)));
 	}
 	
-
-	
-	SetDialogueImages(nextDialogueData.LeftPortrait, BW_LeftCharacterPortrait);
-	SetDialogueImages(nextDialogueData.CenterPortrait,BW_CenterCharacterPortrait);
-	SetDialogueImages(nextDialogueData.RightPortrait,BW_RightCharacterPortrait);
-	SetDialogueImages(nextDialogueData.BackgroundCG, BW_BackgroundCG);
+	SetPortaits(nextDialogueData);
 
 	if(floorManager != nullptr)
 	{
@@ -140,12 +138,45 @@ void UDialogueView::SpawnActor(EDialogueActorsLabel aActorLabel, TSubclassOf<AAc
 
 }
 
+void UDialogueView::SetPortaits(FCutsceneData aDialogueData)
+{
+	for (auto Element : 	aDialogueData.PortraitData)
+	{
+		EDialogueActorsLabel CharacterID   = Element.CharacterID;
+		FPortaitActorData DialogueActors  = persistentGameinstance->dialogueManagerSubsystem->GetDialogueDataByLabel(CharacterID);
+		ECharacterCostume CharacterCostume = Element.ForcedCostume == ECharacterCostume::None ? ECharacterCostume::DefaultOutFit : Element.ForcedCostume;
+		
+		if(!DialogueActors.CharacterData.CostumeData.Contains(CharacterCostume))
+		{
+			continue;
+		}
+		
+		FCharacterCostumeData CostumeData = DialogueActors.CharacterData.CostumeData[CharacterCostume];
+
+		if(!DialoguePortraitImages.Contains(Element.portraitPositions))
+		{
+			continue;
+		}
+
+		UImage* portraitImage = DialoguePortraitImages[ Element.portraitPositions];
+
+		if(!CostumeData.costumeExpressionTextures.Contains(Element.portraitExpression))
+		{
+			continue;
+		}
+		
+		UTexture2D* CostumePortrait  = CostumeData.costumeExpressionTextures[Element.portraitExpression];
+		SetDialogueImages(CostumePortrait, portraitImage);		
+	}
+	
+	SetDialogueImages(aDialogueData.BackgroundCG, BW_BackgroundCG);
+}
+
 void UDialogueView::DialogueFinished()
 {
 	InGameHUD->PopMostRecentActiveView();
-
-
 	onDialogueEnd.Broadcast();
+	
 	if(triggerOnEnd != EFloorEventStates::None)
 	{
 		if(reactivatePawnInputOnEnd)

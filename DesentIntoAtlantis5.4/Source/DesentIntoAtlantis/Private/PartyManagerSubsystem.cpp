@@ -88,14 +88,16 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembers aPlayer)
 {
 	UPlayerCombatEntity* PlayerCombatEntity = NewObject<UPlayerCombatEntity>();
 
-	PlayerCombatEntity->SetPlayerEntity(playerIdenityMap[aPlayer]);
+	FCharacterCostumeData CostumeData = persistentGameInstance->dialogueManagerSubsystem->
+		GetCostumeData(playerIdenityMap[aPlayer].DialogueActorsLabel,playerIdenityMap[aPlayer].defaultCostume);
+	
+	PlayerCombatEntity->SetPlayerEntity(playerIdenityMap[aPlayer],CostumeData);
 	PlayerCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactory,persistentGameInstance);
 
 	EClassID initalClass = playerIdenityMap[aPlayer].initalClass;
 	if(classDataTables.Contains(initalClass))
 	{
 		PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[initalClass]);
-		PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[EClassID::GemThief]);
 		PlayerCombatEntity->SetMainClass(initalClass);
 		PlayerCombatEntity->LevelUp(partyLevel);
 	}
@@ -273,8 +275,12 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 
 		EPartyMembers partyMember =  playerCompleteData.playerIdentityData.characterIdentifier;
 		
+		ECharacterCostume CharacterCostume = playerCompleteData.playerIdentityData.currentCharacterCostume; 
 
-		PlayerCombatEntity->SetPlayerEntity(playerIdenityMap[partyMember]);
+		FCharacterCostumeData CostumeData = persistentGameInstance->dialogueManagerSubsystem->
+		GetCostumeData(playerCompleteData.playerIdentityData.DialogueActorsLabel,CharacterCostume);
+	
+		PlayerCombatEntity->SetPlayerEntity(playerIdenityMap[partyMember],CostumeData);
 		PlayerCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactory,persistentGameInstance);
 
 		PlayerCombatEntity->LoadSavedHPAndMP(playerCompleteData);

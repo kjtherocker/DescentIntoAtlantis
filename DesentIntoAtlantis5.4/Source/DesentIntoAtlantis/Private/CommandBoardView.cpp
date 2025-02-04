@@ -40,7 +40,8 @@ void UCommandBoardView::SetCommandBoard(ACombatGameModeBase* aCombatGameModeBase
 	combatManager =  aCombatGameModeBase;
 	currentActivePartyMember = combatManager->GetCurrentActivePartyMember();
 	defaultAttack = static_cast<UDefaultSkillAttack*>(SkillFactorySubsystem->GetSkill(ESkillIDS::DefaultAttack));
-	BW_FullBodyPortrait->SetBrushFromTexture(currentActivePartyMember->playerIdentityData.fullBodyCharacterPortrait);
+	
+	BW_FullBodyPortrait->SetBrushFromTexture(currentActivePartyMember->GetCurrentCostumeData().fullBodyCharacterPortrait);
 	
 	commandBoards.Add(BW_Attack);
 	commandBoards.Add(BW_MainSkill);

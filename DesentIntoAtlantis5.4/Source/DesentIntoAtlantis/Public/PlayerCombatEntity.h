@@ -9,11 +9,15 @@
 #include "CombatClass.h"
 #include "CompleteClassHandlerData.h"
 #include "CompleteElementalHandlerData.h"
+#include "DialogueManagerSubsystem.h"
 #include "EquipmentHandler.h"
+#include "FloorEnum.h"
 #include "PassiveSkillHandlerData.h"
 #include "PlayerCombatEntity.generated.h"
 
 
+struct FDialogueData;
+enum class ECharacterCostume : uint8;
 enum class EClassID  : uint8;
 class UPartyHealthbarElement;
 /**
@@ -27,7 +31,10 @@ struct DESENTINTOATLANTIS_API FPlayerIdentityData :public  FTableRowBase
 
 	UPROPERTY(EditAnywhere)
 	EPartyMembers characterIdentifier;
-		
+
+	UPROPERTY(EditAnywhere)
+	EDialogueActorsLabel DialogueActorsLabel;
+	
 	UPROPERTY( EditAnywhere )
 	EClassID initalClass;
 
@@ -42,12 +49,14 @@ struct DESENTINTOATLANTIS_API FPlayerIdentityData :public  FTableRowBase
 	UPROPERTY( EditAnywhere )
 	FString characterName;
 	
+	UPROPERTY(EditAnywhere)
+	ECharacterCostume defaultCostume;
+	
+	UPROPERTY()
+	ECharacterCostume currentCharacterCostume;
+	
 	UPROPERTY( EditAnywhere )
-	UMaterialInterface*  characterPortrait;
-	UPROPERTY( EditAnywhere )
-	UTexture2D* fullBodyCharacterPortrait;
-	UPROPERTY( EditAnywhere )
-	UTexture2D* halfBodyCharacterPortrait;
+	UTexture2D* SaveIcon;
 
 	UPROPERTY(EditAnywhere)
 	int initialLevel;
@@ -112,11 +121,14 @@ public:
 	UPROPERTY()
 	TArray<UAilment*> activeAilments;
 
+	UPROPERTY()
+	FCharacterCostumeData currentCostumeData;
+	
 	virtual EPartyMembers GetPartyMember(){ return playerIdentityData.characterIdentifier; }
 	
     virtual void InitializeStats(EStatTypes aAbilityScoreTypes) override;
 	virtual void LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet);
-	virtual void SetPlayerEntity(FPlayerIdentityData aPlayerEntityData);
+	virtual void SetPlayerEntity(FPlayerIdentityData aPlayerEntityData,FCharacterCostumeData aDialogueCostumeData);
 	virtual void SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassiveFactorySubsystem* aPassiveSkillFactory,UPersistentGameinstance* aPersistentGameinstance) override;
 	virtual void EquipEquipment(UEquipmentPassive* aEquipment, int aSlot);
 	virtual void EquipPassive(UPassiveSkills* aPassive, int aSlot);
@@ -133,6 +145,9 @@ public:
 	virtual int  GetClassPoints();
 	virtual void GatherAndSavePlayerCompleteDataSet();
 
+	virtual void SetCurrentCostume(FCharacterCostumeData aCostumeData);
+	virtual  FCharacterCostumeData GetCurrentCostumeData() { return currentCostumeData;}
+	
 	virtual void AddPassive(UPassiveSkills* aPassiveSkills,EPassiveSkillSlotType passiveSkillSlot) override;
 	virtual void RemovePassive(UPassiveSkills* aPassiveSkills) override;
 

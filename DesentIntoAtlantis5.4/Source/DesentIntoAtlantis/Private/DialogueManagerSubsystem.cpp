@@ -11,21 +11,31 @@ class UDialogueView;
 void UDialogueManagerSubsystem::InitializeDatabase(UDataTable* aDialogueDatabase,UDataTable* aDialogueActorDatabase)
 {
 	UDataTable* datatable = aDialogueDatabase;
-	for(int i = 0 ; i < datatable->GetRowMap().Num(); i ++)
-	{
-		FDialogueCompleteData DialogueData = *datatable->FindRow<FDialogueCompleteData>(FName(FString::FromInt(i)),FString("Searching for Dialogue"),true);
 
-		dialogueData.Add(DialogueData.DialogueTriggers,DialogueData);
+	if(datatable)
+	{
+		for (auto Element : datatable->GetRowNames())
+		{
+			FDialogueCompleteData DialogueData = *datatable->FindRow<FDialogueCompleteData>(FName(Element),FString("Searching for Dialogue"),true);
+
+
+			dialogueData.Add(DialogueData.DialogueTriggers,DialogueData);
+		}
 	}
 
 	UDataTable* datatable2 = aDialogueActorDatabase;
-	TMap<EDialogueActorsLabel, FAllDialogueActors> tempdialogueActors;
-	for(int i = 0 ; i < datatable2->GetRowMap().Num(); i ++)
-	{
-		FAllDialogueActors actorData = *datatable2->FindRow<FAllDialogueActors>(FName(FString::FromInt(i)),FString("Searching for Actor"),true);
+	TMap<EDialogueActorsLabel, FPortaitActorData> tempdialogueActors;
 
-		tempdialogueActors.Add(actorData.dialogueActor,actorData);
+	if(datatable2)
+	{
+		for (auto Element : datatable2->GetRowNames())
+		{
+			FPortaitActorData actorData = *datatable2->FindRow<FPortaitActorData>(FName(Element),FString("Searching for Actor"),true);
+
+			tempdialogueActors.Add(actorData.dialogueActor,actorData);
+		}
 	}
+		
 	dialogueActors = tempdialogueActors;
 }
 
@@ -34,9 +44,31 @@ FDialogueCompleteData UDialogueManagerSubsystem::GetDialogueDataByTrigger(EDialo
 	return dialogueData[aDialogueData];
 }
 
-FAllDialogueActors UDialogueManagerSubsystem::GetDialogueActorDataByLabel(EDialogueActorsLabel aActorData)
+FPortaitActorData UDialogueManagerSubsystem::GetDialogueDataByLabel(EDialogueActorsLabel aActorData)
 {
-	return dialogueActors[aActorData];
+	if(dialogueActors.Contains(aActorData))
+	{
+		return dialogueActors[aActorData];		
+	}
+	else
+	{
+		FPortaitActorData portraitActorData;
+		return portraitActorData;
+	}
+
+}
+
+FCharacterCostumeData UDialogueManagerSubsystem::GetCostumeData(EDialogueActorsLabel aActorData,
+	ECharacterCostume aCharacterCostume)
+{
+	FPortaitActorData PortraitActorData = GetDialogueDataByLabel(aActorData);
+
+	if(!PortraitActorData.CharacterData.CostumeData.Contains(aCharacterCostume))
+	{
+		return PortraitActorData.CharacterData.CostumeData[ECharacterCostume::DefaultOutFit];
+	}
+	
+	return PortraitActorData.CharacterData.CostumeData[aCharacterCostume];
 }
 
 void UDialogueManagerSubsystem::DialogueFinished()

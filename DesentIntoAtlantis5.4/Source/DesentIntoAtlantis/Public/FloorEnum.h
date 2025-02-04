@@ -181,7 +181,7 @@ enum class EDialogueActorsLabel
 	None                = 0,
 	Rain                = 1,
 	Kriede              = 2,
-	Fienne              = 3,
+	Feienne             = 3,
 	GuardShark          = 4,
 	CutsceneCamera      = 5
 };

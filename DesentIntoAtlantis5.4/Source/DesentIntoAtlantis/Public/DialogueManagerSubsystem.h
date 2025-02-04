@@ -53,6 +53,16 @@ enum class EDialoguePortraitExpression  : uint8
 	Screaming,
 };
 
+UENUM()
+enum class EDialoguePortraitPositions  : uint8
+{
+	None,
+	Left,
+	Center,
+	Right,
+	Unique,
+};
+
 
 
 UENUM()
@@ -64,11 +74,17 @@ enum class ELanguages  : uint8
 };
 
 USTRUCT()
-struct DESENTINTOATLANTIS_API FDialogueCostumeData: public FTableRowBase
+struct DESENTINTOATLANTIS_API FCharacterCostumeData: public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
-	UPROPERTY(EditAnywhere)
-	ECharacterCostume CharacterCostume;
+
+	UPROPERTY( EditAnywhere )
+	UMaterialInterface*  healthbarPortrait;
+	UPROPERTY( EditAnywhere )
+	UTexture2D* fullBodyCharacterPortrait;
+	UPROPERTY( EditAnywhere )
+	UTexture2D* halfBodyCharacterPortrait;
+	
 	UPROPERTY(EditAnywhere)
 	TMap<EDialoguePortraitExpression,UTexture2D*> costumeExpressionTextures;
 };
@@ -79,7 +95,7 @@ struct DESENTINTOATLANTIS_API FDialogueCharacterData : public FTableRowBase
 	GENERATED_USTRUCT_BODY()
 	
 	UPROPERTY(EditAnywhere)
-	TArray<FDialogueCostumeData> CharacterExpressions;
+	TMap<ECharacterCostume,FCharacterCostumeData> CostumeData;
 };
 
 
@@ -110,7 +126,9 @@ struct DESENTINTOATLANTIS_API FDialoguePortraitData : public FTableRowBase
 
 
 	UPROPERTY( EditAnywhere,Category= "Required")
-	ECharacterID CharacterID;
+	EDialogueActorsLabel CharacterID;
+	UPROPERTY( EditAnywhere,Category= "Required")
+	EDialoguePortraitPositions portraitPositions;
 	UPROPERTY( EditAnywhere,Category= "Required")
 	EDialoguePortraitExpression portraitExpression;
 	UPROPERTY( EditAnywhere,Category= "Optional")
@@ -124,23 +142,28 @@ struct DESENTINTOATLANTIS_API FDialogueData : public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 	
-	UPROPERTY( EditAnywhere )
-	TMap<ELanguages,FString>  SpeakerName;
 	
 	UPROPERTY( EditAnywhere )
-	TMap<ELanguages,FString>  Dialogue;
+	FString  SpeakerName;
+	
+	UPROPERTY( EditAnywhere )
+	FString Dialogue;
+
+	
+};
+
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FCutsceneData : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY(EditAnywhere)
-	FDialoguePortraitData PortraitDataTesttttoooooo;
+	TMap<ELanguages,FDialogueData> dialogueData;
 	
-	UPROPERTY( EditAnywhere )
-	UTexture2D* CenterPortrait;
-	
-	UPROPERTY( EditAnywhere )
-	UTexture2D* LeftPortrait;
 
-	UPROPERTY( EditAnywhere )
-	UTexture2D* RightPortrait;
+	UPROPERTY(EditAnywhere)
+	TArray<FDialoguePortraitData> PortraitData;
 	
 	UPROPERTY( EditAnywhere )
 	UTexture2D* BackgroundCG;
@@ -160,14 +183,14 @@ struct DESENTINTOATLANTIS_API FDialogueCompleteData : public FTableRowBase
 	EDialogueTriggers DialogueTriggers;
 
 	UPROPERTY(EditAnywhere)
-	TArray<FDialogueData> DialogueData;
+	TArray<FCutsceneData> DialogueData;
 
 	UPROPERTY(EditAnywhere)
 	TArray<FDialogueActorData> AllActorsInDialogue;
 };
 
 USTRUCT()
-struct DESENTINTOATLANTIS_API FAllDialogueActors : public FTableRowBase
+struct DESENTINTOATLANTIS_API FPortaitActorData : public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 
@@ -191,10 +214,12 @@ public:
 	
 	void InitializeDatabase(UDataTable* aDialogueDatabase, UDataTable* aDialogueActorDatabase);
 	FDialogueCompleteData GetDialogueDataByTrigger(EDialogueTriggers aDialogueData);
-	FAllDialogueActors GetDialogueActorDataByLabel(EDialogueActorsLabel aActorData);
+	FPortaitActorData GetDialogueDataByLabel(EDialogueActorsLabel aActorData);
+
+	FCharacterCostumeData GetCostumeData(EDialogueActorsLabel aActorData,ECharacterCostume aCharacterCostume);
 
 	UPROPERTY(EditAnywhere)
-	TMap<EDialogueActorsLabel, FAllDialogueActors> dialogueActors;
+	TMap<EDialogueActorsLabel, FPortaitActorData> dialogueActors;
 	
 	UPROPERTY(EditAnywhere)
 	TMap<EDialogueTriggers, FDialogueCompleteData> dialogueData;

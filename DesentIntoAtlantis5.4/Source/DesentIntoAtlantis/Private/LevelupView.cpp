@@ -37,7 +37,7 @@ void ULevelupView::SetupLevelupView(int newLevel, UPlayerCombatEntity* aPlayerCo
 	aPlayerCombatEntity->LevelUp(newLevel);
 	TMap<EStatTypes, UCombatStat*> abilityStatScores    = aPlayerCombatEntity->abilityScoreMap;
 	
-	BW_CharacterPortrait->SetBrushFromTexture(aPlayerCombatEntity->playerIdentityData.fullBodyCharacterPortrait);
+	BW_CharacterPortrait->SetBrushFromTexture(aPlayerCombatEntity->GetCurrentCostumeData().fullBodyCharacterPortrait);
 	
 	BW_PreviousLevelNumber->SetText(FText(FText::AsNumber(previousLevel)));
 	BW_CurrentLevelNumber->SetText(FText(FText::AsNumber(newLevel)));

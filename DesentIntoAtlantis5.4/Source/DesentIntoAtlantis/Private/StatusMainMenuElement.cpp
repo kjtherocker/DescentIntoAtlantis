@@ -14,9 +14,9 @@ void UStatusMainMenuElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 	Super::SetCombatEntity(aCombatEntity);
 
 
-	if(aCombatEntity->playerIdentityData.halfBodyCharacterPortrait)
+	if(aCombatEntity->GetCurrentCostumeData().halfBodyCharacterPortrait)
 	{
-		BW_CharacterPortrait->SetBrushFromTexture(aCombatEntity->playerIdentityData.halfBodyCharacterPortrait);
+		BW_CharacterPortrait->SetBrushFromTexture(aCombatEntity->GetCurrentCostumeData().halfBodyCharacterPortrait);
 	}
 	
 	TMap<EElementalType, UTexture2D*> elementalicons = persistentGameinstance->elementalIcons;

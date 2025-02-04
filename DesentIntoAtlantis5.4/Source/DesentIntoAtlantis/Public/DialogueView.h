@@ -15,7 +15,7 @@
 class AFloorManager;
 class UPersistentGameinstance;
 enum class EFloorEventStates;
-struct FDialogueData;
+struct FCutsceneData;
 class UImage;
 
 
@@ -50,15 +50,19 @@ public:
 	EFloorEventStates      triggerOnEnd;
 
 	FOnDialogueEnd onDialogueEnd;
+
+	UPROPERTY()
+	TMap<EDialoguePortraitPositions,UImage* > DialoguePortraitImages;
 	
 	UPROPERTY()
-	TArray<FDialogueData> dialogueData;
+	TArray<FCutsceneData> dialogueData;
 	UPROPERTY()
 	AFloorManager* floorManager;
 	void SetFloorEventDialogueData(EDialogueTriggers aDialogueData, EFloorEventStates aTriggerOnEnd, FTriggerNextEventStage  aTriggerNextEventStage, AFloorManager* aFloorManager);
 	void SetDialogueData(EDialogueTriggers aDialogueData);
 	void SetDialogueImages(UTexture2D* aPortraitTexture,UImage* aPortraitImage);
 	void SpawnActor(EDialogueActorsLabel aActorLabel, TSubclassOf<AActor> aActorToSpawn);
+	void SetPortaits(FCutsceneData aDialogueData);
 	void DialogueFinished();
 	void ActivateNextDialogue();
 	void SetNextDialogue(bool audio = false);
