@@ -69,6 +69,8 @@ void UDialogueView::SetNextDialogue(bool audio)
 		DialogueFinished();
 		return;
 	}
+
+	ResetAllPortraits();
 	
 	FCutsceneData nextDialogueData = dialogueData[0];
 	dialogueData.RemoveAt(0);
@@ -136,6 +138,14 @@ void UDialogueView::SpawnActor(EDialogueActorsLabel aActorLabel, TSubclassOf<AAc
 	floorPawn->Initialize();
 	spawnedActors.Add(aActorLabel,floorPawn);
 
+}
+
+void UDialogueView::ResetAllPortraits()
+{
+	for (auto Element : DialoguePortraitImages)
+	{
+		SetDialogueImages(nullptr,Element.Value);		
+	}
 }
 
 void UDialogueView::SetPortaits(FCutsceneData aDialogueData)

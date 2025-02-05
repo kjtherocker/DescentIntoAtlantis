@@ -130,7 +130,7 @@ struct DESENTINTOATLANTIS_API FDialoguePortraitData : public FTableRowBase
 	UPROPERTY( EditAnywhere,Category= "Required")
 	EDialoguePortraitPositions portraitPositions;
 	UPROPERTY( EditAnywhere,Category= "Required")
-	EDialoguePortraitExpression portraitExpression;
+	EDialoguePortraitExpression portraitExpression = EDialoguePortraitExpression::Default;
 	UPROPERTY( EditAnywhere,Category= "Optional")
 	ECharacterCostume ForcedCostume;
 	UPROPERTY( EditAnywhere,Category= "Optional")

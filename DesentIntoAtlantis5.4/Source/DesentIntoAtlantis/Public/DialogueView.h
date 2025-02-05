@@ -62,6 +62,7 @@ public:
 	void SetDialogueData(EDialogueTriggers aDialogueData);
 	void SetDialogueImages(UTexture2D* aPortraitTexture,UImage* aPortraitImage);
 	void SpawnActor(EDialogueActorsLabel aActorLabel, TSubclassOf<AActor> aActorToSpawn);
+	void ResetAllPortraits();
 	void SetPortaits(FCutsceneData aDialogueData);
 	void DialogueFinished();
 	void ActivateNextDialogue();
