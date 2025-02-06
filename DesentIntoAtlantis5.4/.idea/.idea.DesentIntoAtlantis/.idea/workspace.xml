@@ -10,15 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/BP_Prison_StairsUp.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/PrisonStone_Stairs_Texture.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/Prison_Sides.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/ParticleEffects/godray/Particle_GodRay.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/Material_WallTest1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Wall/TextMat_Walls/Material_WallTest1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueComplete.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueComplete.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_PortraitCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_PortraitCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Map/Prison/PrisonCombat.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/Prison/PrisonCombat.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/Dialogue/BP_DialogueView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/Dialogue/BP_DialogueView.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/DialogueView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/DialogueView.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/DialogueManagerSubsystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/DialogueManagerSubsystem.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/DialogueView.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/DialogueView.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-5-allSidesOpen/BP_PrisonFloorNode_AllSidesOpen_StairsUp.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-5-allSidesOpen/BP_PrisonFloorNode_AllSidesOpen_StairsUp.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/Prison_StairsUp.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/Prison_StairsUp.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/Prison_Stairs_Wall.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/Prison_Stairs_Wall.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -732,6 +732,8 @@
       <workItem from="1738420129338" duration="7986000" />
       <workItem from="1738515311058" duration="17411000" />
       <workItem from="1738777200906" duration="1053000" />
+      <workItem from="1738852459749" duration="9000" />
+      <workItem from="1738853081952" duration="2193000" />
     </task>
     <servers />
   </component>
