@@ -10,15 +10,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/BP_Prison_StairsUp.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/PrisonStone_Stairs_Texture.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/Prison_Sides.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/ParticleEffects/godray/Particle_GodRay.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-2-Down/BP_PrisonFloorNode_Down_variant1.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/SolitaryDoor/Material_DoorShell.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Floor/A_Editor/EditorFrame.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Floor/A_Editor/SpecificEditorView/BP_LevelGeneratorUtilityWidget.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Floor/A_Editor/SpecificEditorView/BP_MapButtonElement.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Floor/A_Editor/SpecificEditorView/BP_MapEventEditor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Floor/A_Editor/SpecificEditorView/BP_MapEventEditorView.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Datatables/Floor/A_Editor/SpecificEditorView/BP_MapNodeEditor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/Assets/font/RichTextSheet/DialogueTextStyle.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/Dialogue/NewBlueprint.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Ui/Dialogue/NewBlueprint1.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-5-allSidesOpen/BP_PrisonFloorNode_AllSidesOpen_StairsUp.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/-5-allSidesOpen/BP_PrisonFloorNode_AllSidesOpen_StairsUp.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/Prison_StairsUp.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/Prison_StairsUp.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/Prison_Stairs_Wall.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/StairsUp/Prison_Stairs_Wall.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/15-DownLeftRight/BP_PrisonFloorNode_DownLeftRight_Variant1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/DirectionalTileSet/15-DownLeftRight/BP_PrisonFloorNode_DownLeftRight_Variant1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/SolitaryDoor/SolitaryConfinementDoor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/SolitaryDoor/SolitaryConfinementDoor.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/SolitaryDoor/SolitaryDoor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/LevelAssets/Prison/Prison/Props/SolitaryDoor/SolitaryDoor.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueComplete.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueComplete.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Floor/DT_AllFloorTiles.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Floor/DT_AllFloorTiles.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Floor/DT_Floor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Floor/DT_Floor.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/A_Editor/EditorFrame.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/A_Editor/SpecificEditorView/BP_LevelGeneratorUtilityWidget.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/A_Editor/SpecificEditorView/BP_MapButtonElement.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/A_Editor/SpecificEditorView/BP_MapEventEditor.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/A_Editor/SpecificEditorView/BP_MapEventEditorView.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/A_Editor/SpecificEditorView/BP_MapNodeEditor.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Assets/font/RichTextSheet/CombatLog.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/Assets/font/RichTextSheet/CombatLog.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatLog/BP_CombatLogElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatLog/BP_CombatLogElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatLog/BP_DetailedElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatLog/BP_DetailedElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_CombatLogDetailedView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_CombatLogDetailedView.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_DamageElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_DamageElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_DefenceElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_DefenceElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_EvasionElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_EvasionElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_HitElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatLog/DetailedElements/BP_HitElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatToken/BP_CombatTokenElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatToken/BP_CombatTokenElement.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Dialogue/BP_DialogueView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/Dialogue/BP_DialogueView.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +56,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -733,7 +759,7 @@
       <workItem from="1738515311058" duration="17411000" />
       <workItem from="1738777200906" duration="1053000" />
       <workItem from="1738852459749" duration="9000" />
-      <workItem from="1738853081952" duration="2193000" />
+      <workItem from="1738853081952" duration="8256000" />
     </task>
     <servers />
   </component>
