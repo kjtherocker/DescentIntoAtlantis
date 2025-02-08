@@ -41,6 +41,12 @@ void UMapNodeEditorView::SetUpMapNodePanel(UMapButtonElement* aMapNodeElement)
 		}
 	}
 	BW_MapEventEditorView->SetComboxBoxIndex(aMapNodeElement);
+
+	int Xvalue = 	aMapNodeElement->positionInGrid.X;
+	int Yvalue = 	aMapNodeElement->positionInGrid.Y;
+
+	FString mapPosition = FString::FromInt( Xvalue) + "," + FString::FromInt( Yvalue);
+	BW_MapIndex->SetText(FText::FromString(mapPosition));
 	
 	BW_TileSet->SetSelectedIndex((int)WorldGenerationFloorNodeInfo.TileSets);
 	BW_Variant->SetSelectedIndex((int)WorldGenerationFloorNodeInfo.TileVariants);

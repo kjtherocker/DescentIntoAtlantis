@@ -1,5 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
+#if WITH_EDITOR
 
 #include "FloorFactory.h"
 
@@ -77,16 +77,28 @@ void UFloorFactory::OverwriteFloorEventData(int aFloorEventDataTableIndex, FFloo
 	
 	int currentFloorIndex = aFloorEventDataTableIndex;
 	// Iterate through the rows in the DataTable
-	FFloorEventData* FloorData = DataTable->FindRow<FFloorEventData>(FName(FString::FromInt(currentFloorIndex)), FString("Searching for Floors"), true);
-	if (FloorData)
+	if(aFloorEventDataTableIndex != -1)
 	{
-		// Update the specified column with the new TArray<int32>
-		*FloorData = aNewEventData;
+		FFloorEventData* FloorData = DataTable->FindRow<FFloorEventData>(FName(FString::FromInt(currentFloorIndex)), FString("Searching for Floors"), true);
+		if (FloorData)
+		{
+			// Update the specified column with the new TArray<int32>
+			*FloorData = aNewEventData;
 
-		DataTable->PostEditChange();
-		DataTable->PostLoad();
-		
+			DataTable->PostEditChange();
+			DataTable->PostLoad();
+			DataTable->Modify();
+		}
 	}
+	else
+	{
+		FFloorEventData NewFloorData = aNewEventData;  // Make a copy of the struct
+		DataTable->AddRow( FName(aNewEventData.enemyGroupName+ " " + FString::FromInt(DataTable->GetRowNames().Num())), NewFloorData);
+		DataTable->Modify();
+
+	}
+
+
 }
 
 void UFloorFactory::CreateNewFloorEventRow(FFloorEventData aNewEventData)
@@ -97,6 +109,7 @@ void UFloorFactory::CreateNewFloorEventRow(FFloorEventData aNewEventData)
 	dataTable->AddRow(FName(FString::FromInt(floorMaxIndex)),aNewEventData);
 	dataTable->PostEditChange();
 	dataTable->PostLoad();
+	dataTable->Modify();
 }
 
 void UFloorFactory::DeleteFloorEventRow(int aRowIndex)
@@ -124,8 +137,10 @@ void UFloorFactory::ReOrderFloorEventRow(int aRemovedIndex)
 			datatable->AddRow(FName(FString::FromInt(i - REMOVED_INDEX_OFFSET)), RowDataCopy);
 
 			// Ensure the new row is properly saved
+			datatable->Modify();
 			datatable->PostEditChange();
 			datatable->PostLoad();
 		}
 	}
 }
+#endif

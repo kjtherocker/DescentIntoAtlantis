@@ -19,25 +19,26 @@ struct DESENTINTOATLANTIS_API FCombatLog_Hit_Data : public FTableRowBase
 	bool wasHitInitializedOnSkill = false;
 	
 	UPROPERTY()
-	bool HitResult;
+	bool HitResult = false;
 
 	UPROPERTY()
-	int32 RandomNumber;
+	int32 RandomNumber = -1;
 
 	UPROPERTY()
-	int32 skillHit;
+	int32 skillHit = -1;
 
 	UPROPERTY()
-	int32 hitChance;
+	int32 hitChance = -1;
 
 	UPROPERTY()
-	int32 FinalNumber;
+	int32 FinalNumber = -1;
 
 	UPROPERTY()
-	int32 AttackerHit;
+	int32 AttackerHit = -1;
 
 	UPROPERTY()
-	int32 HitEvasionCalculation;
+	int32 HitEvasionCalculation = -1;
+	
 	UPROPERTY()
 	FCombatLog_Evasion_Data CombatLogEvasionData;
 

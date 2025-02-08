@@ -9,6 +9,7 @@
 #include "Components/GridPanel.h"
 #include "Components/ComboBoxString.h"
 #include "Components/HorizontalBox.h"
+#include "Components/TextBlock.h"
 #include "MapNodeEditorView.generated.h"
 
 /**
@@ -57,6 +58,9 @@ public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UMapEventEditorView* BW_MapEventEditorView;
 
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UTextBlock* BW_MapIndex;
+	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UComboBoxString* BW_TileSet;
 

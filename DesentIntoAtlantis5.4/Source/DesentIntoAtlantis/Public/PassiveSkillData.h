@@ -116,22 +116,22 @@ struct DESENTINTOATLANTIS_API FPassiveSkillData : public FTableRowBase
 	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY( EditAnywhere , Category = "Identity")
-	EPassiveSkillID passiveSkillID;
+	EPassiveSkillID passiveSkillID = EPassiveSkillID::None;
 
 	UPROPERTY( EditAnywhere , Category = "Identity")
-	FString passiveName;
+	FString passiveName = "No Set Name";
 	
 	UPROPERTY( EditAnywhere, Category = "Identity" )
-	FString passiveDescription;
+	FString passiveDescription  = "No Set Description";
 	
 	UPROPERTY( EditAnywhere , Category = "Identity")
 	UTexture2D* passiveIcon;
 	
 	UPROPERTY( EditAnywhere, Category = "Damage" )
-	int damageIncrease;
+	int damageIncrease = 0;
 
 	UPROPERTY( EditAnywhere , Category = "Damage")
-	int damagePercentageIncrease;
+	int damagePercentageIncrease= 0;
 
 	UPROPERTY(EditAnywhere, Category = "Stat")
 	EPassiveSkillStatType PassiveSkillStatType;

@@ -1,6 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
+#if WITH_EDITOR
 #include "LevelGeneratorUtilityWidget.h"
 
 #include "Components/Border.h"
@@ -233,3 +233,4 @@ void ULevelGeneratorUtilityWidget::InitializeComboBox(UComboBoxString* aCombobox
 	}
 	
 }
+#endif

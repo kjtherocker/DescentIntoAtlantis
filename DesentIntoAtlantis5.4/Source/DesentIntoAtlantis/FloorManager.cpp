@@ -83,89 +83,13 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 			
 			FVector2D positionInGrid = FVector2D(Row,Column);
 
-
-			
-			//Extra stuff
-			if(aFloor->floorEventData.Contains(positionInGrid) && !eventManagerSubSystem->isEventCompleted(positionInGrid))
-			{
-				floorNodes[LevelIndex]->hasFloorEvent = true;
-				floorNodes[LevelIndex]->nodeHasBeenWalkedOn = eventManagerSubSystem->EventHasBeenTriggered;
-				SpawnFloorEventTriggers(aFloor->floorEventData[positionInGrid]);
-			}
-			if(aFloor->ForcedMovementGimmickData.Contains(positionInGrid))
-			{
-				FForcedMovementGimmick forcedMovementGimmick = aFloor->ForcedMovementGimmickData[positionInGrid];
-				
-				UGimmick_ForcedMovement* newGimmick = NewObject<UGimmick_ForcedMovement>();
-				newGimmick->InitializeGimmick(persistentGameInstance);
-				newGimmick->SetGimmick(forcedMovementGimmick);
-				newGimmick->SetFloorNodeDelegate(floorNodes[LevelIndex]);
-				newGimmick->SetPlayerForcedMovementDelegate(floorGameModeBase->floorPawn);
-				gimmickMap[EFloorGimmicks::ForcedMovement].GimmickArray.Add(newGimmick);
-				
-				SpawnObjectInGrid(positionInGrid,stairsReference);
-			}
-			if(aFloor->TeleporterGimmickData.Contains(positionInGrid))
-			{
-				FTeleporterGimmick teleporterGimmick = aFloor->TeleporterGimmickData[positionInGrid];
-				
-				UGimmick_Teleporter* newGimmick = NewObject<UGimmick_Teleporter>();
-				newGimmick->InitializeGimmick(persistentGameInstance);
-				newGimmick->SetGimmick(teleporterGimmick);
-				newGimmick->SetFloorNodeDelegate(floorNodes[LevelIndex]);
-				gimmickMap[EFloorGimmicks::Teleporter].GimmickArray.Add(newGimmick);
-				
-				SpawnObjectInGrid(positionInGrid,stairsReference);
-			}
+			SpawnNodeGimmicks(LevelIndex,positionInGrid,aFloor);
 		}
 	}
 	
 	for (FDoorComplete Element : aFloor->doorGimmicks)
 	{
-		FDoorGimmick spotA = Element.DoorSpotA;
-		int LevelIndexA = aFloor->GetIndex(spotA.positionInGrid.X, spotA.positionInGrid.Y);
-		FDoorGimmick spotB = Element.DoorSpotB;
-		int LevelIndexB = aFloor->GetIndex(spotB.positionInGrid.X, spotB.positionInGrid.Y);
-		
-		UGimmick_Doors* newGimmickA = NewObject<UGimmick_Doors>();
-		newGimmickA->SetGimmick(spotA);
-		UGimmick_Doors* newGimmickB = NewObject<UGimmick_Doors>();
-		newGimmickB->SetGimmick(spotB);
-		
-		AFloorNode* floorNodeA = floorNodes[LevelIndexA];
-		floorNodeA->SetAdditionalLockedDirections(spotA.interactDirection);
-		AFloorNode* floorNodeB = floorNodes[LevelIndexB];
-		floorNodeB->SetAdditionalLockedDirections(spotB.interactDirection);
-
-		nodeALocation = floorNodeA->GetActorLocation();
-		nodeBLocation = floorNodeB->GetActorLocation();
-		 MidPoint   = (nodeALocation + nodeBLocation) / 2.0f;
-		
-		FVector PositionOffset = FVector(0,0,SPAWNED_OBJECT_OFFSET);
-		
-	
-		FActorSpawnParameters ActorSpawnParameters;
-		ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-		ActorSpawnParameters.Owner = this;
-	
-		AFloorDoor* FloorDoor = Cast<AFloorDoor>(GetWorld()->SpawnActor<AActor>(DoorReference, MidPoint + PositionOffset, FRotator(0,0,0),ActorSpawnParameters));
-		spawnedActors.Add(FloorDoor);
-		
-		spotA.floorDoor = FloorDoor;
-		spotB.floorDoor = FloorDoor;
-
-		newGimmickA->SetPlayerForcedMovementDelegate(floorGameModeBase->floorPawn);
-		newGimmickB->SetPlayerForcedMovementDelegate(floorGameModeBase->floorPawn);
-		
-		newGimmickA->SetDoorOpenDelegate(FloorDoor);
-		newGimmickB->SetDoorOpenDelegate(FloorDoor);
-
-		
-		newGimmickA->doorAnimationType = EDoorAnimationTypes::OpenA;
-		newGimmickB->doorAnimationType = EDoorAnimationTypes::OpenB;
-		
-		levelProgressionSubsystem->SetInteractableGimmick(spotA.positionInGrid,newGimmickA);
-		levelProgressionSubsystem->SetInteractableGimmick(spotB.positionInGrid,newGimmickB);
+		SpawnDoorGimmick(Element, aFloor);
 	}
 }
 
@@ -309,6 +233,96 @@ void AFloorManager::SpawnEnemysInFloor(UFloorBase* aFloorBase)
 		{
 			SpawnEnemyPawn(enemyPawnData);
 		}
+	}
+}
+
+void AFloorManager::SpawnDoorGimmick(FDoorComplete aDoorCompleteData,UFloorBase* aFloor)
+{
+	FDoorGimmick spotA = aDoorCompleteData.DoorSpotA;
+	int LevelIndexA = aFloor->GetIndex(spotA.positionInGrid.X, spotA.positionInGrid.Y);
+	FDoorGimmick spotB = aDoorCompleteData.DoorSpotB;
+	int LevelIndexB = aFloor->GetIndex(spotB.positionInGrid.X, spotB.positionInGrid.Y);
+		
+	UGimmick_Doors* newGimmickA = NewObject<UGimmick_Doors>();
+	newGimmickA->SetGimmick(spotA);
+	UGimmick_Doors* newGimmickB = NewObject<UGimmick_Doors>();
+	newGimmickB->SetGimmick(spotB);
+		
+	AFloorNode* floorNodeA = floorNodes[LevelIndexA];
+	AFloorNode* floorNodeB = floorNodes[LevelIndexB];
+
+	if(floorNodeA == nullptr || floorNodeB == nullptr)
+	{
+		return;
+	}
+	
+	floorNodeA->SetAdditionalLockedDirections(spotA.interactDirection);
+	floorNodeB->SetAdditionalLockedDirections(spotB.interactDirection);
+
+	nodeALocation = floorNodeA->GetActorLocation();
+	nodeBLocation = floorNodeB->GetActorLocation();
+	MidPoint   = (nodeALocation + nodeBLocation) / 2.0f;
+		
+	FVector PositionOffset = FVector(0,0,SPAWNED_OBJECT_OFFSET);
+		
+	
+	FActorSpawnParameters ActorSpawnParameters;
+	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	ActorSpawnParameters.Owner = this;
+	
+	AFloorDoor* FloorDoor = Cast<AFloorDoor>(GetWorld()->SpawnActor<AActor>(DoorReference, MidPoint + PositionOffset, FRotator(0,0,0),ActorSpawnParameters));
+	spawnedActors.Add(FloorDoor);
+		
+	spotA.floorDoor = FloorDoor;
+	spotB.floorDoor = FloorDoor;
+
+	newGimmickA->SetPlayerForcedMovementDelegate(floorGameModeBase->floorPawn);
+	newGimmickB->SetPlayerForcedMovementDelegate(floorGameModeBase->floorPawn);
+		
+	newGimmickA->SetDoorOpenDelegate(FloorDoor);
+	newGimmickB->SetDoorOpenDelegate(FloorDoor);
+
+		
+	newGimmickA->doorAnimationType = EDoorAnimationTypes::OpenA;
+	newGimmickB->doorAnimationType = EDoorAnimationTypes::OpenB;
+		
+	levelProgressionSubsystem->SetInteractableGimmick(spotA.positionInGrid,newGimmickA);
+	levelProgressionSubsystem->SetInteractableGimmick(spotB.positionInGrid,newGimmickB);
+}
+
+void AFloorManager::SpawnNodeGimmicks(int aCurrentNodeIndex,FVector2d aPositionInGrid, UFloorBase* aFloor)
+{
+	//Extra stuff
+	if(aFloor->floorEventData.Contains(aPositionInGrid) && !eventManagerSubSystem->isEventCompleted(aPositionInGrid))
+	{
+		floorNodes[aCurrentNodeIndex]->hasFloorEvent = true;
+		floorNodes[aCurrentNodeIndex]->nodeHasBeenWalkedOn = eventManagerSubSystem->EventHasBeenTriggered;
+		SpawnFloorEventTriggers(aFloor->floorEventData[aPositionInGrid]);
+	}
+	if(aFloor->ForcedMovementGimmickData.Contains(aPositionInGrid))
+	{
+		FForcedMovementGimmick forcedMovementGimmick = aFloor->ForcedMovementGimmickData[aPositionInGrid];
+				
+		UGimmick_ForcedMovement* newGimmick = NewObject<UGimmick_ForcedMovement>();
+		newGimmick->InitializeGimmick(persistentGameInstance);
+		newGimmick->SetGimmick(forcedMovementGimmick);
+		newGimmick->SetFloorNodeDelegate(floorNodes[aCurrentNodeIndex]);
+		newGimmick->SetPlayerForcedMovementDelegate(floorGameModeBase->floorPawn);
+		gimmickMap[EFloorGimmicks::ForcedMovement].GimmickArray.Add(newGimmick);
+				
+		SpawnObjectInGrid(aPositionInGrid,stairsReference);
+	}
+	if(aFloor->TeleporterGimmickData.Contains(aPositionInGrid))
+	{
+		FTeleporterGimmick teleporterGimmick = aFloor->TeleporterGimmickData[aPositionInGrid];
+				
+		UGimmick_Teleporter* newGimmick = NewObject<UGimmick_Teleporter>();
+		newGimmick->InitializeGimmick(persistentGameInstance);
+		newGimmick->SetGimmick(teleporterGimmick);
+		newGimmick->SetFloorNodeDelegate(floorNodes[aCurrentNodeIndex]);
+		gimmickMap[EFloorGimmicks::Teleporter].GimmickArray.Add(newGimmick);
+				
+		SpawnObjectInGrid(aPositionInGrid,stairsReference);
 	}
 }
 

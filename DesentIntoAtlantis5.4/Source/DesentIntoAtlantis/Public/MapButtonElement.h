@@ -29,7 +29,7 @@ public:
 	DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMapButtonClicked, UMapButtonElement*, mapButtonElement);
 	
 	UPROPERTY()
-	int floorEventDataTableindex = 0;
+	int floorEventDataTableindex = -1;
 	UPROPERTY()
 	FFloorEventData currentFloorEventData;
 

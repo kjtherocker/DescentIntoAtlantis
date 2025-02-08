@@ -36,6 +36,8 @@ public:
 	void SpawnFloorEventTriggers(FFloorEventData AFloorEventData);
 	void SpawnFloor(UFloorBase* aFloorBase);
 	void SpawnEnemysInFloor(UFloorBase* aFloorBase);
+	void SpawnDoorGimmick(FDoorComplete aDoorCompleteData,UFloorBase* aFloor );
+	void SpawnNodeGimmicks(int aCurrentNodeIndex,FVector2d aPositionInGrid,UFloorBase* aFloor);
 	void PlacePlayerFloorPawn(FVector2D aPositionInGrid,ECardinalNodeDirections aPlayerFacingDirection);
 	void MovePlayerToPreviousNode();
 
