@@ -12,10 +12,14 @@
 void UEnemyFactorySubSystem::InitializeDatabase(UDataTable* aEnemys, UDataTable* aEnemyGroups)
 {
 	UDataTable* datatableEnemys = aEnemys;
-	
-	for(int i = 0 ; i < datatableEnemys->GetRowMap().Num(); i ++)
+
+
+	if(datatableEnemys)
 	{
-		allEnemys.Add(*datatableEnemys->FindRow<FEnemyEntityData>(FName(FString::FromInt(i)),FString("Searching for Enemys"),true));
+		for (auto Element : datatableEnemys->GetRowNames())
+		{
+			allEnemys.Add(*datatableEnemys->FindRow<FEnemyEntityData>(Element,FString("Searching for Enemys"),true));
+		}
 	}
  
 	for (FEnemyEntityData enemys : allEnemys)
@@ -24,10 +28,13 @@ void UEnemyFactorySubSystem::InitializeDatabase(UDataTable* aEnemys, UDataTable*
 	}
 	
 	UDataTable* datatableEnemyGroups = aEnemyGroups;
-	
-	for(int i = 0 ; i < datatableEnemyGroups->GetRowMap().Num(); i ++)
+
+	if(datatableEnemyGroups)
 	{
-		allEnemysGroups.Add(*datatableEnemyGroups->FindRow<FEnemyGroupData>(FName(FString::FromInt(i)),FString("Searching for Enemy Groups"),true));
+		for (auto Element : datatableEnemyGroups->GetRowNames())
+		{
+			allEnemysGroups.Add(*datatableEnemyGroups->FindRow<FEnemyGroupData>(Element,FString("Searching for Enemy Groups"),true));
+		}
 	}
 
 	for(int i =- 0 ; i < allEnemysGroups.Num();i++)

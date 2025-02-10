@@ -95,10 +95,10 @@ void ACombatCameraPawn::RotateCameraToActor(AActor* aRotateTowards)
 	// Print debug information
 	if (GEngine)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Camera Location: %s"), *CameraLocation.ToString()));
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Pawn Location: %s"), *PawnLocation.ToString()));
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Direction: %s"), *Direction.ToString()));
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Yaw Angle: %f"), YawAngle));
+	//	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Camera Location: %s"), *CameraLocation.ToString()));
+	//	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Pawn Location: %s"), *PawnLocation.ToString()));
+	//	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Direction: %s"), *Direction.ToString()));
+	//	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("Yaw Angle: %f"), YawAngle));
 	}
 }
 
