@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "CombatLog_Hit_Data.h"
 #include "CombatTokenHandler.h"
+#include "ItemBase.h"
 #include "UObject/NoExportTypes.h"
 #include "PassiveHandler.h"
 #include "CombatEntityHub.generated.h"
@@ -27,6 +28,10 @@ private:
 
 	UPassiveFactorySubsystem* passiveSkillFactorySubsystem;
 
+
+
+	UPROPERTY()
+	UPersistentGameinstance* persistentGameinstance;
 	UPROPERTY()
 	UCombatEntity* OwnedCombatEntity;
 	
@@ -41,6 +46,7 @@ public:
 	virtual void SpawnParticles(UNiagaraSystem* aNiagaraSystem);
 	virtual void OnAttackEvaded(FCombatLog_Hit_Data aEvasionData);
 	virtual void OnEvadedAttack(FCombatLog_Hit_Data aEvasionData);
+	virtual int OnGetItemTier(EItemID ItemID);
 	
 	UPROPERTY()
 	UPassiveHandler* passiveHandler;
@@ -56,5 +62,7 @@ public:
 	UPROPERTY()
 	UEquipmentHandler* equipmentHandler;
 
+	
+	
 	
 };

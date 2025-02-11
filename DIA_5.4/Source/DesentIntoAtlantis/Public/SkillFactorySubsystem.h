@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ItemBase.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "SkillBase.h"
 #include "SkillFactorySubsystem.generated.h"
@@ -22,12 +23,17 @@ private:
 	UPROPERTY()
 	TMap<ESkillIDS,USkillBase*> allSkillsMap;
 
+			
+	UPROPERTY()
+	TMap<EItemID,UItemBase*> allItemsMap;
+
 	UPROPERTY()
 	TMap<EStatusAilments,UAilment*> allAliments;
 public:
-	void InitializeDatabase(UDataTable*  aSkillDataTable);
+	void InitializeDatabase(UDataTable*  aSkillDataTable,UDataTable*  aItemSkillDataTable);
 	USkillBase* GetSkill(ESkillIDS aSkillID);
-	UAilment* GetAilment(EStatusAilments aAilment);
+	UItemBase*  GetItem(EItemID aItemID);
+	UAilment*   GetAilment(EStatusAilments aAilment);
 	USkillBase* GetSkillClass(FSkillsData skillData);
 	
 };

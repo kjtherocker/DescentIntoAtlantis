@@ -7,6 +7,9 @@
 #include "UObject/NoExportTypes.h"
 #include "UPartyInventory.generated.h"
 
+class UItemBase;
+struct FItemData;
+enum class EItemID : uint8;
 enum class EEquipmentID : uint8;
 class UEquipmentPassive;
 struct FEquipmentPassiveData;
@@ -20,6 +23,10 @@ struct DESENTINTOATLANTIS_API FPartyInventoryCompleteData:public  FTableRowBase
 	GENERATED_USTRUCT_BODY()
 	UPROPERTY(EditAnywhere)
 	TMap<EEquipmentID,FEquipmentPassiveInventoryInfo> equipmentInventoryInfo;
+
+	UPROPERTY(EditAnywhere)
+	TMap<EItemID,FItemData> ItemInventoryInfo;
+	
 };
 
 
@@ -33,6 +40,10 @@ private:
 	FPartyInventoryCompleteData partyInventoryCompleteData;
 	
 
+
+	UPROPERTY()
+	USkillFactorySubsystem* SkillFactorySubsystem;
+	
 	UPROPERTY()
 	UPassiveFactorySubsystem* passiveFactorySubsystem;
 	
@@ -40,8 +51,17 @@ public:
 	UPROPERTY()
 	TArray<FEquipmentPassiveData> equipmentPassiveSkillData;
 
+	TMap<EItemID,UItemBase*> AllUnlockedItems;
 
-	void InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem );
+	void SetAllItemsTier(UPlayerCombatEntity* aPlayerCombatEntity);
+	
+	int GetBaseItemTier(EItemID aItemId);
+
+	void AddItem(EItemID aItemId);
+
+	void UnlockBrandNewItem(EItemID aItemId);
+	
+	void InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem,USkillFactorySubsystem* aSkillFactorySubsystem );
 
 	void AddMoreStacksOfEquipment(FEquipmentRequestInfo aEquipmentRequest);
 

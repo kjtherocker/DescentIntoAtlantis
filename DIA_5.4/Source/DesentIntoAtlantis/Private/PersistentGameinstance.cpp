@@ -40,9 +40,9 @@ void UPersistentGameinstance::Init()
 
 	levelProgressionSubsystem->InitializeSubsystem(this);
 	
-	if(dataTables.Contains(EDataTableTypes::Skills))
+	if(dataTables.Contains(EDataTableTypes::Skills)&& dataTables.Contains(EDataTableTypes::ItemData))
 	{
-		skillFactorySubsystem->InitializeDatabase(dataTables[EDataTableTypes::Skills]);
+		skillFactorySubsystem->InitializeDatabase(dataTables[EDataTableTypes::Skills],dataTables[EDataTableTypes::ItemData]);
 	}
 
 	if(dataTables.Contains(EDataTableTypes::PassiveSkills) && dataTables.Contains(EDataTableTypes::CombatTokens))

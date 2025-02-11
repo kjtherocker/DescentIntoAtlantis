@@ -4,14 +4,22 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
+#include "BaseUserWidgetMovingButtons.h"
+#include "PlayerCombatEntity.h"
 #include "ItemView.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class DESENTINTOATLANTIS_API UItemView : public UBaseUserWidget
+class DESENTINTOATLANTIS_API UItemView : public UBaseUserWidgetMovingButtons
 {
 	GENERATED_BODY()
-	
+
+
+public:
+
+	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
+	void SetItemView(UPlayerCombatEntity* aPlayerCombatEntity);
+	void SelectSkill();
 };

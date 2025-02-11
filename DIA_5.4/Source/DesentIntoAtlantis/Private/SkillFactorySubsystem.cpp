@@ -11,7 +11,7 @@
 #include "SkillUsage.h"
 
 
-void USkillFactorySubsystem::InitializeDatabase(UDataTable*  aSkillDataTable)
+void USkillFactorySubsystem::InitializeDatabase(UDataTable*  aSkillDataTable,UDataTable*  aItemSkillDataTable)
 {
 
 	UDataTable*  datatable = aSkillDataTable;
@@ -37,9 +37,30 @@ void USkillFactorySubsystem::InitializeDatabase(UDataTable*  aSkillDataTable)
 		UE_LOG(LogTemp, Log, TEXT("SkillFactory isnt receving the correct Skills Datatable"));
 
 	}
-	
-	
 
+	UDataTable*  itemDataTable = aItemSkillDataTable;
+
+	if(itemDataTable)
+	{
+		for (auto Element : itemDataTable->GetRowNames())
+		{
+			FItemData ItemData = *itemDataTable->FindRow<FItemData>(FName(Element),FString("Searching for Skills"),true);
+			USkillBase* skillBase = GetSkillClass(ItemData.itemTierSkillData[0]);
+			if(skillBase != nullptr)
+			{
+				skillBase->Initialize(ItemData.itemTierSkillData[0]);
+				UItemBase* newItem = NewObject<UItemBase>();
+				newItem->InitializeItem(ItemData,skillBase);
+				allItemsMap.Add(ItemData.itemID,newItem);
+			}
+		}
+	}
+	else
+	{
+		UE_LOG(LogTemp, Log, TEXT("SkillFactory isnt receving the correct Skills Datatable"));
+
+	}
+	
 	
 }
 
@@ -58,6 +79,29 @@ USkillBase* USkillFactorySubsystem::GetSkill(ESkillIDS aSkillID)
 	}
 	
 	return skillToReturn;
+}
+
+UItemBase* USkillFactorySubsystem::GetItem(EItemID aItemID)
+{
+	UItemBase* itemToReturn = allItemsMap.FindRef(aItemID);
+	if(itemToReturn == nullptr)
+	{
+		FSkillsData skillData;
+		skillData.skillName    = "Doesnt Exist";
+		skillData.skillID      = ESkillIDS::Uninitialized;
+		skillData.skillType    = ESkillType::Attack;
+		skillData.skillUsage   = ESkillUsage::Opponents;
+
+		UItemBase* fakeItem = NewObject<UItemBase>();
+
+		FItemData ItemData;
+		ItemData.itemTierSkillData.Add(0,skillData);
+		ItemData.itemID = EItemID::ItemNotFound;
+		fakeItem->InitializeItem(ItemData,GetSkillClass( skillData));
+		return fakeItem;
+	}
+	
+	return itemToReturn;
 }
 
 UAilment* USkillFactorySubsystem::GetAilment(EStatusAilments aAilment)

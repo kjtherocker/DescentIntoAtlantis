@@ -59,6 +59,8 @@ public:
 	void CallTransition();
 
 	UPROPERTY()
+	int ItemCharges;
+	UPROPERTY()
 	FLevelHasChanged levelHasChanged;
 	
 	UPROPERTY(EditAnywhere, Category = "Data")

@@ -4,14 +4,59 @@
 #include "UPartyInventory.h"
 
 #include "EquipmentPassive.h"
+#include "ItemBase.h"
 #include "PassiveSkillFactorySubsystem.h"
 
-void UPartyInventory::InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem )
+void UPartyInventory::InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem,
+                                               USkillFactorySubsystem* aSkillFactorySubsystem)
 {
 	partyInventoryCompleteData = aPartyInventoryCompleteData;
 	passiveFactorySubsystem    = aPassiveFactorySubsystem;
+	SkillFactorySubsystem      = aSkillFactorySubsystem;
 }
 
+void UPartyInventory::SetAllItemsTier(UPlayerCombatEntity* aPlayerCombatEntity)
+{
+	for (auto Element : AllUnlockedItems)
+	{
+		Element.Value->SetItemTier(aPlayerCombatEntity);
+	}
+}
+
+int UPartyInventory::GetBaseItemTier(EItemID aItemId)
+{
+	if(!AllUnlockedItems.Contains(aItemId))
+	{
+		return 0;
+	}
+	else
+	{
+		return AllUnlockedItems[aItemId]->GetItemTier();
+	}
+	
+}
+
+void UPartyInventory::AddItem(EItemID aItemId)
+{
+	if(!AllUnlockedItems.Contains(aItemId))
+	{
+		UnlockBrandNewItem(aItemId);
+		return;
+	}
+	else
+	{
+		AllUnlockedItems[aItemId]->IncreaseBaseItemTier();
+	}
+	
+	
+}
+
+void UPartyInventory::UnlockBrandNewItem(EItemID aItemId)
+{
+	UItemBase* item = SkillFactorySubsystem->GetItem(aItemId);
+
+	AllUnlockedItems.Add(aItemId,item);
+}
 
 void UPartyInventory::AddMoreStacksOfEquipment(FEquipmentRequestInfo aEquipmentRequest)
 {
@@ -98,4 +143,6 @@ void UPartyInventory::AddEquipmentToInventory(FEquipmentRequestInfo aEquipmentRe
 	
 	partyInventoryCompleteData.equipmentInventoryInfo.Add(EquipmentID,newEquipment);
 }
+
+
 

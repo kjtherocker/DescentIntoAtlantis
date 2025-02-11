@@ -34,6 +34,19 @@ struct DESENTINTOATLANTIS_API FPartyExperienceTable :public  FTableRowBase
 	TMap<int,int> LevelExpValue;
 };
 
+
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FItemCharges : public FTableRowBase
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere)
+	int itemCharges = 3;
+};
+
+
+
 USTRUCT()
 struct DESENTINTOATLANTIS_API FCompletePartyManagerSubsystemData:public  FTableRowBase
 {
@@ -53,6 +66,9 @@ struct DESENTINTOATLANTIS_API FCompletePartyManagerSubsystemData:public  FTableR
 	
 	UPROPERTY()
 	TMap<EPartyMembers, FPlayerCompleteDataSet> playerCompleteDataSet;
+
+	UPROPERTY()
+	FItemCharges ItemCharges;
 };
 
 /**
@@ -78,9 +94,9 @@ private:
 	UPersistentGameinstance* persistentGameInstance;
 
 	FCompletePartyManagerSubsystemData CompletePartyManagerSubsystemData;
-	int totalExperience = 0;
+	int totalExperience  = 0;
 	int totalClassPoints = 0;
-	int partyLevel      = 1;
+	int partyLevel       = 1;
 public:
 
 	TArray<FDefaultTestFightData> DefaultTestFightData;
@@ -113,8 +129,7 @@ public:
 	FCompleteClassData GetClassData(EClassID aClassID){ return classDataTables[aClassID];}
 	
 	TArray<UPlayerCombatEntity*> ReturnActiveParty();
-
-
+	
 	UPROPERTY()
 	UPartyInventory* PartyInventory;
 	

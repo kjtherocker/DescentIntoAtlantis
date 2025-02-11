@@ -336,3 +336,5 @@ TArray<UPlayerCombatEntity*> UPartyManagerSubsystem::ReturnActiveParty()
 {
 	return activePartyEntityData;
 }
+
+

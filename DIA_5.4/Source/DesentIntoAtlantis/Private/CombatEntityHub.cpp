@@ -7,6 +7,7 @@
 #include "ElementalHandler.h"
 #include "EquipmentHandler.h"
 #include "InterruptHandler.h"
+#include "PartyManagerSubsystem.h"
 #include "PassiveHandler.h"
 #include "PassiveSkillFactorySubsystem.h"
 #include "SkillData.h"
@@ -23,11 +24,8 @@ void UCombatEntityHub::InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEnti
 	elementalHandler   = NewObject<UElementalHandler>();
 	equipmentHandler   = NewObject<UEquipmentHandler>();
 	InterruptHandler   = NewObject<UInterruptHandler>();
-
 	
-
-	// Cast the game instance to your custom game instance class
-	UPersistentGameinstance* persistentGameinstance = aPersistentGameinstance;
+	persistentGameinstance = aPersistentGameinstance;
 	
 	elementalHandler->Initialize(aOwnedCombatEntity);
 	passiveHandler->InitializePassiveHandler(aOwnedCombatEntity,aPassiveSkillFactorySubsystem);
@@ -69,4 +67,15 @@ void UCombatEntityHub::OnAttackEvaded(FCombatLog_Hit_Data aEvasionData)
 void UCombatEntityHub::OnEvadedAttack(FCombatLog_Hit_Data aEvasionData)
 {
 	EvadedAttack.Broadcast(aEvasionData,OwnedCombatEntity);
+}
+
+int UCombatEntityHub::OnGetItemTier(EItemID ItemID)
+{
+	int currentItemTier =
+		persistentGameinstance->partyManagerSubsystem->PartyInventory->GetBaseItemTier(ItemID);
+
+	int FinalItemTier = currentItemTier;
+
+	
+	return FinalItemTier;
 }
