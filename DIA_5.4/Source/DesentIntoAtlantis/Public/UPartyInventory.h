@@ -8,8 +8,8 @@
 #include "UObject/NoExportTypes.h"
 #include "UPartyInventory.generated.h"
 
-class UPartyItems;
-class UPartyEquipment;
+class UInventoryItems;
+class UInventoryEquipment;
 class UPlayerCombatEntity;
 class UItemBase;
 struct FItemData;
@@ -44,10 +44,10 @@ private:
 	FPartyInventoryCompleteData partyInventoryCompleteData;
 	
 	UPROPERTY()
-	UPartyEquipment* PartyEquipment;
+	UInventoryEquipment* PartyEquipment;
 
 	UPROPERTY()
-	UPartyItems* PartyItems;
+	UInventoryItems* PartyItems;
 
 	UPROPERTY()
 	USkillFactorySubsystem* SkillFactorySubsystem;
@@ -60,6 +60,6 @@ public:
 	void InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem,USkillFactorySubsystem* aSkillFactorySubsystem );
 
 
-	UPartyEquipment* GetPartyEquipment(){ return PartyEquipment;}
-	UPartyItems*     GetPartyItems(){return PartyItems;}
+	UInventoryEquipment* GetInventoryEquipment(){ return PartyEquipment;}
+	UInventoryItems*     GetInventoryItems(){return PartyItems;}
 };

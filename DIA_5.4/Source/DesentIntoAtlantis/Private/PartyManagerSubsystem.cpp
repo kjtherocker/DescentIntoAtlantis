@@ -6,7 +6,7 @@
 #include "CombatEntityHub.h"
 #include "EDataTableTypes.h"
 #include "Health.h"
-#include "PartyEquipment.h"
+#include "InventoryEquipment.h"
 #include "PassiveSkillFactorySubsystem.h"
 #include "PassiveSkillHandlerData.h"
 #include "PassiveSkills.h"
@@ -117,8 +117,8 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembers aPlayer)
 		EquipmentRequestInfo.amount	     = 1;
 
 		EPartyMembers PartyMembers = PlayerCombatEntity->GetPartyMember();
-		PartyInventory->GetPartyEquipment()->AddEquipmentToInventory(EquipmentRequestInfo);
-		PlayerCombatEntity->combatEntityHub->equipmentHandler->EquipEquipment(PartyInventory->GetPartyEquipment()->TakeOutEquipment(PartyMembers,EquipmentPassiveData.EquipmentID),i);
+		PartyInventory->GetInventoryEquipment()->AddEquipmentToInventory(EquipmentRequestInfo);
+		PlayerCombatEntity->combatEntityHub->equipmentHandler->EquipEquipment(PartyInventory->GetInventoryEquipment()->TakeOutEquipment(PartyMembers,EquipmentPassiveData.EquipmentID),i);
 	}
 	
 	PlayerCombatEntity->health->InitializeHealth(50,50,PlayerCombatEntity);
@@ -188,7 +188,7 @@ void UPartyManagerSubsystem::SavePartyManager()
 	CompletePartyManagerSubsystemData.partyLevel       = partyLevel;
 	CompletePartyManagerSubsystemData.totalExperience  = totalExperience;
 	CompletePartyManagerSubsystemData.totalClassPoints = totalClassPoints;
-	CompletePartyManagerSubsystemData.PartyInventoryCompleteData = PartyInventory->GetPartyEquipment()->GetPartyInventoryCompleteData();
+	CompletePartyManagerSubsystemData.PartyInventoryCompleteData = PartyInventory->GetInventoryEquipment()->GetPartyInventoryCompleteData();
 
 	for (auto Element : playerCombatEntityInfo)
 	{

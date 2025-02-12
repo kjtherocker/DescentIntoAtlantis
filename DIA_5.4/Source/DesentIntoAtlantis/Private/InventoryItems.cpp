@@ -1,14 +1,14 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "PartyItems.h"
+#include "InventoryItems.h"
 
 #include "ItemBase.h"
 #include "SkillFactorySubsystem.h"
 #include "UPartyInventory.h"
 
 
-void UPartyItems::InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem,
+void UInventoryItems::InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem,
                                            USkillFactorySubsystem* aSkillFactorySubsystem)
 {
 	partyInventoryCompleteData = aPartyInventoryCompleteData;
@@ -16,7 +16,7 @@ void UPartyItems::InitializePartyInventory(FPartyInventoryCompleteData aPartyInv
 	SkillFactorySubsystem      = aSkillFactorySubsystem;
 }
 
-void UPartyItems::SetAllItemsTier(UPlayerCombatEntity* aPlayerCombatEntity)
+void UInventoryItems::SetAllItemsTier(UPlayerCombatEntity* aPlayerCombatEntity)
 {
 	for (auto Element : AllUnlockedItems)
 	{
@@ -24,7 +24,7 @@ void UPartyItems::SetAllItemsTier(UPlayerCombatEntity* aPlayerCombatEntity)
 	}
 }
 
-int UPartyItems::GetBaseItemTier(EItemID aItemId)
+int UInventoryItems::GetBaseItemTier(EItemID aItemId)
 {
 	if(!AllUnlockedItems.Contains(aItemId))
 	{
@@ -37,7 +37,7 @@ int UPartyItems::GetBaseItemTier(EItemID aItemId)
 	
 }
 
-void UPartyItems::AddItem(EItemID aItemId)
+void UInventoryItems::AddItem(EItemID aItemId)
 {
 	if(!AllUnlockedItems.Contains(aItemId))
 	{
@@ -52,10 +52,21 @@ void UPartyItems::AddItem(EItemID aItemId)
 	
 }
 
-void UPartyItems::UnlockBrandNewItem(EItemID aItemId)
+void UInventoryItems::UnlockBrandNewItem(EItemID aItemId)
 {
 	UItemBase* item = SkillFactorySubsystem->GetItem(aItemId);
 
 	AllUnlockedItems.Add(aItemId,item);
+}
+
+TArray<UItemBase*> UInventoryItems::GetAllItems()
+{
+	TArray<UItemBase*> itemsToGet;
+	for (auto Element : AllUnlockedItems)
+	{
+		itemsToGet.Add(Element.Value);
+	}
+
+	return itemsToGet;
 }
 

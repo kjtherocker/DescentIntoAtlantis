@@ -11,6 +11,7 @@
 #include "EngineUtils.h"
 #include "ESkillID.h"
 #include "GameManager.h"
+#include "ItemView.h"
 #include "PersistentGameinstance.h"
 #include "SkillView.h"
 #include "SoundManager.h"
@@ -46,6 +47,7 @@ void UCommandBoardView::SetCommandBoard(ACombatGameModeBase* aCombatGameModeBase
 	commandBoards.Add(BW_Attack);
 	commandBoards.Add(BW_MainSkill);
 	commandBoards.Add(BW_SubSkill);
+	commandBoards.Add(BW_Item);
 	commandBoards.Add(BW_Escape);
 	commandBoards.Add(BW_Pass);
 
@@ -62,6 +64,9 @@ void UCommandBoardView::SetCommandBoard(ACombatGameModeBase* aCombatGameModeBase
 
 	commandBoardSelectionSubSkill.AddDynamic(this,  &UCommandBoardView::SubClassSkill);
 	commandboardSelections.Add(ECommandBoardStates::SubSkill,commandBoardSelectionSubSkill );
+
+	commandBoardSelectionItem.AddDynamic(this, &UCommandBoardView::Item);
+	commandboardSelections.Add(ECommandBoardStates::Item,commandBoardSelectionItem );
 	
 	commandBoardSelectionEscape.AddDynamic(this, &UCommandBoardView::Escape);
 	commandboardSelections.Add(ECommandBoardStates::Escape,commandBoardSelectionEscape );
@@ -146,6 +151,13 @@ void UCommandBoardView::SubClassSkill()
 	
 	InGameHUD->PopMostRecentActiveView();
 	USkillView* SelectionView = (USkillView*)InGameHUD->PushAndGetView(EViews::SubSkillView,  EUiType::ActiveUi);
+}
+
+void UCommandBoardView::Item()
+{
+	InGameHUD->PopMostRecentActiveView();
+	UItemView* SelectionView = (UItemView*)InGameHUD->PushAndGetView(EViews::ItemView,  EUiType::ActiveUi);
+	SelectionView->SetItemView(currentActivePartyMember);
 }
 
 void UCommandBoardView::Escape()

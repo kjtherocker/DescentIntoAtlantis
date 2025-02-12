@@ -18,11 +18,12 @@ class UCombatEntity;
 UENUM()
 enum class ECommandBoardStates
 {
-	Attack = 0,
+	Attack     = 0,
 	MainSkill  = 1,
-	SubSkill  = 2,
-	Escape = 3,
-	Pass   = 4
+	SubSkill   = 2,
+	Item       = 3,
+	Escape     = 4,
+	Pass       = 5
 };
 
 
@@ -42,6 +43,7 @@ private:
 	FViewSelection commandBoardSelectionAttack;
 	FViewSelection commandBoardSelectionMainSkill;
 	FViewSelection commandBoardSelectionSubSkill;
+	FViewSelection commandBoardSelectionItem;
 	FViewSelection commandBoardSelectionEscape;
 	FViewSelection commandBoardSelectionPass;
 
@@ -60,6 +62,9 @@ private:
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UBorder* BW_SubSkill;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UBorder* BW_Item;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	 UBorder* BW_Escape;
@@ -100,6 +105,8 @@ private:
 	void MainClassSkill();
 	UFUNCTION()
 	void SubClassSkill();
+	UFUNCTION()
+	void Item();
 	UFUNCTION()
 	void Escape();
 	UFUNCTION()

@@ -8,6 +8,7 @@
 #include "PlayerCombatEntity.h"
 #include "ItemView.generated.h"
 
+class USkillBarElement;
 /**
  * 
  */
@@ -21,7 +22,18 @@ public:
 
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 
+	void CreateSkillbar(FSkillsData aSkill);
 	void CreateItems();
 	void SetItemView(UPlayerCombatEntity* aPlayerCombatEntity);
 	void SelectSkill();
+
+
+	UPROPERTY()
+	UPlayerCombatEntity* currentActivePartyMember ;
+	
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	class UVerticalBox* BW_VerticalBox;
+	
+	UPROPERTY()
+	TArray<USkillBarElement*> skillBarElements;
 };

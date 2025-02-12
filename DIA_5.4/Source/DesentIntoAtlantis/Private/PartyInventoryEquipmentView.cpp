@@ -3,7 +3,7 @@
 
 #include "PartyInventoryEquipmentView.h"
 
-#include "PartyEquipment.h"
+#include "InventoryEquipment.h"
 #include "PartyManagerSubsystem.h"
 #include "PassiveSkillElement.h"
 #include "Components/VerticalBox.h"
@@ -29,7 +29,7 @@ void UPartyInventoryEquipmentView::ActivateEquipMenu(UPlayerCombatEntity* aPlaye
 
 
 	PartyInventory = aPartyManagerSubsystem->PartyInventory;
-	TMap<EEquipmentID,  FEquipmentPassiveInventoryInfo> allEquipment = PartyInventory->GetPartyEquipment()->GetAllEquipment();
+	TMap<EEquipmentID,  FEquipmentPassiveInventoryInfo> allEquipment = PartyInventory->GetInventoryEquipment()->GetAllEquipment();
 
 	if(allEquipment.Num() == 0)
 	{
@@ -39,7 +39,7 @@ void UPartyInventoryEquipmentView::ActivateEquipMenu(UPlayerCombatEntity* aPlaye
 
 	for (auto AllEquipment : allEquipment)
 	{
-		CreatePassiveSkillbar(PartyInventory->GetPartyEquipment()->GetEquipmentPassiveSkillData(AllEquipment.Key) );
+		CreatePassiveSkillbar(PartyInventory->GetInventoryEquipment()->GetEquipmentPassiveSkillData(AllEquipment.Key) );
 		EquipmentIds.Add(AllEquipment.Key);
 	}
 
@@ -51,12 +51,12 @@ void UPartyInventoryEquipmentView::ActivateEquipMenu(UPlayerCombatEntity* aPlaye
 void UPartyInventoryEquipmentView::ActivateInventoryMenuSelection()
 {
 	EEquipmentID EquipmentID = EquipmentIds[cursorPosition];
-	if(!PartyInventory->GetPartyEquipment()->isEquipmentFreeToTake(EquipmentID))
+	if(!PartyInventory->GetInventoryEquipment()->isEquipmentFreeToTake(EquipmentID))
 	{
 		return;
 	}
 	EPartyMembers partyMember = playerCombatEntity->playerIdentityData.characterIdentifier;
-	playerCombatEntity->EquipEquipment(PartyInventory->GetPartyEquipment()->TakeOutEquipment(partyMember,EquipmentID),equipmentSlot);
+	playerCombatEntity->EquipEquipment(PartyInventory->GetInventoryEquipment()->TakeOutEquipment(partyMember,EquipmentID),equipmentSlot);
 	characterChange.Broadcast();
 	PopMostActiveView();
 }

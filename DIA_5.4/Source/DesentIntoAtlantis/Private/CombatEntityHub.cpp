@@ -7,8 +7,8 @@
 #include "ElementalHandler.h"
 #include "EquipmentHandler.h"
 #include "InterruptHandler.h"
-#include "PartyEquipment.h"
-#include "PartyItems.h"
+#include "InventoryEquipment.h"
+#include "InventoryItems.h"
 #include "PartyManagerSubsystem.h"
 #include "PassiveHandler.h"
 #include "PassiveSkillFactorySubsystem.h"
@@ -74,7 +74,7 @@ void UCombatEntityHub::OnEvadedAttack(FCombatLog_Hit_Data aEvasionData)
 int UCombatEntityHub::OnGetItemTier(EItemID ItemID)
 {
 	int currentItemTier =
-		persistentGameinstance->partyManagerSubsystem->PartyInventory->GetPartyItems()->GetBaseItemTier(ItemID);
+		persistentGameinstance->partyManagerSubsystem->PartyInventory->GetInventoryItems()->GetBaseItemTier(ItemID);
 
 	int FinalItemTier = currentItemTier;
 

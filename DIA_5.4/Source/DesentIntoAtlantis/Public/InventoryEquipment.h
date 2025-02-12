@@ -6,13 +6,13 @@
 #include "UPartyInventory.h"
 
 #include "UObject/NoExportTypes.h"
-#include "PartyEquipment.generated.h"
+#include "InventoryEquipment.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class DESENTINTOATLANTIS_API UPartyEquipment : public UObject
+class DESENTINTOATLANTIS_API UInventoryEquipment : public UObject
 {
 	GENERATED_BODY()
 private:

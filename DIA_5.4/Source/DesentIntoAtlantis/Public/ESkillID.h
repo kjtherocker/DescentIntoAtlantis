@@ -9,6 +9,7 @@ enum class ESkillIDS : uint8
 {
 	None                   UMETA(DisplayName = "None"),
 	Uninitialized          UMETA(DisplayName = "Uninitialized"),
+	GenericSkill          UMETA(DisplayName = "GenericSkill"),
 	DefaultAttack          UMETA(DisplayName = "Default Attack"),
 	//Banshee
 	Bonk                   UMETA(DisplayName = "Bonk"),
@@ -32,7 +33,8 @@ enum class ESkillIDS : uint8
 	AbsoluteGuard          UMETA(DisplayName = "AbsoluteGuard"),
 	FeyDuality             UMETA(DisplayName = "FeyDuality"),
 
-
+	//Item
+	HealPotion             UMETA(DisplayName = "HealPotion"),
 	//SharkFiend
 	WaterBlast             UMETA(DisplayName = "WaterBlast"),
 

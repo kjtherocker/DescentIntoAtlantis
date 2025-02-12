@@ -3,8 +3,8 @@
 
 #include "UPartyInventory.h"
 
-#include "PartyEquipment.h"
-#include "PartyItems.h"
+#include "InventoryEquipment.h"
+#include "InventoryItems.h"
 #include "SkillFactorySubsystem.h"
 
 void UPartyInventory::InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem,
@@ -14,10 +14,10 @@ void UPartyInventory::InitializePartyInventory(FPartyInventoryCompleteData aPart
 	passiveFactorySubsystem    = aPassiveFactorySubsystem;
 	SkillFactorySubsystem      = aSkillFactorySubsystem;
 
-	PartyEquipment = NewObject<UPartyEquipment>();
+	PartyEquipment = NewObject<UInventoryEquipment>();
 	PartyEquipment->InitializePartyInventory(partyInventoryCompleteData,passiveFactorySubsystem,SkillFactorySubsystem);
 
-	PartyItems   = NewObject<UPartyItems>();
+	PartyItems   = NewObject<UInventoryItems>();
 	PartyItems->InitializePartyInventory(partyInventoryCompleteData,passiveFactorySubsystem,SkillFactorySubsystem);
 }
 

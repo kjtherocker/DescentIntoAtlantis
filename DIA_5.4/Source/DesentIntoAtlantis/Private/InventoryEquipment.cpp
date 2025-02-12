@@ -1,16 +1,16 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "InventoryEquipment.h"
 
-#include "PartyEquipment.h"
-
+#include "UPartyInventory.h"
 #include "EquipmentPassive.h"
 #include "ItemBase.h"
 #include "PassiveSkillFactorySubsystem.h"
 #include "SkillFactorySubsystem.h"
-#include "UPartyInventory.h"
 
 
-void UPartyEquipment::InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem,
+
+void UInventoryEquipment::InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem,
                                                USkillFactorySubsystem* aSkillFactorySubsystem)
 {
 	partyInventoryCompleteData = aPartyInventoryCompleteData;
@@ -18,7 +18,7 @@ void UPartyEquipment::InitializePartyInventory(FPartyInventoryCompleteData aPart
 	SkillFactorySubsystem      = aSkillFactorySubsystem;
 }
 
-void UPartyEquipment::AddMoreStacksOfEquipment(FEquipmentRequestInfo aEquipmentRequest)
+void UInventoryEquipment::AddMoreStacksOfEquipment(FEquipmentRequestInfo aEquipmentRequest)
 {
 	 FEquipmentPassiveInventoryInfo PassiveInventoryInfo = partyInventoryCompleteData.equipmentInventoryInfo[aEquipmentRequest.equipmentID];
 
@@ -28,7 +28,7 @@ void UPartyEquipment::AddMoreStacksOfEquipment(FEquipmentRequestInfo aEquipmentR
 	partyInventoryCompleteData.equipmentInventoryInfo[aEquipmentRequest.equipmentID] = PassiveInventoryInfo;
 }
 
-void UPartyEquipment::ReturnEquipment(EPartyMembers aOldOwner, EEquipmentID aEquipmentID)
+void UInventoryEquipment::ReturnEquipment(EPartyMembers aOldOwner, EEquipmentID aEquipmentID)
 {
 	 FEquipmentPassiveInventoryInfo equipmentInventoryInfo = GetEquipment( aEquipmentID);
 	int numberOfEquipmentOwners = 	equipmentInventoryInfo.equipmentOwners.Num();
@@ -45,7 +45,7 @@ void UPartyEquipment::ReturnEquipment(EPartyMembers aOldOwner, EEquipmentID aEqu
 	partyInventoryCompleteData.equipmentInventoryInfo[aEquipmentID] = equipmentInventoryInfo;
 }
 
-UEquipmentPassive* UPartyEquipment::TakeOutEquipment(EPartyMembers aNewOwner, EEquipmentID aEquipmentID)
+UEquipmentPassive* UInventoryEquipment::TakeOutEquipment(EPartyMembers aNewOwner, EEquipmentID aEquipmentID)
 {
 	if(!isEquipmentFreeToTake(aEquipmentID))
 	{
@@ -59,14 +59,14 @@ UEquipmentPassive* UPartyEquipment::TakeOutEquipment(EPartyMembers aNewOwner, EE
 	return EquipmentPassive;
 }
 
-bool UPartyEquipment::isEquipmentFreeToTake(EEquipmentID aEquipmentID)
+bool UInventoryEquipment::isEquipmentFreeToTake(EEquipmentID aEquipmentID)
 {
 	FEquipmentPassiveInventoryInfo equipmentPassiveInventory = GetEquipment( aEquipmentID);
 	return  equipmentPassiveInventory.equipmentOwners.Num()
 	        < equipmentPassiveInventory.Amount;
 }
 
-FEquipmentPassiveInventoryInfo  UPartyEquipment::GetEquipment(EEquipmentID aEquipmentID)
+FEquipmentPassiveInventoryInfo  UInventoryEquipment::GetEquipment(EEquipmentID aEquipmentID)
 {
 	if(partyInventoryCompleteData.equipmentInventoryInfo.Contains(aEquipmentID))
 	{
@@ -79,12 +79,12 @@ FEquipmentPassiveInventoryInfo  UPartyEquipment::GetEquipment(EEquipmentID aEqui
 	}
 }
 
-FPassiveSkillData UPartyEquipment::GetEquipmentPassiveSkillData(EEquipmentID aEquipmentID)
+FPassiveSkillData UInventoryEquipment::GetEquipmentPassiveSkillData(EEquipmentID aEquipmentID)
 {
 	return passiveFactorySubsystem->GetEquipmentPassiveSkillData(aEquipmentID);
 }
 
-void UPartyEquipment::AddEquipmentToInventory(FEquipmentRequestInfo aEquipmentRequest)
+void UInventoryEquipment::AddEquipmentToInventory(FEquipmentRequestInfo aEquipmentRequest)
 {
 
 	EEquipmentID EquipmentID = aEquipmentRequest.equipmentID;

@@ -6,9 +6,12 @@
 #include "AtlantisGameModeBase.h"
 #include "CombatGameModeBase.h"
 #include "CombatSelectionView.h"
-#include "PartyEquipment.h"
-#include "PartyItems.h"
+#include "InventoryEquipment.h"
+#include "InventoryItems.h"
+#include "SkillBarElement.h"
+#include "Components/VerticalBox.h"
 
+class USkillBarElement;
 class UCombatSelectionView;
 
 void UItemView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
@@ -23,30 +26,74 @@ void UItemView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	
 }
 
+void UItemView::CreateSkillbar(FSkillsData aSkill)
+{
+	UUserWidget* skillBarElement = CreateWidget(this, InGameHUD->GetElement(EViewElements::SkillBar));
+
+	USkillBarElement* baseUserWidget = (USkillBarElement*)skillBarElement;
+	baseUserWidget->UiInitialize(gameModeBase);
+	skillBarElement->AddToViewport();
+
+	baseUserWidget->SetSkill(aSkill);
+
+	skillBarElements.Add(baseUserWidget);
+	
+	BW_VerticalBox->AddChild(skillBarElement);
+}
+
 void UItemView::CreateItems()
 {
+	
 	
 }
 
 void UItemView::SetItemView(UPlayerCombatEntity* aPlayerCombatEntity)
 {
-	persistentGameinstance->partyManagerSubsystem->PartyInventory->GetPartyItems()->SetAllItemsTier(aPlayerCombatEntity);
+	currentActivePartyMember = aPlayerCombatEntity;
 	
+	UInventoryItems* InventoryItems = persistentGameinstance->partyManagerSubsystem->PartyInventory->GetInventoryItems();
+	InventoryItems->SetAllItemsTier(aPlayerCombatEntity);
+	TArray<UItemBase*>  allItems = InventoryItems->GetAllItems();
+
+	if(allItems.Num() == 0)
+	{
+		ReturnToPreviousScreen();
+		return;
+	}
+	
+	for(int i = 0 ; i < allItems.Num();i++)
+	{
+		if(allItems[i] != nullptr)
+		{
+			CreateSkillbar(allItems[i]->currentSkill->skillData);	
+		}
+	}
+
+	if(skillBarElements[cursorPosition] != nullptr)
+	{
+		skillBarElements[cursorPosition]->BW_BackgroundHighlight->SetOpacity(1);
+	}
+
+	SetHighLightElements(TArray<UBaseHighlightElement*>(skillBarElements));
+	SetCursorPositionInfo();
+	SetDefaultMenuState();
 }
 
 void UItemView::SelectSkill()
 {
-
-
 	FItemCharges ItemCharges = persistentGameinstance->partyManagerSubsystem->GetPartyManagerData().ItemCharges;
 
-	//USkillBase* itemSkill;
-	
-	//if(combatClass->classSkills[cursorPosition]->CanUseSkill(currentActivePartyMember))
+	UInventoryItems* InventoryItems = persistentGameinstance->partyManagerSubsystem->PartyInventory->GetInventoryItems();
+
+	TArray<UItemBase*>  allItems = InventoryItems->GetAllItems();
+
+	USkillBase* skill = allItems[cursorPosition]->currentSkill;
+
+	if(skill->CanUseSkill(currentActivePartyMember,ESkillResourceUsed::ItemCharges))
 	{
 		InGameHUD->PopMostRecentActiveView();
 		UCombatSelectionView* SelectionView = (UCombatSelectionView*)InGameHUD->PushAndGetView(EViews::CombatSelection,  EUiType::ActiveUi);
 		SelectionView->SetCombatGameMode((ACombatGameModeBase*)gameModeBase);
-		//SelectionView->SetSkill(itemSkill);
+		SelectionView->SetSkill(skill);
 	}
 }

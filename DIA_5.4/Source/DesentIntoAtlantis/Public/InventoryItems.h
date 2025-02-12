@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "UPartyInventory.h"
 #include "UObject/NoExportTypes.h"
-#include "PartyItems.generated.h"
+#include "InventoryItems.generated.h"
 
 class UPassiveFactorySubsystem;
 class USkillFactorySubsystem;
@@ -16,7 +16,7 @@ class UItemBase;
  * 
  */
 UCLASS()
-class DESENTINTOATLANTIS_API UPartyItems : public UObject
+class DESENTINTOATLANTIS_API UInventoryItems : public UObject
 {
 	GENERATED_BODY()
 
@@ -44,5 +44,7 @@ public:
 	void AddItem(EItemID aItemId);
 
 	void UnlockBrandNewItem(EItemID aItemId);
+
+	TArray<UItemBase*> GetAllItems();
 	
 };
