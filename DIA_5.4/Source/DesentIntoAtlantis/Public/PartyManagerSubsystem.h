@@ -42,7 +42,7 @@ struct DESENTINTOATLANTIS_API FItemCharges : public FTableRowBase
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere)
-	int itemCharges = 3;
+	int itemCharges;
 };
 
 
@@ -58,6 +58,10 @@ struct DESENTINTOATLANTIS_API FCompletePartyManagerSubsystemData:public  FTableR
 	UPROPERTY(EditAnywhere)
 	int totalClassPoints = 0;
 
+
+	UPROPERTY()
+	FItemCharges ItemCharges;
+	
 	UPROPERTY()
 	FPartyInventoryCompleteData PartyInventoryCompleteData;
 
@@ -66,9 +70,6 @@ struct DESENTINTOATLANTIS_API FCompletePartyManagerSubsystemData:public  FTableR
 	
 	UPROPERTY()
 	TMap<EPartyMembers, FPlayerCompleteDataSet> playerCompleteDataSet;
-
-	UPROPERTY()
-	FItemCharges ItemCharges;
 };
 
 /**
@@ -94,9 +95,9 @@ private:
 	UPersistentGameinstance* persistentGameInstance;
 
 	FCompletePartyManagerSubsystemData CompletePartyManagerSubsystemData;
-	int totalExperience  = 0;
+	int totalExperience = 0;
 	int totalClassPoints = 0;
-	int partyLevel       = 1;
+	int partyLevel      = 1;
 public:
 
 	TArray<FDefaultTestFightData> DefaultTestFightData;
@@ -130,6 +131,8 @@ public:
 	
 	TArray<UPlayerCombatEntity*> ReturnActiveParty();
 	
+
+
 	UPROPERTY()
 	UPartyInventory* PartyInventory;
 	

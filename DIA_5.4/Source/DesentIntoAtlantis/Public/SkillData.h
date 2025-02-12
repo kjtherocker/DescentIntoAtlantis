@@ -7,6 +7,21 @@
 #include "NiagaraComponent.h"
 #include "SkillData.generated.h"
 
+
+UENUM()
+enum class EItemID : uint8
+{
+	None,
+	ItemNotFound,
+	FlatHealPotion,
+	PercentageHealPotion,
+	FlatManaPotion,
+	PercentageManaPotion,
+	CancelNegativeCombatTokens,
+	InvertCombatTokens,
+};
+
+
 enum class ESkillResourceUsed : uint8;
 enum class EStatTypes : uint8;
 enum class EElementalType : uint8;
@@ -38,11 +53,10 @@ struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
 	
 	UPROPERTY( EditAnywhere , Category = "Identity")
 	UNiagaraSystem* SkillInWorldParticle;
-
-
 	
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")    
 	ESkillResourceUsed SkillResourceUsed;
+
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")
 	int costToUse;
 	
@@ -71,3 +85,18 @@ struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
 	int CombatTokenHit;
 };
 
+USTRUCT()
+struct DESENTINTOATLANTIS_API FItemData : public FTableRowBase
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere)
+	EItemID itemID;
+	
+	UPROPERTY(EditAnywhere)
+	TMap<int,FSkillsData> itemTierSkillData;
+
+	UPROPERTY()
+	int baseItemTier = 0;
+	
+};

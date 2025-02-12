@@ -26,5 +26,6 @@ enum class ESkillResourceUsed  : uint8
 	Mana,
 	Health,
 	Sync,
+	ItemCharges
 };
 

@@ -3,40 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "PlayerCombatEntity.h"
-#include "SkillBase.h"
+#include "SkillData.h"
+
 #include "ItemBase.generated.h"
 
-
-UENUM()
-enum class EItemID : uint8
-{
-	None,
-	ItemNotFound,
-	FlatHealPotion,
-	PercentageHealPotion,
-	FlatManaPotion,
-	PercentageManaPotion,
-	CancelNegativeCombatTokens,
-	InvertCombatTokens,
-};
-
-
-USTRUCT()
-struct DESENTINTOATLANTIS_API FItemData : public FTableRowBase
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere)
-	EItemID itemID;
-	
-	UPROPERTY(EditAnywhere)
-	TMap<int,FSkillsData> itemTierSkillData;
-
-	UPROPERTY()
-	int baseItemTier = 0;
-	
-};
+class USkillBase;
+class UPlayerCombatEntity;
 
 
 /**

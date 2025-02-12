@@ -3,6 +3,8 @@
 
 #include "ItemBase.h"
 
+#include "PlayerCombatEntity.h"
+
 void UItemBase::InitializeItem(FItemData aItemData,USkillBase* aCurrentSkill)
 {
 	itemData     = aItemData;
@@ -11,7 +13,7 @@ void UItemBase::InitializeItem(FItemData aItemData,USkillBase* aCurrentSkill)
 
 void UItemBase::SetItemTier(UPlayerCombatEntity* aPlayerCombatEntity)
 {
-	int itemTier = aPlayerCombatEntity->combatEntityHub->OnGetItemTier();
+	int itemTier = aPlayerCombatEntity->combatEntityHub->OnGetItemTier(itemData.itemID);
 
 	currentSkill->Initialize(itemData.itemTierSkillData[itemTier]);
 }

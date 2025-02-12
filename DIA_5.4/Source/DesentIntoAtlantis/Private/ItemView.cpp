@@ -6,6 +6,8 @@
 #include "AtlantisGameModeBase.h"
 #include "CombatGameModeBase.h"
 #include "CombatSelectionView.h"
+#include "PartyEquipment.h"
+#include "PartyItems.h"
 
 class UCombatSelectionView;
 
@@ -21,9 +23,14 @@ void UItemView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	
 }
 
+void UItemView::CreateItems()
+{
+	
+}
+
 void UItemView::SetItemView(UPlayerCombatEntity* aPlayerCombatEntity)
 {
-	persistentGameinstance->partyManagerSubsystem->PartyInventory->SetAllItemsTier(aPlayerCombatEntity);
+	persistentGameinstance->partyManagerSubsystem->PartyInventory->GetPartyItems()->SetAllItemsTier(aPlayerCombatEntity);
 	
 }
 
@@ -33,13 +40,13 @@ void UItemView::SelectSkill()
 
 	FItemCharges ItemCharges = persistentGameinstance->partyManagerSubsystem->GetPartyManagerData().ItemCharges;
 
-	USkillBase* itemSkill;
+	//USkillBase* itemSkill;
 	
-	if(combatClass->classSkills[cursorPosition]->CanUseSkill(currentActivePartyMember))
+	//if(combatClass->classSkills[cursorPosition]->CanUseSkill(currentActivePartyMember))
 	{
 		InGameHUD->PopMostRecentActiveView();
 		UCombatSelectionView* SelectionView = (UCombatSelectionView*)InGameHUD->PushAndGetView(EViews::CombatSelection,  EUiType::ActiveUi);
 		SelectionView->SetCombatGameMode((ACombatGameModeBase*)gameModeBase);
-		SelectionView->SetSkill(itemSkill);
+		//SelectionView->SetSkill(itemSkill);
 	}
 }

@@ -20,6 +20,8 @@ class DESENTINTOATLANTIS_API UItemView : public UBaseUserWidgetMovingButtons
 public:
 
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
+
+	void CreateItems();
 	void SetItemView(UPlayerCombatEntity* aPlayerCombatEntity);
 	void SelectSkill();
 };

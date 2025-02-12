@@ -4,9 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "EquipmentPassive.h"
+
 #include "UObject/NoExportTypes.h"
 #include "UPartyInventory.generated.h"
 
+class UPartyItems;
+class UPartyEquipment;
+class UPlayerCombatEntity;
 class UItemBase;
 struct FItemData;
 enum class EItemID : uint8;
@@ -39,7 +43,11 @@ private:
 	UPROPERTY()
 	FPartyInventoryCompleteData partyInventoryCompleteData;
 	
+	UPROPERTY()
+	UPartyEquipment* PartyEquipment;
 
+	UPROPERTY()
+	UPartyItems* PartyItems;
 
 	UPROPERTY()
 	USkillFactorySubsystem* SkillFactorySubsystem;
@@ -48,37 +56,10 @@ private:
 	UPassiveFactorySubsystem* passiveFactorySubsystem;
 	
 public:
-	UPROPERTY()
-	TArray<FEquipmentPassiveData> equipmentPassiveSkillData;
-
-	TMap<EItemID,UItemBase*> AllUnlockedItems;
-
-	void SetAllItemsTier(UPlayerCombatEntity* aPlayerCombatEntity);
-	
-	int GetBaseItemTier(EItemID aItemId);
-
-	void AddItem(EItemID aItemId);
-
-	void UnlockBrandNewItem(EItemID aItemId);
 	
 	void InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem,USkillFactorySubsystem* aSkillFactorySubsystem );
 
-	void AddMoreStacksOfEquipment(FEquipmentRequestInfo aEquipmentRequest);
 
-	void ReturnEquipment(EPartyMembers aOldOwner,EEquipmentID aEquipmentID);
-	UEquipmentPassive* TakeOutEquipment(EPartyMembers aNewOwner,EEquipmentID aEquipmentID);
-	
-	
-	FPartyInventoryCompleteData GetPartyInventoryCompleteData(){return partyInventoryCompleteData;}
-
-	virtual bool isEquipmentFreeToTake(EEquipmentID aEquipmentID);
-
-	virtual  FEquipmentPassiveInventoryInfo  GetEquipment(EEquipmentID aEquipmentID);
-
-	virtual TMap<EEquipmentID,FEquipmentPassiveInventoryInfo> GetAllEquipment(){ return GetPartyInventoryCompleteData().equipmentInventoryInfo;}
-
-	virtual FPassiveSkillData GetEquipmentPassiveSkillData(EEquipmentID aEquipmentID);
-	void AddEquipmentToInventory(FEquipmentRequestInfo aEquipmentRequest);
-
-
+	UPartyEquipment* GetPartyEquipment(){ return PartyEquipment;}
+	UPartyItems*     GetPartyItems(){return PartyItems;}
 };

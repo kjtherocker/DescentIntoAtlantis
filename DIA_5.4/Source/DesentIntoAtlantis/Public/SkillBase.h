@@ -74,9 +74,6 @@ public:
 	
 };
 
-
-
-
 UCLASS()
 class USkillBase : public UObject
 {

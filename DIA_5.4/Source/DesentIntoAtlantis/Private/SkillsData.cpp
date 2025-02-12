@@ -100,6 +100,9 @@ bool USkillBase::CanUseSkill(UCombatEntity* aSkillOwner, ESkillResourceUsed Skil
 	case ESkillResourceUsed::Sync:
 		return aSkillOwner->currentSync > skillData.costToUse;
 		break;
+	case ESkillResourceUsed::ItemCharges:
+		return true;
+		break;
 	}
 
 	return false;
@@ -122,6 +125,8 @@ void USkillBase::SpendSkillCost(UCombatEntity* aSkillOwner, ESkillResourceUsed S
 	    	break;
 		case ESkillResourceUsed::Sync:
 			 aSkillOwner->DecrementSync(skillData.costToUse);
+			break;
+		case ESkillResourceUsed::ItemCharges:
 			break;
 	}
 }
