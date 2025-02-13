@@ -47,7 +47,10 @@ struct DESENTINTOATLANTIS_API FMapData
 	GENERATED_BODY()
 	
 	UPROPERTY()
-	TArray<FNodeMapData> revealedNodes; 
+	TArray<FNodeMapData> revealedNodes;
+
+	UPROPERTY()
+	TArray<FChestGimmickData> claimedChests; 
 };
 
 USTRUCT()
@@ -114,6 +117,11 @@ public:
 	FVector2D newFloorPlayerSpawnPosition = FVector2D(-1,-1);
 	
 	void SetInteractableGimmick(FVector2D aPositionInGrid,UGimmick_Interactable* aInteractableGimmick);
+
+
+	UFUNCTION()
+	void OnInteractableGimmickActivated(FVector2D aPosition,UGimmick_Interactable* Gimmick);
+	
 	UFUNCTION()
 	void ActivateCurrentNodesInteractableGimmick(FCompleteFloorPawnData aCompleteFloorPawnData);
 	
@@ -136,6 +144,9 @@ public:
 
 	FCompleteEnemyInteractionData GetEnemyInteractionData(EFloorIdentifier aFloorIdentifier);
 	void AddEnemyHasBeenInteracted(AFloor_EnemyPawn* aEnemyPawn);
+
+
+	bool CheckIfChestIsClaimed(FVector2D aPositionInGrid);
 	
 	void RevealMapNode( int aLevelIndex);
 	bool HasNodeBeenRevealed(int aLevelIndex);

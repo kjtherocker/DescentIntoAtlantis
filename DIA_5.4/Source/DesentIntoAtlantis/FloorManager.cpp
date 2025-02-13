@@ -333,7 +333,7 @@ void AFloorManager::SpawnNodeGimmicks(int aCurrentNodeIndex,FVector2d aPositionI
 		
 		UGimmick_Chest* newGimmickA = NewObject<UGimmick_Chest>();
 		newGimmickA->SetChestGimmickData(ChestGimmickData,persistentGameInstance);
-		
+		newGimmickA->SetChestState(persistentGameInstance->levelProgressionSubsystem->CheckIfChestIsClaimed(ChestGimmickData.GimmickInteractableData.positionInGrid));
 		gimmickMap[EFloorGimmicks::Chest].GimmickArray.Add((UGimmick_Base*)newGimmickA);
 		levelProgressionSubsystem->SetInteractableGimmick(aPositionInGrid,newGimmickA);
 	}

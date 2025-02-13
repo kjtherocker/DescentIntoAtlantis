@@ -44,6 +44,9 @@ struct FUGimmickArrayWrapper
 	TArray<UGimmick_Base*> GimmickArray;
 };
 
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnInteractableGimmickActivated,FVector2D,position,UGimmick_Interactable*, gimmick);
+
 UCLASS()
 class DESENTINTOATLANTIS_API UGimmick_Interactable: public UObject
 {
@@ -53,6 +56,9 @@ protected:
 	UPROPERTY()
 	UPersistentGameinstance* persistentGameinstance;
 public:
+
+	UPROPERTY()
+	FOnInteractableGimmickActivated OnInteractableGimmickActivated;
 	FGimmickInteractableData interactableData;
 //	virtual void InitializeGimmick(UPersistentGameinstance* aPersistentGameInstance);
 //	

@@ -5,6 +5,7 @@
 
 #include "AtlantisGameModeBase.h"
 #include "Floor_EnemyPawn.h"
+#include "Gimmick_Chest.h"
 #include "InteractableView.h"
 #include "PersistentGameinstance.h"
 
@@ -64,8 +65,22 @@ void ULevelProgressionSubsystem::CreateNewFogOfWar(UFloorBase* aFloor)
 void ULevelProgressionSubsystem::SetInteractableGimmick(FVector2D aPositionInGrid,
 	UGimmick_Interactable* aInteractableGimmick)
 {
+	aInteractableGimmick->OnInteractableGimmickActivated.AddDynamic(this,&ULevelProgressionSubsystem::OnInteractableGimmickActivated);
 	gimmickLocation.Add(aPositionInGrid,aInteractableGimmick);
 }
+
+void ULevelProgressionSubsystem::OnInteractableGimmickActivated(FVector2D aPosition, UGimmick_Interactable* Gimmick)
+{
+
+	if(gimmickLocation.Contains(aPosition))
+	{
+		if (UGimmick_Chest* BaseClass = Cast<UGimmick_Chest>(Gimmick))
+		{
+			completeProgressionData.mapProgression[currentFloorIdentifier].claimedChests.Add(BaseClass->ChestGimmickData);
+		}
+	
+	}
+} 
 
 void ULevelProgressionSubsystem::ActivateCurrentNodesInteractableGimmick(FCompleteFloorPawnData aCompleteFloorPawnData)
 {
@@ -99,9 +114,6 @@ void ULevelProgressionSubsystem::SetGameMode(AAtlantisGameModeBase* aGameMode, U
     gameMode = aGameMode;
 	interactableView = aInteractable;
 }
-
-
-
 
 void ULevelProgressionSubsystem::SetCompleteFloorPawnData(FCompleteFloorPawnData aCompleteFloorPawnData)
 {
@@ -150,6 +162,19 @@ void ULevelProgressionSubsystem::AddEnemyHasBeenInteracted(AFloor_EnemyPawn* aEn
 	
 	completeProgressionData.completeEnemyInteractionData.interactedEnemy.Add(startPosition,interactedEnemy);
 	mapHasChanged.Broadcast(completeProgressionData);
+}
+
+bool ULevelProgressionSubsystem::CheckIfChestIsClaimed(FVector2D aPositionInGrid)
+{
+	for (auto Element : completeProgressionData.mapProgression[currentFloorIdentifier].claimedChests)
+	{
+		if(Element.GimmickInteractableData.positionInGrid == aPositionInGrid)
+		{
+			return true;
+		}
+	}
+
+	return false;
 }
 
 void ULevelProgressionSubsystem::RevealMapNode(int aLevelIndex)

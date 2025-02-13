@@ -20,6 +20,7 @@ public:
 
 	bool isclaimed = false;
 	void SetChestGimmickData(FChestGimmickData aChestGimmickData,UPersistentGameinstance* aPersistentGameinstance );
+	virtual void SetChestState(bool aHasChestBeenClaimed);
 	virtual void ActivateGimmick();
 	virtual FGimmickInteractableData GetInteractableData();
 };

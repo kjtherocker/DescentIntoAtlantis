@@ -13,6 +13,12 @@ void UGimmick_Chest::SetChestGimmickData(FChestGimmickData aChestGimmickData,UPe
 	persistentGameinstance = aPersistentGameinstance;
 }
 
+void UGimmick_Chest::SetChestState(bool aHasChestBeenClaimed)
+{
+	ChestGimmickData.hasBeenClaimed = aHasChestBeenClaimed;
+	interactableData.isInteractable = !aHasChestBeenClaimed;
+}
+
 void UGimmick_Chest::ActivateGimmick()
 {
 	Super::ActivateGimmick();
@@ -26,6 +32,7 @@ void UGimmick_Chest::ActivateGimmick()
 	isclaimed = true;
 
 	interactableData.isInteractable = false;
+	OnInteractableGimmickActivated.Broadcast(interactableData.positionInGrid,this);
 }
 
 FGimmickInteractableData UGimmick_Chest::GetInteractableData()
