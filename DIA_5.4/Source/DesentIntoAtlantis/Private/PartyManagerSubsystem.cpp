@@ -188,7 +188,7 @@ void UPartyManagerSubsystem::SavePartyManager()
 	CompletePartyManagerSubsystemData.partyLevel       = partyLevel;
 	CompletePartyManagerSubsystemData.totalExperience  = totalExperience;
 	CompletePartyManagerSubsystemData.totalClassPoints = totalClassPoints;
-	CompletePartyManagerSubsystemData.PartyInventoryCompleteData = PartyInventory->GetInventoryEquipment()->GetPartyInventoryCompleteData();
+	CompletePartyManagerSubsystemData.PartyInventoryCompleteData = PartyInventory->GetPartyInventoryCompleteData();
 
 	for (auto Element : playerCombatEntityInfo)
 	{

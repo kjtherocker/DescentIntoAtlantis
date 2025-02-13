@@ -24,6 +24,7 @@ void UInteractableView::ActivateGimmick()
 	if(currentInteractableGimmick)
 	{
 		currentInteractableGimmick->ActivateGimmick();
+		ResetInteractiveView();
 	}
 }
 

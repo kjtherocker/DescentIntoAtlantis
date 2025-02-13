@@ -28,9 +28,9 @@ void UGimmick_Interactable::ActivateGimmick()
 {
 }
 
-FGimmickInteractableData UGimmick_Interactable::GetCurrentGimmick()
+FGimmickInteractableData UGimmick_Interactable::GetInteractableData()
 {
-	return activeCurrentGimmick;
+	return interactableData;
 }
 
 void UGimmick_Teleporter::SetFloorNodeDelegate(AFloorNode* aFloorNode)
@@ -98,7 +98,7 @@ void UGimmick_Doors::SetGimmick(FDoorGimmick aGimmick)
 	currentDoorGimmick = aGimmick;
 }
 
-FGimmickInteractableData UGimmick_Doors::GetCurrentGimmick()
+FGimmickInteractableData UGimmick_Doors::GetInteractableData()
 {
 	return FGimmickInteractableData(currentDoorGimmick);
 }

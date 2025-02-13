@@ -53,13 +53,13 @@ protected:
 	UPROPERTY()
 	UPersistentGameinstance* persistentGameinstance;
 public:
-	FGimmickInteractableData activeCurrentGimmick;
+	FGimmickInteractableData interactableData;
 //	virtual void InitializeGimmick(UPersistentGameinstance* aPersistentGameInstance);
 //	
 	virtual void ActivateGimmick();
 //	void SetGimmick(FGimmickData aGimmick);
 
-	virtual FGimmickInteractableData GetCurrentGimmick();
+	virtual FGimmickInteractableData GetInteractableData();
 	
 };
 
@@ -133,7 +133,7 @@ public:
 	virtual void ActivateGimmick() override;
 	void SetGimmick(FDoorGimmick aGimmick);
 	
-	virtual FGimmickInteractableData GetCurrentGimmick() override;
+	virtual FGimmickInteractableData GetInteractableData() override;
 
 	
 	

@@ -3,6 +3,7 @@
 #pragma once
 #include "EDataTableTypes.h"
 #include "FloorPawn.h"
+#include "InventoryItems.h"
 
 #include "Views.h"
 #include "DesentIntoAtlantis/ECardinalDirections.h"
@@ -36,6 +37,7 @@ enum class EFloorGimmicks
 	Lava            = 4,
 	Teleporter      = 5,
 	Stairs          = 6,
+	Chest           = 7,
 };
 
 UENUM()
@@ -105,7 +107,28 @@ struct DESENTINTOATLANTIS_API FGimmickInteractableData : public FTableRowBase
 
 	UPROPERTY(EditAnywhere)
 	bool activateWhenPlayerIsOnNode = true;
+
+	UPROPERTY()
+	bool isInteractable = true;
 };
+
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FChestGimmickData : public FGimmickData
+{
+	GENERATED_USTRUCT_BODY()
+
+	UPROPERTY( EditAnywhere )
+	FGimmickInteractableData GimmickInteractableData;
+	
+
+	UPROPERTY()
+	bool hasBeenClaimed = false;
+	
+	UPROPERTY(EditAnywhere)
+	EItemID itemID;
+};
+
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FTeleporterGimmick : public FGimmickData
@@ -375,15 +398,20 @@ struct DESENTINTOATLANTIS_API FFloorData : public FTableRowBase
 	UPROPERTY(EditAnywhere)
 	ECardinalNodeDirections startRotation = ECardinalNodeDirections::Up;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "Enemy")
+	TArray<FFloorEnemyPawnCompleteData> EnemyPawns;
+	
+	UPROPERTY(EditAnywhere, Category = "Chest")
+	TArray<FChestGimmickData> chestGimmick;
+	
+	UPROPERTY(EditAnywhere , Category = "Teleportion")
 	TArray<FTeleporterGimmick> teleporterGimmicks;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "ForcedMovement")
 	TArray<FForcedMovementGimmick> forcedMovementGimmick;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "Door")
 	TArray<FDoorComplete> doorGimmick;
 
-	UPROPERTY(EditAnywhere)
-	TArray<FFloorEnemyPawnCompleteData> EnemyPawns;
+
 };

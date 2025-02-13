@@ -32,6 +32,8 @@ private:
 	
 	UPROPERTY()
 	UPassiveFactorySubsystem* passiveFactorySubsystem;
+
+	void CreateAllItems();
 	
 public:
 
@@ -39,11 +41,13 @@ public:
 
 	void SetAllItemsTier(UPlayerCombatEntity* aPlayerCombatEntity);
 	
+	FPartyInventoryCompleteData GetPartyInventoryCompleteData(){return partyInventoryCompleteData;}
+	
 	int GetBaseItemTier(EItemID aItemId);
 
 	void AddItem(EItemID aItemId);
 
-	void UnlockBrandNewItem(EItemID aItemId);
+	bool UnlockBrandNewItem(EItemID aItemId);
 
 	TArray<UItemBase*> GetAllItems();
 	

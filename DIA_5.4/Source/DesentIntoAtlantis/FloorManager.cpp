@@ -3,6 +3,7 @@
 
 #include "FloorManager.h"
 
+#include "Gimmick_Chest.h"
 #include "FloorGameMode.h"
 #include "EFloorIdentifier.h"
 #include "FloorPlayerController.h"
@@ -39,6 +40,8 @@ void AFloorManager::Initialize(AAtlantisGameModeBase* aGameModeBase,UEventManage
 	gimmickMap.Add(EFloorGimmicks::ForcedMovement, forcedMovement);
 	FUGimmickArrayWrapper door;
 	gimmickMap.Add(EFloorGimmicks::Door, door);
+	FUGimmickArrayWrapper chest;
+	gimmickMap.Add(EFloorGimmicks::Chest, chest);
 	
 	persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
 
@@ -323,6 +326,16 @@ void AFloorManager::SpawnNodeGimmicks(int aCurrentNodeIndex,FVector2d aPositionI
 		gimmickMap[EFloorGimmicks::Teleporter].GimmickArray.Add(newGimmick);
 				
 		SpawnObjectInGrid(aPositionInGrid,stairsReference);
+	}
+	if(aFloor->ChestGimmickData.Contains(aPositionInGrid))
+	{
+		FChestGimmickData ChestGimmickData = aFloor->ChestGimmickData[aPositionInGrid];
+		
+		UGimmick_Chest* newGimmickA = NewObject<UGimmick_Chest>();
+		newGimmickA->SetChestGimmickData(ChestGimmickData,persistentGameInstance);
+		
+		gimmickMap[EFloorGimmicks::Chest].GimmickArray.Add((UGimmick_Base*)newGimmickA);
+		levelProgressionSubsystem->SetInteractableGimmick(aPositionInGrid,newGimmickA);
 	}
 }
 

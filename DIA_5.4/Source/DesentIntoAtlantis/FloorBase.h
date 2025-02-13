@@ -48,11 +48,13 @@ public:
 	TArray<FDoorComplete> doorGimmicks;
 	TMap<FVector2d ,FTeleporterGimmick> TeleporterGimmickData;
 	TMap<FVector2d ,FForcedMovementGimmick> ForcedMovementGimmickData;
+	TMap<FVector2d ,FChestGimmickData> ChestGimmickData;
    
 	FVector2D m_DefaultSpawnPosition;
    
 	void Initialize();
 	void SetTeleporterGimmickData(TArray<FTeleporterGimmick> aTeleporterGimmicks);
+	void SetChestData(TArray<FChestGimmickData> aTeleporterGimmicks);
 	void SetForcedMovementGimmickData(TArray<FForcedMovementGimmick> aForcedMovementGimmicks);
 	int GetIndex(int aRow, int aColumn);
 

@@ -2,18 +2,20 @@
 
 
 #include "InventoryItems.h"
-
 #include "ItemBase.h"
+#include "SkillData.h"
 #include "SkillFactorySubsystem.h"
 #include "UPartyInventory.h"
 
 
 void UInventoryItems::InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem,
-                                           USkillFactorySubsystem* aSkillFactorySubsystem)
+                                               USkillFactorySubsystem* aSkillFactorySubsystem)
 {
 	partyInventoryCompleteData = aPartyInventoryCompleteData;
 	passiveFactorySubsystem    = aPassiveFactorySubsystem;
 	SkillFactorySubsystem      = aSkillFactorySubsystem;
+	
+	CreateAllItems();
 }
 
 void UInventoryItems::SetAllItemsTier(UPlayerCombatEntity* aPlayerCombatEntity)
@@ -47,17 +49,58 @@ void UInventoryItems::AddItem(EItemID aItemId)
 	else
 	{
 		AllUnlockedItems[aItemId]->IncreaseBaseItemTier();
+		partyInventoryCompleteData.ItemInventoryInfo[aItemId] = AllUnlockedItems[aItemId]->GetItemData();
 	}
 	
 	
 }
 
-void UInventoryItems::UnlockBrandNewItem(EItemID aItemId)
+bool UInventoryItems::UnlockBrandNewItem(EItemID aItemId)
 {
+	if(AllUnlockedItems.Contains(aItemId))
+	{
+		return false;
+	}
+	
 	UItemBase* item = SkillFactorySubsystem->GetItem(aItemId);
 
+	if(item->GetItemData().itemID == EItemID::ItemNotFound)
+	{
+		return false;
+	}
+	
 	AllUnlockedItems.Add(aItemId,item);
+	partyInventoryCompleteData.ItemInventoryInfo.Add(aItemId,item->GetItemData());
+
+	return true;
 }
+
+
+void UInventoryItems::CreateAllItems()
+{
+	if(AllUnlockedItems.Num() == partyInventoryCompleteData.ItemInventoryInfo.Num())
+	{
+		return;
+	}
+
+	TMap<EItemID, FItemData> itemInventoryInfos = partyInventoryCompleteData.ItemInventoryInfo;
+
+	partyInventoryCompleteData.ItemInventoryInfo.Empty();
+	
+	for (auto Pair :itemInventoryInfos)
+	{
+		if(AllUnlockedItems.Contains(Pair.Value.itemID))
+		{
+			continue;
+		}
+		
+		if(UnlockBrandNewItem(Pair.Value.itemID))
+		{
+			AllUnlockedItems[Pair.Value.itemID]->SetItemData(Pair.Value);	
+		}
+	}
+}
+
 
 TArray<UItemBase*> UInventoryItems::GetAllItems()
 {

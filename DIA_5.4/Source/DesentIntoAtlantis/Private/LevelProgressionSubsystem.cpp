@@ -76,7 +76,8 @@ void ULevelProgressionSubsystem::ActivateCurrentNodesInteractableGimmick(FComple
 	if(gimmickLocation.Contains(currentPlayerPosition))
 	{
 		currentInteractableGimmick = gimmickLocation[currentPlayerPosition];
-		if(currentInteractableGimmick->GetCurrentGimmick().interactDirection == currentPlayerDirection)
+		if(currentInteractableGimmick->GetInteractableData().interactDirection == currentPlayerDirection
+			&& currentInteractableGimmick->GetInteractableData().isInteractable)
 		{
 			interactableView->SetGimmick(currentInteractableGimmick);
 		}

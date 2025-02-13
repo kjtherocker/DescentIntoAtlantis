@@ -11,14 +11,14 @@
 UENUM()
 enum class EItemID : uint8
 {
-	None,
-	ItemNotFound,
-	FlatHealPotion,
-	PercentageHealPotion,
-	FlatManaPotion,
-	PercentageManaPotion,
-	CancelNegativeCombatTokens,
-	InvertCombatTokens,
+	None                       = 0,
+	ItemNotFound               = 1,
+	FlatHealPotion             = 2,
+	PercentageHealPotion       = 3,
+	FlatManaPotion             = 4,
+	PercentageManaPotion       = 5,
+	CancelNegativeCombatTokens = 6,
+	InvertCombatTokens         = 7,
 };
 
 

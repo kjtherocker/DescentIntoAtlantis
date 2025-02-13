@@ -49,11 +49,14 @@ void UFloorFactory::InitializeDatabase(UDataTable* aFloorDatabase,UDataTable* aF
 	{
 		TArray<FTeleporterGimmick>     teleporterGimmick      = Element.Value->floorData.teleporterGimmicks;
 		TArray<FForcedMovementGimmick> forcedMovementGimmicks = Element.Value->floorData.forcedMovementGimmick;
+		TArray<FChestGimmickData>      ChestGimmickDatas      = Element.Value->floorData.chestGimmick;
 		Element.Value->doorGimmicks                           = Element.Value->floorData.doorGimmick;
+		
 
 		Element.Value->floorEnemyPawns =  Element.Value->floorData.EnemyPawns;
 		Element.Value->SetForcedMovementGimmickData(forcedMovementGimmicks);
 		Element.Value->SetTeleporterGimmickData(teleporterGimmick);
+		Element.Value->SetChestData(ChestGimmickDatas);
 	}
 }
 

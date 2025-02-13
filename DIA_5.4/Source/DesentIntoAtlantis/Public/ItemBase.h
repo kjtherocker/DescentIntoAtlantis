@@ -18,12 +18,15 @@ UCLASS()
 class DESENTINTOATLANTIS_API UItemBase : public UObject
 {
 	GENERATED_BODY()
+
+private:
+	UPROPERTY()
+	FItemData itemData;
+
 public:
 	UPROPERTY()
 	USkillBase* currentSkill;
-
-	UPROPERTY()
-	FItemData itemData;
+	
 	
 	void InitializeItem(FItemData aItemData,USkillBase* aCurrentSkill);
 	
@@ -32,7 +35,8 @@ public:
 	void IncreaseBaseItemTier();
 
 	int GetItemTier(){return  GetItemData().baseItemTier;}
-	
+
+	void SetItemData(FItemData aItemData){ itemData = aItemData;}
 	FItemData GetItemData(){ return itemData;}
 	
 	USkillBase* GetItemBasedOnTier();

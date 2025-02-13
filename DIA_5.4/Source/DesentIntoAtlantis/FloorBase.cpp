@@ -19,6 +19,15 @@ void UFloorBase::SetTeleporterGimmickData(TArray<FTeleporterGimmick> aTeleporter
     }
 }
 
+void UFloorBase::SetChestData(TArray<FChestGimmickData> aTeleporterGimmicks)
+{
+    for (auto Element : aTeleporterGimmicks)
+    {
+        ChestGimmickData.Add(Element.GimmickInteractableData.positionInGrid,Element);
+    }
+  
+}
+
 void UFloorBase::SetForcedMovementGimmickData(TArray<FForcedMovementGimmick> aForcedMovementGimmicks)
 {
     for(int i = 0 ; i < aForcedMovementGimmicks.Num();i++)

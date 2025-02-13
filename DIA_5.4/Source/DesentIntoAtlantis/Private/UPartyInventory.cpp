@@ -21,3 +21,18 @@ void UPartyInventory::InitializePartyInventory(FPartyInventoryCompleteData aPart
 	PartyItems->InitializePartyInventory(partyInventoryCompleteData,passiveFactorySubsystem,SkillFactorySubsystem);
 }
 
+void UPartyInventory::SavePartyInventory()
+{
+	partyInventoryCompleteData.equipmentInventoryInfo =
+		PartyEquipment->GetPartyInventoryCompleteData().equipmentInventoryInfo;
+
+	partyInventoryCompleteData.ItemInventoryInfo =
+		PartyItems->GetPartyInventoryCompleteData().ItemInventoryInfo;
+}
+
+FPartyInventoryCompleteData UPartyInventory::GetPartyInventoryCompleteData()
+{
+	SavePartyInventory();
+	return partyInventoryCompleteData;
+}
+

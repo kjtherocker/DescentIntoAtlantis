@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "EquipmentPassive.h"
-
+#include "SkillData.h"
 #include "UObject/NoExportTypes.h"
 #include "UPartyInventory.generated.h"
 
@@ -12,7 +12,7 @@ class UInventoryItems;
 class UInventoryEquipment;
 class UPlayerCombatEntity;
 class UItemBase;
-struct FItemData;
+
 enum class EItemID : uint8;
 enum class EEquipmentID : uint8;
 class UEquipmentPassive;
@@ -59,7 +59,10 @@ public:
 	
 	void InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem,USkillFactorySubsystem* aSkillFactorySubsystem );
 
+	void SavePartyInventory();
 
+	FPartyInventoryCompleteData GetPartyInventoryCompleteData();
+	
 	UInventoryEquipment* GetInventoryEquipment(){ return PartyEquipment;}
 	UInventoryItems*     GetInventoryItems(){return PartyItems;}
 };
