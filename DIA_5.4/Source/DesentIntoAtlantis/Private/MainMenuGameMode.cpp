@@ -17,11 +17,14 @@ AMainMenuGameMode::AMainMenuGameMode()
 	bStartPlayersAsSpectators = false;
     
 	PlayerControllerClass = AFloorPlayerController::StaticClass();
+
+
 }
 
 void AMainMenuGameMode::InitializeLevel()
 {
 	Super::InitializeLevel();
+	persistentGameInstance->popupSubsystem->SetGameMode(this);
 	CreateMainMenu();
 }
 

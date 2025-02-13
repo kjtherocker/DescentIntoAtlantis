@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "EventDispatcherSubsystem.h"
 #include "EventManagerSubSystem.h"
+#include "PopupSubsystem.h"
 
 #include "Engine/GameInstance.h"
 #include "PersistentGameinstance.generated.h"
@@ -82,6 +83,9 @@ public:
 	UPassiveFactorySubsystem*  passiveFactorySubsystem;
 	UPROPERTY()
 	UEventDispatcherSubsystem*       eventDispatcherSubsystem;
+
+	UPROPERTY()
+	UPopupSubsystem* popupSubsystem;
 	
 	UPROPERTY()
 	UTutorialManagerSubsystem* tutorialManagerSubsystem;

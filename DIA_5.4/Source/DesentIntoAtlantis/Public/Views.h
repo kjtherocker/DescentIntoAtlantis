@@ -48,6 +48,7 @@ enum class  EViews
 	CombatStatView          = 38,
 	NumbersUIView           = 39,
 	SubSkillView            = 40,
+	ItemPopupView           = 41,
 
 };
 

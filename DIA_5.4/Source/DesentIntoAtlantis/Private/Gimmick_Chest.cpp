@@ -33,6 +33,8 @@ void UGimmick_Chest::ActivateGimmick()
 
 	interactableData.isInteractable = false;
 	OnInteractableGimmickActivated.Broadcast(interactableData.positionInGrid,this);
+
+
 }
 
 FGimmickInteractableData UGimmick_Chest::GetInteractableData()

@@ -37,6 +37,7 @@ void UPersistentGameinstance::Init()
 	saveManagerSubsystem            = GetSubsystem<USaveManagerSubsystem>();
 	levelProgressionSubsystem       = GetSubsystem<ULevelProgressionSubsystem>();
 	eventDispatcherSubsystem        = GetSubsystem<UEventDispatcherSubsystem>();
+	popupSubsystem                  = GetSubsystem<UPopupSubsystem>();
 
 	levelProgressionSubsystem->InitializeSubsystem(this);
 	

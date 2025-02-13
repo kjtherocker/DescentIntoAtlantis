@@ -32,7 +32,9 @@
 void ACombatGameModeBase::InitializeLevel()
 {
 	Super::InitializeLevel();
-	;
+
+	persistentGameInstance->popupSubsystem->SetGameMode(this);
+	
 	FActorSpawnParameters ActorSpawnParameters;
 	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 	ActorSpawnParameters.Owner = this;

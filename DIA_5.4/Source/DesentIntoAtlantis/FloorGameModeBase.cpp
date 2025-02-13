@@ -27,7 +27,9 @@ AFloorGameMode::AFloorGameMode()
 void AFloorGameMode::InitializeLevel()
 {
     Super::InitializeLevel();
-   
+
+    persistentGameInstance->popupSubsystem->SetGameMode(this);
+    
     world = GetWorld();
     FVector ActorFinalSpawnPoint(0,0,0);
     FRotator rotator(0.0f,0.0f,0.0f);

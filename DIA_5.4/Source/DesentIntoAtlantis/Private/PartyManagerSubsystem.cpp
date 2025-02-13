@@ -32,13 +32,11 @@ void UPartyManagerSubsystem::LoadSavedPartyManagerSubsystem(FCompletePartyManage
 		persistentGameInstance->skillFactorySubsystem);
 	
 	LoadAndCreateAllPlayerEntitys(aPartyManagerSubsystemData.playerCompleteDataSet);
+	persistentGameInstance->popupSubsystem->SetPartySubsystem(this);
 }
 
 void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UDataTable* aClassDataTable, UDataTable* aPartyExperienceTable, UDataTable* aTestCombatInfo)
 {
-
-
-	 
 	FPartyExperienceTable PartyExperienceTable = *aPartyExperienceTable->FindRow<FPartyExperienceTable>(FName(FString::FromInt(0)),FString("Searching for Classes"),true) ;
 	LevelExperienceTable = PartyExperienceTable.LevelExpValue;
 	
@@ -85,8 +83,7 @@ void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UData
 		}
 	}
 
-	
-	
+	persistentGameInstance->popupSubsystem->SetPartySubsystem(this);
 }
 
 void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembers aPlayer)

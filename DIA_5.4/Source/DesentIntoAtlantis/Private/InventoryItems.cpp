@@ -44,10 +44,13 @@ void UInventoryItems::AddItem(EItemID aItemId)
 	if(!AllUnlockedItems.Contains(aItemId))
 	{
 		UnlockBrandNewItem(aItemId);
+
+		OnNewItemGainedDelegate.Broadcast(AllUnlockedItems[aItemId]->GetItemData());
 		return;
 	}
 	else
 	{
+		OnNewItemGainedDelegate.Broadcast(AllUnlockedItems[aItemId]->GetItemData());
 		AllUnlockedItems[aItemId]->IncreaseBaseItemTier();
 		partyInventoryCompleteData.ItemInventoryInfo[aItemId] = AllUnlockedItems[aItemId]->GetItemData();
 	}

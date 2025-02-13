@@ -15,12 +15,16 @@ class UItemBase;
 /**
  * 
  */
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnNewItemGained,FItemData,ItemData);
+
 UCLASS()
 class DESENTINTOATLANTIS_API UInventoryItems : public UObject
 {
 	GENERATED_BODY()
 
 private:
+
 	UPROPERTY()
 	FPartyInventoryCompleteData partyInventoryCompleteData;
 	
@@ -37,6 +41,9 @@ private:
 	
 public:
 
+	UPROPERTY()
+	FOnNewItemGained OnNewItemGainedDelegate;
+	
 	void InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem,USkillFactorySubsystem* aSkillFactorySubsystem );
 
 	void SetAllItemsTier(UPlayerCombatEntity* aPlayerCombatEntity);
