@@ -123,6 +123,7 @@ void UPersistentGameinstance::Init()
 	//floorNode->AttachToComponent(ParentRootComponent,FAttachmentTransformRules::KeepRelativeTransform);
 	LevelMap.Add(EFloorIdentifier::Floor1,"Prison_Floor1");
 	LevelMap.Add(EFloorIdentifier::Floor2,"Prison_Floor2");
+	LevelMap.Add(EFloorIdentifier::Floor3,"Prison_Floor3");
 	LevelMap.Add(EFloorIdentifier::PrisonCombat,"PrisonCombat");
 //
 	//LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));

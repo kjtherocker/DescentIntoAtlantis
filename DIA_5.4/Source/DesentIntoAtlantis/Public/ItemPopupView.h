@@ -22,6 +22,12 @@ public:
 	virtual void SetItemPopup(FItemData ItemData);
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	URichTextBlock* BW_PreviousDescription;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	URichTextBlock* BW_NewDescription;
+	
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	USkillBarElement* BW_PreviousItem;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))

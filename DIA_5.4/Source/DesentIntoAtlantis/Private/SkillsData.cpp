@@ -92,13 +92,13 @@ bool USkillBase::CanUseSkill(UCombatEntity* aSkillOwner, ESkillResourceUsed Skil
 	case ESkillResourceUsed::None:
 		break;
 	case ESkillResourceUsed::Mana:
-		return aSkillOwner->currentMana > skillData.costToUse;
+		return aSkillOwner->currentMana >= skillData.costToUse;
 		break;
 	case ESkillResourceUsed::Health:
-		return aSkillOwner->health->GetCurrentHealth() > skillData.costToUse;
+		return aSkillOwner->health->GetCurrentHealth() >= skillData.costToUse;
 		break;
 	case ESkillResourceUsed::Sync:
-		return aSkillOwner->currentSync > skillData.costToUse;
+		return aSkillOwner->currentSync >= skillData.costToUse;
 		break;
 	case ESkillResourceUsed::ItemCharges:
 		return true;
