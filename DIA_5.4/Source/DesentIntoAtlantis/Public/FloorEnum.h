@@ -3,7 +3,7 @@
 #pragma once
 #include "EDataTableTypes.h"
 #include "FloorPawn.h"
-#include "InventoryItems.h"
+#include "Inventory_Items.h"
 
 #include "Views.h"
 #include "DesentIntoAtlantis/ECardinalDirections.h"

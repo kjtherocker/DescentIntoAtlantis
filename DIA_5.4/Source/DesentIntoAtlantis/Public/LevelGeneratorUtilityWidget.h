@@ -54,12 +54,18 @@ private:
 
 	void RefreshGridGimmicks();
 	
+	UFUNCTION(BlueprintCallable, Category = "MyEditorUtility")
+	void ResetAllNodes();
+	
 public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UMapNodeEditorView* BW_MapNodeEditor;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UButton* BW_GenerateButton;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UButton* BW_ResetButton;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UButton* BW_SaveButton;

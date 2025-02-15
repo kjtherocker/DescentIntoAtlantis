@@ -10,6 +10,7 @@
 #include "Engine/GameInstance.h"
 #include "PersistentGameinstance.generated.h"
 
+class UKeyItemFactorySubsystem;
 class UPassiveFactorySubsystem;
 class UChallengeSubsystem;
 enum class EElementalType: uint8;
@@ -82,7 +83,10 @@ public:
 	UPROPERTY()
 	UPassiveFactorySubsystem*  passiveFactorySubsystem;
 	UPROPERTY()
-	UEventDispatcherSubsystem*       eventDispatcherSubsystem;
+	UEventDispatcherSubsystem* eventDispatcherSubsystem;
+
+	UPROPERTY()
+	UKeyItemFactorySubsystem* KeyItemFactorySubsystem;
 
 	UPROPERTY()
 	UPopupSubsystem* popupSubsystem;

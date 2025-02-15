@@ -3,7 +3,7 @@
 
 #include "PartyInventoryEquipmentView.h"
 
-#include "InventoryEquipment.h"
+#include "Inventory_Equipment.h"
 #include "PartyManagerSubsystem.h"
 #include "PassiveSkillElement.h"
 #include "Components/VerticalBox.h"

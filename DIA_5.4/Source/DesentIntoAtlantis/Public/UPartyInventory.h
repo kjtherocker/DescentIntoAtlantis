@@ -4,12 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "EquipmentPassive.h"
+#include "KeyItemFactorySubsystem.h"
 #include "SkillData.h"
 #include "UObject/NoExportTypes.h"
 #include "UPartyInventory.generated.h"
 
-class UInventoryItems;
-class UInventoryEquipment;
+class UInventory_KeyItems;
+class UInventory_Items;
+class UInventory_Equipment;
 class UPlayerCombatEntity;
 class UItemBase;
 
@@ -21,6 +23,8 @@ struct FEquipmentPassiveData;
  * 
  */
 
+
+
 USTRUCT()
 struct DESENTINTOATLANTIS_API FPartyInventoryCompleteData:public  FTableRowBase
 {
@@ -31,6 +35,8 @@ struct DESENTINTOATLANTIS_API FPartyInventoryCompleteData:public  FTableRowBase
 	UPROPERTY(EditAnywhere)
 	TMap<EItemID,FItemData> ItemInventoryInfo;
 	
+	UPROPERTY(EditAnywhere)
+	TMap<EKeyItemsID,FKeyItemData> keyItemData;
 };
 
 
@@ -44,11 +50,14 @@ private:
 	FPartyInventoryCompleteData partyInventoryCompleteData;
 	
 	UPROPERTY()
-	UInventoryEquipment* PartyEquipment;
+	UInventory_Equipment* PartyEquipment;
 
 	UPROPERTY()
-	UInventoryItems* PartyItems;
-
+	UInventory_Items* PartyItems;
+	
+	UPROPERTY()
+	UInventory_KeyItems* KeyItems;
+	
 	UPROPERTY()
 	USkillFactorySubsystem* SkillFactorySubsystem;
 	
@@ -57,12 +66,14 @@ private:
 	
 public:
 	
-	void InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem,USkillFactorySubsystem* aSkillFactorySubsystem );
+	void InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,
+	                              UPassiveFactorySubsystem* aPassiveFactorySubsystem, USkillFactorySubsystem* aSkillFactorySubsystem,
+	                              UKeyItemFactorySubsystem* aKeyItemFactorySubSystem);
 
 	void SavePartyInventory();
 
 	FPartyInventoryCompleteData GetPartyInventoryCompleteData();
 	
-	UInventoryEquipment* GetInventoryEquipment(){ return PartyEquipment;}
-	UInventoryItems*     GetInventoryItems(){return PartyItems;}
+	UInventory_Equipment* GetInventoryEquipment(){ return PartyEquipment;}
+	UInventory_Items*     GetInventoryItems(){return PartyItems;}
 };

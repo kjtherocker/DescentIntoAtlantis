@@ -71,6 +71,8 @@ void UFloorFactory::OverwriteFloorMapData(EFloorIdentifier aOverwrittenFloor,TAr
 	{
 		// Update the specified column with the new TArray<int32>
 		FloorData->floorBlueprint = aNewMapData;
+		DataTable->PostLoad();
+		DataTable->Modify();
 	}
 }
 

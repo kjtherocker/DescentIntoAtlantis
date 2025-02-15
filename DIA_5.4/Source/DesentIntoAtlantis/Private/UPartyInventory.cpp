@@ -3,22 +3,26 @@
 
 #include "UPartyInventory.h"
 
-#include "InventoryEquipment.h"
-#include "InventoryItems.h"
+#include "Inventory_Equipment.h"
+#include "Inventory_Items.h"
+#include "Inventory_KeyItems.h"
 #include "SkillFactorySubsystem.h"
 
-void UPartyInventory::InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem,
-                                               USkillFactorySubsystem* aSkillFactorySubsystem)
+void UPartyInventory::InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData, UPassiveFactorySubsystem* aPassiveFactorySubsystem,
+                                               USkillFactorySubsystem* aSkillFactorySubsystem, UKeyItemFactorySubsystem* aKeyItemFactorySubSystem)
 {
 	partyInventoryCompleteData = aPartyInventoryCompleteData;
 	passiveFactorySubsystem    = aPassiveFactorySubsystem;
 	SkillFactorySubsystem      = aSkillFactorySubsystem;
 
-	PartyEquipment = NewObject<UInventoryEquipment>();
+	PartyEquipment = NewObject<UInventory_Equipment>();
 	PartyEquipment->InitializePartyInventory(partyInventoryCompleteData,passiveFactorySubsystem,SkillFactorySubsystem);
 
-	PartyItems   = NewObject<UInventoryItems>();
+	PartyItems   = NewObject<UInventory_Items>();
 	PartyItems->InitializePartyInventory(partyInventoryCompleteData,passiveFactorySubsystem,SkillFactorySubsystem);
+
+	KeyItems   = NewObject<UInventory_KeyItems>();
+	KeyItems->InitializePartyInventory(partyInventoryCompleteData,aKeyItemFactorySubSystem);
 }
 
 void UPartyInventory::SavePartyInventory()
@@ -28,6 +32,9 @@ void UPartyInventory::SavePartyInventory()
 
 	partyInventoryCompleteData.ItemInventoryInfo =
 		PartyItems->GetPartyInventoryCompleteData().ItemInventoryInfo;
+
+	partyInventoryCompleteData.keyItemData =
+		PartyItems->GetPartyInventoryCompleteData().keyItemData;
 }
 
 FPartyInventoryCompleteData UPartyInventory::GetPartyInventoryCompleteData()

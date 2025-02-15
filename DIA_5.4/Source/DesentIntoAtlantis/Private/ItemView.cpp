@@ -6,8 +6,8 @@
 #include "AtlantisGameModeBase.h"
 #include "CombatGameModeBase.h"
 #include "CombatSelectionView.h"
-#include "InventoryEquipment.h"
-#include "InventoryItems.h"
+#include "Inventory_Equipment.h"
+#include "Inventory_Items.h"
 #include "SkillBarElement.h"
 #include "Components/VerticalBox.h"
 
@@ -51,7 +51,7 @@ void UItemView::SetItemView(UPlayerCombatEntity* aPlayerCombatEntity)
 {
 	currentActivePartyMember = aPlayerCombatEntity;
 	
-	UInventoryItems* InventoryItems = persistentGameinstance->partyManagerSubsystem->PartyInventory->GetInventoryItems();
+	UInventory_Items* InventoryItems = persistentGameinstance->partyManagerSubsystem->PartyInventory->GetInventoryItems();
 	InventoryItems->SetAllItemsTier(aPlayerCombatEntity);
 	TArray<UItemBase*>  allItems = InventoryItems->GetAllItems();
 
@@ -83,7 +83,7 @@ void UItemView::SelectSkill()
 {
 	FItemCharges ItemCharges = persistentGameinstance->partyManagerSubsystem->GetPartyManagerData().ItemCharges;
 
-	UInventoryItems* InventoryItems = persistentGameinstance->partyManagerSubsystem->PartyInventory->GetInventoryItems();
+	UInventory_Items* InventoryItems = persistentGameinstance->partyManagerSubsystem->PartyInventory->GetInventoryItems();
 
 	TArray<UItemBase*>  allItems = InventoryItems->GetAllItems();
 

@@ -4,7 +4,7 @@
 #include "MainMenuGameMode.h"
 
 #include "FloorPlayerController.h"
-#include "InventoryItems.h"
+#include "Inventory_Items.h"
 #include "PersistentGameinstance.h"
 #include "SaveGameData.h"
 #include "Kismet/GameplayStatics.h"
@@ -44,7 +44,7 @@ void AMainMenuGameMode::StartGame()
 	partyManager->PartyInventory->GetInventoryItems()->AddItem(EItemID::FlatHealPotion);
 	if (persistentGameInstance)
 	{
-		persistentGameInstance->LoadLevel(EFloorIdentifier::Floor1);
+		persistentGameInstance->LoadLevel(EFloorIdentifier::PrizonZ_Floor1);
 	}
 
 	

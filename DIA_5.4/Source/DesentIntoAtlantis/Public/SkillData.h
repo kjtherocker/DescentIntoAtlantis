@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Engine/DataTable.h"
 #include "NiagaraComponent.h"
+#include "PassiveSkillData.h"
 #include "SkillData.generated.h"
 
 
@@ -100,3 +101,16 @@ struct DESENTINTOATLANTIS_API FItemData : public FTableRowBase
 	int baseItemTier = 0;
 	
 };
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FKeyItemData : public FTableRowBase
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere)
+	EKeyItemsID KeyItemsID;
+	
+	UPROPERTY(EditAnywhere)
+	FString descriptionText;
+};
+

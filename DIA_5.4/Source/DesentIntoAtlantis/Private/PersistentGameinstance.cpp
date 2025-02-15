@@ -9,6 +9,7 @@
 #include "TutorialManagerSubsystem.h"
 #include "DialogueManagerSubsystem.h"
 #include "ChallengeSubsystem.h"
+#include "KeyItemFactorySubsystem.h"
 #include "LevelProgressionSubsystem.h"
 #include "PassiveSkillFactorySubsystem.h"
 #include "SaveGameData.h"
@@ -38,12 +39,26 @@ void UPersistentGameinstance::Init()
 	levelProgressionSubsystem       = GetSubsystem<ULevelProgressionSubsystem>();
 	eventDispatcherSubsystem        = GetSubsystem<UEventDispatcherSubsystem>();
 	popupSubsystem                  = GetSubsystem<UPopupSubsystem>();
-
+	KeyItemFactorySubsystem         = GetSubsystem<UKeyItemFactorySubsystem>();
+	
 	levelProgressionSubsystem->InitializeSubsystem(this);
 	
 	if(dataTables.Contains(EDataTableTypes::Skills)&& dataTables.Contains(EDataTableTypes::ItemData))
 	{
 		skillFactorySubsystem->InitializeDatabase(dataTables[EDataTableTypes::Skills],dataTables[EDataTableTypes::ItemData]);
+	}
+	else
+	{
+		//DataTableDoesntExist
+	}
+
+	if(dataTables.Contains(EDataTableTypes::KeyItemData))
+	{
+		KeyItemFactorySubsystem->InitializeDatabase(dataTables[EDataTableTypes::KeyItemData]);
+	}
+	else
+	{
+		//DataTableDoesntExist
 	}
 
 	if(dataTables.Contains(EDataTableTypes::PassiveSkills) && dataTables.Contains(EDataTableTypes::CombatTokens))
@@ -51,10 +66,18 @@ void UPersistentGameinstance::Init()
 		passiveFactorySubsystem->InitializeDatabase(dataTables[EDataTableTypes::PassiveSkills],
 			dataTables[EDataTableTypes::CombatTokens],dataTables[EDataTableTypes::Equipment]);
 	}
+	else
+	{
+		//DataTableDoesntExist
+	}
 	
 	if(dataTables.Contains(EDataTableTypes::ChallengeTable))
 	{
 		challengeManagerSubsystem->InitializeSubsystem(dataTables[EDataTableTypes::ChallengeTable]);	
+	}
+	else
+	{
+		//DataTableDoesntExist
 	}
 	
 	if(dataTables.Contains(EDataTableTypes::Enemys) &&
@@ -67,6 +90,10 @@ void UPersistentGameinstance::Init()
 				dataTables[EDataTableTypes::EnemyGroups]);
 		}
 	}
+	else
+	{
+		//DataTableDoesntExist
+	}
 	
 	if(dataTables.Contains(EDataTableTypes::PlayerCharacters) &&
 	dataTables.Contains(EDataTableTypes::Classes) &&
@@ -78,6 +105,10 @@ void UPersistentGameinstance::Init()
 				dataTables[EDataTableTypes::PartyExperienceTable],dataTables[EDataTableTypes::TestCombat]);
 		}
 	}
+	else
+	{
+		//DataTableDoesntExist
+	}
 
 	if(dataTables.Contains(EDataTableTypes::Tutorial))
 	{
@@ -85,6 +116,10 @@ void UPersistentGameinstance::Init()
 		{
 			tutorialManagerSubsystem->InitializeDatabase(dataTables[EDataTableTypes::Tutorial]);
 		}
+	}
+	else
+	{
+		//DataTableDoesntExist
 	}
 
 
@@ -94,6 +129,10 @@ void UPersistentGameinstance::Init()
 		{
 			dialogueManagerSubsystem->InitializeDatabase(dataTables[EDataTableTypes::Dialogue],dataTables[EDataTableTypes::DialogueActor]);
 		}
+	}
+	else
+	{
+		//DataTableDoesntExist
 	}
 
 	if(dataTables.Contains(EDataTableTypes::Floor)
@@ -111,6 +150,10 @@ void UPersistentGameinstance::Init()
 			EventManagerSubSystem->InitializeEventManager(floorFactory,this);
 		}
 	}
+	else
+	{
+		//DataTableDoesntExist
+	}
 	
 	eventDispatcherSubsystem->InitializeEventDispatcherSubsystem(challengeManagerSubsystem);
 	saveManagerSubsystem->InitializeSubsystem(this);
@@ -121,10 +164,11 @@ void UPersistentGameinstance::Init()
 	//USceneComponent* ParentRootComponent = this->GetRootComponent();
 //
 	//floorNode->AttachToComponent(ParentRootComponent,FAttachmentTransformRules::KeepRelativeTransform);
-	LevelMap.Add(EFloorIdentifier::Floor1,"Prison_Floor1");
-	LevelMap.Add(EFloorIdentifier::Floor2,"Prison_Floor2");
-	LevelMap.Add(EFloorIdentifier::Floor3,"Prison_Floor3");
-	LevelMap.Add(EFloorIdentifier::PrisonCombat,"PrisonCombat");
+	LevelMap.Add(EFloorIdentifier::PrizonZ_Floor1,"PrisonZ_Floor1");
+	LevelMap.Add(EFloorIdentifier::PrisonZ_Floor2,"PrisonZ_Floor2");
+	LevelMap.Add(EFloorIdentifier::PrisonZ_Floor3,"PrisonZ_Floor3");
+	LevelMap.Add(EFloorIdentifier::PrisonZ_Annex,"PrisonZ_Annex");
+	LevelMap.Add(EFloorIdentifier::PrisonZ_Combat,"PrisonCombat");
 //
 	//LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
 	//
@@ -179,7 +223,7 @@ void UPersistentGameinstance::LoadPreSetLevel()
 void UPersistentGameinstance::LoadCombatLevel(FString aEnemyGroupName, ECombatArena aCombatArena)
 {
 	aCombatArenaData.enemyGroupName = aEnemyGroupName;
-	LoadLevel(EFloorIdentifier::PrisonCombat);
+	LoadLevel(EFloorIdentifier::PrisonZ_Combat);
 }
 
 

@@ -6,7 +6,7 @@
 #include "CombatEntityHub.h"
 #include "EDataTableTypes.h"
 #include "Health.h"
-#include "InventoryEquipment.h"
+#include "Inventory_Equipment.h"
 #include "PassiveSkillFactorySubsystem.h"
 #include "PassiveSkillHandlerData.h"
 #include "PassiveSkills.h"
@@ -29,7 +29,8 @@ void UPartyManagerSubsystem::LoadSavedPartyManagerSubsystem(FCompletePartyManage
 
 	PartyInventory->InitializePartyInventory(aPartyManagerSubsystemData.PartyInventoryCompleteData,
 		persistentGameInstance->passiveFactorySubsystem,
-		persistentGameInstance->skillFactorySubsystem);
+		persistentGameInstance->skillFactorySubsystem,
+		persistentGameInstance->KeyItemFactorySubsystem);
 	
 	LoadAndCreateAllPlayerEntitys(aPartyManagerSubsystemData.playerCompleteDataSet);
 	persistentGameInstance->popupSubsystem->SetPartySubsystem(this);
@@ -70,7 +71,8 @@ void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UData
 	}
 
 	PartyInventory->InitializePartyInventory(CompletePartyManagerSubsystemData.PartyInventoryCompleteData,
-		persistentGameInstance->passiveFactorySubsystem,persistentGameInstance->skillFactorySubsystem);
+		persistentGameInstance->passiveFactorySubsystem,persistentGameInstance->skillFactorySubsystem,
+		persistentGameInstance->KeyItemFactorySubsystem);
 
 
 	UDataTable* combatTestInfo = aTestCombatInfo;

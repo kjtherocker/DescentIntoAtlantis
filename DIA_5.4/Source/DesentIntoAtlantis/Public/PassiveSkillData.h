@@ -70,6 +70,15 @@ enum class EEquipmentID   : uint8
 };
 
 UENUM()
+enum class EKeyItemsID : uint8
+{
+	None                    = 0,
+	KeyItemDoesNotExist     = 1,
+	PrisonZ_Floor2_CellKey  = 2,
+};
+
+
+UENUM()
 enum class EPassiveSkillSlotType   : uint8
 {
 	None                 = 0,

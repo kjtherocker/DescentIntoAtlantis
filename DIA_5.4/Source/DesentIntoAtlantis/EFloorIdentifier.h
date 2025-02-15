@@ -11,8 +11,9 @@ enum class  EFloorIdentifier
 {
     None               =  0,
     Test               =  1,
-    Floor1             =  2,
-    Floor2             =  3,
-    Floor3             =  4,
-    PrisonCombat       =  5,
+    PrizonZ_Floor1     =  2,
+    PrisonZ_Floor2     =  3,
+    PrisonZ_Floor3     =  4,
+    PrisonZ_Combat     =  5,
+    PrisonZ_Annex      = 6,
 };

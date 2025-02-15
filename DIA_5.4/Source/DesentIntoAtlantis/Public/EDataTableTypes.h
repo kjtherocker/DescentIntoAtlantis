@@ -25,6 +25,7 @@ enum class  EDataTableTypes
 	AllFloorNodeTileSet  = 16,
 	TestCombat           = 17,
 	ItemData             = 18,
+	KeyItemData          = 19
 };
 
 

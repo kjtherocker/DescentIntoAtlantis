@@ -24,6 +24,7 @@ void ULevelGeneratorUtilityWidget::NativeConstruct()
 	
 	BW_GenerateButton->OnClicked.AddDynamic(this, &ULevelGeneratorUtilityWidget::GenerateLevel);
 	BW_SaveButton    ->OnClicked.AddDynamic(this, &ULevelGeneratorUtilityWidget::SaveCurrentMap);
+	BW_ResetButton    ->OnClicked.AddDynamic(this, &ULevelGeneratorUtilityWidget::ResetAllNodes);
 	BW_MapNodeEditor ->BW_MapEventEditorView->onFloorEventSave.AddDynamic(this,&ULevelGeneratorUtilityWidget::SaveCurrentEvent);
 	BW_MapNodeEditor ->BW_MapEventEditorView->onFloorEventDeletion.AddDynamic(this,&ULevelGeneratorUtilityWidget::DeleteEvent);
 	BW_MapNodeEditor ->BW_MapEventEditorView->onFloorEventCreation.AddDynamic(this,&ULevelGeneratorUtilityWidget::CreateEvent);
@@ -152,6 +153,21 @@ void ULevelGeneratorUtilityWidget::RefreshGridGimmicks()
 			MapButtons[LevelIndex]->SetFloorEvent(floorEventData,floorEvent.Key);
 		}
 	}
+}
+
+void ULevelGeneratorUtilityWidget::ResetAllNodes()
+{
+	for(int i = 0 ;i < MapButtons.Num();i++)
+	{
+		MapButtons[i]->worldGenFloorNodeInfo.floorDirection = 0;
+		MapButtons[i]->worldGenFloorNodeInfo.TileSets       = ETileSets::Prison;
+		MapButtons[i]->worldGenFloorNodeInfo.TileVariants   = ETileVariants::Default;
+		
+		MapButtons[i]->CurrentNodeDirection = ECardinalNodeDirections::Empty;
+		MapButtons[i]->SetMapIcon(ECardinalNodeDirections::Empty);
+	}
+
+	RefreshGridGimmicks();
 }
 
 void ULevelGeneratorUtilityWidget::ActivateMapNodeEditor(UMapButtonElement* aMapButtonElement)
