@@ -43,7 +43,6 @@ void AMainMenuGameMode::StartGame()
 	partyManager->AddPlayerToActiveParty(EPartyMembers::Kriede);
 
 	partyManager->PartyInventory->GetInventoryItems()->AddItem(EItemID::FlatHealPotion);
-	partyManager->PartyInventory->GetInventoryKeyItems()->AddKeyItem(EKeyItemsID::PrisonZ_Floor2_CellKey);
 	if (persistentGameInstance)
 	{
 		persistentGameInstance->LoadLevel(EFloorIdentifier::PrizonZ_Floor1);

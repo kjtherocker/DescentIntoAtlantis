@@ -46,6 +46,11 @@ void UInventory_KeyItems::AddKeyItem(EKeyItemsID aKeyItemID)
 	partyInventoryCompleteData.keyItemData.Add(aKeyItemID,ItemData);
 }
 
+void UInventory_KeyItems::GiveAllKeyItems()
+{
+	partyInventoryCompleteData.keyItemData = keyItemFactorySubSystem->GetAllKeyItems();
+}
+
 bool UInventory_KeyItems::DoesPartyOwnKeyItem(EKeyItemsID aKeyItemID)
 {
 	return partyInventoryCompleteData.keyItemData.Contains(aKeyItemID);

@@ -24,4 +24,6 @@ public:
 	void InitializeDatabase(UDataTable*  aSkillDataTable);
 
 	FKeyItemData GetKeyItemData(EKeyItemsID aKeyItemsID);
+
+	TMap<EKeyItemsID,FKeyItemData> GetAllKeyItems(){return allKeyItems;};
 };

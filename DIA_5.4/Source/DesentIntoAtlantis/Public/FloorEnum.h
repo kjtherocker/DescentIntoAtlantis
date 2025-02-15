@@ -257,6 +257,34 @@ enum class ETutorialTriggers
 };
 
 USTRUCT()
+struct DESENTINTOATLANTIS_API FRewardsData : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+
+	UPROPERTY(EditAnywhere)
+	int Experience;
+
+	UPROPERTY(EditAnywhere)
+	int CP;
+
+	UPROPERTY(EditAnywhere)
+	int Stamina;
+	
+	UPROPERTY(EditAnywhere)
+	TArray<EClassID> ClassIds;
+	
+	UPROPERTY(EditAnywhere)
+	TArray<EKeyItemsID> KeyItemsIDs;
+
+	UPROPERTY(EditAnywhere)
+	TArray<FEquipmentRequestInfo> EquipmentIds;
+
+	UPROPERTY(EditAnywhere)
+	TArray<EItemID> ItemIds;
+	
+};
+
+USTRUCT()
 struct DESENTINTOATLANTIS_API FFloorEventData : public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
@@ -290,6 +318,9 @@ struct DESENTINTOATLANTIS_API FFloorEventData : public FTableRowBase
 	
 	UPROPERTY( EditAnywhere )
 	EViews viewPushedOnEnd = EViews::None;
+
+	UPROPERTY(EditAnywhere)
+	FRewardsData RewardsOnEnd;
 	
 };
 

@@ -84,6 +84,8 @@ public:
 	void ActivateCombat();
 	void SetCurrentEventSet();
 
+	void EventRewardItems();
+
 	void EventNotCompleted();
 
 	void AddFloorEnemyEvents(FVector2D aPositionInGrid, AFloorEventMarker* aFloorEnemyPawn);

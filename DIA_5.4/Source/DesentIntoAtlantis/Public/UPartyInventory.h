@@ -71,7 +71,7 @@ public:
 	                              UKeyItemFactorySubsystem* aKeyItemFactorySubSystem);
 
 	void SavePartyInventory();
-
+	
 	FPartyInventoryCompleteData GetPartyInventoryCompleteData();
 	
 	UInventory_Equipment* GetInventoryEquipment(){ return PartyEquipment;}

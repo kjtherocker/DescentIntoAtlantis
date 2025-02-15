@@ -31,3 +31,4 @@ FKeyItemData UKeyItemFactorySubsystem::GetKeyItemData(EKeyItemsID aKeyItemsID)
 	
 	return allKeyItems[aKeyItemsID];
 }
+

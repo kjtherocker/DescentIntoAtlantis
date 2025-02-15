@@ -7,6 +7,8 @@
 #include "DesentIntoAtlantis/FloorGameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "FloorFactory.h"
+#include "Inventory_Equipment.h"
+#include "Inventory_KeyItems.h"
 #include "LevelupView.h"
 #include "PersistentGameinstance.h"
 #include "SaveManagerSubsystem.h"
@@ -138,7 +140,7 @@ void UEventManagerSubSystem::TriggerNextFloorEventStep(EFloorEventStates aFloorE
 			}
 			gameMode->floorPawn->SetFloorPawnInput(true);
 			isEventRunning = false;
-
+			EventRewardItems();
 			
 			if(currentEvent.viewPushedOnEnd == EViews::None)
 			{
@@ -166,6 +168,29 @@ void UEventManagerSubSystem::SetCurrentEventSet()
 {
 	TriggerNextFloorEventStep(currentFloorEventStates);
 	 
+}
+
+void UEventManagerSubSystem::EventRewardItems()
+{
+	UInventory_KeyItems* KeyItems = persistentGameInstance->partyManagerSubsystem->PartyInventory->GetInventoryKeyItems();
+	for (auto Element : currentEvent.RewardsOnEnd.KeyItemsIDs)
+	{
+		KeyItems->AddKeyItem(Element);
+	}
+
+	UInventory_Equipment* Equipment = persistentGameInstance->partyManagerSubsystem->PartyInventory->GetInventoryEquipment();
+	for (auto Element : currentEvent.RewardsOnEnd.EquipmentIds)
+	{
+		Equipment->AddEquipmentToInventory(Element);
+	}
+
+	UInventory_Items* items = persistentGameInstance->partyManagerSubsystem->PartyInventory->GetInventoryItems();
+	for (auto Element : currentEvent.RewardsOnEnd.ItemIds)
+	{
+		items->AddItem(Element);
+	}
+	
+	
 }
 
 void UEventManagerSubSystem::TriggerDialogue(EDialogueTriggers aDialogueTrigger, EFloorEventStates aTriggerOnEnd)
