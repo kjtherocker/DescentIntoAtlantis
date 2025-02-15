@@ -34,7 +34,7 @@ void UPartyInventory::SavePartyInventory()
 		PartyItems->GetPartyInventoryCompleteData().ItemInventoryInfo;
 
 	partyInventoryCompleteData.keyItemData =
-		PartyItems->GetPartyInventoryCompleteData().keyItemData;
+		KeyItems->GetPartyInventoryCompleteData().keyItemData;
 }
 
 FPartyInventoryCompleteData UPartyInventory::GetPartyInventoryCompleteData()

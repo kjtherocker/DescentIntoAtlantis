@@ -76,4 +76,5 @@ public:
 	
 	UInventory_Equipment* GetInventoryEquipment(){ return PartyEquipment;}
 	UInventory_Items*     GetInventoryItems(){return PartyItems;}
+	UInventory_KeyItems*  GetInventoryKeyItems(){return KeyItems;}
 };

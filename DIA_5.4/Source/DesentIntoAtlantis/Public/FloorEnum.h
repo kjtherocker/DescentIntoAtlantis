@@ -158,14 +158,43 @@ struct DESENTINTOATLANTIS_API FForcedMovementGimmick: public FGimmickData
 };
 
 USTRUCT()
+struct DESENTINTOATLANTIS_API FLockedByInWorldObject: public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+
+	UPROPERTY( EditAnywhere )
+	EFloorIdentifier floorIdentifier = EFloorIdentifier::None;
+	
+	UPROPERTY( EditAnywhere )
+	FVector2D positionInGrid;
+
+	UPROPERTY()
+	bool CanActivateIfLockedGone;
+};
+
+
+USTRUCT()
 struct DESENTINTOATLANTIS_API FDoorGimmick: public FGimmickInteractableData
 {
 	GENERATED_USTRUCT_BODY()
+
 	
 	UPROPERTY( EditAnywhere )
 	ECardinalNodeDirections movedNodeDirection;
 	UPROPERTY()
 	AFloorDoor* floorDoor = nullptr;
+
+	UPROPERTY( EditAnywhere )
+	bool canBeLocked = false;
+
+	UPROPERTY( EditAnywhere )
+	FString LockedDescription;
+	
+	UPROPERTY( EditAnywhere )
+	TArray<EKeyItemsID> LockedByKeyItem;
+
+	UPROPERTY(EditAnywhere)
+	TArray<FLockedByInWorldObject> LockedByInWorldObjects;
 };
 
 USTRUCT()

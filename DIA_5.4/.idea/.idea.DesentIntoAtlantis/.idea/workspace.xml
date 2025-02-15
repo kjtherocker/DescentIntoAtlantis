@@ -10,288 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Datatables/Items/DT_KeyItems.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Map/Prison/PrisonZ_Annex.umap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Map/Prison/PrisonZ_Floor1.umap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Map/Prison/PrisonZ_Floor2.umap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Map/Prison/PrisonZ_Floor3.umap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/0/73/0RDH3TZSRJ3BXDFJ4O7O2O.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/0/9X/ZOYWWYJAXP6834V8SEXM46.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/0/F2/66O25M4106YNSWDIB8F4LE.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/0/K0/HHB0TE3JWFNS3IXV725O4F.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/0/KN/RLID0HHE3NKLSUNXVJVRC2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/0/O3/6ZL8GAQQ2FRHK45X1COKIB.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/0/UN/T8BOL6NQ4W67098V9NZSAZ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/0/VD/9X7V8NXQ4WO1NRKD71BB6B.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/0/YC/VGYG0PIMLKA0K5ODHIFY2F.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/0/YY/3XCVA799PYVFO07VU9GHE1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/1/1Z/WTPT5EF21WAM12NR6O4DH2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/1/91/HMUUO43Q1US1Z2M99DW7NA.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/1/KR/LYI03S0UFUU75GIZ9716GT.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/1/LG/MUAF2HDRFT0HB75XL57AYP.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/1/MJ/MPA9UCQ2VKZAEJEFHWV9XS.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/1/R3/COON1GIYGZX0BL78DNM2OP.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/1/RN/QRDKVNWFGZ5998G0JWYJBX.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/1/ST/88S9YU9N30J6V1MRTO7HUL.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/2/HX/0DFBWUP9806YFVDRQFBGGP.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/2/NW/LIW5CY9RT8FZ04A2CXES6U.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/2/Q9/GQE8MQHWV7O2Q0AXC94RH9.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/2/S9/969UF2CIWH5T7Q3DBMSPTS.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/2/X5/26DOBLYI8WLES06WEX37B4.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/3/16/G816IWLLAXR2E4V1Y5P4A9.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/3/3D/0WQ314B2XESIU1SSGHPQLB.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/3/DU/KUMDWTT9PLA8RGBHAO6HPR.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/3/NJ/0OMCAWWMTDX3BGU6KI4REI.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/3/RX/4PZGRJESFCSPK1RL9FVOWS.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/4/1X/92THL4JQOBRGTT7KW9QGD0.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/4/3L/1DXR7CDSF90KC89VQB8B30.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/4/CF/JAVR3K1KYJMX632B4ZGEP8.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/4/HC/5NSELC9LOIBZJRITXN1BG5.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/4/VV/7KCYQLEANPK7P2H23UVKW1.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/4/YA/0KSL1NNH1NAYCJ6E8FY33Z.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/4/Z3/I5R70OCS7Q383R6DYDNJVR.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/5/17/48G67F6WECIGURNR651J0D.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/5/4K/Z6EUCTD17T0NKS244FSSUM.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/5/59/GE5P86T15B2RH3S0ZFZB75.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/5/7E/5Q4JIQYNBTNCBV1TQWP8ST.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/5/EI/GAXN4RNEO1AQQ1J7OC9OJV.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/5/IF/WLV1HERCYDHF8KWQAZ579I.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/5/TB/N5BIFWS63L85NMILC5QBS3.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/6/F8/1H0BYJO00T7UEEA6PDQCOY.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/6/PT/DLJWF5TGD0Q1U03NM0JB4B.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/7/2O/AJ6NUATVRAKIVV0HPZ8L8N.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/7/3H/04SPIT7PHD5SM5PHFYLTRI.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/7/6C/ZM2AI41SODZUCBDD5HL9K9.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/7/8S/VY7L2KZW1DZYAFFW7Z4U0C.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/7/E6/MEDPT309SPM3A933ZVZYK9.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/7/FG/PREQMAK43THF8DQ8F3F3DZ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/7/G9/BIL5TG19RTR8IOBVKZKUPT.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/7/IN/OFO009QVP4TLD1OX1S1M6T.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/7/LL/8436DZBBU7A7M3WNGX7PE0.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/7/TG/JECGJT8QZ1X0SNONVOLURV.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/7/Y6/5R00NB8TAZ4HS8UN6B8VSC.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/8/3N/7GRP51D7U1O76CYVT1M5B7.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/8/99/K1VTYE3C0X2F94D5AC81ZV.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/8/F5/5A6JNYGGWS34A4YKV9J07Q.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/8/H7/I37GJL7HMORV8J8EFS0CIL.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/9/04/KL2V70VGZHN07FU8FRZGXY.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/9/4K/GHINF5RQG6GWV1MP5BTT8V.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/9/6K/R57ZFZC87Q7728LCC9G6PO.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/9/6R/3N9WR5QC7XCLY60TNIZ3NT.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/9/DO/NE2AKWJ2OR9QA4IWYZYC8Z.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/9/LZ/CWYX5FW64NL1P2O437ZA95.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/9/VN/YHPQN07DFA24B2SO90BE94.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/9/ZV/HL0D5YJSWZSG9CVA6GDJ3J.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/A/83/RN6F25UB5YV9DS01ZBKJNK.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/A/BY/EBEHVH8MDFAS62WB48P9Z4.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/A/RM/7K76B093VFL8VY7KQKYR36.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/A/SL/GK7EECAVLL4YNVHRU4W821.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/B/HF/GHEVTDILDKSY81GGRON0KU.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/B/KP/X615743L09BV43RVLOJV0D.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/B/LX/DR4927X0RZ56UVPHG4ZJOB.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/B/PC/CYNCPM6U395O7QFMIJYCZX.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/B/RT/P2AXHNAP84YUQLAKS0V6HL.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/B/ZU/V0SP1UE24QHQF3944ZNVQQ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/C/4W/8MMAVSR1TQVGFVPR2L3VH8.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/C/CY/QEAVYJXNCCNMDQSMO89BIK.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/C/EC/ZAG0JI28EMK6A49VBH5IEX.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/C/QH/9XFFRJGY5IKXP8OP22THME.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/C/RX/VN05AU8TLS3L11RS9CM4MQ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/C/TE/L5TN5FQ47P2HDPK5MV8EY5.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/C/U1/3T24KT8JBF9TYBRSDNV1JY.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/C/WP/S0AN1DBVEAZE30KIR1MVCQ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/C/WR/OG53XS179ZWI6UYR2TNX5M.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/D/1J/N2LH732ICPOZF5NHL6FXJK.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/D/1U/5XX0QC34CI97113T004ZQ8.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/D/73/ZY4YJ76V6Z5SJ830HDDA6L.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/D/9J/OKO21EM00IA45BJU6SMR4K.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/D/EA/ZHCT68W52YWCQDNHLUO91U.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/D/MH/ZXWIG2BYKU8YD2VVQOJ2DA.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/D/MI/RQTCG954B6DSSGW453DSUG.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/D/RG/B2EGS8IZ1QDGY21PD7U6HX.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/D/WO/KCIZNDVRRTN4BU3XA1LJJ0.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/E/06/KVG3J2K3VANDWO0LXA99C6.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/E/0X/W6U28BPZPI4SCR2RBORE35.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/E/63/OPVOLJRU8WWY0I6A4JNJ8X.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/E/8J/RMH8107GQX5J0BFQ4K7RVN.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/E/97/QFVJMEU0IJ4A89RV13WP3D.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/E/GJ/HY8PMXXGM79EDR9ZN2M6TY.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/E/GY/I1DGVMI1YS3L4B10X1M31Y.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/E/J3/WX5UVPVTLM0IC6W3E92NRT.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/E/K5/MRRBRXRRCPCQMX5UWRKOT3.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/E/LS/QDEYGGXT7LECWJW9UGWB8U.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/E/OC/4B9XP3RBUBHANRV2FHEC32.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/E/PE/2XEVZLLW0CBKHBMT16UNJ2.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/E/SX/1R0GG8EMZZIEF4PFAED9SL.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/E/X7/KZU3VCWAV48CU11ZMGV9QJ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/E/XP/K54JOB0KTTI5LCZ18LWYYH.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/E/ZZ/O3WN827MYEOXNI7Z6HB6SR.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/F/1I/QOM6PCKPGIA94THLQUIARQ.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/F/3T/SRZ5NO0OQBPDFK68JE301A.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/PrisonZ_Floor1/F/5B/E8J8M9WUU2UN1QMMD50VIH.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/PrisonZ_Floor1/3/1X/IYGWLZB4QLWZ3601PAAA9F.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/PrisonZ_Floor1/3/5N/7CCWSDOKVO07S7M11KCIDY.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/PrisonZ_Floor1/5/NJ/1E4HIXMTVQPH5F2RW0YG4G.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/PrisonZ_Floor1/6/4R/L65HSOD9IMU5KC4XBA8KQM.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/PrisonZ_Floor1/6/EP/UJI1QPUGWKGXG0UVAHKTN8.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/PrisonZ_Floor1/8/DM/IDR7J16N80DPUCU1Y2NZI4.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/PrisonZ_Floor1/E/MQ/STRSBA99OIAG63T10TNR17.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/Inventory_KeyItems.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/KeyItemFactorySubsystem.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/Inventory_KeyItems.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/KeyItemFactorySubsystem.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Level_Assets/Prison/Prison/DirectionalTileSet/-1-Up/BP_PrisonFloorNode_Up.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Level_Assets/Prison/Prison/DirectionalTileSet/-1-Up/BP_PrisonFloorNode_Up.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/CodeObjects/Level_Assets/Prison/Prison/DirectionalTileSet/-4-Right/BP_PrisonFloorNode_Right.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/CodeObjects/Level_Assets/Prison/Prison/DirectionalTileSet/-4-Right/BP_PrisonFloorNode_Right.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Floor/A_Editor/SpecificEditorView/BP_LevelGeneratorUtilityWidget.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Floor/A_Editor/SpecificEditorView/BP_LevelGeneratorUtilityWidget.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Datatables/Floor/DT_Floor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Floor/DT_Floor.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Floor/DT_FloorEvent.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Floor/DT_FloorEvent.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Items/DT_KeyItems.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Items/DT_KeyItems.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Map/Prison/Prison_Floor1.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/Prison/Prison_Floor1.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Map/Prison/Prison_Floor2.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/Prison/Prison_Floor2.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Map/Prison/Prison_Floor3.umap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PersistentObjects/BP_PersistentGameInstance.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/PersistentObjects/BP_PersistentGameInstance.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/0/2M/XSWMRZQQNSKK1RC5OCBUCX.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/0/D2/3PBTFKS4BG3KC696WYJZJ5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/0/JH/AAO45VVM8AF5LJVDFC18D7.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/0/LL/FEWQWFA41220KANY6HDQBJ.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/0/PP/87R48MV5OI3T7UV0N5V5FU.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/0/TC/F5IHEWK814WMPK3RP3G32G.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/0/VK/S609X4UTP8G6W22PKD3JM0.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/29/G40CW0PZVRU31OGSSHQLE4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/4S/33K90OG0A6ISKYZP1QDZMS.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/92/7MDDCJS5QHH9RBORSUB34F.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/B7/L4EQMVQLFJUOBUVXZHJUE0.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/CI/6LOFS6PZEEYSFJ4L9A3RIP.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/ER/B9FIQLC952BE612A0DS5NL.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/ID/TQ4AO0SM7ABCEJV74BJKQH.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/IZ/3Q9DTDQMXLCNN9JK17TESG.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/JW/0GCZ43X6OFLXR0IQO5GXQS.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/LH/A5UOC25TFPGLXJKVO4LHFT.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/UC/VA9877AVK1LTQYGHGMR7E6.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/UI/LZVLFA9ZLO4Z8VSPWMHT2F.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/UW/VK34XGAE6X3HHK9V3TQGGX.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/VJ/QIRVGIDCCJU1LAH7LC7TFA.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/1/XD/KVKGKD2B2CNFVJUXO4O5VP.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/2/CJ/BDE0OG1MWFSREKMW0B9SV7.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/2/D1/8O53HBMWFF7KX4WU8GGTH9.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/2/RD/16AC1RYEXT9HZ7ZP9NR3I7.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/2/RD/39HSF474STE1C442768GMX.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/1U/9P82DR6OT0UK10QDUZHAV0.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/3X/V1K8798QHWEHGMUBZ568XD.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/7W/6QR4CCPXTOCXDV5OJQ0A65.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/8G/BOFR4CDW6O8VPMB90OO3YD.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/8W/J33CYXEO8CGW5AV97Q3QYI.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/F7/6O2WIBBKYVO1BS14IW8HM9.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/HX/MDDTEL81Q0X4I43KI6GYOS.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/J7/FPVKBHO8ZWO1IP3TSTWR6Y.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/LS/JV3PKQ4I5BJ01EV73DFT1Z.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/MW/FXZZVX0D70SREN3O3V3E0R.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/P3/CSFRTII2Z19DGJK452L9BF.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/T8/F8G7CG1PCIR3WNCGWJ0SQX.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/3/UR/1XW9F8XV939E19DDQH5NVD.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/2T/JRLVEDP90SER7PHWZS9FO8.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/5E/74142IY4KWRH1YI4Q1OTDL.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/6K/LMAERQJW0SCK07VTO194R9.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/7B/SV5U9TNKAU9LMYZV8A40VZ.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/C7/QMY5WUXEDOUFJPQQQWJSDN.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/CG/I4MVYVVH2A2IEED4K6PR2X.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/K0/TONBB4SUB76EJZU09FPX38.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/KS/HM3NBAF23U1M35OQA6VYVH.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/MM/BTFHIVWRRU8S2X0WCRKC3F.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/O1/CE1Z5Y08NKFS4N02WLKHL9.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/4/VP/AAO7MQSN6Y0FGHMI0IONWY.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/5/1E/56K73D914ADPANT3974X5J.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/5/A2/XMQJZJFG13UG8XCZPKVHFO.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/5/C1/AD7DGKDHV4MAEWV1FF59MH.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/5/NN/GCG0K4UZ04WK22JUS6T1VX.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/5/TC/RC2DWV8KU88UJS2FVSUWLM.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/5/YR/QFNPBV2TM8KHECY3N7S4AB.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/5/YX/9AXXTPXFO4Y6RSOSAIBBTV.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/08/7T6NREKE7KNN7DF8ID42P2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/45/0SK3C0BNDNBHHAMN39GW0X.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/AQ/5QXN13XRPDHZW98JLAKO8J.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/FO/7OKSOWLXUCUQJ14G8CMOQY.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/FW/I8PQ09PY5HR866321YAYFM.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/IR/1F3NLZUQYVXYWB2QXA58EV.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/JT/LZM3PQ92OMP1SBTGP548UP.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/ML/VS4GSW9M7SY06ZYYXXWMU2.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/NX/EODRQMQWKG16YFVGN8BAQU.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/OA/3QU5KUQBWYD817ER3VA6KG.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/PJ/Q4UMDFTR7EOYRLONVN15PZ.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/6/SV/X0G4CH0I1QPGM8PQUNE39T.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/7/30/8FSELFK2ES9PF70AGVZ2YW.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/7/NC/XVDPM1T5EBZ5RECX3X1JNB.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/7/NV/5O66NXNHB5QPHPVD2B3M1J.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/8/1K/AKBXPAJZ6IAQW9V599ZXQ5.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/8/HI/TX3KV10L8F5AE3S6TA5T1Y.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/8/N3/XPCECVUALZHVKQZ4K1F3HU.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/8/U0/7O8L6Y69SO8SJUT01WS96M.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/9/3F/DYRJTF8U7JBAOXI9UXP8XC.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/9/4M/34TY0E8PCTA5PK36C3BE46.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/9/DB/K36Y7XNAMZV7QFX3YZTBPI.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/9/L8/A3RB8OMF34GFOKUWA1PS3H.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/9/MJ/S9B0KO736DXI29TSDANIEI.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/9/SM/10634IDZFLKLFBH6WHA9U1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/9/SR/ANTCZMGF9I9T1PIG46LKPL.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/9/TM/FF4HQDRIANTTGJF74OFT5T.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/A/6O/0BSNMGXLF6X5CFX3KJYLAB.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/A/E8/KAM0NR8FA6EZVDYWQTMO9M.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/A/HI/NRFSE981RCOWJJ8VG7WW77.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/A/LZ/W6FW3RCLPCPDAXGYMB1X06.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/A/O6/Q4N0R3OYLODSVH3LPZ8S99.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/A/SG/X6QG3MFU0497SKYPFAYSDG.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/B/K5/Y79LZCSV2TPRW4WCBCX0KL.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/B/MT/IUK04QRE74TNK5PQIWTP1P.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/B/RD/SUNUZKLRA0X0HX2YB2K8UM.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/B/SS/RXQYVWOXS63ST45H5NZ0ZW.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/B/TM/7RX5MNBW2YD5YMVY0B5XSQ.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/B/W6/7C4OULQ1KVBBKIXEC851M6.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/C/FR/IIZ5F9AGEYJI5VWAONUVED.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/C/KI/K2U5XAR6BQLM8JBO3I8WXX.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/C/L1/S197MQV920TFLOEDDO1YI8.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/C/P7/FQDV78GTPRT5C2IDVSJ5XE.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/D/1Q/E6GK4P19ZU94EURW0JKDLQ.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/D/5M/HR525U4DSKJGS1XX4BKKF4.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/D/6V/O51NHN5GDZP4V3O507L32W.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/D/UH/C33JMMXVFG2M6CIU2046IM.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/D/VF/Q3Y8NBQCC7FJHP7PK59SHB.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/E/0C/5JJ3RFDXNFS80GUS6IP3Q9.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/E/2Q/YJW9NWU3UMA9L2CMVT5L6H.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/E/69/SDY1M7I8AL434KMFPI30SD.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/E/8F/GGLDI6JJ9C9LSFKEHUMVP1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/E/K5/IOYLH69MYMW8C9UJMBOTRU.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/E/RZ/Q12TMG5XUOSS68Z6O51MP0.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/F/1G/HL0WXXHXVU6EOJXHKVZPSZ.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/F/26/IATE9Z0X7QYPQBSJ238UR3.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/Map/Prison/Prison_Floor1/F/3B/RZOJ4M8CDJ3NAR9SPEMKIW.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/Prison_Floor1/1/EZ/S8UMHXPQVZU8QLZQCG6ZL6.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/Prison_Floor1/2/2X/I50PNO1MLJ8ORZ51GRSPUA.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/Prison_Floor1/3/TZ/X4F90BGYSCO7Q5MZM14IXD.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/Prison_Floor1/4/O5/XVWPVCR4RZNT7XE72FFTA6.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/Prison_Floor1/7/7E/ZZTE0WTUSEG44MN7VADXEF.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/Prison_Floor1/7/V6/61CUAN78RKLR85GPUIGWT7.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalObjects__/Map/Prison/Prison_Floor1/9/WI/X9KADYAYLTKD13NAYAH79D.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/EFloorIdentifier.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/EFloorIdentifier.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatEntityHub.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatEntityHub.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/FloorFactory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/FloorFactory.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/InventoryEquipment.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/Inventory_Equipment.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/InventoryItems.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/Inventory_Items.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/ItemView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/ItemView.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/LevelGeneratorUtilityWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/LevelGeneratorUtilityWidget.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/FloorManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/FloorManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/Gimmick_Base.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/Gimmick_Base.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/MainMenuGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/MainMenuGameMode.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyInventoryEquipmentView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyInventoryEquipmentView.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyManagerSubsystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyManagerSubsystem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PersistentGameinstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PersistentGameinstance.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/UPartyInventory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/UPartyInventory.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EDataTableTypes.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EDataTableTypes.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/FloorEnum.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/FloorEnum.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/InventoryEquipment.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/Inventory_Equipment.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/InventoryItems.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/Inventory_Items.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/LevelGeneratorUtilityWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/LevelGeneratorUtilityWidget.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PassiveSkillData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PassiveSkillData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PersistentGameinstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PersistentGameinstance.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/Gimmick_Base.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/Gimmick_Base.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/Inventory_KeyItems.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/Inventory_KeyItems.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/UPartyInventory.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/UPartyInventory.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -303,6 +32,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -1028,7 +763,7 @@
       <workItem from="1739120032042" duration="6842000" />
       <workItem from="1739200975758" duration="41204000" />
       <workItem from="1739485571673" duration="9396000" />
-      <workItem from="1739625966104" duration="6233000" />
+      <workItem from="1739625966104" duration="7760000" />
     </task>
     <servers />
   </component>
@@ -1068,6 +803,16 @@
           <url>file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatEntityWrapper.cpp</url>
           <line>29</line>
           <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/Inventory_KeyItems.cpp</url>
+          <line>45</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/Inventory_KeyItems.cpp</url>
+          <line>37</line>
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

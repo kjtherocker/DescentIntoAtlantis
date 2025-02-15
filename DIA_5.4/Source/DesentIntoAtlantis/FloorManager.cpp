@@ -247,8 +247,11 @@ void AFloorManager::SpawnDoorGimmick(FDoorComplete aDoorCompleteData,UFloorBase*
 	int LevelIndexB = aFloor->GetIndex(spotB.positionInGrid.X, spotB.positionInGrid.Y);
 		
 	UGimmick_Doors* newGimmickA = NewObject<UGimmick_Doors>();
+	newGimmickA->InitializeGimmick(persistentGameInstance);
 	newGimmickA->SetGimmick(spotA);
+
 	UGimmick_Doors* newGimmickB = NewObject<UGimmick_Doors>();
+	newGimmickB->InitializeGimmick(persistentGameInstance);
 	newGimmickB->SetGimmick(spotB);
 		
 	AFloorNode* floorNodeA = floorNodes[LevelIndexA];

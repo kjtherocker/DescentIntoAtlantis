@@ -33,4 +33,6 @@ public:
 	void AddKeyItem(EKeyItemsID aKeyItemID);
 
 	bool DoesPartyOwnKeyItem(EKeyItemsID aKeyItemID);
+	FPartyInventoryCompleteData GetPartyInventoryCompleteData(){return partyInventoryCompleteData;}
+	
 };

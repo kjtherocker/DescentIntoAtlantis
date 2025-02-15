@@ -5,7 +5,9 @@
 
 #include "FloorDoor.h"
 #include "FloorPlayerPawn.h"
+#include "Inventory_KeyItems.h"
 #include "LevelProgressionSubsystem.h"
+#include "PartyManagerSubsystem.h"
 #include "PersistentGameinstance.h"
 
 
@@ -89,6 +91,20 @@ void UGimmick_Doors::SetDoorOpenDelegate(AFloorDoor* aFloorDoor)
 void UGimmick_Doors::ActivateGimmick()
 {
 	Super::ActivateGimmick();
+
+	if(currentDoorGimmick.canBeLocked)
+	{
+		UInventory_KeyItems* KeyItems = persistentGameinstance->partyManagerSubsystem->PartyInventory->GetInventoryKeyItems();
+		for (auto Element : currentDoorGimmick.LockedByKeyItem)
+		{
+			if(!KeyItems->DoesPartyOwnKeyItem(Element))
+			{
+				return;
+			}
+		}
+
+	}
+	
 	openDoorDelegate.Broadcast(doorAnimationType);
 	playerForcedMovementDelegate.Broadcast(currentDoorGimmick.interactDirection);
 }

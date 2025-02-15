@@ -5,6 +5,7 @@
 
 #include "FloorPlayerController.h"
 #include "Inventory_Items.h"
+#include "Inventory_KeyItems.h"
 #include "PersistentGameinstance.h"
 #include "SaveGameData.h"
 #include "Kismet/GameplayStatics.h"
@@ -42,6 +43,7 @@ void AMainMenuGameMode::StartGame()
 	partyManager->AddPlayerToActiveParty(EPartyMembers::Kriede);
 
 	partyManager->PartyInventory->GetInventoryItems()->AddItem(EItemID::FlatHealPotion);
+	partyManager->PartyInventory->GetInventoryKeyItems()->AddKeyItem(EKeyItemsID::PrisonZ_Floor2_CellKey);
 	if (persistentGameInstance)
 	{
 		persistentGameInstance->LoadLevel(EFloorIdentifier::PrizonZ_Floor1);

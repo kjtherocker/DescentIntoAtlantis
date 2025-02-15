@@ -60,8 +60,13 @@ public:
 	UPROPERTY()
 	FOnInteractableGimmickActivated OnInteractableGimmickActivated;
 	FGimmickInteractableData interactableData;
+
+	virtual void InitializeGimmick(UPersistentGameinstance* aPersistentGameInstance)
+	{persistentGameinstance = aPersistentGameInstance;}
+	
 //	virtual void InitializeGimmick(UPersistentGameinstance* aPersistentGameInstance);
-//	
+//
+	
 	virtual void ActivateGimmick();
 //	void SetGimmick(FGimmickData aGimmick);
 
@@ -137,6 +142,7 @@ public:
 //
 	UFUNCTION()
 	virtual void ActivateGimmick() override;
+	
 	void SetGimmick(FDoorGimmick aGimmick);
 	
 	virtual FGimmickInteractableData GetInteractableData() override;
