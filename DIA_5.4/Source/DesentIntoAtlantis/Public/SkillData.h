@@ -109,6 +109,9 @@ struct DESENTINTOATLANTIS_API FKeyItemData : public FTableRowBase
 
 	UPROPERTY(EditAnywhere)
 	EKeyItemsID KeyItemsID;
+
+	UPROPERTY(EditAnywhere)
+	FString itemName;
 	
 	UPROPERTY(EditAnywhere)
 	FString descriptionText;

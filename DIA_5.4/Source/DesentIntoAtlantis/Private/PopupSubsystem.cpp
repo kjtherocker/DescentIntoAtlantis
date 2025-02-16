@@ -4,7 +4,9 @@
 #include "PopupSubsystem.h"
 
 #include "AtlantisGameModeBase.h"
+#include "Inventory_KeyItems.h"
 #include "ItemPopupView.h"
+#include "KeyItemPopupView.h"
 #include "PassiveSkillData.h"
 #include "SkillData.h"
 
@@ -20,6 +22,17 @@ void UPopupSubsystem::SetPartySubsystem(UPartyManagerSubsystem* aPartyManagerSub
 
 	PartyManagerSubsystem->PartyInventory->GetInventoryItems()
 	->OnNewItemGainedDelegate.AddDynamic(this,&UPopupSubsystem::CreateItemPopup);
+
+	PartyManagerSubsystem->PartyInventory->GetInventoryKeyItems()
+	->OnNewKeyItemGained.AddDynamic(this,&UPopupSubsystem::CreateKeyItemPopup);
+}
+
+void UPopupSubsystem::CreateKeyItemPopup(FKeyItemData aKeyItemData)
+{
+	UKeyItemPopupView* ItemPopupView =
+	(UKeyItemPopupView*)InGameHUD->PushAndGetView(EViews::KeyItemPopupView,  EUiType::ActiveUi);
+	
+	ItemPopupView->SetKeyItemPopup(aKeyItemData);
 }
 
 void UPopupSubsystem::CreateItemPopup(FItemData aItemData)

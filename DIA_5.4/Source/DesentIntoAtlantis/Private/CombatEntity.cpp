@@ -100,6 +100,16 @@ void UCombatEntity::RemovePassive(UPassiveSkills* aPassiveSkills)
     combatEntityHub->passiveHandler->RemovePassive(aPassiveSkills);
 }
 
+void UCombatEntity::SetCurrentRow(ERowType aRowTypes)
+{
+    if(aRowTypes == ERowType::None)
+    {
+        return;
+    }
+
+    currentRow = aRowTypes;
+}
+
 
 FCombatLog_AttackDefense_Data UCombatEntity::CalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
 {

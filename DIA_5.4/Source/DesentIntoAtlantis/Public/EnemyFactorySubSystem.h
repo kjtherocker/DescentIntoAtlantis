@@ -11,6 +11,15 @@
 
 
 USTRUCT()
+struct DESENTINTOATLANTIS_API FEnemyRowData :public  FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	
+	UPROPERTY( EditAnywhere )
+	TMap<EEnemyCombatPositions,EEnemyLabelID> EnemysInRow;
+};
+
+USTRUCT()
 struct DESENTINTOATLANTIS_API FEnemyGroupData :public  FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
@@ -19,14 +28,7 @@ struct DESENTINTOATLANTIS_API FEnemyGroupData :public  FTableRowBase
 	FString GroupName;
 
 	UPROPERTY( EditAnywhere )
-	FString EnemyName1;
-
-	UPROPERTY( EditAnywhere )
-	FString EnemyName2;
-
-	UPROPERTY( EditAnywhere )
-	FString EnemyName3;
-
+	TMap<ERowType,FEnemyRowData> Rows;
 	
 };
 
@@ -36,7 +38,7 @@ struct FCompleteBestiaryData
 	GENERATED_USTRUCT_BODY()
 	
 	UPROPERTY()
-	TMap<FString,FEnemyBestiary>  enemyBestiaryData;
+	TMap<EEnemyLabelID,FEnemyBestiary>  enemyBestiaryData;
 };
 
 
@@ -53,12 +55,12 @@ class DESENTINTOATLANTIS_API UEnemyFactorySubSystem : public UGameInstanceSubsys
 	GENERATED_BODY()
 	
 	UPROPERTY()
-	TArray<FEnemyEntityData>  allEnemys;
+	TArray<FEnemyEntityCompleteData>  allEnemys;
 	UPROPERTY()
 	TArray<FEnemyGroupData>   allEnemysGroups;
 	UPROPERTY()
-	TMap<FString,FEnemyEntityData> enemyMap;
-	TMap<FString,TArray<FString>>   enemyGroupMap;
+	TMap<EEnemyLabelID,FEnemyEntityCompleteData> enemyMap;
+	TMap<FString,FEnemyGroupData>   enemyGroupMap;
 
 	FCompleteBestiaryData completeBestiaryData;
 public:
@@ -68,15 +70,15 @@ public:
 
 	void BestiaryDataHasChangedBroadcast();
 
-	FEnemyBestiary* GetBestiaryEntry(FString aCharacterName);
+	FEnemyBestiary* GetBestiaryEntry(EEnemyLabelID aCharacterName);
 	
-	void InitializeBestiary(FEnemyEntityData aEnemy);
+	void InitializeBestiary(FEnemyEntityCompleteData aEnemy);
 
 	void LoadSavedBestiary(FCompleteBestiaryData aCompleteBestiaryData);
 	
-	FEnemyEntityData FEnemyEntityDataReturnEnemyEntityData(FString aEnemyName);
+	FEnemyEntityCompleteData FEnemyEntityDataReturnEnemyEntityData(EEnemyLabelID aEnemyName);
 
-	TArray<FString>   ReturnEnemyGroupData(FString aGroupName);
+	FEnemyGroupData   ReturnEnemyGroupData(FString aGroupName);
 
 	TArray<FEnemyGroupData> allEnemyGroupData;
 

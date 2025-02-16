@@ -13,29 +13,32 @@
 #include "Health.h"
 #include "SkillFactorySubsystem.h"
 
-void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityData AEnemyEntityData,USkillFactorySubsystem * skillFactory,EEnemyCombatPositions aPortraitPosition)
+void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityCompleteData AEnemyEntityData,USkillFactorySubsystem * skillFactory,EEnemyCombatPositions aPortraitPosition)
 {
 	characterType   = ECharactertype::Enemy;
-	enemyEntityData = AEnemyEntityData;
+	enemyEntityCompleteData = AEnemyEntityData;
+
+	enemyEntityInfo = enemyEntityCompleteData.CombatEntityData[EDiffculty::Normal];
+	CombatEntityData = enemyEntityInfo.CombatEntityData;
 	
-	currentMana     = enemyEntityData.maxMana;
+	currentMana     = CombatEntityData.maxMana;
 
 	portraitPosition = aPortraitPosition;
 	
-	combatEntityHub->elementalHandler->LoadSavedInfo(AEnemyEntityData.CompleteElementalHandlerData);
+	combatEntityHub->elementalHandler->LoadSavedInfo(enemyEntityInfo.CompleteElementalHandlerData);
 	
 	enemyBehaviour = NewObject<UEnemyBehaviour>();
 	enemyBehaviour->Initialize(this);
 
-	combatEntityHub->equipmentHandler->SetEquipmentState(AEnemyEntityData.EquipmentHandlerData);
-	combatEntityHub->InterruptHandler->SetInterruptData(enemyEntityData.EnemyInterruptData);
+	combatEntityHub->equipmentHandler->SetEquipmentState(enemyEntityInfo.EquipmentHandlerData);
+	combatEntityHub->InterruptHandler->SetInterruptData(enemyEntityInfo.EnemyInterruptData);
 	
-	for(int i = 0 ; i < enemyEntityData.skillIDS.Num();i++)
+	for(int i = 0 ; i < enemyEntityInfo.skillIDS.Num();i++)
 	{
-		enemySkills.Add(skillFactory->GetSkill(enemyEntityData.skillIDS[i]));
+		enemySkills.Add(skillFactory->GetSkill(enemyEntityInfo.skillIDS[i]));
 	}
 	
-	health->InitializeHealth(AEnemyEntityData.HealthData,this);
+	health->InitializeHealth(CombatEntityData.HealthData,this);
 	
 	SetAbilityScores();
 }
@@ -57,15 +60,20 @@ FCombatLog_AttackDefense_Data UEnemyCombatEntity::DecrementHealth(UCombatEntity*
 
 FString UEnemyCombatEntity::GetEntityName()
 {
-	return enemyEntityData.characterName;
+	return enemyEntityCompleteData.characterName;
+}
+
+int UEnemyCombatEntity::GetExperience()
+{
+	return enemyEntityInfo.experience;
 }
 
 void UEnemyCombatEntity::SetAbilityScores()
 {
-	abilityScoreMap[EStatTypes::Strength]->base    =  enemyEntityData.baseStats[EStatTypes::Strength];
-	abilityScoreMap[EStatTypes::Magic]->base       =  enemyEntityData.baseStats[EStatTypes::Magic];
-	abilityScoreMap[EStatTypes::Hit]->base         =  enemyEntityData.baseStats[EStatTypes::Hit];
-	abilityScoreMap[EStatTypes::Evasion]->base     =  enemyEntityData.baseStats[EStatTypes::Evasion];
-	abilityScoreMap[EStatTypes::Defence]->base     =  enemyEntityData.baseStats[EStatTypes::Defence];
-	abilityScoreMap[EStatTypes::Resistance]->base  =  enemyEntityData.baseStats[EStatTypes::Resistance];
+	abilityScoreMap[EStatTypes::Strength]->base    =  CombatEntityData.baseStats[EStatTypes::Strength];
+	abilityScoreMap[EStatTypes::Magic]->base       =  CombatEntityData.baseStats[EStatTypes::Magic];
+	abilityScoreMap[EStatTypes::Hit]->base         =  CombatEntityData.baseStats[EStatTypes::Hit];
+	abilityScoreMap[EStatTypes::Evasion]->base     =  CombatEntityData.baseStats[EStatTypes::Evasion];
+	abilityScoreMap[EStatTypes::Defence]->base     =  CombatEntityData.baseStats[EStatTypes::Defence];
+	abilityScoreMap[EStatTypes::Resistance]->base  =  CombatEntityData.baseStats[EStatTypes::Resistance];
 }

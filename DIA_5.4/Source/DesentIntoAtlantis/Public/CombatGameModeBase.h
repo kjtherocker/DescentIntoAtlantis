@@ -172,7 +172,7 @@ public:
 	void SetCombatState(ECombatState aCombatState);
 	void StartNewRound();
 
-	void AddEnemyToCombat(FEnemyEntityData AEnemyEntityData,int aPosition);
+	void AddEnemyToCombat(FEnemyEntityCompleteData AEnemyEntityData,EEnemyCombatPositions aPosition,ERowType aRowType);
 	void SetRoundSide(ECharactertype aCharacterType);
 	void TurnEnd();
 	void TriggerTurnEndTimers();

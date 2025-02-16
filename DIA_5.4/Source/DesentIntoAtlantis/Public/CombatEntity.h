@@ -33,6 +33,16 @@ class USkillFactorySubsystem;
  * 
  */
 
+
+UENUM()
+enum class ERowType  : uint8
+{
+	None       = 0,
+	FrontRow   = 1,
+	BackRow    = 2,
+};
+
+
 UENUM()
 enum class EStatTypes  : uint8
 {
@@ -162,10 +172,15 @@ public:
 	virtual void AddPassive(UPassiveSkills* aPassiveSkills,EPassiveSkillSlotType passiveSkillSlot);
 	virtual void RemovePassive(UPassiveSkills* aPassiveSkills);
 
+	virtual void SetCurrentRow(ERowType aRowTypes);
+	
 	bool GetIsMarkedForDeath();
 
 	ECharactertype characterType;
 
+	UPROPERTY()
+	ERowType currentRow;
+	
 	UPROPERTY()
 	UHealth* health;
 	

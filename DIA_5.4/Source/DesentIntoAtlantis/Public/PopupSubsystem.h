@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "InGameHUD.h"
+#include "SkillData.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "PopupSubsystem.generated.h"
 
@@ -31,6 +32,8 @@ class DESENTINTOATLANTIS_API UPopupSubsystem : public UGameInstanceSubsystem
 public:
 	void SetGameMode(AAtlantisGameModeBase* aGameMode);
 	void SetPartySubsystem(UPartyManagerSubsystem* aPartyManagerSubsystem);
+	UFUNCTION()
+	void CreateKeyItemPopup(FKeyItemData aKeyItemData);
 	UFUNCTION()
 	void CreateItemPopup(FItemData aItemData);
 	void CreateEquipmentPopup(FEquipmentPassiveData aEquipmentData);

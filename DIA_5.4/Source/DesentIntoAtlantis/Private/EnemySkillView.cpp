@@ -10,6 +10,6 @@ void UEnemySkillView::SetSkill(FSkillsData aSkill, UEnemyCombatEntity* aEnemyCom
 {
 	BW_SkillIcon->SetBrushFromTexture(aSkill.skillIcon);
 	BW_SkillName->SetText(FText(FText::FromString(aSkill.skillName)));
-	BW_EnemyName->SetText(FText(FText::FromString(aEnemyCombatEntity->enemyEntityData.characterName)));
+	BW_EnemyName->SetText(FText(FText::FromString(aEnemyCombatEntity->enemyEntityCompleteData.characterName)));
 
 }

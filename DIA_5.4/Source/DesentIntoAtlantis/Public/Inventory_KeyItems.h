@@ -11,7 +11,7 @@
  * 
  */
 
-
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnNewKeyItemGained,FKeyItemData,ItemData);
 UCLASS()
 class DESENTINTOATLANTIS_API UInventory_KeyItems : public UObject
 {
@@ -27,6 +27,9 @@ private:
 	void ValidateSaveDataWithDatabase();
 	
 public:
+
+	UPROPERTY()
+	FOnNewKeyItemGained OnNewKeyItemGained;
 	
 	void InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UKeyItemFactorySubsystem* aKeyItemFactorySubSystem);
 	

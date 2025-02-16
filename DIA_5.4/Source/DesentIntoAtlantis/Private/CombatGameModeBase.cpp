@@ -115,12 +115,23 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 	currentActivePartyMember   = partyMembersInCombat[0];
 	CharacterTypeTurn            = ECharactertype::Ally;
 	
-	TArray<FString> EnemyNames = enemyFactory->ReturnEnemyGroupData(enemyGroupName);
-		
-	for(int i = 0 ; i < EnemyNames.Num();i++)
+	FEnemyGroupData EnemyNames = enemyFactory->ReturnEnemyGroupData(enemyGroupName);
+
+	for (auto EnemyRowData : EnemyNames.Rows)
 	{
-		AddEnemyToCombat(enemyFactory->FEnemyEntityDataReturnEnemyEntityData(EnemyNames[i]),i);
+		if(EnemyRowData.Key == ERowType::None)
+		{
+			continue;
+		}
+
+		for (auto enemysInRow : EnemyRowData.Value.EnemysInRow)
+		{
+			AddEnemyToCombat(enemyFactory->FEnemyEntityDataReturnEnemyEntityData(enemysInRow.Value),enemysInRow.Key,EnemyRowData.Key);		
+		}
+	
 	}
+		
+
 	
 	if(InGameHUD)
 	{
@@ -156,19 +167,16 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 	}
 }
 
-void ACombatGameModeBase::AddEnemyToCombat(FEnemyEntityData AEnemyEntityData,int aPosition)
+void ACombatGameModeBase::AddEnemyToCombat(FEnemyEntityCompleteData AEnemyEntityData,EEnemyCombatPositions aPosition,ERowType aRowType)
 {
-	if(AEnemyEntityData.characterName.IsEmpty())
-	{
-		return;
-	}
 	
 	UEnemyCombatEntity* EnemyCombatEntity = NewObject<UEnemyCombatEntity>();
 	
 	EnemyCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactorySubsystem,persistentGameInstance);
 	EnemyCombatEntity->SetTacticsEvents(this);
-	EnemyCombatEntity->SetEnemyEntityData(AEnemyEntityData,skillFactory,static_cast<EEnemyCombatPositions>(aPosition));
-	EnemyCombatEntity->beastiaryData = enemyFactory->GetBestiaryEntry(EnemyCombatEntity->enemyEntityData.characterName);
+	EnemyCombatEntity->SetEnemyEntityData(AEnemyEntityData,skillFactory,aPosition);
+	EnemyCombatEntity->SetCurrentRow(aRowType);
+	EnemyCombatEntity->beastiaryData = enemyFactory->GetBestiaryEntry(EnemyCombatEntity->enemyEntityCompleteData.EnemyLabelID);
 	
 	enemysInCombat.Add(EnemyCombatEntity);
 }
@@ -262,7 +270,7 @@ void ACombatGameModeBase::TurnEnd()
 	{
 		if(enemysInCombat[i]->GetIsMarkedForDeath())
 		{
-			combatExp += enemysInCombat[i]->enemyEntityData.experience;
+			combatExp += enemysInCombat[i]->GetExperience();
 			enemysInCombat[i]->Death();
 			enemysInCombat.RemoveAt(i);
 		}

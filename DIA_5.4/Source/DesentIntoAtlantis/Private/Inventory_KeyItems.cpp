@@ -44,6 +44,8 @@ void UInventory_KeyItems::AddKeyItem(EKeyItemsID aKeyItemID)
 	}
 	
 	partyInventoryCompleteData.keyItemData.Add(aKeyItemID,ItemData);
+
+	OnNewKeyItemGained.Broadcast(ItemData);
 }
 
 void UInventory_KeyItems::GiveAllKeyItems()

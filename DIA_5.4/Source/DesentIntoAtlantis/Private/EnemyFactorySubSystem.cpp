@@ -18,13 +18,13 @@ void UEnemyFactorySubSystem::InitializeDatabase(UDataTable* aEnemys, UDataTable*
 	{
 		for (auto Element : datatableEnemys->GetRowNames())
 		{
-			allEnemys.Add(*datatableEnemys->FindRow<FEnemyEntityData>(Element,FString("Searching for Enemys"),true));
+			allEnemys.Add(*datatableEnemys->FindRow<FEnemyEntityCompleteData>(Element,FString("Searching for Enemys"),true));
 		}
 	}
  
-	for (FEnemyEntityData enemys : allEnemys)
+	for (FEnemyEntityCompleteData enemys : allEnemys)
 	{
-		enemyMap.Add(enemys.characterName,enemys);
+		enemyMap.Add(enemys.EnemyLabelID,enemys);
 	}
 	
 	UDataTable* datatableEnemyGroups = aEnemyGroups;
@@ -33,22 +33,12 @@ void UEnemyFactorySubSystem::InitializeDatabase(UDataTable* aEnemys, UDataTable*
 	{
 		for (auto Element : datatableEnemyGroups->GetRowNames())
 		{
-			allEnemysGroups.Add(*datatableEnemyGroups->FindRow<FEnemyGroupData>(Element,FString("Searching for Enemy Groups"),true));
+			FEnemyGroupData EnemyGroupData = *datatableEnemyGroups->FindRow<FEnemyGroupData>(Element,FString("Searching for Enemy Groups"),true);
+
+			enemyGroupMap.Add(EnemyGroupData.GroupName,EnemyGroupData);
 		}
 	}
-
-	for(int i =- 0 ; i < allEnemysGroups.Num();i++)
-	{
-		TArray<FString> tempEnemyNames;
-		FEnemyGroupData groupData = allEnemysGroups[i];
-
-		tempEnemyNames.Add(groupData.EnemyName1);
-		tempEnemyNames.Add(groupData.EnemyName2);
-		tempEnemyNames.Add(groupData.EnemyName3);
-		
-		enemyGroupMap.Add(groupData.GroupName, tempEnemyNames);
-	}
-
+	
 	for(int i = 0; i < allEnemys.Num();i++)
 	{
 		InitializeBestiary(allEnemys[i]);
@@ -60,33 +50,33 @@ void UEnemyFactorySubSystem::BestiaryDataHasChangedBroadcast()
 	bestiaryDataHasChanged.Broadcast(completeBestiaryData);
 }
 
-FEnemyBestiary*  UEnemyFactorySubSystem::GetBestiaryEntry(FString aCharacterName)
+FEnemyBestiary*  UEnemyFactorySubSystem::GetBestiaryEntry(EEnemyLabelID aCharacterName)
 {
 	return &completeBestiaryData.enemyBestiaryData[aCharacterName];
 }
 
-void UEnemyFactorySubSystem::InitializeBestiary(FEnemyEntityData aEnemy)
+void UEnemyFactorySubSystem::InitializeBestiary(FEnemyEntityCompleteData aEnemy)
 {
 	FEnemyBestiary BestiaryData;
 	BestiaryData.InitializeBestiary();
 	
-	completeBestiaryData.enemyBestiaryData.Add(aEnemy.characterName, BestiaryData);
+	completeBestiaryData.enemyBestiaryData.Add(aEnemy.EnemyLabelID, BestiaryData);
 }
 
 void UEnemyFactorySubSystem::LoadSavedBestiary(FCompleteBestiaryData aCompleteBestiaryData)
 {
-	for (TTuple<FString, FEnemyBestiary> Element : aCompleteBestiaryData.enemyBestiaryData)
+	for (TTuple<EEnemyLabelID, FEnemyBestiary> Element : aCompleteBestiaryData.enemyBestiaryData)
 	{
 		completeBestiaryData.enemyBestiaryData[Element.Key].enemyElementalInfo = Element.Value.enemyElementalInfo;
 	}
 }
 
-FEnemyEntityData UEnemyFactorySubSystem::FEnemyEntityDataReturnEnemyEntityData(FString aEnemyName)
+FEnemyEntityCompleteData UEnemyFactorySubSystem::FEnemyEntityDataReturnEnemyEntityData(EEnemyLabelID aEnemyName)
 {
 	return enemyMap.FindRef(aEnemyName);
 }
 
-TArray<FString> UEnemyFactorySubSystem::ReturnEnemyGroupData(FString aGroupName)
+FEnemyGroupData UEnemyFactorySubSystem::ReturnEnemyGroupData(FString aGroupName)
 {
 	return enemyGroupMap.FindRef(aGroupName);
 }

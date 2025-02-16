@@ -49,6 +49,7 @@ enum class  EViews
 	NumbersUIView           = 39,
 	SubSkillView            = 40,
 	ItemPopupView           = 41,
+	KeyItemPopupView        = 42,
 
 };
 

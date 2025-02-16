@@ -24,7 +24,7 @@ void AEnemyPortraitElement::SetCombatEntity(UEnemyCombatEntity* aCombatEntity)
 	aCombatEntity->onStatusAilmentStart.AddDynamic(this,&AEnemyPortraitElement::TriggerAilmentEffect);
 	aCombatEntity->onStatusAilmentEnd.AddDynamic(this,&AEnemyPortraitElement::TurnOffAilmentEffect);
 	
-	currentEnemyMaterialInterface = aCombatEntity->enemyEntityData.fullBodyCharacterPortrait;;
+	currentEnemyMaterialInterface = aCombatEntity->enemyEntityCompleteData.fullBodyCharacterPortrait;;
 	TArray<AActor*> ChildActorArray;
 	GetAllChildActors(ChildActorArray);
 	
