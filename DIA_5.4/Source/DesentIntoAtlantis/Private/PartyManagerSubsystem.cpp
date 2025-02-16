@@ -31,6 +31,8 @@ void UPartyManagerSubsystem::LoadSavedPartyManagerSubsystem(FCompletePartyManage
 		persistentGameInstance->passiveFactorySubsystem,
 		persistentGameInstance->skillFactorySubsystem,
 		persistentGameInstance->KeyItemFactorySubsystem);
+
+	ItemChargesBase = aPartyManagerSubsystemData.partyWideItemChargeBase;
 	
 	LoadAndCreateAllPlayerEntitys(aPartyManagerSubsystemData.playerCompleteDataSet);
 	persistentGameInstance->popupSubsystem->SetPartySubsystem(this);
@@ -84,7 +86,7 @@ void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UData
 			DefaultTestFightData.Add(*combatTestInfo->FindRow<FDefaultTestFightData>(FName(Element),FString("Searching for Players"),true));
 		}
 	}
-
+	
 	persistentGameInstance->popupSubsystem->SetPartySubsystem(this);
 }
 
@@ -286,7 +288,6 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 	
 		PlayerCombatEntity->SetPlayerEntity(playerIdenityMap[partyMember],CostumeData);
 		PlayerCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactory,persistentGameInstance);
-
 		PlayerCombatEntity->LoadSavedHPAndMP(playerCompleteData);
 
 		//Class

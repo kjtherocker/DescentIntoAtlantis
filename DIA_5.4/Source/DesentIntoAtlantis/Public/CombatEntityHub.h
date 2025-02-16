@@ -10,6 +10,7 @@
 #include "PassiveHandler.h"
 #include "CombatEntityHub.generated.h"
 
+class UItemChargeHandler;
 class UPersistentGameinstance;
 class UInterruptHandler;
 class UEquipmentHandler;
@@ -26,6 +27,7 @@ class DESENTINTOATLANTIS_API UCombatEntityHub : public UObject
 	GENERATED_BODY()
 private:
 
+	UPROPERTY()
 	UPassiveFactorySubsystem* passiveSkillFactorySubsystem;
 
 
@@ -61,7 +63,8 @@ public:
 
 	UPROPERTY()
 	UEquipmentHandler* equipmentHandler;
-
+	UPROPERTY()
+	UItemChargeHandler* ItemChargeHandler; 
 	
 	
 	

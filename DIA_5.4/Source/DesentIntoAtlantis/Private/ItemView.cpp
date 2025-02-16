@@ -81,7 +81,7 @@ void UItemView::SetItemView(UPlayerCombatEntity* aPlayerCombatEntity)
 
 void UItemView::SelectSkill()
 {
-	FItemCharges ItemCharges = persistentGameinstance->partyManagerSubsystem->GetPartyManagerData().ItemCharges;
+//	FItemChargesCompleteData ItemCharges = persistentGameinstance->partyManagerSubsystem->GetPartyManagerData().ItemCharges;
 
 	UInventory_Items* InventoryItems = persistentGameinstance->partyManagerSubsystem->PartyInventory->GetInventoryItems();
 

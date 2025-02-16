@@ -37,6 +37,10 @@ enum class  EClassID  : uint8
 	AtlantianWarden      = 2,
 	GemThief             = 3,
 	LaidOffExecutioner   = 4,
+	LivingSaint          = 5,
+	PatchWorkChimera     = 6,
+	Hero                 = 7,
+	Merchant             = 8
 };
 
 UENUM()

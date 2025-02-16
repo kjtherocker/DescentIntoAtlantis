@@ -8,6 +8,7 @@
 #include "CombatLog_Hit_Data.h"
 #include "CombatStat.h"
 #include "Health.h"
+#include "ItemChargeHandler.h"
 #include "SkillType.h"
 
 
@@ -101,7 +102,7 @@ bool USkillBase::CanUseSkill(UCombatEntity* aSkillOwner, ESkillResourceUsed Skil
 		return aSkillOwner->currentSync >= skillData.costToUse;
 		break;
 	case ESkillResourceUsed::ItemCharges:
-		return true;
+		return aSkillOwner->combatEntityHub->ItemChargeHandler->isItemChargeAvaliable();
 		break;
 	}
 
@@ -127,6 +128,7 @@ void USkillBase::SpendSkillCost(UCombatEntity* aSkillOwner, ESkillResourceUsed S
 			 aSkillOwner->DecrementSync(skillData.costToUse);
 			break;
 		case ESkillResourceUsed::ItemCharges:
+			aSkillOwner->combatEntityHub->ItemChargeHandler->ConsumeItemCharge(skillData.costToUse);
 			break;
 	}
 }

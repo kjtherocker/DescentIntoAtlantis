@@ -6,12 +6,14 @@
 #include "EElementalType.h"
 #include "HealthData.h"
 
+
 #include "PressTurnManager.h"
 
 #include "Engine/DataTable.h"
 #include "CombatEntity.generated.h"
 
 
+struct FItemChargesCompleteData;
 class UPersistentGameinstance;
 class UCombatEntityHub;
 class UPassiveFactorySubsystem;
@@ -32,6 +34,7 @@ class USkillFactorySubsystem;
 /**
  * 
  */
+
 
 
 UENUM()
@@ -104,7 +107,7 @@ protected:
 	UPROPERTY( EditAnywhere )
 	TArray<UPassiveSkills*> passiveSkills;
 
-
+	
 public:
 	inline static const float ABILITYSCORE_CONVERSION_RATIO = 3;
 	inline static const float ABILITYSCORE_BUFF_MULTIPLIER  = 2;
@@ -151,7 +154,7 @@ public:
 	virtual void Death();
 	virtual void PostDamage();
 
-	
+
 	
 	virtual void ActivateDamageHitEffect();
 	virtual void SetToDefaultState();
@@ -167,7 +170,6 @@ public:
 	virtual int GetEvasion();
 	virtual int GetAilmentResistance(EStatusAilments aStatusAilment);
 	virtual int GetAilmentInfliction(EStatusAilments aStatusAilment);
-
 	
 	virtual void AddPassive(UPassiveSkills* aPassiveSkills,EPassiveSkillSlotType passiveSkillSlot);
 	virtual void RemovePassive(UPassiveSkills* aPassiveSkills);

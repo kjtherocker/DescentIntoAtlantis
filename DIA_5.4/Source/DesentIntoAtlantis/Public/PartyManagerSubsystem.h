@@ -5,6 +5,7 @@
 
 #include "CoreMinimal.h"
 #include "DefaultTestFightData.h"
+#include "ItemChargeHandler.h"
 #include "PlayerCombatEntity.h"
 #include "UPartyInventory.h"
 
@@ -36,15 +37,6 @@ struct DESENTINTOATLANTIS_API FPartyExperienceTable :public  FTableRowBase
 
 
 
-USTRUCT()
-struct DESENTINTOATLANTIS_API FItemCharges : public FTableRowBase
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere)
-	int itemCharges;
-};
-
 
 
 USTRUCT()
@@ -60,7 +52,7 @@ struct DESENTINTOATLANTIS_API FCompletePartyManagerSubsystemData:public  FTableR
 
 
 	UPROPERTY()
-	FItemCharges ItemCharges;
+	FItemChargesCompleteData partyWideItemChargeBase;
 	
 	UPROPERTY()
 	FPartyInventoryCompleteData PartyInventoryCompleteData;
@@ -93,6 +85,10 @@ private:
 	TMap<EClassID,FCompleteClassData> classDataTables;
 	UPROPERTY()
 	UPersistentGameinstance* persistentGameInstance;
+
+	UPROPERTY()
+	FItemChargesCompleteData ItemChargesBase;
+	
 
 	FCompletePartyManagerSubsystemData CompletePartyManagerSubsystemData;
 	int totalExperience = 0;

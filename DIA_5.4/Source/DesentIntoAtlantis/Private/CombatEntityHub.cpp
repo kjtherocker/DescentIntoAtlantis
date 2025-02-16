@@ -26,6 +26,7 @@ void UCombatEntityHub::InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEnti
 	elementalHandler   = NewObject<UElementalHandler>();
 	equipmentHandler   = NewObject<UEquipmentHandler>();
 	InterruptHandler   = NewObject<UInterruptHandler>();
+	ItemChargeHandler  = NewObject<UItemChargeHandler>();
 	
 	persistentGameinstance = aPersistentGameinstance;
 	
@@ -34,6 +35,7 @@ void UCombatEntityHub::InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEnti
 	combatTokenHandler->InitializeCombatTokenHandler(aOwnedCombatEntity,aPassiveSkillFactorySubsystem);
 	equipmentHandler->InitializeEquipmentHandler(passiveHandler,aOwnedCombatEntity,aPassiveSkillFactorySubsystem);
 	InterruptHandler->InitializeInterruptHandler(aOwnedCombatEntity,persistentGameinstance);
+	ItemChargeHandler->Initialize();
 }
 
 
