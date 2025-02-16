@@ -59,6 +59,7 @@ enum class EPassiveSkillID   : uint8
 	DarkIncrease         = 2,
 	DarkResist           = 3,
 	Hydrocity            = 4,
+	MerchantZeal         = 5,
 };
 
 UENUM()

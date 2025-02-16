@@ -92,6 +92,21 @@ void UItemChargeHandler::ConsumeItemCharge(int aAmount)
 	itemCharges.ItemChargesInfos = ItemChargesInfos;
 }
 
+int UItemChargeHandler::HowManyChargesAreFull()
+{
+	int amountOfCharges = 0;
+	for (auto Element : itemCharges.ItemChargesInfos)
+	{
+		if(Element.isItemChargeFull)
+		{
+			amountOfCharges++;
+		}
+	}
+
+
+	return amountOfCharges;
+}
+
 void UItemChargeHandler::ShiftItemChargesToEmptyCharges()
 {
 	TArray<FItemChargesInfo> ItemChargesInfos = itemCharges.ItemChargesInfos;

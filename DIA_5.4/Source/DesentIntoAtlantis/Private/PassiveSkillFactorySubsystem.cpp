@@ -8,21 +8,14 @@
 
 void UPassiveFactorySubsystem::InitializeDatabase(UDataTable* aPassiveDataTable,UDataTable*  aCombatTokenDataTable,UDataTable*  aEquipmentDataTable)
 {
-
-
-	allPassiveSkills.Add(EPassiveSkillID::DarkIncrease,NewObject<UGenericOnAttackPassive>());
-	allPassiveSkills.Add(EPassiveSkillID::DarkResist,  NewObject<UGenericOnAttackPassive>());
-	allPassiveSkills.Add(EPassiveSkillID::StatusAdept, NewObject<UGenericStatPassive>());
-	allPassiveSkills.Add(EPassiveSkillID::Hydrocity, NewObject<UGenericOnAttackPassive>());
-
-
-
+	
 	UDataTable*  datatable = aPassiveDataTable;
 	if(datatable)
 	{
 		for (auto Element : datatable->GetRowNames())
 		{
 			FPassiveSkillData skillData = *datatable->FindRow<FPassiveSkillData>(FName(Element),FString("Searching for Classes"),true) ;
+			allPassiveSkills.Add(skillData.passiveSkillID, CreatePassiveSkill(skillData.passiveSkillID));
 			allPassiveSkills[skillData.passiveSkillID]->InitializePassiveSkilData(skillData);
 		}
 	}
@@ -64,6 +57,31 @@ UPassiveSkills* UPassiveFactorySubsystem::GetPassiveSkill(EPassiveSkillID aPassi
 		return nullptr;
 	}
 	return allPassiveSkills[aPassiveSkillID];
+}
+
+UPassiveSkills* UPassiveFactorySubsystem::CreatePassiveSkill(EPassiveSkillID aPassiveSkillID)
+{
+	switch (aPassiveSkillID) {
+	case EPassiveSkillID::None:
+		break;
+	case EPassiveSkillID::StatusAdept:
+		return NewObject<UGenericOnAttackPassive>();
+		break;
+	case EPassiveSkillID::DarkIncrease:
+		return NewObject<UGenericOnAttackPassive>();
+		break;
+	case EPassiveSkillID::DarkResist:
+		return NewObject<UGenericOnAttackPassive>();
+		break;
+	case EPassiveSkillID::Hydrocity:
+		return NewObject<UGenericOnAttackPassive>();
+		break;
+	case EPassiveSkillID::MerchantZeal:
+		return NewObject<UMerchantsZeal>();
+		break;
+	}
+
+	return NewObject<UGenericOnAttackPassive>();
 }
 
 FCombatToken_Base_Data UPassiveFactorySubsystem::GetCombatTokenData(ECombatTokenID combatTokenID)

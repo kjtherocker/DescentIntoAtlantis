@@ -65,6 +65,7 @@ public:
 	virtual void FillItemCharge(int aAmount);
 	virtual void ConsumeItemCharge(int aAmount);
 
+	virtual int HowManyChargesAreFull();
 	virtual void ShiftItemChargesToEmptyCharges();
 	virtual bool isItemChargeAvaliable();
 	virtual void SetItemCharges(FItemChargesCompleteData ItemCharges);

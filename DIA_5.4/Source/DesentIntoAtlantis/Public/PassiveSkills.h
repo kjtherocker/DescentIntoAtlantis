@@ -65,6 +65,9 @@ public:
 	bool IsPassiveTriggered(int& CurrentDamage, UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker, FSkillsData aSkill);
 };
 
+
+
+
 UINTERFACE(BlueprintType)
 class UOnGenericPassive : public UInterface
 {
@@ -174,6 +177,17 @@ public:
 
 UCLASS()
 class DESENTINTOATLANTIS_API UGenericOnAttackPassive: public UPassiveSkills, public IOnAttackDefencePassive
+{
+	GENERATED_BODY()
+
+public:
+	virtual bool IsPassiveTriggered_Implementation(int& CurrentDamage, UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker, FSkillsData aSkill) override;
+	virtual FCombatLog_PassiveSkilData ActivateAttackDefencePassive_Implementation(int& CurrentDamage, UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker, FSkillsData aSkill) override;
+};
+
+
+UCLASS()
+class DESENTINTOATLANTIS_API UMerchantsZeal: public UGenericOnAttackPassive
 {
 	GENERATED_BODY()
 

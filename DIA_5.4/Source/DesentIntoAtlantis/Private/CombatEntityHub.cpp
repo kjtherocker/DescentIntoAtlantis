@@ -73,6 +73,11 @@ void UCombatEntityHub::OnEvadedAttack(FCombatLog_Hit_Data aEvasionData)
 	EvadedAttack.Broadcast(aEvasionData,OwnedCombatEntity);
 }
 
+//TArray<FCombatLog_PassiveSkilData> UCombatEntityHub::CheckBaseDamagePassives(UCombatEntity* aAttachedEntity,
+//	UCombatEntity* aAttacker, FSkillsData aSkill)
+//{
+//}
+
 int UCombatEntityHub::OnGetItemTier(EItemID ItemID)
 {
 	int currentItemTier =

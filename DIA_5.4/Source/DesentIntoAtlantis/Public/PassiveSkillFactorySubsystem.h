@@ -33,6 +33,8 @@ public:
 	void InitializeDatabase(UDataTable*  aPassiveDataTable,UDataTable*  aCombatTokenDataTable,UDataTable*  aEquipmentDataTable);
 	UPassiveSkills* GetPassiveSkill(EPassiveSkillID aPassiveSkillID);
 
+	UPassiveSkills* CreatePassiveSkill(EPassiveSkillID aPassiveSkillID);
+
 	FCombatToken_Base_Data GetCombatTokenData(ECombatTokenID combatTokenID);
 	bool DoesPassiveSkillExist(EPassiveSkillID aPassiveSkillID);
 

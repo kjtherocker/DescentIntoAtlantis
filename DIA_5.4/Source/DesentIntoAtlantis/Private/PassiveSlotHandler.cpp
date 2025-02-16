@@ -26,7 +26,7 @@ void UPassiveSlotHandler::SetPassiveSlotState(FPassiveSlotHandlerData aPassiveSl
 	for(int i = 0 ; i <  aPassiveSlotData.passiveSlotData.Num(); i++)
 	{
 		EPassiveSkillID PassiveSkillID = aPassiveSlotData.passiveSlotData[i];
-		EquipPassiveInSlot(PassiveSkillID,i);
+		 EquipPassiveInSlot(PassiveSkillID,i);
 	}
 }
 

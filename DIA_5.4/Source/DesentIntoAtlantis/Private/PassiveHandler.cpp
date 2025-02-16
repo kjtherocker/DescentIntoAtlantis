@@ -81,6 +81,25 @@ TArray< FCombatLog_PassiveSkilData> UPassiveHandler::CheckAttackDefencePassives(
 	return passiveSkillsUsed;
 }
 
+//TArray<FCombatLog_PassiveSkilData> UPassiveHandler::CheckBaseDamagePassives(UCombatEntity* aAttachedEntity,
+//	UCombatEntity* aAttacker, FSkillsData aSkill)
+//{
+//	passiveSkillsUsed.Empty();
+//	 
+//	for (UPassiveSkills* passiveSkillWrapper : allPassiveSkills)
+//	{
+//		if (IOnAttackDefencePassive* attackDefencePassive = Cast<IOnAttackDefencePassive>(passiveSkillWrapper))
+//		{
+//			if(attackDefencePassive->Execute_IsPassiveTriggered(passiveSkillWrapper,CurrentDamage,aAttachedEntity, aAttacker,aSkill))
+//			{
+//				passiveSkillsUsed.Add(attackDefencePassive->Execute_ActivateAttackDefencePassive(passiveSkillWrapper,CurrentDamage,aAttachedEntity, aAttacker,aSkill));
+//			}
+//		}
+//	}
+//
+//	return passiveSkillsUsed;
+//}
+
 void UPassiveHandler::AddMainClassPassives(UCombatClass* aCombatClass)
 {
 	RemovePassiveBySlotType(EPassiveSkillSlotType::MainClass);
