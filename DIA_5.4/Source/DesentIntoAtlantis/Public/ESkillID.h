@@ -32,6 +32,15 @@ enum class ESkillIDS : uint8
 	MockingTaunt           UMETA(DisplayName = "MockingTaunt"),
 	AbsoluteGuard          UMETA(DisplayName = "AbsoluteGuard"),
 	FeyDuality             UMETA(DisplayName = "FeyDuality"),
+	//Soul Knight
+	Gula                  UMETA(DisplayName = "Gula"),
+	Acedia                UMETA(DisplayName = "Acedia"),
+	Luxuria               UMETA(DisplayName = "Luxuria"),
+	Superbia              UMETA(DisplayName = "Superbia"),
+	Ira                   UMETA(DisplayName = "Ira"),
+	Invidia               UMETA(DisplayName = "Invidia"),
+	Avaricia              UMETA(DisplayName = "Avaricia"),
+
 
 	//Item
 	HealPotion             UMETA(DisplayName = "HealPotion"),

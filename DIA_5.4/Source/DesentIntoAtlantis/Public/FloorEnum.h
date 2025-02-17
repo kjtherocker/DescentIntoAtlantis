@@ -219,6 +219,7 @@ enum class EDialogueTriggers
 	StartGame       = 1,
 	Combat1Start    = 2,
 	Combat1End      = 3,
+	Prologue_CaviaFight_Start           = 10000,
 	Prison_Floor1_Feienne_Start         = 10001,
 	Prison_Floor1_Feienne_End           = 10002,
 	Prison_Floor1_BreakRoom             = 10003,
@@ -284,6 +285,20 @@ struct DESENTINTOATLANTIS_API FRewardsData : public FTableRowBase
 	
 };
 
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FTeleportData : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+
+	UPROPERTY(EditAnywhere)
+	EFloorIdentifier FloorIdentifier = EFloorIdentifier::None;
+
+	UPROPERTY(EditAnywhere)
+	FVector2D positionInGrid;
+	
+};
+
 USTRUCT()
 struct DESENTINTOATLANTIS_API FFloorEventData : public FTableRowBase
 {
@@ -321,6 +336,9 @@ struct DESENTINTOATLANTIS_API FFloorEventData : public FTableRowBase
 
 	UPROPERTY(EditAnywhere)
 	FRewardsData RewardsOnEnd;
+
+	UPROPERTY(EditAnywhere)
+	FTeleportData TeleportOnEnd;
 	
 };
 

@@ -40,7 +40,8 @@ enum class  EClassID  : uint8
 	LivingSaint          = 5,
 	PatchWorkChimera     = 6,
 	Hero                 = 7,
-	Merchant             = 8
+	Merchant             = 8,
+	SoulKnight           = 9
 };
 
 UENUM()
@@ -85,6 +86,7 @@ enum class  EPartyMembers
 	Rain                = 2,
 	Feienne             = 3,
 	Gram                = 4,
+	Watcher             = 5,
 };
 
 

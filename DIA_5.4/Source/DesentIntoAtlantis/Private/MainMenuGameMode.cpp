@@ -40,12 +40,24 @@ void AMainMenuGameMode::CreateMainMenu()
 
 void AMainMenuGameMode::StartGame()
 {
-	partyManager->AddPlayerToActiveParty(EPartyMembers::Kriede);
-
-	partyManager->PartyInventory->GetInventoryItems()->AddItem(EItemID::FlatHealPotion);
-	if (persistentGameInstance)
+	if(UGameSettings::isPrologueDisabled)
 	{
-		persistentGameInstance->LoadLevel(EFloorIdentifier::PrizonZ_Floor1);
+		partyManager->AddPlayerToActiveParty(EPartyMembers::Kriede);
+
+		partyManager->PartyInventory->GetInventoryItems()->AddItem(EItemID::FlatHealPotion);
+		if (persistentGameInstance)
+		{
+			persistentGameInstance->LoadLevel(EFloorIdentifier::PrizonZ_Floor1);
+		}
+	}
+	else
+	{
+		partyManager->AddPlayerToActiveParty(EPartyMembers::Watcher);
+		
+		if (persistentGameInstance)
+		{
+			persistentGameInstance->LoadLevel(EFloorIdentifier::Prologue);
+		}
 	}
 
 	

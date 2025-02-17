@@ -169,6 +169,7 @@ void UPersistentGameinstance::Init()
 	LevelMap.Add(EFloorIdentifier::PrisonZ_Floor3,"PrisonZ_Floor3");
 	LevelMap.Add(EFloorIdentifier::PrisonZ_Annex,"PrisonZ_Annex");
 	LevelMap.Add(EFloorIdentifier::PrisonZ_Combat,"PrisonCombat");
+	LevelMap.Add(EFloorIdentifier::Prologue,"Prologue");
 //
 	//LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
 	//

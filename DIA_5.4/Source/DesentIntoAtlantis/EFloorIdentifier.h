@@ -16,4 +16,5 @@ enum class  EFloorIdentifier
     PrisonZ_Floor3     =  4,
     PrisonZ_Combat     =  5,
     PrisonZ_Annex      = 6,
+    Prologue           = 7,
 };
