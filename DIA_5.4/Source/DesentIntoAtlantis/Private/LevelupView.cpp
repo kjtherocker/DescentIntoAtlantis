@@ -12,7 +12,7 @@
 #include "SkillBarElement.h"
 
 
-void ULevelupView::InitializeCombatEntitysToLevelUp(int newLevel,TArray<UPlayerCombatEntity*> aPlayerCombatEntitys,FTriggerNextEventStage  aTriggerNextEventStage, EFloorEventStates aTriggerOnEnd)
+void ULevelupView::InitializeCombatEntitysToLevelUp(int newLevel,TArray<UPlayerCombatEntity*> aPlayerCombatEntitys,FTriggerNextEventStage  aTriggerNextEventStage)
 {
 	InitializeInputComponent();
 	
@@ -22,8 +22,7 @@ void ULevelupView::InitializeCombatEntitysToLevelUp(int newLevel,TArray<UPlayerC
 	currentPlayerLevel = newLevel;
 
 	triggerNextEventStage = aTriggerNextEventStage;
-	triggerOnEnd = aTriggerOnEnd;
-	
+
 	ActivateNextLevelup();
 }
 
@@ -73,7 +72,7 @@ void ULevelupView::ActivateNextLevelup()
 	if(combatEntitysToLevelup.IsEmpty())
 	{
 		InGameHUD->PopMostRecentActiveView();
-		triggerNextEventStage.Broadcast(triggerOnEnd);
+		triggerNextEventStage.Broadcast();
 		persistentGameinstance->LoadPreviousLevel();
 		return;
 	}

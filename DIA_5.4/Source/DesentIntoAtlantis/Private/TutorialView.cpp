@@ -22,14 +22,9 @@ void UTutorialView::SetupTutorialView(FTutorialData aTutorialData)
 	BW_BulletPoint3->SetText(FText(FText::FromString(aTutorialData.bulletPoint3)));
 }
 
-void UTutorialView::SetFloorEvent(FTriggerNextEventStage aTriggerNextEventStage, EFloorEventStates aTriggerOnEnd)
-{
-	nextEventStage           = aTriggerNextEventStage;
-	floorEventToTriggerOnEnd = aTriggerOnEnd;
-}
 
 void UTutorialView::ContinueToNextEventStage()
 {
 	InGameHUD->PopMostRecentActiveView();
-	nextEventStage.Broadcast(floorEventToTriggerOnEnd);
+	nextEventStage.Broadcast();
 }

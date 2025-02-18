@@ -25,8 +25,8 @@ void UDialogueView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	persistentGameinstance = Cast<UPersistentGameinstance>( GetGameInstance());
 }
 
-void UDialogueView::SetFloorEventDialogueData(EDialogueTriggers aDialogueData, EFloorEventStates aTriggerOnEnd,
-	FTriggerNextEventStage aTriggerNextEventStage, AFloorManager* aFloorManager)
+void UDialogueView::SetFloorEventDialogueData(EDialogueTriggers aDialogueData,
+	FTriggerNextEventStage aDelegate_TriggerNextEventStage, AFloorManager* aFloorManager)
 {
 	currentDialogueCompleteData           = persistentGameinstance->dialogueManagerSubsystem->GetDialogueDataByTrigger(aDialogueData);
 	dialogueData                          = currentDialogueCompleteData.DialogueData;
@@ -43,8 +43,8 @@ void UDialogueView::SetFloorEventDialogueData(EDialogueTriggers aDialogueData, E
 	}
 	floorManager = aFloorManager;
 	
-	triggerOnEnd          = aTriggerOnEnd;
-	triggerNextEventStage = aTriggerNextEventStage;
+
+	triggerNextEventStage = aDelegate_TriggerNextEventStage;
 	
 	SetNextDialogue(false);
 }
@@ -186,14 +186,5 @@ void UDialogueView::DialogueFinished()
 {
 	InGameHUD->PopMostRecentActiveView();
 	onDialogueEnd.Broadcast();
-	
-	if(triggerOnEnd != EFloorEventStates::None)
-	{
-		if(reactivatePawnInputOnEnd)
-		{
-			gameModeBase->floorPawn->SetFloorPawnInput(true);
-		}
-		triggerNextEventStage.Broadcast(triggerOnEnd);
-	}
 }
 

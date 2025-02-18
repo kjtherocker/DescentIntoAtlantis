@@ -14,7 +14,7 @@
 
 class AFloorManager;
 class UPersistentGameinstance;
-enum class EFloorEventStates;
+enum class EFloorEventTypes;
 struct FCutsceneData;
 class UImage;
 
@@ -47,7 +47,7 @@ public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_DialogueText;
 
-	EFloorEventStates      triggerOnEnd;
+	EFloorEventTypes      triggerOnEnd;
 
 	FOnDialogueEnd onDialogueEnd;
 
@@ -58,7 +58,7 @@ public:
 	TArray<FCutsceneData> dialogueData;
 	UPROPERTY()
 	AFloorManager* floorManager;
-	void SetFloorEventDialogueData(EDialogueTriggers aDialogueData, EFloorEventStates aTriggerOnEnd, FTriggerNextEventStage  aTriggerNextEventStage, AFloorManager* aFloorManager);
+	void SetFloorEventDialogueData(EDialogueTriggers aDialogueData, FTriggerNextEventStage  aDelegate_TriggerNextEventStage, AFloorManager* aFloorManager);
 	void SetDialogueData(EDialogueTriggers aDialogueData);
 	void SetDialogueImages(UTexture2D* aPortraitTexture,UImage* aPortraitImage);
 	void SpawnActor(EDialogueActorsLabel aActorLabel, TSubclassOf<AActor> aActorToSpawn);

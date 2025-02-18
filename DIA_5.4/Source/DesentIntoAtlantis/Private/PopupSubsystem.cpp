@@ -29,20 +29,27 @@ void UPopupSubsystem::SetPartySubsystem(UPartyManagerSubsystem* aPartyManagerSub
 
 void UPopupSubsystem::CreateKeyItemPopup(FKeyItemData aKeyItemData)
 {
-	UKeyItemPopupView* ItemPopupView =
+	UKeyItemPopupView* KeyItemPopupView =
 	(UKeyItemPopupView*)InGameHUD->PushAndGetView(EViews::KeyItemPopupView,  EUiType::ActiveUi);
-	
-	ItemPopupView->SetKeyItemPopup(aKeyItemData);
+
+	KeyItemPopupView->ViewClosed.AddDynamic(this, &UPopupSubsystem::OnPopupEnd);
+	KeyItemPopupView->SetKeyItemPopup(aKeyItemData);
 }
 
 void UPopupSubsystem::CreateItemPopup(FItemData aItemData)
 {
 	UItemPopupView* ItemPopupView =
 		(UItemPopupView*)InGameHUD->PushAndGetView(EViews::ItemPopupView,  EUiType::ActiveUi);
-	
+
+	ItemPopupView->ViewClosed.AddDynamic(this, &UPopupSubsystem::OnPopupEnd);
 	ItemPopupView->SetItemPopup(aItemData);
 }
 
 void UPopupSubsystem::CreateEquipmentPopup(FEquipmentPassiveData aEquipmentData)
 {
+}
+
+void UPopupSubsystem::OnPopupEnd()
+{
+	OnPopUpClosed.Broadcast();
 }

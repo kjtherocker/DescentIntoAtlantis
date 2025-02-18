@@ -15,16 +15,17 @@ class AFloorDoor;
 class UPersistentGameinstance;
 
 UENUM()
-enum class EFloorEventStates
+enum class EFloorEventTypes
 {
 	None                  = 0,
-	DialogueOnStart       = 1,
-	TutorialOnStart       = 2,
+	Dialogue              = 1,
+	Tutorial              = 2,
 	Combat                = 3,
-	PostCombatLevelSwap   = 4,
-	DialogueOnEnd         = 5,
-	TutorialOnEnd         = 6,
-	Completed             = 7,
+	Reward                = 4,
+	Teleport              = 5,
+	PartyMemberJoin       = 6,
+	PushView              = 7,
+
 };
 
 UENUM()
@@ -41,7 +42,7 @@ enum class EFloorGimmicks
 };
 
 UENUM()
-enum class ECombatArena
+enum class ECombatArenaID
 {
 	None            = 0,
 	Water           = 1,
@@ -79,7 +80,7 @@ struct FFloorEnemyPawnCompleteData
 
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FNodeHasBeenWalkedOn, FVector2D, aPositionInGrid);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTriggerNextEventStage, EFloorEventStates, aFloorEventStates);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FTriggerNextEventStage);
 
 
 USTRUCT()
@@ -300,45 +301,60 @@ struct DESENTINTOATLANTIS_API FTeleportData : public FTableRowBase
 };
 
 USTRUCT()
+struct DESENTINTOATLANTIS_API FFloorEventStageInfo : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+	
+	UPROPERTY( EditAnywhere )
+	EFloorEventTypes floorEventType;
+
+	UPROPERTY(EditAnywhere, Category= "Combat" )
+	ECombatArenaID CombatArenaID = ECombatArenaID::Prison;
+	
+	UPROPERTY( EditAnywhere , Category= "Combat" )
+	FString enemyGroupName  = "DefaultTest";
+
+	UPROPERTY( EditAnywhere, Category= "Tutorial"  )
+	ETutorialTriggers tutorialTrigger = ETutorialTriggers::None;
+	
+	UPROPERTY( EditAnywhere, Category= "Dialogue" )
+	EDialogueTriggers dialogueTrigger = EDialogueTriggers::None;
+	
+	UPROPERTY( EditAnywhere, Category= "PartyMember" )
+	EPartyMembers partyMemberGainedOnEnd  = EPartyMembers::None;
+	
+	UPROPERTY( EditAnywhere, Category= "UI" )
+	EViews viewPushed = EViews::None;
+
+	UPROPERTY(EditAnywhere, Category= "Reward" )
+	FRewardsData Rewards;
+
+	UPROPERTY(EditAnywhere, Category= "Teleport")
+	FTeleportData Teleport;
+	
+};
+USTRUCT()
 struct DESENTINTOATLANTIS_API FFloorEventData : public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 
-	UPROPERTY( EditAnywhere )
-	EFloorIdentifier floorIdentifier = EFloorIdentifier::None;
+	UPROPERTY(EditAnywhere, Category= "ID" )
+	int FloorEventID;
 
-	UPROPERTY( EditAnywhere )
+	UPROPERTY(EditAnywhere, Category= "ID" )
+	TArray<int> EventIDDependencys;
+	
+	UPROPERTY( EditAnywhere, Category= "Floor" )
+	EFloorIdentifier floorIdentifier = EFloorIdentifier::None;
+	
+	UPROPERTY( EditAnywhere , Category= "Floor" )
+	FVector2D positionInGrid = FVector2D(-1,-1);
+	
+	UPROPERTY( EditAnywhere , Category= "EventMarker" )
 	TSubclassOf<AActor> eventActorReference;
 	
-	UPROPERTY( EditAnywhere )
-	FVector2D positionInGrid = FVector2D(-1,-1);
-
-	UPROPERTY( EditAnywhere )
-	FString enemyGroupName  = "DefaultTest";
-
-	UPROPERTY( EditAnywhere )
-	ETutorialTriggers tutorialTriggerOnStart = ETutorialTriggers::None;
-
-	UPROPERTY( EditAnywhere )
-	ETutorialTriggers tutorialTriggerOnEnd   = ETutorialTriggers::None;
-	
-	UPROPERTY( EditAnywhere )
-	EDialogueTriggers dialogueTriggerOnStart = EDialogueTriggers::None;
-
-	UPROPERTY( EditAnywhere )
-	EDialogueTriggers dialogueTriggerOnEnd   = EDialogueTriggers::None;
-
-	UPROPERTY( EditAnywhere )
-	EPartyMembers partyMemberGainedOnEnd     = EPartyMembers::None;
-	
-	UPROPERTY( EditAnywhere )
-	EViews viewPushedOnEnd = EViews::None;
-
-	UPROPERTY(EditAnywhere)
-	FRewardsData RewardsOnEnd;
-
-	UPROPERTY(EditAnywhere)
-	FTeleportData TeleportOnEnd;
+	UPROPERTY( EditAnywhere, Category= "Stage Info"  )
+	TArray<FFloorEventStageInfo> floorEventStageInfo;
 	
 };
 

@@ -62,6 +62,7 @@ void UBaseUserWidget::DisableInput()
 
 void UBaseUserWidget::PopMostActiveView()
 {
+	ViewClosed.Broadcast();
 	InGameHUD->PopMostRecentActiveView();
 }
 

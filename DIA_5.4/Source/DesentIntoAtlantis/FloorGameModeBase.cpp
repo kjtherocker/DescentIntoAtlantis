@@ -79,7 +79,7 @@ void AFloorGameMode::InitializeLevel()
 
     InGameHUD->PushAndGetView(EViews::Healthbars,    EUiType::PersistentUi);
 
-    floorEventManager->SetCurrentEventSet();
+    floorEventManager->OnReturnedToFloor();
     
     //gameManager->StartGame();
 

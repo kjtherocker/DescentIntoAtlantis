@@ -27,13 +27,13 @@ private:
 
 	FTriggerNextEventStage  triggerNextEventStage;
 	
-	EFloorEventStates triggerOnEnd;
+	EFloorEventTypes triggerOnEnd;
 
 	int currentPlayerLevel = 0;
 	
 public:
 	void InitializeCombatEntitysToLevelUp( int newLevel,TArray<UPlayerCombatEntity*> aPlayerCombatEntitys,
-		FTriggerNextEventStage  aTriggerNextEventStage, EFloorEventStates aTriggerOnEnd);
+		FTriggerNextEventStage  aTriggerNextEventStage);
 	
 	void SetupLevelupView(int newLevel,UPlayerCombatEntity* aPlayerCombatEntity);
 

@@ -229,6 +229,6 @@ public:
 	
 	void StartDialogue(EDialogueTriggers aDialogueData, AInGameHUD* aInGameHud);
 	
-	void StartDialogue(EDialogueTriggers aDialogueData, EFloorEventStates aTriggerOnEnd,
+	void StartDialogue(EDialogueTriggers aDialogueData,
 	FTriggerNextEventStage aTriggerNextEventStage, AFloorManager* aFloorManager , AInGameHUD* aInGameHud);
 };

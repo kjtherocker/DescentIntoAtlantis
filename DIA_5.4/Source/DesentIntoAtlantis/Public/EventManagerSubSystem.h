@@ -37,12 +37,14 @@ class DESENTINTOATLANTIS_API UEventManagerSubSystem : public UGameInstanceSubsys
 	
 	UTutorialManagerSubsystem* tutorialManager;
 	UFloorFactory* floorFactory;
-	EFloorEventStates currentFloorEventStates;
+	EFloorEventTypes currentFloorEventStates;
 
 	FFloorEventData currentEvent;
 
 	FEventManagerData eventManagerData;
 
+	UPROPERTY()
+	FFloorEventStageInfo currentFloorEventStage;
 	UPROPERTY()
 	TArray<FFloorEventData> completedFloorEventData;
 
@@ -74,18 +76,23 @@ public:
 	void SetDefaultGameMode(AAtlantisGameModeBase* aGameMode);
 	UFUNCTION()
 	void PlayerHasTriggeredFloorEvent(FVector2D aEventPosition);
-	void TriggerDialogue(EDialogueTriggers aDialogueTrigger,EFloorEventStates aTriggerOnEnd);
-	void TriggerTutorial(ETutorialTriggers aTutorialTrigger,EFloorEventStates aTriggerOnEnd);
+	void TriggerDialogue(EDialogueTriggers aDialogueTrigger);
+	void TriggerTutorial(ETutorialTriggers aTutorialTrigger);
 	void TriggerPostCombatLevelSwap();
-	void TriggerLevelupMenu(EFloorEventStates aTriggerOnEnd,TArray<UPlayerCombatEntity*> aPlayerCombatEntity, int aExperience);
 	UFUNCTION()
-	void TriggerNextFloorEventStep(EFloorEventStates aFloorEventStates);
+	void PopupClosed();
+	void CompleteEvent();
+	UFUNCTION()
+	void TriggerNextEventStage();
 	UFUNCTION()
 	void ActivateCombat();
-	void SetCurrentEventSet();
+	UFUNCTION()
+	void OnDialogueEnd();
+	void OnReturnedToFloor();
 
-	void EventRewardItems();
-
+	void EventRewardItems(FFloorEventStageInfo floorEventInfo);
+	void EventTeleport(FFloorEventStageInfo floorEventInfo);
+	void EventAddPartyMember(FFloorEventStageInfo floorEventInfo);
 	void EventNotCompleted();
 
 	void AddFloorEnemyEvents(FVector2D aPositionInGrid, AFloorEventMarker* aFloorEnemyPawn);

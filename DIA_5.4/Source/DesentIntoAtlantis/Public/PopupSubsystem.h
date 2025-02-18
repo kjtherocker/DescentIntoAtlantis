@@ -15,6 +15,7 @@ class AAtlantisGameModeBase;
 /**
  * 
  */
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPopUpClosed);
 UCLASS()
 class DESENTINTOATLANTIS_API UPopupSubsystem : public UGameInstanceSubsystem
 {
@@ -30,6 +31,10 @@ class DESENTINTOATLANTIS_API UPopupSubsystem : public UGameInstanceSubsystem
 	UPartyManagerSubsystem* PartyManagerSubsystem;
 	
 public:
+
+	UPROPERTY()
+	FOnPopUpClosed OnPopUpClosed;
+	
 	void SetGameMode(AAtlantisGameModeBase* aGameMode);
 	void SetPartySubsystem(UPartyManagerSubsystem* aPartyManagerSubsystem);
 	UFUNCTION()
@@ -37,4 +42,7 @@ public:
 	UFUNCTION()
 	void CreateItemPopup(FItemData aItemData);
 	void CreateEquipmentPopup(FEquipmentPassiveData aEquipmentData);
+
+	UFUNCTION()
+	void OnPopupEnd();
 };

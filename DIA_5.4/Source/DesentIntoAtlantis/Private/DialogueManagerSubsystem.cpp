@@ -85,11 +85,11 @@ void UDialogueManagerSubsystem::StartDialogue(EDialogueTriggers aDialogueData, A
 	dialogueView->onDialogueEnd.AddDynamic(this,&UDialogueManagerSubsystem::DialogueFinished);
 }
 
-void UDialogueManagerSubsystem::StartDialogue(EDialogueTriggers aDialogueData, EFloorEventStates aTriggerOnEnd,
+void UDialogueManagerSubsystem::StartDialogue(EDialogueTriggers aDialogueData,
                                               FTriggerNextEventStage aTriggerNextEventStage, AFloorManager* aFloorManager , AInGameHUD* aInGameHud)
 {
 	UDialogueView * dialogueView = (UDialogueView*)aInGameHud->PushAndGetView(EViews::Dialogue,EUiType::ActiveUi);
 
-	dialogueView->SetFloorEventDialogueData(aDialogueData, aTriggerOnEnd ,aTriggerNextEventStage,aFloorManager );
+	dialogueView->SetFloorEventDialogueData(aDialogueData ,aTriggerNextEventStage,aFloorManager );
 }
 

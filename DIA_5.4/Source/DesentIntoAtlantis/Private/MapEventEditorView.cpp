@@ -56,15 +56,15 @@ void UMapEventEditorView::SetComboxBoxIndex(UMapButtonElement* aMapButtonElement
 //	return;
 //}
 	
-	BW_TutorialOnStart->SetSelectedIndex ((int)floorEventData.tutorialTriggerOnStart);
-	BW_TutorialOnEnd->SetSelectedIndex   ((int)floorEventData.tutorialTriggerOnEnd);
-	BW_AllyGained->SetSelectedIndex      ((int)floorEventData.partyMemberGainedOnEnd);
-	BW_ViewOnEnd->SetSelectedIndex       ((int)floorEventData.viewPushedOnEnd);
-	BW_DialogueOnStart->SetSelectedIndex ((int)floorEventData.dialogueTriggerOnStart);
-	BW_DialogueOnEnd->SetSelectedIndex   ((int)floorEventData.dialogueTriggerOnEnd);
+//	BW_TutorialOnStart->SetSelectedIndex ((int)floorEventData.tutorialTriggerOnStart);
+//	BW_TutorialOnEnd->SetSelectedIndex   ((int)floorEventData.tutorialTriggerOnEnd);
+//	BW_AllyGained->SetSelectedIndex      ((int)floorEventData.partyMemberGainedOnEnd);
+//	BW_ViewOnEnd->SetSelectedIndex       ((int)floorEventData.viewPushedOnEnd);
+//	BW_DialogueOnStart->SetSelectedIndex ((int)floorEventData.dialogueTriggerOnStart);
+//	BW_DialogueOnEnd->SetSelectedIndex   ((int)floorEventData.dialogueTriggerOnEnd);
 
-	FText EnemyGroupNameText = FText::FromString(floorEventData.enemyGroupName);
-	BW_EnemyGroupTextBox->SetText(EnemyGroupNameText);
+//	FText EnemyGroupNameText = FText::FromString(floorEventData.enemyGroupName);
+//	BW_EnemyGroupTextBox->SetText(EnemyGroupNameText);
 }
 
 
@@ -72,14 +72,14 @@ void UMapEventEditorView::SaveEvent()
 {
 	FFloorEventData floorEventData;
 	
-	floorEventData.enemyGroupName         = (FString)BW_EnemyGroupTextBox->GetText().ToString();
+//	floorEventData.enemyGroupName         = (FString)BW_EnemyGroupTextBox->GetText().ToString();
 	floorEventData.positionInGrid         = currentMapButtonElement->positionInGrid;
-	floorEventData.dialogueTriggerOnStart = (EDialogueTriggers)BW_DialogueOnStart->GetSelectedIndex();
-	floorEventData.dialogueTriggerOnEnd   = (EDialogueTriggers)BW_DialogueOnEnd->GetSelectedIndex();
-	floorEventData.tutorialTriggerOnStart = (ETutorialTriggers)BW_TutorialOnStart->GetSelectedIndex();
-	floorEventData.tutorialTriggerOnEnd   = (ETutorialTriggers)BW_TutorialOnEnd->GetSelectedIndex();
-	floorEventData.viewPushedOnEnd        = (EViews)BW_ViewOnEnd->GetSelectedIndex();
-	floorEventData.partyMemberGainedOnEnd = (EPartyMembers)BW_AllyGained->GetSelectedIndex();
+//	floorEventData.dialogueTriggerOnStart = (EDialogueTriggers)BW_DialogueOnStart->GetSelectedIndex();
+//	floorEventData.dialogueTriggerOnEnd   = (EDialogueTriggers)BW_DialogueOnEnd->GetSelectedIndex();
+//	floorEventData.tutorialTriggerOnStart = (ETutorialTriggers)BW_TutorialOnStart->GetSelectedIndex();
+//	floorEventData.tutorialTriggerOnEnd   = (ETutorialTriggers)BW_TutorialOnEnd->GetSelectedIndex();
+//	floorEventData.viewPushedOnEnd        = (EViews)BW_ViewOnEnd->GetSelectedIndex();
+//	floorEventData.partyMemberGainedOnEnd = (EPartyMembers)BW_AllyGained->GetSelectedIndex();
 	
 	if(currentMapButtonElement->currentFloorEventData.floorIdentifier == EFloorIdentifier::None)
 	{

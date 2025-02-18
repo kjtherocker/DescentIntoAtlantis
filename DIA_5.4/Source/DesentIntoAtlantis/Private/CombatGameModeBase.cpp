@@ -576,12 +576,12 @@ void ACombatGameModeBase::TriggerLevelupMenu(TArray<UPlayerCombatEntity*> aPlaye
 	if(newPartyLevel > previousPartyLevel)
 	{
 		ULevelupView * levelUpView = (ULevelupView*)InGameHUD->PushAndGetView(EViews::Levelup,    EUiType::ActiveUi);
-		levelUpView->InitializeCombatEntitysToLevelUp(newPartyLevel,combatEntitysToLevelup,triggerNextEventStage,EFloorEventStates::PostCombatLevelSwap);
+		levelUpView->InitializeCombatEntitysToLevelUp(newPartyLevel,combatEntitysToLevelup,triggerNextEventStage);
 	}
 	else
 	{
 		persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
-		persistentGameInstance->EventManagerSubSystem->TriggerNextFloorEventStep(EFloorEventStates::PostCombatLevelSwap);
+		persistentGameInstance->EventManagerSubSystem->TriggerNextEventStage();
 		persistentGameInstance->LoadPreviousLevel();
 	}
 }

@@ -23,6 +23,7 @@ enum class ETextStyle   : uint8
 /**
  * 
  */
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FViewClosed);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FViewSelection);
 UCLASS()
 class DESENTINTOATLANTIS_API UBaseUserWidget : public UUserWidget
@@ -37,7 +38,7 @@ protected:
 
 	UPROPERTY()
 	UPersistentGameinstance* persistentGameinstance;
-
+	
 
 	
 	FLinearColor unhightlighedColor        = FLinearColor(0.0,0.0,0.0,1.0);
@@ -48,6 +49,10 @@ protected:
 	const int MAX_OPACITY = 100;
 	const int NO_OPACITY  = 0;
 public:
+
+	UPROPERTY()
+	FViewClosed ViewClosed;
+	
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase);
 	virtual void SetViewInfo(EViews aView, EUiType aUiType);
 	virtual void SetInGameHud(AInGameHUD* aInGameHud){InGameHUD = aInGameHud;  }

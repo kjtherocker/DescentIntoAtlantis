@@ -97,9 +97,9 @@ void UFloorFactory::OverwriteFloorEventData(int aFloorEventDataTableIndex, FFloo
 	}
 	else
 	{
-		FFloorEventData NewFloorData = aNewEventData;  // Make a copy of the struct
-		DataTable->AddRow( FName(aNewEventData.enemyGroupName+ " " + FString::FromInt(DataTable->GetRowNames().Num())), NewFloorData);
-		DataTable->Modify();
+		//FFloorEventData NewFloorData = aNewEventData;  // Make a copy of the struct
+		//DataTable->AddRow( FName(aNewEventData.enemyGroupName+ " " + FString::FromInt(DataTable->GetRowNames().Num())), NewFloorData);
+		//DataTable->Modify();
 
 	}
 

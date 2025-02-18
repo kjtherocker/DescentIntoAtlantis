@@ -18,11 +18,10 @@ class DESENTINTOATLANTIS_API UTutorialView : public UBaseUserWidget
 	GENERATED_BODY()
 private:
 	FTriggerNextEventStage nextEventStage;
-	EFloorEventStates floorEventToTriggerOnEnd;
+	EFloorEventTypes floorEventToTriggerOnEnd;
 public:
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 	void SetupTutorialView(FTutorialData aTutorialData);
-	void SetFloorEvent( FTriggerNextEventStage  aTriggerNextEventStage, EFloorEventStates aTriggerOnEnd);
 	void ContinueToNextEventStage();
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
