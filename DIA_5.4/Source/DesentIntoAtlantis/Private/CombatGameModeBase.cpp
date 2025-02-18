@@ -581,7 +581,6 @@ void ACombatGameModeBase::TriggerLevelupMenu(TArray<UPlayerCombatEntity*> aPlaye
 	else
 	{
 		persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
-		persistentGameInstance->EventManagerSubSystem->TriggerNextEventStage();
 		persistentGameInstance->LoadPreviousLevel();
 	}
 }

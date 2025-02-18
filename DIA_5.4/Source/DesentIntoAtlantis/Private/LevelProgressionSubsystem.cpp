@@ -63,7 +63,7 @@ void ULevelProgressionSubsystem::CreateNewFogOfWar(UFloorBase* aFloor)
 }
 
 void ULevelProgressionSubsystem::SetInteractableGimmick(FVector2D aPositionInGrid,
-	UGimmick_Interactable* aInteractableGimmick)
+                                                        UGimmick_Interactable* aInteractableGimmick)
 {
 	aInteractableGimmick->OnInteractableGimmickActivated.AddDynamic(this,&ULevelProgressionSubsystem::OnInteractableGimmickActivated);
 	gimmickLocation.Add(aPositionInGrid,aInteractableGimmick);

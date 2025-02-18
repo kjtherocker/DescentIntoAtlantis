@@ -43,8 +43,7 @@ void AMainMenuGameMode::StartGame()
 	if(UGameSettings::isPrologueDisabled)
 	{
 		partyManager->AddPlayerToActiveParty(EPartyMembers::Kriede);
-
-		partyManager->PartyInventory->GetInventoryItems()->AddItem(EItemID::FlatHealPotion);
+		
 		if (persistentGameInstance)
 		{
 			persistentGameInstance->LoadLevel(EFloorIdentifier::PrizonZ_Floor1);

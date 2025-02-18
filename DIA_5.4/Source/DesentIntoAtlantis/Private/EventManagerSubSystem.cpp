@@ -39,6 +39,12 @@ bool UEventManagerSubSystem::isEventCompleted(FVector2D aEventPosition)
 {
 	UFloorBase* floorBase = floorFactory->floorDictionary[currentFloor];
 	FFloorEventData checkedEvent = floorBase->floorEventData[aEventPosition];
+
+	if(checkedEvent.FloorEventID == currentEvent.FloorEventID)
+	{
+		return true;
+	}
+	
 	for ( FFloorEventData item : completedFloorEventData) 
 	{
 		if (item.floorIdentifier == checkedEvent.floorIdentifier
@@ -70,6 +76,11 @@ void UEventManagerSubSystem::SetDefaultGameMode(AAtlantisGameModeBase* aGameMode
 void UEventManagerSubSystem::PlayerHasTriggeredFloorEvent(FVector2D aEventPosition)
 {
 	if(! floorFactory->floorDictionary[currentFloor]->floorEventData.Contains(aEventPosition))
+	{
+		return;
+	}
+
+	if(isEventCompleted( aEventPosition))
 	{
 		return;
 	}

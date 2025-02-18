@@ -72,7 +72,6 @@ void ULevelupView::ActivateNextLevelup()
 	if(combatEntitysToLevelup.IsEmpty())
 	{
 		InGameHUD->PopMostRecentActiveView();
-		triggerNextEventStage.Broadcast();
 		persistentGameinstance->LoadPreviousLevel();
 		return;
 	}
