@@ -82,7 +82,8 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	UFUNCTION()
 	virtual void InitializeLevel() override;
 
-		
+	UPROPERTY()
+	ECombatWinCondition CombatWinCondition;
 	UPROPERTY()
 	UCombatLogSimplifiedView*     combatLogView;
 	UPROPERTY()
@@ -115,7 +116,8 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	UPROPERTY(EditAnywhere)
 	FRotator CAMERA_ROTATION  = UCombatSettings::INITIAL_CAMERA_ROTATION;
 	
-		
+
+	
 	UPROPERTY()
 	TArray<UPlayerCombatEntity*> partyMembersInCombat;
 	UPROPERTY()
@@ -181,6 +183,8 @@ public:
 	void EnemyStartTurn();
 	void EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEntity);
 
+	void ValidateEndingState(ECombatWinCondition aCombatWinCondition);
+	
 	void ResetEnemyPortraits();
 	
 	void IterateToNextPlayer();

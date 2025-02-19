@@ -167,7 +167,7 @@ void AFloor_EnemyPawn::TransitionToCombat()
 {
 	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
 	persistentGameInstance->levelProgressionSubsystem->AddEnemyHasBeenInteracted(this);
-	persistentGameInstance->LoadCombatLevel(enemyPawnCompleteData.EnemyGroupName,ECombatArenaID::Prison);
+	persistentGameInstance->LoadCombatLevel(enemyPawnCompleteData.EnemyGroupName,ECombatArenaID::Prison,ECombatWinCondition::Win);
 }
 
 void AFloor_EnemyPawn::SetEnemyTexture(ECardinalNodeDirections aCardinalNodeDirection)

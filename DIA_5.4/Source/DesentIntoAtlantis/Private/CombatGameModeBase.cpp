@@ -68,6 +68,8 @@ void ACombatGameModeBase::InitializeLevel()
 	portraitsLocations.Add(EEnemyCombatPositions::Left  ,ENEMY_POSITION1);
 	portraitsLocations.Add(EEnemyCombatPositions::Middle,ENEMY_POSITION2);
 	portraitsLocations.Add(EEnemyCombatPositions::Right ,ENEMY_POSITION3);
+
+	CombatWinCondition = arenaData.CombatWinCondition;
 	
 	StartCombat(arenaData.enemyGroupName);
 
@@ -228,10 +230,10 @@ void ACombatGameModeBase::SetCombatState(ECombatState aCombatState)
 		combatInterruptHandler->StartTriggeringInterruptions();
 		break;
 	case ECombatState::SuccessfulEnd:
-		EndCombat();
+		ValidateEndingState(ECombatWinCondition::Win);
 		break;
 	case ECombatState::FailedEnd:
-		InGameHUD->PushView(EViews::Death,    EUiType::PersistentUi);
+		ValidateEndingState(ECombatWinCondition::Lose);
 		break;
 	case ECombatState::NewRoundStart:
 		StartNewRound();
@@ -469,6 +471,23 @@ void ACombatGameModeBase::EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEnt
 	ActivateSkill(aEnemyCombatEntity,playerToAttack,skillObject);
 }
 
+void ACombatGameModeBase::ValidateEndingState(ECombatWinCondition aCombatWinCondition)
+{
+	if(CombatWinCondition == ECombatWinCondition::Win_Or_Lose)
+	{
+		EndCombat();
+	}
+	
+	if(CombatWinCondition  == aCombatWinCondition )
+	{
+		EndCombat();
+	}
+	else
+	{
+		InGameHUD->PushView(EViews::Death,    EUiType::PersistentUi);
+	}
+}
+
 void ACombatGameModeBase::ResetEnemyPortraits()
 {
 	for (auto Element : enemysInCombat)
@@ -548,7 +567,8 @@ void ACombatGameModeBase::EndCombat(bool aHasWon)
 	partyManager->RemoveAllCombatTokensFromParty();
 	partyManager->ResetActivePartyToDefaultState();
 	
-	enemyFactory->BestiaryDataHasChangedBroadcast();	
+	enemyFactory->BestiaryDataHasChangedBroadcast();
+	
 	if(aHasWon)
 	{
 		TriggerLevelupMenu(partyMembersInCombat, GetEXP());

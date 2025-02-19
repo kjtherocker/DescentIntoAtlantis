@@ -49,6 +49,15 @@ enum class ECombatArenaID
 	Prison          = 2,
 };
 
+UENUM()
+enum class ECombatWinCondition
+{
+	None            = 0,
+	Win             = 1,
+	Lose            = 2,
+	Win_Or_Lose     = 3,             
+};
+
 
 USTRUCT()
 struct FEnemyPatrolPath
@@ -318,6 +327,9 @@ struct DESENTINTOATLANTIS_API FFloorEventStageInfo : public FTableRowBase
 	FString enemyGroupName  = "DefaultTest";
 
 	UPROPERTY( EditAnywhere , Category= "Combat" )
+	ECombatWinCondition CombatWinCondition = ECombatWinCondition::Win;
+
+	UPROPERTY( EditAnywhere , Category= "Combat" )
 	FTeleportData postCombatTeleportation;
 	
 
@@ -375,6 +387,9 @@ struct DESENTINTOATLANTIS_API FCombatArenaData : public FTableRowBase
 	
 	UPROPERTY( EditAnywhere )
 	FString enemyGroupName = "Uninitialized";
+
+	UPROPERTY(EditAnywhere)
+	ECombatWinCondition CombatWinCondition;
 };
 
 USTRUCT()

@@ -236,9 +236,10 @@ void UPersistentGameinstance::LoadPreSetLevel()
 }
 
 
-void UPersistentGameinstance::LoadCombatLevel(FString aEnemyGroupName, ECombatArenaID aCombatArena)
+void UPersistentGameinstance::LoadCombatLevel(FString aEnemyGroupName, ECombatArenaID aCombatArena, ECombatWinCondition ECombatWinCondition)
 {
 	aCombatArenaData.enemyGroupName = aEnemyGroupName;
+	aCombatArenaData.CombatWinCondition = ECombatWinCondition;
 	LoadLevel(EFloorID::PrisonZ_Combat);
 }
 

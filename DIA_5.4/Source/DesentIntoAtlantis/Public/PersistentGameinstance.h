@@ -57,7 +57,7 @@ public:
 	void LoadPreSetLevel();
 
 	UFUNCTION()
-	void LoadCombatLevel(FString aEnemyGroupName,ECombatArenaID aCombatArena);
+	void LoadCombatLevel(FString aEnemyGroupName,ECombatArenaID aCombatArena, ECombatWinCondition ECombatWinCondition);
 	FCombatArenaData ConsumeArenaDataFlag();
 
 	bool ConsumeCombatFinishedFlag();

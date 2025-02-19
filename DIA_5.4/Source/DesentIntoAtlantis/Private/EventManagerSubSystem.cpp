@@ -190,7 +190,7 @@ void UEventManagerSubSystem::TriggerNextEventStage()
 
 void UEventManagerSubSystem::ActivateCombat()
 {
-	persistentGameInstance->LoadCombatLevel(currentFloorEventStage.enemyGroupName,currentFloorEventStage.CombatArenaID);
+	persistentGameInstance->LoadCombatLevel(currentFloorEventStage.enemyGroupName,currentFloorEventStage.CombatArenaID,currentFloorEventStage.CombatWinCondition);
 }
 
 void UEventManagerSubSystem::OnDialogueEnd()
@@ -244,6 +244,7 @@ void UEventManagerSubSystem::EventRewardItems(FFloorEventStageInfo floorEventInf
 
 void UEventManagerSubSystem::EventTeleport(FFloorEventStageInfo floorEventInfo)
 {
+	persistentGameInstance->TeleportPlayer(floorEventInfo.Teleport);
 }
 
 void UEventManagerSubSystem::EventAddPartyMember(FFloorEventStageInfo floorEventInfo)
