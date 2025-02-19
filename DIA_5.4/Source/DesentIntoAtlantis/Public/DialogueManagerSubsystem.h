@@ -38,7 +38,8 @@ enum class ECharacterCostume  : uint8
 	Costume4,
 	Costume5,
 	Costume6,
-	Costume7
+	Costume7,
+	Watcher,
 };
 
 UENUM()

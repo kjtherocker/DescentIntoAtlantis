@@ -253,7 +253,8 @@ enum class EDialogueActorsLabel
 	Kriede              = 2,
 	Feienne             = 3,
 	GuardShark          = 4,
-	CutsceneCamera      = 5
+	CutsceneCamera      = 5,
+	Cavia               = 6,
 };
 
 UENUM()

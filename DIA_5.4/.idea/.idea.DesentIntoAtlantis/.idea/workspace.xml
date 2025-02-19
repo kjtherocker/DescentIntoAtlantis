@@ -10,14 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Enemy/Cavia/CaviaArmored.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Costume/Watcher/Material_Watcher.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatGameModeBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatGameModeBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EventManagerSubSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EventManagerSubSystem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/Floor_EnemyPawn.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/Floor_EnemyPawn.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PersistentGameinstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PersistentGameinstance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatGameModeBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatGameModeBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/Enemy/Cavia/Day371-base-_6.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/Enemy/Cavia/Material_Combat_Cavia.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Enemy/Cavia/Material_Combat_Cavia.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Combat/DT_PlayerCharacters.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_PlayerCharacters.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueComplete.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueComplete.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_PortraitCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_PortraitCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Dialogue/BP_DialogueView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/Dialogue/BP_DialogueView.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/DialogueManagerSubsystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/DialogueManagerSubsystem.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/FloorEnum.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/FloorEnum.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PersistentGameinstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PersistentGameinstance.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -791,7 +795,7 @@
       <workItem from="1739200975758" duration="41204000" />
       <workItem from="1739485571673" duration="9396000" />
       <workItem from="1739625966104" duration="35413000" />
-      <workItem from="1739888474726" duration="13192000" />
+      <workItem from="1739888474726" duration="15228000" />
     </task>
     <servers />
   </component>
