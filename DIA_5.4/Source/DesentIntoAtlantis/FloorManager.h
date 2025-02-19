@@ -6,7 +6,7 @@
 
 #include "CoreMinimal.h"
 #include "DataTableUtils.h"
-#include "EFloorIdentifier.h"
+#include "EFloorID.h"
 #include "GameFramework/Actor.h"
 #include "FloorNode.h"
 #include "FloorBase.h"
@@ -31,7 +31,7 @@ public:
 	void Initialize(AAtlantisGameModeBase* aGameModeBase,UEventManagerSubSystem* aFloorEventManager,UFloorFactory* aFloorFactor);
 	
 	void CreateGrid(UFloorBase* aFloor);
-	void CreateFloor(EFloorIdentifier aFloorIdentifier);
+	void CreateFloor(EFloorID aFloorIdentifier);
 	void SpawnFloorNode(int aRow, int aColumn,int aIndex,TSubclassOf<AActor> aFloorNodePrefab);
 	void SpawnFloorEventTriggers(FFloorEventData AFloorEventData);
 	void SpawnFloor(UFloorBase* aFloorBase);
@@ -102,10 +102,10 @@ protected:
 	ULevelProgressionSubsystem* levelProgressionSubsystem;
 	
 	UPROPERTY()
-	TMap<EFloorIdentifier,UFloorBase*> floorDictionary;
+	TMap<EFloorID,UFloorBase*> floorDictionary;
 
 	UPROPERTY()
-	EFloorIdentifier currentFloorIdentifier;
+	EFloorID currentFloorIdentifier;
 	UPROPERTY()
 	UFloorBase* currentFloor;
 

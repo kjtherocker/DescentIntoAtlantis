@@ -81,7 +81,7 @@ void UMapEventEditorView::SaveEvent()
 //	floorEventData.viewPushedOnEnd        = (EViews)BW_ViewOnEnd->GetSelectedIndex();
 //	floorEventData.partyMemberGainedOnEnd = (EPartyMembers)BW_AllyGained->GetSelectedIndex();
 	
-	if(currentMapButtonElement->currentFloorEventData.floorIdentifier == EFloorIdentifier::None)
+	if(currentMapButtonElement->currentFloorEventData.floorIdentifier == EFloorID::None)
 	{
 		onFloorEventCreation.Broadcast(floorEventData);
 	}

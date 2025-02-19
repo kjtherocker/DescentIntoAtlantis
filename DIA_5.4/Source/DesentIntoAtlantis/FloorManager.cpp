@@ -5,7 +5,7 @@
 
 #include "Gimmick_Chest.h"
 #include "FloorGameMode.h"
-#include "EFloorIdentifier.h"
+#include "EFloorID.h"
 #include "FloorPlayerController.h"
 #include "PersistentGameinstance.h"
 #include "SkillBase.h"
@@ -96,7 +96,7 @@ void AFloorManager::CreateGrid(UFloorBase* aFloor)
 	}
 }
 
-void AFloorManager::CreateFloor(EFloorIdentifier aFloorIdentifier)
+void AFloorManager::CreateFloor(EFloorID aFloorIdentifier)
 {
 	currentFloorIdentifier = aFloorIdentifier;
 	floorEventManager->SetFloor(currentFloorIdentifier);

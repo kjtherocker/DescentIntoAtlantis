@@ -34,12 +34,12 @@ void ULevelProgressionSubsystem::SetNewFloorPlayerSpawnPosition(FVector2D aSpawn
 	newFloorPlayerSpawnPosition = aSpawnPosition;
 }
 
-void ULevelProgressionSubsystem::SetCurrentFloorIdentifier(EFloorIdentifier aFloorIdentifier)
+void ULevelProgressionSubsystem::SetCurrentFloorIdentifier(EFloorID aFloorIdentifier)
 {
 	currentFloorIdentifier = aFloorIdentifier;
 }
 
-EFloorIdentifier ULevelProgressionSubsystem::GetCurrentFlooridentifier()
+EFloorID ULevelProgressionSubsystem::GetCurrentFlooridentifier()
 {
 	return currentFloorIdentifier;
 }
@@ -138,9 +138,9 @@ void ULevelProgressionSubsystem::SetCurrentMapFogOfWar(UFloorBase* floorBase)
 	}
 }
 
-FCompleteEnemyInteractionData ULevelProgressionSubsystem::GetEnemyInteractionData(EFloorIdentifier aFloorIdentifier)
+FCompleteEnemyInteractionData ULevelProgressionSubsystem::GetEnemyInteractionData(EFloorID aFloorIdentifier)
 {
-	EFloorIdentifier interactionDataFloor = completeProgressionData.completeEnemyInteractionData.floorIdentifier;
+	EFloorID interactionDataFloor = completeProgressionData.completeEnemyInteractionData.floorIdentifier;
 	
 	if(aFloorIdentifier != interactionDataFloor)
 	{

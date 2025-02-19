@@ -54,7 +54,7 @@ class DESENTINTOATLANTIS_API UEventManagerSubSystem : public UGameInstanceSubsys
 	FTriggerNextEventStage triggerNextEventStage;
 
 	UPROPERTY()
-	EFloorIdentifier currentFloor;
+	EFloorID currentFloor;
 
 	UPROPERTY()
 	AAtlantisGameModeBase* gameMode;
@@ -71,7 +71,7 @@ public:
 	void InitializeEventManager(UFloorFactory * aFloorFactory, UPersistentGameinstance* aPersistentGameInstance);
 	bool isEventCompleted(FVector2D aEventPosition);
 
-	void SetFloor(EFloorIdentifier aFloorIdentifier);
+	void SetFloor(EFloorID aFloorIdentifier);
 	void SetCombatGameMode(ACombatGameModeBase* aCombatGameMode);
 	void SetDefaultGameMode(AAtlantisGameModeBase* aGameMode);
 	UFUNCTION()
@@ -90,6 +90,8 @@ public:
 	void OnDialogueEnd();
 	void OnReturnedToFloor();
 
+	FTeleportData GetCombatTeleportationData();
+	
 	void EventRewardItems(FFloorEventStageInfo floorEventInfo);
 	void EventTeleport(FFloorEventStageInfo floorEventInfo);
 	void EventAddPartyMember(FFloorEventStageInfo floorEventInfo);

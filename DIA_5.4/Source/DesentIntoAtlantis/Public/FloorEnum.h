@@ -7,7 +7,7 @@
 
 #include "Views.h"
 #include "DesentIntoAtlantis/ECardinalDirections.h"
-#include "DesentIntoAtlantis/EFloorIdentifier.h"
+#include "DesentIntoAtlantis/EFloorID.h"
 #include "Engine/DataTable.h"
 #include "FloorEnum.generated.h"
 
@@ -137,7 +137,7 @@ struct DESENTINTOATLANTIS_API FTeleporterGimmick : public FGimmickData
 	GENERATED_USTRUCT_BODY()
 public:
 	UPROPERTY( EditAnywhere )
-	EFloorIdentifier floorIdentifier = EFloorIdentifier::None;
+	EFloorID floorIdentifier = EFloorID::None;
 
 	UPROPERTY(EditAnywhere)
 	ECardinalNodeDirections nextLevelSpawnDirection = ECardinalNodeDirections::Empty;
@@ -164,7 +164,7 @@ struct DESENTINTOATLANTIS_API FLockedByInWorldObject: public FTableRowBase
 	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY( EditAnywhere )
-	EFloorIdentifier floorIdentifier = EFloorIdentifier::None;
+	EFloorID floorIdentifier = EFloorID::None;
 	
 	UPROPERTY( EditAnywhere )
 	FVector2D positionInGrid;
@@ -293,10 +293,13 @@ struct DESENTINTOATLANTIS_API FTeleportData : public FTableRowBase
 	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY(EditAnywhere)
-	EFloorIdentifier FloorIdentifier = EFloorIdentifier::None;
+	EFloorID FloorIdentifier = EFloorID::None;
 
 	UPROPERTY(EditAnywhere)
 	FVector2D positionInGrid;
+
+	UPROPERTY(EditAnywhere)
+	ECardinalNodeDirections NodeDirections;
 	
 };
 
@@ -313,6 +316,10 @@ struct DESENTINTOATLANTIS_API FFloorEventStageInfo : public FTableRowBase
 	
 	UPROPERTY( EditAnywhere , Category= "Combat" )
 	FString enemyGroupName  = "DefaultTest";
+
+	UPROPERTY( EditAnywhere , Category= "Combat" )
+	FTeleportData postCombatTeleportation;
+	
 
 	UPROPERTY( EditAnywhere, Category= "Tutorial"  )
 	ETutorialTriggers tutorialTrigger = ETutorialTriggers::None;
@@ -345,7 +352,7 @@ struct DESENTINTOATLANTIS_API FFloorEventData : public FTableRowBase
 	TArray<int> EventIDDependencys;
 	
 	UPROPERTY( EditAnywhere, Category= "Floor" )
-	EFloorIdentifier floorIdentifier = EFloorIdentifier::None;
+	EFloorID floorIdentifier = EFloorID::None;
 	
 	UPROPERTY( EditAnywhere , Category= "Floor" )
 	FVector2D positionInGrid = FVector2D(-1,-1);
@@ -492,7 +499,7 @@ struct DESENTINTOATLANTIS_API FFloorData : public FTableRowBase
 	TArray<FWorldGenerationFloorNodeInfo> floorBlueprint;
 	
 	UPROPERTY( EditAnywhere )
-	EFloorIdentifier floorIdentifier = EFloorIdentifier::None;
+	EFloorID floorIdentifier = EFloorID::None;
 	
 	UPROPERTY( EditAnywhere )
 	FVector2D startPosition = FVector2d::Zero();

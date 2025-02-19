@@ -46,7 +46,7 @@ void AMainMenuGameMode::StartGame()
 		
 		if (persistentGameInstance)
 		{
-			persistentGameInstance->LoadLevel(EFloorIdentifier::PrizonZ_Floor1);
+			persistentGameInstance->LoadLevel(EFloorID::PrizonZ_Floor1);
 		}
 	}
 	else
@@ -55,7 +55,7 @@ void AMainMenuGameMode::StartGame()
 		
 		if (persistentGameInstance)
 		{
-			persistentGameInstance->LoadLevel(EFloorIdentifier::Prologue);
+			persistentGameInstance->LoadLevel(EFloorID::Prologue);
 		}
 	}
 

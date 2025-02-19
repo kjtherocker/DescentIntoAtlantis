@@ -35,7 +35,7 @@ private:
 	UFUNCTION()
 	void UpdateCompleteProgressionData(FCompleteProgressionData aCompleteProgressionData);
 	UFUNCTION()
-	void UpdateCurrentLevelIdentifier(EFloorIdentifier aFloorIdentifier);
+	void UpdateCurrentLevelIdentifier(EFloorID aFloorIdentifier);
 	UFUNCTION()
 	void UpdateFloorPawnData(FCompleteFloorPawnData aCompleteFloorPawn);
 
@@ -62,7 +62,7 @@ public:
 	UPROPERTY()
 	FCompleteBestiaryData  enemyBestiaryData;
 	UPROPERTY()
-	EFloorIdentifier currentLevel;
+	EFloorID currentLevel;
 	UPROPERTY()
 	FCompleteProgressionData completeProgressionData;
 

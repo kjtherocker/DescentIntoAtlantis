@@ -29,7 +29,7 @@ public:
 	void InitializeDatabase(UDataTable* aFloorDatabase,UDataTable* aFloorEventDatabase,UDataTable* aAllFloorTileSet);
 
 	UFUNCTION(BlueprintCallable, Category = "MyEditorUtility")
-	void OverwriteFloorMapData(EFloorIdentifier aOverwrittenFloor, TArray<FWorldGenerationFloorNodeInfo> aNewMapData);
+	void OverwriteFloorMapData(EFloorID aOverwrittenFloor, TArray<FWorldGenerationFloorNodeInfo> aNewMapData);
 
 	UFUNCTION(BlueprintCallable, Category = "MyEditorUtility")
 	void OverwriteFloorEventData(int aFloorEventDataTableIndex, FFloorEventData aNewEventData);
@@ -53,7 +53,7 @@ public:
 	TMap<int,FFloorEventData> floorEventData;
 
 	UPROPERTY()
-	TMap<EFloorIdentifier,UFloorBase*> floorDictionary;
+	TMap<EFloorID,UFloorBase*> floorDictionary;
 };
 
 

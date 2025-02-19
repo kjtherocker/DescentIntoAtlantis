@@ -21,7 +21,7 @@ class UImage;
 class UUniformGridPanel;
 class UMapButtonElement;
 class UFloorBase;
-enum class EFloorIdentifier;
+enum class EFloorID;
 class UFloorFactory;
 /**
  * 
@@ -51,19 +51,19 @@ public:
 
 	void SetFloorPawnDelegates(AFloorPlayerPawn* aPlayerHasMoved);
 	
-	void GenerateLevel(UFloorFactory* aFloorFactory,EFloorIdentifier aFloorIdentifier);
+	void GenerateLevel(UFloorFactory* aFloorFactory,EFloorID aFloorIdentifier);
 	
 	UPROPERTY()
 	UFloorBase* CurrentFloor;
 	UPROPERTY()
-	EFloorIdentifier FloorIdentifier ;
+	EFloorID FloorIdentifier ;
 	UPROPERTY()
 	TArray<UMapButtonElement*> MapButtons;
 
 
 	//TMap<EFloorIdentifier, TArray<bool>> fogOfWar;
 
-	TMap<EFloorIdentifier,TArray<FNodeMapData>> fogOfWar;
+	TMap<EFloorID,TArray<FNodeMapData>> fogOfWar;
 	
 	TArray<FNodeMapData> currentFogOfWar;
 		

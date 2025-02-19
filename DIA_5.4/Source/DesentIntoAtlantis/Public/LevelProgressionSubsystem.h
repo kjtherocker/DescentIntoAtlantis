@@ -14,7 +14,7 @@ class AAtlantisGameModeBase;
 class UInteractableView;
 class FPlayerHasMoved;
 class FNodeHasBeenWalkedOn;
-enum class EFloorIdentifier;
+enum class EFloorID;
 class UFloorBase;
 class UPersistentGameinstance;
 /**
@@ -58,7 +58,7 @@ struct DESENTINTOATLANTIS_API FCompleteEnemyInteractionData
 {
 	GENERATED_BODY()
 	UPROPERTY()
-	EFloorIdentifier floorIdentifier = EFloorIdentifier::None;
+	EFloorID floorIdentifier = EFloorID::None;
 	UPROPERTY()
 	TMap<FVector2D,FInteractedEnemy> interactedEnemy;
 };
@@ -70,7 +70,7 @@ struct DESENTINTOATLANTIS_API FCompleteProgressionData
 	GENERATED_BODY()
 	
 	UPROPERTY()
-	TMap<EFloorIdentifier,FMapData> mapProgression;
+	TMap<EFloorID,FMapData> mapProgression;
 
 	UPROPERTY()
 	FCompleteEnemyInteractionData completeEnemyInteractionData;
@@ -85,7 +85,7 @@ class DESENTINTOATLANTIS_API ULevelProgressionSubsystem : public UGameInstanceSu
 	UPROPERTY()
 	UPersistentGameinstance* persistentGameInstance;
 	
-	EFloorIdentifier currentFloorIdentifier;
+	EFloorID currentFloorIdentifier;
 	UPROPERTY()
 	FCompleteProgressionData completeProgressionData;
 
@@ -136,13 +136,13 @@ public:
 	FCompleteFloorPawnData GetCurrentFloorPawnCompleteData();
 
 	void SetNewFloorPlayerSpawnPosition(FVector2D aSpawnPosition);
-	void SetCurrentFloorIdentifier(EFloorIdentifier aFloorIdentifier);
+	void SetCurrentFloorIdentifier(EFloorID aFloorIdentifier);
 	
-	EFloorIdentifier GetCurrentFlooridentifier();
+	EFloorID GetCurrentFlooridentifier();
 	void LoadCompleteProgressionData(FCompleteProgressionData aCompleteProgressionData);
 	void SetCurrentMapFogOfWar(UFloorBase* floorBase);
 
-	FCompleteEnemyInteractionData GetEnemyInteractionData(EFloorIdentifier aFloorIdentifier);
+	FCompleteEnemyInteractionData GetEnemyInteractionData(EFloorID aFloorIdentifier);
 	void AddEnemyHasBeenInteracted(AFloor_EnemyPawn* aEnemyPawn);
 
 

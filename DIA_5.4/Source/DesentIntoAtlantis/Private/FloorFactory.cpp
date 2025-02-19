@@ -45,7 +45,7 @@ void UFloorFactory::InitializeDatabase(UDataTable* aFloorDatabase,UDataTable* aF
 		floorDictionary[floorEventData[i].floorIdentifier]->floorEventData.Add(floorEventData[i].positionInGrid,floorEventData[i]);
 	}
 
-	for (TTuple<EFloorIdentifier, UFloorBase*> Element : floorDictionary)
+	for (TTuple<EFloorID, UFloorBase*> Element : floorDictionary)
 	{
 		TArray<FTeleporterGimmick>     teleporterGimmick      = Element.Value->floorData.teleporterGimmicks;
 		TArray<FForcedMovementGimmick> forcedMovementGimmicks = Element.Value->floorData.forcedMovementGimmick;
@@ -60,7 +60,7 @@ void UFloorFactory::InitializeDatabase(UDataTable* aFloorDatabase,UDataTable* aF
 	}
 }
 
-void UFloorFactory::OverwriteFloorMapData(EFloorIdentifier aOverwrittenFloor,TArray<FWorldGenerationFloorNodeInfo> aNewMapData)
+void UFloorFactory::OverwriteFloorMapData(EFloorID aOverwrittenFloor,TArray<FWorldGenerationFloorNodeInfo> aNewMapData)
 {
 	UDataTable* DataTable = FloorDatabase;
 

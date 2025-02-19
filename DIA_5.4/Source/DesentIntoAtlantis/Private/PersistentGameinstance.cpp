@@ -164,12 +164,12 @@ void UPersistentGameinstance::Init()
 	//USceneComponent* ParentRootComponent = this->GetRootComponent();
 //
 	//floorNode->AttachToComponent(ParentRootComponent,FAttachmentTransformRules::KeepRelativeTransform);
-	LevelMap.Add(EFloorIdentifier::PrizonZ_Floor1,"PrisonZ_Floor1");
-	LevelMap.Add(EFloorIdentifier::PrisonZ_Floor2,"PrisonZ_Floor2");
-	LevelMap.Add(EFloorIdentifier::PrisonZ_Floor3,"PrisonZ_Floor3");
-	LevelMap.Add(EFloorIdentifier::PrisonZ_Annex,"PrisonZ_Annex");
-	LevelMap.Add(EFloorIdentifier::PrisonZ_Combat,"PrisonCombat");
-	LevelMap.Add(EFloorIdentifier::Prologue,"Prologue");
+	LevelMap.Add(EFloorID::PrizonZ_Floor1,"PrisonZ_Floor1");
+	LevelMap.Add(EFloorID::PrisonZ_Floor2,"PrisonZ_Floor2");
+	LevelMap.Add(EFloorID::PrisonZ_Floor3,"PrisonZ_Floor3");
+	LevelMap.Add(EFloorID::PrisonZ_Annex,"PrisonZ_Annex");
+	LevelMap.Add(EFloorID::PrisonZ_Combat,"PrisonCombat");
+	LevelMap.Add(EFloorID::Prologue,"Prologue");
 //
 	//LoadedSaveGameObject = Cast<USaveGameData>(UGameplayStatics::LoadGameFromSlot(TEXT("SaveSlot1"),0));
 	//
@@ -186,7 +186,7 @@ void UPersistentGameinstance::UnloadLevel(FString aLevelName)
 	UGameplayStatics::UnloadStreamLevel(GetWorld(), LevelName, LatentInfo, bShouldBlockOnUnload);
 }
 
-void UPersistentGameinstance::LoadLevel(EFloorIdentifier aFloorIdentifier)
+void UPersistentGameinstance::LoadLevel(EFloorID aFloorIdentifier)
 {
 	FString LevelName = LevelMap[aFloorIdentifier];
 	//if(currentLevelName != aFloorIdentifier)
@@ -211,6 +211,21 @@ void UPersistentGameinstance::LoadPreviousLevel()
 	LoadLevel(previousLevelName);
 }
 
+void UPersistentGameinstance::TeleportPlayer(FTeleportData aTeleportData)
+{
+	if(aTeleportData.FloorIdentifier == EFloorID::None)
+	{
+		return;
+	}
+	
+	FCompleteFloorPawnData FloorPawnData;
+	FloorPawnData.currentNodePositionInGrid = aTeleportData.positionInGrid;
+	FloorPawnData.currentFacingDirection    = aTeleportData.NodeDirections;
+	
+	levelProgressionSubsystem->SetCompleteFloorPawnWithLockData(FloorPawnData);
+	LoadLevel(aTeleportData.FloorIdentifier);
+}
+
 void UPersistentGameinstance::ReturnToPreviousLevel()
 {
 }
@@ -224,7 +239,7 @@ void UPersistentGameinstance::LoadPreSetLevel()
 void UPersistentGameinstance::LoadCombatLevel(FString aEnemyGroupName, ECombatArenaID aCombatArena)
 {
 	aCombatArenaData.enemyGroupName = aEnemyGroupName;
-	LoadLevel(EFloorIdentifier::PrisonZ_Combat);
+	LoadLevel(EFloorID::PrisonZ_Combat);
 }
 
 

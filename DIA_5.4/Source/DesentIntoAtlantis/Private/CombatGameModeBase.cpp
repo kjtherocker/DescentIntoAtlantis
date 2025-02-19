@@ -20,6 +20,7 @@
 #include "CombatInterruptManager.h"
 #include "CombatLogSimplifiedView.h"
 #include "CombatLog_Full_Data.h"
+#include "LevelProgressionSubsystem.h"
 #include "NumbersUIView.h"
 #include "PlayerCombatEntity.h"
 #include "SkillRange.h"
@@ -581,7 +582,17 @@ void ACombatGameModeBase::TriggerLevelupMenu(TArray<UPlayerCombatEntity*> aPlaye
 	else
 	{
 		persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
-		persistentGameInstance->LoadPreviousLevel();
+
+		FTeleportData teleportData = persistentGameInstance->EventManagerSubSystem->GetCombatTeleportationData();
+		if(teleportData.FloorIdentifier == EFloorID::None)
+		{
+			persistentGameInstance->LoadPreviousLevel();		
+		}
+		else
+		{
+			persistentGameInstance->TeleportPlayer(teleportData);
+		}
+	
 	}
 }
 

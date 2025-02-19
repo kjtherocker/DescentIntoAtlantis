@@ -7,7 +7,7 @@
 
 
 UENUM()
-enum class  EFloorIdentifier
+enum class  EFloorID
 {
     None               =  0,
     Test               =  1,

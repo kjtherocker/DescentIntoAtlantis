@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "DialogueView.h"
-#include "EFloorIdentifier.h"
+#include "EFloorID.h"
 #include "Engine/DataTable.h"
 #include "UObject/NoExportTypes.h"
 #include "FloorBase.generated.h"

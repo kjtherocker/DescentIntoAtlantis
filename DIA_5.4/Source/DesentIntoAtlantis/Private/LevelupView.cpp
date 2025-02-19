@@ -72,7 +72,16 @@ void ULevelupView::ActivateNextLevelup()
 	if(combatEntitysToLevelup.IsEmpty())
 	{
 		InGameHUD->PopMostRecentActiveView();
-		persistentGameinstance->LoadPreviousLevel();
+		
+		FTeleportData teleportData = persistentGameinstance->EventManagerSubSystem->GetCombatTeleportationData();
+		if(teleportData.FloorIdentifier == EFloorID::None)
+		{
+			persistentGameinstance->LoadPreviousLevel();		
+		}
+		else
+		{
+			persistentGameinstance->TeleportPlayer(teleportData);
+		}
 		return;
 	}
 	

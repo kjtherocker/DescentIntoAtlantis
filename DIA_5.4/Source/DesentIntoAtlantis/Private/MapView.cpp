@@ -13,12 +13,12 @@
 #include "Components/UniformGridPanel.h"
 #include "Components/UniformGridSlot.h"
 #include "Components/WrapBox.h"
-#include "DesentIntoAtlantis/EFloorIdentifier.h"
+#include "DesentIntoAtlantis/EFloorID.h"
 
-void UMapView::GenerateLevel(UFloorFactory* aFloorFactory,EFloorIdentifier aFloorIdentifier)
+void UMapView::GenerateLevel(UFloorFactory* aFloorFactory,EFloorID aFloorIdentifier)
 {
 	FloorIdentifier = aFloorIdentifier;
-	if(FloorIdentifier == EFloorIdentifier::None)
+	if(FloorIdentifier == EFloorID::None)
 	{
 		return;
 	}

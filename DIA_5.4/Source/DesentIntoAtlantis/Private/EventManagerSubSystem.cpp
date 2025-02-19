@@ -57,7 +57,7 @@ bool UEventManagerSubSystem::isEventCompleted(FVector2D aEventPosition)
 	return false;
 }
 
-void UEventManagerSubSystem::SetFloor(EFloorIdentifier aFloorIdentifier)
+void UEventManagerSubSystem::SetFloor(EFloorID aFloorIdentifier)
 {
 	currentFloor = aFloorIdentifier;
 }
@@ -207,6 +207,16 @@ void UEventManagerSubSystem::OnReturnedToFloor()
 	{
 		TriggerNextEventStage();		
 	}
+
+	if(currentFloorEventStage.floorEventType == EFloorEventTypes::Teleport)
+	{
+		TriggerNextEventStage();		
+	}
+}
+
+FTeleportData UEventManagerSubSystem::GetCombatTeleportationData()
+{
+	return currentFloorEventStage.postCombatTeleportation;
 }
 
 void UEventManagerSubSystem::EventRewardItems(FFloorEventStageInfo floorEventInfo)

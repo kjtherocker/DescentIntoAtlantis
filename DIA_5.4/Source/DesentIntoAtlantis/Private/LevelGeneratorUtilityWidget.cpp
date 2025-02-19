@@ -8,7 +8,7 @@
 #include "Components/HorizontalBox.h"
 #include "Components/WrapBox.h"
 #include "MapNodeEditorView.h"
-#include "DesentIntoAtlantis/EFloorIdentifier.h"
+#include "DesentIntoAtlantis/EFloorID.h"
 
 
 
@@ -39,8 +39,8 @@ void ULevelGeneratorUtilityWidget::GenerateLevel()
 	int testo = 0;
 
 	BW_TitleText->SetText(FText(FText::FromString(BW_LevelSelector->GetSelectedOption())));
-	FloorIdentifier = (EFloorIdentifier)BW_LevelSelector->GetSelectedIndex();
-	if(FloorIdentifier == EFloorIdentifier::None)
+	FloorIdentifier = (EFloorID)BW_LevelSelector->GetSelectedIndex();
+	if(FloorIdentifier == EFloorID::None)
 	{
 		return;
 	}

@@ -30,7 +30,7 @@ enum class EDataTableTypes;
 /**
  * 
  */
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FLevelHasChanged,EFloorIdentifier,currentFloor);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FLevelHasChanged,EFloorID,currentFloor);
 UCLASS()
 class DESENTINTOATLANTIS_API UPersistentGameinstance : public UGameInstance
 {
@@ -43,10 +43,13 @@ public:
 	UFUNCTION()
 	void UnloadLevel(FString aLevelName);
 	UFUNCTION()
-	void LoadLevel(EFloorIdentifier aFloorIdentifier);
+	void LoadLevel(EFloorID aFloorIdentifier);
 	UFUNCTION()
 	void LoadPreviousLevel();
 
+	UFUNCTION()
+	void TeleportPlayer(FTeleportData aTeleportData);
+	
 	UFUNCTION()
 	void ReturnToPreviousLevel();
 
@@ -114,12 +117,12 @@ public:
 
 private:
 
-	TMap< EFloorIdentifier,FString> LevelMap;
+	TMap< EFloorID,FString> LevelMap;
 	FCombatArenaData aCombatArenaData;
 	bool isGameSaveBeingLoaded;
-	EFloorIdentifier currentLevelName;
-	EFloorIdentifier previousLevelName;
-	EFloorIdentifier preSetLevelName;
+	EFloorID currentLevelName;
+	EFloorID previousLevelName;
+	EFloorID preSetLevelName;
 	
 	
 };

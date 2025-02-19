@@ -8,7 +8,7 @@
 #include "MapNodeEditorView.h"
 #include "Components/Button.h"
 #include "Components/TextBlock.h"
-#include "DesentIntoAtlantis/EFloorIdentifier.h"
+#include "DesentIntoAtlantis/EFloorID.h"
 #include "LevelGeneratorUtilityWidget.generated.h"
 
 /**
@@ -25,13 +25,13 @@ private:
 	
 	const int MAP_NODE_POSITION_OFFSET = 50;
 	
-	TMap<EFloorIdentifier,FName> FloorNames;
+	TMap<EFloorID,FName> FloorNames;
 	UFloorFactory* floorFactory;
 	const FString FLOOR_ENUM = TEXT("EFloorIdentifier");
 	UPROPERTY()
 	UFloorBase* CurrentFloor;
 	UPROPERTY()
-	EFloorIdentifier FloorIdentifier ;
+	EFloorID FloorIdentifier ;
 	UPROPERTY()
 	TArray<UMapButtonElement*> MapButtons;
 

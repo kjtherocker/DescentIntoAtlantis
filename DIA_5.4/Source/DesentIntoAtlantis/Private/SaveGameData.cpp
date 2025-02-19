@@ -13,7 +13,7 @@ void USaveGameData::UpdateCompleteProgressionData(FCompleteProgressionData aComp
 	completeProgressionData = aCompleteProgressionData;
 }
 
-void USaveGameData::UpdateCurrentLevelIdentifier(EFloorIdentifier aFloorIdentifier)
+void USaveGameData::UpdateCurrentLevelIdentifier(EFloorID aFloorIdentifier)
 {
 	currentLevel = aFloorIdentifier;
 }
