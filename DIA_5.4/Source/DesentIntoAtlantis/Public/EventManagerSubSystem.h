@@ -95,6 +95,7 @@ public:
 	void EventRewardItems(FFloorEventStageInfo floorEventInfo);
 	void EventTeleport(FFloorEventStageInfo floorEventInfo);
 	void EventAddPartyMember(FFloorEventStageInfo floorEventInfo);
+	void EventRemovePartyMemberPermanently(FFloorEventStageInfo floorEventInfo);
 	void EventNotCompleted();
 
 	void AddFloorEnemyEvents(FVector2D aPositionInGrid, AFloorEventMarker* aFloorEnemyPawn);

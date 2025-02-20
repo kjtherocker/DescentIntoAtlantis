@@ -17,14 +17,15 @@ class UPersistentGameinstance;
 UENUM()
 enum class EFloorEventTypes
 {
-	None                  = 0,
-	Dialogue              = 1,
-	Tutorial              = 2,
-	Combat                = 3,
-	Reward                = 4,
-	Teleport              = 5,
-	PartyMemberJoin       = 6,
-	PushView              = 7,
+	None                         = 0,
+	Dialogue                     = 1,
+	Tutorial                     = 2,
+	Combat                       = 3,
+	Reward                       = 4,
+	Teleport                     = 5,
+	PartyMemberJoin              = 6,
+	PushView                     = 7,
+	PartyMemberRemovedPermanently = 8,
 
 };
 
@@ -341,7 +342,7 @@ struct DESENTINTOATLANTIS_API FFloorEventStageInfo : public FTableRowBase
 	EDialogueTriggers dialogueTrigger = EDialogueTriggers::None;
 	
 	UPROPERTY( EditAnywhere, Category= "PartyMember" )
-	EPartyMembers partyMemberGainedOnEnd  = EPartyMembers::None;
+	EPartyMembers PartyMemberId  = EPartyMembers::None;
 	
 	UPROPERTY( EditAnywhere, Category= "UI" )
 	EViews viewPushed = EViews::None;

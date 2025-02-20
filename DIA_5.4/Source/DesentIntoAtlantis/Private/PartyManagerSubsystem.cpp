@@ -86,6 +86,11 @@ void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UData
 			DefaultTestFightData.Add(*combatTestInfo->FindRow<FDefaultTestFightData>(FName(Element),FString("Searching for Players"),true));
 		}
 	}
+
+	CompletePartyManagerSubsystemData.activePartyMembers.Add(0,EPartyMembers::None);
+	CompletePartyManagerSubsystemData.activePartyMembers.Add(1,EPartyMembers::None);
+	CompletePartyManagerSubsystemData.activePartyMembers.Add(2,EPartyMembers::None);
+	CompletePartyManagerSubsystemData.activePartyMembers.Add(3,EPartyMembers::None);
 	
 	persistentGameInstance->popupSubsystem->SetPartySubsystem(this);
 }
@@ -136,9 +141,24 @@ void UPartyManagerSubsystem::AddPlayerToActiveParty(EPartyMembers aPlayer)
 	
 	if(!activePartyEntityData.Contains(playerCombatEntityInfo[aPlayer]))
 	{
+		playerCombatEntityInfo[aPlayer]->playerCompleteDataSet.currentPartySlot == EPartySlot::Active;
 		persistentGameInstance->saveManagerSubsystem->SessionSaveGameObject->AddPlayerCompleteDataSet(aPlayer,playerCombatEntityInfo[aPlayer]->playerCompleteDataSet);
 		activePartyEntityData.Add(playerCombatEntityInfo[aPlayer]);
 	}
+}
+
+void UPartyManagerSubsystem::RemovePartyMemberPermanently(EPartyMembers aPlayer)
+{
+	for(int i = 0 ; i < activePartyEntityData.Num();i++)
+	{
+		if(activePartyEntityData[i]->GetPartyMember() == aPlayer)
+		{
+			activePartyEntityData.RemoveAt(i);
+			break;
+		}
+	}
+	
+	playerCombatEntityInfo[aPlayer]->playerCompleteDataSet.currentPartySlot == EPartySlot::Inaccessible;
 }
 
 void UPartyManagerSubsystem::RemoveAllCombatTokensFromParty()
@@ -146,6 +166,16 @@ void UPartyManagerSubsystem::RemoveAllCombatTokensFromParty()
 	for(int i = 0 ; i < activePartyEntityData.Num();i++)
 	{
 		activePartyEntityData[i]->combatEntityHub->combatTokenHandler->RemoveAllCombatTokens();
+	}
+}
+
+void UPartyManagerSubsystem::UnlockClassForAll(EClassID aClassID)
+{
+	CompletePartyManagerSubsystemData.partyWideUnlockedClasses.Add(aClassID);
+
+	for (auto Element : activePartyEntityData)
+	{
+		Element->classHandler->UnlockClass(aClassID);
 	}
 }
 
@@ -266,6 +296,19 @@ void UPartyManagerSubsystem::SetPartyLevel(int aPartyLevel)
 	partyLevel = aPartyLevel;
 }
 
+UPlayerCombatEntity* UPartyManagerSubsystem::GetSpecificPartyMember(EPartyMembers aPartyMember)
+{
+	for (auto Element : activePartyEntityData)
+	{
+		if(Element->GetPartyMember() == aPartyMember)
+		{
+			return Element;
+		}
+	}
+
+	return nullptr;
+}
+
 
 void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, FPlayerCompleteDataSet> aPlayerCompleteDataSets)
 {
@@ -325,7 +368,10 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 		//Passive
 		PlayerCombatEntity->combatEntityHub->passiveHandler->SetPassiveHandlerState(playerCompleteDataSet.Value.PassiveHandlerData);
 
-		AddPlayerToActiveParty(partyMember);
+		if(PlayerCombatEntity->playerCompleteDataSet.currentPartySlot == EPartySlot::Active)
+		{
+			AddPlayerToActiveParty(partyMember);	
+		}
 	}
 }
 

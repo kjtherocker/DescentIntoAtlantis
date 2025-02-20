@@ -181,6 +181,11 @@ void UEventManagerSubSystem::TriggerNextEventStage()
 				EventAddPartyMember(currentFloorEventStage);
 				break;		
 			}
+		case EFloorEventTypes::PushView:
+			break;
+		case EFloorEventTypes::PartyMemberRemovedPermanently:
+			EventRemovePartyMemberPermanently(currentFloorEventStage);
+			break;
 		default:
 			{
 				break;
@@ -221,22 +226,33 @@ FTeleportData UEventManagerSubSystem::GetCombatTeleportationData()
 
 void UEventManagerSubSystem::EventRewardItems(FFloorEventStageInfo floorEventInfo)
 {
-	UInventory_KeyItems* KeyItems = persistentGameInstance->partyManagerSubsystem->PartyInventory->GetInventoryKeyItems();
+	UPartyManagerSubsystem* PartyManagerSubsystem = persistentGameInstance->partyManagerSubsystem;
+	
+	UInventory_KeyItems* KeyItems = PartyManagerSubsystem->PartyInventory->GetInventoryKeyItems();
 	for (auto Element : floorEventInfo.Rewards.KeyItemsIDs)
 	{
 		KeyItems->AddKeyItem(Element);
 	}
 
-	UInventory_Equipment* Equipment = persistentGameInstance->partyManagerSubsystem->PartyInventory->GetInventoryEquipment();
+	UInventory_Equipment* Equipment = PartyManagerSubsystem->PartyInventory->GetInventoryEquipment();
 	for (auto Element : floorEventInfo.Rewards.EquipmentIds)
 	{
 		Equipment->AddEquipmentToInventory(Element);
 	}
 
-	UInventory_Items* items = persistentGameInstance->partyManagerSubsystem->PartyInventory->GetInventoryItems();
+	UInventory_Items* items = PartyManagerSubsystem->PartyInventory->GetInventoryItems();
 	for (auto Element : floorEventInfo.Rewards.ItemIds)
 	{
 		items->AddItem(Element);
+	}
+
+
+	
+	//UInventory_Items* items = persistentGameInstance->partyManagerSubsystem->PartyInventory->GetInventoryItems();
+	for (auto Element : floorEventInfo.Rewards.ClassIds)
+	{
+		PartyManagerSubsystem->UnlockClassForAll(Element);
+		TriggerNextEventStage();
 	}
 	
 	
@@ -249,11 +265,17 @@ void UEventManagerSubSystem::EventTeleport(FFloorEventStageInfo floorEventInfo)
 
 void UEventManagerSubSystem::EventAddPartyMember(FFloorEventStageInfo floorEventInfo)
 {
-	if(floorEventInfo.partyMemberGainedOnEnd != EPartyMembers::None )
+	if(floorEventInfo.PartyMemberId != EPartyMembers::None )
 	{
-		persistentGameInstance->partyManagerSubsystem->AddPlayerToActiveParty(floorEventInfo.partyMemberGainedOnEnd);
+		persistentGameInstance->partyManagerSubsystem->AddPlayerToActiveParty(floorEventInfo.PartyMemberId);
 	}
 
+	TriggerNextEventStage();
+}
+
+void UEventManagerSubSystem::EventRemovePartyMemberPermanently(FFloorEventStageInfo floorEventInfo)
+{
+	persistentGameInstance->partyManagerSubsystem->RemovePartyMemberPermanently(floorEventInfo.PartyMemberId);
 	TriggerNextEventStage();
 }
 

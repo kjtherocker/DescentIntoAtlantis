@@ -26,6 +26,8 @@ class USkillFactorySubsystem;
 
 
 
+
+
 USTRUCT(Atomic)
 struct DESENTINTOATLANTIS_API FPartyExperienceTable :public  FTableRowBase
 {
@@ -36,6 +38,15 @@ struct DESENTINTOATLANTIS_API FPartyExperienceTable :public  FTableRowBase
 };
 
 
+
+UENUM()
+enum class EPartySlot : uint8
+{
+	None          = 0,
+	Active        = 1,
+	Reserve       = 2,
+	Inaccessible  = 3,
+};
 
 
 
@@ -50,6 +61,9 @@ struct DESENTINTOATLANTIS_API FCompletePartyManagerSubsystemData:public  FTableR
 	UPROPERTY(EditAnywhere)
 	int totalClassPoints = 0;
 
+	UPROPERTY()
+	TArray<EClassID> partyWideUnlockedClasses;
+	
 
 	UPROPERTY()
 	FItemChargesCompleteData partyWideItemChargeBase;
@@ -58,7 +72,7 @@ struct DESENTINTOATLANTIS_API FCompletePartyManagerSubsystemData:public  FTableR
 	FPartyInventoryCompleteData PartyInventoryCompleteData;
 
 	UPROPERTY()
-	TArray<EPartyMembers> activePartyMembers;
+	TMap<int,EPartyMembers> activePartyMembers;
 	
 	UPROPERTY()
 	TMap<EPartyMembers, FPlayerCompleteDataSet> playerCompleteDataSet;
@@ -105,8 +119,12 @@ public:
 	void CreatePlayerEntitys(EPartyMembers aPlayer);
 	void AddPlayerToActiveParty(EPartyMembers aPlayer);
 
+	
+	void RemovePartyMemberPermanently(EPartyMembers aPlayer);
 	void RemoveAllCombatTokensFromParty();
 
+	void UnlockClassForAll(EClassID aClassID);
+	
 	void CreateTestParty();
 	
 	void SavePartyManager();
@@ -119,7 +137,7 @@ public:
 	void AddPartyClassPoints(int aClassPoints);
 	void SetPartyLevel(int aPartyLevel);
 	
-	
+	UPlayerCombatEntity* GetSpecificPartyMember(EPartyMembers aPartyMember);
 	void LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, FPlayerCompleteDataSet> aPlayerCompleteDataSets);
 	void ResetActivePartyToDefaultState();
 
@@ -140,6 +158,6 @@ public:
 	UPROPERTY()
 	TArray<UPlayerCombatEntity*> playerCombatEntity;
 	UPROPERTY()
-	TArray<UPlayerCombatEntity*> activePartyEntityData;;
+	TArray<UPlayerCombatEntity*> activePartyEntityData;
 	
 };

@@ -16,6 +16,7 @@
 #include "PlayerCombatEntity.generated.h"
 
 
+enum class EPartySlot;
 struct FDialogueData;
 enum class ECharacterCostume : uint8;
 enum class EClassID  : uint8;
@@ -87,6 +88,9 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 	int currentMP;
 	UPROPERTY()
 	float currentSync;
+
+	UPROPERTY()
+	EPartySlot currentPartySlot;
 	
 	UPROPERTY()
 	FCompleteElementalHandlerData CompleteElementalHandlerData;
