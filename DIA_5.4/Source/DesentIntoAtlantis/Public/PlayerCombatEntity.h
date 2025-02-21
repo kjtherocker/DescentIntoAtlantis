@@ -12,11 +12,11 @@
 #include "DialogueManagerSubsystem.h"
 #include "EquipmentHandler.h"
 #include "FloorEnum.h"
+#include "PartyEnum.h"
 #include "PassiveSkillHandlerData.h"
 #include "PlayerCombatEntity.generated.h"
 
 
-enum class EPartySlot;
 struct FDialogueData;
 enum class ECharacterCostume : uint8;
 enum class EClassID  : uint8;
@@ -31,7 +31,7 @@ struct DESENTINTOATLANTIS_API FPlayerIdentityData :public  FTableRowBase
 	GENERATED_USTRUCT_BODY()
 
 	UPROPERTY(EditAnywhere)
-	EPartyMembers characterIdentifier;
+	EPartyMembersID characterIdentifier;
 
 	UPROPERTY(EditAnywhere)
 	EDialogueActorsLabel DialogueActorsLabel;
@@ -90,7 +90,7 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 	float currentSync;
 
 	UPROPERTY()
-	EPartySlot currentPartySlot;
+	EPartySlotType currentPartySlot;
 	
 	UPROPERTY()
 	FCompleteElementalHandlerData CompleteElementalHandlerData;
@@ -128,7 +128,7 @@ public:
 	UPROPERTY()
 	FCharacterCostumeData currentCostumeData;
 	
-	virtual EPartyMembers GetPartyMember(){ return playerIdentityData.characterIdentifier; }
+	virtual EPartyMembersID GetPartyMemberID(){ return playerIdentityData.characterIdentifier; }
 	
     virtual void InitializeStats(EStatTypes aAbilityScoreTypes) override;
 	virtual void LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet);

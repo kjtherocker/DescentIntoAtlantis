@@ -100,17 +100,23 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 	hasCombatStarted = true;
 	combatInterruptHandler     = NewObject<UCombatInterruptManager>();
 	combatInterruptHandler->InitializeCombatInterruptHandler(this);
-	partyMembersInCombat       = partyManager->ReturnActiveParty();
 
-	for(int i = 0 ; i < partyMembersInCombat.Num();i++)
+	for (auto PlayerCombatEntity : partyManager->ReturnActiveParty())
 	{
-		partyMembersInCombat[i]->SetTacticsEvents(this);
+		if(PlayerCombatEntity == nullptr)
+		{
+			continue;
+		}
+		partyMembersInCombat.Add(PlayerCombatEntity);
+		PlayerCombatEntity->SetTacticsEvents(this);
 	}
+	
 
 	if(partyMembersInCombat.Num() == 0)
 	{
 		partyManager->SetPartyLevel(partyManager->DefaultTestFightData[0].PartyLevel);
 		partyManager->CreateTestParty();
+		
 		partyMembersInCombat       = partyManager->ReturnActiveParty();
 		enemyGroupName             = partyManager->DefaultTestFightData[0].EnemyGroupID;
 	}

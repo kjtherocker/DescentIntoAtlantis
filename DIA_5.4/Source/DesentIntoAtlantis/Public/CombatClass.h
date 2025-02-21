@@ -66,7 +66,7 @@ struct DESENTINTOATLANTIS_API FCompleteClassData  :public  FTableRowBase
 	TArray<FPassiveSkillClassData> classPassives;
 	
 	UPROPERTY()
-	EPartyMembers attachedEntityIdentifier = EPartyMembers::None;
+	EPartyMembersID attachedEntityIdentifier = EPartyMembersID::None;
 
 	UPROPERTY()
 	TArray<FSkillsData> syncSkills;

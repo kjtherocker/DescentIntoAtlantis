@@ -6,7 +6,7 @@
 #include "PassiveSkillData.generated.h"
 
 
-enum class EPartyMembers;
+enum class EPartyMembersID;
 enum class ESkillIDS : uint8;
 enum class ESkillDamageType : uint8;
 enum class ESkillRange      : uint8;
@@ -218,7 +218,7 @@ struct DESENTINTOATLANTIS_API FEquipmentPassiveInventoryInfo : public FTableRowB
 	int EquipmentMaxStack = 5;
 
 	UPROPERTY()
-	TArray<EPartyMembers> equipmentOwners;
+	TArray<EPartyMembersID> equipmentOwners;
 
 	UPROPERTY()
 	int Amount = 1;

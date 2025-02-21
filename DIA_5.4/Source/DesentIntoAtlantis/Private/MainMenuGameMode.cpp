@@ -42,7 +42,7 @@ void AMainMenuGameMode::StartGame()
 {
 	if(UGameSettings::isPrologueDisabled)
 	{
-		partyManager->AddPlayerToActiveParty(EPartyMembers::Kriede);
+		partyManager->AddPlayerToActiveParty(EPartyMembersID::Kriede);
 		
 		if (persistentGameInstance)
 		{
@@ -51,7 +51,7 @@ void AMainMenuGameMode::StartGame()
 	}
 	else
 	{
-		partyManager->AddPlayerToActiveParty(EPartyMembers::Watcher);
+		partyManager->AddPlayerToActiveParty(EPartyMembersID::Watcher);
 		
 		if (persistentGameInstance)
 		{

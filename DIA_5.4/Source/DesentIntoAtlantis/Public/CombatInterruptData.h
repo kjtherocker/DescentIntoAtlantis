@@ -51,7 +51,7 @@ struct DESENTINTOATLANTIS_API FCombatInterruptData : public FTableRowBase
 	EDialogueTriggers DialogueTriggers;
 	
 	UPROPERTY( EditAnywhere, Category = "Party" )
-	EPartyMembers partyMembers;
+	EPartyMembersID partyMembers;
 	
 	UPROPERTY( EditAnywhere, Category = "Skill" )
 	ESkillIDS SkillIds;

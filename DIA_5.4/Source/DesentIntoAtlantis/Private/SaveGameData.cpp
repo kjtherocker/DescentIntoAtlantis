@@ -69,7 +69,7 @@ void USaveGameData::SubscribeToUpdatePartyManager(UPartyManagerSubsystem* aParty
 	aPartyManagerSubsystem->PartyManagerHasChanged.AddDynamic(this,&USaveGameData::UpdatePartyLevel);
 }
 
-void USaveGameData::AddPlayerCompleteDataSet(EPartyMembers aPartyMember,FPlayerCompleteDataSet aPlayerCompleteDataSet)
+void USaveGameData::AddSaveIcons(EPartyMembersID aPartyMember,FPlayerCompleteDataSet aPlayerCompleteDataSet)
 {
-	playerCompleteDataSet.Add(aPartyMember,aPlayerCompleteDataSet);
+	SaveIcons.Add(aPartyMember,aPlayerCompleteDataSet);
 }

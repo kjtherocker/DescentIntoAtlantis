@@ -55,7 +55,7 @@ void UPartyInventoryEquipmentView::ActivateInventoryMenuSelection()
 	{
 		return;
 	}
-	EPartyMembers partyMember = playerCombatEntity->playerIdentityData.characterIdentifier;
+	EPartyMembersID partyMember = playerCombatEntity->playerIdentityData.characterIdentifier;
 	playerCombatEntity->EquipEquipment(PartyInventory->GetInventoryEquipment()->TakeOutEquipment(partyMember,EquipmentID),equipmentSlot);
 	characterChange.Broadcast();
 	PopMostActiveView();

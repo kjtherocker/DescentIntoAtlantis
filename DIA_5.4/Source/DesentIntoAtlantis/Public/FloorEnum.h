@@ -342,7 +342,7 @@ struct DESENTINTOATLANTIS_API FFloorEventStageInfo : public FTableRowBase
 	EDialogueTriggers dialogueTrigger = EDialogueTriggers::None;
 	
 	UPROPERTY( EditAnywhere, Category= "PartyMember" )
-	EPartyMembers PartyMemberId  = EPartyMembers::None;
+	EPartyMembersID PartyMemberId  = EPartyMembersID::None;
 	
 	UPROPERTY( EditAnywhere, Category= "UI" )
 	EViews viewPushed = EViews::None;

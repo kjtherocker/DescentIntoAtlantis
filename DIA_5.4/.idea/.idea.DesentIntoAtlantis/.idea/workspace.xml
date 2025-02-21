@@ -10,18 +10,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Npc/Sophia/Material_Combat_Sophia.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyData.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyEnum.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyGroup.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyGroup_Dump.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyGroup_Slot.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyData.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyEnum.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyGroup.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyGroup_Dump.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyGroup_Slot.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Combat/DT_Enemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_Enemy.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Datatables/Floor/DT_FloorEvent.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Floor/DT_FloorEvent.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatGameModeBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatGameModeBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EquipMenuView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EquipMenuView.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EventManagerSubSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/EventManagerSubSystem.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/Inventory_Equipment.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/Inventory_Equipment.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/MainMenuGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/MainMenuGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/MainMenuView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/MainMenuView.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyHealthbarsView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyHealthbarsView.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyInventoryEquipmentView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyInventoryEquipmentView.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyManagerSubsystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyManagerSubsystem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EventManagerSubSystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EventManagerSubSystem.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SaveGameData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SaveGameData.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SaveSlotElement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SaveSlotElement.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatClass.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatClass.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatInterruptData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/CombatInterruptData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/DefaultTestFightData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/DefaultTestFightData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EDataTableTypes.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EDataTableTypes.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EElementalType.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EElementalType.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/FloorEnum.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/FloorEnum.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/Inventory_Equipment.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/Inventory_Equipment.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyManagerSubsystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyManagerSubsystem.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PassiveSkillData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PassiveSkillData.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PlayerCombatEntity.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PlayerCombatEntity.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SaveGameData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SaveGameData.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,43 +86,6 @@
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Plugins/EnhancedInput/Source/EnhancedInput/Private/EnhancedPlayerInput.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/GameplayStateTree/Source/GameplayStateTreeModule/Public/Components/StateTreeComponent.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/StateTree/Source/StateTreeModule/Public/StateTree.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/AIModule/Classes/BehaviorTree/BTTaskNode.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Core/Public/Tasks/Task.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/include/atomic" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/include/type_traits" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.38.33130/include/xmemory" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis.Target.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/DesentIntoAtlantis.Build.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/ECardinalDirections.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -179,6 +165,11 @@
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/MissedElement.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/NumberElement.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/OptionMenuHighlightElement.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyData.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyEnum.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyGroup.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyGroup_Dump.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyGroup_Slot.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyHealthbarElement.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyHealthbarsView.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyInventoryEquipmentView.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -278,6 +269,8 @@
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/NumberElement.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/NumbersUIView.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/OptionMenuHighlightElement.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyEnum.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyGroup_Slot.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyHealthbarElement.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyHealthbarsView.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/PartyManagerSubsystem.h" root0="FORCE_HIGHLIGHTING" />
@@ -796,7 +789,9 @@
       <workItem from="1739485571673" duration="9396000" />
       <workItem from="1739625966104" duration="35413000" />
       <workItem from="1739888474726" duration="15228000" />
-      <workItem from="1740066247699" duration="4872000" />
+      <workItem from="1740066247699" duration="8117000" />
+      <workItem from="1740091768482" duration="597000" />
+      <workItem from="1740143216611" duration="10212000" />
     </task>
     <servers />
   </component>
@@ -836,6 +831,16 @@
           <url>file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatEntityWrapper.cpp</url>
           <line>29</line>
           <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyManagerSubsystem.cpp</url>
+          <line>105</line>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/PartyGroup_Slot.cpp</url>
+          <line>9</line>
+          <option name="timeStamp" value="72" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

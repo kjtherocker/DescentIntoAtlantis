@@ -28,7 +28,7 @@ void UInventory_Equipment::AddMoreStacksOfEquipment(FEquipmentRequestInfo aEquip
 	partyInventoryCompleteData.equipmentInventoryInfo[aEquipmentRequest.equipmentID] = PassiveInventoryInfo;
 }
 
-void UInventory_Equipment::ReturnEquipment(EPartyMembers aOldOwner, EEquipmentID aEquipmentID)
+void UInventory_Equipment::ReturnEquipment(EPartyMembersID aOldOwner, EEquipmentID aEquipmentID)
 {
 	 FEquipmentPassiveInventoryInfo equipmentInventoryInfo = GetEquipment( aEquipmentID);
 	int numberOfEquipmentOwners = 	equipmentInventoryInfo.equipmentOwners.Num();
@@ -45,7 +45,7 @@ void UInventory_Equipment::ReturnEquipment(EPartyMembers aOldOwner, EEquipmentID
 	partyInventoryCompleteData.equipmentInventoryInfo[aEquipmentID] = equipmentInventoryInfo;
 }
 
-UEquipmentPassive* UInventory_Equipment::TakeOutEquipment(EPartyMembers aNewOwner, EEquipmentID aEquipmentID)
+UEquipmentPassive* UInventory_Equipment::TakeOutEquipment(EPartyMembersID aNewOwner, EEquipmentID aEquipmentID)
 {
 	if(!isEquipmentFreeToTake(aEquipmentID))
 	{

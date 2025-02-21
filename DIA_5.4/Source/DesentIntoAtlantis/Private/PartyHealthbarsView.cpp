@@ -26,6 +26,11 @@ void UPartyHealthbarsView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
  
 void UPartyHealthbarsView::CreateHealthbar(UPlayerCombatEntity* aCombatEntity)
 {
+	if(aCombatEntity == nullptr)
+	{
+		return;
+	}
+	
 	UUserWidget* partyStatusHealthbar = CreateWidget(this, InGameHUD->GetElement(EViewElements::PartyStatusHealthbar));
 
 	UPartyHealthbarElement* baseUserWidget = (UPartyHealthbarElement*)partyStatusHealthbar;

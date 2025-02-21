@@ -55,7 +55,7 @@ public:
 	void SubScribeToUpdateEnemyBestiary(UEnemyFactorySubSystem*  aEnemyFactorySubsystem);
 	void SubscribeToUpdatePartyManager(UPartyManagerSubsystem* aPartyManagerSubsystem);
 	//void SubScribeToUpdateLevelIdentifier(UPersistentGameinstance*  aPersistentGameInstance);
-	void AddPlayerCompleteDataSet(EPartyMembers aPartyMember,FPlayerCompleteDataSet aPlayerCompleteDataSet);
+	void AddSaveIcons(EPartyMembersID aPartyMember,FPlayerCompleteDataSet aPlayerCompleteDataSet);
 
 
 
@@ -75,7 +75,7 @@ public:
 	UPROPERTY()
 	ECardinalNodeDirections playerFloorRotation;
 	UPROPERTY()
-	 TMap<EPartyMembers, FPlayerCompleteDataSet> playerCompleteDataSet;
+	 TMap<EPartyMembersID, FPlayerCompleteDataSet> SaveIcons;
 
 	UPROPERTY()
 	FEventManagerData eventManagerData;

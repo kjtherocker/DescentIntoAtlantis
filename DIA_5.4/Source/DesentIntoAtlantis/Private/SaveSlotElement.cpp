@@ -25,8 +25,8 @@ void USaveSlotElement::SetupSaveSlot(USaveGameData* aSaveGameData,FString aSlotN
 	else
 	{
 		BW_Time->SetText(FText::FromString(""));
-		TMap<EPartyMembers, FPlayerCompleteDataSet> playerCompleteDataSet = aSaveGameData->playerCompleteDataSet;
-		for (TTuple<EPartyMembers, FPlayerCompleteDataSet> partyMember : playerCompleteDataSet)
+		TMap<EPartyMembersID, FPlayerCompleteDataSet> playerCompleteDataSet = aSaveGameData->SaveIcons;
+		for (TTuple<EPartyMembersID, FPlayerCompleteDataSet> partyMember : playerCompleteDataSet)
 		{
 			SpawnPlayerPortraits(partyMember.Value);
 		};
@@ -45,7 +45,7 @@ void USaveSlotElement::SpawnPlayerPortraits(FPlayerCompleteDataSet aCompleteData
 	USaveSlotPortraitElement* baseUserWidget = (USaveSlotPortraitElement*)partyStatusHealthbar;
 	baseUserWidget->UiInitialize(gameModeBase);
 	partyStatusHealthbar->AddToViewport();
-	EPartyMembers currentPartyMember = aCompleteDataSet.playerIdentityData.characterIdentifier;
+	EPartyMembersID currentPartyMember = aCompleteDataSet.playerIdentityData.characterIdentifier;
 	UTexture2D* texture = PartyManagerSubsystem->playerIdenityMap[currentPartyMember].SaveIcon;
 	
 	baseUserWidget->SetPortrait(texture);

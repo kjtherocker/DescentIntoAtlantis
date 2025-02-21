@@ -6,7 +6,8 @@
 #include "CoreMinimal.h"
 #include "DefaultTestFightData.h"
 #include "ItemChargeHandler.h"
-#include "PlayerCombatEntity.h"
+#include "PartyData.h"
+
 #include "UPartyInventory.h"
 
 #include "Engine/DataTable.h"
@@ -14,6 +15,8 @@
 #include "UObject/NoExportTypes.h"
 #include "PartyManagerSubsystem.generated.h"
 
+
+class UPartyGroup;
 class UPartyInventory;
 class UPassiveFactorySubsystem;
 class UPersistentGameinstance;
@@ -25,58 +28,6 @@ class UCombatEntity;
 class USkillFactorySubsystem;
 
 
-
-
-
-USTRUCT(Atomic)
-struct DESENTINTOATLANTIS_API FPartyExperienceTable :public  FTableRowBase
-{
-	GENERATED_USTRUCT_BODY()
-
-	UPROPERTY( EditAnywhere )
-	TMap<int,int> LevelExpValue;
-};
-
-
-
-UENUM()
-enum class EPartySlot : uint8
-{
-	None          = 0,
-	Active        = 1,
-	Reserve       = 2,
-	Inaccessible  = 3,
-};
-
-
-
-USTRUCT()
-struct DESENTINTOATLANTIS_API FCompletePartyManagerSubsystemData:public  FTableRowBase
-{
-	GENERATED_USTRUCT_BODY()
-	UPROPERTY(EditAnywhere)
-	int partyLevel = 0;
-	UPROPERTY(EditAnywhere)
-	int totalExperience = 0;
-	UPROPERTY(EditAnywhere)
-	int totalClassPoints = 0;
-
-	UPROPERTY()
-	TArray<EClassID> partyWideUnlockedClasses;
-	
-
-	UPROPERTY()
-	FItemChargesCompleteData partyWideItemChargeBase;
-	
-	UPROPERTY()
-	FPartyInventoryCompleteData PartyInventoryCompleteData;
-
-	UPROPERTY()
-	TMap<int,EPartyMembers> activePartyMembers;
-	
-	UPROPERTY()
-	TMap<EPartyMembers, FPlayerCompleteDataSet> playerCompleteDataSet;
-};
 
 /**
  * 
@@ -116,11 +67,14 @@ public:
 	FCompletePartyManagerSubsystemData GetPartyManagerData(){return CompletePartyManagerSubsystemData;}
 	void LoadSavedPartyManagerSubsystem(FCompletePartyManagerSubsystemData APartyManagerSubsystemData);
 	void InitializeDataTable(UDataTable* aPlayerData,UDataTable* aClassDataTable, UDataTable* aPartyExperienceTable, UDataTable* aTestCombatInfo);
-	void CreatePlayerEntitys(EPartyMembers aPlayer);
-	void AddPlayerToActiveParty(EPartyMembers aPlayer);
+	void CreatePartyGroups(FCompletePartyManagerSubsystemData aCompletePartyManagerSubsystemData);
+	void CreatePlayerEntitys(EPartyMembersID aPlayer);
+	void AddPlayerToActiveParty(EPartyMembersID aPlayer);
 
+
+	UPlayerCombatEntity* GetAndCreatePlayerEntity(EPartyMembersID aPlayer);
 	
-	void RemovePartyMemberPermanently(EPartyMembers aPlayer);
+	void RemovePartyMemberToInaccessible(EPartyMembersID aPlayer);
 	void RemoveAllCombatTokensFromParty();
 
 	void UnlockClassForAll(EClassID aClassID);
@@ -137,27 +91,30 @@ public:
 	void AddPartyClassPoints(int aClassPoints);
 	void SetPartyLevel(int aPartyLevel);
 	
-	UPlayerCombatEntity* GetSpecificPartyMember(EPartyMembers aPartyMember);
-	void LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, FPlayerCompleteDataSet> aPlayerCompleteDataSets);
+	UPlayerCombatEntity* GetSpecificPartyMember(EPartyMembersID aPartyMember);
+	void LoadAndCreateAllPlayerEntitys(TMap<EPartyMembersID, FPlayerCompleteDataSet> aPlayerCompleteDataSets);
 	void ResetActivePartyToDefaultState();
 
 	FCompleteClassData GetClassData(EClassID aClassID){ return classDataTables[aClassID];}
 	
 	TArray<UPlayerCombatEntity*> ReturnActiveParty();
-	
+
+	FPartyGroupCompleteData CreatePartyGroupData();
+
 
 
 	UPROPERTY()
 	UPartyInventory* PartyInventory;
 	
-	TMap<EPartyMembers,FPlayerIdentityData> playerIdenityMap;
+	TMap<EPartyMembersID,FPlayerIdentityData> playerIdenityMap;
 	UPROPERTY()
-	TMap<EPartyMembers,UPlayerCombatEntity*> playerCombatEntityInfo;
+	TMap<EPartyMembersID,UPlayerCombatEntity*> playerCombatEntityInfo;
 	UPROPERTY()
 	TArray<FPlayerIdentityData> playerEntityData;
 	UPROPERTY()
 	TArray<UPlayerCombatEntity*> playerCombatEntity;
+	
 	UPROPERTY()
-	TArray<UPlayerCombatEntity*> activePartyEntityData;
+	TMap<EPartyType,UPartyGroup*> partyGroup;
 	
 };

@@ -79,7 +79,7 @@ enum class  EClassSlot  : uint8
 
 
 UENUM()
-enum class  EPartyMembers
+enum class  EPartyMembersID
 {
 	None                = 0,
 	Kriede              = 1,

@@ -44,11 +44,11 @@ void UMainMenuView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	
 	UPartyManagerSubsystem* partyManagerSubsystem = persistentGameinstance->partyManagerSubsystem;
 
-	TArray<UPlayerCombatEntity*> activePartyCombatEntityData = partyManagerSubsystem->activePartyEntityData;
+	TArray<UPlayerCombatEntity*> activePartyCombatEntityData = partyManagerSubsystem->ReturnActiveParty();
 
-	for(int i = 0 ; i < activePartyCombatEntityData.Num();i++)
+	for (auto ActivePartyCombatEntityData : activePartyCombatEntityData)
 	{
-		SpawnMainMenuStatusElement(activePartyCombatEntityData[i]);
+		SpawnMainMenuStatusElement(ActivePartyCombatEntityData);
 	}
 
 	SetDefaultMenuState();
@@ -58,6 +58,11 @@ void UMainMenuView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 
 void UMainMenuView::SpawnMainMenuStatusElement(UPlayerCombatEntity* aCombatEntity)
 {
+	if(aCombatEntity == nullptr)
+	{
+		return;
+	}
+	
 	UUserWidget* partyStatusHealthbar = CreateWidget(this, InGameHUD->GetElement(EViewElements::MainMenuStatusElement));
 
 	UStatusMainMenuElement* baseUserWidget = (UStatusMainMenuElement*)partyStatusHealthbar;

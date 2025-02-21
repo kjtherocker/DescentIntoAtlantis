@@ -7,6 +7,9 @@
 #include "EDataTableTypes.h"
 #include "Health.h"
 #include "Inventory_Equipment.h"
+#include "PartyData.h"
+#include "PartyGroup_Dump.h"
+#include "PartyGroup_Slot.h"
 #include "PassiveSkillFactorySubsystem.h"
 #include "PassiveSkillHandlerData.h"
 #include "PassiveSkills.h"
@@ -35,6 +38,8 @@ void UPartyManagerSubsystem::LoadSavedPartyManagerSubsystem(FCompletePartyManage
 	ItemChargesBase = aPartyManagerSubsystemData.partyWideItemChargeBase;
 	
 	LoadAndCreateAllPlayerEntitys(aPartyManagerSubsystemData.playerCompleteDataSet);
+	CreatePartyGroups(CompletePartyManagerSubsystemData);
+	
 	persistentGameInstance->popupSubsystem->SetPartySubsystem(this);
 }
 
@@ -67,7 +72,7 @@ void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UData
 		for (auto Element : datatable->GetRowNames())
 		{
 			playerEntityData.Add(*datatable->FindRow<FPlayerIdentityData>(FName(Element),FString("Searching for Players"),true));
-			EPartyMembers partyMember = playerEntityData.Last().characterIdentifier;
+			EPartyMembersID partyMember = playerEntityData.Last().characterIdentifier;
 			playerIdenityMap.Add(partyMember,playerEntityData.Last());
 		}
 	}
@@ -86,17 +91,60 @@ void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UData
 			DefaultTestFightData.Add(*combatTestInfo->FindRow<FDefaultTestFightData>(FName(Element),FString("Searching for Players"),true));
 		}
 	}
-
-	CompletePartyManagerSubsystemData.activePartyMembers.Add(0,EPartyMembers::None);
-	CompletePartyManagerSubsystemData.activePartyMembers.Add(1,EPartyMembers::None);
-	CompletePartyManagerSubsystemData.activePartyMembers.Add(2,EPartyMembers::None);
-	CompletePartyManagerSubsystemData.activePartyMembers.Add(3,EPartyMembers::None);
+	
+	CreatePartyGroups(CompletePartyManagerSubsystemData);
 	
 	persistentGameInstance->popupSubsystem->SetPartySubsystem(this);
 }
 
-void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembers aPlayer)
+void UPartyManagerSubsystem::CreatePartyGroups(FCompletePartyManagerSubsystemData aCompletePartyManagerSubsystemData)
 {
+	partyGroup.Empty();
+	FPartyInfo emptyPartyInfo;
+
+	//Active
+	partyGroup.Add(EPartyType::Active, NewObject<UPartyGroup_Slot>());
+	if(aCompletePartyManagerSubsystemData.partyData.partyInfos.Contains(EPartyType::Active))
+	{
+		partyGroup[EPartyType::Active]->Initialize(this,aCompletePartyManagerSubsystemData.partyData.partyInfos[EPartyType::Active]);		
+	}
+	else
+	{
+		
+		partyGroup[EPartyType::Active]->Initialize(this,emptyPartyInfo);	
+	}
+
+	//Reserve
+	partyGroup.Add(EPartyType::Reserve, NewObject<UPartyGroup_Dump>());
+	if(aCompletePartyManagerSubsystemData.partyData.partyInfos.Contains(EPartyType::Reserve))
+	{
+		partyGroup[EPartyType::Reserve]->Initialize(this,aCompletePartyManagerSubsystemData.partyData.partyInfos[EPartyType::Reserve]);
+	}
+	else
+	{
+		partyGroup[EPartyType::Reserve]->Initialize(this,emptyPartyInfo);	
+	}
+
+	//InAccessible
+	partyGroup.Add(EPartyType::InAccessible, NewObject<UPartyGroup_Dump>());
+	if(aCompletePartyManagerSubsystemData.partyData.partyInfos.Contains(EPartyType::InAccessible))
+	{
+		partyGroup[EPartyType::InAccessible]->Initialize(this,aCompletePartyManagerSubsystemData.partyData.partyInfos[EPartyType::InAccessible]);
+	}
+	else
+	{
+		partyGroup[EPartyType::InAccessible]->Initialize(this,emptyPartyInfo);	
+	}
+	
+}
+
+void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembersID aPlayer)
+{
+	if(aPlayer == EPartyMembersID::None)
+	{
+		return;
+	}
+	
 	UPlayerCombatEntity* PlayerCombatEntity = NewObject<UPlayerCombatEntity>();
 
 	FCharacterCostumeData CostumeData = persistentGameInstance->dialogueManagerSubsystem->
@@ -122,7 +170,7 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembers aPlayer)
 		EquipmentRequestInfo.equipmentID = EquipmentPassiveData.EquipmentID;
 		EquipmentRequestInfo.amount	     = 1;
 
-		EPartyMembers PartyMembers = PlayerCombatEntity->GetPartyMember();
+		EPartyMembersID PartyMembers = PlayerCombatEntity->GetPartyMemberID();
 		PartyInventory->GetInventoryEquipment()->AddEquipmentToInventory(EquipmentRequestInfo);
 		PlayerCombatEntity->combatEntityHub->equipmentHandler->EquipEquipment(PartyInventory->GetInventoryEquipment()->TakeOutEquipment(PartyMembers,EquipmentPassiveData.EquipmentID),i);
 	}
@@ -132,86 +180,85 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembers aPlayer)
 	playerCombatEntityInfo.Add(aPlayer,PlayerCombatEntity);
 }
 
-void UPartyManagerSubsystem::AddPlayerToActiveParty(EPartyMembers aPlayer)
+void UPartyManagerSubsystem::AddPlayerToActiveParty(EPartyMembersID aPlayer)
 {
+	UPartyGroup_Slot* ActiveSlot = Cast<UPartyGroup_Slot>(partyGroup[EPartyType::Active]);
+
+	if(ActiveSlot == nullptr)
+	{
+		return;
+	}
+
+	if(!ActiveSlot->AddPlayerToActiveParty(aPlayer))
+	{
+		return;
+	}
+	
+	playerCombatEntityInfo[aPlayer]->playerCompleteDataSet.currentPartySlot = EPartySlotType::Active;
+
+}
+
+
+UPlayerCombatEntity* UPartyManagerSubsystem::GetAndCreatePlayerEntity(EPartyMembersID aPlayer)
+{
+	if(aPlayer == EPartyMembersID::None)
+	{
+		return nullptr;
+	}
+	
 	if(!playerCombatEntityInfo.Contains(aPlayer))
 	{
 		CreatePlayerEntitys(aPlayer);
 	}
-	
-	if(!activePartyEntityData.Contains(playerCombatEntityInfo[aPlayer]))
-	{
-		playerCombatEntityInfo[aPlayer]->playerCompleteDataSet.currentPartySlot == EPartySlot::Active;
-		persistentGameInstance->saveManagerSubsystem->SessionSaveGameObject->AddPlayerCompleteDataSet(aPlayer,playerCombatEntityInfo[aPlayer]->playerCompleteDataSet);
-		activePartyEntityData.Add(playerCombatEntityInfo[aPlayer]);
-	}
+
+	return playerCombatEntityInfo[aPlayer];
 }
 
-void UPartyManagerSubsystem::RemovePartyMemberPermanently(EPartyMembers aPlayer)
+void UPartyManagerSubsystem::RemovePartyMemberToInaccessible(EPartyMembersID aPlayer)
 {
-	for(int i = 0 ; i < activePartyEntityData.Num();i++)
+	UPartyGroup_Slot* ActiveSlot   = Cast<UPartyGroup_Slot>(partyGroup[EPartyType::Active]);
+	UPartyGroup_Dump* Reserve      = Cast<UPartyGroup_Dump>(partyGroup[EPartyType::Reserve]);
+	UPartyGroup_Dump* Inaccessible = Cast<UPartyGroup_Dump>(partyGroup[EPartyType::InAccessible]);
+
+	if(ActiveSlot == nullptr || Reserve == nullptr ||  Inaccessible == nullptr)
 	{
-		if(activePartyEntityData[i]->GetPartyMember() == aPlayer)
-		{
-			activePartyEntityData.RemoveAt(i);
-			break;
-		}
+		return;
 	}
 	
-	playerCombatEntityInfo[aPlayer]->playerCompleteDataSet.currentPartySlot == EPartySlot::Inaccessible;
+	ActiveSlot->RemovePartyMember(aPlayer);
+	Reserve->RemovePartyMember(aPlayer);
+	Inaccessible->AddPartyMember(aPlayer);
 }
 
 void UPartyManagerSubsystem::RemoveAllCombatTokensFromParty()
 {
-	for(int i = 0 ; i < activePartyEntityData.Num();i++)
+	for (auto Element : playerCombatEntityInfo)
 	{
-		activePartyEntityData[i]->combatEntityHub->combatTokenHandler->RemoveAllCombatTokens();
+		playerCombatEntityInfo[Element.Key]->combatEntityHub->combatTokenHandler->RemoveAllCombatTokens();	
 	}
+
 }
 
 void UPartyManagerSubsystem::UnlockClassForAll(EClassID aClassID)
 {
 	CompletePartyManagerSubsystemData.partyWideUnlockedClasses.Add(aClassID);
 
-	for (auto Element : activePartyEntityData)
+	for (auto Element : playerCombatEntityInfo)
 	{
-		Element->classHandler->UnlockClass(aClassID);
+		Element.Value->classHandler->UnlockClass(aClassID);
 	}
 }
 
 void UPartyManagerSubsystem::CreateTestParty()
 {
-	for (int i = 0 ; i < DefaultTestFightData[0].PlayerFightData.Num();i++)
+	UPartyGroup_Slot* ActiveSlot = Cast<UPartyGroup_Slot>(partyGroup[EPartyType::Active]);
+
+	if(ActiveSlot == nullptr)
 	{
-		FDefaultTestPlayerFightData PlayerFightData = DefaultTestFightData[0].PlayerFightData[i];
-		AddPlayerToActiveParty(PlayerFightData.characterIdentifier);
-		
-		activePartyEntityData[i]->classHandler->UnlockClass(PlayerFightData.CompleteClassHandlerData.mainClassData.classIdentifer);
-		activePartyEntityData[i]->classHandler->UnlockClass(PlayerFightData.CompleteClassHandlerData.subClassData.classIdentifer);
-
-		if(PlayerFightData.CompleteClassHandlerData.mainClassData.classIdentifer != EClassID::None)
-		{
-			activePartyEntityData[i]->classHandler->SetClass(PlayerFightData.CompleteClassHandlerData.mainClassData.classIdentifer,EClassSlot::Main);	
-		}
-
-		if(PlayerFightData.CompleteClassHandlerData.subClassData.classIdentifer != EClassID::None)
-		{
-			activePartyEntityData[i]->classHandler->SetClass(PlayerFightData.CompleteClassHandlerData.subClassData.classIdentifer,EClassSlot::Sub);
-		}
-		
-		activePartyEntityData[i]->SetEquipmentState(PlayerFightData.DefaultSpawnEquipmentHandlerData);
-
-		activePartyEntityData[i]->combatEntityHub->passiveHandler->PassiveSlotHandler->SetPassiveSlotState(PlayerFightData.PassiveSlotHandlerData);
-		switch (PlayerFightData.TestCharacterState)
-		{
-		case ETestCharacterState::None:
-			break;
-		case ETestCharacterState::UnlockEverything:
-			activePartyEntityData[i]->classHandler->UnlockAllSkills();
-			activePartyEntityData[i]->classHandler->UnlockAllMainClassPassives();
-			break;
-		}
+		return;
 	}
+
+	ActiveSlot->CreateTestParty(DefaultTestFightData);
 }
 
 void UPartyManagerSubsystem::SavePartyManager()
@@ -220,6 +267,23 @@ void UPartyManagerSubsystem::SavePartyManager()
 	CompletePartyManagerSubsystemData.totalExperience  = totalExperience;
 	CompletePartyManagerSubsystemData.totalClassPoints = totalClassPoints;
 	CompletePartyManagerSubsystemData.PartyInventoryCompleteData = PartyInventory->GetPartyInventoryCompleteData();
+
+	CompletePartyManagerSubsystemData.partyData = CreatePartyGroupData();
+
+	persistentGameInstance->saveManagerSubsystem->SessionSaveGameObject->SaveIcons.Empty();
+
+	
+	UPartyGroup_Slot* ActiveSlot   = Cast<UPartyGroup_Slot>(partyGroup[EPartyType::Active]);
+
+	for (auto Element : ActiveSlot->ReturnActiveParty())
+	{
+		if(Element == nullptr)
+		{
+			continue;
+		}
+		
+		persistentGameInstance->saveManagerSubsystem->SessionSaveGameObject->AddSaveIcons(Element->GetPartyMemberID(),Element->playerCompleteDataSet);		
+	}
 
 	for (auto Element : playerCombatEntityInfo)
 	{
@@ -240,11 +304,12 @@ void UPartyManagerSubsystem::SavePartyManager()
 
 void UPartyManagerSubsystem::SavePlayerEntitys()
 {
-	for(int i = 0 ; i < activePartyEntityData.Num();i++)
+	for (auto Element : playerCombatEntityInfo)
 	{
-		activePartyEntityData[i]->GatherAndSavePlayerCompleteDataSet();
-		persistentGameInstance->saveManagerSubsystem->SessionSaveGameObject->AddPlayerCompleteDataSet(activePartyEntityData[i]->playerCompleteDataSet.playerIdentityData.characterIdentifier,
-			activePartyEntityData[i]->playerCompleteDataSet); activePartyEntityData[i]->playerCompleteDataSet;
+		playerCombatEntityInfo[Element.Key]->GatherAndSavePlayerCompleteDataSet();
+		persistentGameInstance->saveManagerSubsystem->SessionSaveGameObject->AddSaveIcons(playerCombatEntityInfo[Element.Key]->playerCompleteDataSet.playerIdentityData.characterIdentifier,
+			playerCombatEntityInfo[Element.Key]->playerCompleteDataSet);
+		playerCombatEntityInfo[Element.Key]->playerCompleteDataSet;
 	}
 }
 
@@ -296,13 +361,13 @@ void UPartyManagerSubsystem::SetPartyLevel(int aPartyLevel)
 	partyLevel = aPartyLevel;
 }
 
-UPlayerCombatEntity* UPartyManagerSubsystem::GetSpecificPartyMember(EPartyMembers aPartyMember)
+UPlayerCombatEntity* UPartyManagerSubsystem::GetSpecificPartyMember(EPartyMembersID aPartyMember)
 {
-	for (auto Element : activePartyEntityData)
+	for (auto Element : playerCombatEntityInfo)
 	{
-		if(Element->GetPartyMember() == aPartyMember)
+		if(Element.Value->GetPartyMemberID() == aPartyMember)
 		{
-			return Element;
+			return Element.Value;
 		}
 	}
 
@@ -310,19 +375,17 @@ UPlayerCombatEntity* UPartyManagerSubsystem::GetSpecificPartyMember(EPartyMember
 }
 
 
-void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, FPlayerCompleteDataSet> aPlayerCompleteDataSets)
+void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembersID, FPlayerCompleteDataSet> aPlayerCompleteDataSets)
 {
 	playerCombatEntity.Empty();
 	playerCombatEntityInfo.Empty();
-	activePartyEntityData.Empty();
-	
 	
 	for (auto& playerCompleteDataSet : aPlayerCompleteDataSets)
 	{
 		FPlayerCompleteDataSet playerCompleteData  = playerCompleteDataSet.Value;
 		UPlayerCombatEntity* PlayerCombatEntity = NewObject<UPlayerCombatEntity>();
 
-		EPartyMembers partyMember =  playerCompleteData.playerIdentityData.characterIdentifier;
+		EPartyMembersID partyMember =  playerCompleteData.playerIdentityData.characterIdentifier;
 		
 		ECharacterCostume CharacterCostume = playerCompleteData.playerIdentityData.currentCharacterCostume; 
 
@@ -367,25 +430,40 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembers, F
 		PlayerCombatEntity->SetEquipmentState(playerCompleteDataSet.Value.EquipmentHandlerData);
 		//Passive
 		PlayerCombatEntity->combatEntityHub->passiveHandler->SetPassiveHandlerState(playerCompleteDataSet.Value.PassiveHandlerData);
-
-		if(PlayerCombatEntity->playerCompleteDataSet.currentPartySlot == EPartySlot::Active)
-		{
-			AddPlayerToActiveParty(partyMember);	
-		}
 	}
 }
 
 void UPartyManagerSubsystem::ResetActivePartyToDefaultState()
 {
-	for(int i = 0 ;i < activePartyEntityData.Num();i++)
+	for (auto Element :playerCombatEntityInfo )
 	{
-		activePartyEntityData[i]->Reset();
+		Element.Value->Reset();
 	}
 }
 
 TArray<UPlayerCombatEntity*> UPartyManagerSubsystem::ReturnActiveParty()
 {
-	return activePartyEntityData;
+	UPartyGroup_Slot* ActiveSlot   = Cast<UPartyGroup_Slot>(partyGroup[EPartyType::Active]);
+
+	TArray<UPlayerCombatEntity*>  activeParty;
+	if(ActiveSlot == nullptr)
+	{
+		return activeParty;
+	}
+
+	activeParty = ActiveSlot->ReturnActiveParty();
+	return activeParty;
+}
+
+FPartyGroupCompleteData UPartyManagerSubsystem::CreatePartyGroupData()
+{
+	FPartyGroupCompleteData PartyGroupCompleteData;
+	for (auto Element : partyGroup)
+	{
+		PartyGroupCompleteData.partyInfos.Add(Element.Key,Element.Value->GetPartyInfo());
+	}
+
+	return PartyGroupCompleteData;
 }
 
 

@@ -32,7 +32,7 @@ void UEquipMenuView::SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsy
 	
 	BW_CombatStatView->UiInitialize(gameModeBase);
 	
-	currentPlayer = aPartyManagerSubsystem->GetSpecificPartyMember(EPartyMembers::Kriede);
+	currentPlayer = aPartyManagerSubsystem->GetSpecificPartyMember(EPartyMembersID::Kriede);
 	PartyManagerSubsystem = aPartyManagerSubsystem;
 
 	BW_CombatStatView->SetPlayerStatView(currentPlayer,currentPlayer->classHandler->mainClass);

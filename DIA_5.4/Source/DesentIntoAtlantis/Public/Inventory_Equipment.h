@@ -34,8 +34,8 @@ public:
 
 	void AddMoreStacksOfEquipment(FEquipmentRequestInfo aEquipmentRequest);
 
-	void ReturnEquipment(EPartyMembers aOldOwner,EEquipmentID aEquipmentID);
-	UEquipmentPassive* TakeOutEquipment(EPartyMembers aNewOwner,EEquipmentID aEquipmentID);
+	void ReturnEquipment(EPartyMembersID aOldOwner,EEquipmentID aEquipmentID);
+	UEquipmentPassive* TakeOutEquipment(EPartyMembersID aNewOwner,EEquipmentID aEquipmentID);
 	
 	
 	FPartyInventoryCompleteData GetPartyInventoryCompleteData(){return partyInventoryCompleteData;}

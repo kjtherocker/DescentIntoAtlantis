@@ -265,7 +265,7 @@ void UEventManagerSubSystem::EventTeleport(FFloorEventStageInfo floorEventInfo)
 
 void UEventManagerSubSystem::EventAddPartyMember(FFloorEventStageInfo floorEventInfo)
 {
-	if(floorEventInfo.PartyMemberId != EPartyMembers::None )
+	if(floorEventInfo.PartyMemberId != EPartyMembersID::None )
 	{
 		persistentGameInstance->partyManagerSubsystem->AddPlayerToActiveParty(floorEventInfo.PartyMemberId);
 	}
@@ -275,7 +275,7 @@ void UEventManagerSubSystem::EventAddPartyMember(FFloorEventStageInfo floorEvent
 
 void UEventManagerSubSystem::EventRemovePartyMemberPermanently(FFloorEventStageInfo floorEventInfo)
 {
-	persistentGameInstance->partyManagerSubsystem->RemovePartyMemberPermanently(floorEventInfo.PartyMemberId);
+	persistentGameInstance->partyManagerSubsystem->RemovePartyMemberToInaccessible(floorEventInfo.PartyMemberId);
 	TriggerNextEventStage();
 }
 

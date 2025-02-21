@@ -28,7 +28,7 @@ struct DESENTINTOATLANTIS_API FDefaultTestPlayerFightData : public FTableRowBase
 	
 	
 	UPROPERTY(EditAnywhere)
-	EPartyMembers characterIdentifier;
+	EPartyMembersID characterIdentifier;
 	
 	UPROPERTY(EditAnywhere)
 	FCompleteClassHandlerData CompleteClassHandlerData;	
