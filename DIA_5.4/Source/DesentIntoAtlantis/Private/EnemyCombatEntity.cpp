@@ -39,6 +39,7 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityCompleteData AEnemyEntit
 	}
 	
 	health->InitializeHealth(CombatEntityData.HealthData,this);
+	mana->InitializeMana(CombatEntityData.ManaData,this);
 	
 	SetAbilityScores();
 }

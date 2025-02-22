@@ -17,6 +17,7 @@
 #include "PlayerCombatEntity.h"
 #include "SaveGameData.h"
 #include "SaveManagerSubsystem.h"
+#include "StaminaHandler.h"
 #include "UPartyInventory.h"
 
 
@@ -30,6 +31,9 @@ void UPartyManagerSubsystem::LoadSavedPartyManagerSubsystem(FCompletePartyManage
 	totalExperience                   = aPartyManagerSubsystemData.totalExperience;
 	partyLevel                        = aPartyManagerSubsystemData.partyLevel;
 
+	StaminaData = aPartyManagerSubsystemData.StaminaData;
+	staminaHandler->InitializeStaminaHandler(StaminaData,this);
+	
 	PartyInventory->InitializePartyInventory(aPartyManagerSubsystemData.PartyInventoryCompleteData,
 		persistentGameInstance->passiveFactorySubsystem,
 		persistentGameInstance->skillFactorySubsystem,
@@ -64,6 +68,8 @@ void UPartyManagerSubsystem::InitializeDataTable (UDataTable* aPlayerData, UData
 	skillFactory = persistentGameInstance->GetSubsystem<USkillFactorySubsystem>();
 	passiveSkillFactory = persistentGameInstance->GetSubsystem<UPassiveFactorySubsystem>();
 	PartyInventory = NewObject<UPartyInventory>();
+	staminaHandler = NewObject<UStaminaHandler>();
+	staminaHandler->InitializeStaminaHandler(StaminaData,this);
 	
 	UDataTable* datatable = aPlayerData;
 	
@@ -147,18 +153,28 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembersID aPlayer)
 	
 	UPlayerCombatEntity* PlayerCombatEntity = NewObject<UPlayerCombatEntity>();
 
+	FPlayerIdentityData PlayerIdentityData = playerIdenityMap[aPlayer];
+	
 	FCharacterCostumeData CostumeData = persistentGameInstance->dialogueManagerSubsystem->
 		GetCostumeData(playerIdenityMap[aPlayer].DialogueActorsLabel,playerIdenityMap[aPlayer].defaultCostume);
 	
 	PlayerCombatEntity->SetPlayerEntity(playerIdenityMap[aPlayer],CostumeData);
 	PlayerCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactory,persistentGameInstance);
 
-	EClassID initalClass = playerIdenityMap[aPlayer].initalClass;
+	EClassID initalClass = PlayerIdentityData.initalClass;
 	if(classDataTables.Contains(initalClass))
 	{
 		PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[initalClass]);
 		PlayerCombatEntity->SetMainClass(initalClass);
-		PlayerCombatEntity->LevelUp(partyLevel);
+		if(PlayerIdentityData.isGuestCharacter)
+		{
+			PlayerCombatEntity->LevelUp(PlayerIdentityData.initialLevel);
+		}
+		else
+		{
+			PlayerCombatEntity->LevelUp(partyLevel);			
+		}
+
 	}
 
 	FEquipmentHandlerData equipmentHandlerData = playerIdenityMap[aPlayer].DefaultSpawnEquipmentHandlerData;
@@ -196,6 +212,11 @@ void UPartyManagerSubsystem::AddPlayerToActiveParty(EPartyMembersID aPlayer)
 	
 	playerCombatEntityInfo[aPlayer]->playerCompleteDataSet.currentPartySlot = EPartySlotType::Active;
 
+}
+
+void UPartyManagerSubsystem::SetFloorPawnDelegates(AFloorPlayerPawn* aPlayerHasMoved)
+{
+	staminaHandler->SetFloorPawnDelegates(aPlayerHasMoved);
 }
 
 
@@ -268,8 +289,9 @@ void UPartyManagerSubsystem::SavePartyManager()
 	CompletePartyManagerSubsystemData.totalClassPoints = totalClassPoints;
 	CompletePartyManagerSubsystemData.PartyInventoryCompleteData = PartyInventory->GetPartyInventoryCompleteData();
 
-	CompletePartyManagerSubsystemData.partyData = CreatePartyGroupData();
-
+	CompletePartyManagerSubsystemData.partyData   = CreatePartyGroupData();
+	CompletePartyManagerSubsystemData.StaminaData = staminaHandler->GetStaminaData();
+	
 	persistentGameInstance->saveManagerSubsystem->SessionSaveGameObject->SaveIcons.Empty();
 
 	

@@ -61,12 +61,17 @@ struct DESENTINTOATLANTIS_API FPlayerIdentityData :public  FTableRowBase
 
 	UPROPERTY(EditAnywhere)
 	int initialLevel;
+
+	UPROPERTY()
+	bool isGuestCharacter = false;
 };
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 {
 	GENERATED_USTRUCT_BODY()
+	
+	
 	UPROPERTY()
 	FPlayerIdentityData playerIdentityData;
 
@@ -85,7 +90,7 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 	UPROPERTY()
 	FHealthData HealthData;
 	UPROPERTY()
-	int currentMP;
+	FManaData ManaData;
 	UPROPERTY()
 	float currentSync;
 

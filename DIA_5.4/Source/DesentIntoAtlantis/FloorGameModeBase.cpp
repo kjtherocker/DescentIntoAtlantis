@@ -47,6 +47,8 @@ void AFloorGameMode::InitializeLevel()
     UMapView* mapView     = (UMapView*)InGameHUD->PushAndGetView(EViews::MapView,         EUiType::PersistentUi);
     mapView->GenerateLevel(floorFactory,levelProgressionSubsystem->GetCurrentFlooridentifier());
     mapView->SetFloorPawnDelegates(floorPawn);
+
+    partyManager->SetFloorPawnDelegates(floorPawn);
     
     floorManager = Cast<AFloorManager>(world->SpawnActor<AActor>(floorManagerReference, FVector::Zero(), rotator));
     floorManager->Initialize(this,floorEventManager,floorFactory);

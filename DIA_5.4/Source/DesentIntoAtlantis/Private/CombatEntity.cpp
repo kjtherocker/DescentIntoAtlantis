@@ -32,7 +32,7 @@ void UCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassi
     combatEntityHub          = NewObject<UCombatEntityHub>();
     combatEntityHub->InitializeCombatEntityHub(this,aPassiveSkillFactory,aPersistentGameinstance);
     health                  = NewObject<UHealth>();
-
+    mana                    = NewObject<UMana>();
 }
 
 
@@ -147,6 +147,11 @@ EPressTurnReactions UCombatEntity::IncrementHealth(UCombatEntity* aHealer, FSkil
     return health->IncrementHealth(aHealer,aSkill);
 }
 
+void UCombatEntity::IncrementHealth(int aIncrease)
+{
+    health->IncrementHealth(aIncrease);
+}
+
 EPressTurnReactions UCombatEntity::ApplyBuff(UCombatEntity* aBuffer, FSkillsData aSkill)
 {
    //  abilityScoreMap[aSkill.ablityScoreToBuffOrDebuff]->AttachAbilityScoreChange(aSkill.abilityScoreChangeDuration,true);
@@ -157,7 +162,7 @@ EPressTurnReactions UCombatEntity::ApplyBuff(UCombatEntity* aBuffer, FSkillsData
 
 void UCombatEntity::DecrementMana(int aDecrementBy)
 {
-    currentMana -= aDecrementBy;
+    mana->DecrementMana(aDecrementBy);
     hasHealthOrManaValuesChanged.Broadcast();
 }
 
@@ -251,7 +256,7 @@ float UCombatEntity::GetPotentialHealthPercentage(int aDamage)
 
 float UCombatEntity::GetManaPercentage()
 {
-    return (float)currentMana / (float)maxMana;
+    return  mana->GetManaPercentage();
 }
 
 float UCombatEntity::GetSyncPercentage()

@@ -49,6 +49,8 @@ public:
 	virtual FCombatLog_AttackDefense_Data DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill);
 	virtual EPressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
 	
+	virtual void IncrementHealth(int aIncease);
+	
 	virtual FCombatLog_AttackDefense_Data CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
 	virtual void TurnEnd();
 	virtual void SetAWrapperToDefault(ECombatEntityWrapperType aShellType);

@@ -92,6 +92,18 @@ EPressTurnReactions UHealth::IncrementHealth(UCombatEntity* aHealer, FSkillsData
 	return EPressTurnReactions::Normal;
 }
 
+void UHealth::IncrementHealth(int aIncease)
+{
+	HealthData.currentHealth += aIncease;
+    
+	if(HealthData.currentHealth >= HealthData.maxHealth)
+	{
+		HealthData.currentHealth = HealthData.maxHealth;
+	}
+	
+	hasHealthValuesChanged.Broadcast();
+}
+
 FCombatLog_AttackDefense_Data UHealth::CalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
 	return inUseCombatWrapper->ExecuteCalculateDamage(aAttacker,aSkill);

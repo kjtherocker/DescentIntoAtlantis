@@ -41,7 +41,34 @@ struct DESENTINTOATLANTIS_API FPartyGroupCompleteData : public FTableRowBase
 	
 };
 
+USTRUCT()
+struct DESENTINTOATLANTIS_API FStaminaUpgradeData: public FTableRowBase
+{
+	GENERATED_BODY()
 
+	UPROPERTY()
+	int staminaIncrease = 25;
+};
+
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FStaminaData : public FTableRowBase
+{
+	GENERATED_BODY()
+
+	UPROPERTY()
+	int currentStamina = 100;
+
+	UPROPERTY()
+	int MaxStamina = 100;
+
+	UPROPERTY()
+	int StaminaPercentage = 1;
+
+	UPROPERTY()
+	TArray<FStaminaUpgradeData> StaminaUpgradeDatas;
+	
+};
 
 
 
@@ -59,7 +86,9 @@ struct DESENTINTOATLANTIS_API FCompletePartyManagerSubsystemData:public  FTableR
 	UPROPERTY()
 	TArray<EClassID> partyWideUnlockedClasses;
 	
-
+	UPROPERTY()
+	FStaminaData StaminaData;
+	
 	UPROPERTY()
 	FItemChargesCompleteData partyWideItemChargeBase;
 	

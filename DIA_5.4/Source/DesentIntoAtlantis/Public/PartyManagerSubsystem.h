@@ -7,6 +7,7 @@
 #include "DefaultTestFightData.h"
 #include "ItemChargeHandler.h"
 #include "PartyData.h"
+#include "StaminaHandler.h"
 
 #include "UPartyInventory.h"
 
@@ -16,6 +17,7 @@
 #include "PartyManagerSubsystem.generated.h"
 
 
+class AFloorPlayerPawn;
 class UPartyGroup;
 class UPartyInventory;
 class UPassiveFactorySubsystem;
@@ -53,7 +55,9 @@ private:
 
 	UPROPERTY()
 	FItemChargesCompleteData ItemChargesBase;
-	
+
+	UPROPERTY()
+	FStaminaData StaminaData;
 
 	FCompletePartyManagerSubsystemData CompletePartyManagerSubsystemData;
 	int totalExperience = 0;
@@ -70,8 +74,9 @@ public:
 	void CreatePartyGroups(FCompletePartyManagerSubsystemData aCompletePartyManagerSubsystemData);
 	void CreatePlayerEntitys(EPartyMembersID aPlayer);
 	void AddPlayerToActiveParty(EPartyMembersID aPlayer);
-
-
+	UFUNCTION()
+	
+	void SetFloorPawnDelegates(AFloorPlayerPawn* aPlayerHasMoved);
 	UPlayerCombatEntity* GetAndCreatePlayerEntity(EPartyMembersID aPlayer);
 	
 	void RemovePartyMemberToInaccessible(EPartyMembersID aPlayer);
@@ -103,7 +108,8 @@ public:
 	FPartyGroupCompleteData CreatePartyGroupData();
 
 
-
+	UPROPERTY()
+	UStaminaHandler* staminaHandler;
 	UPROPERTY()
 	UPartyInventory* PartyInventory;
 	

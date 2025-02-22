@@ -5,6 +5,7 @@
 #include "CombatEntityWrapper.h"
 #include "EElementalType.h"
 #include "HealthData.h"
+#include "Mana.h"
 
 
 #include "PressTurnManager.h"
@@ -67,6 +68,9 @@ struct DESENTINTOATLANTIS_API FCombatEntityData :public  FTableRowBase
 
 	UPROPERTY(EditAnywhere)
 	FHealthData HealthData;
+
+	UPROPERTY(EditAnywhere)
+	FManaData ManaData;
 	
 	UPROPERTY( EditAnywhere )
 	int maxMana = 0;
@@ -145,6 +149,7 @@ public:
 	virtual void AlimentDecrementHealth(int aDamage);
 	virtual FCombatLog_AttackDefense_Data DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill);
 	virtual EPressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
+	virtual void IncrementHealth(int aIncrease);
 	virtual EPressTurnReactions ApplyBuff(      UCombatEntity* aBuffer,   FSkillsData aSkill);
 	virtual void DecrementMana(int aDecrementBy);
 	virtual void DecrementSync(int aDecrementBy);
@@ -185,6 +190,8 @@ public:
 	
 	UPROPERTY()
 	UHealth* health;
+	UPROPERTY()
+	UMana* mana;
 	
 	UPROPERTY()
 	UCombatEntityHub* combatEntityHub;

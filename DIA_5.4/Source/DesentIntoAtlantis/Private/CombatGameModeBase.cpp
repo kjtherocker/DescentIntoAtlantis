@@ -571,7 +571,6 @@ void ACombatGameModeBase::EndCombat(bool aHasWon)
 	}
 	
 	partyManager->RemoveAllCombatTokensFromParty();
-	partyManager->ResetActivePartyToDefaultState();
 	
 	enemyFactory->BestiaryDataHasChangedBroadcast();
 	
