@@ -15,7 +15,7 @@ void UStaminaHandler::InitializeStaminaHandler(FStaminaData aStaminaData,UPartyM
 	staminaAction = NewObject<UStaminaAction>();
 
 	FStaminaActionData StaminaActionData;
-	StaminaActionData.cost = 5;
+	StaminaActionData.cost = 1;
 	
 	staminaAction->SetStaminaActionData(StaminaActionData,aPartyManagerSubsystem);
 }

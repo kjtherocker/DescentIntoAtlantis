@@ -8,7 +8,7 @@
 #include "MapView.generated.h"
 
 
-
+class UStaminaBarElement;
 struct FCompleteFloorPawnData;
 struct FNodeMapData;
 class ULevelProgressionSubsystem;
@@ -37,12 +37,15 @@ class DESENTINTOATLANTIS_API UMapView : public UBaseUserWidget
 	void CreatePlayerGrid(UFloorBase* aFloor);
 
 	void SpawnMapButton(int aRow, int aColumn, int aIndex);
+	UPROPERTY()
 	UUniformGridSlot* playerIconGridSlot;
-	UFloorBase* currentFloor;
+	
 
+	UPROPERTY()
 	ULevelProgressionSubsystem* levelProgressionSubsystem;
 public:
 
+	void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 	UFUNCTION()
 	void SetPlayerPosition(FCompleteFloorPawnData aFloorPawnData);
 	UFUNCTION()
@@ -64,9 +67,12 @@ public:
 	//TMap<EFloorIdentifier, TArray<bool>> fogOfWar;
 
 	TMap<EFloorID,TArray<FNodeMapData>> fogOfWar;
-	
+	UPROPERTY()
 	TArray<FNodeMapData> currentFogOfWar;
-		
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UStaminaBarElement * BW_StaminaBarElement;
+	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UUniformGridPanel * BW_UniformGrid;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
@@ -82,6 +88,7 @@ public:
 	TSubclassOf<UUserWidget> BP_MapPlayerIconElement;
 	
 private:
+	UPROPERTY()
 	UFloorFactory* floorFactory;
 	
 };

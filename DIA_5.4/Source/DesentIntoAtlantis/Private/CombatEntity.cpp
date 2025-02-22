@@ -32,6 +32,7 @@ void UCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassi
     combatEntityHub          = NewObject<UCombatEntityHub>();
     combatEntityHub->InitializeCombatEntityHub(this,aPassiveSkillFactory,aPersistentGameinstance);
     health                  = NewObject<UHealth>();
+    health->SetCombatWrapper();
     mana                    = NewObject<UMana>();
 }
 

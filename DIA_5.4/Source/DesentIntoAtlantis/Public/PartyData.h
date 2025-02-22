@@ -63,7 +63,7 @@ struct DESENTINTOATLANTIS_API FStaminaData : public FTableRowBase
 	int MaxStamina = 100;
 
 	UPROPERTY()
-	int StaminaPercentage = 1;
+	float StaminaPercentage = 1;
 
 	UPROPERTY()
 	TArray<FStaminaUpgradeData> StaminaUpgradeDatas;

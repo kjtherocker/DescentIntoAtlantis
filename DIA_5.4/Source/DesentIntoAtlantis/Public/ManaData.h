@@ -18,6 +18,6 @@ struct DESENTINTOATLANTIS_API FManaData : public FTableRowBase
 	int MaxMana = 50;
 
 	UPROPERTY()
-	int ManaPercentage = 1;
+	float ManaPercentage = 1;
 	
 };

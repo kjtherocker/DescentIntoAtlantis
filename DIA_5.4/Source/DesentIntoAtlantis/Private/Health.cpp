@@ -8,6 +8,17 @@
 #include "SkillData.h"
 
 
+void UHealth::SetCombatWrapper()
+{
+	inUseCombatWrapper      = NewObject<UCombatEntityWrapper>();
+	allDefaultCombatWrapper = NewObject<UCombatEntityWrapper>();
+	allDefaultCombatWrapper->SetAttachedCombatEntity(this);
+	allDefaultCombatWrapper->SetCalculateDamageWrapper(NewObject<UCalculateDamage_Base>());
+    
+	inUseCombatWrapper->SetAttachedCombatEntity(this);
+	inUseCombatWrapper->SetCalculateDamageWrapper(allDefaultCombatWrapper->GetCalculateDamageWrapper());
+}
+
 void UHealth::InitializeHealth(int aCurrentHealth, int aMaxHealth, UCombatEntity* aCombatEntity)
 {
 	HealthData.currentHealth = aCurrentHealth;

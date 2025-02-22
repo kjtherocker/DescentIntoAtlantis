@@ -10,6 +10,7 @@
 #include "MapButtonElement.h"
 #include "MapPlayerIconElement.h"
 #include "PersistentGameinstance.h"
+#include "StaminaBarElement.h"
 #include "Components/UniformGridPanel.h"
 #include "Components/UniformGridSlot.h"
 #include "Components/WrapBox.h"
@@ -92,7 +93,7 @@ void UMapView::CreateFullGrid(UFloorBase* aFloor)
 void UMapView::CreatePlayerGrid(UFloorBase* aFloor)
 {
 	UMapButtonElement* Object = nullptr;
-	currentFloor = aFloor;
+	CurrentFloor = aFloor;
 	UFloorBase* tempfloor = aFloor;
 
 
@@ -176,9 +177,15 @@ void UMapView::SpawnMapButton(int aRow, int aColumn, int aIndex)
 	 
 }
 
+void UMapView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
+{
+	Super::UiInitialize(aGameModeBase);
+	BW_StaminaBarElement->UiInitialize(aGameModeBase);
+}
+
 void UMapView::SetPlayerPosition(FCompleteFloorPawnData aFloorPawnData)
 {
-	UFloorBase* tempfloor = currentFloor;
+	UFloorBase* tempfloor = CurrentFloor;
 
 	FVector2D playerPosition = aFloorPawnData.currentNodePositionInGrid;
 	
