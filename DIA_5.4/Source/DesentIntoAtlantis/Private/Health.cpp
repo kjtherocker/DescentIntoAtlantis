@@ -39,7 +39,7 @@ void UHealth::SetHealth(FHealthData aHealthData)
 	HealthData.currentHealth = HealthData.maxHealth;
 }
 
-void UHealth::SetHealth(int aHealth)
+void UHealth::SetCurrentHealth(int aHealth)
 {
 	HealthData.currentHealth = aHealth;
 }

@@ -17,6 +17,11 @@ void UMana::SetMana(FManaData aManaData)
 	HasManaValuesChanged.Broadcast(ManaData);
 }
 
+void UMana::SetCurrentMana(int aCurrentMana)
+{
+	ManaData.CurrentMana = aCurrentMana;
+}
+
 void UMana::IncrementMana(int aIncrementBy)
 {
 	ManaData.CurrentMana += aIncrementBy;

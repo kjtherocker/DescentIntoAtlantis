@@ -43,7 +43,7 @@ public:
 	virtual void InitializeHealth(FHealthData aHealthData, UCombatEntity* aCombatEntity);
 	virtual void GiveMaxHp();
 	virtual void SetHealth(FHealthData aHealthData);
-	virtual void SetHealth(int aHealth);
+	virtual void SetCurrentHealth(int aHealth);
 	virtual int GetCurrentHealth();
 	
 	virtual FCombatLog_AttackDefense_Data DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill);
@@ -59,6 +59,8 @@ public:
 	
 	virtual float GetHealthPercentage();
 	virtual float GetPotentialHealthPercentage(int aDamage);
+
+	virtual FHealthData GetHealthData(){return  HealthData;}
 	
 	FOnDecrementHealth                 OnDecrementHealth;
 	FResetOneWrapperToDefault          resetOneWrapperToDefault;

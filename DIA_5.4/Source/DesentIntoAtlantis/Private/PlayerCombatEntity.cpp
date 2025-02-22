@@ -25,8 +25,8 @@ void UPlayerCombatEntity::InitializeStats(EStatTypes aAbilityScoreTypes)
 
 void UPlayerCombatEntity::LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet)
 {
-	health->InitializeHealth(aPlayerCompleteDataSet.HealthData,this);
-	mana->InitializeMana(aPlayerCompleteDataSet.ManaData,this);
+	health->SetCurrentHealth(aPlayerCompleteDataSet.HealthData.currentHealth);
+	mana->SetCurrentMana(aPlayerCompleteDataSet.ManaData.CurrentMana);
 	currentSync   = aPlayerCompleteDataSet.currentSync;
 }
 
@@ -88,10 +88,10 @@ void UPlayerCombatEntity::SetToDefaultState()
 {
 	Super::SetToDefaultState();
 
-	maxMana           =  classHandler->mainClass->completeClassData.classStatBase.maxMana;
+	mana->IncrementMana(mana->GetManaData().MaxMana);
 	health->GiveMaxHp();
 	
-	currentMana       =  maxMana;
+
     isMarkedForDeath  =  false;
 
 	for (TTuple<EStatTypes, UCombatStat*> abilityStats : abilityScoreMap)
@@ -129,8 +129,8 @@ void UPlayerCombatEntity::GatherAndSavePlayerCompleteDataSet()
 	playerCompleteDataSet.PassiveHandlerData.PassiveSlotHandlerData = combatEntityHub->passiveHandler->PassiveSlotHandler->GetPassiveSlotData();
 
 	playerCompleteDataSet.EquipmentHandlerData           = combatEntityHub->equipmentHandler->GetEquipmentHandlerData();
-	playerCompleteDataSet.HealthData.currentHealth = health->GetCurrentHealth();
-	playerCompleteDataSet.ManaData = mana->GetManaData();
+	playerCompleteDataSet.HealthData                     = health->GetHealthData();
+	playerCompleteDataSet.ManaData                       = mana->GetManaData();
 }
 
 void UPlayerCombatEntity::SetCurrentCostume(FCharacterCostumeData aCostumeData)
@@ -170,6 +170,12 @@ void UPlayerCombatEntity::SetAbilityScores()
 			abilityScoreMap[statType] = PlayerStats;
 		}
 	}
+}
+
+void UPlayerCombatEntity::IncrementMana(int aIncrease)
+{
+	mana->IncrementMana(aIncrease);
+	hasHealthOrManaValuesChanged.Broadcast();
 }
 
 float UPlayerCombatEntity::GetHealthPercentage()
@@ -223,12 +229,13 @@ void UPlayerCombatEntity::LevelUp(int aNewLevel)
 	FHealthData HealthData;
 	HealthData.maxHealth = 50;
 	HealthData.maxHealth += 5 * aNewLevel;
+	HealthData.currentHealth = HealthData.maxHealth;
 	health->SetHealth(HealthData);
 
 	FManaData ManaData;
 	ManaData.MaxMana       = 50;
 	ManaData.MaxMana       += 5 * aNewLevel;
-	ManaData.CurrentMana   = maxMana;
+	ManaData.CurrentMana   = ManaData.MaxMana;
 	mana->SetMana(ManaData);
 
 	SetAbilityScores();

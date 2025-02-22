@@ -152,6 +152,11 @@ void UCombatEntity::IncrementHealth(int aIncrease)
     health->IncrementHealth(aIncrease);
 }
 
+void UCombatEntity::IncrementMana(int aIncrease)
+{
+    mana->IncrementMana(aIncrease);
+}
+
 EPressTurnReactions UCombatEntity::ApplyBuff(UCombatEntity* aBuffer, FSkillsData aSkill)
 {
    //  abilityScoreMap[aSkill.ablityScoreToBuffOrDebuff]->AttachAbilityScoreChange(aSkill.abilityScoreChangeDuration,true);

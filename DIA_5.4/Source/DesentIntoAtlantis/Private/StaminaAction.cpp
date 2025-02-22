@@ -15,6 +15,11 @@ void UStaminaAction::UseStaminaAction()
 	{
 		Element->IncrementHealth(5);
 	}
+
+	for (auto Element : partyManagerSubsystem->playerCombatEntity)
+	{
+		Element->IncrementMana(3);
+	}
 }
 
 bool UStaminaAction::CheckIfStaminaActionCanBeUsed()
@@ -23,6 +28,14 @@ bool UStaminaAction::CheckIfStaminaActionCanBeUsed()
 	for (auto Element : partyManagerSubsystem->playerCombatEntity)
 	{
 		if(Element->GetHealthPercentage() != 1)
+		{
+			return true;
+		}
+	}
+
+	for (auto Element : partyManagerSubsystem->playerCombatEntity)
+	{
+		if(Element->GetManaPercentage() != 1)
 		{
 			return true;
 		}

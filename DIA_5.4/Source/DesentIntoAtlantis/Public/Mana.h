@@ -33,6 +33,7 @@ public:
 	virtual void InitializeMana(FManaData aManaData, UCombatEntity* aCombatEntity);
 
 	virtual void SetMana(FManaData aManaData);
+	virtual void SetCurrentMana(int aCurrentMana);
 	
 	virtual void IncrementMana(int aIncrementBy);
 	

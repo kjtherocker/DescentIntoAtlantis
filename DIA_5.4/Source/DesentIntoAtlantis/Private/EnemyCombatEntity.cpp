@@ -21,7 +21,7 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityCompleteData AEnemyEntit
 	enemyEntityInfo = enemyEntityCompleteData.CombatEntityData[EDiffculty::Normal];
 	CombatEntityData = enemyEntityInfo.CombatEntityData;
 	
-	currentMana     = CombatEntityData.maxMana;
+
 
 	portraitPosition = aPortraitPosition;
 	

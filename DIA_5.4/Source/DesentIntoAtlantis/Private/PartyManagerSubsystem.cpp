@@ -190,8 +190,17 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembersID aPlayer)
 		PartyInventory->GetInventoryEquipment()->AddEquipmentToInventory(EquipmentRequestInfo);
 		PlayerCombatEntity->combatEntityHub->equipmentHandler->EquipEquipment(PartyInventory->GetInventoryEquipment()->TakeOutEquipment(PartyMembers,EquipmentPassiveData.EquipmentID),i);
 	}
+
+	if(!PlayerIdentityData.isGuestCharacter)
+	{
+		PlayerCombatEntity->health->InitializeHealth(50,50,PlayerCombatEntity);
+	}
+	else
+	{
+		PlayerCombatEntity->health->InitializeHealth(PlayerIdentityData.playerStatBases.HealthData.maxHealth,
+			PlayerIdentityData.playerStatBases.HealthData.maxHealth,PlayerCombatEntity);
+	}
 	
-	PlayerCombatEntity->health->InitializeHealth(50,50,PlayerCombatEntity);
 	playerCombatEntity.Add(PlayerCombatEntity);
 	playerCombatEntityInfo.Add(aPlayer,PlayerCombatEntity);
 }
@@ -416,7 +425,7 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembersID,
 	
 		PlayerCombatEntity->SetPlayerEntity(playerIdenityMap[partyMember],CostumeData);
 		PlayerCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactory,persistentGameInstance);
-		PlayerCombatEntity->LoadSavedHPAndMP(playerCompleteData);
+
 
 		//Class
 		TMap<EClassID, FCompleteClassData> allCompleteClassData = playerCompleteData.CompleteClassHandlerData.unlockedPlayerClasses;
@@ -447,6 +456,7 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembersID,
 		playerCombatEntityInfo.Add(partyMember,PlayerCombatEntity);
 
 		PlayerCombatEntity->LevelUp(partyLevel);
+		PlayerCombatEntity->LoadSavedHPAndMP(playerCompleteData);
 		
 		//Equipment
 		PlayerCombatEntity->SetEquipmentState(playerCompleteDataSet.Value.EquipmentHandlerData);

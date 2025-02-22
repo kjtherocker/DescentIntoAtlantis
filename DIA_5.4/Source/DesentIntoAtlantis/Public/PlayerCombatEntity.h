@@ -61,8 +61,8 @@ struct DESENTINTOATLANTIS_API FPlayerIdentityData :public  FTableRowBase
 
 	UPROPERTY(EditAnywhere)
 	int initialLevel;
-
-	UPROPERTY()
+	
+	UPROPERTY( EditAnywhere )
 	bool isGuestCharacter = false;
 };
 
@@ -161,6 +161,8 @@ public:
 	virtual void RemovePassive(UPassiveSkills* aPassiveSkills) override;
 
 	void SetAbilityScores();
+
+	virtual void IncrementMana(int aIncrease) override;
 	
 	virtual float GetHealthPercentage() override;
 	virtual float GetManaPercentage()   override;

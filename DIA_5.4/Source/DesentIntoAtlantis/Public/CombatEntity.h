@@ -150,6 +150,7 @@ public:
 	virtual FCombatLog_AttackDefense_Data DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill);
 	virtual EPressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
 	virtual void IncrementHealth(int aIncrease);
+	virtual void IncrementMana(int aIncrease);
 	virtual EPressTurnReactions ApplyBuff(      UCombatEntity* aBuffer,   FSkillsData aSkill);
 	virtual void DecrementMana(int aDecrementBy);
 	virtual void DecrementSync(int aDecrementBy);
@@ -158,8 +159,6 @@ public:
 	void DeathCheck();
 	virtual void Death();
 	virtual void PostDamage();
-
-
 	
 	virtual void ActivateDamageHitEffect();
 	virtual void SetToDefaultState();
@@ -195,12 +194,8 @@ public:
 	
 	UPROPERTY()
 	UCombatEntityHub* combatEntityHub;
-	
-	UPROPERTY()
-	int maxMana;
-	UPROPERTY()
-	int currentMana;
 
+	
 	UPROPERTY()
 	float currentSync = 100;
 	
