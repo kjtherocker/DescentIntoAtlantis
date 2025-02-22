@@ -58,7 +58,7 @@ class DESENTINTOATLANTIS_API UEquipMenuView : public UBaseUserWidgetMovingButton
 	UPlayerCombatEntity* currentPlayer;
 
 public:
-	void SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsystem);
+	void SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsystem,UPlayerCombatEntity* aPlayerCombatEntity);
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UCombatStatView* BW_CombatStatView;
@@ -75,6 +75,10 @@ public:
 	class UVerticalBox* BW_VerticalEquipBox;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	class UVerticalBox* BW_VerticalPassiveBox;
+	
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+ 	UImage* BW_Portrait;
+	
 	UPROPERTY()
 	TArray<UBaseHighlightElement*> passiveHighlightElements;
 

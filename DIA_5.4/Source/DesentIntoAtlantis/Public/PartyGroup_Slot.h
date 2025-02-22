@@ -36,10 +36,13 @@ public:
 	virtual UPlayerCombatEntity* GetSpecificPlayerEntity(EPartyMembersID aPartyMember);
 
 	TArray<UPlayerCombatEntity*> ReturnActiveParty();
-
+	TMap<ESlot,UPlayerCombatEntity*>  ReturnActivePartySlots(){return partyGroupCombatEntitys;}
+	
 	ESlot GetSpecificPartyMemberSlot(EPartyMembersID aPlayer);
 	
 	ESlot GetMostAvaliableSlot();
+
+
 	
 	virtual void Reset();
 	virtual FPartyInfo GetPartyInfo() override;

@@ -44,6 +44,11 @@ void UMainMenuView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	
 	UPartyManagerSubsystem* partyManagerSubsystem = persistentGameinstance->partyManagerSubsystem;
 
+
+	BW_MainMenuPlayerStatusView->UiInitialize(gameModeBase);
+	BW_MainMenuPlayerStatusView->InitializeStatusView(partyManagerSubsystem->ReturnActivePartySlots(),persistentGameinstance);
+
+	
 	TArray<UPlayerCombatEntity*> activePartyCombatEntityData = partyManagerSubsystem->ReturnActiveParty();
 
 	for (auto ActivePartyCombatEntityData : activePartyCombatEntityData)
@@ -86,8 +91,7 @@ void UMainMenuView::Skills()
 
 void UMainMenuView::Class()
 {
-	UEquipMenuView* equipMenuView =  (UEquipMenuView*)gameModeBase->InGameHUD->PushAndGetView(EViews::EquipView,    EUiType::ActiveUi);
-	equipMenuView->SetEquipMenuView(persistentGameinstance->partyManagerSubsystem);
+	BW_MainMenuPlayerStatusView->ActivateInput();
 }
 
 void UMainMenuView::Status()

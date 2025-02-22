@@ -27,14 +27,16 @@ void UEquipMenuView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 	
 }
 
-void UEquipMenuView::SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsystem)
+void UEquipMenuView::SetEquipMenuView(UPartyManagerSubsystem* aPartyManagerSubsystem,UPlayerCombatEntity* aPlayerCombatEntity)
 {
 	
 	BW_CombatStatView->UiInitialize(gameModeBase);
 	
-	currentPlayer = aPartyManagerSubsystem->GetSpecificPartyMember(EPartyMembersID::Kriede);
+	currentPlayer         = aPlayerCombatEntity;
 	PartyManagerSubsystem = aPartyManagerSubsystem;
 
+	BW_Portrait->SetBrushFromTexture(currentPlayer->currentCostumeData.fullBodyCharacterPortrait);
+	
 	BW_CombatStatView->SetPlayerStatView(currentPlayer,currentPlayer->classHandler->mainClass);
 	
 	BW_CPAmount->SetText(FText::FromString(FString::FromInt(currentPlayer->classHandler->GetClassPoints())));

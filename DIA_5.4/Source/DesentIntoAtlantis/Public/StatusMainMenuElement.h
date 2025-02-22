@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BaseHighlightElement.h"
 #include "BaseUserWidget.h"
 #include "PartyHealthbarElement.h"
 #include "StatusMainMenuElement.generated.h"
@@ -22,6 +23,7 @@ class DESENTINTOATLANTIS_API UStatusMainMenuElement : public UPartyHealthbarElem
 	GENERATED_BODY()
 
 public:
+	
 	virtual void SetCombatEntity(UPlayerCombatEntity* aCombatEntity) override;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
@@ -39,5 +41,7 @@ public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_ElementalWeakness;
 
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UBaseHighlightElement* BW_HightlightElement;
 	
 };

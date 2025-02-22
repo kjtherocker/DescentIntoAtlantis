@@ -455,6 +455,20 @@ TArray<UPlayerCombatEntity*> UPartyManagerSubsystem::ReturnActiveParty()
 	return activeParty;
 }
 
+TMap<ESlot, UPlayerCombatEntity*> UPartyManagerSubsystem::ReturnActivePartySlots()
+{
+	UPartyGroup_Slot* ActiveSlot   = Cast<UPartyGroup_Slot>(partyGroup[EPartyType::Active]);
+
+	TMap<ESlot, UPlayerCombatEntity*>  activeParty;
+	if(ActiveSlot == nullptr)
+	{
+		return activeParty;
+	}
+
+	activeParty = ActiveSlot->ReturnActivePartySlots();
+	return activeParty;
+}
+
 FPartyGroupCompleteData UPartyManagerSubsystem::CreatePartyGroupData()
 {
 	FPartyGroupCompleteData PartyGroupCompleteData;

@@ -11,6 +11,11 @@
 
 void UStatusMainMenuElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 {
+	if(aCombatEntity == nullptr)
+	{
+		return;
+	}
+	
 	Super::SetCombatEntity(aCombatEntity);
 
 

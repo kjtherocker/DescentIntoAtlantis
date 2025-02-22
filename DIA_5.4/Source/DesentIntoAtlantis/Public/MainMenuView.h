@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
 #include "BaseUserWidgetMovingButtons.h"
+#include "MainMenuPlayerStatusView.h"
 #include "MainMenuView.generated.h"
 
 class UPlayerCombatEntity;
@@ -63,4 +64,7 @@ public:
 	UBaseHighlightElement* BW_Option;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UHorizontalBox* BW_PartyHorizontalBox;
+	
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UMainMenuPlayerStatusView* BW_MainMenuPlayerStatusView;
 };

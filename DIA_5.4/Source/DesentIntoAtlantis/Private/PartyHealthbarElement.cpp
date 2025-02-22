@@ -138,6 +138,11 @@ void UPartyHealthbarElement::TriggerAilmentEffect(EStatusAilments aStatusAilment
 	}
 }
 
+void UPartyHealthbarElement::SetPersistantGameInstance(UPersistentGameinstance* aPersistentGameinstance)
+{
+	persistentGameinstance = aPersistentGameinstance;
+}
+
 void UPartyHealthbarElement::MoveUp()
 {
 	SetRenderTranslation(FVector2d(0,MOVEUP_TRANSLATION_OFFSET));

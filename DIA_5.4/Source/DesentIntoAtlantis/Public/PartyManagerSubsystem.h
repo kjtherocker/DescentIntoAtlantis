@@ -98,6 +98,7 @@ public:
 	FCompleteClassData GetClassData(EClassID aClassID){ return classDataTables[aClassID];}
 	
 	TArray<UPlayerCombatEntity*> ReturnActiveParty();
+	TMap<ESlot,UPlayerCombatEntity*> ReturnActivePartySlots();
 
 	FPartyGroupCompleteData CreatePartyGroupData();
 

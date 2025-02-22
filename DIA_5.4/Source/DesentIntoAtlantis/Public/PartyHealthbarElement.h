@@ -52,7 +52,8 @@ public:
 
 	UFUNCTION()
 	virtual void TriggerAilmentEffect(EStatusAilments aStatusAilment);
-	
+
+	virtual void SetPersistantGameInstance(UPersistentGameinstance* aPersistentGameinstance);
 	virtual void MoveUp();
 	virtual void ResetTranslation();
 	FString characterName;
