@@ -7,6 +7,7 @@
 #include "EDataTableTypes.h"
 #include "Health.h"
 #include "Inventory_Equipment.h"
+#include "Inventory_KeyItems.h"
 #include "PartyData.h"
 #include "PartyGroup_Dump.h"
 #include "PartyGroup_Slot.h"
@@ -510,6 +511,33 @@ FPartyGroupCompleteData UPartyManagerSubsystem::CreatePartyGroupData()
 	}
 
 	return PartyGroupCompleteData;
+}
+
+void UPartyManagerSubsystem::RewardParty(FRewardsData aRewardData)
+{
+	UInventory_KeyItems* KeyItems = PartyInventory->GetInventoryKeyItems();
+	for (auto Element : aRewardData.KeyItemsIDs)
+	{
+		KeyItems->AddKeyItem(Element);
+	}
+
+	UInventory_Equipment* Equipment = PartyInventory->GetInventoryEquipment();
+	for (auto Element : aRewardData.EquipmentIds)
+	{
+		Equipment->AddEquipmentToInventory(Element);
+	}
+
+	UInventory_Items* items = PartyInventory->GetInventoryItems();
+	for (auto Element : aRewardData.ItemIds)
+	{
+		items->AddItem(Element);
+	}
+	
+	//UInventory_Items* items = persistentGameInstance->partyManagerSubsystem->PartyInventory->GetInventoryItems();
+	for (auto Element : aRewardData.ClassIds)
+	{
+		UnlockClassForAll(Element);
+	}
 }
 
 

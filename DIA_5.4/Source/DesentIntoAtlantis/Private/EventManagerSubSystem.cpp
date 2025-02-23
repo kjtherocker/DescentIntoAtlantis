@@ -57,6 +57,19 @@ bool UEventManagerSubSystem::isEventCompleted(FVector2D aEventPosition)
 	return false;
 }
 
+bool UEventManagerSubSystem::isEventCompleted(int32 aEventID)
+{
+	for ( FFloorEventData item : completedFloorEventData)
+	{
+		if(item.FloorEventID == aEventID)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
 void UEventManagerSubSystem::SetFloor(EFloorID aFloorIdentifier)
 {
 	currentFloor = aFloorIdentifier;
@@ -227,35 +240,13 @@ FTeleportData UEventManagerSubSystem::GetCombatTeleportationData()
 void UEventManagerSubSystem::EventRewardItems(FFloorEventStageInfo floorEventInfo)
 {
 	UPartyManagerSubsystem* PartyManagerSubsystem = persistentGameInstance->partyManagerSubsystem;
-	
-	UInventory_KeyItems* KeyItems = PartyManagerSubsystem->PartyInventory->GetInventoryKeyItems();
-	for (auto Element : floorEventInfo.Rewards.KeyItemsIDs)
-	{
-		KeyItems->AddKeyItem(Element);
-	}
 
-	UInventory_Equipment* Equipment = PartyManagerSubsystem->PartyInventory->GetInventoryEquipment();
-	for (auto Element : floorEventInfo.Rewards.EquipmentIds)
-	{
-		Equipment->AddEquipmentToInventory(Element);
-	}
+	PartyManagerSubsystem->RewardParty(floorEventInfo.Rewards);
 
-	UInventory_Items* items = PartyManagerSubsystem->PartyInventory->GetInventoryItems();
-	for (auto Element : floorEventInfo.Rewards.ItemIds)
-	{
-		items->AddItem(Element);
-	}
-
-
-	
-	//UInventory_Items* items = persistentGameInstance->partyManagerSubsystem->PartyInventory->GetInventoryItems();
 	for (auto Element : floorEventInfo.Rewards.ClassIds)
 	{
-		PartyManagerSubsystem->UnlockClassForAll(Element);
 		TriggerNextEventStage();
 	}
-	
-	
 }
 
 void UEventManagerSubSystem::EventTeleport(FFloorEventStageInfo floorEventInfo)

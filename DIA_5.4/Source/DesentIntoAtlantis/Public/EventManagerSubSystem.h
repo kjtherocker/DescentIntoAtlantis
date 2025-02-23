@@ -70,6 +70,7 @@ public:
 	void LoadSavedFloorEventData(FEventManagerData aEventManagerData );
 	void InitializeEventManager(UFloorFactory * aFloorFactory, UPersistentGameinstance* aPersistentGameInstance);
 	bool isEventCompleted(FVector2D aEventPosition);
+	bool isEventCompleted(int32 aEventID);
 
 	void SetFloor(EFloorID aFloorIdentifier);
 	void SetCombatGameMode(ACombatGameModeBase* aCombatGameMode);

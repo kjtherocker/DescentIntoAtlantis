@@ -107,6 +107,7 @@ public:
 
 	FPartyGroupCompleteData CreatePartyGroupData();
 
+	void RewardParty(FRewardsData aRewardData);
 
 	UPROPERTY()
 	UStaminaHandler* staminaHandler;

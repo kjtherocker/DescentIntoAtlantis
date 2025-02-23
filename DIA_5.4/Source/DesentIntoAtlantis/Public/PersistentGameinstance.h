@@ -10,6 +10,7 @@
 #include "Engine/GameInstance.h"
 #include "PersistentGameinstance.generated.h"
 
+class UQuestSubsystem;
 class UKeyItemFactorySubsystem;
 class UPassiveFactorySubsystem;
 class UChallengeSubsystem;
@@ -104,6 +105,8 @@ public:
 	USaveManagerSubsystem*    saveManagerSubsystem;
 	UPROPERTY()
 	ULevelProgressionSubsystem*  levelProgressionSubsystem;
+	UPROPERTY()
+	UQuestSubsystem* questSubsystem;
 
 	UPROPERTY(EditAnywhere)
 	TMap<EElementalType,UTexture2D*> elementalIcons;

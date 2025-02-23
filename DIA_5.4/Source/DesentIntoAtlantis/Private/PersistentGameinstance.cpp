@@ -12,6 +12,7 @@
 #include "KeyItemFactorySubsystem.h"
 #include "LevelProgressionSubsystem.h"
 #include "PassiveSkillFactorySubsystem.h"
+#include "QuestSubsystem.h"
 #include "SaveGameData.h"
 #include "SaveManagerSubsystem.h"
 #include "DesentIntoAtlantis/FloorGameMode.h"
@@ -40,8 +41,20 @@ void UPersistentGameinstance::Init()
 	eventDispatcherSubsystem        = GetSubsystem<UEventDispatcherSubsystem>();
 	popupSubsystem                  = GetSubsystem<UPopupSubsystem>();
 	KeyItemFactorySubsystem         = GetSubsystem<UKeyItemFactorySubsystem>();
+
+	questSubsystem                  = GetSubsystem<UQuestSubsystem>();
 	
 	levelProgressionSubsystem->InitializeSubsystem(this);
+
+
+	if(dataTables.Contains(EDataTableTypes::QuestData))
+	{
+		questSubsystem->InitializeSubsystem(dataTables[EDataTableTypes::QuestData],this);
+	}
+	else
+	{
+		//DataTableDoesntExist
+	}
 	
 	if(dataTables.Contains(EDataTableTypes::Skills)&& dataTables.Contains(EDataTableTypes::ItemData))
 	{
