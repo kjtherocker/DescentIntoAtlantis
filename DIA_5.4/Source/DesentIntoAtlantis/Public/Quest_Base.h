@@ -34,7 +34,8 @@ public:
 	void SetQuest(FQuestData aQuestData);
 
 	void StartQuest();
-	void StartQuestStage(FQuestStageData aQuestStageData);
+	void SetQuestStage(FQuestStageData aQuestStageData);
 	void QuestStageFinished();
+	void QuestFinshed();
 	void CheckAllQuestGoals();
 };

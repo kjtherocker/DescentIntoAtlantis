@@ -11,14 +11,27 @@ void UQuest_Base::SetQuest(FQuestData aQuestData)
 void UQuest_Base::StartQuest()
 {
 	QuestStageData = questData.QuestStageDatas[0];
+	SetQuestStage(QuestStageData);
 }
 
-void UQuest_Base::StartQuestStage(FQuestStageData aQuestStageData)
+void UQuest_Base::SetQuestStage(FQuestStageData aQuestStageData)
 {
-	
+	QuestStageData = aQuestStageData;
 }
 
 void UQuest_Base::QuestStageFinished()
+{
+	int currentQuestStage = questData.currentQuestStage++;
+
+	if(currentQuestStage >= questData.QuestStageDatas.Num() )
+	{
+		QuestFinshed();
+	}
+
+	SetQuestStage(questData.QuestStageDatas[currentQuestStage]);
+}
+
+void UQuest_Base::QuestFinshed()
 {
 }
 
@@ -27,6 +40,7 @@ void UQuest_Base::CheckAllQuestGoals()
 	TArray<FQuestGoalData,bool> questCompletetionStatus;
 
 	bool hasAllQuestGoalsBeenComplete = true;
+	
 	for (auto Element : QuestGoals)
 	{
 		Element->UpdateQuestGoal();
@@ -39,8 +53,7 @@ void UQuest_Base::CheckAllQuestGoals()
 			hasAllQuestGoalsBeenComplete = false;
 		}
 	}
-
-
+	
 	if(hasAllQuestGoalsBeenComplete)
 	{
 		QuestStageFinished();
