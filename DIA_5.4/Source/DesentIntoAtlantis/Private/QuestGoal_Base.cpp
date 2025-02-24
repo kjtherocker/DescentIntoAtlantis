@@ -17,3 +17,8 @@ bool UQuestGoal_Base::CheckIfGoalWasReached()
 {
 	return true;
 }
+
+void UQuestGoal_Base::QuestGoalComplete()
+{
+	OnQuestGoalCompletetion.Broadcast();
+}

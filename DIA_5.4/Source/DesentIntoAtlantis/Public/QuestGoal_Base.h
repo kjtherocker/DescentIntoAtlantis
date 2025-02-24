@@ -11,6 +11,7 @@
 /**
  * 
  */
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnQuestGoalCompletetion);
 UCLASS()
 class DESENTINTOATLANTIS_API UQuestGoal_Base : public UObject
 {
@@ -26,10 +27,15 @@ protected:
 	
 public:
 
+	UPROPERTY()
+	FOnQuestGoalCompletetion OnQuestGoalCompletetion;
+	
 	virtual void InitializeQuestGoal(UPersistentGameinstance* aPersistentGameinstance,FQuestGoalData aQuestGoal);
 
 	virtual void UpdateQuestGoal();
 	virtual bool CheckIfGoalWasReached();
+	virtual void QuestGoalComplete();
+	
 	virtual bool GetCompletionStatus(){ return questGoalData.isComplete;}
 	virtual FQuestGoalData ReturnQuestGoalData(){return questGoalData;}
 	

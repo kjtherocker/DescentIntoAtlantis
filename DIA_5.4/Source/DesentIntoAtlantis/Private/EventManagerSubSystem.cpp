@@ -11,6 +11,7 @@
 #include "Inventory_KeyItems.h"
 #include "LevelupView.h"
 #include "PersistentGameinstance.h"
+#include "QuestSubsystem.h"
 #include "SaveManagerSubsystem.h"
 #include "TransitionView.h"
 #include "TutorialView.h"
@@ -122,12 +123,14 @@ void UEventManagerSubSystem::PopupClosed()
 
 void UEventManagerSubSystem::CompleteEvent()
 {
+
 	completedFloorEventData.Add(currentEvent);
 	eventManagerData.completedFloorEventData.Add(currentEvent);
 	persistentGameInstance->saveManagerSubsystem->SetEventManagerData(eventManagerData);
 	
 	gameMode->floorPawn->SetFloorPawnInput(true);
 	isEventRunning = false;
+	EventHasFinished.Broadcast(currentEvent.FloorEventID);
 }
 
 void UEventManagerSubSystem::TriggerNextEventStage()
@@ -199,6 +202,9 @@ void UEventManagerSubSystem::TriggerNextEventStage()
 		case EFloorEventTypes::PartyMemberRemovedPermanently:
 			EventRemovePartyMemberPermanently(currentFloorEventStage);
 			break;
+		case EFloorEventTypes::StartQuest:
+			StartQuest(currentFloorEventStage);
+			break;
 		default:
 			{
 				break;
@@ -267,6 +273,12 @@ void UEventManagerSubSystem::EventAddPartyMember(FFloorEventStageInfo floorEvent
 void UEventManagerSubSystem::EventRemovePartyMemberPermanently(FFloorEventStageInfo floorEventInfo)
 {
 	persistentGameInstance->partyManagerSubsystem->RemovePartyMemberToInaccessible(floorEventInfo.PartyMemberId);
+	TriggerNextEventStage();
+}
+
+void UEventManagerSubSystem::StartQuest(FFloorEventStageInfo floorEventInfo)
+{
+	persistentGameInstance->questSubsystem->StartQuest(floorEventInfo.QuestID);
 	TriggerNextEventStage();
 }
 

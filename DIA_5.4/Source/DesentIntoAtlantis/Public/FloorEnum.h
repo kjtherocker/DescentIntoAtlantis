@@ -17,15 +17,16 @@ class UPersistentGameinstance;
 UENUM()
 enum class EFloorEventTypes
 {
-	None                         = 0,
-	Dialogue                     = 1,
-	Tutorial                     = 2,
-	Combat                       = 3,
-	Reward                       = 4,
-	Teleport                     = 5,
-	PartyMemberJoin              = 6,
-	PushView                     = 7,
-	PartyMemberRemovedPermanently = 8,
+	None                           = 0,
+	Dialogue                       = 1,
+	Tutorial                       = 2,
+	Combat                         = 3,
+	Reward                         = 4,
+	Teleport                       = 5,
+	PartyMemberJoin                = 6,
+	PushView                       = 7,
+	PartyMemberRemovedPermanently  = 8,
+	StartQuest                     = 9,
 
 };
 
@@ -352,6 +353,9 @@ struct DESENTINTOATLANTIS_API FFloorEventStageInfo : public FTableRowBase
 
 	UPROPERTY(EditAnywhere, Category= "Teleport")
 	FTeleportData Teleport;
+
+	UPROPERTY(EditAnywhere, Category= "Quest")
+	int QuestID = 10000;
 	
 };
 USTRUCT()

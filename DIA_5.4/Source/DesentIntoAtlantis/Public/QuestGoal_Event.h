@@ -16,6 +16,7 @@ class DESENTINTOATLANTIS_API UQuestGoal_Event : public UQuestGoal_Base
 
 
 	virtual void InitializeQuestGoal(UPersistentGameinstance* aPersistentGameinstance,FQuestGoalData aQuestGoal) override;
-	virtual void UpdateQuestGoal();
+	UFUNCTION()
+	virtual void UpdateQuestGoal(int eventID);
 	virtual bool CheckIfGoalWasReached();
 };

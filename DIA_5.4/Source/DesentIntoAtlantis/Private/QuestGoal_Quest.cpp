@@ -20,4 +20,9 @@ bool UQuestGoal_Quest::CheckIfGoalWasReached()
 void UQuestGoal_Quest::UpdateQuestGoal( FQuestData aQuestData)
 {
 	questGoalData.isComplete = CheckIfGoalWasReached();
+
+	if(questGoalData.isComplete)
+	{
+		QuestGoalComplete();
+	}
 }

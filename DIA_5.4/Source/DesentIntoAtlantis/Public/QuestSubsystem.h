@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "FloorEnum.h"
 #include "QuestData.h"
+#include "Quest_Base.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "QuestSubsystem.generated.h"
 
@@ -52,6 +53,9 @@ private:
 public:
 
 	UPROPERTY()
+	TArray<UQuest_Base*> AllActiveQuests;
+	
+	UPROPERTY()
 	FOnQuestStart OnQuestStart;
 	UPROPERTY()
 	FOnQuestCompleted OnQuestCompleted;
@@ -64,9 +68,15 @@ public:
 	void StartQuest(int32 aQuestID);
 	
 	bool isQuestCompleted(int32 aQuestID);
+
+	UFUNCTION()
+	void QuestCompleted(int aQuestID,FQuestData aQuestData);
+	
 	void MarkQuestAsCompleted(int32 aQuestID);
 
 	void ValidateQuestStage();
+
+	UQuest_Base* CreateQuest(FQuestData aQuestData);
 
 	FQuestData      GetActiveQuestData(int aQuestID);
 	FQuestStageData GetCurrentQuestStage(int aQuestID);

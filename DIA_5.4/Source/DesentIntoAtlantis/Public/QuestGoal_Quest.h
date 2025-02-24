@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "QuestGoal_Base.h"
+#include "QuestData.h"
 #include "QuestGoal_Quest.generated.h"
 
 /**
@@ -20,5 +21,5 @@ class DESENTINTOATLANTIS_API UQuestGoal_Quest : public UQuestGoal_Base
 	virtual bool CheckIfGoalWasReached() override;
 
 	UFUNCTION()
-	virtual void UpdateQuestGoal( FQuestData aQuestData);
+	 void UpdateQuestGoal( FQuestData aQuestData);
 };

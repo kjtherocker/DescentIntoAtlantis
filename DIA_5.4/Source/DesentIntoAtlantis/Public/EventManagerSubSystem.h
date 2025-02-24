@@ -27,6 +27,7 @@ struct DESENTINTOATLANTIS_API FEventManagerData :public  FTableRowBase
 
 /**
  */
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FEventHasFinished,int,EventID);
 UCLASS()
 class DESENTINTOATLANTIS_API UEventManagerSubSystem : public UGameInstanceSubsystem
 {
@@ -65,6 +66,8 @@ class DESENTINTOATLANTIS_API UEventManagerSubSystem : public UGameInstanceSubsys
 	UPersistentGameinstance* persistentGameInstance;
 	
 public:
+	UPROPERTY()
+	FEventHasFinished EventHasFinished;
 
 	FNodeHasBeenWalkedOn EventHasBeenTriggered;
 	void LoadSavedFloorEventData(FEventManagerData aEventManagerData );
@@ -97,6 +100,7 @@ public:
 	void EventTeleport(FFloorEventStageInfo floorEventInfo);
 	void EventAddPartyMember(FFloorEventStageInfo floorEventInfo);
 	void EventRemovePartyMemberPermanently(FFloorEventStageInfo floorEventInfo);
+	void StartQuest(FFloorEventStageInfo floorEventInfo);
 	void EventNotCompleted();
 
 	void AddFloorEnemyEvents(FVector2D aPositionInGrid, AFloorEventMarker* aFloorEnemyPawn);

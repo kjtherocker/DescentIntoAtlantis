@@ -109,7 +109,7 @@ struct DESENTINTOATLANTIS_API FQuestStageData:public  FTableRowBase
 	UPROPERTY(EditAnywhere)
 	FString questStageDescription = "Quest Description";
 	
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 	TArray<FQuestGoalData> QuestGoals;
 	
 };

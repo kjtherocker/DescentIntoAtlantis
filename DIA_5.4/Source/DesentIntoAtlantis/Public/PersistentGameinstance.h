@@ -32,6 +32,7 @@ enum class EDataTableTypes;
  * 
  */
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FLevelHasChanged,EFloorID,currentFloor);
+
 UCLASS()
 class DESENTINTOATLANTIS_API UPersistentGameinstance : public UGameInstance
 {

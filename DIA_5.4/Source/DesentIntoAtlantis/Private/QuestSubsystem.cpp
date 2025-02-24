@@ -103,12 +103,20 @@ void UQuestSubsystem::StartQuest(int32 aQuestID)
 		questCompleteData.currentQuestInfo.currentMainQuest = QuestData;
 	}
 
+	AllActiveQuests.Add(CreateQuest(QuestData));
+
 	OnQuestStart.Broadcast(QuestData);
 }
 
 bool UQuestSubsystem::isQuestCompleted(int32 aQuestID)
 {
 	return questCompleteData.completedQuest.Contains(aQuestID);
+}
+
+void UQuestSubsystem::QuestCompleted(int aQuestID, FQuestData aQuestData)
+{
+
+	MarkQuestAsCompleted( aQuestID);
 }
 
 void UQuestSubsystem::MarkQuestAsCompleted(int32 aQuestID)
@@ -121,6 +129,38 @@ void UQuestSubsystem::MarkQuestAsCompleted(int32 aQuestID)
 
 void UQuestSubsystem::ValidateQuestStage()
 {
+}
+
+UQuest_Base* UQuestSubsystem::CreateQuest(FQuestData aQuestData)
+{
+	EQuestType questType = aQuestData.questType;
+
+	UQuest_Base* Quest_Base = nullptr;
+	
+	switch (questType)
+	{
+	case EQuestType::None:
+		break;
+	case EQuestType::MainQuest:
+		Quest_Base = NewObject<UQuest_Base>();
+		break;
+	case EQuestType::SideQuest:
+		Quest_Base = NewObject<UQuest_Base>();
+		break;
+	case EQuestType::GodQuest:
+		Quest_Base = NewObject<UQuest_Base>();
+		break;
+	}
+
+
+	if(Quest_Base != nullptr)
+	{
+		Quest_Base->OnQuestCompletetion.AddDynamic(this,&UQuestSubsystem::QuestCompleted);
+		Quest_Base->InitializeQuest(persistentGameinstance);
+		Quest_Base->SetQuest(aQuestData);
+	}
+
+	return Quest_Base;
 }
 
 FQuestData UQuestSubsystem::GetActiveQuestData(int aQuestID)
