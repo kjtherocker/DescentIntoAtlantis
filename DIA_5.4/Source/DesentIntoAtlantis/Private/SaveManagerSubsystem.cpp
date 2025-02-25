@@ -4,6 +4,7 @@
 #include "SaveManagerSubsystem.h"
 
 #include "PartyManagerSubsystem.h"
+#include "QuestSubsystem.h"
 #include "SaveGameData.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -21,6 +22,7 @@ void USaveManagerSubsystem::InitializeSessionSave(USaveGameData* aSessionSave)
 	aSessionSave->SubScribeToUpdateLevelIdentifier(persistentGameinstance);
 	aSessionSave->SubScribeToUpdateEnemyBestiary(persistentGameinstance->enemyFactorySubSystem);
 	aSessionSave->SubscribeToUpdatePartyManager(persistentGameinstance->partyManagerSubsystem);
+	aSessionSave->SubscribeToUpdateQuestSubsystem(persistentGameinstance->questSubsystem);
 	aSessionSave->SubScribeToUpdateChallengeManager(persistentGameinstance->challengeManagerSubsystem);
 }
 
@@ -51,6 +53,11 @@ void USaveManagerSubsystem::SaveGameInSlot(FString saveGameName)
 	persistentGameinstance->partyManagerSubsystem->SavePartyManager();
 	SessionSaveGameObject->completePartyManagerData =
 		persistentGameinstance->partyManagerSubsystem->GetPartyManagerData();
+
+	persistentGameinstance->questSubsystem->SaveQuestSubsystem();
+	SessionSaveGameObject->QuestSubsystemCompleteData =
+		persistentGameinstance->questSubsystem->GetQuestCompleteData();
+	
 	
 	UGameplayStatics::SaveGameToSlot(SessionSaveGameObject,saveGameName, 0);
 }
@@ -76,7 +83,7 @@ void USaveManagerSubsystem::LoadSaveDataAndTransitionToMap(FString saveGameName)
 	InitializeSessionSave(SessionSaveGameObject);
 	//Need to load the party Manager itself first
 	persistentGameinstance->partyManagerSubsystem->LoadSavedPartyManagerSubsystem(SessionSaveGameObject->completePartyManagerData);
-
+	persistentGameinstance->questSubsystem->SetLoadedQuestSubsystemCompleteData(SessionSaveGameObject->QuestSubsystemCompleteData);
 	persistentGameinstance->EventManagerSubSystem->LoadSavedFloorEventData(LoadedSaveGameObject->eventManagerData);
 	persistentGameinstance->levelProgressionSubsystem->LoadCompleteProgressionData(LoadedSaveGameObject->completeProgressionData);
 	persistentGameinstance->levelProgressionSubsystem->SetCompleteFloorPawnData(SessionSaveGameObject->completeFloorPawnData);

@@ -160,7 +160,7 @@ struct DESENTINTOATLANTIS_API FActiveQuestArray:public  FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 	UPROPERTY()
-	TArray<FQuestData> activeQuest;
+	TMap<int32,FQuestData> activeQuest;
 
 	UPROPERTY()
 	FQuestData currentHighlightQuest;

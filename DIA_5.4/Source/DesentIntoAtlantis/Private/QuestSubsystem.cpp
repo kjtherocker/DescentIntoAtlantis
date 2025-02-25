@@ -34,33 +34,36 @@ void UQuestSubsystem::InitializeSubsystem(UDataTable* aQuestTable,UPersistentGam
 
 void UQuestSubsystem::SetLoadedQuestSubsystemCompleteData(FQuestSubsystemCompleteData aQuestCompleteData)
 {
+	AllActiveQuests.Empty();
 	for (auto Element : aQuestCompleteData.currentQuestInfo.activeQuest)
 	{
-		if(!allQuestData.Contains(Element.QuestID))
+		FQuestData questData = Element.Value;
+		if(!allQuestData.Contains(questData.QuestID))
 		{
 			continue;
 		}
-		FQuestData RawQuestData = allQuestData[Element.QuestID];
+		FQuestData RawQuestData = allQuestData[questData.QuestID];
 
-		RawQuestData.isComplete        = Element.isComplete;
-		RawQuestData.currentQuestStage = Element.currentQuestStage;
+		RawQuestData.isComplete        = questData.isComplete;
+		RawQuestData.currentQuestStage = questData.currentQuestStage;
 
-		for (int i = 0; i < Element.QuestStageDatas.Num();i++)
+		for (int i = 0; i < questData.QuestStageDatas.Num();i++)
 		{
 			FQuestStageData RawQuestStageGoals = RawQuestData.QuestStageDatas[i];
-			FQuestStageData SavedStageGoals    = Element.QuestStageDatas[i];
-			RawQuestStageGoals.isComplete      = Element.QuestStageDatas[i].isComplete;
+			FQuestStageData SavedStageGoals    = questData.QuestStageDatas[i];
+			RawQuestStageGoals.isComplete      = questData.QuestStageDatas[i].isComplete;
 			
-			for(int j = 0; j < Element.QuestStageDatas[i].QuestGoals.Num();j++)
+			for(int j = 0; j < questData.QuestStageDatas[i].QuestGoals.Num();j++)
 			{
 				RawQuestStageGoals.QuestGoals[j].isComplete = SavedStageGoals.QuestGoals[j].isComplete;
 			}
 		}
 		
-		Element = RawQuestData;
+		Element.Value = RawQuestData;
 	}
 	
 	questCompleteData = aQuestCompleteData;
+	CreateAllSavedActiveQuests();
 }
 
 bool UQuestSubsystem::ValidateQuestRequirements(FQuestData aQuestData)
@@ -95,7 +98,7 @@ void UQuestSubsystem::StartQuest(int32 aQuestID)
 	}
 	
 	
-	questCompleteData.currentQuestInfo.activeQuest.Add(QuestData);
+	questCompleteData.currentQuestInfo.activeQuest.Add(aQuestID,QuestData);
 
 	if(QuestData.questType == EQuestType::MainQuest
 		&& questCompleteData.currentQuestInfo.currentMainQuest.questType == EQuestType::None)
@@ -103,9 +106,30 @@ void UQuestSubsystem::StartQuest(int32 aQuestID)
 		questCompleteData.currentQuestInfo.currentMainQuest = QuestData;
 	}
 
-	AllActiveQuests.Add(CreateQuest(QuestData));
+	AllActiveQuests.Add(aQuestID,CreateQuest(QuestData));
 
 	OnQuestStart.Broadcast(QuestData);
+	SaveQuestSubsystem();
+}
+
+void UQuestSubsystem::CreateAllSavedActiveQuests()
+{
+	for (auto QuestData : questCompleteData.currentQuestInfo.activeQuest)
+	{
+		UQuest_Base* quest = CreateQuest(QuestData.Value);
+		AllActiveQuests.Add(quest->GetQuestID(),quest);
+	}
+}
+
+void UQuestSubsystem::SaveQuestSubsystem()
+{
+	questCompleteData.currentQuestInfo.activeQuest.Empty();
+	for (auto Element : AllActiveQuests)
+	{
+		questCompleteData.currentQuestInfo.activeQuest.Add( Element.Key,Element.Value->SaveAndReturn());
+	}
+
+	QuestSubsystemHasChanged.Broadcast(questCompleteData);
 }
 
 bool UQuestSubsystem::isQuestCompleted(int32 aQuestID)
@@ -124,6 +148,11 @@ void UQuestSubsystem::MarkQuestAsCompleted(int32 aQuestID)
 	FQuestData completedQuest = allQuestData[aQuestID];
 	
 	questCompleteData.completedQuest.Add(aQuestID,completedQuest);
+	questCompleteData.currentQuestInfo.activeQuest.Remove(aQuestID);
+	AllActiveQuests.Remove(aQuestID);
+	
+	SaveQuestSubsystem();
+
 	GiveQuestReward(completedQuest.questReward);
 }
 
@@ -167,9 +196,9 @@ FQuestData UQuestSubsystem::GetActiveQuestData(int aQuestID)
 {
 	for (auto Element : 	questCompleteData.currentQuestInfo.activeQuest)
 	{
-		if(Element.QuestID == aQuestID)
+		if(Element.Value.QuestID == aQuestID)
 		{
-			return Element;
+			return Element.Value;
 		}
 	}
 

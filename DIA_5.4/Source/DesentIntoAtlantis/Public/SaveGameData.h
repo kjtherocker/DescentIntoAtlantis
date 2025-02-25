@@ -12,6 +12,7 @@
 #include "LevelProgressionSubsystem.h"
 #include "PartyManagerSubsystem.h"
 #include "PlayerCombatEntity.h"
+#include "QuestData.h"
 #include "GameFramework/SaveGame.h"
 #include "SaveGameData.generated.h"
 
@@ -47,6 +48,9 @@ private:
 	UFUNCTION()
 	void UpdatePartyLevel(FCompletePartyManagerSubsystemData aPartyManagerSubsystem);
 
+	UFUNCTION()
+	void UpdateQuestSubsystemData(FQuestSubsystemCompleteData aQuestSubsystemCompleteData);
+	
 public:
 	void SubscribeUpdateFloorPlayerCompleteData(AFloorPlayerPawn* aFloorPawn);
 	void SubscribeUpdateCompleteProgressionData(ULevelProgressionSubsystem* aLevelProgressionSubsystem);
@@ -54,6 +58,7 @@ public:
 	void SubScribeToUpdateChallengeManager(UChallengeSubsystem*  aChallengeSubsystem);
 	void SubScribeToUpdateEnemyBestiary(UEnemyFactorySubSystem*  aEnemyFactorySubsystem);
 	void SubscribeToUpdatePartyManager(UPartyManagerSubsystem* aPartyManagerSubsystem);
+	void SubscribeToUpdateQuestSubsystem(UQuestSubsystem* aQuestSubsystem);
 	//void SubScribeToUpdateLevelIdentifier(UPersistentGameinstance*  aPersistentGameInstance);
 	void AddSaveIcons(EPartyMembersID aPartyMember,FPlayerCompleteDataSet aPlayerCompleteDataSet);
 
@@ -66,6 +71,9 @@ public:
 	UPROPERTY()
 	FCompleteProgressionData completeProgressionData;
 
+	UPROPERTY()
+	FQuestSubsystemCompleteData QuestSubsystemCompleteData;
+	
 	UPROPERTY()
 	FChallengeManagerData completeChallengeManagerData;
 	UPROPERTY()

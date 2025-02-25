@@ -6,6 +6,7 @@
 #include "FloorPlayerPawn.h"
 #include "PartyManagerSubsystem.h"
 #include "PersistentGameinstance.h"
+#include "QuestSubsystem.h"
 
 
 void USaveGameData::UpdateCompleteProgressionData(FCompleteProgressionData aCompleteProgressionData)
@@ -38,6 +39,11 @@ void USaveGameData::UpdatePartyLevel(FCompletePartyManagerSubsystemData aPartyMa
 	completePartyManagerData = aPartyManagerSubsystem;
 }
 
+void USaveGameData::UpdateQuestSubsystemData(FQuestSubsystemCompleteData aQuestSubsystemCompleteData)
+{
+	QuestSubsystemCompleteData = aQuestSubsystemCompleteData;
+}
+
 void USaveGameData::SubscribeUpdateFloorPlayerCompleteData(AFloorPlayerPawn* aFloorPawn)
 {
 	aFloorPawn->playerhasMovedDelegate.AddDynamic(this,&USaveGameData::UpdateFloorPawnData);
@@ -67,6 +73,11 @@ void USaveGameData::SubScribeToUpdateEnemyBestiary(UEnemyFactorySubSystem* aEnem
 void USaveGameData::SubscribeToUpdatePartyManager(UPartyManagerSubsystem* aPartyManagerSubsystem)
 {
 	aPartyManagerSubsystem->PartyManagerHasChanged.AddDynamic(this,&USaveGameData::UpdatePartyLevel);
+}
+
+void USaveGameData::SubscribeToUpdateQuestSubsystem(UQuestSubsystem* aQuestSubsystem)
+{
+	aQuestSubsystem->QuestSubsystemHasChanged.AddDynamic(this,&USaveGameData::UpdateQuestSubsystemData);
 }
 
 void USaveGameData::AddSaveIcons(EPartyMembersID aPartyMember,FPlayerCompleteDataSet aPlayerCompleteDataSet)

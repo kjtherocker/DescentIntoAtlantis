@@ -48,12 +48,18 @@ public:
 	void CreateAllQuestGoalsOfStage(FQuestStageData aQuestStageData);
 	
 	void StartQuest();
+
+	FQuestData SaveAndReturn();
+
 	void SetQuestStage(FQuestStageData aQuestStageData);
 	void QuestStageFinished();
 	void QuestFinshed();
 	UFUNCTION()
 	void CheckAllQuestGoals();
+
+	void UpdateQuestGoals();
 	FQuestStageData GetCurrentQuestStage();
 
+	int32 GetQuestID(){return questData.QuestID;}
 	UQuestGoal_Base* CreateNewQuestGoal(FQuestGoalData aQuestGoalData);
 };

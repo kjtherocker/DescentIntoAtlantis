@@ -36,6 +36,14 @@ void UQuest_Base::StartQuest()
 	SetQuestStage(GetCurrentQuestStage());
 }
 
+FQuestData UQuest_Base::SaveAndReturn()
+{
+	UpdateQuestGoals();
+
+	return questData;
+	
+}
+
 void UQuest_Base::SetQuestStage(FQuestStageData aQuestStageData)
 {
 	QuestStageData = aQuestStageData;
@@ -44,6 +52,8 @@ void UQuest_Base::SetQuestStage(FQuestStageData aQuestStageData)
 
 void UQuest_Base::QuestStageFinished()
 {
+	QuestGoals.Empty();
+	
 	questData.currentQuestStage++;
 	int currentQuestStage = questData.currentQuestStage;
 
@@ -63,17 +73,27 @@ void UQuest_Base::QuestFinshed()
 
 void UQuest_Base::CheckAllQuestGoals()
 {
+	UpdateQuestGoals();
+	int completedGoals = 0;
 	for (int i = QuestGoals.Num() - 1; i >= 0; i--)
 	{
 		if(QuestGoals[i]->GetCompletionStatus())
 		{
-			QuestGoals.RemoveAt(i);
+			completedGoals++;
 		}
 	}
 	
-	if(QuestGoals.Num() == 0)
+	if(QuestGoals.Num() == completedGoals)
 	{
 		QuestStageFinished();
+	}
+}
+
+void UQuest_Base::UpdateQuestGoals()
+{
+	for (int i = QuestGoals.Num() - 1; i >= 0; i--)
+	{
+		questData.QuestStageDatas[questData.currentQuestStage].QuestGoals[i] = QuestGoals[i]->ReturnQuestGoalData();
 	}
 }
 

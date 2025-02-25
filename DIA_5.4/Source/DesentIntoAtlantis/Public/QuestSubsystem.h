@@ -20,6 +20,7 @@ class UPersistentGameinstance;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnQuestStart, FQuestData, questData);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnQuestCompleted, FQuestData, questData);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FQuestSubsystemHasChanged,FQuestSubsystemCompleteData,QuestSubsystemCompleteData);
 
 UCLASS()
 class DESENTINTOATLANTIS_API UQuestSubsystem : public UGameInstanceSubsystem
@@ -53,7 +54,10 @@ private:
 public:
 
 	UPROPERTY()
-	TArray<UQuest_Base*> AllActiveQuests;
+	FQuestSubsystemHasChanged QuestSubsystemHasChanged;
+	
+	UPROPERTY()
+	TMap<int32,UQuest_Base*> AllActiveQuests;
 	
 	UPROPERTY()
 	FOnQuestStart OnQuestStart;
@@ -66,6 +70,9 @@ public:
 
 	bool ValidateQuestRequirements(FQuestData aQuestData);
 	void StartQuest(int32 aQuestID);
+
+	void CreateAllSavedActiveQuests();
+	void SaveQuestSubsystem();
 	
 	bool isQuestCompleted(int32 aQuestID);
 
