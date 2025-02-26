@@ -26,6 +26,11 @@ void UBaseUserWidgetMovingButtons::SetHighLightElements(TArray<UBaseHighlightEle
 
 void UBaseUserWidgetMovingButtons::MoveUp()
 {
+	if(highlightElements.Num() == 0)
+	{
+		return;
+	}
+	
 	highlightElements[cursorPosition]->UnHightlight();
 	Super::MoveUp();
 	highlightElements[cursorPosition]->Highlight();
@@ -33,6 +38,12 @@ void UBaseUserWidgetMovingButtons::MoveUp()
 
 void UBaseUserWidgetMovingButtons::MoveDown()
 {
+	if(highlightElements.Num() == 0)
+	{
+		return;
+	}
+	
+	
 	highlightElements[cursorPosition]->UnHightlight();
 	Super::MoveDown();
 	highlightElements[cursorPosition]->Highlight();

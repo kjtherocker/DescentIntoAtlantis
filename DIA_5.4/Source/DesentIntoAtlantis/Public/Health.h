@@ -39,7 +39,7 @@ class DESENTINTOATLANTIS_API UHealth : public UObject
 	FCombatLog_AttackDefense_Data lastAttackDefenceData;
 
 public:
-	virtual void SetCombatWrapper();
+	virtual void SetCombatWrapper(UCombatEntity* aCombatEntity);
 	virtual void InitializeHealth(int aCurrentHealth,int aMaxHealth, UCombatEntity* aCombatEntity);
 	virtual void InitializeHealth(FHealthData aHealthData, UCombatEntity* aCombatEntity);
 	virtual void GiveMaxHp();

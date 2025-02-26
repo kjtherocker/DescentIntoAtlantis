@@ -59,7 +59,7 @@ void UQuestSubsystem::SetLoadedQuestSubsystemCompleteData(FQuestSubsystemComplet
 			}
 		}
 		
-		Element.Value = RawQuestData;
+		aQuestCompleteData.currentQuestInfo.activeQuest[Element.Key] = RawQuestData;
 	}
 
 	for (auto Element : aQuestCompleteData.completedQuest)
@@ -86,7 +86,7 @@ void UQuestSubsystem::SetLoadedQuestSubsystemCompleteData(FQuestSubsystemComplet
 			}
 		}
 		
-		Element.Value = RawQuestData;
+		aQuestCompleteData.completedQuest[Element.Key] = RawQuestData;
 	}
 	
 	questCompleteData = aQuestCompleteData;

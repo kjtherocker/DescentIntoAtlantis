@@ -27,7 +27,7 @@ private:
 	
 	TMap<EFloorID,FName> FloorNames;
 	UFloorFactory* floorFactory;
-	const FString FLOOR_ENUM = TEXT("EFloorIdentifier");
+	const FString FLOOR_ENUM = TEXT("EFloorID");
 	UPROPERTY()
 	UFloorBase* CurrentFloor;
 	UPROPERTY()

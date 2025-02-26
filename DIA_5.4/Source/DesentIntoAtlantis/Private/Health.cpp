@@ -8,8 +8,10 @@
 #include "SkillData.h"
 
 
-void UHealth::SetCombatWrapper()
+void UHealth::SetCombatWrapper(UCombatEntity* aCombatEntity)
 {
+	OwnedCombatEntity = aCombatEntity;
+	
 	inUseCombatWrapper      = NewObject<UCombatEntityWrapper>();
 	allDefaultCombatWrapper = NewObject<UCombatEntityWrapper>();
 	allDefaultCombatWrapper->SetAttachedCombatEntity(this);
