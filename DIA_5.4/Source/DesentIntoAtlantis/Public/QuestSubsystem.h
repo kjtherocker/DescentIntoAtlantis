@@ -85,6 +85,8 @@ public:
 
 	UQuest_Base* CreateQuest(FQuestData aQuestData);
 
+	TMap<int32, FQuestData> GetAllCompletedQuestData(){return  questCompleteData.completedQuest;}
+	TMap<int32, FQuestData> GetAllActiveQuestData(){return  questCompleteData.currentQuestInfo.activeQuest;}
 	FQuestData      GetActiveQuestData(int aQuestID);
 	FQuestStageData GetCurrentQuestStage(int aQuestID);
 	

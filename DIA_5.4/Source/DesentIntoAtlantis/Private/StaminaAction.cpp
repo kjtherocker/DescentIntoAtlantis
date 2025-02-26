@@ -25,17 +25,33 @@ void UStaminaAction::UseStaminaAction()
 bool UStaminaAction::CheckIfStaminaActionCanBeUsed()
 {
 
-	for (auto Element : partyManagerSubsystem->ReturnActiveParty())
-	{
+	TArray<UPlayerCombatEntity*> activeParty = partyManagerSubsystem->ReturnActiveParty();
 
+	if(activeParty.Num() == 0)
+	{
+		return false;
+	}
+	
+	for (auto Element : activeParty)
+	{
+		if(Element == nullptr)
+		{
+			continue;
+		}
+		
 		if(Element->GetHealthPercentage() != 1)
 		{
 			return true;
 		}
 	}
 
-	for (auto Element : partyManagerSubsystem->ReturnActiveParty())
+	for (auto Element : activeParty)
 	{
+		if(Element == nullptr)
+		{
+			continue;
+		}
+		
 		if(Element->GetManaPercentage() != 1)
 		{
 			return true;

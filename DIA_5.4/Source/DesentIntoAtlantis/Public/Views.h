@@ -50,6 +50,7 @@ enum class  EViews
 	SubSkillView            = 40,
 	ItemPopupView           = 41,
 	KeyItemPopupView        = 42,
+	QuestMenuView           = 43,
 
 };
 
@@ -89,4 +90,5 @@ enum class  EViewElements
 	ClassPassiveSkillElement    = 19,
 	NumberElement               = 20,
 	MissedElement               = 21,
+	QuestElement                = 22,
 };

@@ -61,6 +61,33 @@ void UQuestSubsystem::SetLoadedQuestSubsystemCompleteData(FQuestSubsystemComplet
 		
 		Element.Value = RawQuestData;
 	}
+
+	for (auto Element : aQuestCompleteData.completedQuest)
+	{
+		FQuestData questData = Element.Value;
+		if(!allQuestData.Contains(questData.QuestID))
+		{
+			continue;
+		}
+		FQuestData RawQuestData = allQuestData[questData.QuestID];
+
+		RawQuestData.isComplete        = questData.isComplete;
+		RawQuestData.currentQuestStage = questData.currentQuestStage;
+
+		for (int i = 0; i < questData.QuestStageDatas.Num();i++)
+		{
+			FQuestStageData RawQuestStageGoals = RawQuestData.QuestStageDatas[i];
+			FQuestStageData SavedStageGoals    = questData.QuestStageDatas[i];
+			RawQuestStageGoals.isComplete      = questData.QuestStageDatas[i].isComplete;
+			
+			for(int j = 0; j < questData.QuestStageDatas[i].QuestGoals.Num();j++)
+			{
+				RawQuestStageGoals.QuestGoals[j].isComplete = SavedStageGoals.QuestGoals[j].isComplete;
+			}
+		}
+		
+		Element.Value = RawQuestData;
+	}
 	
 	questCompleteData = aQuestCompleteData;
 	CreateAllSavedActiveQuests();
@@ -146,7 +173,8 @@ void UQuestSubsystem::QuestCompleted(int aQuestID, FQuestData aQuestData)
 void UQuestSubsystem::MarkQuestAsCompleted(int32 aQuestID)
 {
 	FQuestData completedQuest = allQuestData[aQuestID];
-	
+
+	completedQuest.isComplete = true;
 	questCompleteData.completedQuest.Add(aQuestID,completedQuest);
 	questCompleteData.currentQuestInfo.activeQuest.Remove(aQuestID);
 	AllActiveQuests.Remove(aQuestID);

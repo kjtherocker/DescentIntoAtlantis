@@ -96,7 +96,7 @@ void UMainMenuView::Class()
 
 void UMainMenuView::Status()
 {
-	//gameModeBase->InGameHUD->PushView(EViews::OptionView,    EUiType::ActiveUi);
+	gameModeBase->InGameHUD->PushView(EViews::QuestMenuView,    EUiType::ActiveUi);
 }
 
 void UMainMenuView::Option()
