@@ -6,17 +6,30 @@
 #include "Quest_Goal_Element.h"
 #include "Components/VerticalBox.h"
 
+void UQuest_Highlighted_Stage_Element::Initialize(AInGameHUD* aInGameHud)
+{
+	InGameHUD = aInGameHud;
+}
+
 void UQuest_Highlighted_Stage_Element::SetQuest(FQuestData aQuestData)
 {
 	questData = aQuestData;
+
+	SetText(BW_QuestName,questData.QuestName);
 	
 	SetQuestStage(questData.QuestStageDatas[questData.currentQuestStage]);
 }
 
 void UQuest_Highlighted_Stage_Element::SetQuestStage(FQuestStageData aQuestStageData)
 {
+	if(aQuestStageData.QuestGoals.Num() == 0)
+	{
+		return;
+	}
+	
+	questGoalElements.Empty();
 	questStageData = aQuestStageData;
-
+	
 	for (auto Element : questStageData.QuestGoals)
 	{
 		CreateQuestbar(Element);
@@ -34,7 +47,7 @@ void UQuest_Highlighted_Stage_Element::CreateQuestbar(FQuestGoalData AQuestGoalD
 	skillBarElement->AddToViewport();
 
 	baseUserWidget->SetQuestGoalElement(AQuestGoalData);
-	BW_StageVerticalBox->AddChild(skillBarElement);
+	BW_GoalVerticalBox->AddChild(skillBarElement);
 
 	questGoalElements.Add(baseUserWidget);
 	

@@ -10,6 +10,8 @@
 #include "MapView.h"
 
 #include "PersistentGameinstance.h"
+#include "QuestHighlightedView.h"
+#include "QuestHighlightView.h"
 #include "SaveManagerSubsystem.h"
 
 #include "Engine/LevelStreaming.h"
@@ -48,6 +50,9 @@ void AFloorGameMode::InitializeLevel()
     mapView->GenerateLevel(floorFactory,levelProgressionSubsystem->GetCurrentFlooridentifier());
     mapView->SetFloorPawnDelegates(floorPawn);
 
+    UQuestHighlightView* QuestHighlightView     =
+        (UQuestHighlightView*)InGameHUD->PushAndGetView(EViews::QuestHighlightView, EUiType::PersistentUi);
+    
     partyManager->SetFloorPawnDelegates(floorPawn);
     
     floorManager = Cast<AFloorManager>(world->SpawnActor<AActor>(floorManagerReference, FVector::Zero(), rotator));

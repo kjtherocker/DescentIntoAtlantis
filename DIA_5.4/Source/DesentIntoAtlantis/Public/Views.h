@@ -51,7 +51,7 @@ enum class  EViews
 	ItemPopupView           = 41,
 	KeyItemPopupView        = 42,
 	QuestMenuView           = 43,
-
+	QuestHighlightView      = 44
 };
 
 
@@ -93,4 +93,5 @@ enum class  EViewElements
 	QuestElement                  = 22,
 	QuestStageElement             = 23,
 	QuestGoalElement              = 24,
+	
 };

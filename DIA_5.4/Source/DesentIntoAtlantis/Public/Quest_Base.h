@@ -12,6 +12,8 @@
  * 
  */
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnQuestCompletetion,int, QuestID,FQuestData,QuestData);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnQuestChange, int, questID ,FQuestData, questData);
+
 UCLASS()
 class DESENTINTOATLANTIS_API UQuest_Base : public UObject
 {
@@ -39,6 +41,9 @@ private:
 public:
 
 	UPROPERTY()
+	FOnQuestChange onQuestChange;
+	
+	UPROPERTY()
 	FOnQuestCompletetion OnQuestCompletetion;
 
 	void InitializeQuest(UPersistentGameinstance* aPersistantGameInstance);
@@ -60,6 +65,7 @@ public:
 	void UpdateQuestGoals();
 	FQuestStageData GetCurrentQuestStage();
 
+	FQuestData GetQuestData(){ return questData;};
 	int32 GetQuestID(){return questData.QuestID;}
 	UQuestGoal_Base* CreateNewQuestGoal(FQuestGoalData aQuestGoalData);
 };

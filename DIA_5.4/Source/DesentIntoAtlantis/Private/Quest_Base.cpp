@@ -87,6 +87,8 @@ void UQuest_Base::CheckAllQuestGoals()
 	{
 		QuestStageFinished();
 	}
+
+	onQuestChange.Broadcast(questData.QuestID,questData);
 }
 
 void UQuest_Base::UpdateQuestGoals()

@@ -26,19 +26,23 @@ public:
 	FQuestStageData questStageData;
 
 	TArray<UQuest_Goal_Element*> questGoalElements;
-	
+
+	void Initialize(AInGameHUD* aInGameHud);
 	void SetQuest(FQuestData aQuestData);
 	void SetQuestStage(FQuestStageData aQuestStageData);
 
 	void CreateQuestbar(FQuestGoalData aQuestStageData);
 
 	void UpdateAllQuestGoals();
-	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UTextBlock* BW_StageDescription;
-	
-	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	class UVerticalBox* BW_StageVerticalBox;
-};
 
+	int32 GetCurrentQuestID(){return questData.QuestID;}
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	URichTextBlock* BW_QuestName;
 	
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	URichTextBlock* BW_StageDescription;
+	
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	class UVerticalBox* BW_GoalVerticalBox;
 };
