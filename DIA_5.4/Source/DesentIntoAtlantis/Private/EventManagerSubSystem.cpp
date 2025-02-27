@@ -60,9 +60,9 @@ bool UEventManagerSubSystem::isEventCompleted(FVector2D aEventPosition)
 
 bool UEventManagerSubSystem::isEventCompleted(int32 aEventID)
 {
-	for ( FFloorEventData item : completedFloorEventData)
+	for ( FFloorEventData floor : completedFloorEventData)
 	{
-		if(item.FloorEventID == aEventID)
+		if(floor.FloorEventID == aEventID)
 		{
 			return true;
 		}

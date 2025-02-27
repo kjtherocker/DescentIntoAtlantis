@@ -26,7 +26,12 @@ void UQuest_Highlighted_Stage_Element::SetQuestStage(FQuestStageData aQuestStage
 	{
 		return;
 	}
-	
+
+	for (auto Element : questGoalElements)
+	{
+		Element->RemoveFromParent();
+	}
+
 	questGoalElements.Empty();
 	questStageData = aQuestStageData;
 	

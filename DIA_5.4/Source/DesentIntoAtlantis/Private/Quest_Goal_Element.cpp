@@ -10,10 +10,10 @@ void UQuest_Goal_Element::SetQuestGoalElement(FQuestGoalData aQuestGoalData)
 
 	if(aQuestGoalData.isComplete)
 	{
-		BW_CompletedICon->SetOpacity(1);
+		BW_CompletedICon->SetOpacity(0);
 	}
 	else
 	{
-		BW_CompletedICon->SetOpacity(0);
+		BW_CompletedICon->SetOpacity(1);
 	}
 }

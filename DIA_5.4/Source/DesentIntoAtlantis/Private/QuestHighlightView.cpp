@@ -14,11 +14,6 @@ void UQuestHighlightView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 
 	QuestSubsystem = persistentGameinstance->questSubsystem;
 	QuestSubsystem->onQuestUpdated.AddDynamic(this,&UQuestHighlightView::OnQuestUpdate);
-
-
-	BW_TestQuestStageElement->Initialize(InGameHUD);
-	BW_TestQuestStageElement->UiInitialize(gameModeBase);
-	BW_TestQuestStageElement->SetQuest(QuestSubsystem->GetCurrentMainQuest());
 	
 	CreateQuestbar(	QuestSubsystem->GetCurrentMainQuest());
 }

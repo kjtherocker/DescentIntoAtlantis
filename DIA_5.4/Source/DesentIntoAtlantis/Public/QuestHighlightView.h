@@ -30,10 +30,7 @@ public:
 
 	UFUNCTION()
 	virtual void OnQuestUpdate(FQuestData aQuestData);
-
-
-	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UQuest_Highlighted_Stage_Element* BW_TestQuestStageElement;
+	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UVerticalBox* BW_StageVerticalBox;
 };

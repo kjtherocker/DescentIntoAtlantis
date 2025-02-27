@@ -6,12 +6,18 @@
 void UQuestGoal_Event::InitializeQuestGoal(UPersistentGameinstance* aPersistentGameinstance, FQuestGoalData aQuestGoal)
 {
 	Super::InitializeQuestGoal(aPersistentGameinstance, aQuestGoal);
-	aPersistentGameinstance->EventManagerSubSystem->EventHasFinished.AddDynamic(this,&UQuestGoal_Event::UpdateQuestGoal);
+	aPersistentGameinstance->EventManagerSubSystem->EventHasFinished.AddDynamic(this,&UQuestGoal_Event::OnEventFinished);
 }
 
-void UQuestGoal_Event::UpdateQuestGoal(int eventID)
+void UQuestGoal_Event::OnEventFinished(int eventID)
 {
 	Super::UpdateQuestGoal();
+
+	if(questGoalData.PreRequisiteEvents == eventID)
+	{
+		questGoalData.isComplete = true;
+		QuestGoalComplete();
+	}
 
 	questGoalData.isComplete = CheckIfGoalWasReached();
 
@@ -19,6 +25,7 @@ void UQuestGoal_Event::UpdateQuestGoal(int eventID)
 	{
 		QuestGoalComplete();
 	}
+	
 }
 
 bool UQuestGoal_Event::CheckIfGoalWasReached()

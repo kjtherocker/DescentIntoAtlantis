@@ -229,6 +229,7 @@ UQuest_Base* UQuestSubsystem::CreateQuest(FQuestData aQuestData)
 	if(Quest_Base != nullptr)
 	{
 		Quest_Base->OnQuestCompletetion.AddDynamic(this,&UQuestSubsystem::QuestCompleted);
+		Quest_Base->onQuestChange.AddDynamic(this,&UQuestSubsystem::QuestUpdated);
 		Quest_Base->InitializeQuest(persistentGameinstance);
 		Quest_Base->SetQuest(aQuestData);
 	}
