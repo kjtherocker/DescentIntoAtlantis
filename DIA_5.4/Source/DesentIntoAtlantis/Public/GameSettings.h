@@ -19,7 +19,7 @@ public:
 	inline bool static DEBUG_MODE        = true;
 	inline bool static DISABLE_CUTSCENES = false;
 	inline bool static DISABLE_TUTORIAL  = true;
-	inline bool static isPrologueDisabled  = false;
+	inline bool static isPrologueDisabled  = true;
 };
 
 

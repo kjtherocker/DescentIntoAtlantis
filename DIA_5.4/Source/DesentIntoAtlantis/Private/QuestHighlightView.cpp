@@ -14,6 +14,7 @@ void UQuestHighlightView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 
 	QuestSubsystem = persistentGameinstance->questSubsystem;
 	QuestSubsystem->onQuestUpdated.AddDynamic(this,&UQuestHighlightView::OnQuestUpdate);
+	QuestSubsystem->OnMainQuestChange.AddDynamic(this,&UQuestHighlightView::OnMainQuestChange);
 	
 	CreateQuestbar(	QuestSubsystem->GetCurrentMainQuest());
 }
@@ -37,6 +38,18 @@ void UQuestHighlightView::CreateQuestbar(FQuestData aQuestData)
 
 	questStageHighlightElements.Add(baseUserWidget);
 	
+}
+
+void UQuestHighlightView::OnMainQuestChange(FQuestData aQuestData)
+{
+	for (auto Element : questStageHighlightElements)
+	{
+		Element->RemoveFromParent();
+	}
+
+	questStageHighlightElements.Empty();
+
+	CreateQuestbar(	QuestSubsystem->GetCurrentMainQuest());
 }
 
 void UQuestHighlightView::OnQuestUpdate(FQuestData aQuestData)

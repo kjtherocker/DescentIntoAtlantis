@@ -21,6 +21,7 @@ class UPersistentGameinstance;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnQuestStart, FQuestData, questData);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnQuestCompleted, FQuestData, questData);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnQuestUpdated, FQuestData, questData);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMainQuestChange, FQuestData, questData);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FQuestSubsystemHasChanged,FQuestSubsystemCompleteData,QuestSubsystemCompleteData);
 
 UCLASS()
@@ -50,11 +51,17 @@ private:
 	FQuestData currentHighlightQuest;
 
 	const int INVALID_QUEST_ID = 10000;
+
+	UPROPERTY()
+	FQuestData EMPTY_QUEST; 
 	
 public:
 
 	UPROPERTY()
 	FQuestSubsystemHasChanged QuestSubsystemHasChanged;
+
+	UPROPERTY()
+	FOnMainQuestChange OnMainQuestChange;
 	
 	UPROPERTY()
 	TMap<int32,UQuest_Base*> AllActiveQuestsObjects;
@@ -77,6 +84,8 @@ public:
 	void SaveQuestSubsystem();
 	
 	bool isQuestCompleted(int32 aQuestID);
+
+	void SetNewMainQuestID(int32 aQuestID);
 	
 	UFUNCTION()
 	void QuestUpdated(int aQuestID ,FQuestData aQuestData);
@@ -88,6 +97,8 @@ public:
 
 	void ValidateQuestStage();
 
+	bool isQuestActiveIDValid(int32 aQuestID);
+	
 	UQuest_Base* CreateQuest(FQuestData aQuestData);
 
 	FQuestData GetCurrentMainQuest();

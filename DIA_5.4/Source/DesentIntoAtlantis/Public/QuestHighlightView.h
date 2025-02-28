@@ -29,6 +29,9 @@ public:
 	void CreateQuestbar(FQuestData aQuestData);
 
 	UFUNCTION()
+	virtual void OnMainQuestChange(FQuestData aQuestData);
+	
+	UFUNCTION()
 	virtual void OnQuestUpdate(FQuestData aQuestData);
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))

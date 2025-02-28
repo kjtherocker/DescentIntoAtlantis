@@ -84,9 +84,7 @@ struct DESENTINTOATLANTIS_API FQuestGoalData:public  FTableRowBase
 	FString questGoalDescription = "Quest Description";
 	
 	UPROPERTY(EditAnywhere)
-	int32 PreRequisiteQuests;
-	UPROPERTY(EditAnywhere)
-	int32 PreRequisiteEvents;
+	int32 GoalID;
 	
 	UPROPERTY(EditAnywhere)
 	FQuestKillEnemyData PreRequisiteEnemyKilled;
@@ -166,7 +164,7 @@ struct DESENTINTOATLANTIS_API FActiveQuestArray:public  FTableRowBase
 	FQuestData currentHighlightQuest;
 
 	UPROPERTY()
-	FQuestData currentMainQuest;
+	int currentMainQuestID = 10000;
 };
 
 USTRUCT()

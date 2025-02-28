@@ -14,7 +14,7 @@ void UQuestGoal_Quest::InitializeQuestGoal(UPersistentGameinstance* aPersistentG
 
 bool UQuestGoal_Quest::CheckIfGoalWasReached()
 {
-	return persistentGameinstance->questSubsystem->isQuestCompleted(questGoalData.PreRequisiteQuests);
+	return persistentGameinstance->questSubsystem->isQuestCompleted(questGoalData.GoalID);
 }
 
 void UQuestGoal_Quest::UpdateQuestGoal( FQuestData aQuestData)

@@ -16,8 +16,18 @@ void UQuest_Highlighted_Stage_Element::SetQuest(FQuestData aQuestData)
 	questData = aQuestData;
 
 	SetText(BW_QuestName,questData.QuestName);
-	
-	SetQuestStage(questData.QuestStageDatas[questData.currentQuestStage]);
+
+	if(questData.QuestStageDatas.Num() == questData.currentQuestStage
+		||  questData.currentQuestStage > questData.QuestStageDatas.Num() )
+	{
+		RemoveFromParent();
+		return;
+	}
+	else
+	{
+		SetQuestStage(questData.QuestStageDatas[questData.currentQuestStage]);		
+	}
+
 }
 
 void UQuest_Highlighted_Stage_Element::SetQuestStage(FQuestStageData aQuestStageData)
