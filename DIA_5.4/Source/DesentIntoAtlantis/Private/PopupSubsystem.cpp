@@ -16,15 +16,73 @@ void UPopupSubsystem::SetGameMode(AAtlantisGameModeBase* aGameMode)
 	InGameHUD = GameModeBase->InGameHUD;
 }
 
+bool UPopupSubsystem::isPopupAllowedToShowUp()
+{
+
+	if(PopupRequestDatas.Num() == 0)
+	{
+		return false;
+	}
+	
+	if(InGameHUD->isViewActive(EViews::Death))
+	{
+		return false;
+	}
+
+	if(InGameHUD->isViewActive(EViews::Dialogue))
+	{
+		return false;
+	}
+
+	if(InGameHUD->isViewActive(EViews::TransitionView))
+	{
+		return false;
+	}
+
+	return true;
+}
+
+void UPopupSubsystem::AddPopupRequest(FPopupRequestData aPopupRequest)
+{
+	PopupRequestDatas.Add(aPopupRequest);
+}
+
+void UPopupSubsystem::TriggerPopup()
+{
+	if(!isPopupAllowedToShowUp())
+	{
+		return;
+	}
+
+
+	FPopupRequestData popupRequest = PopupRequestDatas[0];
+	PopupRequestDatas.RemoveAt(0);
+	
+	switch (popupRequest.popupType)
+	{
+	case EPopupType::None:
+		break;
+	case EPopupType::Item:
+		CreateItemPopup(popupRequest.ItemData);
+		break;
+	case EPopupType::KeyItem:
+		CreateKeyItemPopup(popupRequest.KeyItemData);
+		break;
+	case EPopupType::Equipment:
+		CreateEquipmentPopup(popupRequest.EquipmentData);
+		break;
+	}
+}
+
 void UPopupSubsystem::SetPartySubsystem(UPartyManagerSubsystem* aPartyManagerSubsystem)
 {
 	PartyManagerSubsystem = aPartyManagerSubsystem;
 
 	PartyManagerSubsystem->PartyInventory->GetInventoryItems()
-	->OnNewItemGainedDelegate.AddDynamic(this,&UPopupSubsystem::CreateItemPopup);
+	->ItemPopupRequest.AddDynamic(this,&UPopupSubsystem::AddPopupRequest);
 
 	PartyManagerSubsystem->PartyInventory->GetInventoryKeyItems()
-	->OnNewKeyItemGained.AddDynamic(this,&UPopupSubsystem::CreateKeyItemPopup);
+	->KeyItemPopupRequest.AddDynamic(this,&UPopupSubsystem::AddPopupRequest);
 }
 
 void UPopupSubsystem::CreateKeyItemPopup(FKeyItemData aKeyItemData)
@@ -51,5 +109,13 @@ void UPopupSubsystem::CreateEquipmentPopup(FEquipmentPassiveData aEquipmentData)
 
 void UPopupSubsystem::OnPopupEnd()
 {
-	OnPopUpClosed.Broadcast();
+
+	if(PopupRequestDatas.Num() == 0)
+	{
+		OnPopUpClosed.Broadcast();
+	}
+	else
+	{
+		TriggerPopup();
+	}
 }

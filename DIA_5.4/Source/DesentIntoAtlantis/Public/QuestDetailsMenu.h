@@ -23,7 +23,4 @@ public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	URichTextBlock* BW_QuestName;
 	
-	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	URichTextBlock* BW_QuestDescription;
-	
 };

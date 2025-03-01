@@ -125,7 +125,20 @@ void AInGameHUD::ReturnToPreviousActiveView()
     }
 }
 
- TSubclassOf<UUserWidget> AInGameHUD::GetUserWidget(EViews aView)
+bool AInGameHUD::isViewActive(EViews aView)
+{
+    for (auto Element : activeViewStack)
+    {
+        if(Element->view == aView)
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+TSubclassOf<UUserWidget> AInGameHUD::GetUserWidget(EViews aView)
 {
     return userWidgets[aView];
 }

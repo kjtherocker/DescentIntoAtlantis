@@ -15,6 +15,36 @@ class AAtlantisGameModeBase;
 /**
  * 
  */
+
+UENUM()
+enum class EPopupType   : uint8
+{
+	None               = 0,
+	Item               = 1,
+	KeyItem            = 2,
+	Equipment          = 3,
+
+};
+
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FPopupRequestData : public FTableRowBase
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere)
+	EPopupType popupType;
+
+	UPROPERTY(EditAnywhere)
+	FKeyItemData KeyItemData;
+	UPROPERTY(EditAnywhere)
+	FItemData ItemData;
+
+	UPROPERTY(EditAnywhere)
+	FEquipmentPassiveData EquipmentData;
+};
+
+
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPopUpClosed);
 UCLASS()
 class DESENTINTOATLANTIS_API UPopupSubsystem : public UGameInstanceSubsystem
@@ -32,10 +62,19 @@ class DESENTINTOATLANTIS_API UPopupSubsystem : public UGameInstanceSubsystem
 	
 public:
 
+	TArray<FPopupRequestData> PopupRequestDatas;
+	
 	UPROPERTY()
 	FOnPopUpClosed OnPopUpClosed;
 	
 	void SetGameMode(AAtlantisGameModeBase* aGameMode);
+
+	bool isPopupAllowedToShowUp();
+	
+	UFUNCTION()
+	void AddPopupRequest(FPopupRequestData aPopupRequest);
+	void TriggerPopup();
+	
 	void SetPartySubsystem(UPartyManagerSubsystem* aPartyManagerSubsystem);
 	UFUNCTION()
 	void CreateKeyItemPopup(FKeyItemData aKeyItemData);
@@ -43,6 +82,8 @@ public:
 	void CreateItemPopup(FItemData aItemData);
 	void CreateEquipmentPopup(FEquipmentPassiveData aEquipmentData);
 
+
+	
 	UFUNCTION()
 	void OnPopupEnd();
 };

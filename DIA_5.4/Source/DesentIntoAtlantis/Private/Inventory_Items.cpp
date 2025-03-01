@@ -44,12 +44,15 @@ void UInventory_Items::AddItem(EItemID aItemId)
 	if(!AllUnlockedItems.Contains(aItemId))
 	{
 		UnlockBrandNewItem(aItemId);
-
+		
+		SendPopupRequest(AllUnlockedItems[aItemId]->GetItemData());
 		OnNewItemGainedDelegate.Broadcast(AllUnlockedItems[aItemId]->GetItemData());
 		return;
 	}
 	else
 	{
+	
+		SendPopupRequest(AllUnlockedItems[aItemId]->GetItemData());
 		OnNewItemGainedDelegate.Broadcast(AllUnlockedItems[aItemId]->GetItemData());
 		AllUnlockedItems[aItemId]->IncreaseBaseItemTier();
 		partyInventoryCompleteData.ItemInventoryInfo[aItemId] = AllUnlockedItems[aItemId]->GetItemData();
@@ -76,6 +79,14 @@ bool UInventory_Items::UnlockBrandNewItem(EItemID aItemId)
 	partyInventoryCompleteData.ItemInventoryInfo.Add(aItemId,item->GetItemData());
 
 	return true;
+}
+
+void UInventory_Items::SendPopupRequest(FItemData aItemData)
+{
+	FPopupRequestData PopupRequestData;
+	PopupRequestData.popupType = EPopupType::Item;
+	PopupRequestData.ItemData  = aItemData;
+	ItemPopupRequest.Broadcast(PopupRequestData);
 }
 
 

@@ -48,6 +48,9 @@ public:
 	void PopAllActiveViews();
 	void PushMostRecentInActiveView();
 	void ReturnToPreviousActiveView();
+
+	bool isViewActive(EViews aView);
+	
 	 TSubclassOf<UUserWidget> GetUserWidget(EViews aView);
 	
 	TSubclassOf<UUserWidget> GetElement(EViewElements aViewElement);

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PopupSubsystem.h"
 #include "UPartyInventory.h"
 #include "UObject/NoExportTypes.h"
 #include "Inventory_Items.generated.h"
@@ -17,6 +18,7 @@ class UItemBase;
  */
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnNewItemGained,FItemData,ItemData);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnNewItemPopupRequest,FPopupRequestData,itemPopupRequest);
 
 UCLASS()
 class DESENTINTOATLANTIS_API UInventory_Items : public UObject
@@ -42,6 +44,9 @@ private:
 public:
 
 	UPROPERTY()
+	FOnNewItemPopupRequest ItemPopupRequest;
+	
+	UPROPERTY()
 	FOnNewItemGained OnNewItemGainedDelegate;
 	
 	void InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UPassiveFactorySubsystem* aPassiveFactorySubsystem,USkillFactorySubsystem* aSkillFactorySubsystem );
@@ -56,6 +61,8 @@ public:
 
 	bool UnlockBrandNewItem(EItemID aItemId);
 
+	void SendPopupRequest(FItemData aItemData);
+	
 	TArray<UItemBase*> GetAllItems();
 	
 };

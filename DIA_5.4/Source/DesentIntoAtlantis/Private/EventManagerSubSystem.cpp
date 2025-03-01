@@ -249,6 +249,8 @@ void UEventManagerSubSystem::EventRewardItems(FFloorEventStageInfo floorEventInf
 
 	PartyManagerSubsystem->RewardParty(floorEventInfo.Rewards);
 
+
+	
 	for (auto Element : floorEventInfo.Rewards.ClassIds)
 	{
 		TriggerNextEventStage();

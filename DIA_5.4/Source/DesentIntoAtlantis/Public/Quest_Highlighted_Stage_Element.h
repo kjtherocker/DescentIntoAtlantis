@@ -40,8 +40,6 @@ public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	URichTextBlock* BW_QuestName;
 	
-	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	URichTextBlock* BW_StageDescription;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	class UVerticalBox* BW_GoalVerticalBox;

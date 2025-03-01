@@ -538,6 +538,8 @@ void UPartyManagerSubsystem::RewardParty(FRewardsData aRewardData)
 	{
 		UnlockClassForAll(Element);
 	}
+
+	persistentGameInstance->popupSubsystem->TriggerPopup();
 }
 
 

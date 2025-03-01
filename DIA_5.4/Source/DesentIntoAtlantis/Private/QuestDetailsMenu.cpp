@@ -7,5 +7,4 @@ void UQuestDetailsMenu::SetQuestDetails(FQuestData aQuestData)
 {
 
 	SetText(BW_QuestName, aQuestData.QuestName);
-	SetText(BW_QuestDescription, aQuestData.QuestDescription);
 }

@@ -3,6 +3,8 @@
 
 #include "Inventory_KeyItems.h"
 
+#include "PopupSubsystem.h"
+
 void UInventory_KeyItems::InitializePartyInventory(FPartyInventoryCompleteData aPartyInventoryCompleteData,UKeyItemFactorySubsystem* aKeyItemFactorySubSystem)
 {
 	partyInventoryCompleteData = aPartyInventoryCompleteData;
@@ -51,6 +53,16 @@ void UInventory_KeyItems::AddKeyItem(EKeyItemsID aKeyItemID)
 void UInventory_KeyItems::GiveAllKeyItems()
 {
 	partyInventoryCompleteData.keyItemData = keyItemFactorySubSystem->GetAllKeyItems();
+}
+
+void UInventory_KeyItems::SendPopupRequest(FKeyItemData aKeyItemData)
+{
+	FPopupRequestData PopupRequestData;
+	
+	PopupRequestData.popupType    = EPopupType::Item;
+	PopupRequestData.KeyItemData  = aKeyItemData;
+	
+	KeyItemPopupRequest.Broadcast(PopupRequestData);
 }
 
 bool UInventory_KeyItems::DoesPartyOwnKeyItem(EKeyItemsID aKeyItemID)
