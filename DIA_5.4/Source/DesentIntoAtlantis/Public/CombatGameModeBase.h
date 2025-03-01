@@ -100,6 +100,7 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	bool hasCombatStarted;
 	int currentActivePosition;
 	int combatExp = 0;
+	int gainedCP  = 0;
 
 
 	UPROPERTY()
@@ -178,7 +179,7 @@ public:
 	void SetRoundSide(ECharactertype aCharacterType);
 	void TurnEnd();
 	void TriggerTurnEndTimers();
-	void TriggerLevelupMenu(TArray<UPlayerCombatEntity*> aPlayerCombatEntity, int aExperience);
+	void TriggerLevelupMenu(TArray<UPlayerCombatEntity*> aPlayerCombatEntity, int aExperience,int aClassPoints);
 	void AllyStartTurn();
 	void EnemyStartTurn();
 	void EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEntity);

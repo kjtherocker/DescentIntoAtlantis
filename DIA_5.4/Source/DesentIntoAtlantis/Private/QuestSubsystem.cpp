@@ -195,10 +195,17 @@ void UQuestSubsystem::MarkQuestAsCompleted(int32 aQuestID)
 	
 	FQuestData completedQuest = allQuestData[aQuestID];
 
+	if(completedQuest.isComplete)
+	{
+		return;
+	}
+
 	completedQuest.isComplete = true;
 	questCompleteData.completedQuest.Add(aQuestID,completedQuest);
 	questCompleteData.currentQuestInfo.activeQuest.Remove(aQuestID);
 	AllActiveQuestsObjects.Remove(aQuestID);
+
+	allQuestData[aQuestID] = completedQuest;
 	
 	SaveQuestSubsystem();
 

@@ -280,6 +280,7 @@ void ACombatGameModeBase::TurnEnd()
 		if(enemysInCombat[i]->GetIsMarkedForDeath())
 		{
 			combatExp += enemysInCombat[i]->GetExperience();
+			gainedCP  +=  enemysInCombat[i]->GetClassPoints();
 			enemysInCombat[i]->Death();
 			enemysInCombat.RemoveAt(i);
 		}
@@ -576,7 +577,7 @@ void ACombatGameModeBase::EndCombat(bool aHasWon)
 	
 	if(aHasWon)
 	{
-		TriggerLevelupMenu(partyMembersInCombat, GetEXP());
+		TriggerLevelupMenu(partyMembersInCombat, GetEXP(),gainedCP);
 	}
 	else
 	{
@@ -591,12 +592,14 @@ void ACombatGameModeBase::EndCombat(bool aHasWon)
 }
 
 
-void ACombatGameModeBase::TriggerLevelupMenu(TArray<UPlayerCombatEntity*> aPlayerCombatEntity, int aExperience)
+void ACombatGameModeBase::TriggerLevelupMenu(TArray<UPlayerCombatEntity*> aPlayerCombatEntity, int aExperience,int aClassPoints)
 {
 	TArray<UPlayerCombatEntity*> combatEntitysToLevelup= aPlayerCombatEntity;
 
 	int previousPartyLevel = partyManager->GetPartyLevel();
 	partyManager->AddPartyExperience(aExperience);
+	partyManager->AddPartyClassPoints(aClassPoints);
+	
 	int newPartyLevel = partyManager->GetPartyLevel();
 	
 	if(newPartyLevel > previousPartyLevel)

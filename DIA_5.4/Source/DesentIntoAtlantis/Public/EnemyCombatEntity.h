@@ -122,6 +122,7 @@ public:
 	virtual FString GetEntityName() override;
 
 	virtual int GetExperience();
+	virtual int GetClassPoints();
 	UPROPERTY()
 	AEnemyPortraitElement* enemyPortrait;
 	UPROPERTY()

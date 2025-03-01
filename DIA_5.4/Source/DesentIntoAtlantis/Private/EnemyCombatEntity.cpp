@@ -69,6 +69,11 @@ int UEnemyCombatEntity::GetExperience()
 	return enemyEntityInfo.experience;
 }
 
+int UEnemyCombatEntity::GetClassPoints()
+{
+	return  enemyEntityInfo.ClassPoints;
+}
+
 void UEnemyCombatEntity::SetAbilityScores()
 {
 	abilityScoreMap[EStatTypes::Strength]->base    =  CombatEntityData.baseStats[EStatTypes::Strength];
