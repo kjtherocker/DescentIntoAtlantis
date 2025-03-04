@@ -76,7 +76,7 @@ public:
 
 	virtual int GetCurrentSync(){return ResourceBarInfo.Current;}
 
-	virtual bool GetSyncLockState(){return syncData.isSyncLocked;}
+	virtual bool GetSyncisLockedState(){return syncData.isSyncLocked;}
 	
 	virtual FSyncData GetSyncData();
 };

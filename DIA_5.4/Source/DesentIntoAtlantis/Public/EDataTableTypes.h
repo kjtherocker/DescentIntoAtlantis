@@ -86,7 +86,7 @@ enum class  EPartyMembersID
 	Kriede              = 1,
 	Rain                = 2,
 	Feienne             = 3,
-	Gram                = 4,
+	Seres               = 4,
 	Watcher             = 5,
 };
 

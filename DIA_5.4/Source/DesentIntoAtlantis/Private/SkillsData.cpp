@@ -100,7 +100,15 @@ bool USkillBase::CanUseSkill(UCombatEntity* aSkillOwner, ESkillResourceUsed Skil
 		return aSkillOwner->healthHandler->GetCurrentHealth() >= skillData.costToUse;
 		break;
 	case ESkillResourceUsed::Sync:
-		return aSkillOwner->combatEntityHub->SyncHandler->GetCurrentSync() >= skillData.costToUse;
+		if(aSkillOwner->combatEntityHub->SyncHandler->GetSyncisLockedState())
+		{
+			return false;
+		}
+		else
+		{
+			return aSkillOwner->combatEntityHub->SyncHandler->GetCurrentSync() >= skillData.costToUse;	
+		}
+		
 		break;
 	case ESkillResourceUsed::ItemCharges:
 		return aSkillOwner->combatEntityHub->ItemChargeHandler->isItemChargeAvaliable();

@@ -89,7 +89,7 @@ void UPartyHealthbarElement::UpdateHealthbarElements()
 		previousHealthPercentage = currentHealthPercentage;
 	}
 	float syncPercentage = playerCombatEntity->GetSyncPercentage();
-	if(playerCombatEntity->combatEntityHub->SyncHandler->GetSyncLockState())
+	if(playerCombatEntity->combatEntityHub->SyncHandler->GetSyncisLockedState())
 	{
 		BW_Sync->SetPercent(0);	
 	}

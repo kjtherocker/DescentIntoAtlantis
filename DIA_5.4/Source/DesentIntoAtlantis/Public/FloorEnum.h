@@ -258,6 +258,7 @@ enum class EDialogueActorsLabel
 	GuardShark          = 4,
 	CutsceneCamera      = 5,
 	Cavia               = 6,
+	Seres               = 7,
 };
 
 UENUM()
