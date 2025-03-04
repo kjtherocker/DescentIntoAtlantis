@@ -19,6 +19,7 @@
 #include "SaveGameData.h"
 #include "SaveManagerSubsystem.h"
 #include "StaminaHandler.h"
+#include "SyncHandler.h"
 #include "UPartyInventory.h"
 
 
@@ -507,6 +508,14 @@ FPartyGroupCompleteData UPartyManagerSubsystem::CreatePartyGroupData()
 	}
 
 	return PartyGroupCompleteData;
+}
+
+void UPartyManagerSubsystem::UnlockPartyMemberSync(EPartyMembersID aPartyMemberID)
+{
+	UPlayerCombatEntity* partyMember = GetSpecificPartyMember(aPartyMemberID);
+
+	partyMember->combatEntityHub->SyncHandler->UnlockSync();
+	partyMember->hasHealthOrManaValuesChanged.Broadcast();
 }
 
 void UPartyManagerSubsystem::RewardParty(FRewardsData aRewardData)

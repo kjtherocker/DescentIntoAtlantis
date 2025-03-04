@@ -9,6 +9,7 @@
 #include "Health.h"
 #include "PersistentGameinstance.h"
 #include "PlayerCombatEntity.h"
+#include "SyncHandler.h"
 #include "Components/ProgressBar.h"
 #include "Components/TextBlock.h"
 
@@ -87,8 +88,15 @@ void UPartyHealthbarElement::UpdateHealthbarElements()
 	{
 		previousHealthPercentage = currentHealthPercentage;
 	}
-	float syncPercentage = playerCombatEntity->GetSyncPercentage(); 
-	BW_Sync->SetPercent(syncPercentage);
+	float syncPercentage = playerCombatEntity->GetSyncPercentage();
+	if(playerCombatEntity->combatEntityHub->SyncHandler->GetSyncLockState())
+	{
+		BW_Sync->SetPercent(0);	
+	}
+	else
+	{
+		BW_Sync->SetPercent(syncPercentage);	
+	}	
 }
 
 void UPartyHealthbarElement::HitEffect(float DeltaTime)

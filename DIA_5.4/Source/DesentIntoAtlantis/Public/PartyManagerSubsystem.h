@@ -107,6 +107,8 @@ public:
 
 	FPartyGroupCompleteData CreatePartyGroupData();
 
+	void UnlockPartyMemberSync(EPartyMembersID aPartyMemberID);
+
 	void RewardParty(FRewardsData aRewardData);
 
 	UPROPERTY()

@@ -95,7 +95,8 @@ public:
 	void OnReturnedToFloor();
 
 	FTeleportData GetCombatTeleportationData();
-	
+
+	void EventUnlockPartyMemberSync(FFloorEventStageInfo floorEventInfo);
 	void EventRewardItems(FFloorEventStageInfo floorEventInfo);
 	void EventTeleport(FFloorEventStageInfo floorEventInfo);
 	void EventAddPartyMember(FFloorEventStageInfo floorEventInfo);

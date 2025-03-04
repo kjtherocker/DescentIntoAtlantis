@@ -205,6 +205,9 @@ void UEventManagerSubSystem::TriggerNextEventStage()
 		case EFloorEventTypes::StartQuest:
 			StartQuest(currentFloorEventStage);
 			break;
+		case EFloorEventTypes::UnlockPartyMemberSync:
+			EventUnlockPartyMemberSync(currentFloorEventStage);
+			break;
 		default:
 			{
 				break;
@@ -241,6 +244,14 @@ void UEventManagerSubSystem::OnReturnedToFloor()
 FTeleportData UEventManagerSubSystem::GetCombatTeleportationData()
 {
 	return currentFloorEventStage.postCombatTeleportation;
+}
+
+void UEventManagerSubSystem::EventUnlockPartyMemberSync(FFloorEventStageInfo floorEventInfo)
+{
+	UPartyManagerSubsystem* PartyManagerSubsystem = persistentGameInstance->partyManagerSubsystem;
+
+	PartyManagerSubsystem->UnlockPartyMemberSync(floorEventInfo.PartyMemberId);
+	TriggerNextEventStage();
 }
 
 void UEventManagerSubSystem::EventRewardItems(FFloorEventStageInfo floorEventInfo)

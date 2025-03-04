@@ -27,6 +27,7 @@ enum class EFloorEventTypes
 	PushView                       = 7,
 	PartyMemberRemovedPermanently  = 8,
 	StartQuest                     = 9,
+	UnlockPartyMemberSync          = 10,
 
 };
 

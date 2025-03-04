@@ -50,6 +50,7 @@ void UPlayerCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory
 	classHandler = NewObject<UClassHandler>();
 	classHandler->InitializeClassHandler(this,skillFactory,aPersistentGameinstance->partyManagerSubsystem);
 	healthHandler->SetCombatWrapper(this);
+	combatEntityHub->SyncHandler->InitializeSyncHandler(playerCompleteDataSet.SyncData,this);
 }
 
 void UPlayerCombatEntity::EquipEquipment(UEquipmentPassive* aEquipment, int aSlot)
