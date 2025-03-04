@@ -54,13 +54,18 @@ public:
 	virtual TArray<FSkillClassData> ValidateSkills(FCompleteClassData aSavedClass,FCompleteClassData aDatatableClass);
 	virtual TArray<FPassiveSkillClassData> ValidatePassives(FCompleteClassData aSavedClass,FCompleteClassData aDatatableClass);
 	virtual FString GetClassName(EClassSlot aClass);
+
+	void SpendClassPointsAndUnlockSkill(int aClassPoints,EClassID aClassID,ESkillIDS aSkillID);
 	void UnlockSkill(EClassID aClassID,ESkillIDS aSkillID);
+
+	void SpendClassPointsAndUnlockPassiveSkill(int aClassPoints,EClassID aClassID,EPassiveSkillID aSkillID);
 	void UnlockPassiveSkill(EClassID aClassID,EPassiveSkillID aSkillID);
 
 	void UnlockAllSkills();
 	
 	void UnlockAllMainClassPassives();
-	
+
+	virtual bool HasEnoughClassPoints(int aClassPoints);
 	virtual void GiveClassPoints(int aClassPoints);
 	virtual void RemoveClassPoints(int aClassPoints);
 	virtual int  GetClassPoints();

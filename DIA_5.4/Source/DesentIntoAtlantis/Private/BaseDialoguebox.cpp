@@ -7,7 +7,6 @@ void UBaseDialoguebox::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
 {
 	Super::UiInitialize(aGameModeBase);
 	
-	InitializeInputComponent();
 	InputComponent->BindAction("Left"    ,IE_Pressed ,this, &UBaseDialoguebox::MoveDown  );
 	InputComponent->BindAction("Right"    ,IE_Pressed ,this, &UBaseDialoguebox::MoveUp  );
 	InputComponent->BindAction("Enter"   ,IE_Pressed ,this, &UBaseDialoguebox::ActivateHighLightSelection  );

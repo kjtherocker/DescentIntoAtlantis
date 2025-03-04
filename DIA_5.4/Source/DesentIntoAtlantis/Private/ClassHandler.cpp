@@ -10,12 +10,24 @@
 
 void UClassHandler::LoadSavedClassHandler(FCompleteClassHandlerData aCompleteClassHandlerData)
 {
-	CompleteClassHandlerData = aCompleteClassHandlerData;
-
-	for (auto Element : CompleteClassHandlerData.unlockedPlayerClasses)
+	for (auto Element : aCompleteClassHandlerData.unlockedPlayerClasses)
 	{
+		if(Element.Key == EClassID::None)
+		{
+			continue;
+		}
+		
 		InitializeAndUnlockCombatClassFromDataTable(Element.Value);
 	}
+
+	CompleteClassHandlerData = aCompleteClassHandlerData;
+	
+	EClassID mainClassIdentifier = CompleteClassHandlerData.mainClassData.classIdentifer;
+	EClassID subclassIdentifier  = CompleteClassHandlerData.subClassData.classIdentifer;
+		
+	SetClass(mainClassIdentifier,EClassSlot::Main);
+	SetClass(subclassIdentifier,EClassSlot::Sub);
+
 	
 }
 
@@ -257,6 +269,14 @@ FString UClassHandler::GetClassName(EClassSlot aClass)
 	return "";
 }
 
+void UClassHandler::SpendClassPointsAndUnlockSkill(int aClassPoints, EClassID aClassID, ESkillIDS aSkillID)
+{
+	RemoveClassPoints(aClassPoints);
+
+	UnlockSkill(aClassID,aSkillID);
+	
+}
+
 void UClassHandler::UnlockSkill(EClassID aClassID, ESkillIDS aSkillID)
 {
 	CompleteClassHandlerData.unlockedPlayerClasses[aClassID].skillClassData;
@@ -266,15 +286,19 @@ void UClassHandler::UnlockSkill(EClassID aClassID, ESkillIDS aSkillID)
 	{
 		if(CompleteClassHandlerData.unlockedPlayerClasses[aClassID].skillClassData[i].SkillIds == aSkillID)
 		{
-			int CPCost = CompleteClassHandlerData.unlockedPlayerClasses[aClassID].skillClassData[i].CPCost;
 			CompleteClassHandlerData.unlockedPlayerClasses[aClassID].skillClassData[i].isSkillOwned = true;
-			RemoveClassPoints(CPCost);
 		}
 	}
 
 	unlockedClasses[aClassID]->SetClass(CompleteClassHandlerData.unlockedPlayerClasses[aClassID]);
 	UpdateMainClassAndSubclassData();
 	playerCombatEntity->GatherAndSavePlayerCompleteDataSet();
+}
+
+void UClassHandler::SpendClassPointsAndUnlockPassiveSkill(int aClassPoints, EClassID aClassID, EPassiveSkillID aSkillID)
+{
+	RemoveClassPoints(aClassPoints);
+	UnlockPassiveSkill(aClassID,aSkillID);
 }
 
 void UClassHandler::UnlockPassiveSkill(EClassID aClassID, EPassiveSkillID aSkillID)
@@ -286,12 +310,8 @@ void UClassHandler::UnlockPassiveSkill(EClassID aClassID, EPassiveSkillID aSkill
 	{
 		if(CompleteClassHandlerData.unlockedPlayerClasses[aClassID].classPassives[i].passiveSkillID == aSkillID)
 		{
-			int CPCost = CompleteClassHandlerData.unlockedPlayerClasses[aClassID].classPassives[i].CPCost;
-
 			CompleteClassHandlerData.unlockedPlayerClasses[aClassID].classPassives[i].isPassiveOwned = true;
 			CompleteClassHandlerData.unlockedPassives.Add(aSkillID,CompleteClassHandlerData.unlockedPlayerClasses[aClassID].classPassives[i]);
-			
-			RemoveClassPoints(CPCost);
 		}
 	}
 
@@ -321,6 +341,11 @@ void UClassHandler::UnlockAllMainClassPassives()
 		UnlockPassiveSkill(mainClass->GetClassID(),
 			CompleteClassHandlerData.unlockedPlayerClasses[mainClass->GetClassID()].classPassives[i].passiveSkillID);
 	}
+}
+
+bool UClassHandler::HasEnoughClassPoints(int aClassPoints)
+{
+	return CompleteClassHandlerData.ClassPoints >= aClassPoints;
 }
 
 void UClassHandler::GiveClassPoints(int aClassPoints)

@@ -15,11 +15,11 @@ class DESENTINTOATLANTIS_API UGameSettings : public UObject
 	GENERATED_BODY()
 
 public:
-	inline bool static AUDIO_OFF         = true;
-	inline bool static DEBUG_MODE        = true;
-	inline bool static DISABLE_CUTSCENES = false;
-	inline bool static DISABLE_TUTORIAL  = true;
-	inline bool static isPrologueDisabled  = false;
+	inline bool static AUDIO_OFF           = true;
+	inline bool static DEBUG_MODE          = true;
+	inline bool static DISABLE_CUTSCENES   = false;
+	inline bool static DISABLE_TUTORIAL    = true;
+	inline bool static isPrologueDisabled  = true;
 };
 
 

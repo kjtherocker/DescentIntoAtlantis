@@ -445,13 +445,9 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembersID,
 			
 			PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(CompleteClassData);
 		}
-
-		EClassID mainClassIdentifier = playerCompleteData.CompleteClassHandlerData.mainClassData.classIdentifer;
-		EClassID subclassIdentifier  = playerCompleteData.CompleteClassHandlerData.subClassData.classIdentifer;
 		
-		PlayerCombatEntity->classHandler->SetClass(mainClassIdentifier,EClassSlot::Main);
-		PlayerCombatEntity->classHandler->SetClass(subclassIdentifier,EClassSlot::Sub);
-
+		PlayerCombatEntity->classHandler->LoadSavedClassHandler( playerCompleteData.CompleteClassHandlerData);
+		
 		//Setting
 		playerCombatEntity.Add(PlayerCombatEntity);
 		playerCombatEntityInfo.Add(partyMember,PlayerCombatEntity);

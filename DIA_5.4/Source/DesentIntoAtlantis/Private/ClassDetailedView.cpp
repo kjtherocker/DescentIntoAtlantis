@@ -107,54 +107,77 @@ void UClassDetailedView::CreateSkillbar(FSkillClassData aClassData,FSkillsData a
 
 void UClassDetailedView::SkillClicked()
 {
-	UBaseDialoguebox* popupDialogueBox = (UBaseDialoguebox*)InGameHUD->PushAndGetView(EViews::DialoguePopupbox,  EUiType::ActiveUi);
-
 	UClassSkillHighlightElement* ClassSkillHighlightElement = (UClassSkillHighlightElement*)highlightElements[cursorPosition];
-	if(ClassSkillHighlightElement)
+
+	int CPCost = ClassSkillHighlightElement->SkillClassData.CPCost;
+	
+	if(ClassSkillHighlightElement && playerCombatEntity->classHandler->HasEnoughClassPoints(CPCost))
 	{
+		UBaseDialoguebox* popupDialogueBox = (UBaseDialoguebox*)InGameHUD->PushAndGetView(EViews::DialoguePopupbox,  EUiType::ActiveUi);
 		popupDialogueBox->SetTitleText("Unlock");
 		popupDialogueBox->SetDescriptionText("Do you want to unlock " + ClassSkillHighlightElement->skillName + " for " +
 			FString::FromInt(ClassSkillHighlightElement->SkillClassData.CPCost));
+		
+		popupDialogueBox->BW_YesElement->ViewSelection.AddDynamic(this ,&UClassDetailedView::UnlockSkill);
+		popupDialogueBox->BW_NoElement->ViewSelection.AddDynamic(this ,&UClassDetailedView::PopMostActiveView);
 	}
 	
-	
-	popupDialogueBox->BW_YesElement->ViewSelection.AddDynamic(this ,&UClassDetailedView::UnlockSkill);
-	popupDialogueBox->BW_NoElement->ViewSelection.AddDynamic(this ,&UClassDetailedView::PopMostActiveView);
 }
 
 void UClassDetailedView::UnlockSkill()
 {
 	UClassSkillHighlightElement* ClassSkillHighlightElement = (UClassSkillHighlightElement*)highlightElements[cursorPosition];
-	if(ClassSkillHighlightElement)
+	int CPCost = ClassSkillHighlightElement->SkillClassData.CPCost;
+	
+	if(ClassSkillHighlightElement && playerCombatEntity->classHandler->HasEnoughClassPoints(CPCost))
 	{
-		playerCombatEntity->classHandler->UnlockSkill(classData.classIdentifer,ClassSkillHighlightElement->SkillClassData.SkillIds);
+		playerCombatEntity->classHandler->SpendClassPointsAndUnlockSkill
+		(CPCost,classData.classIdentifer,ClassSkillHighlightElement->SkillClassData.SkillIds);
 		ClassSkillHighlightElement->SetSkillLock(false);
+	}
+	else
+	{
+		return;
 	}
 }
 
 void UClassDetailedView::PassiveClicked()
 {
-	UBaseDialoguebox* popupDialogueBox = (UBaseDialoguebox*)InGameHUD->PushAndGetView(EViews::DialoguePopupbox,  EUiType::ActiveUi);
 
 	UClassPassiveSkillElement* ClassSkillHighlightElement = (UClassPassiveSkillElement*)highlightElements[cursorPosition];
-	if(ClassSkillHighlightElement)
+	int CPCost = ClassSkillHighlightElement->passiveSkillClassData.CPCost;
+	if(ClassSkillHighlightElement && playerCombatEntity->classHandler->HasEnoughClassPoints(CPCost))
 	{
+		UBaseDialoguebox* popupDialogueBox = (UBaseDialoguebox*)InGameHUD->PushAndGetView(EViews::DialoguePopupbox,  EUiType::ActiveUi);
+		
 		popupDialogueBox->SetTitleText("Unlock");
 		popupDialogueBox->SetDescriptionText("Do you want to unlock " + ClassSkillHighlightElement->skillName + " for " +
 			FString::FromInt(ClassSkillHighlightElement->passiveSkillClassData.CPCost));
+		
+		popupDialogueBox->BW_YesElement->ViewSelection.AddDynamic(this ,&UClassDetailedView::UnlockPassive);
+		popupDialogueBox->BW_NoElement->ViewSelection.AddDynamic(this ,&UClassDetailedView::PopMostActiveView);
 	}
 	
-	popupDialogueBox->BW_YesElement->ViewSelection.AddDynamic(this ,&UClassDetailedView::UnlockPassive);
-	popupDialogueBox->BW_NoElement->ViewSelection.AddDynamic(this ,&UClassDetailedView::PopMostActiveView);
+	
+
 }
 
 void UClassDetailedView::UnlockPassive()
 {
 	UClassPassiveSkillElement* ClassPassiveSkillElement = (UClassPassiveSkillElement*)highlightElements[cursorPosition];
-	if(ClassPassiveSkillElement)
+
+	int CPCost = ClassPassiveSkillElement->passiveSkillClassData.CPCost;
+	
+	if(ClassPassiveSkillElement && playerCombatEntity->classHandler->HasEnoughClassPoints(CPCost))
 	{
-		playerCombatEntity->classHandler->UnlockPassiveSkill(classData.classIdentifer,ClassPassiveSkillElement->passiveSkillClassData.passiveSkillID);
+		playerCombatEntity->classHandler->SpendClassPointsAndUnlockPassiveSkill
+		(CPCost,classData.classIdentifer,ClassPassiveSkillElement->passiveSkillClassData.passiveSkillID);
+		
 		ClassPassiveSkillElement->SetSkillLock(false);
+	}
+	else
+	{
+		return;
 	}
 }
 

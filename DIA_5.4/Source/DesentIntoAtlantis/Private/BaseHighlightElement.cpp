@@ -8,6 +8,7 @@
 void UBaseHighlightElement::ActivateButton()
 {
 	ViewSelection.Broadcast();
+	ViewSelection.Clear();
 }
 
 void UBaseHighlightElement::SetMainText(FString aText)
