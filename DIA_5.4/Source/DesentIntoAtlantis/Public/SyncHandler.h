@@ -74,6 +74,7 @@ public:
 	virtual void UnlockSync();
 	virtual void LockSync();
 
+	virtual int GetCurrentSync(){return ResourceBarInfo.Current;}
 	
-	virtual FSyncData GetSyncData(){return syncData;}
+	virtual FSyncData GetSyncData();
 };

@@ -126,3 +126,9 @@ void USyncHandler::LockSync()
 	
 	ResetAllLocksTo(true);
 }
+
+FSyncData USyncHandler::GetSyncData()
+{
+	syncData.ResourceBarInfo = ResourceBarInfo;
+	return syncData;
+}

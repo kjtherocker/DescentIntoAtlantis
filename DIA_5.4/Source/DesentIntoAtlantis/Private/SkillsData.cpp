@@ -10,6 +10,7 @@
 #include "Health.h"
 #include "ItemChargeHandler.h"
 #include "SkillType.h"
+#include "SyncHandler.h"
 
 
 void USkillBase::Initialize(FSkillsData aSkillData)
@@ -99,7 +100,7 @@ bool USkillBase::CanUseSkill(UCombatEntity* aSkillOwner, ESkillResourceUsed Skil
 		return aSkillOwner->healthHandler->GetCurrentHealth() >= skillData.costToUse;
 		break;
 	case ESkillResourceUsed::Sync:
-		return aSkillOwner->currentSync >= skillData.costToUse;
+		return aSkillOwner->combatEntityHub->SyncHandler->GetCurrentSync() >= skillData.costToUse;
 		break;
 	case ESkillResourceUsed::ItemCharges:
 		return aSkillOwner->combatEntityHub->ItemChargeHandler->isItemChargeAvaliable();
@@ -125,7 +126,7 @@ void USkillBase::SpendSkillCost(UCombatEntity* aSkillOwner, ESkillResourceUsed S
 	    	aSkillOwner->DecrementHealth(aSkillOwner,skillData);
 	    	break;
 		case ESkillResourceUsed::Sync:
-			 aSkillOwner->DecrementSync(skillData.costToUse);
+			 aSkillOwner->combatEntityHub->SyncHandler->DecrementValue(skillData.costToUse);
 			break;
 		case ESkillResourceUsed::ItemCharges:
 			aSkillOwner->combatEntityHub->ItemChargeHandler->ConsumeItemCharge(skillData.costToUse);
