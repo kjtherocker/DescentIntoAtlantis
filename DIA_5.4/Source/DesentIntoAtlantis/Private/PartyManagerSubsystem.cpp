@@ -194,11 +194,11 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembersID aPlayer)
 
 	if(!PlayerIdentityData.isGuestCharacter)
 	{
-		PlayerCombatEntity->health->InitializeHealth(50,50,PlayerCombatEntity);
+		PlayerCombatEntity->healthHandler->InitializeHealth(50,50,PlayerCombatEntity);
 	}
 	else
 	{
-		PlayerCombatEntity->health->InitializeHealth(PlayerIdentityData.playerStatBases.HealthData.maxHealth,
+		PlayerCombatEntity->healthHandler->InitializeHealth(PlayerIdentityData.playerStatBases.HealthData.maxHealth,
 			PlayerIdentityData.playerStatBases.HealthData.maxHealth,PlayerCombatEntity);
 	}
 	

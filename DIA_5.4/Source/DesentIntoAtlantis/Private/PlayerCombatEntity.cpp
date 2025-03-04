@@ -13,6 +13,7 @@
 #include "PlayerCombatStat.h"
 
 #include "SaveGameData.h"
+#include "SyncHandler.h"
 
 
 class UPlayerCombatStats;
@@ -25,9 +26,10 @@ void UPlayerCombatEntity::InitializeStats(EStatTypes aAbilityScoreTypes)
 
 void UPlayerCombatEntity::LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet)
 {
-	health->SetCurrentHealth(aPlayerCompleteDataSet.HealthData.currentHealth);
-	mana->SetCurrentMana(aPlayerCompleteDataSet.ManaData.CurrentMana);
-	currentSync   = aPlayerCompleteDataSet.currentSync;
+	healthHandler->SetCurrentHealth(aPlayerCompleteDataSet.HealthData.currentHealth);
+	manaHandler->SetCurrentMana(aPlayerCompleteDataSet.ManaData.CurrentMana);
+	combatEntityHub->SyncHandler->SetCurrentValue(aPlayerCompleteDataSet.SyncData.ResourceBarInfo.Current);
+
 }
 
 void UPlayerCombatEntity::SetPlayerEntity(FPlayerIdentityData aPlayerEntityData,FCharacterCostumeData aDialogueCostumeData)
@@ -47,8 +49,7 @@ void UPlayerCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory
 	
 	classHandler = NewObject<UClassHandler>();
 	classHandler->InitializeClassHandler(this,skillFactory,aPersistentGameinstance->partyManagerSubsystem);
-
-	health->SetCombatWrapper(this);
+	healthHandler->SetCombatWrapper(this);
 }
 
 void UPlayerCombatEntity::EquipEquipment(UEquipmentPassive* aEquipment, int aSlot)
@@ -90,8 +91,8 @@ void UPlayerCombatEntity::SetToDefaultState()
 {
 	Super::SetToDefaultState();
 
-	mana->IncrementMana(mana->GetManaData().MaxMana);
-	health->GiveMaxHp();
+	manaHandler->IncrementMana(manaHandler->GetManaData().MaxMana);
+	healthHandler->GiveMaxHp();
 	
 
     isMarkedForDeath  =  false;
@@ -131,8 +132,9 @@ void UPlayerCombatEntity::GatherAndSavePlayerCompleteDataSet()
 	playerCompleteDataSet.PassiveHandlerData.PassiveSlotHandlerData = combatEntityHub->passiveHandler->PassiveSlotHandler->GetPassiveSlotData();
 
 	playerCompleteDataSet.EquipmentHandlerData           = combatEntityHub->equipmentHandler->GetEquipmentHandlerData();
-	playerCompleteDataSet.HealthData                     = health->GetHealthData();
-	playerCompleteDataSet.ManaData                       = mana->GetManaData();
+	playerCompleteDataSet.HealthData                     = healthHandler->GetHealthData();
+	playerCompleteDataSet.ManaData                       = manaHandler->GetManaData();
+	playerCompleteDataSet.SyncData                       = combatEntityHub->SyncHandler->GetSyncData();
 }
 
 void UPlayerCombatEntity::SetCurrentCostume(FCharacterCostumeData aCostumeData)
@@ -176,23 +178,23 @@ void UPlayerCombatEntity::SetAbilityScores()
 
 void UPlayerCombatEntity::IncrementMana(int aIncrease)
 {
-	mana->IncrementMana(aIncrease);
+	manaHandler->IncrementMana(aIncrease);
 	hasHealthOrManaValuesChanged.Broadcast();
 }
 
 float UPlayerCombatEntity::GetHealthPercentage()
 {
-	return  health->GetHealthPercentage();
+	return  healthHandler->GetHealthPercentage();
 }
 
 float UPlayerCombatEntity::GetManaPercentage()
 {
-	return mana->GetManaPercentage();
+	return manaHandler->GetManaPercentage();
 }
 
 float UPlayerCombatEntity::GetSyncPercentage()
 {
-	return currentSync / MAX_SYNC;
+	return combatEntityHub->SyncHandler->GetPercentage();
 }
 
 float UPlayerCombatEntity::GetMainClassEXPPercentage()
@@ -232,13 +234,13 @@ void UPlayerCombatEntity::LevelUp(int aNewLevel)
 	HealthData.maxHealth = 50;
 	HealthData.maxHealth += 5 * aNewLevel;
 	HealthData.currentHealth = HealthData.maxHealth;
-	health->SetHealth(HealthData);
+	healthHandler->SetHealth(HealthData);
 
 	FManaData ManaData;
 	ManaData.MaxMana       = 50;
 	ManaData.MaxMana       += 5 * aNewLevel;
 	ManaData.CurrentMana   = ManaData.MaxMana;
-	mana->SetMana(ManaData);
+	manaHandler->SetMana(ManaData);
 
 	SetAbilityScores();
 	GatherAndSavePlayerCompleteDataSet();

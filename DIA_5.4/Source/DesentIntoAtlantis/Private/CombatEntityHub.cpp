@@ -27,7 +27,7 @@ void UCombatEntityHub::InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEnti
 	equipmentHandler   = NewObject<UEquipmentHandler>();
 	InterruptHandler   = NewObject<UInterruptHandler>();
 	ItemChargeHandler  = NewObject<UItemChargeHandler>();
-	
+	SyncHandler  = NewObject<USyncHandler>();
 	persistentGameinstance = aPersistentGameinstance;
 	
 	elementalHandler->Initialize(aOwnedCombatEntity);

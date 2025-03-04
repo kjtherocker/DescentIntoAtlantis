@@ -48,6 +48,7 @@ void UInventory_KeyItems::AddKeyItem(EKeyItemsID aKeyItemID)
 	partyInventoryCompleteData.keyItemData.Add(aKeyItemID,ItemData);
 
 	OnNewKeyItemGained.Broadcast(ItemData);
+	SendPopupRequest(ItemData);
 }
 
 void UInventory_KeyItems::GiveAllKeyItems()
@@ -59,7 +60,7 @@ void UInventory_KeyItems::SendPopupRequest(FKeyItemData aKeyItemData)
 {
 	FPopupRequestData PopupRequestData;
 	
-	PopupRequestData.popupType    = EPopupType::Item;
+	PopupRequestData.popupType    = EPopupType::KeyItem;
 	PopupRequestData.KeyItemData  = aKeyItemData;
 	
 	KeyItemPopupRequest.Broadcast(PopupRequestData);

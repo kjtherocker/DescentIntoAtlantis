@@ -10,6 +10,7 @@
 #include "PassiveHandler.h"
 #include "CombatEntityHub.generated.h"
 
+class USyncHandler;
 class UItemChargeHandler;
 class UPersistentGameinstance;
 class UInterruptHandler;
@@ -67,6 +68,7 @@ public:
 	UPROPERTY()
 	UItemChargeHandler* ItemChargeHandler; 
 	
-	
+	UPROPERTY()
+	USyncHandler* SyncHandler;
 	
 };

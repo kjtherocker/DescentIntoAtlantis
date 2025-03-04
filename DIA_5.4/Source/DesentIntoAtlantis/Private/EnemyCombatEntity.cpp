@@ -38,8 +38,8 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityCompleteData AEnemyEntit
 		enemySkills.Add(skillFactory->GetSkill(enemyEntityInfo.skillIDS[i]));
 	}
 	
-	health->InitializeHealth(CombatEntityData.HealthData,this);
-	mana->InitializeMana(CombatEntityData.ManaData,this);
+	healthHandler->InitializeHealth(CombatEntityData.HealthData,this);
+	manaHandler->InitializeMana(CombatEntityData.ManaData,this);
 	
 	SetAbilityScores();
 }

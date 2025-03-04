@@ -188,9 +188,9 @@ public:
 	ERowType currentRow;
 	
 	UPROPERTY()
-	UHealth* health;
+	UHealth* healthHandler;
 	UPROPERTY()
-	UMana* mana;
+	UMana* manaHandler;
 	
 	UPROPERTY()
 	UCombatEntityHub* combatEntityHub;

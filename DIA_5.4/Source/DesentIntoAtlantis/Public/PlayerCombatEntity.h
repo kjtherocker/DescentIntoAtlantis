@@ -14,9 +14,11 @@
 #include "FloorEnum.h"
 #include "PartyEnum.h"
 #include "PassiveSkillHandlerData.h"
+#include "SyncData.h"
 #include "PlayerCombatEntity.generated.h"
 
 
+class USyncHandler;
 struct FDialogueData;
 enum class ECharacterCostume : uint8;
 enum class EClassID  : uint8;
@@ -91,6 +93,10 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 	FHealthData HealthData;
 	UPROPERTY()
 	FManaData ManaData;
+
+	UPROPERTY()
+	FSyncData SyncData;
+	
 	UPROPERTY()
 	float currentSync;
 
@@ -115,6 +121,7 @@ public:
 
 	UPROPERTY()
 	UClassHandler* classHandler;
+	
 
 	UPROPERTY()
 	TMap<EClassID,UCombatClass*> unlockedClasses;

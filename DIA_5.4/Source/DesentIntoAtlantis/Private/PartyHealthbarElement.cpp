@@ -25,7 +25,7 @@ void UPartyHealthbarElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 	aCombatEntity->wasDamaged.AddDynamic(this,
 		&UPartyHealthbarElement::TriggerHitEffect);
 	
-	aCombatEntity->health->hasHealthValuesChanged.AddDynamic(this,
+	aCombatEntity->healthHandler->hasHealthValuesChanged.AddDynamic(this,
 		&UPartyHealthbarElement::UpdateHealthbarElements);
 
 	aCombatEntity->wasKilled.AddDynamic(this,
@@ -78,10 +78,10 @@ void UPartyHealthbarElement::UpdateHealthbarElements()
 	//previousHealthPercentage = currentHealthPercentage;
 	currentHealthPercentage = playerCombatEntity->GetHealthPercentage();
 	BW_Health->SetPercent(currentHealthPercentage);
-	BW_HealthText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->health->GetCurrentHealth())));
+	BW_HealthText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->healthHandler->GetCurrentHealth())));
 	
 	BW_Mana->SetPercent(playerCombatEntity->GetManaPercentage());
-	BW_ManaText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->mana->GetManaData().CurrentMana)));
+	BW_ManaText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->manaHandler->GetManaData().CurrentMana)));
 
 	if(previousHealthPercentage < currentHealthPercentage)
 	{
