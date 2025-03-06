@@ -10,6 +10,8 @@
 #include "Components/Image.h"
 #include "PartyHealthbarElement.generated.h"
 
+struct FManaData;
+struct FResourceBarInfo;
 struct FCombatLog_AttackDefense_Data;
 class UCombatTokenRowElement;
 enum class EStatusAilments  : uint8;
@@ -45,6 +47,12 @@ public:
 	UFUNCTION()
 	virtual void UpdateHealthbarElements();
 	virtual void HitEffect(float DeltaTime);
+
+	
+	UFUNCTION()
+	virtual void ManaValuesChanged(FManaData AManaData);
+	UFUNCTION()
+	virtual void SyncValuesChanged(FResourceBarInfo aResourceBarInfo);
 	UFUNCTION()
 	virtual void TriggerHitEffect();
 	UFUNCTION()

@@ -81,7 +81,7 @@ void AFloorGameMode::InitializeLevel()
     }
     
 
-    //InGameHUD->PushView(EViews::Healthbars,    EUiType::PersistentUi);
+    InGameHUD->PushView(EViews::Healthbars,    EUiType::PersistentUi);
     
 
     floorEventManager->OnReturnedToFloor();

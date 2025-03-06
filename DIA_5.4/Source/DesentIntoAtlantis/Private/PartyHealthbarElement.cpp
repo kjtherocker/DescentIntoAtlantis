@@ -29,9 +29,13 @@ void UPartyHealthbarElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 	aCombatEntity->healthHandler->hasHealthValuesChanged.AddDynamic(this,
 		&UPartyHealthbarElement::UpdateHealthbarElements);
 
+	aCombatEntity->manaHandler->HasManaValuesChanged.AddDynamic(this,
+		&UPartyHealthbarElement::ManaValuesChanged);
+
 	aCombatEntity->wasKilled.AddDynamic(this,
 		&UPartyHealthbarElement::TriggerGreyScale);
-	
+
+	playerCombatEntity->combatEntityHub->SyncHandler->HasValuesChanged.AddDynamic(this,&UPartyHealthbarElement::SyncValuesChanged);
 	characterName = playerCombatEntity->playerIdentityData.characterName;
     FCharacterCostumeData DialogueActor = playerCombatEntity->GetCurrentCostumeData();
 	
@@ -114,6 +118,16 @@ void UPartyHealthbarElement::HitEffect(float DeltaTime)
 	MoveUp();
 	BW_BackgroundHighlight->SetOpacity(1);
 	BW_CharacterPortrait->SetColorAndOpacity(FLinearColor(1,movementTimer,movementTimer,1));
+}
+
+void UPartyHealthbarElement::ManaValuesChanged(FManaData AManaData)
+{
+	UpdateHealthbarElements();
+}
+
+void UPartyHealthbarElement::SyncValuesChanged(FResourceBarInfo aResourceBarInfo)
+{
+	UpdateHealthbarElements();
 }
 
 void UPartyHealthbarElement::TriggerHitEffect()
