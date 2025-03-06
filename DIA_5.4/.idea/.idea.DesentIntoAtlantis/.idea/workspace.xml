@@ -10,21 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Ui/Healthbar/HealthbarRevamp.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/Healthbar/Healthbar_Revamp_Background.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/Healthbar/Healthbar_Revamp_Forground.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/Healthbar/Healthbar_Revamp_Slow.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Ui/Healthbar/healthbarShell.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/CombatToken/BP_CombatTokenRow.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/CombatToken/BP_CombatTokenRow.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/Commandboard/BP_Commandboard.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/Commandboard/BP_Commandboard.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/Healthbar/BP_PartyHealthbarElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/Healthbar/BP_PartyHealthbarElement.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/Healthbar/BP_PartyHealthbarView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/Healthbar/BP_PartyHealthbarView.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/MainMenu/BP_ClassHighlightElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/MainMenu/BP_ClassHighlightElement.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/MainMenu/BP_MainMenuStatusElement.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/MainMenu/BP_MainMenuStatusElement.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ui/MapView/BP_MapView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/MapView/BP_MapView.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/FloorGameModeBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/FloorGameModeBase.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -827,7 +814,7 @@
       <workItem from="1740841080601" duration="5610000" />
       <workItem from="1740971518343" duration="2565000" />
       <workItem from="1741097276959" duration="3770000" />
-      <workItem from="1741101308618" duration="12802000" />
+      <workItem from="1741101308618" duration="15927000" />
     </task>
     <servers />
   </component>
