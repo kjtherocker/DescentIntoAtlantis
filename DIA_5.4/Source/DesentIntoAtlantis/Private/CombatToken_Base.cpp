@@ -51,8 +51,7 @@ void UCombatToken_Base::InitializeCombatToken(FCombatToken_Base_Data combatToken
 	CombatToken_Base_Data = combatToken;
 	aCombatEntity->OnRoundEnd.AddDynamic(this,&UCombatToken_Base::RoundEnd);
 	SetTurnsRemaining(aCombatTokenStackData);
-	CombatTokenStateInfo.currentTokenStack = aCombatTokenStackData.TurnLength == combatToken.startingTokenTurnLength
-		?  combatToken.startingTokenTurnLength : aCombatTokenStackData.TurnLength;
+	CombatTokenStateInfo.currentTokenStack = aCombatTokenStackData.stackAmount;
 }
 
 void UCombatToken_Base::SetTurnsRemaining(FCombatTokenStackData aCombatTokenStateInfo)

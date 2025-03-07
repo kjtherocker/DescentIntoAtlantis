@@ -34,8 +34,10 @@ protected:
 public:
 	UPROPERTY()
 	TArray<UCombatToken_Base*> activeCombatTokens;
-	
+
+	UPROPERTY()
 	FCombatTokenAdded onCombatTokenAdded;
+	UPROPERTY()
 	FOnTokenSlotChange OnTokenSlotChange;
 
 	UPROPERTY()

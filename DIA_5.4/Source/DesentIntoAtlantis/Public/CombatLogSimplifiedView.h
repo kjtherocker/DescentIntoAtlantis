@@ -36,6 +36,7 @@ public:
 	UFUNCTION()
 	virtual void ActivateMenuSelection() override;
 	virtual void SetCursorPositionInfo() override;
+	
 	UPROPERTY()
 	TArray<UCombatLogElement*> commandLogTabs;
 	

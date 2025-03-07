@@ -24,7 +24,7 @@ public:
 	TMap<EClassID,int> classStatBases;
 	
 	inline static const float ABILITYSCORE_CONVERSION_RATIO = 3;
-
+	UPROPERTY(EditAnywhere)
 	int previousBase = 0;
 
 	virtual int  GetAllStats() override;
