@@ -6,6 +6,7 @@
 #include "PartyManagerSubsystem.h"
 #include "PersistentGameinstance.h"
 #include "PlayerCombatEntity.h"
+#include "ProgressBarDelayedElement.h"
 #include "Components/ProgressBar.h"
 #include "Components/TextBlock.h"
 
@@ -37,8 +38,8 @@ void UStatusMainMenuElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 	BW_MainClassText->SetText(FText::FromString(aCombatEntity->classHandler->mainClass->completeClassData.className));
 
 	
-	float expPercentage = aCombatEntity->GetMainClassEXPPercentage();
-	BW_Sync->SetPercent(expPercentage);
+	//float expPercentage = aCombatEntity->GetMainClassEXPPercentage();
+	//BW_Sync->SetPercentageMain(expPercentage);
 
 	
 }

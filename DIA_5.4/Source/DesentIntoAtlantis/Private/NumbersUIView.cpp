@@ -15,6 +15,10 @@ void UNumbersUIView::SubscribeAllCombatEntitysToView(TArray<UPlayerCombatEntity*
 {
 	for (auto Element : aPartyMembersInCombat)
 	{
+		if(Element == nullptr)
+		{
+			continue;
+		}
 		Element->healthHandler->OnDecrementHealth.AddDynamic(this,&UNumbersUIView::OnDecrement);
 		Element->combatEntityHub->EvadedAttack.AddDynamic(this,&UNumbersUIView::OnEvadedAttack );
 		Element->combatEntityHub->SpawnSkillParticles.AddDynamic(this,&UNumbersUIView::OnParticleEffectSpawn );
@@ -22,6 +26,11 @@ void UNumbersUIView::SubscribeAllCombatEntitysToView(TArray<UPlayerCombatEntity*
 
 	for (auto Element : aEnemyCombatEntitys)
 	{
+		if(Element == nullptr)
+		{
+			continue;
+		}
+		
 		Element->healthHandler->OnDecrementHealth.AddDynamic(this,&UNumbersUIView::OnDecrement);
 		Element->combatEntityHub->EvadedAttack.AddDynamic(this,&UNumbersUIView::OnEvadedAttack );
 		Element->combatEntityHub->SpawnSkillParticles.AddDynamic(this,&UNumbersUIView::OnParticleEffectSpawn );

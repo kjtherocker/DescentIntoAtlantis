@@ -93,5 +93,5 @@ enum class  EViewElements
 	QuestElement                  = 22,
 	QuestStageElement             = 23,
 	QuestGoalElement              = 24,
-	
+	SlowProgressBar               = 25,
 };

@@ -19,11 +19,20 @@ void UCombatInterruptManager::SetAllInterruptHandlers(TArray<UPlayerCombatEntity
 
 	for (auto InterruptHandler : aPartyMembersInCombat)
 	{
+		if(InterruptHandler == nullptr)
+		{
+			continue;
+		}
 		InterruptHandlers.Add(InterruptHandler->combatEntityHub->InterruptHandler);
 	}
 	
 	for (auto InterruptHandler : aEnemyCombatEntitys)
 	{
+		if(InterruptHandler == nullptr)
+		{
+			continue;
+		}
+		
 		InterruptHandlers.Add(InterruptHandler->combatEntityHub->InterruptHandler);
 	}
 

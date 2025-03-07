@@ -92,9 +92,9 @@ void UPartyGroup_Slot::CreateTestParty(TArray<FDefaultTestFightData> aDefaultTes
 	for (int i = 0 ; i < aDefaultTestPlayerFightData[0].PlayerFightData.Num();i++)
 	{
 		FDefaultTestPlayerFightData PlayerFightData = aDefaultTestPlayerFightData[0].PlayerFightData[i];
-		AddPlayerToActiveParty(PlayerFightData.characterIdentifier);
 
 		ESlot mostAvaliableSlot = GetMostAvaliableSlot();
+		AddPlayerToActiveParty(PlayerFightData.characterIdentifier);
 		
 		partyGroupCombatEntitys[mostAvaliableSlot]->classHandler->UnlockClass(PlayerFightData.CompleteClassHandlerData.mainClassData.classIdentifer);
 		partyGroupCombatEntitys[mostAvaliableSlot]->classHandler->UnlockClass(PlayerFightData.CompleteClassHandlerData.subClassData.classIdentifer);

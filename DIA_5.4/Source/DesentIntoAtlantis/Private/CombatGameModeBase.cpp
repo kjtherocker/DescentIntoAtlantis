@@ -116,8 +116,17 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 	{
 		partyManager->SetPartyLevel(partyManager->DefaultTestFightData[0].PartyLevel);
 		partyManager->CreateTestParty();
-		
-		partyMembersInCombat       = partyManager->ReturnActiveParty();
+
+		for (auto PlayerCombatEntity : partyManager->ReturnActiveParty())
+		{
+			if(PlayerCombatEntity == nullptr)
+			{
+				continue;
+			}
+			partyMembersInCombat.Add(PlayerCombatEntity);
+			PlayerCombatEntity->SetTacticsEvents(this);
+		}
+	
 		enemyGroupName             = partyManager->DefaultTestFightData[0].EnemyGroupID;
 	}
 	  
@@ -506,6 +515,8 @@ void ACombatGameModeBase::ResetEnemyPortraits()
 void ACombatGameModeBase::IterateToNextPlayer()
 {
 	currentActivePosition++;
+	
+	
 	if(currentActivePosition >= partyMembersInCombat.Num())
 	{
 		currentActivePosition = 0;
@@ -649,6 +660,11 @@ void ACombatGameModeBase::RemoveDeadPartyMembersFromCombat()
 {
 	for(int i =  partyMembersInCombat.Num() -1 ; i >= 0;i--)
 	{
+		if(partyMembersInCombat[i] == nullptr)
+		{
+			continue;
+		}
+		
 		if(partyMembersInCombat[i]->GetIsMarkedForDeath())
 		{
 			partyMembersInCombat[i]->Death();

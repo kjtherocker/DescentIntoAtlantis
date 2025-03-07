@@ -10,6 +10,7 @@
 #include "Components/Image.h"
 #include "PartyHealthbarElement.generated.h"
 
+class UProgressBarDelayedElement;
 struct FManaData;
 struct FResourceBarInfo;
 struct FCombatLog_AttackDefense_Data;
@@ -70,16 +71,14 @@ public:
 	UCanvasPanel* BW_DamageSpawnPoint;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UProgressBar* BW_Mana;
+	UProgressBarDelayedElement* BW_Mana;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UProgressBar* BW_Health;
+	UProgressBarDelayedElement* BW_Health;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UProgressBar* BW_Sync;
-	
-	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UProgressBar* BW_Health_Slow;
+	UProgressBarDelayedElement* BW_Sync;
+
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_ManaText;

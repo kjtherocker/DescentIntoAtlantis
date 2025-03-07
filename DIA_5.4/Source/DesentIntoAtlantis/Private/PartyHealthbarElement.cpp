@@ -9,6 +9,7 @@
 #include "Health.h"
 #include "PersistentGameinstance.h"
 #include "PlayerCombatEntity.h"
+#include "ProgressBarDelayedElement.h"
 #include "SyncHandler.h"
 #include "Components/ProgressBar.h"
 #include "Components/TextBlock.h"
@@ -49,8 +50,9 @@ void UPartyHealthbarElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 	
 	//BW_CharacterPortrait->SetBrushFromTexture(playerCombatEntity->playerIdentityData.characterPortrait);
 	UpdateHealthbarElements();
-	previousHealthPercentage = currentHealthPercentage;
-	BW_Health_Slow->SetPercent(previousHealthPercentage);
+	BW_Health->SetProgressBar(playerCombatEntity->GetHealthPercentage());
+	BW_Mana->SetProgressBar(playerCombatEntity->GetManaPercentage());
+
 }
 
 void UPartyHealthbarElement::SetCombatTokenRow(UPlayerCombatEntity* aCombatEntity, AInGameHUD* aInGameHud)
@@ -65,41 +67,26 @@ void UPartyHealthbarElement::NativeTick(const FGeometry& MyGeometry, float Delta
 	{
 		HitEffect(DeltaTime);
 	}
-	if(previousHealthPercentage != currentHealthPercentage &&
-		previousHealthPercentage >  currentHealthPercentage)
-	{
-		previousHealthPercentage -= DeltaTime *0.2;
-	}
-	//else if(previousHealthPercentage != currentHealthPercentage &&
-	//	previousHealthPercentage <  currentHealthPercentage)
-	//{
-	//	previousHealthPercentage += DeltaTime *0.1;
-	//}
-	BW_Health_Slow->SetPercent(previousHealthPercentage);
 }
 
 void UPartyHealthbarElement::UpdateHealthbarElements()
 {
 	//previousHealthPercentage = currentHealthPercentage;
-	currentHealthPercentage = playerCombatEntity->GetHealthPercentage();
-	BW_Health->SetPercent(currentHealthPercentage);
+	BW_Health->SetPercentageMain(playerCombatEntity->GetHealthPercentage());
 	BW_HealthText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->healthHandler->GetCurrentHealth())));
 	
-	BW_Mana->SetPercent(playerCombatEntity->GetManaPercentage());
+	BW_Mana->SetPercentageMain(playerCombatEntity->GetManaPercentage());
 	BW_ManaText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->manaHandler->GetManaData().CurrentMana)));
 
-	if(previousHealthPercentage < currentHealthPercentage)
-	{
-		previousHealthPercentage = currentHealthPercentage;
-	}
+
 	float syncPercentage = playerCombatEntity->GetSyncPercentage();
 	if(playerCombatEntity->combatEntityHub->SyncHandler->GetSyncisLockedState())
 	{
-		BW_Sync->SetPercent(0);	
+		BW_Sync->SetPercentageMain(0);	
 	}
 	else
 	{
-		BW_Sync->SetPercent(syncPercentage);	
+		BW_Sync->SetPercentageMain(syncPercentage);	
 	}	
 }
 
