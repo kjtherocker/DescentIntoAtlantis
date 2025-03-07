@@ -145,10 +145,19 @@ void UCombatTokenHandler::RemoveCombatToken(UCombatToken_Base* combatToken)
 
 void UCombatTokenHandler::RemoveAllCombatTokens()
 {
+
+	for(int i =0  ;i < activeCombatTokensSlots.Num();i++)
+	{
+		activeCombatTokensSlots[i] = nullptr;
+	}
+	
 	for (int i = activeCombatTokens.Num() - 1; i >= 0; i--)
 	{
 		activeCombatTokens[i]->RemovePassive();
 	}
+	activeCombatTokens.Empty();
+
+	OnTokenSlotChange.Broadcast();
 }
 
 void UCombatTokenHandler::RemoveAllCombatTokens(ECombatTokenType aCombatTokenType)

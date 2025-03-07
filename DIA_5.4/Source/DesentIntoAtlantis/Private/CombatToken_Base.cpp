@@ -5,6 +5,7 @@
 
 #include "CombatStat.h"
 #include "CombatToken_Base_Data.h"
+#include "PlayerCombatStat.h"
 
 void UCombatToken_Base::ValidateStackState()
 {
@@ -124,7 +125,18 @@ int UCombatToken_GenericStat::GetStatIncrease_Implementation(EStatTypes aStatTyp
 			statIncrease = CombatToken_Base_Data.passiveStats[aStatType];
 		break;
 		case EPassiveSkillStatType::Percentage:
-			statIncrease = attachedCombatEntity->abilityScoreMap[aStatType]->base * (CombatToken_Base_Data.passiveStats[aStatType] / 100.0f);
+			{
+				UCombatStat* combatStat = attachedCombatEntity->abilityScoreMap[aStatType];
+				if (UPlayerCombatStats* combatStats = Cast<UPlayerCombatStats>(combatStat))
+				{
+					int totalStat = combatStats->base + combatStats->GetClassBases();
+					statIncrease = totalStat * (CombatToken_Base_Data.passiveStats[aStatType] / 100.0f);
+				}
+				else
+				{
+					statIncrease = attachedCombatEntity->abilityScoreMap[aStatType]->base * (CombatToken_Base_Data.passiveStats[aStatType] / 100.0f);			
+				}
+			}		
 		break;
 	}
 	

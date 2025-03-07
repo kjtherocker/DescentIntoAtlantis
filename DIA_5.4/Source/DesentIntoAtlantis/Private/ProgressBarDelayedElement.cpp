@@ -22,6 +22,7 @@ void UProgressBarDelayedElement::SetPercentageMain(float aPercentage)
 	if(currentPercentage >= previousPercentage )
 	{
 		previousPercentage = currentPercentage;
+		BW_Slow_ProgressBar->SetPercent(previousPercentage);
 	}
 }
 

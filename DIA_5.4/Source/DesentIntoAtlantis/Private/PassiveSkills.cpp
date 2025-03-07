@@ -10,8 +10,11 @@
 #include "SkillType.h"
 #include "CombatLog_PassiveSkilData.h"
 #include "ItemChargeHandler.h"
+#include "PlayerCombatStat.h"
 #include "SkillUsage.h"
 
+
+class UPlayerCombatStats;
 
 void UPassiveSkills::InitializePassiveSkilData(FPassiveSkillData aPassiveSkillsData)
 {
@@ -78,7 +81,19 @@ int UGenericStatPassive::GetStatIncrease_Implementation(EStatTypes aStatType)
 		statIncrease = passiveSkillData.passiveStats[aStatType];
 		break;
 	case EPassiveSkillStatType::Percentage:
-		statIncrease = attachedCombatEntity->abilityScoreMap[aStatType]->base * (passiveSkillData.passiveStats[aStatType] / 100.0f);
+		{
+			UCombatStat* combatStat = attachedCombatEntity->abilityScoreMap[aStatType];
+		
+			if (UPlayerCombatStats* combatStats = Cast<UPlayerCombatStats>(combatStat))
+			{
+				int totalStat = combatStats->base + combatStats->GetClassBases();
+				statIncrease = totalStat * (passiveSkillData.passiveStats[aStatType] / 100.0f);
+			}
+			else
+			{
+				statIncrease = attachedCombatEntity->abilityScoreMap[aStatType]->base * (passiveSkillData.passiveStats[aStatType] / 100.0f);			
+			}
+		}
 		break;
 	}
 	

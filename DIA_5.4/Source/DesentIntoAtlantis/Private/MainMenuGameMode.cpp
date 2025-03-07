@@ -43,9 +43,6 @@ void AMainMenuGameMode::StartGame()
 	if(UGameSettings::isPrologueDisabled)
 	{
 		partyManager->AddPlayerToActiveParty(EPartyMembersID::Kriede);
-		partyManager->AddPlayerToActiveParty(EPartyMembersID::Feienne);
-		partyManager->AddPlayerToActiveParty(EPartyMembersID::Rain);
-		partyManager->AddPlayerToActiveParty(EPartyMembersID::Watcher);
 		
 		if (persistentGameInstance)
 		{

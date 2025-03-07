@@ -21,6 +21,9 @@ class UTransitionView;
 
 void UEventManagerSubSystem::LoadSavedFloorEventData(FEventManagerData aEventManagerData)
 {
+	floorEnemyEvents.Empty();
+	completedFloorEventData.Empty();
+	currentEvent.FloorEventID = 0;
 	completedFloorEventData = aEventManagerData.completedFloorEventData;
 	eventManagerData        = aEventManagerData;
 }
@@ -124,6 +127,7 @@ void UEventManagerSubSystem::PopupClosed()
 void UEventManagerSubSystem::CompleteEvent()
 {
 
+	currentEvent.FloorEventID = 0;
 	completedFloorEventData.Add(currentEvent);
 	eventManagerData.completedFloorEventData.Add(currentEvent);
 	persistentGameInstance->saveManagerSubsystem->SetEventManagerData(eventManagerData);

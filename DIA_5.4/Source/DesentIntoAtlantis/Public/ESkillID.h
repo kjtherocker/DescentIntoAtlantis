@@ -22,6 +22,7 @@ enum class ESkillIDS : uint8
 	SpreadInfection        UMETA(DisplayName = "SpreadInfection"),
 	RustyBlade             UMETA(DisplayName = "RustyBlade"),
 	CoupDeGrace            UMETA(DisplayName = "Coup De Grace"),
+	EvasiveStance          UMETA(DisplayName = "EvasiveStance"),
 	//Atlantian Warden
 	OceansBalm             UMETA(DisplayName = "Oceans Balm"),
 	BoilInsides            UMETA(DisplayName = "Boil Insides"),
