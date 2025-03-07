@@ -41,8 +41,12 @@ enum class ESkillIDS : uint8
 	Ira                   UMETA(DisplayName = "Ira"),
 	Invidia               UMETA(DisplayName = "Invidia"),
 	Avaricia              UMETA(DisplayName = "Avaricia"),
-
-
+	//Merchant
+	CoinToss              UMETA(DisplayName = "CoinToss"),
+	ExplosiveFlask        UMETA(DisplayName = "Explosive"),
+	ElixirOfDefence       UMETA(DisplayName = "Acedia"),
+	AvariceFocus          UMETA(DisplayName = "Luxuria"),
+	
 	//Item
 	HealPotion             UMETA(DisplayName = "HealPotion"),
 	//SharkFiend
