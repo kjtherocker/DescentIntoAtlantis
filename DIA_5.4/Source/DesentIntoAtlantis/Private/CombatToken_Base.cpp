@@ -50,7 +50,6 @@ bool UCombatToken_Base::CanConsumeStack()
 void UCombatToken_Base::InitializeCombatToken(FCombatToken_Base_Data combatToken,FCombatTokenStackData aCombatTokenStackData, UCombatEntity* aCombatEntity)
 {
 	CombatToken_Base_Data = combatToken;
-	attachedCombatEntity = aCombatEntity;
 	aCombatEntity->OnRoundEnd.AddDynamic(this,&UCombatToken_Base::RoundEnd);
 	SetTurnsRemaining(aCombatTokenStackData);
 	CombatTokenStateInfo.currentTokenStack = aCombatTokenStackData.stackAmount;
@@ -92,11 +91,18 @@ void UCombatToken_Base::RoundEnd()
 
 void UCombatToken_Base::RemovePassive()
 {
+	if(attachedCombatEntity != nullptr)
+	{
+		attachedCombatEntity->OnRoundEnd.RemoveDynamic(this,&UCombatToken_Base::RoundEnd);		
+	}
+
+	
 	Super::RemovePassive();
 	CombatTokenStateInfo.currentTokenStack = 0;
+
 	CombatTokenEndEffect.Broadcast(this);
 	BroadCastCombatTokenChange();
-	
+
 	CombatTokenEndEffect.Clear();
 	onCombatTokenChange.Clear();
 }
@@ -159,7 +165,6 @@ void UCombatToken_GenericStat::RemoveEffect(UCombatEntity* aCombatEntity)
 
 void UCombatToken_RoundEnd::RoundEnd()
 {
-	Super::RoundEnd();
-
 	attachedCombatEntity->healthHandler->DecrementHealth(5 * CombatTokenStateInfo.currentTokenStack);
+	Super::RoundEnd();
 }
