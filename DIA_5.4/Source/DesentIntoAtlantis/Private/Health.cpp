@@ -94,6 +94,25 @@ FCombatLog_AttackDefense_Data UHealth::DecrementHealth(UCombatEntity* aAttacker,
 	return lastAttackDefenceData;
 }
 
+FCombatLog_AttackDefense_Data UHealth::DecrementHealth(int aAmountToRemove)
+{
+	HealthData.currentHealth -= aAmountToRemove;
+
+	if(HealthData.currentHealth < 0)
+	{
+		HealthData.currentHealth = 0;
+	}
+
+	lastAttackDefenceData.FinalDamageResult = aAmountToRemove;
+	
+	OwnedCombatEntity->PostDamage();
+	OnDecrementHealth.Broadcast(lastAttackDefenceData,OwnedCombatEntity);
+	hasHealthValuesChanged.Broadcast();
+
+  
+	return lastAttackDefenceData;
+}
+
 EPressTurnReactions UHealth::IncrementHealth(UCombatEntity* aHealer, FSkillsData aSkill)
 {
 	int AmountOfHpToAdd =  aSkill.damage + (aHealer->abilityScoreMap[EStatTypes::Magic]->GetAllStats() / UCombatStat::ABILITYSCORE_CONVERSION_RATIO);

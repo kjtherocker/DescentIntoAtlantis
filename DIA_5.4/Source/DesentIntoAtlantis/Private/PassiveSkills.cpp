@@ -84,7 +84,7 @@ int UGenericStatPassive::GetStatIncrease_Implementation(EStatTypes aStatType)
 		{
 			UCombatStat* combatStat = attachedCombatEntity->abilityScoreMap[aStatType];
 			statIncrease = combatStat->base * (passiveSkillData.passiveStats[aStatType] / 100.0f);			
-			
+			statIncrease = statIncrease >= 5 ? statIncrease: 5;
 		}
 		break;
 	}

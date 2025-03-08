@@ -73,3 +73,15 @@ public:
 	virtual void RemoveEffect(UCombatEntity* aCombatEntity) override;
 	
 };
+
+UCLASS()
+class DESENTINTOATLANTIS_API UCombatToken_RoundEnd : public UCombatToken_Base
+{
+	GENERATED_BODY()
+
+public:
+
+	
+	virtual void RoundEnd() override;
+	
+};

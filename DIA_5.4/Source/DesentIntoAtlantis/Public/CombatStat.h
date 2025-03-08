@@ -59,8 +59,6 @@ public:
 	virtual void AttachAbilityScoreChange(int timeLimit,bool isBuff);
      
 	virtual void ResetAbilityscore();
-     
-	virtual void TurnEnd();
 
 	void SetStat(FPlayerIdentityData aPlayerIdentityData,int aCurrentLevel);
 

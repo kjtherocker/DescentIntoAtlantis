@@ -10,6 +10,11 @@ void UEnemyBehaviour::Initialize(UEnemyCombatEntity* aEnemyCombatEntity)
 	enemyCombatEntity = aEnemyCombatEntity;
 }
 
+int UEnemyBehaviour::EnemyToHelp(TArray<UEnemyCombatEntity*> aCombatEntity)
+{
+	return FMath::RandRange(0,aCombatEntity.Num()-1);
+}
+
 int UEnemyBehaviour::PlayerToAttack(TArray<UPlayerCombatEntity*> aCombatEntity)
 {
 	return FMath::RandRange(0,aCombatEntity.Num()-1);

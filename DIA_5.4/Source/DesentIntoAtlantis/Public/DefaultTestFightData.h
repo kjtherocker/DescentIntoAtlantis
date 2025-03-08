@@ -25,7 +25,9 @@ struct DESENTINTOATLANTIS_API FDefaultTestPlayerFightData : public FTableRowBase
 
 	UPROPERTY(EditAnywhere)
 	ETestCharacterState TestCharacterState = ETestCharacterState::UnlockEverything;
-	
+
+	UPROPERTY(EditAnywhere)
+	bool isSyncActive = true;
 	
 	UPROPERTY(EditAnywhere)
 	EPartyMembersID characterIdentifier;

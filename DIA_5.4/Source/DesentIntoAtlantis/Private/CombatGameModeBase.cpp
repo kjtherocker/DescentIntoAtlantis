@@ -436,7 +436,7 @@ void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPos
 
 	FSkillsData skillsData = aSkill->skillData;
 
-	//TArray<FCombatLog_Full_Data> mostRecentCombatLogs;
+	TArray<FCombatLog_Full_Data> mostRecentCombatLogs;
 	
 	if(aAttacker->characterType == ECharactertype::Ally)
 	{
@@ -456,20 +456,20 @@ void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPos
 			//combatCamera->RotateCameraToActor(Portraits[portraitPosition]);
 			//combatCamera->ZoomCameraInTowardsActor(Portraits[portraitPosition]);
 		}
-		aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[aCursorPosition], aSkill);
-		//mostRecentCombatLogs.Add(aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[aCursorPosition], aSkill));
+		 FCombatLog_Full_Data  CombatLog_Full_Data = aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[aCursorPosition], aSkill);
+		mostRecentCombatLogs.Add(CombatLog_Full_Data);
 	}
 	else if (skillsData.skillRange == ESkillRange::Multi)
 	{
 
 		for(int i = 0 ; i <entitySkillsAreUsedOn.Num();i++)
 		{
-			aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[i], aSkill);
-		//	mostRecentCombatLogs.Add(aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[i], aSkill));
+			FCombatLog_Full_Data  CombatLog_Full_Data = aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[i], aSkill);
+			mostRecentCombatLogs.Add(CombatLog_Full_Data);
 		}
 	}
 
-//	AddCombatLog(mostRecentCombatLogs);
+	AddCombatLog(mostRecentCombatLogs);
 	
 	turnReactions.Add(EPressTurnReactions::Normal);
 	DamageEvent MyEvent(100,EPressTurnReactions::Normal,aSkill);
@@ -486,9 +486,18 @@ void ACombatGameModeBase::EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEnt
 	
 	enemySkillView->SetSkill(skillData,aEnemyCombatEntity);
 
-	int playerToAttack = aEnemyCombatEntity->enemyBehaviour->PlayerToAttack(partyMembersInCombat);
-
-	ActivateSkill(aEnemyCombatEntity,playerToAttack,skillObject);
+	if(skillData.skillType == ESkillType::Attack)
+	{
+		int playerToAttack = aEnemyCombatEntity->enemyBehaviour->PlayerToAttack(partyMembersInCombat);
+		ActivateSkill(aEnemyCombatEntity,playerToAttack,skillObject);
+	}
+	else
+	{
+		int playerToAttack = aEnemyCombatEntity->enemyBehaviour->EnemyToHelp(enemysInCombat);
+		ActivateSkill(aEnemyCombatEntity,playerToAttack,skillObject);
+	}
+	
+	
 }
 
 void ACombatGameModeBase::ValidateEndingState(ECombatWinCondition aCombatWinCondition)
@@ -555,21 +564,21 @@ void ACombatGameModeBase::AddCombatLog(TArray<FCombatLog_Full_Data> CombatLog_Ba
 {
 	int numberOfNewCombatLogs = CombatLog_Base_Datas.Num();
 	
-	if(last50CombatLogs.Num() + numberOfNewCombatLogs > 50)
-	{
-		int amountOfLogsToRemove = numberOfNewCombatLogs - last50CombatLogs.Num(); 
+	//if(last50CombatLogs.Num() + numberOfNewCombatLogs > 50)
+	//{
+	//	int amountOfLogsToRemove = numberOfNewCombatLogs - last50CombatLogs.Num(); 
+//
+	//	for(int i = 0 ; i < amountOfLogsToRemove; i++)
+	//	{
+	//		last50CombatLogs.RemoveAt(0);	
+	//	}
+	//}
 
-		for(int i = 0 ; i < amountOfLogsToRemove; i++)
-		{
-			last50CombatLogs.RemoveAt(0);	
-		}
-	}
-
-	for (auto fullCombatLogData : CombatLog_Base_Datas)
-	{
-		last50CombatLogs.Add(fullCombatLogData);
-		combatLogView->CreateCombatLog( fullCombatLogData);
-	}
+//	for (auto fullCombatLogData : CombatLog_Base_Datas)
+//	{
+//		last50CombatLogs.Add(fullCombatLogData);
+//		combatLogView->CreateCombatLog( fullCombatLogData);
+//	}
 	
 	
 }

@@ -5,6 +5,7 @@
 
 #include "CombatStat.h"
 #include "CombatToken_Base_Data.h"
+#include "Health.h"
 #include "PlayerCombatStat.h"
 
 void UCombatToken_Base::ValidateStackState()
@@ -49,6 +50,7 @@ bool UCombatToken_Base::CanConsumeStack()
 void UCombatToken_Base::InitializeCombatToken(FCombatToken_Base_Data combatToken,FCombatTokenStackData aCombatTokenStackData, UCombatEntity* aCombatEntity)
 {
 	CombatToken_Base_Data = combatToken;
+	attachedCombatEntity = aCombatEntity;
 	aCombatEntity->OnRoundEnd.AddDynamic(this,&UCombatToken_Base::RoundEnd);
 	SetTurnsRemaining(aCombatTokenStackData);
 	CombatTokenStateInfo.currentTokenStack = aCombatTokenStackData.stackAmount;
@@ -94,6 +96,9 @@ void UCombatToken_Base::RemovePassive()
 	CombatTokenStateInfo.currentTokenStack = 0;
 	CombatTokenEndEffect.Broadcast(this);
 	BroadCastCombatTokenChange();
+	
+	CombatTokenEndEffect.Clear();
+	onCombatTokenChange.Clear();
 }
 
 void UCombatToken_Base::ActivatePassive()
@@ -126,8 +131,9 @@ int UCombatToken_GenericStat::GetStatIncrease_Implementation(EStatTypes aStatTyp
 		case EPassiveSkillStatType::Percentage:
 			{
 				UCombatStat* combatStat = attachedCombatEntity->abilityScoreMap[aStatType];
-				statIncrease = attachedCombatEntity->abilityScoreMap[aStatType]->base * (CombatToken_Base_Data.passiveStats[aStatType] / 100.0f);			
+				statIncrease = attachedCombatEntity->abilityScoreMap[aStatType]->base * (CombatToken_Base_Data.passiveStats[aStatType] / 100.0f);
 				
+				statIncrease = statIncrease >= 5 ? statIncrease: 5;
 			}		
 		break;
 	}
@@ -149,4 +155,11 @@ void UCombatToken_GenericStat::RemoveEffect(UCombatEntity* aCombatEntity)
 	{
 		aCombatEntity->abilityScoreMap[Element.Key]->TryRemoveStatPassive(this);		
 	}
+}
+
+void UCombatToken_RoundEnd::RoundEnd()
+{
+	Super::RoundEnd();
+
+	attachedCombatEntity->healthHandler->DecrementHealth(5 * CombatTokenStateInfo.currentTokenStack);
 }

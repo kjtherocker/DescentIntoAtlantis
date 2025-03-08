@@ -4,6 +4,7 @@
 #include "PartyGroup_Slot.h"
 
 #include "PartyManagerSubsystem.h"
+#include "SyncHandler.h"
 
 void UPartyGroup_Slot::Initialize(UPartyManagerSubsystem* aPartyManagerSubsystem, FPartyInfo aPartyInfo)
 {
@@ -112,6 +113,13 @@ void UPartyGroup_Slot::CreateTestParty(TArray<FDefaultTestFightData> aDefaultTes
 		partyGroupCombatEntitys[mostAvaliableSlot]->SetEquipmentState(PlayerFightData.DefaultSpawnEquipmentHandlerData);
 
 		partyGroupCombatEntitys[mostAvaliableSlot]->combatEntityHub->passiveHandler->PassiveSlotHandler->SetPassiveSlotState(PlayerFightData.PassiveSlotHandlerData);
+
+		if(PlayerFightData.isSyncActive)
+		{
+			partyGroupCombatEntitys[mostAvaliableSlot]->combatEntityHub->SyncHandler->UnlockSync();			
+		}
+	
+		
 		switch (PlayerFightData.TestCharacterState)
 		{
 		case ETestCharacterState::None:

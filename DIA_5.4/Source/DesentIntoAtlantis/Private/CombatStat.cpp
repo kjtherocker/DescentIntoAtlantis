@@ -91,21 +91,6 @@ void UCombatStat::ResetAbilityscore()
 	domain = 0;
 }
 
-void UCombatStat::TurnEnd()
-{
-	buffTimeRemaining--;
-	if(buffTimeRemaining <= 0)
-	{
-		buff = 0;
-	}
-	     	  
-	debuff--;
-	if(debuffTimeRemaining <= 0)
-	{
-		debuff = 0;
-	}
-}
-
 void UCombatStat::SetStat(FPlayerIdentityData aPlayerIdentityData, int aCurrentLevel)
 {
 	base = GetStatByLevel(aPlayerIdentityData,aCurrentLevel);
