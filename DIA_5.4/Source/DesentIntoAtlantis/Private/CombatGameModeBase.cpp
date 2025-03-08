@@ -436,7 +436,7 @@ void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPos
 
 	FSkillsData skillsData = aSkill->skillData;
 
-	TArray<FCombatLog_Full_Data> mostRecentCombatLogs;
+	//TArray<FCombatLog_Full_Data> mostRecentCombatLogs;
 	
 	if(aAttacker->characterType == ECharactertype::Ally)
 	{
@@ -456,17 +456,20 @@ void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPos
 			//combatCamera->RotateCameraToActor(Portraits[portraitPosition]);
 			//combatCamera->ZoomCameraInTowardsActor(Portraits[portraitPosition]);
 		}
-		mostRecentCombatLogs.Add(aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[aCursorPosition], aSkill));
+		aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[aCursorPosition], aSkill);
+		//mostRecentCombatLogs.Add(aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[aCursorPosition], aSkill));
 	}
 	else if (skillsData.skillRange == ESkillRange::Multi)
 	{
+
 		for(int i = 0 ; i <entitySkillsAreUsedOn.Num();i++)
 		{
-			mostRecentCombatLogs.Add(aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[i], aSkill));
+			aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[i], aSkill);
+		//	mostRecentCombatLogs.Add(aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[i], aSkill));
 		}
 	}
 
-	AddCombatLog(mostRecentCombatLogs);
+//	AddCombatLog(mostRecentCombatLogs);
 	
 	turnReactions.Add(EPressTurnReactions::Normal);
 	DamageEvent MyEvent(100,EPressTurnReactions::Normal,aSkill);

@@ -40,7 +40,7 @@ void UCombatTokenRowElement::SpawnNewCombatToken(UCombatToken_Base* aCombatToken
 
 	aCombatToken->CombatTokenEndEffect.AddDynamic(this,&UCombatTokenRowElement::RemoveCombatToken);
 	CombatTokenUiElements.Add(CombatLogElement);
-	BW_HorizontalBox->AddChild(baseUserWidget);
+	BW_HorizontalBox->AddChild(CombatLogElement);
 	UpdateRowPositions();
 }
 

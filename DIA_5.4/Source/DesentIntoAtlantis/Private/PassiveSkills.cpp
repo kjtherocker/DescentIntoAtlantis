@@ -83,16 +83,8 @@ int UGenericStatPassive::GetStatIncrease_Implementation(EStatTypes aStatType)
 	case EPassiveSkillStatType::Percentage:
 		{
 			UCombatStat* combatStat = attachedCombatEntity->abilityScoreMap[aStatType];
-		
-			if (UPlayerCombatStats* combatStats = Cast<UPlayerCombatStats>(combatStat))
-			{
-				int totalStat = combatStats->base + combatStats->GetClassBases();
-				statIncrease = totalStat * (passiveSkillData.passiveStats[aStatType] / 100.0f);
-			}
-			else
-			{
-				statIncrease = attachedCombatEntity->abilityScoreMap[aStatType]->base * (passiveSkillData.passiveStats[aStatType] / 100.0f);			
-			}
+			statIncrease = combatStat->base * (passiveSkillData.passiveStats[aStatType] / 100.0f);			
+			
 		}
 		break;
 	}

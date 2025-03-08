@@ -3,6 +3,7 @@
 
 #include "CombatStatView.h"
 
+#include "CombatStat.h"
 #include "PlayerCombatStat.h"
 
 void UCombatStatView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
@@ -39,13 +40,13 @@ void UCombatStatView::SetGrowthElement(FString aStatName,EStatTypes aStatType,US
 	TMap<EStatTypes, UCombatStat*> abilityStatScores    = aPlayerCombatEntity->abilityScoreMap;
 	FPlayerIdentityData PlayerIdentityData = aPlayerCombatEntity->playerIdentityData;
 	
-	UPlayerCombatStats* playerCombatStats = Cast<UPlayerCombatStats>(abilityStatScores[aStatType]);
+	UCombatStat* specificStat = abilityStatScores[aStatType];
 
 	int StatGrowth = PlayerIdentityData.playerStatGrowths.baseStats[aStatType];
 	FString  letterGradeText  = letterGrade[StatGrowth];
-	FString  DamageNumberText = FString::FromInt(playerCombatStats->GetAllStats());
+	FString  DamageNumberText = FString::FromInt(specificStat->GetAllStats());
 
 
-	float percentage = (float)playerCombatStats->GetAllStats() /99.0f;
+	float percentage = (float)specificStat->GetAllStats() /99.0f;
 	aStatGrowthElement->SetStatGrowthElement(letterGradeText,aStatName,DamageNumberText,percentage);
 }

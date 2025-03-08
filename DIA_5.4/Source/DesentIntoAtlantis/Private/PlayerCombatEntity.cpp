@@ -5,6 +5,7 @@
 
 #include "CombatEntityHub.h"
 #include "CombatGameModeBase.h"
+#include "CombatStat.h"
 #include "ElementalHandler.h"
 #include "Health.h"
 #include "PartyHealthbarElement.h"
@@ -18,11 +19,6 @@
 
 class UPlayerCombatStats;
 
-void UPlayerCombatEntity::InitializeStats(EStatTypes aAbilityScoreTypes)
-{
-	abilityScoreMap.Add(aAbilityScoreTypes,  NewObject<UPlayerCombatStats>());
-	abilityScoreMap[aAbilityScoreTypes]->SetStatType(aAbilityScoreTypes);
-}
 
 void UPlayerCombatEntity::LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet)
 {
@@ -168,7 +164,7 @@ void UPlayerCombatEntity::SetAbilityScores()
 				continue;
 			}
         
-			UPlayerCombatStats* PlayerStats = Cast<UPlayerCombatStats>(abilityScoreMap[statType]);
+			UCombatStat* PlayerStats = abilityScoreMap[statType];
 			PlayerStats->classStatBases.Empty();
 			PlayerStats->AddClassStatBase(classHandler->mainClass->completeClassData);
 
@@ -214,13 +210,12 @@ void UPlayerCombatEntity::LevelUp(int aNewLevel)
 	for (int32 i = static_cast<int32>(EStatTypes::None) + 1; i < static_cast<int32>(EStatTypes::Max); ++i)
 	{
 		EStatTypes statType = static_cast<EStatTypes>(i);
-		UPlayerCombatStats* PlayerStats = Cast<UPlayerCombatStats>(abilityScoreMap[statType]);
+		UCombatStat* PlayerStats = abilityScoreMap[statType];
 		PlayerStats->SetStat(playerIdentityData,aNewLevel);
 
 		abilityScoreMap[statType] = PlayerStats;
 	}
 	
-
 	//if(completeClassData.unlockableSkillByLevel.Contains(completeClassData.currentLevel))
 	//{
 	//	ESkillIDS skillName = completeClassData.unlockableSkillByLevel[completeClassData.currentLevel];

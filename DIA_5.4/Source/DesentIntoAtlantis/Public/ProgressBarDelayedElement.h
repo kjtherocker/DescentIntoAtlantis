@@ -21,8 +21,10 @@ class DESENTINTOATLANTIS_API UProgressBarDelayedElement : public UBaseUserWidget
 	GENERATED_BODY()
 
 public:
-
+	
+	UPROPERTY();
 	float previousPercentage = 0;
+	UPROPERTY();
 	float currentPercentage  = 0;
 
 	virtual void SetProgressBar(float aCurrentValue);

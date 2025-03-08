@@ -13,15 +13,16 @@ void UCombatTokenHandler::CombatEnd()
 
 FCombatToken_Base_Data UCombatTokenHandler::AddCombatToken(ECombatTokenID aCombatTokenID, FCombatTokenStackData aCombatTokenStackData)
 {
-	 FCombatToken_Base_Data combatTokenData = passiveSkillFactorySubsystem->GetCombatTokenData(aCombatTokenID);
+
+	FCombatToken_Base_Data combatTokenData = passiveSkillFactorySubsystem->GetCombatTokenData(aCombatTokenID);
 	
 	if(combatTokenData.CombatTokenID == ECombatTokenID::None)
 	{
 		return combatTokenData;
 	}
-
+	
 	UCombatToken_Base* token = GetCombatTokenByID(aCombatTokenID);
-
+	
 	if(token != nullptr)
 	{
 		token->SameCombatTokenWasAdded(aCombatTokenStackData);

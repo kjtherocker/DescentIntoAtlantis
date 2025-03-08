@@ -2,6 +2,8 @@
 
 
 #include "LevelupView.h"
+
+#include "CombatStat.h"
 #include "PlayerCombatEntity.h"
 #include "Components/TextBlock.h"
 #include "LevelupPanelElement.h"
@@ -43,27 +45,27 @@ void ULevelupView::SetupLevelupView(int newLevel, UPlayerCombatEntity* aPlayerCo
 
 	
 	BW_StrengthLevelpanel->SetLevelupPanelElement(FString("Str"),
-		FString::FromInt(Cast<UPlayerCombatStats>(abilityStatScores[EStatTypes::Strength])->GetStatByLevel(PlayerIdentityData,previousLevel)),
+		FString::FromInt(abilityStatScores[EStatTypes::Strength]->GetStatByLevel(PlayerIdentityData,previousLevel)),
 		   FString::FromInt(abilityStatScores[EStatTypes::Strength]->base));
 
 	BW_MagicLevelPanel->SetLevelupPanelElement(FString("Mag"),
-	FString::FromInt(Cast<UPlayerCombatStats>(abilityStatScores[EStatTypes::Magic])->GetStatByLevel(PlayerIdentityData,previousLevel)),
+	FString::FromInt(abilityStatScores[EStatTypes::Magic]->GetStatByLevel(PlayerIdentityData,previousLevel)),
 	   FString::FromInt(abilityStatScores[EStatTypes::Magic]->base));
 
 	BW_HitLevelPanel->SetLevelupPanelElement(FString("Hit"),
-	FString::FromInt(Cast<UPlayerCombatStats>(abilityStatScores[EStatTypes::Hit])->GetStatByLevel(PlayerIdentityData,previousLevel)),
+	FString::FromInt(abilityStatScores[EStatTypes::Hit]->GetStatByLevel(PlayerIdentityData,previousLevel)),
 	   FString::FromInt(abilityStatScores[EStatTypes::Hit]->base));
 
 	BW_EvasionLevelPanel->SetLevelupPanelElement(FString("Eva"),
-	FString::FromInt(Cast<UPlayerCombatStats>(abilityStatScores[EStatTypes::Evasion])->GetStatByLevel(PlayerIdentityData,previousLevel)),
+	FString::FromInt(abilityStatScores[EStatTypes::Evasion]->GetStatByLevel(PlayerIdentityData,previousLevel)),
 	   FString::FromInt(abilityStatScores[EStatTypes::Evasion]->base));
 
 	BW_DefencePanel->SetLevelupPanelElement(FString("Def"),
-	FString::FromInt(Cast<UPlayerCombatStats>(abilityStatScores[EStatTypes::Defence])->GetStatByLevel(PlayerIdentityData,previousLevel)),
+	FString::FromInt(abilityStatScores[EStatTypes::Defence]->GetStatByLevel(PlayerIdentityData,previousLevel)),
 	   FString::FromInt(abilityStatScores[EStatTypes::Defence]->base));
 	
 	BW_ResistancePanel->SetLevelupPanelElement(FString("Res"),
-	FString::FromInt(Cast<UPlayerCombatStats>(abilityStatScores[EStatTypes::Resistance])->GetStatByLevel(PlayerIdentityData,previousLevel)),
+	FString::FromInt(abilityStatScores[EStatTypes::Resistance]->GetStatByLevel(PlayerIdentityData,previousLevel)),
 	   FString::FromInt(abilityStatScores[EStatTypes::Resistance]->base));
 }
 

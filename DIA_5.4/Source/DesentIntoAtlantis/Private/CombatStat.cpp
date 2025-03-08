@@ -105,3 +105,38 @@ void UCombatStat::TurnEnd()
 		debuff = 0;
 	}
 }
+
+void UCombatStat::SetStat(FPlayerIdentityData aPlayerIdentityData, int aCurrentLevel)
+{
+	base = GetStatByLevel(aPlayerIdentityData,aCurrentLevel);
+}
+
+int UCombatStat::GetStatByLevel(FPlayerIdentityData aPlayerIdentityData, int aCurrentLevel)
+{
+	int baseGrowth = aPlayerIdentityData.playerStatGrowths.baseStats[StatType] ;
+	int baseStat   = aPlayerIdentityData.playerStatBases.baseStats[StatType];
+		
+	return baseStat + (aCurrentLevel / baseGrowth);
+}
+
+void UCombatStat::AddClassStatBase(FCompleteClassData aCompleteClassData)
+{
+	classStatBases.Add(aCompleteClassData.classIdentifer,aCompleteClassData.classStatBase.baseStats[StatType]);
+}
+
+int UCombatStat::GetClassBases()
+{
+	int classBase = 0;
+
+	if(classStatBases.Num() == 0)
+	{
+		return classBase;
+	}
+		
+	for (TTuple<EClassID, int> Element : classStatBases)
+	{
+		classBase += Element.Value;
+	}
+		
+	return classBase;
+}

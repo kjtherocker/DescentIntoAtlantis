@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "PassiveSkills.h"
+#include "PlayerCombatEntity.h"
 #include "UObject/NoExportTypes.h"
 #include "CombatStat.generated.h"
 
@@ -42,7 +43,12 @@ public:
 	int debuffTimeRemaining = 0;
 	
 	inline static const float ABILITYSCORE_CONVERSION_RATIO = 1;
-
+	
+	UPROPERTY(EditAnywhere)
+	TMap<EClassID,int> classStatBases;
+	
+	UPROPERTY(EditAnywhere)
+	int previousBase = 0;
 	
 	virtual int GetAllStats();
 
@@ -50,13 +56,20 @@ public:
 	virtual void TryAddStatPassive(UPassiveSkills* aPassiveSkills);
 	virtual void TryRemoveStatPassive(UPassiveSkills* aPassiveSkills);
 	virtual int GetAllPassive();
-
-	     
 	virtual void AttachAbilityScoreChange(int timeLimit,bool isBuff);
-
      
 	virtual void ResetAbilityscore();
      
 	virtual void TurnEnd();
+
+	void SetStat(FPlayerIdentityData aPlayerIdentityData,int aCurrentLevel);
+
+	int GetStatByLevel(FPlayerIdentityData aPlayerIdentityData,int aCurrentLevel);
+
+
+	void AddClassStatBase(FCompleteClassData aCompleteClassData);
+
+	
+	int GetClassBases();
 	
 };

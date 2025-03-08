@@ -142,7 +142,6 @@ public:
 	
 	virtual EPartyMembersID GetPartyMemberID(){ return playerIdentityData.characterIdentifier; }
 	
-    virtual void InitializeStats(EStatTypes aAbilityScoreTypes) override;
 	virtual void LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet);
 	virtual void SetPlayerEntity(FPlayerIdentityData aPlayerEntityData,FCharacterCostumeData aDialogueCostumeData);
 	virtual void SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassiveFactorySubsystem* aPassiveSkillFactory,UPersistentGameinstance* aPersistentGameinstance) override;
