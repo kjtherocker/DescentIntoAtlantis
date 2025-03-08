@@ -44,8 +44,8 @@ enum class ESkillIDS : uint8
 	//Merchant
 	CoinToss              UMETA(DisplayName = "CoinToss"),
 	ExplosiveFlask        UMETA(DisplayName = "Explosive"),
-	ElixirOfDefence       UMETA(DisplayName = "Acedia"),
-	AvariceFocus          UMETA(DisplayName = "Luxuria"),
+	ElixirOfDefence       UMETA(DisplayName = "ElixierOfDefence"),
+	AvariceFocus          UMETA(DisplayName = "AvariceFocus"),
 	
 	//Item
 	HealPotion             UMETA(DisplayName = "HealPotion"),

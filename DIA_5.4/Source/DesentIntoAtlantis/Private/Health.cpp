@@ -50,11 +50,13 @@ void UHealth::SetHealth(FHealthData aHealthData)
 {
 	HealthData = aHealthData;
 	HealthData.currentHealth = HealthData.maxHealth;
+	hasHealthValuesChanged.Broadcast();
 }
 
 void UHealth::SetCurrentHealth(int aHealth)
 {
 	HealthData.currentHealth = aHealth;
+	hasHealthValuesChanged.Broadcast();
 }
 
 int UHealth::GetCurrentHealth()

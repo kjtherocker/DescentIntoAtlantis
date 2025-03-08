@@ -138,7 +138,22 @@ void UCombatTokenHandler::RemoveCombatToken(UCombatToken_Base* combatToken)
 		{
 			activeCombatTokens[i]->RemoveEffect(OwnedCombatEntity);
 			activeCombatTokens.RemoveAt(i);
-			return;
+			break;
+		}
+	}
+
+	for(int i = 0 ; i < activeCombatTokensSlots.Num();i++)
+	{
+		if(activeCombatTokensSlots[i] == nullptr)
+		{
+			continue;
+		}
+		
+		FCombatToken_Base_Data currentCombatTokenData = activeCombatTokensSlots[i]->GetCombatTokenData();
+		if(currentCombatTokenData.CombatTokenID == combatTokenData.CombatTokenID)
+		{
+			activeCombatTokensSlots[i] = nullptr;
+			break;
 		}
 	}
 }
@@ -162,10 +177,12 @@ void UCombatTokenHandler::RemoveAllCombatTokens()
 
 void UCombatTokenHandler::RemoveAllCombatTokens(ECombatTokenType aCombatTokenType)
 {
+	
 	for (int i = activeCombatTokens.Num() - 1; i >= 0; i--)
 	{
 		if(activeCombatTokens[i]->GetCombatTokenType() == aCombatTokenType)
 		{
+			activeCombatTokensSlots[i] = nullptr;
 			activeCombatTokens[i]->RemovePassive();
 		}
 	}

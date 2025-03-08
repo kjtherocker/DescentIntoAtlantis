@@ -22,12 +22,16 @@ class DESENTINTOATLANTIS_API UCombatToken_Base : public UPassiveSkills
 	GENERATED_BODY()
 
 protected:
+	UPROPERTY()
 	FCombatToken_Base_Data CombatToken_Base_Data;
+	UPROPERTY()
 	FCombatTokenCurrentStatInfo CombatTokenStateInfo;
 
 public:
 
+	UPROPERTY()
 	FOnCombatTokenChange onCombatTokenChange;
+	UPROPERTY()
 	FCombatTokenEndEffect CombatTokenEndEffect;
 	
 	virtual FCombatToken_Base_Data GetCombatTokenData(){ return CombatToken_Base_Data;}

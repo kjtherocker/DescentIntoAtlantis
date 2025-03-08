@@ -328,7 +328,6 @@ void ACombatGameModeBase::TurnEnd()
 		{
 		case ECharactertype::Undefined:break;
 		case ECharactertype::Ally:
-			partyHealthbars->ResetAllHighlights();
 			IterateToNextPlayer();
 			SetCombatState(ECombatState::Player);
 			break;
@@ -399,6 +398,8 @@ void ACombatGameModeBase::SetRoundSide(ECharactertype aCharacterType)
 void ACombatGameModeBase::AllyStartTurn()
 {
 	InGameHUD->PopAllActiveViews();
+
+	partyHealthbars->ResetAllHighlights();
 	
 	currentActivePartyMember = partyMembersInCombat[currentActivePosition];
 	partyHealthbars->SetHighlightHealthbar(currentActivePartyMember,FULL_OPACITY);

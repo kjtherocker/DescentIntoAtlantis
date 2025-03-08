@@ -59,6 +59,7 @@ void UPartyHealthbarsView::ResetAllHighlights()
 {
 	for(int i = 0 ; i < healthBars.Num();i++)
 	{
-		healthBars[i]->BW_BackgroundHighlight->SetOpacity(0);	
+		healthBars[i]->BW_BackgroundHighlight->SetOpacity(0);
+		healthBars[i]->ResetTranslation();
 	}
 }

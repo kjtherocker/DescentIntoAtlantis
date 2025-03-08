@@ -168,14 +168,6 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembersID aPlayer)
 	{
 		PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(classDataTables[initalClass]);
 		PlayerCombatEntity->SetMainClass(initalClass);
-		if(PlayerIdentityData.isGuestCharacter)
-		{
-			PlayerCombatEntity->LevelUp(PlayerIdentityData.initialLevel);
-		}
-		else
-		{
-			PlayerCombatEntity->LevelUp(partyLevel);			
-		}
 
 	}
 
@@ -201,6 +193,15 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembersID aPlayer)
 	{
 		PlayerCombatEntity->healthHandler->InitializeHealth(PlayerIdentityData.playerStatBases.HealthData.maxHealth,
 			PlayerIdentityData.playerStatBases.HealthData.maxHealth,PlayerCombatEntity);
+	}
+
+	if(PlayerIdentityData.isGuestCharacter)
+	{
+		PlayerCombatEntity->LevelUp(PlayerIdentityData.initialLevel);
+	}
+	else
+	{
+		PlayerCombatEntity->LevelUp(partyLevel);			
 	}
 	
 	playerCombatEntity.Add(PlayerCombatEntity);
@@ -290,7 +291,10 @@ void UPartyManagerSubsystem::CreateTestParty()
 		return;
 	}
 
+	partyLevel = DefaultTestFightData[0].PartyLevel;
+
 	ActiveSlot->CreateTestParty(DefaultTestFightData);
+	
 }
 
 void UPartyManagerSubsystem::SavePartyManager()
