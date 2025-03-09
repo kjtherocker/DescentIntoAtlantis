@@ -436,7 +436,7 @@ void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPos
 
 	FSkillsData skillsData = aSkill->skillData;
 
-	TArray<FCombatLog_Full_Data> mostRecentCombatLogs;
+	mostRecentCombatLogs.Empty();
 	
 	if(aAttacker->characterType == ECharactertype::Ally)
 	{
@@ -457,19 +457,24 @@ void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPos
 			//combatCamera->ZoomCameraInTowardsActor(Portraits[portraitPosition]);
 		}
 		 FCombatLog_Full_Data  CombatLog_Full_Data = aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[aCursorPosition], aSkill);
-		mostRecentCombatLogs.Add(CombatLog_Full_Data);
+		TArray<FCombatLog_Full_Data> testo;
+		testo.Add(CombatLog_Full_Data);
+		 AddCombatLog(testo);
+		
 	}
 	else if (skillsData.skillRange == ESkillRange::Multi)
 	{
 
 		for(int i = 0 ; i <entitySkillsAreUsedOn.Num();i++)
 		{
-			FCombatLog_Full_Data  CombatLog_Full_Data = aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[i], aSkill);
-			mostRecentCombatLogs.Add(CombatLog_Full_Data);
+			FCombatLog_Full_Data  CombatLog_Full_Data = aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[aCursorPosition], aSkill);
+			TArray<FCombatLog_Full_Data> testo;
+			testo.Add(CombatLog_Full_Data);
+			AddCombatLog(testo);
 		}
 	}
 
-	AddCombatLog(mostRecentCombatLogs);
+//	AddCombatLog(mostRecentCombatLogs);
 	
 	turnReactions.Add(EPressTurnReactions::Normal);
 	DamageEvent MyEvent(100,EPressTurnReactions::Normal,aSkill);
@@ -564,21 +569,21 @@ void ACombatGameModeBase::AddCombatLog(TArray<FCombatLog_Full_Data> CombatLog_Ba
 {
 	int numberOfNewCombatLogs = CombatLog_Base_Datas.Num();
 	
-	//if(last50CombatLogs.Num() + numberOfNewCombatLogs > 50)
-	//{
-	//	int amountOfLogsToRemove = numberOfNewCombatLogs - last50CombatLogs.Num(); 
-//
-	//	for(int i = 0 ; i < amountOfLogsToRemove; i++)
-	//	{
-	//		last50CombatLogs.RemoveAt(0);	
-	//	}
-	//}
-
-//	for (auto fullCombatLogData : CombatLog_Base_Datas)
-//	{
-//		last50CombatLogs.Add(fullCombatLogData);
-//		combatLogView->CreateCombatLog( fullCombatLogData);
-//	}
+	if(last50CombatLogs.Num() + numberOfNewCombatLogs > 50)
+	{
+		int amountOfLogsToRemove = numberOfNewCombatLogs - last50CombatLogs.Num(); 
+	
+		for(int i = 0 ; i < amountOfLogsToRemove; i++)
+		{
+			last50CombatLogs.RemoveAt(0);	
+		}
+	}
+	
+	for (auto fullCombatLogData : CombatLog_Base_Datas)
+	{
+		last50CombatLogs.Add(fullCombatLogData);
+		combatLogView->CreateCombatLog( fullCombatLogData);
+	}
 	
 	
 }

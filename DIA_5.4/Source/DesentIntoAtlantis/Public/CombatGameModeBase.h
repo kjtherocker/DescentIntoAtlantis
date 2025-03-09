@@ -94,6 +94,9 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	APlayerController* PlayerController;
 	UPROPERTY()
 	UNumbersUIView* NumbersUIView;
+
+	UPROPERTY()
+	TArray<FCombatLog_Full_Data> mostRecentCombatLogs;
 	
 	const float FULL_OPACITY    = 100;
 	const int   ENEMY_TURN_TIME = 2;
