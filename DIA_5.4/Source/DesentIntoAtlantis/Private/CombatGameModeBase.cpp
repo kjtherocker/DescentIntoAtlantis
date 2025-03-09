@@ -457,9 +457,9 @@ void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPos
 			//combatCamera->ZoomCameraInTowardsActor(Portraits[portraitPosition]);
 		}
 		 FCombatLog_Full_Data  CombatLog_Full_Data = aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[aCursorPosition], aSkill);
-		TArray<FCombatLog_Full_Data> testo;
-		testo.Add(CombatLog_Full_Data);
-		 AddCombatLog(testo);
+		//TArray<FCombatLog_Full_Data> testo;
+		//testo.Add(CombatLog_Full_Data);
+		// AddCombatLog(testo);
 		
 	}
 	else if (skillsData.skillRange == ESkillRange::Multi)
@@ -467,10 +467,10 @@ void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPos
 
 		for(int i = 0 ; i <entitySkillsAreUsedOn.Num();i++)
 		{
-			FCombatLog_Full_Data  CombatLog_Full_Data = aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[aCursorPosition], aSkill);
-			TArray<FCombatLog_Full_Data> testo;
-			testo.Add(CombatLog_Full_Data);
-			AddCombatLog(testo);
+			FCombatLog_Full_Data  CombatLog_Full_Data = aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[i], aSkill);
+		//TArray<FCombatLog_Full_Data> testo;
+		//testo.Add(CombatLog_Full_Data);
+		//AddCombatLog(testo);
 		}
 	}
 	

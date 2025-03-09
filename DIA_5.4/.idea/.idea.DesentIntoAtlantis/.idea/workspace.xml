@@ -11,11 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Asset_Default/Combat/BP_CombatPortrait.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Asset_Default/Combat/BP_CombatPortrait.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Asset_Default/FloorEnemy/BP_FloorEnemyPawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Asset_Default/FloorEnemy/BP_FloorEnemyPawn.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueComplete.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Dialogue/DT_DialogueComplete.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Floor/DT_FloorEvent.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Floor/DT_FloorEvent.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Map/Prison/PrisonCombat.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/Prison/PrisonCombat.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatGameModeBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatGameModeBase.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +25,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -962,7 +963,7 @@
       <workItem from="1741353875853" duration="12253000" />
       <workItem from="1741438748900" duration="6427000" />
       <workItem from="1741450682103" duration="660000" />
-      <workItem from="1741451407121" duration="20920000" />
+      <workItem from="1741451407121" duration="22242000" />
     </task>
     <servers />
   </component>
