@@ -30,7 +30,7 @@ void UCombatClass::CreateUnlockedClassSkills(FCompleteClassData aCompleteClassDa
 	
 	for (FSkillClassData skillByLevel : aCompleteClassData.skillClassData)
 	{
-		if(skillByLevel.isSkillOwned == false)
+		if(!skillByLevel.isSkillOwned)
 		{
 			continue;
 		}

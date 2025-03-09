@@ -431,27 +431,8 @@ void UPartyManagerSubsystem::LoadAndCreateAllPlayerEntitys(TMap<EPartyMembersID,
 	
 		PlayerCombatEntity->SetPlayerEntity(playerIdenityMap[partyMember],CostumeData);
 		PlayerCombatEntity->SetCombatEntity(skillFactory,passiveSkillFactory,persistentGameInstance);
-
-
-		//Class
-		TMap<EClassID, FCompleteClassData> allCompleteClassData = playerCompleteData.CompleteClassHandlerData.unlockedPlayerClasses;
 		
-		for (TTuple<EClassID, FCompleteClassData> playerClass : allCompleteClassData)
-		{
-			EClassID classIdentifier = playerClass.Key;
-			
-			if(!classDataTables.Contains(classIdentifier))
-			{
-				continue;
-			}
-			
-			FCompleteClassData CompleteClassData =
-				PlayerCombatEntity->classHandler->ValidateSavedClassAndDataClass(playerClass.Value,classDataTables[classIdentifier]);
-			
-			PlayerCombatEntity->InitializeAndUnlockCombatClassFromDataTable(CompleteClassData);
-		}
-		
-		PlayerCombatEntity->classHandler->LoadSavedClassHandler( playerCompleteData.CompleteClassHandlerData);
+		PlayerCombatEntity->classHandler->LoadSavedClassHandler( playerCompleteData.CompleteClassHandlerData,classDataTables);
 		
 		//Setting
 		playerCombatEntity.Add(PlayerCombatEntity);

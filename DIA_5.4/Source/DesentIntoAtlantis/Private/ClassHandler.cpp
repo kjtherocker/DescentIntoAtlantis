@@ -8,27 +8,38 @@
 #include "PartyManagerSubsystem.h"
 #include "PlayerCombatEntity.h"
 
-void UClassHandler::LoadSavedClassHandler(FCompleteClassHandlerData aCompleteClassHandlerData)
+void UClassHandler::LoadSavedClassHandler(FCompleteClassHandlerData aCompleteClassHandlerData,	TMap<EClassID,FCompleteClassData> aClassDataTables)
 {
-	for (auto Element : aCompleteClassHandlerData.unlockedPlayerClasses)
+	
+	TMap<EClassID, FCompleteClassData> SavedClassData = aCompleteClassHandlerData.unlockedPlayerClasses;
+
+	//Validates the saved data to what the datatables currently have
+	for (TTuple<EClassID, FCompleteClassData> playerClass : SavedClassData)
 	{
-		if(Element.Key == EClassID::None)
+		EClassID classIdentifier = playerClass.Key;
+
+		if(classIdentifier == EClassID::None)
 		{
 			continue;
 		}
 		
-		InitializeAndUnlockCombatClassFromDataTable(Element.Value);
+			
+		if(!aClassDataTables.Contains(classIdentifier))
+		{
+			continue;
+		}
+			
+		FCompleteClassData CompleteClassData = ValidateSavedClassAndDataClass(playerClass.Value,aClassDataTables[classIdentifier]);
+		InitializeAndUnlockCombatClassFromDataTable(CompleteClassData);
 	}
 
-	CompleteClassHandlerData = aCompleteClassHandlerData;
+	CompleteClassHandlerData.ClassPoints = aCompleteClassHandlerData.ClassPoints;
 	
-	EClassID mainClassIdentifier = CompleteClassHandlerData.mainClassData.classIdentifer;
-	EClassID subclassIdentifier  = CompleteClassHandlerData.subClassData.classIdentifer;
+	EClassID mainClassIdentifier = aCompleteClassHandlerData.mainClassData.classIdentifer;
+	EClassID subclassIdentifier  = aCompleteClassHandlerData.subClassData.classIdentifer;
 		
 	SetClass(mainClassIdentifier,EClassSlot::Main);
 	SetClass(subclassIdentifier,EClassSlot::Sub);
-
-	
 }
 
 void UClassHandler::InitializeClassHandler(UPlayerCombatEntity* aPlayerCombatEntity,
@@ -41,11 +52,18 @@ void UClassHandler::InitializeClassHandler(UPlayerCombatEntity* aPlayerCombatEnt
 
 void UClassHandler::InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData)
 {
+	if(CompleteClassHandlerData.unlockedPlayerClasses.Contains(aCompleteClassData.classIdentifer))
+	{
+		return;
+	}
+	
 	UCombatClass* newClass = NewObject<UCombatClass>();
 	newClass->InitializeDependencys(skillfactorySubsystem, playerCombatEntity);
 	newClass->SetClass(aCompleteClassData);
 	CompleteClassHandlerData.unlockedPlayerClasses.Add(aCompleteClassData.classIdentifer,newClass->completeClassData);
 	unlockedClasses.Add(aCompleteClassData.classIdentifer,newClass);
+	
+	UnlockAllOwnedPassives(aCompleteClassData.classIdentifer,aCompleteClassData.classPassives);
 }
 
 void UClassHandler::SetClass(EClassID aClass, EClassSlot ClassSlot)
@@ -120,6 +138,20 @@ TArray<USkillBase*> UClassHandler::GetClassSkills(EClassSlot ClassSlot)
 	return Skills;
 }
 
+void UClassHandler::UnlockAllOwnedPassives(EClassID aClassID,TArray<FPassiveSkillClassData> aPassiveSkillData)
+{
+	TArray<FPassiveSkillClassData> classPassives  = aPassiveSkillData;
+	for (auto ClassPassive : classPassives)
+	{
+		if(ClassPassive.isPassiveOwned == false)
+		{
+			continue;
+		}
+		
+		UnlockPassiveSkill(aClassID,ClassPassive.passiveSkillID);		
+	}
+}
+
 void UClassHandler::UnlockClass(EClassID aClass)
 {
 	if(aClass == EClassID::None)
@@ -161,7 +193,8 @@ FCompleteClassData UClassHandler::ValidateSavedClassAndDataClass(FCompleteClassD
 
 	DatatableClass.ClassPointCostToUnlock = SavedClass.ClassPointCostToUnlock;
 	DatatableClass.skillClassData = ValidateSkills( aSavedClass,  aDatatableClass);
-	DatatableClass.classPassives  = ValidatePassives( aSavedClass,aDatatableClass);
+	DatatableClass.classPassives = ValidatePassives( aSavedClass,aDatatableClass);
+
 
 	return DatatableClass;
 }
@@ -172,7 +205,7 @@ TArray<FSkillClassData> UClassHandler::ValidateSkills(FCompleteClassData aSavedC
 	FCompleteClassData DatatableClass = aDatatableClass;
 	
 	TMap<ESkillIDS,FSkillClassData> datatableSkills;
-	TMap<ESkillIDS,FSkillClassData> savedSkills;
+	TMap<ESkillIDS,FSkillClassData> saveSkillData;
 
 	for(int i = 0 ; i <DatatableClass.skillClassData.Num();i++ )
 	{
@@ -181,14 +214,18 @@ TArray<FSkillClassData> UClassHandler::ValidateSkills(FCompleteClassData aSavedC
 
 	for(int i = 0 ; i <SavedClass.skillClassData.Num();i++ )
 	{
-		savedSkills.Add(SavedClass.skillClassData[i].SkillIds,SavedClass.skillClassData[i]);
+		saveSkillData.Add(SavedClass.skillClassData[i].SkillIds,SavedClass.skillClassData[i]);
 	}
 
-	for (auto savedSkill : savedSkills)
+	for (auto savedSkill : saveSkillData)
 	{
 		if(datatableSkills.Contains(savedSkill.Key))
 		{
-			datatableSkills[savedSkill.Key].isSkillOwned = savedSkills[savedSkill.Key].isSkillOwned;
+			if(datatableSkills[savedSkill.Key].isSkillOwned )
+			{
+				continue;
+			}
+			datatableSkills[savedSkill.Key].isSkillOwned = saveSkillData[savedSkill.Key].isSkillOwned;
 		}
 		else
 		{
@@ -212,12 +249,12 @@ TArray<FPassiveSkillClassData> UClassHandler::ValidatePassives(FCompleteClassDat
 	FCompleteClassData SavedClass     = aSavedClass;
 	FCompleteClassData DatatableClass = aDatatableClass;
 	
-	TMap<EPassiveSkillID,FPassiveSkillClassData> datatableSkills;
+	TMap<EPassiveSkillID,FPassiveSkillClassData> datatablePassives;
 	TMap<EPassiveSkillID,FPassiveSkillClassData> savedSkills;
 
 	for(int i = 0 ; i <DatatableClass.classPassives.Num();i++ )
 	{
-		datatableSkills.Add(DatatableClass.classPassives[i].passiveSkillID,DatatableClass.classPassives[i]);
+		datatablePassives.Add(DatatableClass.classPassives[i].passiveSkillID,DatatableClass.classPassives[i]);
 	}
 
 	for(int i = 0 ; i <SavedClass.classPassives.Num();i++ )
@@ -225,25 +262,29 @@ TArray<FPassiveSkillClassData> UClassHandler::ValidatePassives(FCompleteClassDat
 		savedSkills.Add(SavedClass.classPassives[i].passiveSkillID,SavedClass.classPassives[i]);
 	}
 
-	for (auto savedSkill : savedSkills)
+	for (auto savedPassive : savedSkills)
 	{
-		if(datatableSkills.Contains(savedSkill.Key))
+		if(datatablePassives.Contains(savedPassive.Key))
 		{
-			datatableSkills[savedSkill.Key].isPassiveOwned = savedSkills[savedSkill.Key].isPassiveOwned;
+			if(datatablePassives[savedPassive.Key].isPassiveOwned )
+			{
+				continue;
+			}
+			datatablePassives[savedPassive.Key].isPassiveOwned = savedSkills[savedPassive.Key].isPassiveOwned;
 		}
 		else
 		{
-			GiveClassPoints(savedSkill.Value.CPCost);
+			GiveClassPoints(savedPassive.Value.CPCost);
 		}
 	}
 
-	TArray<FPassiveSkillClassData>  skillClassData;
-	for (auto DatatableSkill : datatableSkills)
+	TArray<FPassiveSkillClassData>  passiveSkillData;
+	for (auto DatatableSkill : datatablePassives)
 	{
-		skillClassData.Add(DatatableSkill.Value);
+		passiveSkillData.Add(DatatableSkill.Value);
 	}
 
-	return skillClassData;
+	return passiveSkillData;
 }
 
 FString UClassHandler::GetClassName(EClassSlot aClass)
@@ -316,9 +357,12 @@ void UClassHandler::UnlockPassiveSkill(EClassID aClassID, EPassiveSkillID aSkill
 	}
 
 	unlockedClasses[aClassID]->SetClass(CompleteClassHandlerData.unlockedPlayerClasses[aClassID]);
-	if(mainClass->GetClassID() == aClassID)
+	if(mainClass != nullptr)
 	{
-		playerCombatEntity->combatEntityHub->passiveHandler->AddMainClassPassives(mainClass);	
+		if(mainClass->GetClassID() == aClassID)
+		{
+			playerCombatEntity->combatEntityHub->passiveHandler->AddMainClassPassives(mainClass);	
+		}
 	}
 	UpdateMainClassAndSubclassData();
 	playerCombatEntity->GatherAndSavePlayerCompleteDataSet();

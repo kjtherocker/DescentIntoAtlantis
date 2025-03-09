@@ -40,11 +40,13 @@ public:
 	
 	UPROPERTY()
 	UPlayerCombatEntity* playerCombatEntity;
-	virtual void LoadSavedClassHandler(	FCompleteClassHandlerData aCompleteClassHandlerData);
+	virtual void LoadSavedClassHandler(	FCompleteClassHandlerData aCompleteClassHandlerData,TMap<EClassID,FCompleteClassData> aClassDataTables);
 	virtual void InitializeClassHandler(UPlayerCombatEntity* aPlayerCombatEntity, USkillFactorySubsystem* SkillFactorySubsystem,UPartyManagerSubsystem* aPlayerManager);
 	virtual void InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData);
 	virtual void SetClass(EClassID aClass, EClassSlot ClassSlot);
 	virtual TArray<USkillBase*> GetClassSkills(EClassSlot ClassSlot);
+
+	virtual void UnlockAllOwnedPassives(EClassID aClassID,TArray<FPassiveSkillClassData> aPassiveSkillData);
 
 	virtual TMap<EPassiveSkillID,FPassiveSkillClassData> GetUnlockedPassives(){return  CompleteClassHandlerData.unlockedPassives;}
 
