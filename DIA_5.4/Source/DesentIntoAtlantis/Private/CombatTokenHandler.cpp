@@ -124,10 +124,10 @@ UCombatToken_Base* UCombatTokenHandler::CreateNewCombatTokenClass(ECombatTokenID
 		return NewObject<UCombatToken_GenericStat>();
 		break;
 	case ECombatTokenID::Poison:
-		return NewObject<UCombatToken_RoundEnd>();
+		return NewObject<UCombatToken_RoundEnd_Health>();
 		break;
 	case ECombatTokenID::Regen:
-		return NewObject<UCombatToken_RoundEnd>();
+		return NewObject<UCombatToken_RoundEnd_Health>();
 		break;
 	}
 

@@ -163,7 +163,7 @@ FCombatLog_PassiveSkilData UGenericOnAttackPassive::ActivateAttackDefencePassive
 
 	CombatLog_PassiveSkilData.PassiveSkillData = passiveSkillData;
 	// Calculate the damage increase as a percentage of CurrentDamage
-	int DamageIncrease = aSkill.damage * (passiveSkillData.damagePercentageIncrease / 100.0f);
+	int DamageIncrease = aSkill.damage * (passiveSkillData.valuePercentage / 100.0f);
 
 	CombatLog_PassiveSkilData.passiveResult = DamageIncrease;
 	// Add the calculated increase to CurrentDamage

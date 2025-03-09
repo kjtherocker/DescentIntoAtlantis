@@ -126,8 +126,6 @@ void UEventManagerSubSystem::PopupClosed()
 
 void UEventManagerSubSystem::CompleteEvent()
 {
-
-	currentEvent.FloorEventID = 0;
 	completedFloorEventData.Add(currentEvent);
 	eventManagerData.completedFloorEventData.Add(currentEvent);
 	persistentGameInstance->saveManagerSubsystem->SetEventManagerData(eventManagerData);
@@ -135,6 +133,8 @@ void UEventManagerSubSystem::CompleteEvent()
 	gameMode->floorPawn->SetFloorPawnInput(true);
 	isEventRunning = false;
 	EventHasFinished.Broadcast(currentEvent.FloorEventID);
+	
+	currentEvent.FloorEventID = 0;
 }
 
 void UEventManagerSubSystem::TriggerNextEventStage()

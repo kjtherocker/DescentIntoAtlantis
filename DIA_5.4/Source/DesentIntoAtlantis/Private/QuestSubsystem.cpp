@@ -214,7 +214,12 @@ void UQuestSubsystem::MarkQuestAsCompleted(int32 aQuestID)
 
 void UQuestSubsystem::ValidateQuestStage()
 {
+	for (auto Element : AllActiveQuestsObjects)
+	{
+		Element.Value->CheckAllQuestGoals();
+	}
 }
+
 
 bool UQuestSubsystem::isQuestActiveIDValid(int32 aQuestID)
 {

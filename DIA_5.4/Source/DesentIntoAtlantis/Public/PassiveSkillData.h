@@ -143,7 +143,7 @@ struct DESENTINTOATLANTIS_API FPassiveSkillData : public FTableRowBase
 	int damageIncrease = 0;
 
 	UPROPERTY( EditAnywhere , Category = "Damage")
-	int damagePercentageIncrease= 0;
+	int valuePercentage= 0;
 
 	UPROPERTY(EditAnywhere, Category = "Stat")
 	EPassiveSkillStatType PassiveSkillStatType;

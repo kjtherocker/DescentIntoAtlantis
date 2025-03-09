@@ -22,3 +22,9 @@ void UQuestGoal_Base::QuestGoalComplete()
 {
 	OnQuestGoalCompletetion.Broadcast();
 }
+
+FQuestGoalData UQuestGoal_Base::ReturnQuestGoalData()
+{
+	questGoalData.isComplete = CheckIfGoalWasReached();
+	return questGoalData;
+}

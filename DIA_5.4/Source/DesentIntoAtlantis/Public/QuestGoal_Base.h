@@ -37,6 +37,6 @@ public:
 	virtual void QuestGoalComplete();
 	
 	virtual bool GetCompletionStatus(){ return questGoalData.isComplete;}
-	virtual FQuestGoalData ReturnQuestGoalData(){return questGoalData;}
+	virtual FQuestGoalData ReturnQuestGoalData();
 	
 };

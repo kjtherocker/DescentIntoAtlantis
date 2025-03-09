@@ -85,3 +85,15 @@ public:
 	virtual void RoundEnd() override;
 	
 };
+
+UCLASS()
+class DESENTINTOATLANTIS_API UCombatToken_RoundEnd_Health : public UCombatToken_Base
+{
+	GENERATED_BODY()
+
+public:
+
+	
+	virtual void RoundEnd() override;
+	
+};

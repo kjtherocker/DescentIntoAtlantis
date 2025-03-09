@@ -48,6 +48,7 @@ void UQuest_Base::SetQuestStage(FQuestStageData aQuestStageData)
 {
 	QuestStageData = aQuestStageData;
 	CreateAllQuestGoalsOfStage(QuestStageData);
+	CheckAllQuestGoals();
 }
 
 void UQuest_Base::QuestStageFinished()

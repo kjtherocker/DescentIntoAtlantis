@@ -473,8 +473,6 @@ void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPos
 			AddCombatLog(testo);
 		}
 	}
-
-//	AddCombatLog(mostRecentCombatLogs);
 	
 	turnReactions.Add(EPressTurnReactions::Normal);
 	DamageEvent MyEvent(100,EPressTurnReactions::Normal,aSkill);

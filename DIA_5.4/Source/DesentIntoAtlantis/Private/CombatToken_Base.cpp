@@ -165,6 +165,21 @@ void UCombatToken_GenericStat::RemoveEffect(UCombatEntity* aCombatEntity)
 
 void UCombatToken_RoundEnd::RoundEnd()
 {
-	attachedCombatEntity->healthHandler->DecrementHealth(5 * CombatTokenStateInfo.currentTokenStack);
+	Super::RoundEnd();
+}
+
+void UCombatToken_RoundEnd_Health::RoundEnd()
+{
+	FHealthData healthdata = attachedCombatEntity->healthHandler->GetHealthData();
+	int percentageOfHealth = (healthdata.maxHealth * CombatToken_Base_Data.valuePercentage) / 100;
+	if(CombatToken_Base_Data.CombatTokenType == ECombatTokenType::Positive)
+	{
+		attachedCombatEntity->healthHandler->IncrementHealth(percentageOfHealth * CombatTokenStateInfo.currentTokenStack);
+	}
+	if(CombatToken_Base_Data.CombatTokenType == ECombatTokenType::Negative)
+	{
+		attachedCombatEntity->healthHandler->DecrementHealth(percentageOfHealth * CombatTokenStateInfo.currentTokenStack);
+	}
+	
 	Super::RoundEnd();
 }
