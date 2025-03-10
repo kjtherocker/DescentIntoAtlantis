@@ -158,6 +158,7 @@ USkillBase* USkillFactorySubsystem::GetSkillClass(FSkillsData skillData)
 		case ESkillType::HealPositiveCombatToken:
 			break;
 		case ESkillType::AttackNegativeCombatToken:
+			return NewObject<USkillAttackCombatToken>();
 			break;
 		case ESkillType::Start:
 			break;

@@ -51,5 +51,7 @@ enum class ESkillIDS : uint8
 	HealPotion             UMETA(DisplayName = "HealPotion"),
 	//SharkFiend
 	WaterBlast             UMETA(DisplayName = "WaterBlast"),
+	//MinatureGuraShark
+	RevoltingStench             UMETA(DisplayName = "RevoltingStench"),
 
 };
