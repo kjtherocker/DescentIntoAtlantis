@@ -101,6 +101,16 @@ enum class EPassiveSkillStatType : uint8
 };
 
 UENUM()
+enum class EPassiveSkillModificationType : uint8
+{
+	None        = 0,
+	Replace     = 1,
+	Additional  = 3,
+	Subtractive = 4,
+	Removal     = 5,
+};
+
+UENUM()
 enum class EGenericTrigger : uint8
 {
 	None                 = 0,
@@ -119,6 +129,20 @@ struct DESENTINTOATLANTIS_API FCombatTokenStackData : public FTableRowBase
 	int stackAmount = 1;
 	UPROPERTY(EditAnywhere)
 	int TurnLength  = 3;
+};
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FPassiveSkillModification : public FTableRowBase
+{
+	GENERATED_USTRUCT_BODY()
+
+	TMap<EPassiveSkillModificationType,int> BaseDamage;
+	
+	TMap<EPassiveSkillModificationType,EElementalType> SkillElementalType;
+	
+
+	TMap<EPassiveSkillModificationType,FCombatTokenStackData> CombatTokens;
+	
 };
 
 

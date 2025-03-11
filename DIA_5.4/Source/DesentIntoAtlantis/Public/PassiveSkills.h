@@ -99,7 +99,7 @@ class IModifySkillPassive
 
 public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category="Skill")
-	FPassiveSkillData ModifySkill(FPassiveSkillData aPassiveSkill);
+	FSkillsData ModifySkill(FSkillsData aPassiveSkill);
 	
 };
 
@@ -152,7 +152,6 @@ class DESENTINTOATLANTIS_API UGenericTriggerPassive : public UPassiveSkills, pub
 	GENERATED_BODY()
 
 public:
-
 	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation(UCombatEntity* aCombatEntity) override;
 
 };
@@ -163,8 +162,7 @@ class DESENTINTOATLANTIS_API UGenericEquipmentPassive : public UPassiveSkills, p
 	GENERATED_BODY()
 
 public:
-
-	FPassiveSkillData ModifySkill_Implementation(FPassiveSkillData aPassiveSkill);
+	virtual FSkillsData ModifySkill_Implementation(FSkillsData aPassiveSkill) override;
 
 };
 

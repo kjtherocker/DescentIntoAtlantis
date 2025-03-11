@@ -53,10 +53,15 @@ FCombatLog_PassiveSkilData UGenericTriggerPassive::ActivateGenericPassive_Implem
 	return IOnGenericPassive::ActivateGenericPassive_Implementation(aCombatEntity);
 }
 
-bool UGenericTriggerPassive::IsPassiveTriggered_Implementation(EGenericTrigger aPassiveGenericTrigger)
+FSkillsData UGenericEquipmentPassive::ModifySkill_Implementation(FSkillsData aPassiveSkill)
 {
-	return passiveSkillData.triggerGeneric == aPassiveGenericTrigger;
+	passiveSkillData
+
+	
+	return IModifySkillPassive::ModifySkill_Implementation(aPassiveSkill);
+	
 }
+
 
 FCombatLog_PassiveSkilData UGenericTriggerPassiveCombatToken::ActivateGenericPassive_Implementation(UCombatEntity* aCombatEntity)
 {
