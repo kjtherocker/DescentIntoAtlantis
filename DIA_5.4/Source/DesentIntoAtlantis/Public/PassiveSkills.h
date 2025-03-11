@@ -86,6 +86,23 @@ public:
 	bool IsPassiveTriggered(EGenericTrigger aPassiveGenericTrigger);
 };
 
+UINTERFACE(BlueprintType)
+class UModifySkillPassive : public UInterface
+{
+	GENERATED_BODY()
+};
+
+
+class IModifySkillPassive
+{
+	GENERATED_BODY()
+
+public:
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category="Skill")
+	FPassiveSkillData ModifySkill(FPassiveSkillData aPassiveSkill);
+	
+};
+
 
 
 UCLASS()
@@ -137,7 +154,18 @@ class DESENTINTOATLANTIS_API UGenericTriggerPassive : public UPassiveSkills, pub
 public:
 
 	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation(UCombatEntity* aCombatEntity) override;
-	virtual bool IsPassiveTriggered_Implementation(EGenericTrigger aPassiveGenericTrigger) override;
+
+};
+
+UCLASS()
+class DESENTINTOATLANTIS_API UGenericEquipmentPassive : public UPassiveSkills, public IModifySkillPassive
+{
+	GENERATED_BODY()
+
+public:
+
+	FPassiveSkillData ModifySkill_Implementation(FPassiveSkillData aPassiveSkill);
+
 };
 
 UCLASS()
