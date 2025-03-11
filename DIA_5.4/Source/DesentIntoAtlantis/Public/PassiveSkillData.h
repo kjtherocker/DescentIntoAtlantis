@@ -136,10 +136,24 @@ struct DESENTINTOATLANTIS_API FPassiveSkillModification : public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
 	TMap<EPassiveSkillModificationType,int> BaseDamage;
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
+	TMap<EPassiveSkillModificationType,int> SkillHit;
 	
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
 	TMap<EPassiveSkillModificationType,EElementalType> SkillElementalType;
-	
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
+	TMap<EPassiveSkillModificationType,ESkillDamageType> skillDamageType;
+
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
+	TMap<EPassiveSkillModificationType,EStatTypes> skillScaleStat;
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
+	TMap<EPassiveSkillModificationType,ESkillType> skillType;
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
+	TMap<EPassiveSkillModificationType,ESkillUsage> skillUsage;
+
+
 
 	TMap<EPassiveSkillModificationType,FCombatTokenStackData> CombatTokens;
 	
