@@ -53,7 +53,7 @@ FCombatLog_PassiveSkilData UGenericTriggerPassive::ActivateGenericPassive_Implem
 	return IOnGenericPassive::ActivateGenericPassive_Implementation(aCombatEntity);
 }
 
-FSkillsData UGenericEquipmentPassive::ModifySkill_Implementation(FSkillsData aPassiveSkill)
+FSkillsData UGenericModifyPassive::ModifySkill_Implementation(FSkillsData aPassiveSkill)
 {
 	
 

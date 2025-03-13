@@ -12,6 +12,7 @@
 #include "ElementalHandler.h"
 #include "Health.h"
 #include "SkillFactorySubsystem.h"
+#include "SkillHandler.h"
 
 void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityCompleteData AEnemyEntityData,USkillFactorySubsystem * skillFactory,EEnemyCombatPositions aPortraitPosition)
 {
@@ -35,7 +36,8 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityCompleteData AEnemyEntit
 	
 	for(int i = 0 ; i < enemyEntityInfo.skillIDS.Num();i++)
 	{
-		enemySkills.Add(skillFactory->GetSkill(enemyEntityInfo.skillIDS[i]));
+		combatEntityHub->skillHandler->AddSkill(enemyEntityInfo.skillIDS[i]);
+	
 	}
 	
 	healthHandler->InitializeHealth(CombatEntityData.HealthData,this);

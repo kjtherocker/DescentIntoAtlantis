@@ -160,12 +160,16 @@ void UPassiveHandler::AddPassive(UPassiveSkills* aPassiveSkills,EPassiveSkillSlo
 	
 	aPassiveSkills->passiveSkillData.passiveSkillPlacement = passiveSkillSlot;
 	allPassiveSkills.Add(aPassiveSkills);
+
+	PassiveAdded.Broadcast(aPassiveSkills);
+	
 	PassiveHandlerData.PassiveSkillsDatas.Add(aPassiveSkills->passiveSkillData);
 }
 
 void UPassiveHandler::RemovePassive(UPassiveSkills* aPassiveSkills)
 {
 	aPassiveSkills->RemoveEffect(ownedCombatEntity);
+	PassiveRemoved.Broadcast(aPassiveSkills);
 	allPassiveSkills.Remove(aPassiveSkills);
 	//assiveHandlerData.PassiveSkillsDatas.Remove(aPassiveSkills->passiveSkillData);
 }

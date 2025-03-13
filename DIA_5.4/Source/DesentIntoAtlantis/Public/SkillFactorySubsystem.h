@@ -21,7 +21,7 @@ private:
 	
 		
 	UPROPERTY()
-	TMap<ESkillIDS,USkillBase*> allSkillsMap;
+	TMap<ESkillIDS,FSkillsData> allSkillsMap;
 
 			
 	UPROPERTY()
@@ -32,6 +32,7 @@ private:
 public:
 	void InitializeDatabase(UDataTable*  aSkillDataTable,UDataTable*  aItemSkillDataTable);
 	USkillBase* GetSkill(ESkillIDS aSkillID);
+	FSkillsData GetSkillData(ESkillIDS aSkillID);
 	UItemBase*  GetItem(EItemID aItemID);
 	UAilment*   GetAilment(EStatusAilments aAilment);
 	USkillBase* GetSkillClass(FSkillsData skillData);

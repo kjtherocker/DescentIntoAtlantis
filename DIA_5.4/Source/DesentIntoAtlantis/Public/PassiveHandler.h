@@ -16,6 +16,8 @@ class UPassiveSkills;
 class UCombatEntity;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSendPassiveTrigger,EGenericTrigger,combatToken);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPassiveAdded,UPassiveSkills*,passiveAdded);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPassiveRemoved,UPassiveSkills*,passiveRemoved);
 UCLASS()
 class DESENTINTOATLANTIS_API UPassiveHandler : public UObject
 {
@@ -37,6 +39,12 @@ class DESENTINTOATLANTIS_API UPassiveHandler : public UObject
 
 public:
 
+	UPROPERTY()
+	FPassiveAdded PassiveAdded;
+
+	UPROPERTY()
+	FPassiveRemoved PassiveRemoved;
+	
 	UPROPERTY()
 	UPassiveSlotHandler* PassiveSlotHandler;
 	

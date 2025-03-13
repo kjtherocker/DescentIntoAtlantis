@@ -10,6 +10,7 @@
 #include "Engine/DataTable.h"
 #include "UObject/NoExportTypes.h"
 #include "SkillBase.h"
+#include "SkillHandler.h"
 #include "CombatClass.generated.h"
 
 class UPlayerCombatEntity;
@@ -85,9 +86,12 @@ class UCombatClass : public UObject
 private:
 	bool isReadyToLevelup = false;
 
+	UPROPERTY()
+	USkillHandler* SkillHandler;
+
 public:
 
-	void InitializeDependencys(USkillFactorySubsystem* aSkillFactory, UPlayerCombatEntity* aCombatEntity);
+	void InitializeDependencys(USkillFactorySubsystem* aSkillFactory, UPlayerCombatEntity* aCombatEntity,USkillHandler* aSkillHandler);
 
 	EClassID GetClassID(){ return completeClassData.classIdentifer;}
 

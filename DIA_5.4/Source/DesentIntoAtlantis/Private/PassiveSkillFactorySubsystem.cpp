@@ -79,6 +79,9 @@ UPassiveSkills* UPassiveFactorySubsystem::CreatePassiveSkill(EPassiveSkillID aPa
 	case EPassiveSkillID::MerchantZeal:
 		return NewObject<UMerchantsZeal>();
 		break;
+	case EPassiveSkillID::BonkDefenceResistDown:
+		return NewObject<UGenericModifyPassive>();
+		break;
 	}
 
 	return NewObject<UGenericOnAttackPassive>();
@@ -115,6 +118,9 @@ UEquipmentPassive* UPassiveFactorySubsystem::CreateEquipment(EEquipmentID aEquip
 		return nullptr;
 		break;
 	case EEquipmentID::statup:
+		newEquipment = NewObject<UEquipmentPassive>();
+		break;
+	case EEquipmentID::BonkMod:
 		newEquipment = NewObject<UEquipmentPassive>();
 		break;
 	}

@@ -7,6 +7,7 @@
 #include "ElementalHandler.h"
 #include "PartyManagerSubsystem.h"
 #include "PlayerCombatEntity.h"
+#include "SkillHandler.h"
 
 void UClassHandler::LoadSavedClassHandler(FCompleteClassHandlerData aCompleteClassHandlerData,	TMap<EClassID,FCompleteClassData> aClassDataTables)
 {
@@ -48,6 +49,7 @@ void UClassHandler::InitializeClassHandler(UPlayerCombatEntity* aPlayerCombatEnt
 	partyManager          = aPlayerManager;
 	skillfactorySubsystem = SkillFactorySubsystem;
 	playerCombatEntity    = aPlayerCombatEntity;
+	skillHandler          = playerCombatEntity->combatEntityHub->skillHandler;
 }
 
 void UClassHandler::InitializeAndUnlockCombatClassFromDataTable(FCompleteClassData aCompleteClassData)
@@ -58,7 +60,7 @@ void UClassHandler::InitializeAndUnlockCombatClassFromDataTable(FCompleteClassDa
 	}
 	
 	UCombatClass* newClass = NewObject<UCombatClass>();
-	newClass->InitializeDependencys(skillfactorySubsystem, playerCombatEntity);
+	newClass->InitializeDependencys(skillfactorySubsystem, playerCombatEntity,skillHandler);
 	newClass->SetClass(aCompleteClassData);
 	CompleteClassHandlerData.unlockedPlayerClasses.Add(aCompleteClassData.classIdentifer,newClass->completeClassData);
 	unlockedClasses.Add(aCompleteClassData.classIdentifer,newClass);
@@ -124,13 +126,27 @@ TArray<USkillBase*> UClassHandler::GetClassSkills(EClassSlot ClassSlot)
 	    case EClassSlot::Main:
 	    	if(mainClass != nullptr)
 	    	{
-	    		Skills = mainClass->classSkills;			
+	    		TArray<USkillBase*> mainclassSkills = mainClass->classSkills;
+	    		TArray<ESkillIDS> SkillIds;
+			    for (auto Skill : mainclassSkills)
+			    {
+			    	SkillIds.Add(Skill->GetSkillID());
+			    }
+
+	    		Skills = skillHandler->GetSkillsByID(SkillIds);
 	    	}
 	    	break;
 	    case EClassSlot::Sub:
 	    	if(subClass != nullptr)
 	    	{
-	    		Skills = subClass->classSkills;	
+	    		TArray<USkillBase*> subclassSkills = subClass->classSkills;
+	    		TArray<ESkillIDS> SkillIds;
+	    		for (auto Skill : subclassSkills)
+	    		{
+	    			SkillIds.Add(Skill->GetSkillID());
+	    		}
+
+	    		Skills = skillHandler->GetSkillsByID(SkillIds);
 	    	}
 	    	break;
 	}
@@ -160,7 +176,7 @@ void UClassHandler::UnlockClass(EClassID aClass)
 	}
 	
 	UCombatClass* newClass = NewObject<UCombatClass>();
-	newClass->InitializeDependencys(skillfactorySubsystem, playerCombatEntity);
+	newClass->InitializeDependencys(skillfactorySubsystem, playerCombatEntity,skillHandler);
 	newClass->SetClass(partyManager->GetClassData(aClass));
 	CompleteClassHandlerData.unlockedPlayerClasses.Add(aClass,newClass->completeClassData);
 	unlockedClasses.Add(aClass,newClass);

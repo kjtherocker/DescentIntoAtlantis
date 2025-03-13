@@ -91,6 +91,8 @@ public:
 	virtual void SpendSkillCost(UCombatEntity* aSkillOwner, ESkillResourceUsed SkillResourceUsed = ESkillResourceUsed::None);
 
 	virtual FCombatLog_CombatToken GiveCombatToken(int& aAmount, UCombatEntity* aEntityToGiveToken, FSkillsData aSkillData);
+
+	ESkillIDS GetSkillID(){return skillData.skillID;}
 };
 
 // All the different variations of Skills

@@ -11,10 +11,11 @@
 //"DataTable'/Game/Skills/AtlantisSkills.AtlantisSkills'"
 
 
-void UCombatClass::InitializeDependencys(USkillFactorySubsystem* aSkillFactory, UPlayerCombatEntity* aCombatEntity)
+void UCombatClass::InitializeDependencys(USkillFactorySubsystem* aSkillFactory, UPlayerCombatEntity* aCombatEntity,USkillHandler* aSkillHandler)
 {
-	skillFactory = aSkillFactory;
+	skillFactory         = aSkillFactory;
 	attachedCombatEntity = aCombatEntity;
+	SkillHandler         = aSkillHandler;
 }
 
 void UCombatClass::SetClass(FCompleteClassData aLoadedClass)
@@ -40,6 +41,7 @@ void UCombatClass::CreateUnlockedClassSkills(FCompleteClassData aCompleteClassDa
 		{
 			USkillBase* newSkill = skillFactory->GetSkill(skillName);
 			classSkills.Add(newSkill);
+			SkillHandler->AddSkill(skillName);
 		}
 	}
 }
@@ -55,6 +57,7 @@ void UCombatClass::UnlockAllClassSkills()
 		{
 			USkillBase* newSkill = skillFactory->GetSkill(skillName);
 			classSkills.Add(newSkill);
+			SkillHandler->AddSkill(skillName);
 		}
 	}
 }

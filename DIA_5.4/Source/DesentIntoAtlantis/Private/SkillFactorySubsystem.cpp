@@ -28,7 +28,7 @@ void USkillFactorySubsystem::InitializeDatabase(UDataTable*  aSkillDataTable,UDa
 			if(skillBase != nullptr)
 			{
 				skillBase->Initialize(skillData);
-				allSkillsMap.Add(skillData.skillID,skillBase);
+				allSkillsMap.Add(skillData.skillID,skillData);
 			}
 		}
 	}
@@ -66,7 +66,10 @@ void USkillFactorySubsystem::InitializeDatabase(UDataTable*  aSkillDataTable,UDa
 
 USkillBase* USkillFactorySubsystem::GetSkill(ESkillIDS aSkillID)
 {
-	USkillBase* skillToReturn = allSkillsMap.FindRef(aSkillID);
+	FSkillsData SkillsData = allSkillsMap.FindRef(aSkillID);
+	USkillBase* skillToReturn = GetSkillClass(SkillsData);
+
+	skillToReturn->Initialize(SkillsData);
 	if(skillToReturn == nullptr)
 	{
 		FSkillsData skillData;
@@ -79,6 +82,25 @@ USkillBase* USkillFactorySubsystem::GetSkill(ESkillIDS aSkillID)
 	}
 	
 	return skillToReturn;
+}
+
+FSkillsData USkillFactorySubsystem::GetSkillData(ESkillIDS aSkillID)
+{
+	if(!allSkillsMap.Contains(aSkillID))
+	{
+		FSkillsData skillData;
+		
+		skillData.skillName    = "Doesnt Exist";
+		skillData.skillID      = ESkillIDS::Uninitialized;
+		skillData.skillType    = ESkillType::Attack;
+		skillData.skillUsage   = ESkillUsage::Opponents;
+		
+		return skillData;
+	}
+	
+	FSkillsData SkillsData = allSkillsMap.FindRef(aSkillID);
+
+	return SkillsData;
 }
 
 UItemBase* USkillFactorySubsystem::GetItem(EItemID aItemID)

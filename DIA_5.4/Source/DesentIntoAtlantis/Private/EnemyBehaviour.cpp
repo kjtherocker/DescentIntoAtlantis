@@ -4,6 +4,7 @@
 #include "EnemyBehaviour.h"
 
 #include "EnemyCombatEntity.h"
+#include "SkillHandler.h"
 
 void UEnemyBehaviour::Initialize(UEnemyCombatEntity* aEnemyCombatEntity)
 {
@@ -24,7 +25,7 @@ int UEnemyBehaviour::PlayerToAttack(TArray<UPlayerCombatEntity*> aCombatEntity)
 
 USkillBase* UEnemyBehaviour::GetSkill()
 {
-	TArray<USkillBase*> enemySkills = enemyCombatEntity->enemySkills;
+	TArray<USkillBase*> enemySkills = enemyCombatEntity->combatEntityHub->skillHandler->GetAllCurrentSkills();
 	
 	return enemySkills[FMath::RandRange(0,enemySkills.Num()-1)];
 }

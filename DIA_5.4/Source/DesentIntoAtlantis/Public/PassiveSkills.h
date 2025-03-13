@@ -157,7 +157,7 @@ public:
 };
 
 UCLASS()
-class DESENTINTOATLANTIS_API UGenericEquipmentPassive : public UPassiveSkills, public IModifySkillPassive
+class DESENTINTOATLANTIS_API UGenericModifyPassive : public UPassiveSkills, public IModifySkillPassive
 {
 	GENERATED_BODY()
 

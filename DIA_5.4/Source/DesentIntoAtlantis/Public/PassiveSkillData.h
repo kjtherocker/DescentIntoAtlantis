@@ -73,7 +73,8 @@ enum class EEquipmentID   : uint8
 {
 	None                 = 0,
 	statup               = 1,
-	BracletOfWater       = 2
+	BracletOfWater       = 2,
+	BonkMod              = 3
 };
 
 UENUM()

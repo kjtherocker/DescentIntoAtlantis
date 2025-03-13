@@ -21,6 +21,9 @@ class DESENTINTOATLANTIS_API UClassHandler : public UObject
 	GENERATED_BODY()
 public:
 	UPROPERTY()
+	USkillHandler* skillHandler;
+	
+	UPROPERTY()
 	UCombatClass* mainClass;
 
 	UPROPERTY()

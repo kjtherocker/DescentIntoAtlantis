@@ -3,12 +3,126 @@
 
 #include "SkillHandler.h"
 
+#include "ESkillID.h"
 #include "SkillBase.h"
+#include "SkillFactorySubsystem.h"
 
-void USkillHandler::Initialize(UCombatEntity* aAttachedCombatEntity, UPassiveHandler* aPassiveHandler)
+void USkillHandler::Initialize(UCombatEntity* aAttachedCombatEntity,USkillFactorySubsystem* aSkillFactorySubsystem, UPassiveHandler* aPassiveHandler)
 {
+	currentSkills.Empty();
+	SkillFactorySubsystem = aSkillFactorySubsystem;
 	attachedCombatEntity = aAttachedCombatEntity;
 	attachedPassiveHandler = aPassiveHandler;
+
+	for (auto Element : attachedPassiveHandler->GetAllPassives())
+	{
+		if (IModifySkillPassive* ModifySkill = Cast<IModifySkillPassive>(Element))
+		{
+			PassiveAdded(Element);
+		}
+	}
+
+	attachedPassiveHandler->PassiveAdded.AddDynamic(this,&USkillHandler::PassiveAdded);
+	attachedPassiveHandler->PassiveRemoved.AddDynamic(this,&USkillHandler::PassiveAdded);
+}
+
+void USkillHandler::AddSkill(ESkillIDS aSkillID)
+{
+	if(currentSkills.Contains(aSkillID))
+	{
+		return;
+	}
+	
+	USkillBase* skill =  SkillFactorySubsystem->GetSkill(aSkillID);
+	currentSkills.Add(skill->skillData.skillID,skill);
+	ValidateAllSkillModifications();
+}
+
+void USkillHandler::RemoveSkill(ESkillIDS aSkillID)
+{
+	if(currentSkills.Contains(aSkillID))
+	{
+		currentSkills.Remove(aSkillID);
+	}
+}
+
+USkillBase* USkillHandler::GetActiveSkill(ESkillIDS aSkillID)
+{
+	if(currentSkills.Contains(aSkillID))
+	{
+		return currentSkills[aSkillID];
+	}
+
+	return nullptr;
+}
+
+TArray<USkillBase*> USkillHandler::GetSkillsByID(TArray<ESkillIDS> aSkillIds)
+{
+	TArray<USkillBase*> skills;
+
+	for (auto Skill : aSkillIds)
+	{
+		USkillBase* skill = GetActiveSkill(Skill);
+		if(skill == nullptr)
+		{
+			continue;
+		}
+		skills.Add(skill);
+	}
+
+	return  skills;
+}
+
+TArray<USkillBase*> USkillHandler::GetAllCurrentSkills()
+{
+	ValidateAllSkillModifications();
+	TArray<USkillBase*> skills;
+
+	for (auto Skill : currentSkills)
+	{
+		if(Skill.Key == ESkillIDS::None)
+		{
+			continue;
+		}
+		if(Skill.Value == nullptr)
+		{
+			continue;
+		}
+
+		
+		skills.Add(Skill.Value);
+	}
+
+	
+	return skills;
+}
+
+void USkillHandler::PassiveAdded(UPassiveSkills* PassiveSkills)
+{
+	if (IModifySkillPassive* ModifySkill = Cast<IModifySkillPassive>(PassiveSkills))
+	{
+		EPassiveSkillID PassiveSkillID       = PassiveSkills->passiveSkillData.passiveSkillID;
+		FSkillModification SkillModification = PassiveSkills->passiveSkillData.skillModification;
+		
+		AddSkillModification(PassiveSkillID,PassiveSkills->passiveSkillData.skillModification);
+	}
+}
+
+void USkillHandler::PassiveRemoved(UPassiveSkills* PassiveSkills)
+{
+	if (IModifySkillPassive* ModifySkill = Cast<IModifySkillPassive>(PassiveSkills))
+	{
+		EPassiveSkillID PassiveSkillID       = PassiveSkills->passiveSkillData.passiveSkillID;
+		FSkillModification SkillModification = PassiveSkills->passiveSkillData.skillModification;
+		
+		AddSkillModification(PassiveSkillID,PassiveSkills->passiveSkillData.skillModification);
+	}
+}
+
+void USkillHandler::RemoveSkillModification(EPassiveSkillID aPassiveSkillID)
+{
+	skillModification.Remove(aPassiveSkillID);
+	ValidateAllSkillModifications();
 }
 
 void USkillHandler::AddSkillModification(EPassiveSkillID aPassiveSkillID,FSkillModification aSkillModification)
@@ -20,18 +134,24 @@ void USkillHandler::AddSkillModification(EPassiveSkillID aPassiveSkillID,FSkillM
 
 void USkillHandler::ValidateAllSkillModifications()
 {
+	if(skillModification.Num() == 0)
+	{
+		return;
+	}
+	
 	for (auto skills : currentSkills)
 	{
 		TArray<FSkillModification> SkillModifications;
-		for (auto skillModification : skillModification)
+		FSkillsData baseSkillData = SkillFactorySubsystem->GetSkillData(skills.Value->skillData.skillID);
+		for (auto Modification : skillModification)
 		{
-			if(isSkillModifcationValidForSkill(skills->skillData,skillModification.Value))
+			if(isSkillModifcationValidForSkill(baseSkillData,Modification.Value))
 			{
-				SkillModifications.Add(skillModification.Value);
+				SkillModifications.Add(Modification.Value);
 			
 			}
 		}
-		ModifySkill(skills->skillData,SkillModifications);
+		currentSkills[baseSkillData.skillID]->Initialize(ModifySkill(baseSkillData,SkillModifications));
 	}
 	
 }
@@ -40,7 +160,13 @@ FSkillsData USkillHandler::ModifySkill(FSkillsData aSkillData,TArray<FSkillModif
 {
 	FSkillsData ModifiedSkill = aSkillData;
 
-	ModifiedSkill.skillName += "(Modified)";
+	if(aSkillModification.Num() == 0)
+	{
+		return ModifiedSkill;
+	}
+	
+
+	ModifiedSkill.skillName += "(Modded)";
 	
 	ModifiedSkill = ModifyDamage( ModifiedSkill, aSkillModification);
 	ModifiedSkill = ModifyCostToUse( ModifiedSkill, aSkillModification);

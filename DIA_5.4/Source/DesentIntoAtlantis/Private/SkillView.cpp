@@ -140,15 +140,15 @@ void USkillView::SkillSelection(FSkillsData aSkill)
 
 void USkillView::SelectSkill()
 {
-	UCombatClass* combatClass = GetCombatClass();
+	TArray<USkillBase*> skillBase = currentActivePartyMember->classHandler->GetClassSkills(ClassSlot);
 	
-	if(combatClass->classSkills[cursorPosition]->CanUseSkill(currentActivePartyMember))
+	if(skillBase[cursorPosition]->CanUseSkill(currentActivePartyMember))
 	{
 		InGameHUD->PopMostRecentActiveView();
 		UCombatSelectionView* SelectionView = (UCombatSelectionView*)InGameHUD->PushAndGetView(EViews::CombatSelection,  EUiType::ActiveUi);
 		SelectionView->SetCombatGameMode(combatGameMode);
 		
-		SelectionView->SetSkill(combatClass->classSkills[cursorPosition]);
+		SelectionView->SetSkill(skillBase[cursorPosition]);
 	}
 }
 

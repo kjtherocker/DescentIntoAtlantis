@@ -7,6 +7,7 @@
 #include "UObject/NoExportTypes.h"
 #include "SkillHandler.generated.h"
 
+enum class EClassSlot : uint8;
 /**
  * 
  */
@@ -15,12 +16,16 @@ class DESENTINTOATLANTIS_API USkillHandler : public UObject
 {
 	GENERATED_BODY()
 
-
+private:
+	UPROPERTY()
+	TMap<ESkillIDS,USkillBase*> currentSkills;
+	
 public:
 
-	UPROPERTY()
-	TArray<USkillBase*> currentSkills;
+	
 
+UPROPERTY()
+	USkillFactorySubsystem* SkillFactorySubsystem;
 	
 	UPROPERTY()
 	TMap<EPassiveSkillID,FSkillModification> skillModification;
@@ -31,8 +36,25 @@ public:
 	UPROPERTY()
 	UPassiveHandler* attachedPassiveHandler;
 	
-	void Initialize(UCombatEntity* aAttachedCombatEntity,UPassiveHandler* aPassiveHandler);
+	void Initialize(UCombatEntity* aAttachedCombatEntity,USkillFactorySubsystem* aSkillFactorySubsystem,UPassiveHandler* aPassiveHandler);
 
+	void AddSkill(ESkillIDS aSkillID);
+	void RemoveSkill(ESkillIDS aSkillID);
+
+	USkillBase* GetActiveSkill(ESkillIDS aSkillID);
+
+	TArray<USkillBase*> GetSkillsByID(TArray<ESkillIDS> aSkillIds);
+
+	
+	TArray<USkillBase*> GetAllCurrentSkills();
+	
+	UFUNCTION()
+	void PassiveAdded(UPassiveSkills* PassiveSkills);
+	UFUNCTION()
+	void PassiveRemoved(UPassiveSkills* PassiveSkills);
+	
+
+	void RemoveSkillModification(EPassiveSkillID aPassiveSkillID);
 	void AddSkillModification(EPassiveSkillID aPassiveSkillID,FSkillModification aSkillModification);
 	void ValidateAllSkillModifications();
 
