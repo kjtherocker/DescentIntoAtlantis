@@ -206,9 +206,6 @@ struct DESENTINTOATLANTIS_API FSkillModification : public FTableRowBase
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
 	TMap<ESkillModificationCommand,ESkillResourceUsed> skillResource;
 	
-	UPROPERTY( EditAnywhere , Category = "DefaultInfo")    
-	TMap<ESkillModificationCommand,EElementalType> elementalType;
-	
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
 	TMap<ESkillModificationCommand,ESkillDamageType> skillDamageType;
 
