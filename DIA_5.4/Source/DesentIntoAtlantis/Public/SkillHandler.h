@@ -23,7 +23,7 @@ public:
 
 	
 	UPROPERTY()
-	TArray<FSkillModification> skillModification;
+	TMap<EPassiveSkillID,FSkillModification> skillModification;
 	
 	UPROPERTY()
 	UCombatEntity* attachedCombatEntity;
@@ -33,10 +33,12 @@ public:
 	
 	void Initialize(UCombatEntity* aAttachedCombatEntity,UPassiveHandler* aPassiveHandler);
 
-	void AddSkillModification(FSkillModification aSkillModification);
+	void AddSkillModification(EPassiveSkillID aPassiveSkillID,FSkillModification aSkillModification);
 	void ValidateAllSkillModifications();
 
 	FSkillsData ModifySkill(FSkillsData aSkillData,TArray<FSkillModification>  aModifySkill);
+
+	FSkillsData ModifyDamage(FSkillsData aSkillData,TArray<FSkillModification>  aModifySkill);
 
 	bool isSkillModifcationValidForSkill(FSkillsData aSkill, FSkillModification aSkillModification);
 

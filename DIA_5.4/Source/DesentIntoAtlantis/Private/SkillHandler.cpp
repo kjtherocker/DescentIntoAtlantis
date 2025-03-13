@@ -11,9 +11,9 @@ void USkillHandler::Initialize(UCombatEntity* aAttachedCombatEntity, UPassiveHan
 	attachedPassiveHandler = aPassiveHandler;
 }
 
-void USkillHandler::AddSkillModification(FSkillModification aSkillModification)
+void USkillHandler::AddSkillModification(EPassiveSkillID aPassiveSkillID,FSkillModification aSkillModification)
 {
-	skillModification.Add(aSkillModification);
+	skillModification.Add(aPassiveSkillID,aSkillModification);
 
 	ValidateAllSkillModifications();
 }
@@ -25,9 +25,9 @@ void USkillHandler::ValidateAllSkillModifications()
 		TArray<FSkillModification> SkillModifications;
 		for (auto skillModification : skillModification)
 		{
-			if(isSkillModifcationValidForSkill(skills->skillData,skillModification))
+			if(isSkillModifcationValidForSkill(skills->skillData,skillModification.Value))
 			{
-				SkillModifications.Add(skillModification);
+				SkillModifications.Add(skillModification.Value);
 			
 			}
 		}
@@ -40,6 +40,47 @@ FSkillsData USkillHandler::ModifySkill(FSkillsData aSkillData,TArray<FSkillModif
 {
 	FSkillsData ModifiedSkill = aSkillData;
 
+	ModifiedSkill = ModifyDamage( ModifiedSkill, aModifySkill);
+
+	return ModifiedSkill;
+}
+
+FSkillsData USkillHandler::ModifyDamage(FSkillsData aSkillData, TArray<FSkillModification> aModifySkill)
+{
+	FSkillsData ModifiedSkill = aSkillData;
+
+	for (auto SkillModification : aModifySkill)
+	{
+		for (auto BaseDamage : SkillModification.BaseDamage)
+		{
+			if(BaseDamage.Key == ESkillModificationCommand::Replace)
+			{
+				ModifiedSkill.damage = BaseDamage.Value;
+			}
+		}
+	}
+	
+	for (auto SkillModification : aModifySkill)
+	{
+		for (auto BaseDamage : SkillModification.BaseDamage)
+		{
+			if(BaseDamage.Key == ESkillModificationCommand::Subtractive)
+			{
+				ModifiedSkill.damage -= BaseDamage.Value;
+			}
+		}
+	}
+
+	for (auto SkillModification : aModifySkill)
+	{
+		for (auto BaseDamage : SkillModification.BaseDamage)
+		{
+			if(BaseDamage.Key == ESkillModificationCommand::Additional)
+			{
+				ModifiedSkill.damage += BaseDamage.Value;
+			}
+		}
+	}
 	
 
 	return ModifiedSkill;
