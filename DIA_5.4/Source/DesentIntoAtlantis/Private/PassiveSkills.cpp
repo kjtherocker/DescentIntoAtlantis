@@ -55,7 +55,7 @@ FCombatLog_PassiveSkilData UGenericTriggerPassive::ActivateGenericPassive_Implem
 
 FSkillsData UGenericEquipmentPassive::ModifySkill_Implementation(FSkillsData aPassiveSkill)
 {
-	passiveSkillData
+	
 
 	
 	return IModifySkillPassive::ModifySkill_Implementation(aPassiveSkill);

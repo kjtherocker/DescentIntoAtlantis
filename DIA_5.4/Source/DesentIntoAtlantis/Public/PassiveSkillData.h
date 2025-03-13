@@ -3,9 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
 #include "PassiveSkillData.generated.h"
 
 
+enum class ESkillResourceUsed : uint8;
 enum class EPartyMembersID;
 enum class ESkillIDS : uint8;
 enum class ESkillDamageType : uint8;
@@ -56,12 +58,14 @@ enum class ECombatTokenType   : uint8
 UENUM()
 enum class EPassiveSkillID   : uint8
 {
-	None                 = 0,
-	StatusAdept          = 1,
-	DarkIncrease         = 2,
-	DarkResist           = 3,
-	Hydrocity            = 4,
-	MerchantZeal         = 5,
+	None        ,
+	StatusAdept ,
+	DarkIncrease,
+	DarkResist  ,
+	Hydrocity   ,
+	MerchantZeal,
+	//ModificationPassives
+	BonkDefenceResistDown,
 };
 
 UENUM()
@@ -100,8 +104,9 @@ enum class EPassiveSkillStatType : uint8
 	Percentage = 2,
 };
 
+
 UENUM()
-enum class EPassiveSkillModificationType : uint8
+enum class ESkillModificationCommand : uint8
 {
 	None        = 0,
 	Replace     = 1,
@@ -131,31 +136,95 @@ struct DESENTINTOATLANTIS_API FCombatTokenStackData : public FTableRowBase
 	int TurnLength  = 3;
 };
 
+
 USTRUCT()
-struct DESENTINTOATLANTIS_API FPassiveSkillModification : public FTableRowBase
+struct DESENTINTOATLANTIS_API FCombatTokenStackArrayData : public FTableRowBase
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere)
+	TArray<FCombatTokenStackData> CombatTokenStackDatas;
+};
+
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FSkillTrigger : public FTableRowBase
+{
+	GENERATED_BODY()
+	
+	UPROPERTY( EditAnywhere , Category = "General Trigger")    
+	EGenericTrigger  triggerGeneric;
+	
+	UPROPERTY( EditAnywhere , Category = "Attack Triggers")    
+	ESkillType      trigger1SkillType;
+    
+	UPROPERTY( EditAnywhere , Category = "Attack Triggers")    
+	ESkillUsage     trigger2SkillUsage;
+    
+	UPROPERTY( EditAnywhere , Category = "Attack Triggers")    
+	ESkillRange trigger3SkillRange ;
+    
+	UPROPERTY( EditAnywhere , Category = "Attack Triggers")    
+	ESkillDamageType trigger4DamageType;
+    
+	UPROPERTY( EditAnywhere , Category = "Attack Triggers")    
+	EElementalType trigger5ElementalType;
+};
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FSkillModification : public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
 
+
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
-	TMap<EPassiveSkillModificationType,int> BaseDamage;
+	TArray<ESkillIDS> SkillsThatCanBeModified;
+
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
-	TMap<EPassiveSkillModificationType,int> SkillHit;
+	FSkillTrigger TriggersThatWillProcSkillModification;
+
+
+	UPROPERTY( EditAnywhere , Category = "Identity")
+	TMap<ESkillModificationCommand,FString> skillName;
+	
+	UPROPERTY( EditAnywhere , Category = "Identity")
+	TMap<ESkillModificationCommand,FString> skillDescription;
+
 	
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
-	TMap<EPassiveSkillModificationType,EElementalType> SkillElementalType;
-	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
-	TMap<EPassiveSkillModificationType,ESkillDamageType> skillDamageType;
+	TMap<ESkillModificationCommand,int> costToUse;
 
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
-	TMap<EPassiveSkillModificationType,EStatTypes> skillScaleStat;
+	TMap<ESkillModificationCommand,int> BaseDamage;
+
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
-	TMap<EPassiveSkillModificationType,ESkillType> skillType;
+	TMap<ESkillModificationCommand,int> SkillHit;
+	
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
-	TMap<EPassiveSkillModificationType,ESkillUsage> skillUsage;
+	TMap<ESkillModificationCommand,EElementalType> SkillElementalType;
+
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
+	TMap<ESkillModificationCommand,ESkillResourceUsed> skillResource;
+	
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")    
+	TMap<ESkillModificationCommand,EElementalType> elementalType;
+	
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
+	TMap<ESkillModificationCommand,ESkillDamageType> skillDamageType;
+
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
+	TMap<ESkillModificationCommand,EStatTypes> skillScaleStat;
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
+	TMap<ESkillModificationCommand,ESkillType> skillType;
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
+	TMap<ESkillModificationCommand,ESkillUsage> skillUsage;
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")    
+	TMap<ESkillModificationCommand,ESkillRange> skillRange;
 
 
 
-	TMap<EPassiveSkillModificationType,FCombatTokenStackData> CombatTokens;
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")  
+	TMap<ESkillModificationCommand,FCombatTokenStackArrayData> CombatTokens;
 	
 };
 
@@ -213,6 +282,8 @@ struct DESENTINTOATLANTIS_API FPassiveSkillData : public FTableRowBase
 	UPROPERTY( EditAnywhere , Category = "Attack Triggers")    
 	EElementalType trigger5ElementalType;
 
+	UPROPERTY( EditAnywhere , Category = "SkillModification")  
+	FSkillModification skillModification;
 };
 
 
