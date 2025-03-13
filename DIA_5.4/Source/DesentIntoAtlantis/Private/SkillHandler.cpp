@@ -36,6 +36,8 @@ void USkillHandler::AddSkill(ESkillIDS aSkillID)
 	USkillBase* skill =  SkillFactorySubsystem->GetSkill(aSkillID);
 	currentSkills.Add(skill->skillData.skillID,skill);
 	ValidateAllSkillModifications();
+
+	USkillBase* test =  SkillFactorySubsystem->GetSkill(aSkillID);
 }
 
 void USkillHandler::RemoveSkill(ESkillIDS aSkillID)

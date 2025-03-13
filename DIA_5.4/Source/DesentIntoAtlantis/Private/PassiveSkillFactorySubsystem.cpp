@@ -124,8 +124,9 @@ UEquipmentPassive* UPassiveFactorySubsystem::CreateEquipment(EEquipmentID aEquip
 		newEquipment = NewObject<UEquipmentPassive>();
 		break;
 	}
+	
 
-	if(newEquipment != nullptr)
+	if(newEquipment != nullptr && allEquipmentData.Contains(aEquipmentID))
 	{
 		newEquipment->InitializeEquipmentPassive(aEquipmentID,GetPassiveSkill(allEquipmentData[aEquipmentID].attachedPassive));
 	}
