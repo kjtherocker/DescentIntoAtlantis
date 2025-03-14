@@ -69,7 +69,7 @@ USkillBase* USkillFactorySubsystem::GetSkill(ESkillIDS aSkillID)
 	FSkillsData SkillsData = allSkillsMap.FindRef(aSkillID);
 	USkillBase* skillToReturn = GetSkillClass(SkillsData);
 
-	skillToReturn->Initialize(SkillsData);
+
 	if(skillToReturn == nullptr)
 	{
 		FSkillsData skillData;
@@ -79,6 +79,10 @@ USkillBase* USkillFactorySubsystem::GetSkill(ESkillIDS aSkillID)
 		skillData.skillUsage   = ESkillUsage::Opponents;
 		
 		return GetSkillClass( skillData);
+	}
+	else
+	{
+		skillToReturn->Initialize(SkillsData);		
 	}
 	
 	return skillToReturn;

@@ -44,7 +44,7 @@ enum class ESkillIDS : uint8
 	//Merchant
 	CoinToss              UMETA(DisplayName = "CoinToss"),
 	ExplosiveFlask        UMETA(DisplayName = "Explosive"),
-	ElixirOfDefence       UMETA(DisplayName = "ElixierOfDefence"),
+	ElixirOfDefence       UMETA(DisplayName = "ElixierOfDefence"),Chu
 	AvariceFocus          UMETA(DisplayName = "AvariceFocus"),
 	
 	//Item
@@ -52,6 +52,8 @@ enum class ESkillIDS : uint8
 	//SharkFiend
 	WaterBlast             UMETA(DisplayName = "WaterBlast"),
 	//MinatureGuraShark
-	RevoltingStench             UMETA(DisplayName = "RevoltingStench"),
+	RevoltingStench        UMETA(DisplayName = "RevoltingStench"),
+	TidalWave              UMETA(DisplayName = "TidalWave"),
+	ChumBud                UMETA(DisplayName = "ChumBud"),
 
 };
