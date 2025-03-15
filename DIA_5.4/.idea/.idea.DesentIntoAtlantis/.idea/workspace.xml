@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillFactorySubsystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillFactorySubsystem.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/ESkillID.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/ESkillID.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -796,7 +795,7 @@
       <workItem from="1741896686041" duration="1239000" />
       <workItem from="1741985867455" duration="22000" />
       <workItem from="1741986246792" duration="322000" />
-      <workItem from="1741991728277" duration="398000" />
+      <workItem from="1741991728277" duration="4043000" />
     </task>
     <servers />
   </component>
