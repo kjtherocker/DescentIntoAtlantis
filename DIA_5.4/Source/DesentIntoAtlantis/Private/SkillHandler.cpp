@@ -58,6 +58,7 @@ USkillBase* USkillHandler::GetActiveSkill(ESkillIDS aSkillID)
 	return nullptr;
 }
 
+
 TArray<USkillBase*> USkillHandler::GetSkillsByID(TArray<ESkillIDS> aSkillIds)
 {
 	TArray<USkillBase*> skills;
@@ -156,6 +157,31 @@ void USkillHandler::ValidateAllSkillModifications()
 		currentSkills[baseSkillData.skillID]->Initialize(ModifySkill(baseSkillData,SkillModifications));
 	}
 	
+}
+
+void USkillHandler::SetChargingSkill(FSkillsData aSkillData)
+{
+	chargingSkill = aSkillData;
+}
+
+bool USkillHandler::isSkillCharging()
+{
+	return chargingSkill.skillChargeData.isCharging;
+}
+
+void USkillHandler::OnTurnStart()
+{
+	if(!isSkillCharging())
+	{
+		return;
+	}
+
+	if(chargingSkill.skillChargeData.currentChargeStage >= chargingSkill.skillChargeData.chargeStageToReach)
+	{
+			
+	}
+	
+	chargingSkill.skillChargeData.currentChargeStage++;
 }
 
 FSkillsData USkillHandler::ModifySkill(FSkillsData aSkillData,TArray<FSkillModification> aSkillModification)

@@ -55,6 +55,8 @@ void UCombatEntity::StartTurn()
     {
         skillAliments[i]->ActivateAilment(this);
     }
+
+    combatEntityHub->OnTurnStart();
 }
 
 void UCombatEntity::EndTurn()

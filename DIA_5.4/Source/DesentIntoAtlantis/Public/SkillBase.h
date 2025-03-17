@@ -58,6 +58,29 @@ public:
 	
 };
 
+
+UINTERFACE(BlueprintType)
+class UChargeSkill : public UInterface
+{
+	GENERATED_BODY()
+};
+
+
+class IChargeSkill 
+{
+	GENERATED_BODY()
+
+public:
+	
+	FSkillChargeData SkillChargeData;
+
+	
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category="Skill")
+	virtual FCombatLog_Hit_Data i_ActivateCharge(UCombatEntity* aAttacker, UCombatEntity* aVictim);
+	
+};
+
+
 UINTERFACE(BlueprintType)
 class USkillHit : public UInterface
 {
@@ -90,6 +113,10 @@ public:
 	virtual bool CanUseSkill(UCombatEntity* aSkillOwner, ESkillResourceUsed SkillResourceUsed = ESkillResourceUsed::None);
 	virtual void SpendSkillCost(UCombatEntity* aSkillOwner, ESkillResourceUsed SkillResourceUsed = ESkillResourceUsed::None);
 
+	virtual FCombatLog_AttackDefense_Data StartChargingSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim);
+
+	virtual bool isChargeSkillReady();
+	
 	virtual FCombatLog_CombatToken GiveCombatToken(int& aAmount, UCombatEntity* aEntityToGiveToken, FSkillsData aSkillData);
 
 	ESkillIDS GetSkillID(){return skillData.skillID;}
@@ -126,6 +153,24 @@ class UDefaultSkillAttack : public USkillBase , public ISkillHit
 	GENERATED_BODY()
 
 
+	virtual FCombatLog_Hit_Data I_CalculateHit_Implementation(UCombatEntity* aAttacker, UCombatEntity* aVictim) override
+	{
+		return USkillBase::CalculateHit(aAttacker, aVictim);
+	};
+	
+	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override
+	{
+		return aVictim->DecrementHealth(aAttacker,skillData);
+	};
+	
+};
+
+
+UCLASS()
+class UDefault_Charge_Skill : public UDefaultSkillAttack 
+{
+	GENERATED_BODY()
+	
 	virtual FCombatLog_Hit_Data I_CalculateHit_Implementation(UCombatEntity* aAttacker, UCombatEntity* aVictim) override
 	{
 		return USkillBase::CalculateHit(aAttacker, aVictim);

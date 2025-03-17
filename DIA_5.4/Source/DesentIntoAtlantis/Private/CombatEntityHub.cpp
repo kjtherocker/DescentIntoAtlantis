@@ -67,6 +67,14 @@ TArray<FCombatLog_PassiveSkilData> UCombatEntityHub::CheckAttackDefencePassivesA
 	return PassiveSkilDatas;
 }
 
+bool UCombatEntityHub::doesEntityHaveATurn()
+{
+	if(skillHandler->isSkillCharging())
+	{
+		return false;
+	}
+}
+
 void UCombatEntityHub::SpawnParticles(UNiagaraSystem* aNiagaraSystem)
 {
 	SpawnSkillParticles.Broadcast(aNiagaraSystem,OwnedCombatEntity);
@@ -96,4 +104,10 @@ int UCombatEntityHub::OnGetItemTier(EItemID ItemID)
 
 	
 	return FinalItemTier;
+}
+
+void UCombatEntityHub::OnTurnStart()
+{
+
+	skillHandler
 }

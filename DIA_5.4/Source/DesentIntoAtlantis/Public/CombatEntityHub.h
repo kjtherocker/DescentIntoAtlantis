@@ -47,6 +47,8 @@ public:
 	FEvadedAttack                      EvadedAttack;
 	FSpawnSkillParticles               SpawnSkillParticles;
 
+	virtual bool doesEntityHaveATurn();
+	virtual void OnTurnStart();
 	virtual void SpawnParticles(UNiagaraSystem* aNiagaraSystem);
 	virtual void OnAttackEvaded(FCombatLog_Hit_Data aEvasionData);
 	virtual void OnEvadedAttack(FCombatLog_Hit_Data aEvasionData);

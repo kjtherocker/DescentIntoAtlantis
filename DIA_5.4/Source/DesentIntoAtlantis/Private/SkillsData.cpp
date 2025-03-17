@@ -65,7 +65,15 @@ FCombatLog_Full_Data USkillBase::ExecuteSkill(UCombatEntity* aAttacker, UCombatE
 	
 	if(isSkillExecuted)
 	{
-		CombatLog_Base_Data.CombatLog_AttackDefense_Data = aSkill->UseSkill(aAttacker,aVictim);
+		if(skillData.skillChargeData.canCharge && !isChargeSkillReady())
+		{
+			CombatLog_Base_Data.CombatLog_AttackDefense_Data = StartChargingSkill(aAttacker,aVictim);
+		}
+		else
+		{
+			CombatLog_Base_Data.CombatLog_AttackDefense_Data = aSkill->UseSkill(aAttacker,aVictim);	
+		}
+		
 		aVictim->combatEntityHub->SpawnParticles(skillsData.SkillInWorldParticle);
 		if (IOnGiveCombatToken* attackDefencePassive = Cast<IOnGiveCombatToken>(this))
 		{
@@ -140,6 +148,27 @@ void USkillBase::SpendSkillCost(UCombatEntity* aSkillOwner, ESkillResourceUsed S
 			aSkillOwner->combatEntityHub->ItemChargeHandler->ConsumeItemCharge(skillData.costToUse);
 			break;
 	}
+}
+
+FCombatLog_AttackDefense_Data USkillBase::StartChargingSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+{
+	skillData.skillChargeData.isCharging = true;
+	skillData.skillChargeData.currentChargeStage = 0;
+	skillData.skillChargeData.EntityToAttackOnChargeEnd = aVictim;
+
+	aAttacker->combatEntityHub->skillHandler->SetChargingSkill(skillData);
+	
+	FCombatLog_AttackDefense_Data AttackDefense_Data;
+
+	AttackDefense_Data.wasInitializedOnSkill = true;
+	AttackDefense_Data.ForcedDescription = aAttacker->GetEntityName() + "Has Started To Charge " + skillData.skillName;
+		
+	return AttackDefense_Data;
+}
+
+bool USkillBase::isChargeSkillReady()
+{
+	return skillData.skillChargeData.currentChargeStage >= skillData.skillChargeData.chargeStageToReach;
 }
 
 FCombatLog_CombatToken USkillBase::GiveCombatToken(int& aAmount, UCombatEntity* aEntityToGiveToken, FSkillsData aSkillData)

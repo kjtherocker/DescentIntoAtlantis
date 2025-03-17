@@ -405,7 +405,16 @@ void ACombatGameModeBase::AllyStartTurn()
 	partyHealthbars->SetHighlightHealthbar(currentActivePartyMember,FULL_OPACITY);
 	currentActivePartyMember->StartTurn();
 	combatCamera->shouldReturnToInitialPosition = true;
-	UCommandBoardView* commandBoard = (UCommandBoardView*)InGameHUD->PushAndGetView(EViews::CommandBoard,  EUiType::ActiveUi);
+
+	if(currentActivePartyMember->combatEntityHub->doesEntityHaveATurn())
+	{
+		UCommandBoardView* commandBoard = (UCommandBoardView*)InGameHUD->PushAndGetView(EViews::CommandBoard,  EUiType::ActiveUi);	
+	}
+	else
+	{
+		TurnEnd();
+	}
+	
 
 }
 

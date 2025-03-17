@@ -9,6 +9,8 @@
 #include "SkillData.generated.h"
 
 
+class UCombatEntity;
+
 UENUM()
 enum class EItemID : uint8
 {
@@ -35,6 +37,28 @@ enum class ESkillIDS : uint8;
 
 
 struct FCombatTokenStackData;
+
+USTRUCT()
+struct DESENTINTOATLANTIS_API FSkillChargeData : public FTableRowBase
+{
+	GENERATED_BODY()
+
+	UPROPERTY()
+	UCombatEntity* EntityToAttackOnChargeEnd; 
+	
+	UPROPERTY(EditAnywhere)
+	bool canCharge = false;
+	
+	UPROPERTY()
+	bool isCharging = false;
+
+	UPROPERTY()
+	int currentChargeStage;
+	
+	UPROPERTY(EditAnywhere)
+	int chargeStageToReach;
+};
+
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
@@ -85,6 +109,9 @@ struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
 	TArray<FCombatTokenStackData> combatTokensUsedOnSkill;
 	UPROPERTY(EditAnywhere, Category = "CombatToken")
 	int CombatTokenHit;
+
+	UPROPERTY(EditAnywhere, Category = "Charge")
+	FSkillChargeData skillChargeData;
 };
 
 
@@ -119,4 +146,5 @@ struct DESENTINTOATLANTIS_API FKeyItemData : public FTableRowBase
 	UPROPERTY(EditAnywhere)
 	FString descriptionText;
 };
+
 
