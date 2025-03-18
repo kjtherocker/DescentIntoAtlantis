@@ -10,6 +10,8 @@
 #include "EnemyFactorySubSystem.generated.h"
 
 
+enum class EEnemyCombatPositions;
+
 USTRUCT()
 struct DESENTINTOATLANTIS_API FEnemyRowData :public  FTableRowBase
 {

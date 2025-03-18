@@ -6,8 +6,8 @@
 void UMana::InitializeMana(FManaData aManaData, UCombatEntity* aCombatEntity)
 {
 	ManaData = aManaData;
-	CombatEntity = aCombatEntity;
+	AttachedCombatEntity = aCombatEntity;
 	
-	Initialize(ManaData.ResourceBarInfo,aCombatEntity);
+	InitializeResources(ManaData.ResourceBarInfo,aCombatEntity);
 }
 

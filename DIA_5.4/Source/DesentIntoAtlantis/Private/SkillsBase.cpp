@@ -222,7 +222,9 @@ TArray<UCombatEntity*> USkillBase::GetSkillCombatEntity(ACombatGameModeBase* aCo
 			return entitySkillsAreUsedOn;
 		}
 	}
-	
+
+
+	return entitySkillsAreUsedOn;
 }
 
 void UAilment::Initialize(FSkillsData aSkillData)

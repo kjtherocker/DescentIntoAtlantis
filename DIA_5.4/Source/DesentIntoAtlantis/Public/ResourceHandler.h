@@ -3,11 +3,15 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "CombatEntity.h"
+#include "CombatEntityWrapper.h"
+
 #include "ResourceHandlerCompleteData.h"
+#include "SyncHandler.h"
 #include "UObject/NoExportTypes.h"
 #include "ResourceHandler.generated.h"
 
+class UCombatEntityWrapper;
+class UCombatEntity;
 enum class EResource : uint8;
 class USyncHandler;
 class UMana;
@@ -28,6 +32,8 @@ public:
 
 	FResourceHandlerCompleteData ResourceHandlerCompleteData;
 	FResetOneWrapperToDefault          resetOneWrapperToDefault;
+
+	FHasValuesUpdated hasValuesUpdated;
 	
 	UPROPERTY()
 	UCombatEntityWrapper* inUseCombatWrapper;

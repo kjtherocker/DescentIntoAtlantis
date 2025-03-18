@@ -6,13 +6,10 @@
 #include "GameFramework/GameModeBase.h"
 #include "EnemyFactorySubSystem.h"
 #include "PartyManagerSubsystem.h"
-#include "SkillFactorySubsystem.h"
-#include "Views.h"
 #include "EDataTableTypes.h"
 #include "FloorFactory.h"
 #include "GameSettings.h"
 
-#include "DesentIntoAtlantis/FloorManager.h"
 #include "AtlantisGameModeBase.generated.h"
 
 class USaveManagerSubsystem;

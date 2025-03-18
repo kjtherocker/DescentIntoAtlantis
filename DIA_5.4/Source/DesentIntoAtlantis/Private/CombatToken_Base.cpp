@@ -7,6 +7,7 @@
 #include "CombatToken_Base_Data.h"
 #include "Health.h"
 #include "PlayerCombatStat.h"
+#include "ResourceHandler.h"
 
 void UCombatToken_Base::ValidateStackState()
 {
@@ -174,11 +175,11 @@ void UCombatToken_RoundEnd_Health::RoundEnd()
 	int percentageOfHealth = (healthdata.ResourceBarInfo.Max * CombatToken_Base_Data.valuePercentage) / 100;
 	if(CombatToken_Base_Data.CombatTokenType == ECombatTokenType::Positive)
 	{
-		attachedCombatEntity->ResourceHandler->healthHandler->IncrementValue(percentageOfHealth * CombatTokenStateInfo.currentTokenStack);
+		attachedCombatEntity->ResourceHandler->IncrementResource(EResource::Health,percentageOfHealth * CombatTokenStateInfo.currentTokenStack);
 	}
 	if(CombatToken_Base_Data.CombatTokenType == ECombatTokenType::Negative)
 	{
-		attachedCombatEntity->ResourceHandler->DecrementHealth(percentageOfHealth * CombatTokenStateInfo.currentTokenStack);
+		attachedCombatEntity->ResourceHandler->DecrementResource(EResource::Health, percentageOfHealth * CombatTokenStateInfo.currentTokenStack);
 	}
 	
 	Super::RoundEnd();

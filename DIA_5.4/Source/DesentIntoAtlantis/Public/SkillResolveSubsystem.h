@@ -3,10 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "CombatGameModeBase.h"
+
 #include "UObject/NoExportTypes.h"
 #include "SkillResolveSubsystem.generated.h"
 
+class ACombatGameModeBase;
 struct FCombatLog_Full_Data;
 class USkillBase;
 class UCombatEntity;

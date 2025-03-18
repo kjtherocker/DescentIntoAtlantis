@@ -11,21 +11,20 @@
 
 void UHealth::InitializeHealth(int aCurrentHealth, int aMaxHealth, UCombatEntity* aCombatEntity)
 {
-	FHealthData HealthData;
-	FResourceBarInfo ResourceBarInfo;
+	FHealthData newHealthData;
+	FResourceBarInfo newHealthResourceInfo;
 
-	ResourceBarInfo.Current = aCurrentHealth;
-	ResourceBarInfo.Max     = aMaxHealth;
+	newHealthResourceInfo.Current = aCurrentHealth;
+	newHealthResourceInfo.Max     = aMaxHealth;
 
-	HealthData.ResourceBarInfo = ResourceBarInfo;
+	newHealthData.ResourceBarInfo = newHealthResourceInfo;
 
-	InitializeHealth(HealthData,OwnedCombatEntity);
+	InitializeHealth(newHealthData,AttachedCombatEntity);
 }
 
 void UHealth::InitializeHealth(FHealthData aHealthData, UCombatEntity* aCombatEntity)
 {
-	OwnedCombatEntity = aCombatEntity;
-	Initialize(aHealthData.ResourceBarInfo,aCombatEntity);
+	InitializeResources(aHealthData.ResourceBarInfo,aCombatEntity);
 }
 
 FCombatLog_AttackDefense_Data UHealth::DecrementHealth(int aAmountToRemove)
@@ -34,8 +33,8 @@ FCombatLog_AttackDefense_Data UHealth::DecrementHealth(int aAmountToRemove)
 
 	lastAttackDefenceData.FinalDamageResult = aAmountToRemove;
 	
-	OwnedCombatEntity->PostDamage();
-	OnDecrementHealth.Broadcast(lastAttackDefenceData,OwnedCombatEntity);
+	AttachedCombatEntity->PostDamage();
+	OnDecrementHealth.Broadcast(lastAttackDefenceData,AttachedCombatEntity);
 	
 
   

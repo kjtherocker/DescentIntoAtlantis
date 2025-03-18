@@ -31,7 +31,10 @@ void UPartyHealthbarElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 	aCombatEntity->ResourceHandler->healthHandler->hasValuesUpdated.AddDynamic(this,
 		&UPartyHealthbarElement::UpdateHealthbarElements);
 
-	aCombatEntity->manaHandler->HasManaValuesChanged.AddDynamic(this,
+	aCombatEntity->ResourceHandler->hasValuesUpdated.AddDynamic(this,
+		&UPartyHealthbarElement::UpdateHealthbarElements);
+
+	aCombatEntity->ResourceHandler->manaHandler->HasManaValuesChanged.AddDynamic(this,
 		&UPartyHealthbarElement::ManaValuesChanged);
 
 	aCombatEntity->wasKilled.AddDynamic(this,
@@ -77,7 +80,7 @@ void UPartyHealthbarElement::UpdateHealthbarElements()
 	BW_HealthText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->ResourceHandler->healthHandler->GetCurrentValue())));
 	
 	BW_Mana->SetPercentageMain(playerCombatEntity->GetManaPercentage());
-	BW_ManaText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->manaHandler->GetManaData().ResourceBarInfo.Current)));
+	BW_ManaText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->ResourceHandler->manaHandler->GetManaData().ResourceBarInfo.Current)));
 
 
 	float syncPercentage = playerCombatEntity->GetSyncPercentage();

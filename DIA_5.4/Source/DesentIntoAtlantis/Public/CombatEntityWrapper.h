@@ -3,9 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "ResourceHandler.h"
+
 #include "CombatEntityWrapper.generated.h"
 
+class UResourceHandler;
 class UHealth;
 /**
  * 

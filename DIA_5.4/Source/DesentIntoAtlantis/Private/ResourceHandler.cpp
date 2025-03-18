@@ -14,9 +14,10 @@ void UResourceHandler::Initialize(UCombatEntity* aOwnedCombatEntity)
 	healthHandler                  = NewObject<UHealth>();
 	manaHandler                    = NewObject<UMana>();
 	SyncHandler                    = NewObject<USyncHandler>();
-	
-	FSyncData emptySyncData;
-	SyncHandler->InitializeSyncHandler(emptySyncData, aOwnedCombatEntity);
+
+	healthHandler->InitializeHealth(ResourceHandlerCompleteData.HealthData,OwnedCombatEntity);
+	manaHandler->InitializeMana(ResourceHandlerCompleteData.ManaData,OwnedCombatEntity);
+	SyncHandler->InitializeSyncHandler(ResourceHandlerCompleteData.SyncData,OwnedCombatEntity);
 
 	SetCombatWrapper(OwnedCombatEntity);
 }
@@ -94,6 +95,8 @@ void UResourceHandler::DecrementResource(EResource aResource,int aValue)
 	case EResource::ItemCharges:
 		break;
 	}
+
+	hasValuesUpdated.Broadcast();
 }
 
 void UResourceHandler::IncrementResource(EResource aResource, int aValue)
@@ -114,6 +117,9 @@ void UResourceHandler::IncrementResource(EResource aResource, int aValue)
 	case EResource::ItemCharges:
 		break;
 	}
+
+	
+	hasValuesUpdated.Broadcast();
 }
 
 FResourceHandlerCompleteData UResourceHandler::SaveAllResourcesAndReturn()

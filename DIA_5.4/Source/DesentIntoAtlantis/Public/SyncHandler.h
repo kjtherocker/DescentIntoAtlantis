@@ -28,14 +28,14 @@ protected:
 	FResourceBarInfo ResourceBarInfo;
 
 	UPROPERTY()
-	UCombatEntity* CombatEntity;
+	UCombatEntity* AttachedCombatEntity;
 
 public:
 
 	FHasValuesChanged HasValuesChanged;
 	FHasValuesUpdated hasValuesUpdated;
 
-	virtual void Initialize(FResourceBarInfo aResourceInfo, UCombatEntity* aCombatEntity);
+	virtual void InitializeResources(FResourceBarInfo aResourceInfo, UCombatEntity* aCombatEntity);
 
 	virtual void SetResourceInfo(FResourceBarInfo aResourceInfo);
 	virtual void SetCurrentValue(int aCurrentMana);

@@ -3,10 +3,10 @@
 
 #include "SyncHandler.h"
 
-void UResourceBar_Base::Initialize(FResourceBarInfo aResourceInfo, UCombatEntity* aCombatEntity)
+void UResourceBar_Base::InitializeResources(FResourceBarInfo aResourceInfo, UCombatEntity* aCombatEntity)
 {
 	ResourceBarInfo = aResourceInfo;
-	CombatEntity = aCombatEntity;
+	AttachedCombatEntity = aCombatEntity;
 	SetResourceInfo(ResourceBarInfo);
 }
 
@@ -124,7 +124,7 @@ void USyncHandler::InitializeSyncHandler(FSyncData aSyncData, UCombatEntity* aCo
 {
 	syncData = 	aSyncData;
 	
-	Initialize(syncData.ResourceBarInfo,aCombatEntity);
+	InitializeResources(syncData.ResourceBarInfo,aCombatEntity);
 
 	if(aSyncData.isSyncLocked)
 	{

@@ -73,6 +73,8 @@ bool UCombatEntityHub::doesEntityHaveATurn()
 	{
 		return false;
 	}
+
+	return true;
 }
 
 void UCombatEntityHub::SpawnParticles(UNiagaraSystem* aNiagaraSystem)

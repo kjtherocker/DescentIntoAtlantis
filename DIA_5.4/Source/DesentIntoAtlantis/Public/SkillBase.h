@@ -96,7 +96,7 @@ public:
 	
 	virtual FCombatLog_CombatToken GiveCombatToken(int& aAmount, UCombatEntity* aEntityToGiveToken, FSkillsData aSkillData);
 
-	virtual TArray<UCombatEntity*> GetSkillCombatEntity(ACombatGameModeBase* aCombatGameMode,int aCursor = 0, UCombatEntity* aSkillOwner);
+	virtual TArray<UCombatEntity*> GetSkillCombatEntity(ACombatGameModeBase* aCombatGameMode,int aCursor, UCombatEntity* aSkillOwner);
 
 	ESkillIDS GetSkillID(){return skillData.skillID;}
 };

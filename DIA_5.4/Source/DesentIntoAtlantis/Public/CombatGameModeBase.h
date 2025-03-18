@@ -12,6 +12,7 @@
 #include "UObject/NoExportTypes.h"
 
 #include "CombatGameModeBase.generated.h"
+class USkillResolveSubsystem;
 class UNumbersUIView;
 class UCombatInterruptManager;
 class UCombatLogSimplifiedView;

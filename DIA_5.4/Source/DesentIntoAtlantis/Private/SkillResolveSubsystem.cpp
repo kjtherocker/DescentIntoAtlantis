@@ -5,11 +5,11 @@
 
 #include "ChallengeSubsystem.h"
 #include "CombatEntity.h"
+#include "CombatGameModeBase.h"
 #include "CombatLog_Full_Data.h"
 #include "SkillBase.h"
 #include "SkillData.h"
-#include "SkillRange.h"
-#include "SkillUsage.h"
+
 
 enum class EPressTurnReactions : uint8;
 
@@ -20,7 +20,7 @@ void USkillResolveSubsystem::SetGameModeBase(ACombatGameModeBase* aCombatGameMod
 
 void USkillResolveSubsystem::ActivateSkill(UCombatEntity* aAttacker, USkillBase* aSkill,int aCursor)
 {
-	ActivateSkill(aAttacker,aSkill->GetSkillCombatEntity(combatGameModeBase,aCursor), aSkill);
+	ActivateSkill(aAttacker,aSkill->GetSkillCombatEntity(combatGameModeBase,aCursor,aAttacker), aSkill);
 }
 
 void USkillResolveSubsystem::ActivateSkill(UCombatEntity* aAttacker,TArray<UCombatEntity*> aVictim, USkillBase* aSkill)

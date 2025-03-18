@@ -24,9 +24,6 @@ class DESENTINTOATLANTIS_API UHealth : public UResourceBar_Base
 	
 	UPROPERTY()
 	FHealthData HealthData;
-
-	UPROPERTY()
-	UCombatEntity* OwnedCombatEntity;
 	
 	UPROPERTY()
 	FCombatLog_AttackDefense_Data lastAttackDefenceData;

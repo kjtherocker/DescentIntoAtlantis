@@ -14,6 +14,7 @@
 #include "FloorEnum.h"
 #include "PartyEnum.h"
 #include "PassiveSkillHandlerData.h"
+#include "ResourceHandlerCompleteData.h"
 #include "SyncData.h"
 #include "PlayerCombatEntity.generated.h"
 

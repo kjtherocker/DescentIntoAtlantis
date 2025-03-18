@@ -6,7 +6,7 @@
 #include "CombatEntity.h"
 #include "CombatInterruptData.h"
 #include "PassiveSkillData.h"
-#include "PersistentGameinstance.h"
+
 #include "UObject/NoExportTypes.h"
 #include "InterruptHandler.generated.h"
 
