@@ -41,6 +41,8 @@ void UPersistentGameinstance::Init()
 	eventDispatcherSubsystem        = GetSubsystem<UEventDispatcherSubsystem>();
 	popupSubsystem                  = GetSubsystem<UPopupSubsystem>();
 	KeyItemFactorySubsystem         = GetSubsystem<UKeyItemFactorySubsystem>();
+	SkillResolveSubsystem           = GetSubsystem<USkillResolveSubsystem>();
+	
 
 	questSubsystem                  = GetSubsystem<UQuestSubsystem>();
 	

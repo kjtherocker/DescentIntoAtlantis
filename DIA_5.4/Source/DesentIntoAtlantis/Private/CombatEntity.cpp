@@ -9,13 +9,14 @@
 #include "Health.h"
 #include "PassiveHandler.h"
 #include "PassiveSkills.h"
+#include "ResourceHandler.h"
 #include "SkillFactorySubsystem.h"
 #include "SkillBase.h"
 
 
 void UCombatEntity::SetAWrapperToDefault(ECombatEntityWrapperType aShellType)
 {
-    healthHandler->SetAWrapperToDefault(aShellType);
+    ResourceHandler->SetAWrapperToDefault(aShellType);
 }
 
 void UCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassiveFactorySubsystem* aPassiveSkillFactory, UPersistentGameinstance* aPersistentGameinstance)
@@ -31,9 +32,9 @@ void UCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassi
 
     combatEntityHub          = NewObject<UCombatEntityHub>();
     combatEntityHub->InitializeCombatEntityHub(this,aPassiveSkillFactory,aPersistentGameinstance);
-    healthHandler                  = NewObject<UHealth>();
-    healthHandler->SetCombatWrapper(this);
-    manaHandler                    = NewObject<UMana>();
+
+    ResourceHandler = NewObject<UResourceHandler>();
+    ResourceHandler->Initialize(this);
 }
 
 
@@ -62,7 +63,6 @@ void UCombatEntity::StartTurn()
 void UCombatEntity::EndTurn()
 {
     OnRoundEnd.Broadcast();
-    healthHandler->TurnEnd();
 }
 
 
@@ -74,7 +74,7 @@ void UCombatEntity::SetHealth(int aHealth)
 void UCombatEntity::InflictAilment(UWrapperTakeOver* aAliment,ECombatEntityWrapperType aCombatEntityWrapperType)
 {
     onStatusAilmentStart.Broadcast(aAliment->ailmentInfo.statusAilment);
-    healthHandler->InflictAilment(aAliment,aCombatEntityWrapperType);
+    ResourceHandler->InflictAilment(aAliment,aCombatEntityWrapperType);
 }
 
 
@@ -111,7 +111,7 @@ void UCombatEntity::SetCurrentRow(ERowType aRowTypes)
 
 FCombatLog_AttackDefense_Data UCombatEntity::CalculateDamage(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
-    return  healthHandler->CalculateDamage(aAttacker,aSkill);
+    return  ResourceHandler->CalculateDamage(aAttacker,aSkill);
 }
 
 void UCombatEntity::Reset()
@@ -136,23 +136,23 @@ void UCombatEntity::AlimentDecrementHealth(int aDamage)
 
 FCombatLog_AttackDefense_Data UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
 {
-    return healthHandler->DecrementHealth(aAttacker,aSkill);
+    return ResourceHandler->DecrementHealth(aAttacker,aSkill);
 }
 
 
 EPressTurnReactions UCombatEntity::IncrementHealth(UCombatEntity* aHealer, FSkillsData aSkill)
 {
-    return healthHandler->IncrementHealth(aHealer,aSkill);
+    return ResourceHandler->healthHandler->IncrementHealth(aHealer,aSkill);
 }
 
 void UCombatEntity::IncrementHealth(int aIncrease)
 {
-    healthHandler->IncrementHealth(aIncrease);
+    ResourceHandler->IncrementResource(EResource::Health,aIncrease);
 }
 
 void UCombatEntity::IncrementMana(int aIncrease)
 {
-    manaHandler->IncrementMana(aIncrease);
+    ResourceHandler->IncrementResource(EResource::Mana,aIncrease);
 }
 
 EPressTurnReactions UCombatEntity::ApplyBuff(UCombatEntity* aBuffer, FSkillsData aSkill)
@@ -165,15 +165,10 @@ EPressTurnReactions UCombatEntity::ApplyBuff(UCombatEntity* aBuffer, FSkillsData
 
 void UCombatEntity::DecrementMana(int aDecrementBy)
 {
-    manaHandler->DecrementMana(aDecrementBy);
+    ResourceHandler->DecrementResource(EResource::Mana,aDecrementBy);
     hasHealthOrManaValuesChanged.Broadcast();
 }
 
-void UCombatEntity::DecrementSync(int aDecrementBy)
-{
-    currentSync -= aDecrementBy;
-    hasHealthOrManaValuesChanged.Broadcast();
-}
 
 ECharactertype UCombatEntity::GetCharactertype()
 {
@@ -186,7 +181,7 @@ void UCombatEntity::Resurrection()
 
 void UCombatEntity::DeathCheck()
 {
-    if(healthHandler->GetCurrentHealth() <= 0)
+    if(ResourceHandler->GetCurrentHealth() <= 0)
     {
         isMarkedForDeath = true;
     }
@@ -249,17 +244,17 @@ FString UCombatEntity::GetEntityName()
 
 float UCombatEntity::GetHealthPercentage()
 {
-    return healthHandler->GetHealthPercentage();
+    return ResourceHandler->healthHandler->GetPercentage();
 }
 
 float UCombatEntity::GetPotentialHealthPercentage(int aDamage)
 {
-    return healthHandler->GetPotentialHealthPercentage(aDamage);
+    return ResourceHandler->healthHandler->GetPotentialPercentage(aDamage,true);
 }
 
 float UCombatEntity::GetManaPercentage()
 {
-    return  manaHandler->GetManaPercentage();
+    return  ResourceHandler->manaHandler->GetPercentage();
 }
 
 float UCombatEntity::GetSyncPercentage()

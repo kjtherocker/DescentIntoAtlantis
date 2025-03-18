@@ -85,20 +85,9 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 	
 	UPROPERTY( EditAnywhere )
 	FEquipmentHandlerData EquipmentHandlerData;
-	
-	UPROPERTY(EditAnywhere)
-	TArray<ESkillIDS> skillSlots;
 
 	UPROPERTY()
-	FHealthData HealthData;
-	UPROPERTY()
-	FManaData ManaData;
-
-	UPROPERTY()
-	FSyncData SyncData;
-	
-	UPROPERTY()
-	float currentSync;
+	FResourceHandlerCompleteData ResourceHandlerCompleteData;
 
 	UPROPERTY()
 	EPartySlotType currentPartySlot;

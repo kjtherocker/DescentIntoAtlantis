@@ -29,10 +29,9 @@ void UCombatEntityHub::InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEnti
 	equipmentHandler   = NewObject<UEquipmentHandler>();
 	InterruptHandler   = NewObject<UInterruptHandler>();
 	ItemChargeHandler  = NewObject<UItemChargeHandler>();
-	SyncHandler        = NewObject<USyncHandler>();
 	skillHandler       = NewObject<USkillHandler>();
 
-	FSyncData emptySyncData;
+
 	persistentGameinstance = aPersistentGameinstance;
 	
 	elementalHandler->Initialize(aOwnedCombatEntity);
@@ -44,7 +43,8 @@ void UCombatEntityHub::InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEnti
 	
 	InterruptHandler->InitializeInterruptHandler(aOwnedCombatEntity,persistentGameinstance);
 	ItemChargeHandler->Initialize();
-	SyncHandler->InitializeSyncHandler(emptySyncData, aOwnedCombatEntity);
+
+
 }
 
 
@@ -109,5 +109,5 @@ int UCombatEntityHub::OnGetItemTier(EItemID ItemID)
 void UCombatEntityHub::OnTurnStart()
 {
 
-	skillHandler
+	skillHandler->OnTurnStart();
 }

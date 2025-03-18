@@ -28,6 +28,9 @@ public:
 	virtual void Initialize(UEnemyCombatEntity* aEnemyCombatEntity);
 	virtual int EnemyToHelp(TArray<UEnemyCombatEntity*>  aCombatEntity);
 	virtual int PlayerToAttack(TArray<UPlayerCombatEntity*>  aCombatEntity);
+
+	virtual int GetCombatEntitysUsedInSkill(USkillBase* aSkill,
+		TArray<UEnemyCombatEntity*> aEnemyCombatEntity,TArray<UPlayerCombatEntity*> aPlayerCombatentity);
 	
 	USkillBase* GetSkill();
 	

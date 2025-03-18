@@ -96,6 +96,9 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	UNumbersUIView* NumbersUIView;
 
 	UPROPERTY()
+	USkillResolveSubsystem* SkillResolveSubsystem;
+
+	UPROPERTY()
 	TArray<FCombatLog_Full_Data> mostRecentCombatLogs;
 	
 	const float FULL_OPACITY    = 100;
@@ -202,12 +205,10 @@ public:
 	void AddInterruption(UCombatInterrupt* aCombatInterrupt);
 
 	void AddCombatLog(TArray<FCombatLog_Full_Data> CombatLog_Base_Datas);
+	void CreateCombatLog(TArray<FCombatLog_Full_Data> CombatLog_Base_Datas);
 	void RemoveDeadPartyMembersFromCombat();
 	void EndCombat(bool aHasWon = true);	
 	int GetEXP();
-	UFUNCTION()
-	void ActivateSkill(UCombatEntity* aAttacker, int aCursorPosition, USkillBase* aSkill);
-	
 	
 	UPlayerCombatEntity* GetCurrentActivePartyMember();
 	

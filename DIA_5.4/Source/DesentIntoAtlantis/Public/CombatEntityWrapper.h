@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ResourceHandler.h"
 #include "CombatEntityWrapper.generated.h"
 
 class UHealth;
@@ -77,7 +78,7 @@ class  DESENTINTOATLANTIS_API UWrapperTakeOver : public UObject
 	GENERATED_BODY()
 public:
 	FAilmentInfo ailmentInfo;
-	virtual void Initialize(UHealth* aAttachedHealth,ECombatEntityWrapperType aWrapperType);
+	virtual void Initialize(UResourceHandler* aResourceHandler,ECombatEntityWrapperType aWrapperType);
 	virtual FCombatLog_AttackDefense_Data CalculateDamage(FCombatLog_Damage_Data DamageLog,FCombatLog_Defense_Data DefenseLog);
 	
 	virtual FCombatLog_Damage_Data DamageLog(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker,FSkillsData aSkill);
@@ -123,7 +124,10 @@ private:
 	FResetOneWrapperToDefault resetOneWrapperToDefault;
 public:
 	UPROPERTY()
-	UHealth*  AttachedHealth;
+	UCombatEntity*  attachedCombatEntity;
+	UPROPERTY()
+	UResourceHandler* resourceHandler; 
+	
 	UPROPERTY()
 	FCompleteEntityWrapperInfo completeEntityWrapperInfo;
 
@@ -135,7 +139,7 @@ public:
 	virtual void RemoveAilment(ECombatEntityWrapperType aCombatEntityWrapperType);
 
 	virtual void SetAilment(UWrapperTakeOver* aAilment,ECombatEntityWrapperType aCombatEntityWrapperType);
-	virtual void SetAttachedCombatEntity(UHealth* aCombatEntity);
+	virtual void SetAttachedCombatEntity(UResourceHandler* ResourceHandler, UCombatEntity*  aCombatEntity);
 	virtual void SetCalculateDamageDefault(UWrapperTakeOver* aCalculateDamageWrapper);
 	virtual void SetCalculateDamageWrapper(UWrapperTakeOver* aCalculateDamageWrapper);
 	virtual FCombatLog_AttackDefense_Data ExecuteCalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);

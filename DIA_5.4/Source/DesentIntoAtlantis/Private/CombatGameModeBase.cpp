@@ -35,6 +35,10 @@ void ACombatGameModeBase::InitializeLevel()
 	Super::InitializeLevel();
 
 	persistentGameInstance->popupSubsystem->SetGameMode(this);
+
+	persistentGameInstance->SkillResolveSubsystem->SetGameModeBase(this);
+	
+	SkillResolveSubsystem = persistentGameInstance->SkillResolveSubsystem;
 	
 	FActorSpawnParameters ActorSpawnParameters;
 	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
@@ -434,61 +438,6 @@ void ACombatGameModeBase::EnemyStartTurn()
 	currentActivePosition++;
 }
 
-void ACombatGameModeBase::ActivateSkill(UCombatEntity* aAttacker, int aCursorPosition, USkillBase* aSkill)
-{
-	TArray<UCombatEntity*>  enemyInCombat    = TArray<UCombatEntity*>(GetEnemysInCombat());
-	TArray<UCombatEntity*>  playersInCombat  = TArray<UCombatEntity*>(GetPlayersInCombat());
-	
-	TArray<UCombatEntity*> entitySkillsAreUsedOn;
-
-	TArray<EPressTurnReactions> turnReactions;
-
-	FSkillsData skillsData = aSkill->skillData;
-
-	mostRecentCombatLogs.Empty();
-	
-	if(aAttacker->characterType == ECharactertype::Ally)
-	{
-		entitySkillsAreUsedOn = skillsData.skillUsage == ESkillUsage::Opponents ? enemyInCombat : playersInCombat;
-	}
-	else if(aAttacker->characterType == ECharactertype::Enemy)
-	{
-		entitySkillsAreUsedOn = skillsData.skillUsage == ESkillUsage::Opponents ? playersInCombat : enemyInCombat;
-	}
-	
-	if(skillsData.skillRange == ESkillRange::Single)
-	{
-		if(aAttacker->characterType == ECharactertype::Ally)
-		{
-			//EEnemyCombatPositions portraitPosition = enemysInCombat[aCursorPosition]->portraitPosition;
-			//Portraits[portraitPosition]->RotateTowardsCamera();
-			//combatCamera->RotateCameraToActor(Portraits[portraitPosition]);
-			//combatCamera->ZoomCameraInTowardsActor(Portraits[portraitPosition]);
-		}
-		 FCombatLog_Full_Data  CombatLog_Full_Data = aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[aCursorPosition], aSkill);
-		//TArray<FCombatLog_Full_Data> testo;
-		//testo.Add(CombatLog_Full_Data);
-		// AddCombatLog(testo);
-		
-	}
-	else if (skillsData.skillRange == ESkillRange::Multi)
-	{
-
-		for(int i = 0 ; i <entitySkillsAreUsedOn.Num();i++)
-		{
-			FCombatLog_Full_Data  CombatLog_Full_Data = aSkill->ExecuteSkill(aAttacker, entitySkillsAreUsedOn[i], aSkill);
-		//TArray<FCombatLog_Full_Data> testo;
-		//testo.Add(CombatLog_Full_Data);
-		//AddCombatLog(testo);
-		}
-	}
-	
-	turnReactions.Add(EPressTurnReactions::Normal);
-	DamageEvent MyEvent(100,EPressTurnReactions::Normal,aSkill);
-	godManagerSubsystem->DispatchEvent(&MyEvent);
-	pressTurnManager->ProcessTurn(turnReactions);
-}
-
 void ACombatGameModeBase::EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEntity)
 {
 	UEnemySkillView* enemySkillView = (UEnemySkillView*)InGameHUD->PushAndGetView(EViews::EnemySkill,      EUiType::ActiveUi);
@@ -498,18 +447,8 @@ void ACombatGameModeBase::EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEnt
 	
 	enemySkillView->SetSkill(skillData,aEnemyCombatEntity);
 
-	if(skillData.skillType == ESkillType::Attack)
-	{
-		int playerToAttack = aEnemyCombatEntity->enemyBehaviour->PlayerToAttack(partyMembersInCombat);
-		ActivateSkill(aEnemyCombatEntity,playerToAttack,skillObject);
-	}
-	else
-	{
-		int playerToAttack = aEnemyCombatEntity->enemyBehaviour->EnemyToHelp(enemysInCombat);
-		ActivateSkill(aEnemyCombatEntity,playerToAttack,skillObject);
-	}
-	
-	
+	int playerToAttack = aEnemyCombatEntity->enemyBehaviour->GetCombatEntitysUsedInSkill(skillObject,GetEnemysInCombat(),GetPlayersInCombat());
+	SkillResolveSubsystem->ActivateSkill(aEnemyCombatEntity,skillObject,playerToAttack);
 }
 
 void ACombatGameModeBase::ValidateEndingState(ECombatWinCondition aCombatWinCondition)
@@ -593,6 +532,14 @@ void ACombatGameModeBase::AddCombatLog(TArray<FCombatLog_Full_Data> CombatLog_Ba
 	}
 	
 	
+}
+
+void ACombatGameModeBase::CreateCombatLog(TArray<FCombatLog_Full_Data> CombatLog_Base_Datas)
+{
+	for (auto fullCombatLogData : CombatLog_Base_Datas)
+	{
+		combatLogView->CreateCombatLog( fullCombatLogData);
+	}
 }
 
 void ACombatGameModeBase::EndCombat(bool aHasWon)

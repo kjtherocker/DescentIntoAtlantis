@@ -3,13 +3,17 @@
 #include "CombatEntity.h"
 #include "CombatEntityHub.h"
 #include "CombatEntityWrapper.h"
+#include "CombatGameModeBase.h"
 #include "CombatLog_Full_Data.h"
 #include "CombatLog_Evasion_Data.h"
 #include "CombatLog_Hit_Data.h"
 #include "CombatStat.h"
 #include "Health.h"
 #include "ItemChargeHandler.h"
+#include "ResourceHandler.h"
+#include "SkillRange.h"
 #include "SkillType.h"
+#include "SkillUsage.h"
 #include "SyncHandler.h"
 
 
@@ -92,33 +96,33 @@ FCombatLog_Full_Data USkillBase::ExecuteSkill(UCombatEntity* aAttacker, UCombatE
 	return CombatLog_Base_Data;
 }
 
-bool USkillBase::CanUseSkill(UCombatEntity* aSkillOwner, ESkillResourceUsed SkillResourceUsed)
+bool USkillBase::CanUseSkill(UCombatEntity* aSkillOwner, EResource SkillResourceUsed)
 {
-	ESkillResourceUsed skillResouce = SkillResourceUsed ==
-		ESkillResourceUsed::None ? skillData.SkillResourceUsed : SkillResourceUsed;
+	EResource skillResouce = SkillResourceUsed ==
+		EResource::None ? skillData.SkillResourceUsed : SkillResourceUsed;
 
 	switch (skillResouce)
 	{
-	case ESkillResourceUsed::None:
+	case EResource::None:
 		break;
-	case ESkillResourceUsed::Mana:
-		return aSkillOwner->manaHandler->GetManaData().CurrentMana >= skillData.costToUse;
+	case EResource::Mana:
+		return aSkillOwner->ResourceHandler->manaHandler->GetCurrentValue() >= skillData.costToUse;
 		break;
-	case ESkillResourceUsed::Health:
-		return aSkillOwner->healthHandler->GetCurrentHealth() >= skillData.costToUse;
+	case EResource::Health:
+		return aSkillOwner->ResourceHandler->healthHandler->GetCurrentValue() >= skillData.costToUse;
 		break;
-	case ESkillResourceUsed::Sync:
-		if(aSkillOwner->combatEntityHub->SyncHandler->GetSyncisLockedState())
+	case EResource::Sync:
+		if(aSkillOwner->ResourceHandler->SyncHandler->GetSyncisLockedState())
 		{
 			return false;
 		}
 		else
 		{
-			return aSkillOwner->combatEntityHub->SyncHandler->GetCurrentSync() >= skillData.costToUse;	
+			return aSkillOwner->ResourceHandler->SyncHandler->GetCurrentValue()  >= skillData.costToUse;	
 		}
 		
 		break;
-	case ESkillResourceUsed::ItemCharges:
+	case EResource::ItemCharges:
 		return aSkillOwner->combatEntityHub->ItemChargeHandler->isItemChargeAvaliable();
 		break;
 	}
@@ -126,25 +130,25 @@ bool USkillBase::CanUseSkill(UCombatEntity* aSkillOwner, ESkillResourceUsed Skil
 	return false;
 }
 
-void USkillBase::SpendSkillCost(UCombatEntity* aSkillOwner, ESkillResourceUsed SkillResourceUsed )
+void USkillBase::SpendSkillCost(UCombatEntity* aSkillOwner, EResource SkillResourceUsed )
 {
-	ESkillResourceUsed skillResouce = SkillResourceUsed ==
-		ESkillResourceUsed::None ? skillData.SkillResourceUsed : SkillResourceUsed;
+	EResource skillResouce = SkillResourceUsed ==
+		EResource::None ? skillData.SkillResourceUsed : SkillResourceUsed;
 	
 	switch (skillResouce)
 	{
-	    case ESkillResourceUsed::None:
+	    case EResource::None:
 	    	break;
-	    case ESkillResourceUsed::Mana:
+	    case EResource::Mana:
 	    	aSkillOwner->DecrementMana(skillData.costToUse);
 	    	break;
-	    case ESkillResourceUsed::Health:
+	    case EResource::Health:
 	    	aSkillOwner->DecrementHealth(aSkillOwner,skillData);
 	    	break;
-		case ESkillResourceUsed::Sync:
-			 aSkillOwner->combatEntityHub->SyncHandler->DecrementValue(skillData.costToUse);
+		case EResource::Sync:
+			 aSkillOwner->ResourceHandler->SyncHandler->DecrementValue(skillData.costToUse);
 			break;
-		case ESkillResourceUsed::ItemCharges:
+		case EResource::ItemCharges:
 			aSkillOwner->combatEntityHub->ItemChargeHandler->ConsumeItemCharge(skillData.costToUse);
 			break;
 	}
@@ -154,7 +158,7 @@ FCombatLog_AttackDefense_Data USkillBase::StartChargingSkill(UCombatEntity* aAtt
 {
 	skillData.skillChargeData.isCharging = true;
 	skillData.skillChargeData.currentChargeStage = 0;
-	skillData.skillChargeData.EntityToAttackOnChargeEnd = aVictim;
+	skillData.skillChargeData.EntityToAttackOnChargeEnd.Add(aVictim);
 
 	aAttacker->combatEntityHub->skillHandler->SetChargingSkill(skillData);
 	
@@ -182,6 +186,43 @@ FCombatLog_CombatToken USkillBase::GiveCombatToken(int& aAmount, UCombatEntity* 
 	}
 
 	return combatLogCombatToken;
+}
+
+TArray<UCombatEntity*> USkillBase::GetSkillCombatEntity(ACombatGameModeBase* aCombatGameMode,int aCursor, UCombatEntity* aSkillOwner)
+{
+	TArray<UCombatEntity*>  enemyInCombat    = TArray<UCombatEntity*>(aCombatGameMode->GetEnemysInCombat());
+	TArray<UCombatEntity*>  playersInCombat  = TArray<UCombatEntity*>(aCombatGameMode->GetPlayersInCombat());
+
+	TArray<UCombatEntity*> entitySkillsAreUsedOn;
+	
+	if(aSkillOwner->characterType == ECharactertype::Ally)
+	{
+		entitySkillsAreUsedOn = skillData.skillUsage == ESkillUsage::Opponents ? enemyInCombat : playersInCombat;
+	}
+	else if(aSkillOwner->characterType == ECharactertype::Enemy)
+	{
+		entitySkillsAreUsedOn = skillData.skillUsage == ESkillUsage::Opponents ? playersInCombat : enemyInCombat;
+	}
+	
+	switch (skillData.skillRange)
+	{
+		case ESkillRange::None:
+			break;
+		case ESkillRange::Single:
+		{
+				TArray<UCombatEntity*> singleVictim;
+
+				singleVictim.Add(entitySkillsAreUsedOn[aCursor]);
+				
+				return singleVictim;
+		}
+		break;
+		case ESkillRange::Multi:
+		{
+			return entitySkillsAreUsedOn;
+		}
+	}
+	
 }
 
 void UAilment::Initialize(FSkillsData aSkillData)

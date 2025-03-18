@@ -31,3 +31,9 @@ void UDialogueInterrupt::ActivateInterrupt()
 	persistantGameInstance->dialogueManagerSubsystem->StartDialogue
 	(CombatInterruptData.DialogueTriggers,persistantGameInstance->currentGameMode->InGameHUD);
 }
+
+void USkillInterrupt::ActivateInterrupt()
+{
+	Super::ActivateInterrupt();
+	
+}

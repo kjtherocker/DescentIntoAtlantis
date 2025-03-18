@@ -106,3 +106,13 @@ private:
 	virtual void ActivateInterrupt() override;
 };
 
+
+UCLASS()
+class USkillInterrupt: public UCombatInterrupt
+{
+	GENERATED_BODY()
+
+private:
+	virtual void ActivateInterrupt() override;
+};
+

@@ -20,7 +20,7 @@ enum class ESkillType  : uint8
 };
 
 UENUM()
-enum class ESkillResourceUsed  : uint8
+enum class EResource  : uint8
 {
 	None,
 	Mana,

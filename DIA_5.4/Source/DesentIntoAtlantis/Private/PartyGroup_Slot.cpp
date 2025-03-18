@@ -4,6 +4,7 @@
 #include "PartyGroup_Slot.h"
 
 #include "PartyManagerSubsystem.h"
+#include "ResourceHandler.h"
 #include "SyncHandler.h"
 
 void UPartyGroup_Slot::Initialize(UPartyManagerSubsystem* aPartyManagerSubsystem, FPartyInfo aPartyInfo)
@@ -116,7 +117,7 @@ void UPartyGroup_Slot::CreateTestParty(TArray<FDefaultTestFightData> aDefaultTes
 
 		if(PlayerFightData.isSyncActive)
 		{
-			partyGroupCombatEntitys[mostAvaliableSlot]->combatEntityHub->SyncHandler->UnlockSync();			
+			partyGroupCombatEntitys[mostAvaliableSlot]->ResourceHandler->SyncHandler->UnlockSync();			
 		}
 	
 		

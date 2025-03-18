@@ -7,14 +7,16 @@ void UResourceBar_Base::Initialize(FResourceBarInfo aResourceInfo, UCombatEntity
 {
 	ResourceBarInfo = aResourceInfo;
 	CombatEntity = aCombatEntity;
+	SetResourceInfo(ResourceBarInfo);
 }
 
-void UResourceBar_Base::SetInfo(FResourceBarInfo aResourceInfo)
+void UResourceBar_Base::SetResourceInfo(FResourceBarInfo aResourceInfo)
 {
 	ResourceBarInfo = aResourceInfo;
 
 	ResourceBarInfo.Percentage = GetPercentage();
 	HasValuesChanged.Broadcast(ResourceBarInfo);
+	hasValuesUpdated.Broadcast();
 }
 
 void UResourceBar_Base::SetCurrentValue(int aCurrentMana)
@@ -25,6 +27,8 @@ void UResourceBar_Base::SetCurrentValue(int aCurrentMana)
 	}
 	
 	ResourceBarInfo.Current = aCurrentMana;
+	HasValuesChanged.Broadcast(ResourceBarInfo);
+	hasValuesUpdated.Broadcast();
 }
 
 void UResourceBar_Base::IncrementValue(int aIncrementBy)
@@ -45,6 +49,7 @@ void UResourceBar_Base::IncrementValue(int aIncrementBy)
 	ResourceBarInfo.Percentage = GetPercentage();
 	
 	HasValuesChanged.Broadcast(ResourceBarInfo);
+	hasValuesUpdated.Broadcast();
 }
 
 void UResourceBar_Base::DecrementValue(int aDecrementBy)
@@ -64,11 +69,33 @@ void UResourceBar_Base::DecrementValue(int aDecrementBy)
 	ResourceBarInfo.Percentage = GetPercentage();
 	
 	HasValuesChanged.Broadcast(ResourceBarInfo);
+	hasValuesUpdated.Broadcast();
+}
+
+void UResourceBar_Base::MaxOutCurrentValue()
+{
+	ResourceBarInfo.Current = ResourceBarInfo.Max;
 }
 
 float UResourceBar_Base::GetPercentage()
 {
 	return (float)ResourceBarInfo.Current / (float)ResourceBarInfo.Max;
+}
+
+float UResourceBar_Base::GetPotentialPercentage(int aChangedValue,bool isNegative)
+{
+	int tempCurrentHealth = ResourceBarInfo.Current;
+	if(isNegative)
+	{
+		tempCurrentHealth -= aChangedValue;		
+	}
+	else
+	{
+		tempCurrentHealth += aChangedValue;	
+	}
+
+
+	return  (float)tempCurrentHealth / (float)ResourceBarInfo.Max;
 }
 
 void UResourceBar_Base::ResetAllLocksTo(bool aAllLockStates)

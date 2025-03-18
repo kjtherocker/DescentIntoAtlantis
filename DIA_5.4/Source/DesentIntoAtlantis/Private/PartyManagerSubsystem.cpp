@@ -16,6 +16,7 @@
 #include "PassiveSkills.h"
 #include "PersistentGameinstance.h"
 #include "PlayerCombatEntity.h"
+#include "ResourceHandler.h"
 #include "SaveGameData.h"
 #include "SaveManagerSubsystem.h"
 #include "StaminaHandler.h"
@@ -187,12 +188,12 @@ void UPartyManagerSubsystem::CreatePlayerEntitys(EPartyMembersID aPlayer)
 
 	if(!PlayerIdentityData.isGuestCharacter)
 	{
-		PlayerCombatEntity->healthHandler->InitializeHealth(50,50,PlayerCombatEntity);
+		PlayerCombatEntity->ResourceHandler->healthHandler->InitializeHealth(50,50,PlayerCombatEntity);
 	}
 	else
 	{
-		PlayerCombatEntity->healthHandler->InitializeHealth(PlayerIdentityData.playerStatBases.HealthData.maxHealth,
-			PlayerIdentityData.playerStatBases.HealthData.maxHealth,PlayerCombatEntity);
+		PlayerCombatEntity->ResourceHandler->healthHandler->InitializeHealth(PlayerIdentityData.playerStatBases.HealthData.ResourceBarInfo.Max,
+			PlayerIdentityData.playerStatBases.HealthData.ResourceBarInfo.Max,PlayerCombatEntity);
 	}
 
 	if(PlayerIdentityData.isGuestCharacter)
@@ -499,7 +500,7 @@ void UPartyManagerSubsystem::UnlockPartyMemberSync(EPartyMembersID aPartyMemberI
 {
 	UPlayerCombatEntity* partyMember = GetSpecificPartyMember(aPartyMemberID);
 
-	partyMember->combatEntityHub->SyncHandler->UnlockSync();
+	partyMember->ResourceHandler->SyncHandler->UnlockSync();
 	partyMember->hasHealthOrManaValuesChanged.Broadcast();
 }
 

@@ -58,29 +58,6 @@ public:
 	
 };
 
-
-UINTERFACE(BlueprintType)
-class UChargeSkill : public UInterface
-{
-	GENERATED_BODY()
-};
-
-
-class IChargeSkill 
-{
-	GENERATED_BODY()
-
-public:
-	
-	FSkillChargeData SkillChargeData;
-
-	
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category="Skill")
-	virtual FCombatLog_Hit_Data i_ActivateCharge(UCombatEntity* aAttacker, UCombatEntity* aVictim);
-	
-};
-
-
 UINTERFACE(BlueprintType)
 class USkillHit : public UInterface
 {
@@ -110,14 +87,16 @@ public:
 
 	virtual FCombatLog_Hit_Data CalculateHit(UCombatEntity* aAttacker, UCombatEntity* aVictim);
 	virtual FCombatLog_Full_Data ExecuteSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim, USkillBase* aSkill);
-	virtual bool CanUseSkill(UCombatEntity* aSkillOwner, ESkillResourceUsed SkillResourceUsed = ESkillResourceUsed::None);
-	virtual void SpendSkillCost(UCombatEntity* aSkillOwner, ESkillResourceUsed SkillResourceUsed = ESkillResourceUsed::None);
+	virtual bool CanUseSkill(UCombatEntity* aSkillOwner, EResource SkillResourceUsed = EResource::None);
+	virtual void SpendSkillCost(UCombatEntity* aSkillOwner, EResource SkillResourceUsed = EResource::None);
 
 	virtual FCombatLog_AttackDefense_Data StartChargingSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim);
 
 	virtual bool isChargeSkillReady();
 	
 	virtual FCombatLog_CombatToken GiveCombatToken(int& aAmount, UCombatEntity* aEntityToGiveToken, FSkillsData aSkillData);
+
+	virtual TArray<UCombatEntity*> GetSkillCombatEntity(ACombatGameModeBase* aCombatGameMode,int aCursor = 0, UCombatEntity* aSkillOwner);
 
 	ESkillIDS GetSkillID(){return skillData.skillID;}
 };

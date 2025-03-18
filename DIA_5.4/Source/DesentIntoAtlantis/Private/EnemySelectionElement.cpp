@@ -32,7 +32,7 @@ void UEnemySelectionElement::SetEnemySelectionElement(UEnemyCombatEntity* aEnemy
 	currentHealthPercentage  = enemyCombatEntity->GetHealthPercentage();
 	previousHealthPercentage = currentHealthPercentage;
 	
-	aEnemyCombatEntity->healthHandler->hasHealthValuesChanged.AddDynamic(this,
+	aEnemyCombatEntity->ResourceHandler->healthHandler->hasValuesUpdated.AddDynamic(this,
 	&UEnemySelectionElement::UpdateHealthbarElements);
 						
 }

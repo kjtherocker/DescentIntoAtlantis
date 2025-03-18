@@ -89,7 +89,7 @@ void UItemView::SelectSkill()
 
 	USkillBase* skill = allItems[cursorPosition]->currentSkill;
 
-	if(skill->CanUseSkill(currentActivePartyMember,ESkillResourceUsed::ItemCharges))
+	if(skill->CanUseSkill(currentActivePartyMember,EResource::ItemCharges))
 	{
 		InGameHUD->PopMostRecentActiveView();
 		UCombatSelectionView* SelectionView = (UCombatSelectionView*)InGameHUD->PushAndGetView(EViews::CombatSelection,  EUiType::ActiveUi);

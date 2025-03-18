@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "SyncData.h"
 #include "UObject/NoExportTypes.h"
 #include "ManaData.generated.h"
 
@@ -12,12 +13,5 @@ struct DESENTINTOATLANTIS_API FManaData : public FTableRowBase
 	GENERATED_BODY()
 
 	UPROPERTY()
-	int CurrentMana = 50;
-
-	UPROPERTY()
-	int MaxMana = 50;
-
-	UPROPERTY()
-	float ManaPercentage = 1;
-	
+	FResourceBarInfo ResourceBarInfo;
 };

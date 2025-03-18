@@ -7,7 +7,7 @@
 #include "PassiveSkillData.generated.h"
 
 
-enum class ESkillResourceUsed : uint8;
+enum class EResource : uint8;
 enum class EPartyMembersID;
 enum class ESkillIDS : uint8;
 enum class ESkillDamageType : uint8;
@@ -205,7 +205,7 @@ struct DESENTINTOATLANTIS_API FSkillModification : public FTableRowBase
 	TMap<ESkillModificationCommand,EElementalType> SkillElementalType;
 
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
-	TMap<ESkillModificationCommand,ESkillResourceUsed> skillResource;
+	TMap<ESkillModificationCommand,EResource> skillResource;
 	
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")   
 	TMap<ESkillModificationCommand,ESkillDamageType> skillDamageType;

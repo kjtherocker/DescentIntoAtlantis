@@ -12,6 +12,8 @@
  */
 
 class UCombatEntity;
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FHasValuesUpdated);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FHasValuesChanged, FResourceBarInfo, resourceInfo);
 
 UCLASS()
@@ -31,17 +33,24 @@ protected:
 public:
 
 	FHasValuesChanged HasValuesChanged;
+	FHasValuesUpdated hasValuesUpdated;
 
 	virtual void Initialize(FResourceBarInfo aResourceInfo, UCombatEntity* aCombatEntity);
 
-	virtual void SetInfo(FResourceBarInfo aResourceInfo);
+	virtual void SetResourceInfo(FResourceBarInfo aResourceInfo);
 	virtual void SetCurrentValue(int aCurrentMana);
 	
 	virtual void IncrementValue(int aIncrementBy);
 	
 	virtual void DecrementValue(int aDecrementBy);
 
+	virtual int GetCurrentValue(){return ResourceBarInfo.Current;}
+
+	virtual void MaxOutCurrentValue();
+	
 	virtual float GetPercentage();
+
+	virtual float GetPotentialPercentage(int aChangedValue,bool isNegative);
 
 	virtual FResourceBarInfo GetResourceInfoData(){return ResourceBarInfo;}
 

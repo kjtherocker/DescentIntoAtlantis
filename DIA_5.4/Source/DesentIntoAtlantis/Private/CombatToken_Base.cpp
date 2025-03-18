@@ -170,15 +170,15 @@ void UCombatToken_RoundEnd::RoundEnd()
 
 void UCombatToken_RoundEnd_Health::RoundEnd()
 {
-	FHealthData healthdata = attachedCombatEntity->healthHandler->GetHealthData();
-	int percentageOfHealth = (healthdata.maxHealth * CombatToken_Base_Data.valuePercentage) / 100;
+	FHealthData healthdata = attachedCombatEntity->ResourceHandler->healthHandler->GetHealthData();
+	int percentageOfHealth = (healthdata.ResourceBarInfo.Max * CombatToken_Base_Data.valuePercentage) / 100;
 	if(CombatToken_Base_Data.CombatTokenType == ECombatTokenType::Positive)
 	{
-		attachedCombatEntity->healthHandler->IncrementHealth(percentageOfHealth * CombatTokenStateInfo.currentTokenStack);
+		attachedCombatEntity->ResourceHandler->healthHandler->IncrementValue(percentageOfHealth * CombatTokenStateInfo.currentTokenStack);
 	}
 	if(CombatToken_Base_Data.CombatTokenType == ECombatTokenType::Negative)
 	{
-		attachedCombatEntity->healthHandler->DecrementHealth(percentageOfHealth * CombatTokenStateInfo.currentTokenStack);
+		attachedCombatEntity->ResourceHandler->DecrementHealth(percentageOfHealth * CombatTokenStateInfo.currentTokenStack);
 	}
 	
 	Super::RoundEnd();

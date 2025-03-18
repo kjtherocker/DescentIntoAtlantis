@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "ManaData.h"
+#include "SyncHandler.h"
 #include "UObject/NoExportTypes.h"
 #include "Mana.generated.h"
 
@@ -15,7 +16,7 @@ class UCombatEntity;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FHasManaValuesChanged,FManaData,ManaData);
 
 UCLASS()
-class DESENTINTOATLANTIS_API UMana : public UObject
+class DESENTINTOATLANTIS_API UMana : public UResourceBar_Base
 {
 	GENERATED_BODY()
 
@@ -23,8 +24,7 @@ protected:
 	UPROPERTY()
 	FManaData ManaData;
 
-	UPROPERTY()
-	UCombatEntity* CombatEntity;
+	
 
 public:
 
@@ -32,14 +32,6 @@ public:
 
 	virtual void InitializeMana(FManaData aManaData, UCombatEntity* aCombatEntity);
 
-	virtual void SetMana(FManaData aManaData);
-	virtual void SetCurrentMana(int aCurrentMana);
+	FManaData GetManaData(){ return ManaData;}
 	
-	virtual void IncrementMana(int aIncrementBy);
-	
-	virtual void DecrementMana(int aDecrementBy);
-
-	virtual float GetManaPercentage();
-
-	virtual FManaData GetManaData(){return ManaData;}
 };

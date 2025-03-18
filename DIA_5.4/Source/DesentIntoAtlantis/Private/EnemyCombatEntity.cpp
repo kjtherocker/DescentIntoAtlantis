@@ -40,8 +40,8 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityCompleteData AEnemyEntit
 	
 	}
 	
-	healthHandler->InitializeHealth(CombatEntityData.HealthData,this);
-	manaHandler->InitializeMana(CombatEntityData.ManaData,this);
+	ResourceHandler->healthHandler->InitializeHealth(CombatEntityData.HealthData,this);
+	ResourceHandler->manaHandler->InitializeMana(CombatEntityData.ManaData,this);
 	
 	SetAbilityScores();
 }

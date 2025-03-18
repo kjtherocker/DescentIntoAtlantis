@@ -74,7 +74,5 @@ public:
 	UPROPERTY()
 	UItemChargeHandler* ItemChargeHandler; 
 	
-	UPROPERTY()
-	USyncHandler* SyncHandler;
 	
 };

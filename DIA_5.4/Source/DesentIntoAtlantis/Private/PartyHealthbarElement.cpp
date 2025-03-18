@@ -10,6 +10,7 @@
 #include "PersistentGameinstance.h"
 #include "PlayerCombatEntity.h"
 #include "ProgressBarDelayedElement.h"
+#include "ResourceHandler.h"
 #include "SyncHandler.h"
 #include "Components/ProgressBar.h"
 #include "Components/TextBlock.h"
@@ -27,7 +28,7 @@ void UPartyHealthbarElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 	aCombatEntity->wasDamaged.AddDynamic(this,
 		&UPartyHealthbarElement::TriggerHitEffect);
 	
-	aCombatEntity->healthHandler->hasHealthValuesChanged.AddDynamic(this,
+	aCombatEntity->ResourceHandler->healthHandler->hasValuesUpdated.AddDynamic(this,
 		&UPartyHealthbarElement::UpdateHealthbarElements);
 
 	aCombatEntity->manaHandler->HasManaValuesChanged.AddDynamic(this,
@@ -36,7 +37,7 @@ void UPartyHealthbarElement::SetCombatEntity(UPlayerCombatEntity* aCombatEntity)
 	aCombatEntity->wasKilled.AddDynamic(this,
 		&UPartyHealthbarElement::TriggerGreyScale);
 
-	playerCombatEntity->combatEntityHub->SyncHandler->HasValuesChanged.AddDynamic(this,&UPartyHealthbarElement::SyncValuesChanged);
+	playerCombatEntity->ResourceHandler->SyncHandler->HasValuesChanged.AddDynamic(this,&UPartyHealthbarElement::SyncValuesChanged);
 	characterName = playerCombatEntity->playerIdentityData.characterName;
     FCharacterCostumeData DialogueActor = playerCombatEntity->GetCurrentCostumeData();
 	
@@ -73,14 +74,14 @@ void UPartyHealthbarElement::UpdateHealthbarElements()
 {
 	//previousHealthPercentage = currentHealthPercentage;
 	BW_Health->SetPercentageMain(playerCombatEntity->GetHealthPercentage());
-	BW_HealthText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->healthHandler->GetCurrentHealth())));
+	BW_HealthText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->ResourceHandler->healthHandler->GetCurrentValue())));
 	
 	BW_Mana->SetPercentageMain(playerCombatEntity->GetManaPercentage());
-	BW_ManaText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->manaHandler->GetManaData().CurrentMana)));
+	BW_ManaText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->manaHandler->GetManaData().ResourceBarInfo.Current)));
 
 
 	float syncPercentage = playerCombatEntity->GetSyncPercentage();
-	if(playerCombatEntity->combatEntityHub->SyncHandler->GetSyncisLockedState())
+	if(playerCombatEntity->ResourceHandler->SyncHandler->GetSyncisLockedState())
 	{
 		BW_Sync->SetPercentageMain(0);	
 	}

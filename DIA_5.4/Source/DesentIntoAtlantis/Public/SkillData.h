@@ -26,7 +26,7 @@ enum class EItemID : uint8
 
 
 
-enum class ESkillResourceUsed : uint8;
+enum class EResource : uint8;
 enum class EStatTypes : uint8;
 enum class EElementalType : uint8;
 enum class ESkillRange : uint8;
@@ -44,7 +44,7 @@ struct DESENTINTOATLANTIS_API FSkillChargeData : public FTableRowBase
 	GENERATED_BODY()
 
 	UPROPERTY()
-	UCombatEntity* EntityToAttackOnChargeEnd; 
+	TArray<UCombatEntity*> EntityToAttackOnChargeEnd; 
 	
 	UPROPERTY(EditAnywhere)
 	bool canCharge = false;
@@ -81,7 +81,7 @@ struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
 	UNiagaraSystem* SkillInWorldParticle;
 	
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")    
-	ESkillResourceUsed SkillResourceUsed;
+	EResource SkillResourceUsed;
 
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")
 	int costToUse;

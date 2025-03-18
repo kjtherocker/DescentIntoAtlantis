@@ -6,6 +6,7 @@
 #include "EventDispatcherSubsystem.h"
 #include "EventManagerSubSystem.h"
 #include "PopupSubsystem.h"
+#include "SkillResolveSubsystem.h"
 
 #include "Engine/GameInstance.h"
 #include "PersistentGameinstance.generated.h"
@@ -90,6 +91,10 @@ public:
 	UPROPERTY()
 	UEventDispatcherSubsystem* eventDispatcherSubsystem;
 
+	UPROPERTY()
+	USkillResolveSubsystem* SkillResolveSubsystem;
+
+	
 	UPROPERTY()
 	UKeyItemFactorySubsystem* KeyItemFactorySubsystem;
 

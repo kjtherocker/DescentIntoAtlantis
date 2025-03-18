@@ -12,6 +12,7 @@
 #include "PassiveHandler.h"
 #include "PersistentGameinstance.h"
 #include "PlayerCombatStat.h"
+#include "ResourceHandler.h"
 
 #include "SaveGameData.h"
 #include "SyncHandler.h"
@@ -22,10 +23,7 @@ class UPlayerCombatStats;
 
 void UPlayerCombatEntity::LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet)
 {
-	healthHandler->SetCurrentHealth(aPlayerCompleteDataSet.HealthData.currentHealth);
-	manaHandler->SetCurrentMana(aPlayerCompleteDataSet.ManaData.CurrentMana);
-	combatEntityHub->SyncHandler->SetCurrentValue(aPlayerCompleteDataSet.SyncData.ResourceBarInfo.Current);
-
+	ResourceHandler->SetResourceHandlerCompleteData(aPlayerCompleteDataSet.ResourceHandlerCompleteData);
 }
 
 void UPlayerCombatEntity::SetPlayerEntity(FPlayerIdentityData aPlayerEntityData,FCharacterCostumeData aDialogueCostumeData)
@@ -45,8 +43,7 @@ void UPlayerCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory
 	
 	classHandler = NewObject<UClassHandler>();
 	classHandler->InitializeClassHandler(this,skillFactory,aPersistentGameinstance->partyManagerSubsystem);
-	healthHandler->SetCombatWrapper(this);
-	combatEntityHub->SyncHandler->InitializeSyncHandler(playerCompleteDataSet.SyncData,this);
+	ResourceHandler->SyncHandler->InitializeSyncHandler(playerCompleteDataSet.ResourceHandlerCompleteData.SyncData,this);
 }
 
 void UPlayerCombatEntity::EquipEquipment(UEquipmentPassive* aEquipment, int aSlot)
@@ -88,10 +85,8 @@ void UPlayerCombatEntity::SetToDefaultState()
 {
 	Super::SetToDefaultState();
 
-	manaHandler->IncrementMana(manaHandler->GetManaData().MaxMana);
-	healthHandler->GiveMaxHp();
+	ResourceHandler->SetToDefaultState();
 	
-
     isMarkedForDeath  =  false;
 
 	for (TTuple<EStatTypes, UCombatStat*> abilityStats : abilityScoreMap)
@@ -129,9 +124,8 @@ void UPlayerCombatEntity::GatherAndSavePlayerCompleteDataSet()
 	playerCompleteDataSet.PassiveHandlerData.PassiveSlotHandlerData = combatEntityHub->passiveHandler->PassiveSlotHandler->GetPassiveSlotData();
 
 	playerCompleteDataSet.EquipmentHandlerData           = combatEntityHub->equipmentHandler->GetEquipmentHandlerData();
-	playerCompleteDataSet.HealthData                     = healthHandler->GetHealthData();
-	playerCompleteDataSet.ManaData                       = manaHandler->GetManaData();
-	playerCompleteDataSet.SyncData                       = combatEntityHub->SyncHandler->GetSyncData();
+
+	playerCompleteDataSet.ResourceHandlerCompleteData    = ResourceHandler->SaveAllResourcesAndReturn();
 }
 
 void UPlayerCombatEntity::SetCurrentCostume(FCharacterCostumeData aCostumeData)
@@ -175,23 +169,23 @@ void UPlayerCombatEntity::SetAbilityScores()
 
 void UPlayerCombatEntity::IncrementMana(int aIncrease)
 {
-	manaHandler->IncrementMana(aIncrease);
+	ResourceHandler->IncrementResource(EResource::Mana,aIncrease);
 	hasHealthOrManaValuesChanged.Broadcast();
 }
 
 float UPlayerCombatEntity::GetHealthPercentage()
 {
-	return  healthHandler->GetHealthPercentage();
+	return  ResourceHandler->healthHandler->GetPercentage();
 }
 
 float UPlayerCombatEntity::GetManaPercentage()
 {
-	return manaHandler->GetManaPercentage();
+	return ResourceHandler->manaHandler->GetPercentage();
 }
 
 float UPlayerCombatEntity::GetSyncPercentage()
 {
-	return combatEntityHub->SyncHandler->GetPercentage();
+	return ResourceHandler->SyncHandler->GetPercentage();
 }
 
 float UPlayerCombatEntity::GetMainClassEXPPercentage()
@@ -227,16 +221,16 @@ void UPlayerCombatEntity::LevelUp(int aNewLevel)
 	currentLevel = aNewLevel;
 
 	FHealthData HealthData;
-	HealthData.maxHealth = 50;
-	HealthData.maxHealth += 5 * aNewLevel;
-	HealthData.currentHealth = HealthData.maxHealth;
-	healthHandler->SetHealth(HealthData);
-
+	HealthData.ResourceBarInfo.Max = 50;
+	HealthData.ResourceBarInfo.Max += 5 * aNewLevel;
+	HealthData.ResourceBarInfo.Current = HealthData.ResourceBarInfo.Max;
+	
 	FManaData ManaData;
-	ManaData.MaxMana       = 50;
-	ManaData.MaxMana       += 5 * aNewLevel;
-	ManaData.CurrentMana   = ManaData.MaxMana;
-	manaHandler->SetMana(ManaData);
+	ManaData.ResourceBarInfo.Max         = 50;
+	ManaData.ResourceBarInfo.Max         += 5 * aNewLevel;
+	ManaData.ResourceBarInfo.Current     = ManaData.ResourceBarInfo.Max;
+	
+	ResourceHandler->SetHealthandMana(HealthData, ManaData);
 
 	SetAbilityScores();
 	GatherAndSavePlayerCompleteDataSet();

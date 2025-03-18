@@ -14,6 +14,7 @@
 #include "CombatEntity.generated.h"
 
 
+class UResourceHandler;
 struct FItemChargesCompleteData;
 class UPersistentGameinstance;
 class UCombatEntityHub;
@@ -153,7 +154,6 @@ public:
 	virtual void IncrementMana(int aIncrease);
 	virtual EPressTurnReactions ApplyBuff(      UCombatEntity* aBuffer,   FSkillsData aSkill);
 	virtual void DecrementMana(int aDecrementBy);
-	virtual void DecrementSync(int aDecrementBy);
 	virtual ECharactertype GetCharactertype();
 	virtual void Resurrection();
 	void DeathCheck();
@@ -186,18 +186,13 @@ public:
 
 	UPROPERTY()
 	ERowType currentRow;
-	
+
 	UPROPERTY()
-	UHealth* healthHandler;
-	UPROPERTY()
-	UMana* manaHandler;
-	
-	UPROPERTY()
-	UCombatEntityHub* combatEntityHub;
+	UResourceHandler* ResourceHandler;
 
 	
 	UPROPERTY()
-	float currentSync = 100;
+	UCombatEntityHub* combatEntityHub;
 	
 	UPROPERTY( EditAnywhere )
 	TMap< EStatTypes,UCombatStat*> abilityScoreMap;

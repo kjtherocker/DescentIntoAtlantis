@@ -7,50 +7,7 @@ void UMana::InitializeMana(FManaData aManaData, UCombatEntity* aCombatEntity)
 {
 	ManaData = aManaData;
 	CombatEntity = aCombatEntity;
-}
-
-void UMana::SetMana(FManaData aManaData)
-{
-	ManaData = aManaData;
-
-	ManaData.ManaPercentage = GetManaPercentage();
-	HasManaValuesChanged.Broadcast(ManaData);
-}
-
-void UMana::SetCurrentMana(int aCurrentMana)
-{
-	ManaData.CurrentMana = aCurrentMana;
-}
-
-void UMana::IncrementMana(int aIncrementBy)
-{
-	ManaData.CurrentMana += aIncrementBy;
-
-	if(ManaData.CurrentMana > ManaData.MaxMana)
-	{
-		ManaData.CurrentMana = ManaData.MaxMana;
-	}
-
-	ManaData.ManaPercentage = GetManaPercentage();
 	
-	HasManaValuesChanged.Broadcast(ManaData);
+	Initialize(ManaData.ResourceBarInfo,aCombatEntity);
 }
 
-void UMana::DecrementMana(int aDecrementBy)
-{
-	ManaData.CurrentMana -= aDecrementBy;
-
-	if(ManaData.CurrentMana < 0)
-	{
-		ManaData.CurrentMana = 0;
-	}
-
-	ManaData.ManaPercentage = GetManaPercentage();
-	
-	HasManaValuesChanged.Broadcast(ManaData);
-}
-
-float UMana::GetManaPercentage()
-{
-	return (float)ManaData.CurrentMana / (float)ManaData.MaxMana;
-}
