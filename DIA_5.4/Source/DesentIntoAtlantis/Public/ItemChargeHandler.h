@@ -16,10 +16,7 @@ struct DESENTINTOATLANTIS_API FItemChargesInfo : public FTableRowBase
 	bool isItemChargeFull = false;
 	
 	UPROPERTY(EditAnywhere)
-	float itemChargesMax = 1;
-	
-	UPROPERTY(EditAnywhere)
-	float itemChargesPercentage = 0;
+	FResourceBarInfo ResourcesInfo;
 	
 };
 
@@ -57,7 +54,7 @@ private:
 
 public:
 
-	virtual void Initialize();
+	virtual void InitializeItemChargeHandler();
 	virtual void SetBaseItemCharges();
 	virtual void ValidateItemCharges();
 	virtual void DecrementItemCharges(float aPercentage);

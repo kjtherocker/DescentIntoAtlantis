@@ -11,6 +11,7 @@
 #include "CombatLog_PassiveSkilData.h"
 #include "ItemChargeHandler.h"
 #include "PlayerCombatStat.h"
+#include "ResourceHandler.h"
 #include "SkillUsage.h"
 
 
@@ -181,7 +182,7 @@ bool UMerchantsZeal::IsPassiveTriggered_Implementation(int& CurrentDamage, UComb
 	UCombatEntity* aAttacker, FSkillsData aSkill)
 {
 
-	if(aAttacker->combatEntityHub->ItemChargeHandler->HowManyChargesAreFull() == 0)
+	if(aAttacker->ResourceHandler->ItemChargeHandler->HowManyChargesAreFull() == 0)
 	{
 		return false;
 	}
@@ -203,7 +204,7 @@ FCombatLog_PassiveSkilData UMerchantsZeal::ActivateAttackDefencePassive_Implemen
 	// Calculate the damage increase as a percentage of CurrentDamage
 	int DamageIncrease = passiveSkillData.damageIncrease;
 
-	int itemCharges = aAttacker->combatEntityHub->ItemChargeHandler->HowManyChargesAreFull();
+	int itemCharges = aAttacker->ResourceHandler->ItemChargeHandler->HowManyChargesAreFull();
 
 	int FinalNumber = itemCharges * DamageIncrease;
 	

@@ -3,7 +3,7 @@
 
 #include "ItemChargeHandler.h"
 
-void UItemChargeHandler::Initialize()
+void UItemChargeHandler::InitializeItemChargeHandler()
 {
 	CreateNewItemCharge();
 	FillItemCharge(1);
@@ -39,10 +39,10 @@ void UItemChargeHandler::IncrementItemChargesPercentage(float aPercentage)
 		if(!Element.isItemChargeFull)
 		{
 			int maxPercentage = 1.0;
-			int differenceBetweenMaxAndCurrent = maxPercentage - Element.itemChargesPercentage;
+			int differenceBetweenMaxAndCurrent = maxPercentage - Element.ResourcesInfo.Percentage;
 			int Difference = differenceBetweenMaxAndCurrent - amountAdded;
 			
-			Element.itemChargesPercentage += Difference;
+			Element.ResourcesInfo.Percentage += Difference;
 			amountAdded -= Difference;
 		}
 	}
@@ -62,7 +62,7 @@ void UItemChargeHandler::FillItemCharge(int aAmount)
 		if(!ItemChargesInfos[i].isItemChargeFull)
 		{
 			AmountToFill--;
-			ItemChargesInfos[i].itemChargesPercentage = 1.0;
+			ItemChargesInfos[i].ResourcesInfo.Percentage = 1.0;
 			ItemChargesInfos[i].isItemChargeFull = true;
 		}
 	}
@@ -85,7 +85,7 @@ void UItemChargeHandler::ConsumeItemCharge(int aAmount)
 			AmountToConsume--;
 
 			ItemChargesInfos[i].isItemChargeFull = false;
-			ItemChargesInfos[i].itemChargesPercentage = 0;
+			ItemChargesInfos[i].ResourcesInfo.Percentage = 0;
 		}
 	}
 	
@@ -115,9 +115,9 @@ void UItemChargeHandler::ShiftItemChargesToEmptyCharges()
 	
 	for(int i = ItemChargesInfos.Num() -1; i > 0 ;i--)
 	{
-		if(ItemChargesInfos[i].itemChargesPercentage > 0)
+		if(ItemChargesInfos[i].ResourcesInfo.Percentage > 0)
 		{
-			OverFlow = ItemChargesInfos[i].itemChargesPercentage;
+			OverFlow = ItemChargesInfos[i].ResourcesInfo.Percentage;
 
 			for(int j = 0 ; j < ItemChargesInfos.Num();j++)
 			{
@@ -126,11 +126,11 @@ void UItemChargeHandler::ShiftItemChargesToEmptyCharges()
 					break;
 				}
 				
-				if(ItemChargesInfos[j].itemChargesPercentage == 0)
+				if(ItemChargesInfos[j].ResourcesInfo.Percentage == 0)
 				{
-					ItemChargesInfos[j].itemChargesPercentage = OverFlow;
+					ItemChargesInfos[j].ResourcesInfo.Percentage = OverFlow;
 					ItemChargesInfos[i].isItemChargeFull = false;
-					ItemChargesInfos[i].itemChargesPercentage = 0;
+					ItemChargesInfos[i].ResourcesInfo.Percentage = 0;
 				}
 			}
 		}

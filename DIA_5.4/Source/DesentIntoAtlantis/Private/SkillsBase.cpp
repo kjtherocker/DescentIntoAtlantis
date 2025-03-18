@@ -123,7 +123,7 @@ bool USkillBase::CanUseSkill(UCombatEntity* aSkillOwner, EResource SkillResource
 		
 		break;
 	case EResource::ItemCharges:
-		return aSkillOwner->combatEntityHub->ItemChargeHandler->isItemChargeAvaliable();
+		return aSkillOwner->ResourceHandler->ItemChargeHandler->isItemChargeAvaliable();
 		break;
 	}
 
@@ -149,7 +149,7 @@ void USkillBase::SpendSkillCost(UCombatEntity* aSkillOwner, EResource SkillResou
 			 aSkillOwner->ResourceHandler->SyncHandler->DecrementValue(skillData.costToUse);
 			break;
 		case EResource::ItemCharges:
-			aSkillOwner->combatEntityHub->ItemChargeHandler->ConsumeItemCharge(skillData.costToUse);
+			aSkillOwner->ResourceHandler->ItemChargeHandler->ConsumeItemCharge(skillData.costToUse);
 			break;
 	}
 }

@@ -12,6 +12,7 @@
 #include "PartyManagerSubsystem.h"
 #include "PassiveHandler.h"
 #include "PassiveSkillFactorySubsystem.h"
+#include "PersistentGameinstance.h"
 #include "SkillData.h"
 #include "SkillHandler.h"
 #include "SyncHandler.h"
@@ -28,7 +29,6 @@ void UCombatEntityHub::InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEnti
 	elementalHandler   = NewObject<UElementalHandler>();
 	equipmentHandler   = NewObject<UEquipmentHandler>();
 	InterruptHandler   = NewObject<UInterruptHandler>();
-	ItemChargeHandler  = NewObject<UItemChargeHandler>();
 	skillHandler       = NewObject<USkillHandler>();
 
 
@@ -42,7 +42,7 @@ void UCombatEntityHub::InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEnti
 	equipmentHandler->InitializeEquipmentHandler(passiveHandler,aOwnedCombatEntity,aPassiveSkillFactorySubsystem);
 	
 	InterruptHandler->InitializeInterruptHandler(aOwnedCombatEntity,persistentGameinstance);
-	ItemChargeHandler->Initialize();
+
 
 
 }

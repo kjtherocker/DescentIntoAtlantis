@@ -71,8 +71,5 @@ public:
 
 	UPROPERTY()
 	UEquipmentHandler* equipmentHandler;
-	UPROPERTY()
-	UItemChargeHandler* ItemChargeHandler; 
-	
 	
 };

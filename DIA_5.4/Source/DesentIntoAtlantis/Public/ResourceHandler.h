@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "CombatEntityWrapper.h"
+#include "ItemChargeHandler.h"
 
 #include "ResourceHandlerCompleteData.h"
 #include "SyncHandler.h"
@@ -68,5 +69,8 @@ public:
 	
 	UPROPERTY()
 	USyncHandler* SyncHandler;
+	UPROPERTY()
+	UItemChargeHandler* ItemChargeHandler;
+
 	
 };
