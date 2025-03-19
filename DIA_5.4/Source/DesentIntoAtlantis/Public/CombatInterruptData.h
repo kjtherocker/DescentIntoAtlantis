@@ -32,6 +32,10 @@ struct DESENTINTOATLANTIS_API FCombatInterruptData : public FTableRowBase
 {
 	GENERATED_BODY()
 
+
+	UPROPERTY(EditAnywhere)
+	bool executeInterruptImmediately;
+	
 	UPROPERTY( EditAnywhere, Category = "Identity" )
 	EInterruptType interruptType = EInterruptType::None;
 	
@@ -55,6 +59,9 @@ struct DESENTINTOATLANTIS_API FCombatInterruptData : public FTableRowBase
 	
 	UPROPERTY( EditAnywhere, Category = "Skill" )
 	ESkillIDS SkillIds;
+
+	UPROPERTY( EditAnywhere, Category = "Skill" )
+	USkillBase* InterruptionSkill;
 
 	UPROPERTY( EditAnywhere, Category = "PassiveSkill" )
 	EPassiveSkillID PassiveSkillID;

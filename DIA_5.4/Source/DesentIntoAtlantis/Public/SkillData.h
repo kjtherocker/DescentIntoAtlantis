@@ -44,6 +44,9 @@ struct DESENTINTOATLANTIS_API FSkillChargeData : public FTableRowBase
 	GENERATED_BODY()
 
 	UPROPERTY()
+	UCombatEntity* skillOwner; 
+	
+	UPROPERTY()
 	TArray<UCombatEntity*> EntityToAttackOnChargeEnd; 
 	
 	UPROPERTY(EditAnywhere)
@@ -53,10 +56,13 @@ struct DESENTINTOATLANTIS_API FSkillChargeData : public FTableRowBase
 	bool isCharging = false;
 
 	UPROPERTY()
-	int currentChargeStage;
+	bool ChargeFinished = false;
+
+	UPROPERTY()
+	int currentChargeStage = 0;
 	
 	UPROPERTY(EditAnywhere)
-	int chargeStageToReach;
+	int chargeStageToReach = 1;
 };
 
 

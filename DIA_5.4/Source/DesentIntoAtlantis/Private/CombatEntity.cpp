@@ -58,13 +58,13 @@ void UCombatEntity::StartTurn()
     }
 
     combatEntityHub->OnTurnStart();
+    OnTurnStart.Broadcast();
 }
 
 void UCombatEntity::EndTurn()
 {
     OnRoundEnd.Broadcast();
 }
-
 
 void UCombatEntity::SetHealth(int aHealth)
 {

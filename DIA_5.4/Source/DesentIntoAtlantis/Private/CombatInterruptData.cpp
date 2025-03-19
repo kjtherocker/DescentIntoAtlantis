@@ -2,7 +2,7 @@
 
 
 #include "CombatInterruptData.h"
-
+#include "SkillBase.h"
 #include "AtlantisGameModeBase.h"
 #include "PersistentGameinstance.h"
 
@@ -35,5 +35,8 @@ void UDialogueInterrupt::ActivateInterrupt()
 void USkillInterrupt::ActivateInterrupt()
 {
 	Super::ActivateInterrupt();
+
+	persistantGameInstance->SkillResolveSubsystem->ActivateSkill(	CombatInterruptData.InterruptionSkill->skillData.skillChargeData.skillOwner,
+		CombatInterruptData.InterruptionSkill->skillData.skillChargeData.EntityToAttackOnChargeEnd,CombatInterruptData.InterruptionSkill);
 	
 }

@@ -16,6 +16,7 @@ UCombatInterrupt* UInterruptHandler::CreateInterrupt(EInterruptType aInterruptTy
 		CombatInterrupt = NewObject<UDialogueInterrupt>();
 		break;
 	case EInterruptType::Skill:
+		CombatInterrupt = NewObject<USkillInterrupt>();
 		break;
 	case EInterruptType::Passive:
 		break;
@@ -36,6 +37,11 @@ void UInterruptHandler::InitializeInterruptHandler(UCombatEntity* aOwnedCombatEn
 void UInterruptHandler::SetInterruptData(FInterruptData aInterruptData)
 {
 	InterruptData = aInterruptData;
+}
+
+void UInterruptHandler::AddCombatInterrupt(UCombatInterrupt* aCombatInterrupt)
+{
+	combatInterruptSkill.Add(aCombatInterrupt);
 }
 
 TArray<UCombatInterrupt*> UInterruptHandler::CheckGenericTriggerInterrupts(EGenericTrigger aGenericTrigger)
@@ -96,10 +102,14 @@ TArray<UCombatInterrupt*> UInterruptHandler::CheckHealthRelatedInterrupt()
 TArray<UCombatInterrupt*> UInterruptHandler::GetCombatInterrupts()
 {
 	TArray<UCombatInterrupt*> CombatInterrupts;
-
-
 	TArray<UCombatInterrupt*> healthInterrupts = CheckHealthRelatedInterrupt();
 
+	for (auto CombatInterrupt : combatInterruptSkill)
+	{
+		CombatInterrupts.Add(CombatInterrupt);
+	}
+
+	combatInterruptSkill.Empty();
 	for(int i = 0; i < healthInterrupts.Num();i++)
 	{
 		CombatInterrupts.Add(healthInterrupts[i]);		

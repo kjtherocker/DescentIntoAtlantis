@@ -67,7 +67,7 @@ TArray<FCombatLog_PassiveSkilData> UCombatEntityHub::CheckAttackDefencePassivesA
 	return PassiveSkilDatas;
 }
 
-bool UCombatEntityHub::doesEntityHaveATurn()
+bool UCombatEntityHub::DoesEntityHaveATurn()
 {
 	if(skillHandler->isSkillCharging())
 	{
@@ -110,6 +110,5 @@ int UCombatEntityHub::OnGetItemTier(EItemID ItemID)
 
 void UCombatEntityHub::OnTurnStart()
 {
-
 	skillHandler->OnTurnStart();
 }

@@ -23,7 +23,7 @@ private:
 public:
 
 	UPROPERTY()
-	FSkillsData chargingSkill;
+	USkillBase* chargingSkill;
 
 UPROPERTY()
 	USkillFactorySubsystem* SkillFactorySubsystem;
@@ -44,7 +44,7 @@ UPROPERTY()
 
 	USkillBase* GetActiveSkill(ESkillIDS aSkillID);
 
-
+	UFUNCTION()
 	void OnTurnStart();
 	
 	TArray<USkillBase*> GetSkillsByID(TArray<ESkillIDS> aSkillIds);
@@ -60,7 +60,7 @@ UPROPERTY()
 	void AddSkillModification(EPassiveSkillID aPassiveSkillID,FSkillModification aSkillModification);
 	void ValidateAllSkillModifications();
 
-	void SetChargingSkill(FSkillsData aSkillData);
+	void SetChargingSkill(USkillBase* aSkillData);
 	bool isSkillCharging();
 
 	FSkillsData ModifySkill(FSkillsData aSkillData,TArray<FSkillModification>  aSkillModification);

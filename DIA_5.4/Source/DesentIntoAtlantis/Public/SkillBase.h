@@ -86,11 +86,11 @@ public:
 	virtual void Initialize(FSkillsData aSkillData);
 
 	virtual FCombatLog_Hit_Data CalculateHit(UCombatEntity* aAttacker, UCombatEntity* aVictim);
-	virtual FCombatLog_Full_Data ExecuteSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim, USkillBase* aSkill);
+	virtual FCombatLog_Full_Data ExecuteSkill(UCombatEntity* aAttacker, TArray<UCombatEntity*> aVictims, USkillBase* aSkill);
 	virtual bool CanUseSkill(UCombatEntity* aSkillOwner, EResource SkillResourceUsed = EResource::None);
 	virtual void SpendSkillCost(UCombatEntity* aSkillOwner, EResource SkillResourceUsed = EResource::None);
 
-	virtual FCombatLog_AttackDefense_Data StartChargingSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim);
+	virtual FCombatLog_AttackDefense_Data StartChargingSkill(UCombatEntity* aAttacker, TArray<UCombatEntity*> aVictims);
 
 	virtual bool isChargeSkillReady();
 	
@@ -115,12 +115,16 @@ public:
 		return USkillBase::GiveCombatToken(aAmount, aEntityToGiveToken, aSkillData);
 	};
 	
-	virtual FCombatLog_Full_Data ExecuteSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim, USkillBase* aSkill) override
+	virtual FCombatLog_Full_Data ExecuteSkill(UCombatEntity* aAttacker,TArray<UCombatEntity*> aVictims, USkillBase* aSkill) override
 	{
 		FCombatLog_Full_Data CombatLog_Full_Data;
 
 		int AmountOfGivenStacks = 1;
-		CombatLog_Full_Data.CombatLog_CombatToken_Data = I_GiveCombatToken_Implementation(AmountOfGivenStacks,aVictim,aSkill->skillData);
+		for (auto Element : aVictims)
+		{
+			CombatLog_Full_Data.CombatLog_CombatToken_Data = I_GiveCombatToken_Implementation(AmountOfGivenStacks,Element,aSkill->skillData);		
+		}
+	
 	
 		return CombatLog_Full_Data;
 	};

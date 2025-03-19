@@ -4,6 +4,7 @@
 #include "SkillHandler.h"
 
 #include "ESkillID.h"
+#include "InterruptHandler.h"
 #include "SkillBase.h"
 #include "SkillFactorySubsystem.h"
 
@@ -24,6 +25,7 @@ void USkillHandler::Initialize(UCombatEntity* aAttachedCombatEntity,USkillFactor
 
 	attachedPassiveHandler->PassiveAdded.AddDynamic(this,&USkillHandler::PassiveAdded);
 	attachedPassiveHandler->PassiveRemoved.AddDynamic(this,&USkillHandler::PassiveAdded);
+//	attachedCombatEntity->OnTurnStart.AddDynamic(this,&USkillHandler::OnTurnStart);
 }
 
 void USkillHandler::AddSkill(ESkillIDS aSkillID)
@@ -159,14 +161,19 @@ void USkillHandler::ValidateAllSkillModifications()
 	
 }
 
-void USkillHandler::SetChargingSkill(FSkillsData aSkillData)
+void USkillHandler::SetChargingSkill(USkillBase* aSkillData)
 {
 	chargingSkill = aSkillData;
 }
 
 bool USkillHandler::isSkillCharging()
 {
-	return chargingSkill.skillChargeData.isCharging;
+	if(chargingSkill == nullptr)
+	{
+		return false;
+	}
+	
+	return chargingSkill->skillData.skillChargeData.isCharging;
 }
 
 void USkillHandler::OnTurnStart()
@@ -176,12 +183,24 @@ void USkillHandler::OnTurnStart()
 		return;
 	}
 
-	if(chargingSkill.skillChargeData.currentChargeStage >= chargingSkill.skillChargeData.chargeStageToReach)
+	if(chargingSkill->isChargeSkillReady())
 	{
-			
+		FCombatInterruptData CombatInterruptData;
+		CombatInterruptData.executeInterruptImmediately = true;
+		CombatInterruptData.interruptType = EInterruptType::Skill;
+		CombatInterruptData.InterruptionSkill = chargingSkill;
+		
+		attachedCombatEntity->combatEntityHub->InterruptHandler->AddCombatInterrupt(
+			attachedCombatEntity->combatEntityHub->InterruptHandler->CreateInterrupt(EInterruptType::Skill,CombatInterruptData));
+
+		chargingSkill = nullptr;
+	}
+	else
+	{
+		chargingSkill->skillData.skillChargeData.currentChargeStage++;		
 	}
 	
-	chargingSkill.skillChargeData.currentChargeStage++;
+
 }
 
 FSkillsData USkillHandler::ModifySkill(FSkillsData aSkillData,TArray<FSkillModification> aSkillModification)

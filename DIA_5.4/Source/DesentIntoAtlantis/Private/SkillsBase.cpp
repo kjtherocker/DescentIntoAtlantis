@@ -48,49 +48,62 @@ FCombatLog_Hit_Data USkillBase::CalculateHit(UCombatEntity* aAttacker, UCombatEn
 	return hitData;
 }
 
-FCombatLog_Full_Data USkillBase::ExecuteSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim, USkillBase* aSkill)
+FCombatLog_Full_Data USkillBase::ExecuteSkill(UCombatEntity* aAttacker, TArray<UCombatEntity*> aVictims, USkillBase* aSkill)
 {
 	FSkillsData skillsData = aSkill->skillData;
 	
 	FCombatLog_Full_Data CombatLog_Base_Data;
 	CombatLog_Base_Data.skillUsed = skillsData;
 	CombatLog_Base_Data.Attacker  = aAttacker;
-	CombatLog_Base_Data.Victim    = aVictim;
+	CombatLog_Base_Data.Victim    = aVictims;
 	
 	CombatLog_Base_Data.PressTurnReaction = EPressTurnReactions::Normal;
 
 	bool isSkillExecuted = true;
-
-	if (ISkillHit* skillHit = Cast<ISkillHit>(this))
-	{
-		CombatLog_Base_Data.CombatLog_Hit_Data = skillHit->I_CalculateHit_Implementation(aAttacker,aVictim);
-		isSkillExecuted = CombatLog_Base_Data.CombatLog_Hit_Data.HitResult;
-	}
 	
-	if(isSkillExecuted)
+
+	if(skillData.skillChargeData.canCharge && !isChargeSkillReady() && !skillData.skillChargeData.ChargeFinished  )
 	{
-		if(skillData.skillChargeData.canCharge && !isChargeSkillReady())
-		{
-			CombatLog_Base_Data.CombatLog_AttackDefense_Data = StartChargingSkill(aAttacker,aVictim);
-		}
-		else
-		{
-			CombatLog_Base_Data.CombatLog_AttackDefense_Data = aSkill->UseSkill(aAttacker,aVictim);	
-		}
-		
-		aVictim->combatEntityHub->SpawnParticles(skillsData.SkillInWorldParticle);
-		if (IOnGiveCombatToken* attackDefencePassive = Cast<IOnGiveCombatToken>(this))
-		{
-			int skillAmount = 1;
-			attackDefencePassive->I_GiveCombatToken_Implementation(skillAmount,aVictim,skillData);
-		}
+		CombatLog_Base_Data.CombatLog_AttackDefense_Data = StartChargingSkill(aAttacker,aVictims);
 	}
 	else
 	{
-	   aAttacker->combatEntityHub->OnAttackEvaded(	CombatLog_Base_Data.CombatLog_Hit_Data);
-	   aVictim->combatEntityHub->OnEvadedAttack(	CombatLog_Base_Data.CombatLog_Hit_Data);
+		for (auto victim : aVictims)
+		{
+			if(victim == nullptr)
+			{
+				continue;
+			}
+			
+			if (ISkillHit* skillHit = Cast<ISkillHit>(this))
+			{
+				CombatLog_Base_Data.CombatLog_Hit_Data = skillHit->I_CalculateHit_Implementation(aAttacker,victim);
+				isSkillExecuted = CombatLog_Base_Data.CombatLog_Hit_Data.HitResult;
+			}
 		
-		CombatLog_Base_Data.PressTurnReaction = EPressTurnReactions::Dodge;
+		
+	
+			if(isSkillExecuted)
+			{
+				CombatLog_Base_Data.CombatLog_AttackDefense_Data = aSkill->UseSkill(aAttacker,victim);	
+				victim->combatEntityHub->SpawnParticles(skillsData.SkillInWorldParticle);
+				if (IOnGiveCombatToken* attackDefencePassive = Cast<IOnGiveCombatToken>(this))
+				{
+					int skillAmount = 1;
+					attackDefencePassive->I_GiveCombatToken_Implementation(skillAmount,victim,skillData);
+				}
+			}
+			else
+			{
+				aAttacker->combatEntityHub->OnAttackEvaded(	CombatLog_Base_Data.CombatLog_Hit_Data);
+				victim->combatEntityHub->OnEvadedAttack(	CombatLog_Base_Data.CombatLog_Hit_Data);
+		
+				CombatLog_Base_Data.PressTurnReaction = EPressTurnReactions::Dodge;
+			}
+
+			skillData.skillChargeData.ChargeFinished = false;
+			skillData.skillChargeData.currentChargeStage = 0;
+		}
 	}
 	
 	return CombatLog_Base_Data;
@@ -154,13 +167,14 @@ void USkillBase::SpendSkillCost(UCombatEntity* aSkillOwner, EResource SkillResou
 	}
 }
 
-FCombatLog_AttackDefense_Data USkillBase::StartChargingSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
+FCombatLog_AttackDefense_Data USkillBase::StartChargingSkill(UCombatEntity* aAttacker, TArray<UCombatEntity*> aVictims)
 {
 	skillData.skillChargeData.isCharging = true;
+	skillData.skillChargeData.ChargeFinished = false;
 	skillData.skillChargeData.currentChargeStage = 0;
-	skillData.skillChargeData.EntityToAttackOnChargeEnd.Add(aVictim);
-
-	aAttacker->combatEntityHub->skillHandler->SetChargingSkill(skillData);
+	skillData.skillChargeData.EntityToAttackOnChargeEnd = aVictims;
+	skillData.skillChargeData.skillOwner = aAttacker;
+	aAttacker->combatEntityHub->skillHandler->SetChargingSkill(this);
 	
 	FCombatLog_AttackDefense_Data AttackDefense_Data;
 

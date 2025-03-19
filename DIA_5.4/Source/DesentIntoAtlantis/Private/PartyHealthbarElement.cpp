@@ -80,7 +80,7 @@ void UPartyHealthbarElement::UpdateHealthbarElements()
 	BW_HealthText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->ResourceHandler->healthHandler->GetCurrentValue())));
 	
 	BW_Mana->SetPercentageMain(playerCombatEntity->GetManaPercentage());
-	BW_ManaText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->ResourceHandler->manaHandler->GetManaData().ResourceBarInfo.Current)));
+	BW_ManaText->SetText(FText::FromString( FString::FromInt(playerCombatEntity->ResourceHandler->manaHandler->GetCurrentValue())));
 
 
 	float syncPercentage = playerCombatEntity->GetSyncPercentage();

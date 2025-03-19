@@ -25,7 +25,7 @@ struct DESENTINTOATLANTIS_API FCombatLog_Full_Data : public FTableRowBase
 	UCombatEntity* Attacker;
 	
 	UPROPERTY()
-	UCombatEntity* Victim;
+	TArray<UCombatEntity*> Victim;
 
 	UPROPERTY()
 	FCombatLog_CombatToken CombatLog_CombatToken_Data;

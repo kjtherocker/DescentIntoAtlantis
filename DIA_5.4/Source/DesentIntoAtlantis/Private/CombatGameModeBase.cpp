@@ -275,6 +275,7 @@ void ACombatGameModeBase::StartNewRound()
 void ACombatGameModeBase::TurnEnd()
 {
 	combatInterruptHandler->CheckAllEntitysForInterruptions();
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("turnEnd")));
 	
 	if( combatInterruptHandler->HasInterruptions())
 	{
@@ -350,7 +351,11 @@ void ACombatGameModeBase::TriggerTurnEndTimers()
 	switch (CharacterTypeTurn)
 	{
 	case ECharactertype::Undefined:
-		break;
+		{
+			FTimerHandle handle;
+			world->GetTimerManager().SetTimer(handle,this,&ACombatGameModeBase::TurnEnd,1.0f,false);
+		}
+			break;
 	case ECharactertype::Ally:
 		{
 			//TurnEnd();
@@ -407,16 +412,19 @@ void ACombatGameModeBase::AllyStartTurn()
 	
 	currentActivePartyMember = partyMembersInCombat[currentActivePosition];
 	partyHealthbars->SetHighlightHealthbar(currentActivePartyMember,FULL_OPACITY);
-	currentActivePartyMember->StartTurn();
 	combatCamera->shouldReturnToInitialPosition = true;
 
-	if(currentActivePartyMember->combatEntityHub->doesEntityHaveATurn())
+	if(currentActivePartyMember->combatEntityHub->DoesEntityHaveATurn())
 	{
+		currentActivePartyMember->StartTurn();
 		UCommandBoardView* commandBoard = (UCommandBoardView*)InGameHUD->PushAndGetView(EViews::CommandBoard,  EUiType::ActiveUi);	
 	}
 	else
 	{
-		TurnEnd();
+		currentActivePartyMember->StartTurn();
+		TArray<EPressTurnReactions> aAllTurnReactions;
+		aAllTurnReactions.Add(EPressTurnReactions::Normal);
+		pressTurnManager->ProcessTurn(aAllTurnReactions);
 	}
 	
 

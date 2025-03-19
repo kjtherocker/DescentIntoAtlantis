@@ -99,6 +99,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWasDamaged);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FWasKilled);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FHasHealthOrManaValuesChanged);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FCombatEntityRoundEnd);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FCombatEntityTurnStart);
 UCLASS()
 class DESENTINTOATLANTIS_API UCombatEntity : public UObject
 {
@@ -127,6 +128,7 @@ public:
 	FHasHealthOrManaValuesChanged      hasHealthOrManaValuesChanged;
 	FResetOneWrapperToDefault          resetOneWrapperToDefault;
 	FCombatEntityRoundEnd              OnRoundEnd;
+	FCombatEntityTurnStart             OnTurnStart;
 
 
 	
@@ -141,6 +143,7 @@ public:
 	UFUNCTION()
 	virtual void EndTurn();
 
+	
 	//SetStatusEffect(StatusEffects aStatusEffect);
 	virtual void InitializeStats(EStatTypes aAbilityScoreTypes);
 	virtual void SetHealth(int aHealth);

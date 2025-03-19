@@ -46,11 +46,16 @@ protected:
 	UCombatEntity* ownedCombatEntity;
 	UPROPERTY()
 	UPersistentGameinstance* persistantGameInstance;
+
+	UPROPERTY()
+	TArray<UCombatInterrupt*> combatInterruptSkill;
 public:
 	UCombatInterrupt* CreateInterrupt(EInterruptType aInterruptType, FCombatInterruptData aCombatInterruptData);
 	void InitializeInterruptHandler(UCombatEntity* aOwnedCombatEntity,UPersistentGameinstance* aPersistantGameInstance);
 	void SetInterruptData(FInterruptData aInterruptData);
 
+	void AddCombatInterrupt(UCombatInterrupt* aCombatInterrupt);
+	
 	TArray<UCombatInterrupt*> CheckGenericTriggerInterrupts(EGenericTrigger aGenericTrigger);
 	
 	TArray<UCombatInterrupt*> CheckHealthRelatedInterrupt();
