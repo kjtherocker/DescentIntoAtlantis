@@ -62,7 +62,7 @@ struct DESENTINTOATLANTIS_API FSkillChargeData : public FTableRowBase
 	int currentChargeStage = 0;
 	
 	UPROPERTY(EditAnywhere)
-	int chargeStageToReach = 1;
+	int chargeStageToReach = 0;
 };
 
 

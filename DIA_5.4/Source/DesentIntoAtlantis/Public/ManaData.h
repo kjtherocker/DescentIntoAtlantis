@@ -12,6 +12,6 @@ struct DESENTINTOATLANTIS_API FManaData : public FTableRowBase
 {
 	GENERATED_BODY()
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 	FResourceBarInfo ResourceBarInfo;
 };

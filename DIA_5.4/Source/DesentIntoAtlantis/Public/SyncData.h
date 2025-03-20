@@ -11,10 +11,11 @@ USTRUCT()
 struct DESENTINTOATLANTIS_API FResourceBarInfo  : public FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
-	UPROPERTY()
+	
+	UPROPERTY(EditAnywhere)
 	int Current = 100;
-
-	UPROPERTY()
+	
+	UPROPERTY(EditAnywhere)
 	int Max = 100;
 
 	UPROPERTY()

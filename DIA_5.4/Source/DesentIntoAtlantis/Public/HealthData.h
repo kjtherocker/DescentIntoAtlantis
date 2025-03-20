@@ -11,6 +11,6 @@ USTRUCT()
 struct DESENTINTOATLANTIS_API FHealthData :public  FTableRowBase
 {
 	GENERATED_USTRUCT_BODY()
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 	FResourceBarInfo ResourceBarInfo;
 };
