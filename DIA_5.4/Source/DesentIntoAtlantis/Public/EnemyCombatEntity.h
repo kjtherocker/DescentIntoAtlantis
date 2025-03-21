@@ -50,6 +50,7 @@ enum class  EEnemyLabelID
 	Chapter_1_BossRain,
 	Chapter_1_MiniatureGuraShark,
 	Chapter_1_Cavia,
+	Chapter_1_CatGuard,
 };
 
 USTRUCT()
