@@ -9,13 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Costume/Default/texture/Kriede_Healthboard_Redesign_3.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Costume/Default/Material/Material_Healthbar_Kriede_Default.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Player/Kriede/Costume/Default/Material/Material_Healthbar_Kriede_Default.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EnemyCombatEntity.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/EnemyCombatEntity.h" afterDir="false" />
-    </list>
+    <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -1079,7 +1073,7 @@
       <workItem from="1741991728277" duration="4043000" />
       <workItem from="1742168175859" duration="29998000" />
       <workItem from="1742485722654" duration="1314000" />
-      <workItem from="1742575962861" duration="1388000" />
+      <workItem from="1742575962861" duration="1983000" />
     </task>
     <servers />
   </component>
