@@ -32,14 +32,14 @@ void USkillResolveSubsystem::ActivateSkill(UCombatEntity* aAttacker,TArray<UComb
 	
 	
 	FCombatLog_Full_Data  CombatLog_Full_Data = aSkill->ExecuteSkill(aAttacker, aVictim, aSkill);
-			//TArray<FCombatLog_Full_Data> testo;
-			//testo.Add(CombatLog_Full_Data);
-			//AddCombatLog(testo);
+	mostRecentCombatLogs.Add(CombatLog_Full_Data);
 	
 	
 	turnReactions.Add(EPressTurnReactions::Normal);
 	DamageEvent MyEvent(100,EPressTurnReactions::Normal,aSkill);
 
+	AddCombatLog(mostRecentCombatLogs);
+	
 	combatGameModeBase->pressTurnManager->ProcessTurn(turnReactions);
 }
 

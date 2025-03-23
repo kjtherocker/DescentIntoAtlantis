@@ -8,7 +8,7 @@
 #include "CombatLog_PassiveSkilData.h"
 #include "CombatLog_Hit_Data.generated.h"
 
-
+struct FCombatLog_PassiveSkilData;
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FCombatLog_Hit_Data : public FTableRowBase

@@ -45,6 +45,8 @@ public:
 	virtual void SetResourceHandlerCompleteData(FResourceHandlerCompleteData aResourceHandlerCompleteData);
 
 	virtual void SetHealthandMana(FHealthData aHealthData, FManaData aManaData);
+
+	virtual void LoadSavedCurrentResources(FResourceHandlerCompleteData aResourceHandlerCompleteData);
 	
 	virtual void SetToDefaultState();
 	virtual void SetCombatWrapper(UCombatEntity* aCombatEntity);

@@ -3,10 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Engine/DataTable.h" 
+#include "Engine/DataTable.h"
+#include "CombatLog_PassiveSkilData.h"
 #include "CombatLog_Defense_Data.generated.h"
 
-struct FCombatLog_PassiveSkilData;
+
 
 USTRUCT()
 struct DESENTINTOATLANTIS_API FCombatLog_Defense_Data : public FTableRowBase

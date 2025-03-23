@@ -7,6 +7,8 @@
 #include "UObject/NoExportTypes.h"
 #include "CombatTokenHandler.generated.h"
 
+
+struct FCombatLog_PassiveSkilData;
 /**
  * 
  */

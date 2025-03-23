@@ -23,7 +23,7 @@ class UPlayerCombatStats;
 
 void UPlayerCombatEntity::LoadSavedHPAndMP(FPlayerCompleteDataSet aPlayerCompleteDataSet)
 {
-	ResourceHandler->SetResourceHandlerCompleteData(aPlayerCompleteDataSet.ResourceHandlerCompleteData);
+	ResourceHandler->LoadSavedCurrentResources(aPlayerCompleteDataSet.ResourceHandlerCompleteData);
 }
 
 void UPlayerCombatEntity::SetPlayerEntity(FPlayerIdentityData aPlayerEntityData,FCharacterCostumeData aDialogueCostumeData)

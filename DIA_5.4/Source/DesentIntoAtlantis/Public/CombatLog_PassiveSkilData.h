@@ -23,6 +23,7 @@ USTRUCT()
 struct DESENTINTOATLANTIS_API FCombatLog_PassiveSkilData : public FTableRowBase
 {
 	GENERATED_BODY()
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Defense")
 	FPassiveSkillData PassiveSkillData;
 	
@@ -32,5 +33,4 @@ struct DESENTINTOATLANTIS_API FCombatLog_PassiveSkilData : public FTableRowBase
 	UPROPERTY(EditAnywhere)
 	FCombatLog_CombatToken combatTokenData;
 };
-
 

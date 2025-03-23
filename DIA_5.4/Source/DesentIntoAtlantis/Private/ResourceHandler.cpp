@@ -40,6 +40,13 @@ void UResourceHandler::SetHealthandMana(FHealthData aHealthData, FManaData aMana
 	manaHandler->SetResourceInfo(aManaData.ResourceBarInfo);
 }
 
+void UResourceHandler::LoadSavedCurrentResources(FResourceHandlerCompleteData aResourceHandlerCompleteData)
+{
+	healthHandler->SetCurrentValue(aResourceHandlerCompleteData.HealthData.ResourceBarInfo.Current);
+	manaHandler->SetCurrentValue(aResourceHandlerCompleteData.ManaData.ResourceBarInfo.Current);
+	SyncHandler->SetCurrentValue(aResourceHandlerCompleteData.SyncData.ResourceBarInfo.Current);
+}
+
 void UResourceHandler::SetToDefaultState()
 {
 	healthHandler->MaxOutCurrentValue();

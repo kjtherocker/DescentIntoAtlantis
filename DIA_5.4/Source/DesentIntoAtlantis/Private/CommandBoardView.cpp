@@ -84,7 +84,7 @@ void UCommandBoardView::SetCommandBoard(ACombatGameModeBase* aCombatGameModeBase
 
 void UCommandBoardView::PushCombatLog()
 {
-	if(combatManager->last50CombatLogs.Num() == 0)
+	if(persistentGameinstance->SkillResolveSubsystem->GetLast50Logs().Num() == 0)
 	{
 		return;
 	}

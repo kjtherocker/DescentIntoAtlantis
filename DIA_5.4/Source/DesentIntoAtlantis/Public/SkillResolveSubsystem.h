@@ -39,5 +39,7 @@ public:
 	void ActivateSkill(UCombatEntity* aAttacker, TArray<UCombatEntity*> aVictim, USkillBase* aSkill);
 
 	void AddCombatLog(TArray<FCombatLog_Full_Data> CombatLog_Base_Datas);
+
+	TArray<FCombatLog_Full_Data> GetLast50Logs(){return last50CombatLogs;}
 	
 };
