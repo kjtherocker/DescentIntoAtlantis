@@ -73,6 +73,9 @@ struct DESENTINTOATLANTIS_API FEnemyEntitydInfo :public  FTableRowBase
 	TArray<ESkillIDS> skillIDS;
 
 	UPROPERTY(EditAnywhere)
+	TArray<EPassiveSkillID> PassiveSkillIds;
+
+	UPROPERTY(EditAnywhere)
 	FInterruptData EnemyInterruptData;
 
 	UPROPERTY( EditAnywhere )

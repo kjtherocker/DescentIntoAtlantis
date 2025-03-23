@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
+#include "CombatTokenDescriptionElement.h"
 #include "PlayerCombatEntity.h"
 #include "SkillView.generated.h"
 
@@ -21,6 +22,11 @@ class DESENTINTOATLANTIS_API USkillView : public UBaseUserWidget
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 	void CreateSkillbar(FSkillsData aSkill);
 	void SkillSelection(FSkillsData aSkill);
+
+	void SetCombatToken(FSkillsData aSkillsData);
+
+	void CreateCombatToken(FCombatTokenStackData aCombatTokenData);
+	
 	void SelectSkill();
 	virtual void MoveUp() override;
 	virtual void MoveDown() override;
@@ -29,7 +35,9 @@ class DESENTINTOATLANTIS_API USkillView : public UBaseUserWidget
 	ACombatGameModeBase* combatGameMode;
 
 protected:
-	
+
+	UPROPERTY()
+	TArray<UCombatTokenDescriptionElement*> CombatTokenDescriptionElements;
 	
 public:
 	
@@ -62,6 +70,9 @@ public:
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	class UVerticalBox* BW_VerticalBox;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	class UVerticalBox* BW_CombatTokenVerticalBox;
 };
 
 

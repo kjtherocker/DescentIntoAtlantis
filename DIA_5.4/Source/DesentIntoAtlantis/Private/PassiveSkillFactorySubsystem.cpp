@@ -82,6 +82,9 @@ UPassiveSkills* UPassiveFactorySubsystem::CreatePassiveSkill(EPassiveSkillID aPa
 	case EPassiveSkillID::BonkDefenceResistDown:
 		return NewObject<UGenericModifyPassive>();
 		break;
+	case EPassiveSkillID::FelineAgility:
+		return  NewObject<UFelineAgility>();
+		break;
 	}
 
 	return NewObject<UGenericOnAttackPassive>();

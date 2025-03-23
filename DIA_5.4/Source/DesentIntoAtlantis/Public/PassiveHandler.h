@@ -56,9 +56,12 @@ public:
 	virtual void CheckGenericTriggerPassives(EGenericTrigger aPassiveTrigger);
 	virtual TArray< FCombatLog_PassiveSkilData> CheckAttackDefencePassives(int& CurrentDamage ,UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill);
 	//virtual TArray< FCombatLog_PassiveSkilData> CheckBaseDamagePassives(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill);
-	
+
+	virtual void SendGenericTrigger(EGenericTrigger aGenericTrigger);
 	virtual void AddMainClassPassives(UCombatClass* aCombatClass);
 	virtual bool TryActivatePassive(UPassiveSkills* aPassiveSkills);
+	
+	virtual void AddPassive(EPassiveSkillID passiveSkillID,EPassiveSkillSlotType passiveSkillSlot);
 	virtual void AddPassive(UPassiveSkills* aPassiveSkills,EPassiveSkillSlotType passiveSkillSlot);
 	virtual void RemovePassive(UPassiveSkills* aPassiveSkills);
 	virtual void RemovePassiveBySlotType(EPassiveSkillSlotType passiveSkillSlot);

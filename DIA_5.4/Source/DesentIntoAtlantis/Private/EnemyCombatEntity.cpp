@@ -11,6 +11,7 @@
 #include "CombatStat.h"
 #include "ElementalHandler.h"
 #include "Health.h"
+#include "ResourceHandler.h"
 #include "SkillFactorySubsystem.h"
 #include "SkillHandler.h"
 
@@ -42,6 +43,12 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityCompleteData AEnemyEntit
 	
 	ResourceHandler->healthHandler->InitializeHealth(CombatEntityData.HealthData,this);
 	ResourceHandler->manaHandler->InitializeMana(CombatEntityData.ManaData,this);
+
+	for(auto Element : enemyEntityInfo.PassiveSkillIds)
+	{
+		combatEntityHub->passiveHandler->AddPassive(Element,EPassiveSkillSlotType::SlotPassive);
+	}
+
 	
 	SetAbilityScores();
 }

@@ -22,7 +22,7 @@ void UPassiveSkills::InitializePassiveSkilData(FPassiveSkillData aPassiveSkillsD
 	passiveSkillData = aPassiveSkillsData;
 }
 
-void UPassives::AttachPassiveToOwner(UCombatEntity* aCombatEntity)
+void UPassives::AttachOwnerCombatEntity(UCombatEntity* aCombatEntity)
 {
 	attachedCombatEntity = aCombatEntity;
 }
@@ -49,9 +49,9 @@ void UPassives::RemoveEffect(UCombatEntity* aCombatEntity)
 }
 
 
-FCombatLog_PassiveSkilData UGenericTriggerPassive::ActivateGenericPassive_Implementation(UCombatEntity* aCombatEntity)
+FCombatLog_PassiveSkilData UGenericTriggerPassive::ActivateGenericPassive_Implementation()
 {
-	return IOnGenericPassive::ActivateGenericPassive_Implementation(aCombatEntity);
+	return IOnGenericPassive::ActivateGenericPassive_Implementation();
 }
 
 FSkillsData UGenericModifyPassive::ModifySkill_Implementation(FSkillsData aPassiveSkill)
@@ -64,14 +64,35 @@ FSkillsData UGenericModifyPassive::ModifySkill_Implementation(FSkillsData aPassi
 }
 
 
-FCombatLog_PassiveSkilData UGenericTriggerPassiveCombatToken::ActivateGenericPassive_Implementation(UCombatEntity* aCombatEntity)
+FCombatLog_PassiveSkilData UGenericTriggerPassiveCombatToken::ActivateGenericPassive_Implementation()
 {
 	FCombatLog_PassiveSkilData PassiveSkilData;
 	for (auto Element : PassiveSkilData.PassiveSkillData.combatTokensOnPassive)
 	{
-		PassiveSkilData.combatTokenData.combatTokenData.Add(aCombatEntity->combatEntityHub->combatTokenHandler->AddCombatToken(Element.combatTokenID,Element));
+		PassiveSkilData.combatTokenData.combatTokenData.Add(attachedCombatEntity->combatEntityHub->combatTokenHandler->AddCombatToken(Element));
 	}
 
+	return PassiveSkilData;
+}
+
+bool UGenericTriggerPassiveCombatToken::IsPassiveTriggered_Implementation(EGenericTrigger aPassiveGenericTrigger)
+{
+	return passiveSkillData.triggerGeneric == aPassiveGenericTrigger;
+}
+
+FCombatLog_PassiveSkilData UFelineAgility::ActivateGenericPassive_Implementation()
+{
+	FCombatLog_PassiveSkilData PassiveSkilData;
+
+	PassiveSkilData.PassiveSkillData = passiveSkillData;
+	
+	for(auto Element : PassiveSkilData.PassiveSkillData.combatTokensOnPassive)
+	{
+		attachedCombatEntity->combatEntityHub->combatTokenHandler->AddCombatToken(Element);		
+	}
+	
+
+	
 	return PassiveSkilData;
 }
 

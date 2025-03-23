@@ -94,4 +94,5 @@ enum class  EViewElements
 	QuestStageElement             = 23,
 	QuestGoalElement              = 24,
 	SlowProgressBar               = 25,
+	CombatTokenDescriptionElement = 26,
 };

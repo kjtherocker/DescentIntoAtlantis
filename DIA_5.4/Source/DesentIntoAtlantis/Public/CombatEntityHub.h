@@ -52,6 +52,8 @@ public:
 	virtual void SpawnParticles(UNiagaraSystem* aNiagaraSystem);
 	virtual void OnAttackEvaded(FCombatLog_Hit_Data aEvasionData);
 	virtual void OnEvadedAttack(FCombatLog_Hit_Data aEvasionData);
+
+	virtual void SendGenericTrigger(EGenericTrigger aGenericTrigger);
 //	virtual TArray< FCombatLog_PassiveSkilData> CheckBaseDamagePassives(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill);
 	virtual int OnGetItemTier(EItemID ItemID);
 	

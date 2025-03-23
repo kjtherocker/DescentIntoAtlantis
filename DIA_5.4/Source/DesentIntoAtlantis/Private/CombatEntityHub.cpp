@@ -84,12 +84,20 @@ void UCombatEntityHub::SpawnParticles(UNiagaraSystem* aNiagaraSystem)
 
 void UCombatEntityHub::OnAttackEvaded(FCombatLog_Hit_Data aEvasionData)
 {
+	SendGenericTrigger(EGenericTrigger::OnAttackEvaded);
 	AttackEvaded.Broadcast(aEvasionData,OwnedCombatEntity);
 }
 
 void UCombatEntityHub::OnEvadedAttack(FCombatLog_Hit_Data aEvasionData)
 {
+	SendGenericTrigger(EGenericTrigger::OnEvadedAttack);
 	EvadedAttack.Broadcast(aEvasionData,OwnedCombatEntity);
+}
+
+void UCombatEntityHub::SendGenericTrigger(EGenericTrigger aGenericTrigger)
+{
+	passiveHandler->SendGenericTrigger(aGenericTrigger);
+	
 }
 
 //TArray<FCombatLog_PassiveSkilData> UCombatEntityHub::CheckBaseDamagePassives(UCombatEntity* aAttachedEntity,

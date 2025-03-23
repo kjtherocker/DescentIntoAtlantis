@@ -11,17 +11,19 @@ void UCombatTokenHandler::CombatEnd()
 	activeCombatTokens.Empty();
 }
 
-FCombatToken_Base_Data UCombatTokenHandler::AddCombatToken(ECombatTokenID aCombatTokenID, FCombatTokenStackData aCombatTokenStackData)
+FCombatToken_Base_Data UCombatTokenHandler::AddCombatToken(FCombatTokenStackData aCombatTokenStackData)
 {
 
-	FCombatToken_Base_Data combatTokenData = passiveSkillFactorySubsystem->GetCombatTokenData(aCombatTokenID);
+	ECombatTokenID CombatToken = aCombatTokenStackData.combatTokenID;
+	
+	FCombatToken_Base_Data combatTokenData = passiveSkillFactorySubsystem->GetCombatTokenData(CombatToken);
 	
 	if(combatTokenData.CombatTokenID == ECombatTokenID::None)
 	{
 		return combatTokenData;
 	}
 	
-	UCombatToken_Base* token = GetCombatTokenByID(aCombatTokenID);
+	UCombatToken_Base* token = GetCombatTokenByID(CombatToken);
 	
 	if(token != nullptr)
 	{
@@ -29,7 +31,7 @@ FCombatToken_Base_Data UCombatTokenHandler::AddCombatToken(ECombatTokenID aComba
 	}
 	else
 	{
-		NewCombatTokenWasAdded(CreateNewCombatTokenClass(aCombatTokenID),combatTokenData,aCombatTokenStackData);	
+		NewCombatTokenWasAdded(CreateNewCombatTokenClass(CombatToken),combatTokenData,aCombatTokenStackData);	
 	}
 	
 	
@@ -227,7 +229,7 @@ TArray<UCombatToken_Base*> UCombatTokenHandler::GetAllCombatTokens(ECombatTokenT
 
 void UCombatTokenHandler::NewCombatTokenWasAdded(UCombatToken_Base* combatToken,FCombatToken_Base_Data aCombatTokenBaseData,FCombatTokenStackData combatTokenStackData)
 {
-	combatToken->AttachPassiveToOwner(OwnedCombatEntity);
+	combatToken->AttachOwnerCombatEntity(OwnedCombatEntity);
 	
 	combatToken->InitializeCombatToken(aCombatTokenBaseData,combatTokenStackData,OwnedCombatEntity);
 	combatToken->CombatTokenEndEffect.AddDynamic(this,&UCombatTokenHandler::RemoveCombatToken);

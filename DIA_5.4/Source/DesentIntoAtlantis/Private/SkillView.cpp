@@ -10,6 +10,7 @@
 #include "Components/TextBlock.h"
 #include "CombatGameModeBase.h"
 #include "CombatSelectionView.h"
+#include "PersistentGameinstance.h"
 #include "PlayerCombatEntity.h"
 
 
@@ -134,8 +135,40 @@ void USkillView::CreateSkillbar(FSkillsData aSkill)
 
 void USkillView::SkillSelection(FSkillsData aSkill)
 {
+	SetCombatToken(aSkill);
 	BW_SkillName->SetText(FText(FText::FromString(aSkill.skillName)));
 	BW_SkillDescription->SetText(FText(FText::FromString(aSkill.skillDescription)));
+}
+
+void USkillView::SetCombatToken(FSkillsData aSkillsData)
+{
+	for (int i = CombatTokenDescriptionElements.Num() - 1; i >= 0; i--)
+	{
+		CombatTokenDescriptionElements[i]->RemoveFromParent();
+		CombatTokenDescriptionElements.RemoveAt(i);
+	}
+
+
+	for(auto Element : aSkillsData.combatTokensUsedOnSkill)
+	{
+		CreateCombatToken(Element);
+	}
+	
+}
+
+void USkillView::CreateCombatToken(FCombatTokenStackData aCombatTokenData)
+{
+	UUserWidget* basewidget = CreateWidget(this, InGameHUD->GetElement(EViewElements::CombatTokenDescriptionElement));
+
+	UCombatTokenDescriptionElement* CombatTokenDescriptionElement = (UCombatTokenDescriptionElement*)basewidget;
+	CombatTokenDescriptionElement->UiInitialize(gameModeBase);
+	basewidget->AddToViewport();
+
+	CombatTokenDescriptionElement->SetCombatToken(persistentGameinstance->passiveFactorySubsystem,aCombatTokenData);
+
+	CombatTokenDescriptionElements.Add(CombatTokenDescriptionElement);
+	
+	BW_CombatTokenVerticalBox->AddChild(basewidget);
 }
 
 void USkillView::SelectSkill()

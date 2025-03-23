@@ -56,7 +56,7 @@ void UPassiveHandler::CheckGenericTriggerPassives(EGenericTrigger aPassiveTrigge
 		{
 			if(genericTriggerPassive->IsPassiveTriggered_Implementation(aPassiveTrigger))
 			{
-				passiveSkillsUsed.Add(genericTriggerPassive->ActivateGenericPassive_Implementation(ownedCombatEntity));
+				passiveSkillsUsed.Add(genericTriggerPassive->ActivateGenericPassive_Implementation());
 			}
 		}
 	}
@@ -79,6 +79,22 @@ TArray< FCombatLog_PassiveSkilData> UPassiveHandler::CheckAttackDefencePassives(
 	}
 
 	return passiveSkillsUsed;
+}
+
+void UPassiveHandler::SendGenericTrigger(EGenericTrigger aGenericTrigger)
+{
+	
+	for (UPassiveSkills* passiveSkillWrapper : allPassiveSkills)
+	{
+		if (IOnGenericPassive* GenericTriggerPassive = Cast<IOnGenericPassive>(passiveSkillWrapper))
+		{
+			if(GenericTriggerPassive->Execute_IsPassiveTriggered(passiveSkillWrapper,aGenericTrigger))
+			{
+				GenericTriggerPassive->Execute_ActivateGenericPassive(passiveSkillWrapper);
+			}
+		}
+	}
+
 }
 
 //TArray<FCombatLog_PassiveSkilData> UPassiveHandler::CheckBaseDamagePassives(UCombatEntity* aAttachedEntity,
@@ -125,6 +141,11 @@ bool UPassiveHandler::TryActivatePassive(UPassiveSkills* aPassiveSkills)
 	return true;
 }
 
+void UPassiveHandler::AddPassive(EPassiveSkillID passiveSkillID, EPassiveSkillSlotType passiveSkillSlot)
+{
+	AddPassive(passiveSkillFactory->GetPassiveSkill(passiveSkillID),passiveSkillSlot);		
+}
+
 void UPassiveHandler::AddPassive(UPassiveSkills* aPassiveSkills,EPassiveSkillSlotType passiveSkillSlot)
 {
 	if(ownedCombatEntity == nullptr)
@@ -146,6 +167,8 @@ void UPassiveHandler::AddPassive(UPassiveSkills* aPassiveSkills,EPassiveSkillSlo
 	{
 		return;
 	}
+
+	aPassiveSkills->AttachOwnerCombatEntity(ownedCombatEntity);
 	
 	if(TryActivatePassive(aPassiveSkills))
 	{

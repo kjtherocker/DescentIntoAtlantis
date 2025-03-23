@@ -80,7 +80,7 @@ class IOnGenericPassive
 
 public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category="Skill")
-	FCombatLog_PassiveSkilData ActivateGenericPassive(UCombatEntity* aCombatEntity);
+	FCombatLog_PassiveSkilData ActivateGenericPassive();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category="Skill")
 	bool IsPassiveTriggered(EGenericTrigger aPassiveGenericTrigger);
@@ -111,7 +111,7 @@ class DESENTINTOATLANTIS_API UPassives : public UObject
 	GENERATED_BODY()
 
 public:
-	void AttachPassiveToOwner(UCombatEntity* aCombatEntity);
+	void AttachOwnerCombatEntity(UCombatEntity* aCombatEntity);
 	virtual void RemovePassive();
 	virtual void ActivatePassive();
 
@@ -152,7 +152,7 @@ class DESENTINTOATLANTIS_API UGenericTriggerPassive : public UPassiveSkills, pub
 	GENERATED_BODY()
 
 public:
-	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation(UCombatEntity* aCombatEntity) override;
+	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation() override;
 
 };
 
@@ -173,7 +173,20 @@ class DESENTINTOATLANTIS_API UGenericTriggerPassiveCombatToken : public UPassive
 
 public:
 
-	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation(UCombatEntity* aCombatEntity) override;
+	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation() override;
+	virtual bool IsPassiveTriggered_Implementation(EGenericTrigger aPassiveGenericTrigger) override;
+
+};
+
+
+UCLASS()
+class DESENTINTOATLANTIS_API UFelineAgility : public UGenericTriggerPassiveCombatToken
+{
+	GENERATED_BODY()
+
+public:
+
+	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation() override;
 };
 
 

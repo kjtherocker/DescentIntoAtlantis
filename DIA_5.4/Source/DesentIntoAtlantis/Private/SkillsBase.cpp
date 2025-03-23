@@ -195,7 +195,7 @@ FCombatLog_CombatToken USkillBase::GiveCombatToken(int& aAmount, UCombatEntity* 
 	for (auto Element : skillData.combatTokensUsedOnSkill)
 	{
 		combatLogCombatToken.combatTokenData
-		.Add(aEntityToGiveToken->combatEntityHub->combatTokenHandler->AddCombatToken(Element.combatTokenID,Element));
+		.Add(aEntityToGiveToken->combatEntityHub->combatTokenHandler->AddCombatToken(Element));
 		combatLogCombatToken.passiveTokenAmount = aAmount;
 	}
 

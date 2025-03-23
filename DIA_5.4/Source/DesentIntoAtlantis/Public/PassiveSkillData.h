@@ -66,6 +66,7 @@ enum class EPassiveSkillID   : uint8
 	MerchantZeal,
 	//ModificationPassives
 	BonkDefenceResistDown,
+	FelineAgility,
 };
 
 UENUM()
@@ -121,6 +122,8 @@ enum class EGenericTrigger : uint8
 {
 	None                 = 0,
 	InitialCombatStart   = 1,
+	OnAttackEvaded       = 2,
+	OnEvadedAttack       = 3
 };
 
 USTRUCT()

@@ -66,7 +66,7 @@ public:
 
 	virtual TArray< FCombatLog_PassiveSkilData> CheckAttackDefenceTokens(int& CurrentDamage ,UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill);
 	
-	FCombatToken_Base_Data AddCombatToken(ECombatTokenID aCombatTokenID, FCombatTokenStackData aCombatTokenStackData );
+	FCombatToken_Base_Data AddCombatToken(FCombatTokenStackData aCombatTokenStackData );
 
 	void InvertCombatToken(ECombatTokenID aCurrentTokenID);
 	void InvertAllCombatToken();
