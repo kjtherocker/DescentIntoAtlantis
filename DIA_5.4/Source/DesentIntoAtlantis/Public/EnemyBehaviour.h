@@ -20,7 +20,9 @@ class DESENTINTOATLANTIS_API UEnemyBehaviour : public UObject
 private:
 	UPROPERTY()
 	UEnemyCombatEntity* enemyCombatEntity;
-	
+
+	UPROPERTY()
+	int previousSkillIndex = -1;
 
 public:
 	

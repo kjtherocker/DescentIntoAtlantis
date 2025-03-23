@@ -152,8 +152,8 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 
 	FVector currentPostion  = GetActorLocation();
 	
-	if (FMath::IsNearlyEqual(currentActorPositionXY.X, nodeToModeTowardsXY.X, 4.5f) &&
-	FMath::IsNearlyEqual(currentActorPositionXY.Y, nodeToModeTowardsXY.Y, 4.5f))
+	if (FMath::IsNearlyEqual(currentActorPositionXY.X, nodeToModeTowardsXY.X, 13.5f) &&
+	FMath::IsNearlyEqual(currentActorPositionXY.Y, nodeToModeTowardsXY.Y, 13.5f))
 	{
 		FVector finalPosition =  FVector(nodeToModeTowardsXY.X,nodeToModeTowardsXY.Y,currentPostion.Z); 
 		SetActorLocation(finalPosition);

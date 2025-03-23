@@ -61,6 +61,15 @@ int UEnemyBehaviour::GetCombatEntitysUsedInSkill(USkillBase* aSkill,TArray<UEnem
 USkillBase* UEnemyBehaviour::GetSkill()
 {
 	TArray<USkillBase*> enemySkills = enemyCombatEntity->combatEntityHub->skillHandler->GetAllCurrentSkills();
+
+	int SkillIndex = FMath::RandRange(0,enemySkills.Num()-1);
+
+	while(SkillIndex == previousSkillIndex)
+	{
+		SkillIndex = FMath::RandRange(0,enemySkills.Num()-1);
+	}
+
+	SkillIndex = previousSkillIndex;
 	
 	return enemySkills[FMath::RandRange(0,enemySkills.Num()-1)];
 }

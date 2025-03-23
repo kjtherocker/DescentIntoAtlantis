@@ -32,6 +32,6 @@ public:
 
 	virtual void InitializeMana(FManaData aManaData, UCombatEntity* aCombatEntity);
 
-	FManaData GetManaData(){ return ManaData;}
+	FManaData GetManaData();
 	
 };

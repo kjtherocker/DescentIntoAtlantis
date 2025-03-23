@@ -35,7 +35,7 @@ public:
 	virtual FCombatLog_AttackDefense_Data DecrementHealth(int aAmountToRemove);
 	virtual EPressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
 
-	virtual FHealthData GetHealthData(){return  HealthData;}
+	virtual FHealthData GetHealthData();
 	
 	FOnDecrementHealth                 OnDecrementHealth;
 };

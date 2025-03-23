@@ -11,3 +11,9 @@ void UMana::InitializeMana(FManaData aManaData, UCombatEntity* aCombatEntity)
 	InitializeResources(ManaData.ResourceBarInfo,aCombatEntity);
 }
 
+FManaData UMana::GetManaData()
+{
+	ManaData.ResourceBarInfo = ResourceBarInfo;
+	 return ManaData;
+}
+

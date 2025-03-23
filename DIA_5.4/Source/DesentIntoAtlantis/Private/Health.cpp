@@ -50,3 +50,10 @@ EPressTurnReactions UHealth::IncrementHealth(UCombatEntity* aHealer, FSkillsData
 	return EPressTurnReactions::Normal;
 }
 
+FHealthData UHealth::GetHealthData()
+{
+	HealthData.ResourceBarInfo = ResourceBarInfo;
+	
+	return HealthData;
+}
+
