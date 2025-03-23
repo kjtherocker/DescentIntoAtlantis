@@ -32,11 +32,12 @@ void ACombatCameraPawn::Tick(float DeltaTime)
 	FVector nodeToMoveTowardsPostion = INITIAL_POSITION;
 	FVector2D nodeToModeTowardsXY = FVector2D(nodeToMoveTowardsPostion.X,nodeToMoveTowardsPostion.Y);
 	FVector2D currentActorPositionXY = FVector2D(GetActorLocation().X,GetActorLocation().Y);
+
 	
-	if(FVector2D::Distance(currentActorPositionXY, nodeToModeTowardsXY) < UCombatSettings::CAMERA_OFFSET_RANGE )
+	if (FMath::IsNearlyEqual(currentActorPositionXY.X, nodeToModeTowardsXY.X, UCombatSettings::CAMERA_OFFSET_RANGE) &&
+	FMath::IsNearlyEqual(currentActorPositionXY.Y, nodeToModeTowardsXY.Y, UCombatSettings::CAMERA_OFFSET_RANGE))
 	{
 		shouldReturnToInitialPosition = false;
-		//OnNewNodeReached();
 		SetActorLocation(INITIAL_POSITION);
 		SetActorRotation(INITIAL_ROTATION);
 		return;

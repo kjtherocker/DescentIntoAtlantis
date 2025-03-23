@@ -146,19 +146,24 @@ void AFloorPawn::MovePawn(float aDeltaTime)
 	}
 	
 
-	FVector nodeToMoveTowardsPostion = nodeToMoveTowards->GetActorLocation() + positionOffSet;
+	FVector nodeToMoveTowardsPostion = nodeToMoveTowards->GetActorLocation() + POSITION_OFFSET;
 	FVector2D nodeToModeTowardsXY = FVector2D(nodeToMoveTowardsPostion.X,nodeToMoveTowardsPostion.Y);
 	FVector2D currentActorPositionXY = FVector2D(GetActorLocation().X,GetActorLocation().Y);
+
+	FVector currentPostion  = GetActorLocation();
 	
-	if(FVector2D::Distance(currentActorPositionXY, nodeToModeTowardsXY) < 15.5f )
+	if (FMath::IsNearlyEqual(currentActorPositionXY.X, nodeToModeTowardsXY.X, 4.5f) &&
+	FMath::IsNearlyEqual(currentActorPositionXY.Y, nodeToModeTowardsXY.Y, 4.5f))
 	{
+		FVector finalPosition =  FVector(nodeToModeTowardsXY.X,nodeToModeTowardsXY.Y,currentPostion.Z); 
+		SetActorLocation(finalPosition);
+		
 		OnNewNodeReached();
-		//SetActorLocation(nodeToMoveTowardsPostion);
 		return;
 	}
 
 
-	FVector currentPostion  = GetActorLocation();
+
 
 
 	
@@ -220,62 +225,57 @@ void AFloorPawn::SetToStartRotation(double aDirection)
 
 
 
-void AFloorPawn::RotatePawn(float aDeltatime)
+void AFloorPawn::RotatePawn(float aDeltaTime)
 {
-	if(directionPositionInfo.Num() == 0)
+	if (directionPositionInfo.Num() == 0)
 	{
 		return;
 	}
 	
-	double actorRotation = GetActorRotation().Yaw;
+	float currentRotation = GetActorRotation().Yaw;
 	
-	if(actorRotation == newRotation)
+	newRotation = FMath::Fmod(newRotation, 360.0f);
+	if (newRotation < 0)
 	{
-		return;
+		newRotation += 360.0f;
+	}
+
+	float deltaRotation = newRotation - currentRotation;
+	
+	if (deltaRotation > 180.0f)
+	{
+		deltaRotation -= 360.0f;
+	}
+	else if (deltaRotation < -180.0f)
+	{
+		deltaRotation += 360.0f;
 	}
 	
-	double currentRotationConversion = FMath::Fmod(actorRotation + FULL_MOVEMENT,FULL_MOVEMENT);
-
-	if(currentRotationConversion == newRotation)
+	if (FMath::IsNearlyEqual(currentRotation, newRotation, ROTATION_DIFFERENCE))
 	{
-		return;
-    }
-
-	if (FMath::IsNearlyEqual(currentRotationConversion, newRotation, ROTATION_DIFFERENCE))
-	{
-		// Rotation is already at the target, no need to proceed
-		return;
-	}
-	
-	double deltaRotation = newRotation - currentRotationConversion;
-	if (deltaRotation > 180.0)
-	{
-		deltaRotation -= 360.0;
-	}
-	else if (deltaRotation < -180.0)
-	{
-		deltaRotation += 360.0;
-	}
-
-	// Apply rotation based on the shortest direction
-	double rotationStep = FMath::Sign(deltaRotation) * ROTATION_SPEED * aDeltatime;
-	double newPosition = currentRotationConversion + rotationStep;
-
-	// Wrap around if necessary
-	newPosition = FMath::Fmod(newPosition + FULL_MOVEMENT, FULL_MOVEMENT);
-
-	// Set the new rotation
-	SetActorRotation(FRotator(0, newPosition, 0));
-
-	// Check if the rotation has finished
-	if (FMath::IsNearlyEqual(newPosition, newRotation, ROTATION_DIFFERENCE))
-	{
-		// Rotation Finished
 		hasRotationFinished = true;
-		SetActorRotation(FRotator(0, newRotation, 0));
+		return;
+	}
+	
+	float rotationSpeed = ROTATION_SPEED * aDeltaTime; 
+	float rotationStep = FMath::Sign(deltaRotation) * FMath::Min(FMath::Abs(deltaRotation), rotationSpeed);
+	
+	currentRotation += rotationStep;
+
+	currentRotation = FMath::Fmod(currentRotation, 360.0f);
+	if (currentRotation < 0)
+	{
+		currentRotation += 360.0f;
+	}
+	
+	SetActorRotation(FRotator(0, currentRotation, 0));
+	
+	if (FMath::IsNearlyEqual(currentRotation, newRotation, ROTATION_DIFFERENCE))
+	{
+		hasRotationFinished = true;
+		SetActorRotation(FRotator(0, newRotation, 0)); // Ensure final exact rotation
 	}
 }
-
 
 void AFloorPawn::AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections aDirection,FVector2D aDirectionPosition, FRotator aRotation)
 {
@@ -326,6 +326,7 @@ void AFloorPawn::SetNodeToMoveTowards(AFloorNode* aFloorNode)
 
 void AFloorPawn::OnNewNodeReached()
 {
+
 	hasRotationFinished       = true;
 	previousNodePawnWasOn   = currentNodePawnIsOn;
 	currentNodePawnIsOn     = nodeToMoveTowards;

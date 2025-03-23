@@ -51,7 +51,8 @@ public:
 	virtual void RotatePawn(float aDeltatime);
 	virtual void MovePawn(float aDeltaTime);
 	virtual void AddUFloorPawnPositionInfoToDirectionModel(ECardinalNodeDirections aDirection,FVector2D aDirectionPosition,FRotator aRotation);
-
+	
+	
 	virtual AFloorNode* GetCurrentNode();
 	virtual void SetToStartRotation(double aDirection );
 
@@ -70,7 +71,7 @@ protected:
 	virtual void MoveForward();
 	TSubclassOf<AActor> commandBoardTest;
 
-	FVector positionOffSet = FVector(0,0,100);
+	FVector POSITION_OFFSET = FVector(0,0,100);
 	double newRotation;
 
 	const double FULL_MOVEMENT       = 360;

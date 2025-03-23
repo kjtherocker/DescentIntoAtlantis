@@ -25,7 +25,7 @@ void AFloor_EnemyPawn::Initialize()
 {
 	Super::Initialize();
 	movementSpeed = 1000;
-	positionOffSet = FVector(0,0,45.0);
+	POSITION_OFFSET = FVector(0,0,45.0);
 	
 	GetComponents<UStaticMeshComponent>(staticMeshComponents);
 	

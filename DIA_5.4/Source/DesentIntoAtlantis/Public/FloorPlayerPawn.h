@@ -26,12 +26,16 @@ public:
 	// Sets default values for this pawn's properties
 	AFloorPlayerPawn();
 
-	virtual void Initialize() override;	
+	virtual void Initialize() override;
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	virtual void ActivateMainMenu();
 	TSubclassOf<AActor> commandBoardTest;
+
+	UPROPERTY()
+	UPersistentGameinstance* persistentGameInstance ;
 
 
 public:
@@ -47,13 +51,13 @@ public:
 	UFUNCTION()
 	virtual void PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode, ECardinalNodeDirections aRotation) override;
 	virtual void SetRotationWithoutAnimation(ECardinalNodeDirections aCardinalNodeDirection) override;
-	virtual void MovePawn(float aDeltaTime) override;
 	UFUNCTION()
 	virtual void SetFloorPawnInput(bool aIsInputActive);
 	FVector2D GetPosition();
 
 	virtual void SetToStartRotation(double aDirection ) override;
-	
+
+	virtual void OnNewNodeReached() override;
 	
 	UPROPERTY()
 	FPlayerHasMoved playerhasMovedDelegate;

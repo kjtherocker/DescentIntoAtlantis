@@ -33,9 +33,11 @@ void AFloorPlayerPawn::Initialize()
 	Super::Initialize();
 
 	movementSpeed = MOVEMENT_SPEED;
-	positionOffSet = FVector(0,0,300);
+	POSITION_OFFSET = FVector(0,0,300);
 	playerForcedMovement.AddDynamic(this,&AFloorPlayerPawn::ForcedMovement);
 	isPlayerInputEnabled.AddDynamic(this,&AFloorPlayerPawn::SetFloorPawnInput);
+
+	persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
 }
 
 
@@ -84,57 +86,6 @@ FVector2D AFloorPlayerPawn::GetPosition()
 	return completeFloorPawnData.currentNodePositionInGrid;
 }
 
-void AFloorPlayerPawn::MovePawn(float aDeltaTime)
-{
-	if(!hasRotationFinished)
-	{
-		return;
-	}
-
-	if(nodeToMoveTowards == nullptr)
-	{
-		return;
-	}
-	
-	
-	FVector nodeToMoveTowardsPostion = nodeToMoveTowards->GetActorLocation() + positionOffSet;
-	FVector2D nodeToModeTowardsXY = FVector2D(nodeToMoveTowardsPostion.X,nodeToMoveTowardsPostion.Y);
-	FVector2D currentActorPositionXY = FVector2D(GetActorLocation().X,GetActorLocation().Y);
-	
-	if(FVector2D::Distance(currentActorPositionXY, nodeToModeTowardsXY) < 9.5f )
-	{
-		hasRotationFinished       = true;
-		previousNodePawnWasOn   = currentNodePawnIsOn;
-		currentNodePawnIsOn     = nodeToMoveTowards;
-		nodeToMoveTowards         = nullptr;
-		
-		UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
-		persistentGameInstance->partyManagerSubsystem->SavePlayerEntitys();
-		
-		completeFloorPawnData.currentNodePositionInGrid = currentNodePawnIsOn->floorNodeData.positionInGrid;
-		currentNodePawnIsOn->PlayerIsOnTopOfNode();
-		playerhasMovedDelegate.Broadcast(completeFloorPawnData);
-	
-		return;
-	}
-
-
-	FVector currentPostion  = GetActorLocation();
-	
-	float deltaX = nodeToMoveTowardsPostion.X - currentPostion.X;
-	float deltaY = nodeToMoveTowardsPostion.Y - currentPostion.Y;
-
-	float AngleToWaypoint = atan2(deltaX,deltaY);
-	
-	currentPostion.X += sin(AngleToWaypoint) * movementSpeed * aDeltaTime;
-	currentPostion.Y += cos(AngleToWaypoint) * movementSpeed * aDeltaTime;
-	
-	
-	SetActorLocation(currentPostion);
-	
-}
-
-
 void AFloorPlayerPawn::SetToStartRotation(double aDirection)
 {
 	Super::SetToStartRotation(aDirection);
@@ -142,7 +93,15 @@ void AFloorPlayerPawn::SetToStartRotation(double aDirection)
 	playerDirectionHasChanged.Broadcast(completeFloorPawnData);
 }
 
-
+void AFloorPlayerPawn::OnNewNodeReached()
+{
+	Super::OnNewNodeReached();
+	
+	persistentGameInstance->partyManagerSubsystem->SavePlayerEntitys();
+	
+	currentNodePawnIsOn->PlayerIsOnTopOfNode();
+	playerhasMovedDelegate.Broadcast(completeFloorPawnData);
+}
 
 
 void AFloorPlayerPawn::PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode, ECardinalNodeDirections aRotation)
@@ -150,8 +109,7 @@ void AFloorPlayerPawn::PlaceAndInitializieFloorPawn(AFloorNode* aFloorNode, ECar
 	Super::PlaceAndInitializieFloorPawn(aFloorNode, aRotation);
 	
 	playerhasMovedDelegate.Broadcast(completeFloorPawnData);
-
-	UPersistentGameinstance* persistentGameInstance = Cast<UPersistentGameinstance>( GetGameInstance());
+	
 	persistentGameInstance->partyManagerSubsystem->SavePlayerEntitys();
 	persistentGameInstance->saveManagerSubsystem->AutoSave();
 }
