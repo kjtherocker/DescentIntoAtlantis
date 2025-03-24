@@ -134,9 +134,9 @@ void UCombatEntity::AlimentDecrementHealth(int aDamage)
 //    }
 }
 
-FCombatLog_AttackDefense_Data UCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
+FCombatLog_AttackDefense_Data UCombatEntity::AttackResource(EResource aResource,UCombatEntity* aAttacker, FSkillsData aSkill)
 {
-    return ResourceHandler->DecrementHealth(aAttacker,aSkill);
+    return ResourceHandler->AttackResource(aResource,aAttacker,aSkill);
 }
 
 

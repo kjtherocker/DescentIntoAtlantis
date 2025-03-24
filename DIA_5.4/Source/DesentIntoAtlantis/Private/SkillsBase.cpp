@@ -156,7 +156,7 @@ void USkillBase::SpendSkillCost(UCombatEntity* aSkillOwner, EResource SkillResou
 	    	aSkillOwner->DecrementMana(skillData.costToUse);
 	    	break;
 	    case EResource::Health:
-	    	aSkillOwner->DecrementHealth(aSkillOwner,skillData);
+	    	aSkillOwner->AttackResource(EResource::Health,aSkillOwner,skillData);
 	    	break;
 		case EResource::Sync:
 			 aSkillOwner->ResourceHandler->SyncHandler->DecrementValue(skillData.costToUse);
@@ -285,7 +285,7 @@ FCombatLog_AttackDefense_Data USkillCoupDeGrace::UseSkill(UCombatEntity* aAttack
 	
 	int originalSkillDamage = skillData.damage;
 	skillData.damage += additonalDamageStackCount * 5;
-	FCombatLog_AttackDefense_Data attackDefenceCombatLog = aVictim->DecrementHealth(aAttacker,skillData);
+	FCombatLog_AttackDefense_Data attackDefenceCombatLog = aVictim->AttackResource(skillData.ResourceUsedOn,aAttacker,skillData);
 	skillData.damage = originalSkillDamage;
 
 	aVictim->combatEntityHub->combatTokenHandler->RemoveAllCombatTokens(ECombatTokenType::Negative);
@@ -298,12 +298,33 @@ FCombatLog_AttackDefense_Data USkillSpreadTheInfection::UseSkill(UCombatEntity* 
 {
 	aVictim->combatEntityHub->combatTokenHandler->AddAStackOfAllCombatTokens(ECombatTokenType::Negative);
 
-	return aVictim->DecrementHealth(aAttacker,skillData);
+	return aVictim->AttackResource(skillData.ResourceUsedOn,aAttacker,skillData);
 }
 
 FCombatLog_AttackDefense_Data USyncSkill::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
-	return aVictim->DecrementHealth(aAttacker,skillData);
+
+	switch(skillData.ResourceUsedOn)
+	{
+
+	case EResource::None:
+		break;
+	case EResource::Mana:
+
+		return aVictim->AttackResource(EResource::Mana,aAttacker,skillData);
+		break;
+	case EResource::Health:
+		
+		return aVictim->AttackResource(EResource::Health,aAttacker,skillData);
+		break;
+	case EResource::Sync:
+		return aVictim->AttackResource(EResource::Sync,aAttacker,skillData);
+		break;
+	case EResource::ItemCharges:
+		aVictim->ResourceHandler->ItemChargeHandler->IncrementItemChargesPercentage(skillData.damage);
+		break;
+	}
+	
 }
 
 
@@ -316,13 +337,13 @@ FCombatLog_AttackDefense_Data USkillAlimentAttack::UseSkill(UCombatEntity* aAtta
 	{
 			aVictim->InflictAilment(NewObject<UCalculateDamage_Fear>(),ECombatEntityWrapperType::CalculateDamage);
 	}
-	return aVictim->DecrementHealth(aAttacker,skillData);
+	return aVictim->AttackResource(skillData.ResourceUsedOn,aAttacker,skillData);
 	
 }
 
 FCombatLog_AttackDefense_Data USkillAlimentAttackFear::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
-	FCombatLog_AttackDefense_Data Combatlog = aVictim->DecrementHealth(aAttacker,skillData);
+	FCombatLog_AttackDefense_Data Combatlog = aVictim->AttackResource(skillData.ResourceUsedOn,aAttacker,skillData);
 	
 	if(CalculateAilmentInfliction(aAttacker,aVictim,EStatusAilments::Fear))
 	{

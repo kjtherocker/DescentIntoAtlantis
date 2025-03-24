@@ -155,11 +155,11 @@ FCombatLog_AttackDefense_Data UResourceHandler::CalculateDamage(UCombatEntity* a
 	return inUseCombatWrapper->ExecuteCalculateDamage(aAttacker,aSkill);
 }
 
-FCombatLog_AttackDefense_Data UResourceHandler::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
+FCombatLog_AttackDefense_Data UResourceHandler::AttackResource(EResource aResource,UCombatEntity* aAttacker, FSkillsData aSkill)
 {
 	FCombatLog_AttackDefense_Data combatLog = CalculateDamage( aAttacker,  aSkill);
 	
-	DecrementResource(EResource::Health,combatLog.FinalDamageResult);
+	DecrementResource(aResource,combatLog.FinalDamageResult);
 
 	return combatLog;
 }

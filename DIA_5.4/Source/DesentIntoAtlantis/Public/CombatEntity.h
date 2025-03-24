@@ -14,6 +14,7 @@
 #include "CombatEntity.generated.h"
 
 
+enum class EResource;
 class UResourceHandler;
 struct FItemChargesCompleteData;
 class UPersistentGameinstance;
@@ -151,7 +152,7 @@ public:
 	virtual FCombatLog_AttackDefense_Data CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
 	virtual void Reset();
 	virtual void AlimentDecrementHealth(int aDamage);
-	virtual FCombatLog_AttackDefense_Data DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill);
+	virtual FCombatLog_AttackDefense_Data AttackResource(EResource aResource,UCombatEntity* aAttacker, FSkillsData aSkill);
 	virtual EPressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
 	virtual void IncrementHealth(int aIncrease);
 	virtual void IncrementMana(int aIncrease);

@@ -60,7 +60,7 @@ public:
 
 	virtual FCombatLog_AttackDefense_Data CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
 
-	virtual FCombatLog_AttackDefense_Data DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill);
+	virtual FCombatLog_AttackDefense_Data AttackResource(EResource aResource,UCombatEntity* aAttacker, FSkillsData aSkill);
 	
 	virtual int GetCurrentHealth();
 	

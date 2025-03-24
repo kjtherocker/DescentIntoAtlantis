@@ -7,6 +7,7 @@
 #include "CombatEntityHub.h"
 #include "CombatLog_Full_Data.h"
 #include "CombatLog_Hit_Data.h"
+#include "ResourceHandler.h"
 #include "Engine/DataTable.h"
 #include "SkillData.h"
 #include "SkillType.h"
@@ -117,7 +118,7 @@ public:
 	
 	virtual FCombatLog_Full_Data ExecuteSkill(UCombatEntity* aAttacker,TArray<UCombatEntity*> aVictims, USkillBase* aSkill) override
 	{
-		FCombatLog_Full_Data CombatLog_Full_Data;
+		FCombatLog_Full_Data CombatLog_Full_Data = {};
 
 		int AmountOfGivenStacks = 1;
 		for (auto Element : aVictims)
@@ -143,7 +144,7 @@ class UDefaultSkillAttack : public USkillBase , public ISkillHit
 	
 	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override
 	{
-		return aVictim->DecrementHealth(aAttacker,skillData);
+		return aVictim->AttackResource(skillData.ResourceUsedOn,aAttacker,skillData);
 	};
 	
 };
@@ -161,7 +162,7 @@ class UDefault_Charge_Skill : public UDefaultSkillAttack
 	
 	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override
 	{
-		return aVictim->DecrementHealth(aAttacker,skillData);
+		return aVictim->AttackResource(skillData.ResourceUsedOn,aAttacker,skillData);
 	};
 	
 };
@@ -174,7 +175,7 @@ class UBansheesGaze : public UDefaultSkillAttack
 	
 	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 	{
-		FCombatLog_AttackDefense_Data AttackDefense_Data = aVictim->DecrementHealth(aAttacker,skillData);
+		FCombatLog_AttackDefense_Data AttackDefense_Data = aVictim->AttackResource(skillData.ResourceUsedOn,aAttacker,skillData);
 		aVictim->combatEntityHub->combatTokenHandler->InvertAllCombatToken(ECombatTokenType::Positive);
 		return AttackDefense_Data;
 	}
@@ -261,7 +262,25 @@ class USkillHeal : public USkillBase
 	virtual FCombatLog_AttackDefense_Data UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim) override
 	{
 		//TODO: make a combatlog setup for healing and buffs
-		aVictim->IncrementHealth(aAttacker,skillData);
+		switch(skillData.ResourceUsedOn)
+		{
+
+		case EResource::None:
+			break;
+		case EResource::Mana:
+			aVictim->ResourceHandler->IncrementResource(EResource::Mana,skillData.damage);
+			break;
+		case EResource::Health:
+			aVictim->ResourceHandler->IncrementResource(EResource::Health,skillData.damage);
+			break;
+		case EResource::Sync:
+			aVictim->ResourceHandler->IncrementResource(EResource::Sync,skillData.damage);
+			break;
+		case EResource::ItemCharges:
+			aVictim->ResourceHandler->IncrementResource(EResource::ItemCharges,skillData.damage);
+			break;
+		}
+		
 		FCombatLog_AttackDefense_Data emptyAttackDefences;
 		return emptyAttackDefences;
 	};

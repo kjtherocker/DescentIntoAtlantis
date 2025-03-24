@@ -6,6 +6,7 @@
 #include "Engine/DataTable.h"
 #include "NiagaraComponent.h"
 #include "PassiveSkillData.h"
+#include "SkillType.h"
 #include "SkillData.generated.h"
 
 
@@ -22,6 +23,13 @@ enum class EItemID : uint8
 	PercentageManaPotion       = 5,
 	CancelNegativeCombatTokens = 6,
 	InvertCombatTokens         = 7,
+	FireBomb                   = 8,
+	IceBomb                    = 9,
+	ShadowBomb                 = 10,
+	WindBomb                   = 11,
+	LightningBomb              = 12,
+	LightBomb                  = 13,
+	
 };
 
 
@@ -88,6 +96,9 @@ struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
 	
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")    
 	EResource SkillResourceUsed;
+
+	UPROPERTY( EditAnywhere , Category = "DefaultInfo")    
+	EResource ResourceUsedOn = EResource::Health;
 
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")
 	int costToUse;
