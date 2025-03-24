@@ -27,18 +27,14 @@ void UHealth::InitializeHealth(FHealthData aHealthData, UCombatEntity* aCombatEn
 	InitializeResources(aHealthData.ResourceBarInfo,aCombatEntity);
 }
 
-FCombatLog_AttackDefense_Data UHealth::DecrementHealth(int aAmountToRemove)
+int UHealth::DecrementHealth(int aAmountToRemove)
 {
-	DecrementValue(aAmountToRemove);
-
 	lastAttackDefenceData.FinalDamageResult = aAmountToRemove;
 	
 	AttachedCombatEntity->PostDamage();
 	OnDecrementHealth.Broadcast(lastAttackDefenceData,AttachedCombatEntity);
 	
-
-  
-	return lastAttackDefenceData;
+	return DecrementValue(aAmountToRemove);
 }
 
 EPressTurnReactions UHealth::IncrementHealth(UCombatEntity* aHealer, FSkillsData aSkill)

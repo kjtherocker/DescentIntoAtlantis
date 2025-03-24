@@ -5,15 +5,17 @@
 #include "CoreMinimal.h"
 #include "CombatEntityWrapper.h"
 #include "ItemChargeHandler.h"
-
+#include "SkillType.h"
 #include "ResourceHandlerCompleteData.h"
 #include "SyncHandler.h"
 #include "UObject/NoExportTypes.h"
 #include "ResourceHandler.generated.h"
 
+
+
 class UCombatEntityWrapper;
 class UCombatEntity;
-enum class EResource : uint8;
+
 class USyncHandler;
 class UMana;
 class UHealth;
@@ -53,16 +55,25 @@ public:
 	virtual void SetAWrapperToDefault(ECombatEntityWrapperType aShellType);
 	virtual void InflictAilment(UWrapperTakeOver* aAliment,ECombatEntityWrapperType aCombatEntityWrapperType);
 
-	virtual void DecrementResource( EResource aResource,int aValue);
+	virtual int DecrementResourceReturnOverFlow( EResource aResource,int aValue);
 	virtual void IncrementResource( EResource aResource,int aValue);
 
 	virtual FResourceHandlerCompleteData SaveAllResourcesAndReturn();
 
 	virtual FCombatLog_AttackDefense_Data CalculateDamage(UCombatEntity* aAttacker,FSkillsData aSkill);
 
-	virtual FCombatLog_AttackDefense_Data AttackResource(EResource aResource,UCombatEntity* aAttacker, FSkillsData aSkill);
+	virtual FCombatLog_AttackDefense_Data AttackResource(EResource aResource,UCombatEntity* aAttacker, int aDecrementBy);
+	
+	virtual FCombatLog_AttackDefense_Data AttackResourceWithSkill(EResource aResource,UCombatEntity* aAttacker, FSkillsData aSkill);
+	virtual void StartDecrementResource(EResource aResource, int aDecrementBy);
+
+	virtual void DealDamage(int aResourceAmount);
 	
 	virtual int GetCurrentHealth();
+
+
+	UPROPERTY()
+	TArray<EResource> DefenceLayers;
 	
 	UPROPERTY()
 	UHealth* healthHandler;

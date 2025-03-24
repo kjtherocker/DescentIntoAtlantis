@@ -8,6 +8,7 @@
 #include "Quest_Highlighted_Stage_Element.h"
 #include "QuestHighlightView.generated.h"
 
+class UQuestSubsystem;
 /**
  * 
  */

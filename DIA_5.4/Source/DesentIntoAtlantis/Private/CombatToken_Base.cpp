@@ -53,6 +53,7 @@ void UCombatToken_Base::InitializeCombatToken(FCombatToken_Base_Data combatToken
 	CombatToken_Base_Data = combatToken;
 	aCombatEntity->OnRoundEnd.AddDynamic(this,&UCombatToken_Base::RoundEnd);
 	SetTurnsRemaining(aCombatTokenStackData);
+	CombatTokenStateInfo.tokenCreator = aCombatTokenStackData.TokenCreator;
 	CombatTokenStateInfo.currentTokenStack = aCombatTokenStackData.stackAmount;
 }
 
@@ -179,7 +180,7 @@ void UCombatToken_RoundEnd_Health::RoundEnd()
 	}
 	if(CombatToken_Base_Data.CombatTokenType == ECombatTokenType::Negative)
 	{
-		attachedCombatEntity->ResourceHandler->DecrementResource(EResource::Health, percentageOfHealth * CombatTokenStateInfo.currentTokenStack);
+		attachedCombatEntity->ResourceHandler->AttackResource(EResource::Health, CombatTokenStateInfo.tokenCreator,percentageOfHealth * CombatTokenStateInfo.currentTokenStack);
 	}
 	
 	Super::RoundEnd();

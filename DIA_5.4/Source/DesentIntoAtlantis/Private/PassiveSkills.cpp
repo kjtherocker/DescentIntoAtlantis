@@ -69,6 +69,7 @@ FCombatLog_PassiveSkilData UGenericTriggerPassiveCombatToken::ActivateGenericPas
 	FCombatLog_PassiveSkilData PassiveSkilData;
 	for (auto Element : PassiveSkilData.PassiveSkillData.combatTokensOnPassive)
 	{
+		Element.TokenCreator = attachedCombatEntity;
 		PassiveSkilData.combatTokenData.combatTokenData.Add(attachedCombatEntity->combatEntityHub->combatTokenHandler->AddCombatToken(Element));
 	}
 
@@ -88,6 +89,7 @@ FCombatLog_PassiveSkilData UFelineAgility::ActivateGenericPassive_Implementation
 	
 	for(auto Element : PassiveSkilData.PassiveSkillData.combatTokensOnPassive)
 	{
+		Element.TokenCreator = attachedCombatEntity;
 		attachedCombatEntity->combatEntityHub->combatTokenHandler->AddCombatToken(Element);		
 	}
 	

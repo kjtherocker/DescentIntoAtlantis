@@ -60,13 +60,13 @@ void UEnemyCombatEntity::Death()
 	wasKilled.Broadcast();
 }
 
-FCombatLog_AttackDefense_Data UEnemyCombatEntity::DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill)
+FCombatLog_AttackDefense_Data UEnemyCombatEntity::AttackResource(EResource aResource, UCombatEntity* aAttacker, FSkillsData aSkill)
 {
 	beastiaryData->RevealElementalInfo(aSkill.elementalType);
-	FCombatLog_AttackDefense_Data attackDefenceData = UCombatEntity::DecrementHealth(aAttacker, aSkill);
-	
+	FCombatLog_AttackDefense_Data attackDefenceData = UCombatEntity::AttackResource(aResource,aAttacker, aSkill);
 	return attackDefenceData;
 }
+
 
 FString UEnemyCombatEntity::GetEntityName()
 {

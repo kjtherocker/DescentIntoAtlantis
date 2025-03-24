@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CombatEntity.h"
 
 #include "PassiveSkillData.generated.h"
 
@@ -133,6 +134,9 @@ struct DESENTINTOATLANTIS_API FCombatTokenStackData : public FTableRowBase
 
 	UPROPERTY(EditAnywhere)
 	ECombatTokenID combatTokenID;
+	
+	UPROPERTY(EditAnywhere)
+	UCombatEntity* TokenCreator;
 
 	UPROPERTY(EditAnywhere)
 	int stackAmount = 1;

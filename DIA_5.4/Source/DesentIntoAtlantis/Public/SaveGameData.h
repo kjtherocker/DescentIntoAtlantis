@@ -16,6 +16,7 @@
 #include "GameFramework/SaveGame.h"
 #include "SaveGameData.generated.h"
 
+class UQuestSubsystem;
 struct FChallengeManagerData;
 class UChallengeSubsystem;
 struct FCompletePartyManagerSubsystemData;

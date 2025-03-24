@@ -134,9 +134,9 @@ void UCombatEntity::AlimentDecrementHealth(int aDamage)
 //    }
 }
 
-FCombatLog_AttackDefense_Data UCombatEntity::AttackResource(EResource aResource,UCombatEntity* aAttacker, FSkillsData aSkill)
+FCombatLog_AttackDefense_Data UCombatEntity::AttackResource(EResource aResource, UCombatEntity* aAttacker, FSkillsData aSkill)
 {
-    return ResourceHandler->AttackResource(aResource,aAttacker,aSkill);
+    return ResourceHandler->AttackResourceWithSkill(aResource,aAttacker,aSkill);
 }
 
 
@@ -165,7 +165,7 @@ EPressTurnReactions UCombatEntity::ApplyBuff(UCombatEntity* aBuffer, FSkillsData
 
 void UCombatEntity::DecrementMana(int aDecrementBy)
 {
-    ResourceHandler->DecrementResource(EResource::Mana,aDecrementBy);
+    ResourceHandler->DecrementResourceReturnOverFlow(EResource::Mana,aDecrementBy);
     hasHealthOrManaValuesChanged.Broadcast();
 }
 

@@ -13,8 +13,13 @@
 #include "Engine/DataTable.h"
 #include "CombatEntity.generated.h"
 
+enum class EResource  : uint8;
+enum class EPassiveSkillID  : uint8;
+enum class EPassiveSkillSlotType  : uint8;
+enum class EClassID : uint8;
+enum class EStatusAilments : uint8;
 
-enum class EResource;
+
 class UResourceHandler;
 struct FItemChargesCompleteData;
 class UPersistentGameinstance;
@@ -24,13 +29,10 @@ class UCombatStat;
 class UPassiveHandler;
 class UPassiveSkills;
 struct FPassiveSkillData;
-enum class EPassiveSkillID  : uint8;
-enum class EPassiveSkillSlotType  : uint8;
-enum class EClassID : uint8;
 class UAilment;
 class USkillAliment;
 struct FSkillsData;
-enum class EStatusAilments : uint8;
+
 class ACombatGameModeBase;
 class AEnemyPortraitElement;
 class USkillFactorySubsystem;

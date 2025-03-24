@@ -32,7 +32,7 @@ public:
 	virtual void InitializeHealth(int aCurrentHealth,int aMaxHealth, UCombatEntity* aCombatEntity);
 	virtual void InitializeHealth(FHealthData aHealthData, UCombatEntity* aCombatEntity);
 	
-	virtual FCombatLog_AttackDefense_Data DecrementHealth(int aAmountToRemove);
+	virtual int DecrementHealth(int aAmountToRemove);
 	virtual EPressTurnReactions IncrementHealth(UCombatEntity* aHealer,   FSkillsData aSkill);
 
 	virtual FHealthData GetHealthData();

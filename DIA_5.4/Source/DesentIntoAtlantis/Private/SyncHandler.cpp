@@ -52,12 +52,14 @@ void UResourceBar_Base::IncrementValue(int aIncrementBy)
 	hasValuesUpdated.Broadcast();
 }
 
-void UResourceBar_Base::DecrementValue(int aDecrementBy)
+int UResourceBar_Base::DecrementValue(int aDecrementBy)
 {
 	if(ResourceBarInfo.isResourceCompletelyLocked || ResourceBarInfo.isResourceDecrementingLocked)
 	{
-		return;
+		return 0;
 	}
+
+	int overflow = 	aDecrementBy - ResourceBarInfo.Current ;
 	
 	ResourceBarInfo.Current -= aDecrementBy;
 
@@ -70,6 +72,8 @@ void UResourceBar_Base::DecrementValue(int aDecrementBy)
 	
 	HasValuesChanged.Broadcast(ResourceBarInfo);
 	hasValuesUpdated.Broadcast();
+
+	return overflow;
 }
 
 void UResourceBar_Base::MaxOutCurrentValue()

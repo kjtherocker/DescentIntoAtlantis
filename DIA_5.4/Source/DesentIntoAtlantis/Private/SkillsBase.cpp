@@ -48,13 +48,13 @@ FCombatLog_Hit_Data USkillBase::CalculateHit(UCombatEntity* aAttacker, UCombatEn
 	return hitData;
 }
 
-FCombatLog_Full_Data USkillBase::ExecuteSkill(UCombatEntity* aAttacker, TArray<UCombatEntity*> aVictims, USkillBase* aSkill)
+FCombatLog_Full_Data USkillBase::ExecuteSkill(UCombatEntity* aSkillActivator, TArray<UCombatEntity*> aVictims, USkillBase* aSkill)
 {
 	FSkillsData skillsData = aSkill->skillData;
 	
 	FCombatLog_Full_Data CombatLog_Base_Data;
 	CombatLog_Base_Data.skillUsed = skillsData;
-	CombatLog_Base_Data.Attacker  = aAttacker;
+	CombatLog_Base_Data.Attacker  = aSkillActivator;
 	CombatLog_Base_Data.Victim    = aVictims;
 	
 	CombatLog_Base_Data.PressTurnReaction = EPressTurnReactions::Normal;
@@ -64,7 +64,7 @@ FCombatLog_Full_Data USkillBase::ExecuteSkill(UCombatEntity* aAttacker, TArray<U
 
 	if(skillData.skillChargeData.canCharge && !isChargeSkillReady() && !skillData.skillChargeData.ChargeFinished  )
 	{
-		CombatLog_Base_Data.CombatLog_AttackDefense_Data = StartChargingSkill(aAttacker,aVictims);
+		CombatLog_Base_Data.CombatLog_AttackDefense_Data = StartChargingSkill(aSkillActivator,aVictims);
 	}
 	else
 	{
@@ -77,7 +77,7 @@ FCombatLog_Full_Data USkillBase::ExecuteSkill(UCombatEntity* aAttacker, TArray<U
 			
 			if (ISkillHit* skillHit = Cast<ISkillHit>(this))
 			{
-				CombatLog_Base_Data.CombatLog_Hit_Data = skillHit->I_CalculateHit_Implementation(aAttacker,victim);
+				CombatLog_Base_Data.CombatLog_Hit_Data = skillHit->I_CalculateHit_Implementation(aSkillActivator,victim);
 				isSkillExecuted = CombatLog_Base_Data.CombatLog_Hit_Data.HitResult;
 			}
 		
@@ -85,17 +85,17 @@ FCombatLog_Full_Data USkillBase::ExecuteSkill(UCombatEntity* aAttacker, TArray<U
 	
 			if(isSkillExecuted)
 			{
-				CombatLog_Base_Data.CombatLog_AttackDefense_Data = aSkill->UseSkill(aAttacker,victim);	
+				CombatLog_Base_Data.CombatLog_AttackDefense_Data = aSkill->UseSkill(aSkillActivator,victim);	
 				victim->combatEntityHub->SpawnParticles(skillsData.SkillInWorldParticle);
 				if (IOnGiveCombatToken* attackDefencePassive = Cast<IOnGiveCombatToken>(this))
 				{
 					int skillAmount = 1;
-					attackDefencePassive->I_GiveCombatToken_Implementation(skillAmount,victim,skillData);
+					attackDefencePassive->I_GiveCombatToken_Implementation(skillAmount,aSkillActivator,victim,skillData);
 				}
 			}
 			else
 			{
-				aAttacker->combatEntityHub->OnAttackEvaded(	CombatLog_Base_Data.CombatLog_Hit_Data);
+				aSkillActivator->combatEntityHub->OnAttackEvaded(	CombatLog_Base_Data.CombatLog_Hit_Data);
 				victim->combatEntityHub->OnEvadedAttack(	CombatLog_Base_Data.CombatLog_Hit_Data);
 		
 				CombatLog_Base_Data.PressTurnReaction = EPressTurnReactions::Dodge;
@@ -189,11 +189,12 @@ bool USkillBase::isChargeSkillReady()
 	return skillData.skillChargeData.currentChargeStage >= skillData.skillChargeData.chargeStageToReach;
 }
 
-FCombatLog_CombatToken USkillBase::GiveCombatToken(int& aAmount, UCombatEntity* aEntityToGiveToken, FSkillsData aSkillData)
+FCombatLog_CombatToken USkillBase::GiveCombatToken(int& aAmount, UCombatEntity* aEntityCreatedToken,UCombatEntity* aEntityToGiveToken, FSkillsData aSkillData)
 {
 	FCombatLog_CombatToken combatLogCombatToken;
 	for (auto Element : skillData.combatTokensUsedOnSkill)
 	{
+		Element.TokenCreator = aEntityCreatedToken;
 		combatLogCombatToken.combatTokenData
 		.Add(aEntityToGiveToken->combatEntityHub->combatTokenHandler->AddCombatToken(Element));
 		combatLogCombatToken.passiveTokenAmount = aAmount;
@@ -303,6 +304,7 @@ FCombatLog_AttackDefense_Data USkillSpreadTheInfection::UseSkill(UCombatEntity* 
 
 FCombatLog_AttackDefense_Data USyncSkill::UseSkill(UCombatEntity* aAttacker, UCombatEntity* aVictim)
 {
+	FCombatLog_AttackDefense_Data AttackDefense_Data;
 
 	switch(skillData.ResourceUsedOn)
 	{
@@ -310,20 +312,20 @@ FCombatLog_AttackDefense_Data USyncSkill::UseSkill(UCombatEntity* aAttacker, UCo
 	case EResource::None:
 		break;
 	case EResource::Mana:
-
-		return aVictim->AttackResource(EResource::Mana,aAttacker,skillData);
+		AttackDefense_Data = aVictim->AttackResource(EResource::Mana,aAttacker,skillData);
 		break;
 	case EResource::Health:
-		
-		return aVictim->AttackResource(EResource::Health,aAttacker,skillData);
+		AttackDefense_Data = aVictim->AttackResource(EResource::Health,aAttacker,skillData);
 		break;
 	case EResource::Sync:
-		return aVictim->AttackResource(EResource::Sync,aAttacker,skillData);
+		AttackDefense_Data = aVictim->AttackResource(EResource::Sync,aAttacker,skillData);
 		break;
 	case EResource::ItemCharges:
 		aVictim->ResourceHandler->ItemChargeHandler->IncrementItemChargesPercentage(skillData.damage);
 		break;
 	}
+
+	return AttackDefense_Data;
 	
 }
 

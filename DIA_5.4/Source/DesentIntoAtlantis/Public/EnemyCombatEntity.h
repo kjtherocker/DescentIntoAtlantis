@@ -119,7 +119,7 @@ public:
 	void SetAbilityScores();
 	void SetEnemyEntityData(FEnemyEntityCompleteData AEnemyEntityData,USkillFactorySubsystem * skillFactory,EEnemyCombatPositions aPortraitPosition);
 	virtual void Death() override;
-	virtual FCombatLog_AttackDefense_Data DecrementHealth(UCombatEntity* aAttacker, FSkillsData aSkill) override;
+	virtual FCombatLog_AttackDefense_Data AttackResource(EResource aResource, UCombatEntity* aAttacker, FSkillsData aSkill) override;
 
 	EEnemyCombatPositions portraitPosition;
 

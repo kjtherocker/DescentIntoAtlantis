@@ -55,7 +55,7 @@ class IOnGiveCombatToken
 
 public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category="Skill")
-	FCombatLog_CombatToken I_GiveCombatToken(int& aAmount, UCombatEntity* aEntityToGiveToken, FSkillsData aSkillData);
+	FCombatLog_CombatToken I_GiveCombatToken(int& aAmount,UCombatEntity* aEntityCreatedToken, UCombatEntity* aEntityToGiveToken, FSkillsData aSkillData);
 	
 };
 
@@ -87,7 +87,7 @@ public:
 	virtual void Initialize(FSkillsData aSkillData);
 
 	virtual FCombatLog_Hit_Data CalculateHit(UCombatEntity* aAttacker, UCombatEntity* aVictim);
-	virtual FCombatLog_Full_Data ExecuteSkill(UCombatEntity* aAttacker, TArray<UCombatEntity*> aVictims, USkillBase* aSkill);
+	virtual FCombatLog_Full_Data ExecuteSkill(UCombatEntity* aSkillActivator, TArray<UCombatEntity*> aVictims, USkillBase* aSkill);
 	virtual bool CanUseSkill(UCombatEntity* aSkillOwner, EResource SkillResourceUsed = EResource::None);
 	virtual void SpendSkillCost(UCombatEntity* aSkillOwner, EResource SkillResourceUsed = EResource::None);
 
@@ -95,7 +95,7 @@ public:
 
 	virtual bool isChargeSkillReady();
 	
-	virtual FCombatLog_CombatToken GiveCombatToken(int& aAmount, UCombatEntity* aEntityToGiveToken, FSkillsData aSkillData);
+	virtual FCombatLog_CombatToken GiveCombatToken(int& aAmount,UCombatEntity* aEntityCreatedToken, UCombatEntity* aEntityToGiveToken, FSkillsData aSkillData);
 
 	virtual TArray<UCombatEntity*> GetSkillCombatEntity(ACombatGameModeBase* aCombatGameMode,int aCursor, UCombatEntity* aSkillOwner);
 
@@ -111,9 +111,9 @@ class USkillCombatToken : public USkillBase , public IOnGiveCombatToken
 	GENERATED_BODY()
 public:
 	
-	virtual FCombatLog_CombatToken I_GiveCombatToken_Implementation(int& aAmount, UCombatEntity* aEntityToGiveToken, FSkillsData aSkillData) override
+	virtual FCombatLog_CombatToken I_GiveCombatToken_Implementation(int& aAmount,UCombatEntity* aTokenCreator, UCombatEntity* aEntityToGiveToken, FSkillsData aSkillData) override
 	{
-		return USkillBase::GiveCombatToken(aAmount, aEntityToGiveToken, aSkillData);
+		return USkillBase::GiveCombatToken(aAmount,aTokenCreator, aEntityToGiveToken, aSkillData);
 	};
 	
 	virtual FCombatLog_Full_Data ExecuteSkill(UCombatEntity* aAttacker,TArray<UCombatEntity*> aVictims, USkillBase* aSkill) override
@@ -123,7 +123,7 @@ public:
 		int AmountOfGivenStacks = 1;
 		for (auto Element : aVictims)
 		{
-			CombatLog_Full_Data.CombatLog_CombatToken_Data = I_GiveCombatToken_Implementation(AmountOfGivenStacks,Element,aSkill->skillData);		
+			CombatLog_Full_Data.CombatLog_CombatToken_Data = I_GiveCombatToken_Implementation(AmountOfGivenStacks,aAttacker,Element,aSkill->skillData);		
 		}
 	
 	
@@ -212,9 +212,9 @@ class USkillAttackCombatToken : public UDefaultSkillAttack , public IOnGiveComba
 	GENERATED_BODY()
 
 
-	virtual FCombatLog_CombatToken I_GiveCombatToken_Implementation(int& aAmount, UCombatEntity* aEntityToGiveToken, FSkillsData aSkillData) override
+	virtual FCombatLog_CombatToken I_GiveCombatToken_Implementation(int& aAmount,UCombatEntity* aTokenCreator, UCombatEntity* aEntityToGiveToken, FSkillsData aSkillData) override
 	{
-		return USkillBase::GiveCombatToken(aAmount, aEntityToGiveToken, aSkillData);
+		return USkillBase::GiveCombatToken(aAmount,aTokenCreator, aEntityToGiveToken, aSkillData);
 	};
 };
 

@@ -21,6 +21,8 @@ void UResourceHandler::Initialize(UCombatEntity* aOwnedCombatEntity)
 	SyncHandler->InitializeSyncHandler(ResourceHandlerCompleteData.SyncData,OwnedCombatEntity);
 	ItemChargeHandler->InitializeItemChargeHandler();
 
+	DefenceLayers.Add(EResource::Health);
+
 	SetCombatWrapper(OwnedCombatEntity);
 }
 
@@ -85,21 +87,23 @@ void UResourceHandler::InflictAilment(UWrapperTakeOver* aAliment, ECombatEntityW
 	inUseCombatWrapper->SetAilment(aAliment,aCombatEntityWrapperType);
 }
 
-void UResourceHandler::DecrementResource(EResource aResource,int aValue)
+int UResourceHandler::DecrementResourceReturnOverFlow(EResource aResource,int aValue)
 {
 
+	int overflowValue = 0;
+	
 	switch (aResource)
 	{
 	case EResource::None:
 		break;
 	case EResource::Mana:
-		manaHandler->DecrementValue(aValue);
+		overflowValue = manaHandler->DecrementValue(aValue);
 		break;
 	case EResource::Health:
-		healthHandler->DecrementHealth(aValue);
+		overflowValue = healthHandler->DecrementHealth(aValue);
 		break;
 	case EResource::Sync:
-		SyncHandler->DecrementValue(aValue);
+		overflowValue = SyncHandler->DecrementValue(aValue);
 		break;
 	case EResource::ItemCharges:
 		{
@@ -111,6 +115,8 @@ void UResourceHandler::DecrementResource(EResource aResource,int aValue)
 	}
 
 	hasValuesUpdated.Broadcast();
+
+	return overflowValue;
 }
 
 void UResourceHandler::IncrementResource(EResource aResource, int aValue)
@@ -155,13 +161,52 @@ FCombatLog_AttackDefense_Data UResourceHandler::CalculateDamage(UCombatEntity* a
 	return inUseCombatWrapper->ExecuteCalculateDamage(aAttacker,aSkill);
 }
 
-FCombatLog_AttackDefense_Data UResourceHandler::AttackResource(EResource aResource,UCombatEntity* aAttacker, FSkillsData aSkill)
+FCombatLog_AttackDefense_Data UResourceHandler::AttackResource(EResource aResource, UCombatEntity* aAttacker, int aDecrementBy)
+{
+	FCombatLog_AttackDefense_Data combatLog;
+	combatLog.wasInitializedOnSkill = false;
+	StartDecrementResource( aResource,  aDecrementBy);
+
+	return combatLog;
+}
+
+FCombatLog_AttackDefense_Data UResourceHandler::AttackResourceWithSkill(EResource aResource,UCombatEntity* aAttacker, FSkillsData aSkill)
 {
 	FCombatLog_AttackDefense_Data combatLog = CalculateDamage( aAttacker,  aSkill);
 	
-	DecrementResource(aResource,combatLog.FinalDamageResult);
+	
+	StartDecrementResource( aResource, combatLog.FinalDamageResult);
+
 
 	return combatLog;
+}
+
+void UResourceHandler::StartDecrementResource(EResource aResource, int aDecrementBy)
+{
+	//Health is considered main damage while the other resources can be
+	//targeted health has defensive layers that could happen instead of health first
+	if(aResource == EResource::Health)
+	{
+		DealDamage(aDecrementBy);
+	}
+	else
+	{
+		DecrementResourceReturnOverFlow(aResource,aDecrementBy);		
+	}
+}
+
+void UResourceHandler::DealDamage(int aResourceAmount)
+{
+	int resourceAmount = aResourceAmount;
+
+	for (int i = DefenceLayers.Num() - 1; i >= 0; i--)
+	{
+		if(resourceAmount <= 0)
+		{
+			break;
+		}
+		resourceAmount = DecrementResourceReturnOverFlow(DefenceLayers[i],resourceAmount);
+	}
 }
 
 int UResourceHandler::GetCurrentHealth()

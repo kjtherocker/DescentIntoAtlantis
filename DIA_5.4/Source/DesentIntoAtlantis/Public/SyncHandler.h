@@ -42,7 +42,7 @@ public:
 	
 	virtual void IncrementValue(int aIncrementBy);
 	
-	virtual void DecrementValue(int aDecrementBy);
+	virtual int DecrementValue(int aDecrementBy);
 
 	virtual int GetCurrentValue(){return ResourceBarInfo.Current;}
 

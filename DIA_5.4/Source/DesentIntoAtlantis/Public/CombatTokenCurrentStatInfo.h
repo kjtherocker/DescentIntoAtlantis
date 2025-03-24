@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CombatEntity.h"
 #include "UObject/NoExportTypes.h"
 #include "CombatTokenCurrentStatInfo.generated.h"
 
@@ -18,5 +19,8 @@ struct DESENTINTOATLANTIS_API FCombatTokenCurrentStatInfo :public  FTableRowBase
 	int32 currentTokenStack;
 	UPROPERTY(EditAnywhere)
 	int32 turnsRemaining;
+
+	UPROPERTY(EditAnywhere)
+	UCombatEntity* tokenCreator;
 };
 
