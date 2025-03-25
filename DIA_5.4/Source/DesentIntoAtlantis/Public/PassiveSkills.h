@@ -130,6 +130,7 @@ protected:
 
 
 	bool isDisabled = false;
+	
 	UPROPERTY()
 	UCombatEntity* attachedCombatEntity;
 	

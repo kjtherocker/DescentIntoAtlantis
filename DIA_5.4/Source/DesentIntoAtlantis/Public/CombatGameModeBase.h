@@ -111,6 +111,9 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 
 
 	UPROPERTY()
+	UCombatEntity* currentCombatEntity;
+	
+	UPROPERTY()
 	TArray<ECharactertype> roundOrder;
 
 	UPROPERTY()
@@ -185,6 +188,7 @@ public:
 	void AddEnemyToCombat(FEnemyEntityCompleteData AEnemyEntityData,EEnemyCombatPositions aPosition,ERowType aRowType);
 	void SetRoundSide(ECharactertype aCharacterType);
 	void TurnEnd();
+	void ValidateNextTurn();
 	void TriggerTurnEndTimers();
 	void TriggerLevelupMenu(TArray<UPlayerCombatEntity*> aPlayerCombatEntity, int aExperience,int aClassPoints);
 	void AllyStartTurn();
@@ -196,6 +200,7 @@ public:
 	void ResetEnemyPortraits();
 	
 	void IterateToNextPlayer();
+	void IterateToNextEnemy();
 
 	void SwitchCombatSides();
 

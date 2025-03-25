@@ -95,7 +95,7 @@ void UCombatToken_Base::RemovePassive()
 {
 	if(attachedCombatEntity != nullptr)
 	{
-		attachedCombatEntity->OnRoundEnd.RemoveDynamic(this,&UCombatToken_Base::RoundEnd);		
+		attachedCombatEntity->OnTurnStart.RemoveDynamic(this,&UCombatToken_Base::RoundEnd);		
 	}
 
 	

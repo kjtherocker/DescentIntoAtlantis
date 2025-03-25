@@ -47,7 +47,7 @@ void UCombatEntity::InitializeStats(EStatTypes aAbilityScoreTypes)
 
 void UCombatEntity::SetTacticsEvents(ACombatGameModeBase* aCombatManager)
 {
-    aCombatManager->OnRoundEndDelegate.AddDynamic(this,&UCombatEntity::EndTurn);
+    aCombatManager->OnRoundEndDelegate.AddDynamic(this,&UCombatEntity::RoundEnd);
 }
 
 void UCombatEntity::StartTurn()
@@ -62,6 +62,11 @@ void UCombatEntity::StartTurn()
 }
 
 void UCombatEntity::EndTurn()
+{
+    OnTurnEnd.Broadcast();
+}
+
+void UCombatEntity::RoundEnd()
 {
     OnRoundEnd.Broadcast();
 }

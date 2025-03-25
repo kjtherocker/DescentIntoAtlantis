@@ -314,8 +314,17 @@ void ACombatGameModeBase::TurnEnd()
 		return;
 	}
 	
+	ValidateNextTurn();
+}
+
+void ACombatGameModeBase::ValidateNextTurn()
+{
+	
+	
+	
 	if(pressTurnManager->GetNumberOfActivePressTurns() == 0)
 	{
+		currentCombatEntity->EndTurn();	
 		if(currentRoundOrder.Num() == 0)
 		{
 			SetCombatState(ECombatState::NewRoundStart);
@@ -334,6 +343,7 @@ void ACombatGameModeBase::TurnEnd()
 		case ECharactertype::Undefined:break;
 		case ECharactertype::Ally:
 			IterateToNextPlayer();
+			currentCombatEntity->EndTurn();	
 			SetCombatState(ECombatState::Player);
 			break;
 		case ECharactertype::Enemy:
@@ -341,7 +351,6 @@ void ACombatGameModeBase::TurnEnd()
 			break;
 		}
 	}
-	
 }
 
 void ACombatGameModeBase::TriggerTurnEndTimers()
@@ -426,6 +435,8 @@ void ACombatGameModeBase::AllyStartTurn()
 		aAllTurnReactions.Add(EPressTurnReactions::Normal);
 		pressTurnManager->ProcessTurn(aAllTurnReactions);
 	}
+
+	currentCombatEntity = currentActivePartyMember;
 	
 
 }
@@ -440,6 +451,8 @@ void ACombatGameModeBase::EnemyStartTurn()
 
 	UEnemyCombatEntity* currentEnemy = enemysInCombat[currentActivePosition];
 	currentEnemy->StartTurn();
+
+	currentCombatEntity = currentEnemy;
 
 	EnemyActivateSkill(currentEnemy);
 	EEnemyCombatPositions portraitPosition = currentEnemy->portraitPosition;
@@ -493,6 +506,17 @@ void ACombatGameModeBase::IterateToNextPlayer()
 	
 	
 	if(currentActivePosition >= partyMembersInCombat.Num())
+	{
+		currentActivePosition = 0;
+	}
+}
+
+void ACombatGameModeBase::IterateToNextEnemy()
+{
+	currentActivePosition++;
+	
+	
+	if(currentActivePosition >= enemysInCombat.Num())
 	{
 		currentActivePosition = 0;
 	}
