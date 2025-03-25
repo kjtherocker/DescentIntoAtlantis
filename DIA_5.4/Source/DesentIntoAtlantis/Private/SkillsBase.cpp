@@ -145,26 +145,7 @@ bool USkillBase::CanUseSkill(UCombatEntity* aSkillOwner, EResource SkillResource
 
 void USkillBase::SpendSkillCost(UCombatEntity* aSkillOwner, EResource SkillResourceUsed )
 {
-	EResource skillResouce = SkillResourceUsed ==
-		EResource::None ? skillData.SkillResourceUsed : SkillResourceUsed;
-	
-	switch (skillResouce)
-	{
-	    case EResource::None:
-	    	break;
-	    case EResource::Mana:
-	    	aSkillOwner->DecrementMana(skillData.costToUse);
-	    	break;
-	    case EResource::Health:
-	    	aSkillOwner->AttackResource(EResource::Health,aSkillOwner,skillData);
-	    	break;
-		case EResource::Sync:
-			 aSkillOwner->ResourceHandler->SyncHandler->DecrementValue(skillData.costToUse);
-			break;
-		case EResource::ItemCharges:
-			aSkillOwner->ResourceHandler->ItemChargeHandler->ConsumeItemCharge(skillData.costToUse);
-			break;
-	}
+	aSkillOwner->ResourceHandler->SpendSkillCost(skillData,SkillResourceUsed,aSkillOwner);
 }
 
 FCombatLog_AttackDefense_Data USkillBase::StartChargingSkill(UCombatEntity* aAttacker, TArray<UCombatEntity*> aVictims)

@@ -437,9 +437,12 @@ void ACombatGameModeBase::EnemyStartTurn()
 	ResetEnemyPortraits();
 
 	currentActivePosition = currentActivePosition <= enemysInCombat.Num() -1 ?  currentActivePosition++ : 0;
-	
-	EnemyActivateSkill(enemysInCombat[currentActivePosition]);
-	EEnemyCombatPositions portraitPosition = enemysInCombat[currentActivePosition]->portraitPosition;
+
+	UEnemyCombatEntity* currentEnemy = enemysInCombat[currentActivePosition];
+	currentEnemy->StartTurn();
+
+	EnemyActivateSkill(currentEnemy);
+	EEnemyCombatPositions portraitPosition = currentEnemy->portraitPosition;
 	Portraits[portraitPosition]->RotateTowardsCamera();
 	combatCamera->RotateCameraToActor(Portraits[portraitPosition]);
 	combatCamera->ZoomCameraInTowardsActor(Portraits[portraitPosition]);

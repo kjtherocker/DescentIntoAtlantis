@@ -213,3 +213,27 @@ int UResourceHandler::GetCurrentHealth()
 {
 	return healthHandler->GetCurrentValue();
 }
+
+void UResourceHandler::SpendSkillCost(FSkillsData skillData, EResource SkillResourceUsed, UCombatEntity* aSkillOwner)
+{
+	EResource skillResouce = SkillResourceUsed ==
+	EResource::None ? skillData.SkillResourceUsed : SkillResourceUsed;
+	
+	switch (skillResouce)
+	{
+	case EResource::None:
+		break;
+	case EResource::Mana:
+		aSkillOwner->DecrementMana(skillData.costToUse);
+		break;
+	case EResource::Health:
+		DecrementResourceReturnOverFlow(EResource::Health,skillData.costToUse);
+		break;
+	case EResource::Sync:
+		DecrementResourceReturnOverFlow(EResource::Sync,skillData.costToUse);
+		break;
+	case EResource::ItemCharges:
+		ItemChargeHandler->ConsumeItemCharge(skillData.costToUse);
+		break;
+	}
+}

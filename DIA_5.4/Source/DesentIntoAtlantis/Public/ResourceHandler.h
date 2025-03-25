@@ -71,6 +71,8 @@ public:
 	
 	virtual int GetCurrentHealth();
 
+	virtual void SpendSkillCost(FSkillsData skillData, EResource SkillResourceUsed,UCombatEntity* aSkillOwner);
+
 
 	UPROPERTY()
 	TArray<EResource> DefenceLayers;

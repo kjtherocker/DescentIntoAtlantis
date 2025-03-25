@@ -51,7 +51,7 @@ bool UCombatToken_Base::CanConsumeStack()
 void UCombatToken_Base::InitializeCombatToken(FCombatToken_Base_Data combatToken,FCombatTokenStackData aCombatTokenStackData, UCombatEntity* aCombatEntity)
 {
 	CombatToken_Base_Data = combatToken;
-	aCombatEntity->OnRoundEnd.AddDynamic(this,&UCombatToken_Base::RoundEnd);
+	aCombatEntity->OnTurnStart.AddDynamic(this,&UCombatToken_Base::RoundEnd);
 	SetTurnsRemaining(aCombatTokenStackData);
 	CombatTokenStateInfo.tokenCreator = aCombatTokenStackData.TokenCreator;
 	CombatTokenStateInfo.currentTokenStack = aCombatTokenStackData.stackAmount;

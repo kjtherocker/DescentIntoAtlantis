@@ -111,7 +111,7 @@ class DESENTINTOATLANTIS_API UPassives : public UObject
 	GENERATED_BODY()
 
 public:
-	void AttachOwnerCombatEntity(UCombatEntity* aCombatEntity);
+	virtual void AttachOwnerCombatEntity(UCombatEntity* aCombatEntity);
 	virtual void RemovePassive();
 	virtual void ActivatePassive();
 
