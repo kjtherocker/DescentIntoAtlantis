@@ -81,6 +81,9 @@ struct DESENTINTOATLANTIS_API FCombatEntityData :public  FTableRowBase
 	
 	UPROPERTY( EditAnywhere )
 	TMap< EStatTypes,int> baseStats;
+
+	UPROPERTY( EditAnywhere )
+	int ailmentResistance = 3;
 	
 	
 //	UPROPERTY( EditAnywhere )
@@ -187,7 +190,7 @@ public:
 
 	virtual int GetHit();
 	virtual int GetEvasion();
-	virtual int GetAilmentResistance(EStatusAilments aStatusAilment);
+	virtual int GetBaseAilmentResistance();
 	virtual int GetAilmentInfliction(EStatusAilments aStatusAilment);
 	
 	virtual void AddPassive(UPassiveSkills* aPassiveSkills,EPassiveSkillSlotType passiveSkillSlot);

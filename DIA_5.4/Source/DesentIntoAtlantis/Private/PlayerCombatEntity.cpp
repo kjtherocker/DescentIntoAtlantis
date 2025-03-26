@@ -196,6 +196,11 @@ float UPlayerCombatEntity::GetMainClassEXPPercentage()
 	return expPercentage;
 }
 
+int UPlayerCombatEntity::GetBaseAilmentResistance()
+{
+	return playerCompleteDataSet.AilmentResistData.AilmentResistance;
+}
+
 int UPlayerCombatEntity::GetCurrentLevel(){return currentLevel;}
 
 void UPlayerCombatEntity::LevelUp(int aNewLevel)

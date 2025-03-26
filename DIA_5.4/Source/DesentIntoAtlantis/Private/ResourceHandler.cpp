@@ -207,6 +207,8 @@ void UResourceHandler::DealDamage(int aResourceAmount)
 		}
 		resourceAmount = DecrementResourceReturnOverFlow(DefenceLayers[i],resourceAmount);
 	}
+	
+	OwnedCombatEntity->PostDamage();
 }
 
 int UResourceHandler::GetCurrentHealth()

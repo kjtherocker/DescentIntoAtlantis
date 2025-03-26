@@ -31,7 +31,6 @@ int UHealth::DecrementHealth(int aAmountToRemove)
 {
 	lastAttackDefenceData.FinalDamageResult = aAmountToRemove;
 	
-	AttachedCombatEntity->PostDamage();
 	OnDecrementHealth.Broadcast(lastAttackDefenceData,AttachedCombatEntity);
 	
 	return DecrementValue(aAmountToRemove);

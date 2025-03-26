@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "AilmentResistData.h"
 #include "ClassHandler.h"
 #include "CombatEntity.h"
 #include "UObject/NoExportTypes.h"
@@ -95,6 +96,9 @@ struct DESENTINTOATLANTIS_API FPlayerCompleteDataSet
 	
 	UPROPERTY()
 	FCompleteElementalHandlerData CompleteElementalHandlerData;
+
+	UPROPERTY()
+	FAilmentResistData AilmentResistData;
 };
 
 UCLASS()
@@ -164,6 +168,7 @@ public:
 	virtual float GetManaPercentage()   override;
 	virtual float GetSyncPercentage() override;
 	virtual float GetMainClassEXPPercentage();
+	virtual int GetBaseAilmentResistance() override;
 
 	virtual int GetCurrentLevel();
 	

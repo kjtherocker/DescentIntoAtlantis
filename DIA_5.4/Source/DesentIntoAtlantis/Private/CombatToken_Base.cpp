@@ -149,6 +149,7 @@ int UCombatToken_GenericStat::GetStatIncrease_Implementation(EStatTypes aStatTyp
 	return statIncrease * CombatTokenStateInfo.currentTokenStack;
 }
 
+
 void UCombatToken_GenericStat::ApplyEffect(UCombatEntity* aCombatEntity)
 {
 	for (TTuple<EStatTypes, int> Element : CombatToken_Base_Data.passiveStats)

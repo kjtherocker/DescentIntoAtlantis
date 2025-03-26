@@ -73,6 +73,11 @@ FString UEnemyCombatEntity::GetEntityName()
 	return enemyEntityCompleteData.characterName;
 }
 
+int UEnemyCombatEntity::GetBaseAilmentResistance()
+{
+	return enemyEntityInfo.AilmentResistData.AilmentResistance;
+}
+
 int UEnemyCombatEntity::GetExperience()
 {
 	return enemyEntityInfo.experience;

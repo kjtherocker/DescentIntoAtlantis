@@ -100,6 +100,13 @@ void UCombatEntityHub::SendGenericTrigger(EGenericTrigger aGenericTrigger)
 	
 }
 
+int UCombatEntityHub::GetAilmentResistance()
+{
+	int returnedAilmentResistance = OwnedCombatEntity->GetBaseAilmentResistance();
+	
+	return returnedAilmentResistance;
+}
+
 //TArray<FCombatLog_PassiveSkilData> UCombatEntityHub::CheckBaseDamagePassives(UCombatEntity* aAttachedEntity,
 //	UCombatEntity* aAttacker, FSkillsData aSkill)
 //{

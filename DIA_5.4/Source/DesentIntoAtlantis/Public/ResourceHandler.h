@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "CombatEntityWrapper.h"
+#include "CombatToken_Ailment.h"
 #include "ItemChargeHandler.h"
 #include "SkillType.h"
 #include "ResourceHandlerCompleteData.h"

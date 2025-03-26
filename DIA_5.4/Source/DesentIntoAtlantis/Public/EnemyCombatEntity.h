@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "AilmentResistData.h"
 #include "CombatEntity.h"
 #include "CombatInterruptData.h"
 #include "CompleteElementalHandlerData.h"
@@ -78,6 +79,9 @@ struct DESENTINTOATLANTIS_API FEnemyEntitydInfo :public  FTableRowBase
 	UPROPERTY(EditAnywhere)
 	FInterruptData EnemyInterruptData;
 
+	UPROPERTY(EditAnywhere)
+	FAilmentResistData AilmentResistData;
+	
 	UPROPERTY( EditAnywhere )
 	int experience;
 
@@ -125,6 +129,8 @@ public:
 
 	virtual FString GetEntityName() override;
 
+	virtual int GetBaseAilmentResistance() override;
+	
 	virtual int GetExperience();
 	virtual int GetClassPoints();
 	UPROPERTY()

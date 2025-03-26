@@ -54,6 +54,9 @@ public:
 	virtual void OnEvadedAttack(FCombatLog_Hit_Data aEvasionData);
 
 	virtual void SendGenericTrigger(EGenericTrigger aGenericTrigger);
+
+	virtual int GetAilmentResistance();
+	
 //	virtual TArray< FCombatLog_PassiveSkilData> CheckBaseDamagePassives(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill);
 	virtual int OnGetItemTier(EItemID ItemID);
 	

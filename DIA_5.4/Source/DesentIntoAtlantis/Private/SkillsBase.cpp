@@ -246,7 +246,7 @@ FCombatLog_AttackDefense_Data USkillBase::UseSkill(UCombatEntity* aAttacker, UCo
 bool USkillAlimentAttack::CalculateAilmentInfliction(UCombatEntity* aAttacker, UCombatEntity* aVictim,EStatusAilments aAilment)
 {
 	AilmentHitCalculation =  FMath::RandRange(1, 100);
-	AilmentHitCalculation += (aAttacker->GetAilmentInfliction(aAilment) - aVictim->GetAilmentResistance(aAilment));
+	AilmentHitCalculation += (aAttacker->GetAilmentInfliction(aAilment) - aVictim->GetBaseAilmentResistance());
 	AilmentHitCalculation += skillData.CombatTokenHit; 
 	return AilmentHitCalculation > 100;
 }

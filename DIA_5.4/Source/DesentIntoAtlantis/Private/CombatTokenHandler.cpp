@@ -3,6 +3,7 @@
 
 #include "CombatTokenHandler.h"
 
+#include "CombatToken_Ailment.h"
 #include "PassiveSkillFactorySubsystem.h"
 
 
@@ -128,8 +129,8 @@ UCombatToken_Base* UCombatTokenHandler::CreateNewCombatTokenClass(ECombatTokenID
 	case ECombatTokenID::Poison:
 		return NewObject<UCombatToken_RoundEnd_Health>();
 		break;
-	case ECombatTokenID::Regen:
-		return NewObject<UCombatToken_RoundEnd_Health>();
+	case ECombatTokenID::Fear:
+		return NewObject<UCombatToken_Ailment>();
 		break;
 	}
 

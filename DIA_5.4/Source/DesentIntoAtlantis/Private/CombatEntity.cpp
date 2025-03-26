@@ -228,15 +228,9 @@ int UCombatEntity::GetEvasion()
     return abilityScoreMap[EStatTypes::Evasion]->GetAllStats();
 }
 
-int UCombatEntity::GetAilmentResistance(EStatusAilments aStatusAilment)
+int UCombatEntity::GetBaseAilmentResistance()
 {
-    int AilmentResistance = 0;
-   // for (auto Element : passiveSkills)
-   // {
-   //     if(Element->)
-   //     Element->
-   // }
-    return AilmentResistance;
+    return 0;
 }
 
 int UCombatEntity::GetAilmentInfliction(EStatusAilments aStatusAilment)

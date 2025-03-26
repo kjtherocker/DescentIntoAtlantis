@@ -43,6 +43,7 @@ enum class ECombatTokenID   : uint8
 	ResistanceDown     = 15,
 	Poison             = 16,
 	Regen              = 17,
+	Fear               = 18,
 };
 
 
