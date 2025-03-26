@@ -386,7 +386,10 @@ void ACombatGameModeBase::SetRoundSide(ECharactertype aCharacterType)
 {
 	ResetEnemyPortraits();
 	ECharactertype previousType = CharacterTypeTurn;
+	OnTeamTurnFinished.Broadcast(previousType);
+	
 	CharacterTypeTurn = aCharacterType;
+	
 	
 	ECharactertype newCharacterTurnType = aCharacterType;
 	

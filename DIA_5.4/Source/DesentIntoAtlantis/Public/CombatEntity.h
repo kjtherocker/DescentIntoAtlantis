@@ -104,6 +104,8 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FHasHealthOrManaValuesChanged);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FCombatEntityRoundEnd);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FCombatEntityTurnStart);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FCombatEntityTurnEnd);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FCombatEntityTeamTurnEnded);
+
 UCLASS()
 class DESENTINTOATLANTIS_API UCombatEntity : public UObject
 {
@@ -134,7 +136,7 @@ public:
 	FCombatEntityRoundEnd              OnRoundEnd;
 	FCombatEntityTurnStart             OnTurnStart;
 	FCombatEntityTurnEnd               OnTurnEnd;
-
+	FCombatEntityTeamTurnEnded         OnTeamTurnEnded;
 
 	
 	UFUNCTION()
@@ -142,6 +144,9 @@ public:
 	virtual void SetCombatEntity(USkillFactorySubsystem*  aSkillFactory,UPassiveFactorySubsystem* aPassiveSkillFactory, UPersistentGameinstance* aPersistentGameinstance);
 	
 	virtual void SetTacticsEvents(ACombatGameModeBase* aCombatManager);
+
+	UFUNCTION()
+	virtual void TeamTurnFinished(ECharactertype ACharactertype);
 
 	UFUNCTION()
 	virtual void StartTurn();
@@ -192,7 +197,7 @@ public:
 	
 	bool GetIsMarkedForDeath();
 
-	ECharactertype characterType;
+	ECharactertype characterType = ECharactertype::Undefined;
 
 	UPROPERTY()
 	ERowType currentRow;

@@ -51,7 +51,7 @@ bool UCombatToken_Base::CanConsumeStack()
 void UCombatToken_Base::InitializeCombatToken(FCombatToken_Base_Data combatToken,FCombatTokenStackData aCombatTokenStackData, UCombatEntity* aCombatEntity)
 {
 	CombatToken_Base_Data = combatToken;
-	aCombatEntity->OnTurnStart.AddDynamic(this,&UCombatToken_Base::RoundEnd);
+	aCombatEntity->OnTeamTurnEnded.AddDynamic(this,&UCombatToken_Base::TeamTurnEnded);
 	SetTurnsRemaining(aCombatTokenStackData);
 	CombatTokenStateInfo.tokenCreator = aCombatTokenStackData.TokenCreator;
 	CombatTokenStateInfo.currentTokenStack = aCombatTokenStackData.stackAmount;
@@ -79,7 +79,7 @@ int UCombatToken_Base::GetTurnResetValue()
 	return CombatToken_Base_Data.startingTokenTurnLength;
 }
 
-void UCombatToken_Base::RoundEnd()
+void UCombatToken_Base::TeamTurnEnded()
 {
 	CombatTokenStateInfo.turnsRemaining --;
 
@@ -95,7 +95,7 @@ void UCombatToken_Base::RemovePassive()
 {
 	if(attachedCombatEntity != nullptr)
 	{
-		attachedCombatEntity->OnTurnStart.RemoveDynamic(this,&UCombatToken_Base::RoundEnd);		
+		attachedCombatEntity->OnTeamTurnEnded.RemoveDynamic(this,&UCombatToken_Base::TeamTurnEnded);		
 	}
 
 	
@@ -165,12 +165,12 @@ void UCombatToken_GenericStat::RemoveEffect(UCombatEntity* aCombatEntity)
 	}
 }
 
-void UCombatToken_RoundEnd::RoundEnd()
+void UCombatToken_RoundEnd::TeamTurnEnded()
 {
-	Super::RoundEnd();
+	Super::TeamTurnEnded();
 }
 
-void UCombatToken_RoundEnd_Health::RoundEnd()
+void UCombatToken_RoundEnd_Health::TeamTurnEnded()
 {
 	FHealthData healthdata = attachedCombatEntity->ResourceHandler->healthHandler->GetHealthData();
 	int percentageOfHealth = (healthdata.ResourceBarInfo.Max * CombatToken_Base_Data.valuePercentage) / 100;
@@ -183,5 +183,5 @@ void UCombatToken_RoundEnd_Health::RoundEnd()
 		attachedCombatEntity->ResourceHandler->AttackResource(EResource::Health, CombatTokenStateInfo.tokenCreator,percentageOfHealth * CombatTokenStateInfo.currentTokenStack);
 	}
 	
-	Super::RoundEnd();
+	Super::TeamTurnEnded();
 }

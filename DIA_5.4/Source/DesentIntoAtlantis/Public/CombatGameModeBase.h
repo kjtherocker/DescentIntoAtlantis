@@ -74,6 +74,7 @@ enum class ECombatState  : uint8
 
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FRoundEndDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnTeamTurnFinished,ECharactertype,aCharacterType);
 UCLASS()
 class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 {
@@ -83,24 +84,15 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	UFUNCTION()
 	virtual void InitializeLevel() override;
 
-	UPROPERTY()
-	ECombatWinCondition CombatWinCondition;
-	UPROPERTY()
-	UCombatLogSimplifiedView*     combatLogView;
-	UPROPERTY()
-	UTurnCounterView*     turnCounter;
-	UPROPERTY()
-	UPartyHealthbarsView* partyHealthbars;
-	UPROPERTY()
-	APlayerController* PlayerController;
-	UPROPERTY()
-	UNumbersUIView* NumbersUIView;
 
-	UPROPERTY()
-	USkillResolveSubsystem* SkillResolveSubsystem;
-
-	UPROPERTY()
-	TArray<FCombatLog_Full_Data> mostRecentCombatLogs;
+	
+	UPROPERTY(EditAnywhere)
+	FVector3d CAMERA_POSITION = UCombatSettings::INITIAL_CAMERA_POSITION;
+	UPROPERTY(EditAnywhere)
+	FRotator CAMERA_ROTATION  = UCombatSettings::INITIAL_CAMERA_ROTATION;
+	const FVector ENEMY_POSITION1 = UCombatSettings::ENEMY_POSITION1;
+	const FVector ENEMY_POSITION2 = UCombatSettings::ENEMY_POSITION2;
+	const FVector ENEMY_POSITION3 = UCombatSettings::ENEMY_POSITION3;
 	
 	const float FULL_OPACITY    = 100;
 	const int   ENEMY_TURN_TIME = 2;
@@ -108,27 +100,36 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	int currentActivePosition;
 	int combatExp = 0;
 	int gainedCP  = 0;
-
-
+	
+	UPROPERTY()
+	ECombatWinCondition CombatWinCondition;
+	UPROPERTY()
+	APlayerController* PlayerController;
+	UPROPERTY()
+	USkillResolveSubsystem* SkillResolveSubsystem;
 	UPROPERTY()
 	UCombatEntity* currentCombatEntity;
-	
 	UPROPERTY()
 	TArray<ECharactertype> roundOrder;
-
 	UPROPERTY()
 	TArray<ECharactertype> currentRoundOrder;
-	
 	UPROPERTY()
 	ECharactertype CharacterTypeTurn;
 
-	UPROPERTY(EditAnywhere)
-	FVector3d CAMERA_POSITION = UCombatSettings::INITIAL_CAMERA_POSITION;
-	UPROPERTY(EditAnywhere)
-	FRotator CAMERA_ROTATION  = UCombatSettings::INITIAL_CAMERA_ROTATION;
 	
+	UPROPERTY()
+	UNumbersUIView* NumbersUIView;
+	UPROPERTY()
+	UCombatLogSimplifiedView*     combatLogView;
+	UPROPERTY()
+	UTurnCounterView*     turnCounter;
+	UPROPERTY()
+	UPartyHealthbarsView* partyHealthbars;
 
-	
+
+
+	UPROPERTY()
+	TArray<FCombatLog_Full_Data> mostRecentCombatLogs;
 	UPROPERTY()
 	TArray<UPlayerCombatEntity*> partyMembersInCombat;
 	UPROPERTY()
@@ -137,13 +138,11 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	UPlayerCombatEntity* currentActivePartyMember;
 	UPROPERTY()
 	TArray<UEnemyCombatEntity*> enemysInCombat;
-
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<APawn> cameraReference;
 
 	UPROPERTY()
 	TMap<EEnemyCombatPositions,AEnemyPortraitElement*> Portraits;
-
 	UPROPERTY()
 	TMap<EEnemyCombatPositions,FVector3d> portraitsLocations;
 	
@@ -162,12 +161,10 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 public:
 	UPROPERTY(BlueprintAssignable, Category = "Test")
 	FRoundEndDelegate OnRoundEndDelegate;
-
 	
-	const FVector ENEMY_POSITION1 = UCombatSettings::ENEMY_POSITION1;
-	const FVector ENEMY_POSITION2 = UCombatSettings::ENEMY_POSITION2;
-	const FVector ENEMY_POSITION3 = UCombatSettings::ENEMY_POSITION3;
-
+	UPROPERTY(BlueprintAssignable, Category = "Test")
+	FOnTeamTurnFinished OnTeamTurnFinished;
+	
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> enemyPortraitElementReference;
 	

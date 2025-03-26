@@ -48,7 +48,19 @@ void UCombatEntity::InitializeStats(EStatTypes aAbilityScoreTypes)
 void UCombatEntity::SetTacticsEvents(ACombatGameModeBase* aCombatManager)
 {
     aCombatManager->OnRoundEndDelegate.AddDynamic(this,&UCombatEntity::RoundEnd);
+    aCombatManager->OnTeamTurnFinished.AddDynamic(this,&UCombatEntity::TeamTurnFinished);
 }
+
+void UCombatEntity::TeamTurnFinished(ECharactertype ACharactertype)
+{
+    if(characterType != ACharactertype)
+    {
+        return;
+    }
+
+    OnTeamTurnEnded.Broadcast();
+}
+
 
 void UCombatEntity::StartTurn()
 {

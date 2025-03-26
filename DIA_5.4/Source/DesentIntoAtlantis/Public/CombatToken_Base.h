@@ -51,7 +51,7 @@ public:
 	virtual bool CanConsumeStack();
 
 	UFUNCTION()
-	virtual void RoundEnd();
+	virtual void TeamTurnEnded();
 
 	virtual void RemovePassive() override;
 	virtual void ActivatePassive() override;
@@ -82,7 +82,7 @@ class DESENTINTOATLANTIS_API UCombatToken_RoundEnd : public UCombatToken_Base
 public:
 
 	
-	virtual void RoundEnd() override;
+	virtual void TeamTurnEnded() override;
 	
 };
 
@@ -94,6 +94,6 @@ class DESENTINTOATLANTIS_API UCombatToken_RoundEnd_Health : public UCombatToken_
 public:
 
 	
-	virtual void RoundEnd() override;
+	virtual void TeamTurnEnded() override;
 	
 };
