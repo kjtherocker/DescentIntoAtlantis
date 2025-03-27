@@ -4,6 +4,7 @@
 #include "CombatToken_Ailment.h"
 
 #include "CombatEntityHub.h"
+#include "ResourceHandler.h"
 
 void UCombatToken_Ailment::ValidateStackState()
 {
@@ -78,6 +79,7 @@ void UCombatToken_Ailment::ApplyAilmentEffect(UCombatEntity* aCombatEntity)
 
 void UCombatToken_Ailment::RemoveAilmentEffect(UCombatEntity* aCombatEntity)
 {
+	aCombatEntity->ResourceHandler->SetAWrapperToDefault(ECombatEntityWrapperType::CalculateDamage);
 }
 
 
