@@ -3,9 +3,19 @@
 
 #include "SkillBarElement.h"
 
+#include "PersistentGameinstance.h"
+
 void USkillBarElement::SetSkill(FSkillsData aSkill)
 {
-	SkillIcon->SetBrushFromTexture(aSkill.skillIcon);
+	if(aSkill.skillIcon == nullptr)
+	{
+		SkillIcon->SetBrushFromTexture(persistentGameinstance->elementalIcons[aSkill.elementalType]);
+	}
+	else
+	{
+		SkillIcon->SetBrushFromTexture(aSkill.skillIcon);		
+	}
+
 	SetMainText(aSkill.skillName);
 
 	SkillCost->SetText(FText(FText::FromString(FString::FromInt(aSkill.costToUse))));

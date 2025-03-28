@@ -137,7 +137,8 @@ void USkillView::SkillSelection(FSkillsData aSkill)
 {
 	SetCombatToken(aSkill);
 	BW_SkillName->SetText(FText(FText::FromString(aSkill.skillName)));
-	BW_SkillDescription->SetText(FText(FText::FromString(aSkill.skillDescription)));
+	BW_SkillDescription->SetText
+	(FText(FText::FromString(currentActivePartyMember->combatEntityHub->skillHandler->ParseSkillDescription(aSkill))));
 }
 
 void USkillView::SetCombatToken(FSkillsData aSkillsData)

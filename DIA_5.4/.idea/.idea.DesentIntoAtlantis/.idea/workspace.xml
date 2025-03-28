@@ -10,20 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b54e0400-4043-4283-8d07-29df7f26dee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/GameMode/BP_TileMenuGameMode.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillTraitHighlightElement.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillTraitHighlightElement.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DesentIntoAtlantis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Combat/DT_ItemData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_ItemData.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Datatables/Combat/DT_SkillData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Combat/DT_SkillData.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Datatables/Skills/DT_SkillData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Datatables/Skills/DT_SkillData.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/MainMenu.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/MainMenu.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatEntity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatEntity.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatStat.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/CombatStat.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/MainMenuGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/TitleMenuGameMode.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/ResourceHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/ResourceHandler.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/ESkillID.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/ESkillID.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/MainMenuGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/TitleMenuGameMode.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillData.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillType.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillType.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/TitleView.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/TitleView.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Skill/BP_SkilMainlView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/Skill/BP_SkilMainlView.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ui/Skill/BP_SkillSubView.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ui/Skill/BP_SkillSubView.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillBarElement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillBarElement.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillHandler.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillView.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillView.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillHandler.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillHandler.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillView.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillView.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,6 +191,7 @@
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillFactorySubsystem.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillHandler.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillRange.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillTraitHighlightElement.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillType.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/SkillUsage.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Private/StaminaAction.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -315,6 +314,7 @@
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillDamageType.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillFactorySubsystem.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillRange.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillTraitHighlightElement.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillType.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/SkillUsage.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/DesentIntoAtlantis/Public/StaminaAction.h" root0="FORCE_HIGHLIGHTING" />
@@ -853,7 +853,7 @@
       <workItem from="1743005715040" duration="1732000" />
       <workItem from="1743007746531" duration="6744000" />
       <workItem from="1743099740884" duration="1639000" />
-      <workItem from="1743170238766" duration="2224000" />
+      <workItem from="1743170238766" duration="6520000" />
     </task>
     <servers />
   </component>

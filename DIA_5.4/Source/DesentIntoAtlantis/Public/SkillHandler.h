@@ -11,6 +11,18 @@ enum class EClassSlot : uint8;
 /**
  * 
  */
+
+
+UENUM()
+enum class ESkillStringParseType : uint8
+{
+	None       = 0,
+	Damage     = 1,
+	Element    = 2,
+	DamageType = 3,
+};
+
+
 UCLASS()
 class DESENTINTOATLANTIS_API USkillHandler : public UObject
 {
@@ -19,7 +31,16 @@ class DESENTINTOATLANTIS_API USkillHandler : public UObject
 private:
 	UPROPERTY()
 	TMap<ESkillIDS,USkillBase*> currentSkills;
-	
+
+	UPROPERTY()
+	TMap<EElementalType, FString> elementalTypeString;
+
+	UPROPERTY()
+	TMap<ESkillDamageType, FString> skillDamageTypeString;
+
+	TMap<FString,ESkillStringParseType> skillDescriptionParse;
+
+	void InitializeSkillStrings();
 public:
 
 	UPROPERTY()
@@ -44,17 +65,13 @@ UPROPERTY()
 
 	USkillBase* GetActiveSkill(ESkillIDS aSkillID);
 
-	UFUNCTION()
-	void OnTurnStart();
-	
 	TArray<USkillBase*> GetSkillsByID(TArray<ESkillIDS> aSkillIds);
 	TArray<USkillBase*> GetAllCurrentSkills();
-	
+
 	UFUNCTION()
 	void PassiveAdded(UPassiveSkills* PassiveSkills);
 	UFUNCTION()
 	void PassiveRemoved(UPassiveSkills* PassiveSkills);
-	
 
 	void RemoveSkillModification(EPassiveSkillID aPassiveSkillID);
 	void AddSkillModification(EPassiveSkillID aPassiveSkillID,FSkillModification aSkillModification);
@@ -62,6 +79,15 @@ UPROPERTY()
 
 	void SetChargingSkill(USkillBase* aSkillData);
 	bool isSkillCharging();
+
+	FString ParseSkillDescription(FSkillsData aSkillData);
+
+	FString GetSkillValuesStrings(FSkillsData aSkillData, ESkillStringParseType aSkillStringParseType);
+	
+	UFUNCTION()
+	void OnTurnStart();
+	
+	
 
 	FSkillsData ModifySkill(FSkillsData aSkillData,TArray<FSkillModification>  aSkillModification);
 

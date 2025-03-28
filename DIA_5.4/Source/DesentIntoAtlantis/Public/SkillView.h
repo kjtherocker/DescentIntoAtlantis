@@ -66,7 +66,7 @@ public:
 	UTextBlock* BW_SkillName;
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
-	UTextBlock* BW_SkillDescription;
+	URichTextBlock* BW_SkillDescription;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	class UVerticalBox* BW_VerticalBox;

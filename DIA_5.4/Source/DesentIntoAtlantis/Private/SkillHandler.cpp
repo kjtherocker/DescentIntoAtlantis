@@ -6,7 +6,27 @@
 #include "ESkillID.h"
 #include "InterruptHandler.h"
 #include "SkillBase.h"
+#include "SkillDamageType.h"
 #include "SkillFactorySubsystem.h"
+
+void USkillHandler::InitializeSkillStrings()
+{
+	elementalTypeString.Add(EElementalType::Null, "Null");
+	elementalTypeString.Add(EElementalType::Light, "Light");
+	elementalTypeString.Add(EElementalType::Shadow, "Shadow");
+	elementalTypeString.Add(EElementalType::Ice, "Ice");
+	elementalTypeString.Add(EElementalType::Fire, "Fire");
+	elementalTypeString.Add(EElementalType::Wind, "Wind");
+	elementalTypeString.Add(EElementalType::Earth, "Earth");
+	elementalTypeString.Add(EElementalType::Lighting, "Lightning");
+
+	skillDamageTypeString.Add(ESkillDamageType::Physical, "Physical");
+	skillDamageTypeString.Add(ESkillDamageType::Magic, "Magic");
+	
+	skillDescriptionParse.Add("<Damage>", ESkillStringParseType::Damage);
+	skillDescriptionParse.Add("<Element>", ESkillStringParseType::Element);
+	skillDescriptionParse.Add("<DamageType>", ESkillStringParseType::DamageType);
+}
 
 void USkillHandler::Initialize(UCombatEntity* aAttachedCombatEntity,USkillFactorySubsystem* aSkillFactorySubsystem, UPassiveHandler* aPassiveHandler)
 {
@@ -14,7 +34,9 @@ void USkillHandler::Initialize(UCombatEntity* aAttachedCombatEntity,USkillFactor
 	SkillFactorySubsystem = aSkillFactorySubsystem;
 	attachedCombatEntity = aAttachedCombatEntity;
 	attachedPassiveHandler = aPassiveHandler;
-
+	
+	InitializeSkillStrings();
+	
 	for (auto Element : attachedPassiveHandler->GetAllPassives())
 	{
 		if (IModifySkillPassive* ModifySkill = Cast<IModifySkillPassive>(Element))
@@ -174,6 +196,74 @@ bool USkillHandler::isSkillCharging()
 	}
 	
 	return chargingSkill->skillData.skillChargeData.isCharging;
+}
+
+FString USkillHandler::ParseSkillDescription(FSkillsData aSkillData)
+{
+	FString finalString;
+	FString skillDescription = aSkillData.skillDescription;
+
+	bool parsingNewString = false;
+	FString parsableString;
+	
+	for (int i = 0; i < skillDescription.Len(); i++)
+	{
+		TCHAR Character = skillDescription[i];
+
+		if(Character == '<')
+		{
+			parsingNewString = true;
+		}
+		
+		if(parsingNewString)
+		{
+			parsableString += Character;
+		}
+		else
+		{
+			finalString += Character;	
+		}
+
+
+		if(Character == '>')
+		{
+			if(skillDescriptionParse.Contains(parsableString))
+			{
+				FString parsedInfo = GetSkillValuesStrings(aSkillData,skillDescriptionParse[parsableString]);
+
+				finalString += parsedInfo;		
+			}
+		
+			parsingNewString = false;
+
+			parsableString = "";
+		}
+	
+		
+	
+	}
+
+	return finalString;
+}
+
+FString USkillHandler::GetSkillValuesStrings(FSkillsData aSkillData, ESkillStringParseType aSkillStringParseType)
+{
+	switch (aSkillStringParseType)
+	{
+	case ESkillStringParseType::None:
+		break;
+	case ESkillStringParseType::Damage:
+		return "<Hit>" + FString::FromInt(aSkillData.damage)+"</>";
+		break;
+	case ESkillStringParseType::Element:
+		return elementalTypeString[aSkillData.elementalType];
+		break;
+	case ESkillStringParseType::DamageType:
+		return skillDamageTypeString[aSkillData.skillDamageType];
+		break;
+	}
+
+	return "";
 }
 
 void USkillHandler::OnTurnStart()
