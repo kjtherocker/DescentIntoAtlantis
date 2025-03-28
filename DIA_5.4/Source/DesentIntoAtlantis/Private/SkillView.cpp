@@ -12,6 +12,7 @@
 #include "CombatSelectionView.h"
 #include "PersistentGameinstance.h"
 #include "PlayerCombatEntity.h"
+#include "SkillTraitHighlightElement.h"
 
 
 void USkillView::UiInitialize(AAtlantisGameModeBase* aGameModeBase)
@@ -55,7 +56,7 @@ void USkillView::InitializeSkills(ACombatGameModeBase* aCombatGameMode,EClassSlo
 	if(skillBarElements[cursorPosition] != nullptr)
 	{
 		skillBarElements[cursorPosition]->BW_BackgroundHighlight->SetOpacity(1);
-		SkillSelection(combatClass[cursorPosition]->skillData);	
+		SkillSelection(combatClass[cursorPosition]);	
 	}
 	
 	SetCursorPositionInfo();
@@ -96,7 +97,7 @@ void USkillView::MoveUp()
 
 	Super::MoveUp();
 	
-	SkillSelection(currentActivePartyMember->classHandler->GetClassSkills(EClassSlot::Main)[cursorPosition]->skillData);
+	SkillSelection(currentActivePartyMember->classHandler->GetClassSkills(EClassSlot::Main)[cursorPosition]);
 	skillBarElements[cursorPosition]->Highlight();
 }
 
@@ -112,7 +113,7 @@ void USkillView::MoveDown()
 
 	Super::MoveDown();
 	
-	SkillSelection(currentActivePartyMember->classHandler->GetClassSkills(EClassSlot::Main)[cursorPosition]->skillData);
+	SkillSelection(currentActivePartyMember->classHandler->GetClassSkills(EClassSlot::Main)[cursorPosition]);
 	skillBarElements[cursorPosition]->Highlight();
 }
 
@@ -133,12 +134,16 @@ void USkillView::CreateSkillbar(FSkillsData aSkill)
 	BW_VerticalBox->AddChild(skillBarElement);
 }
 
-void USkillView::SkillSelection(FSkillsData aSkill)
+void USkillView::SkillSelection(USkillBase*  aSkill)
 {
-	SetCombatToken(aSkill);
-	BW_SkillName->SetText(FText(FText::FromString(aSkill.skillName)));
+	FSkillsData SkillsData = aSkill->skillData;
+		
+	SetCombatToken(SkillsData);
+	SetSkillTrait( aSkill);
+	
+	BW_SkillName->SetText(FText(FText::FromString(SkillsData.skillName)));
 	BW_SkillDescription->SetText
-	(FText(FText::FromString(currentActivePartyMember->combatEntityHub->skillHandler->ParseSkillDescription(aSkill))));
+	(FText(FText::FromString(currentActivePartyMember->combatEntityHub->skillHandler->ParseSkillDescription(SkillsData))));
 }
 
 void USkillView::SetCombatToken(FSkillsData aSkillsData)
@@ -157,6 +162,37 @@ void USkillView::SetCombatToken(FSkillsData aSkillsData)
 	
 }
 
+void USkillView::SetSkillTrait(USkillBase*  aSkill)
+{
+
+	FSkillsData SkillsData = aSkill->skillData;
+	for (int i = skillTraitHighlightElements.Num() - 1; i >= 0; i--)
+	{
+		skillTraitHighlightElements[i]->RemoveFromParent();
+		skillTraitHighlightElements.RemoveAt(i);
+	}
+
+	if(SkillsData.skillType != ESkillType::None)
+	{
+		CreateSkillTrait( SkillsData, ESkillTraitType::skillType);		
+	}
+
+	if(SkillsData.skillType == ESkillType::Attack ||SkillsData.skillType == ESkillType::AttackNegativeCombatToken )
+	{
+		CreateSkillTrait( SkillsData, ESkillTraitType::DamageType);		
+	}
+
+	if(SkillsData.skillScaleStat != EStatTypes::None)
+	{
+		CreateSkillTrait( SkillsData, ESkillTraitType::ScaleStat);
+	}
+
+	if (ISkillHit* skillHit = Cast<ISkillHit>(aSkill))
+	{
+		CreateSkillTrait( SkillsData, ESkillTraitType::SkillHit);
+	}
+}
+
 void USkillView::CreateCombatToken(FCombatTokenStackData aCombatTokenData)
 {
 	UUserWidget* basewidget = CreateWidget(this, InGameHUD->GetElement(EViewElements::CombatTokenDescriptionElement));
@@ -170,6 +206,21 @@ void USkillView::CreateCombatToken(FCombatTokenStackData aCombatTokenData)
 	CombatTokenDescriptionElements.Add(CombatTokenDescriptionElement);
 	
 	BW_CombatTokenVerticalBox->AddChild(basewidget);
+}
+
+void USkillView::CreateSkillTrait(FSkillsData aSkillsData, ESkillTraitType aSkillTraitType)
+{
+	UUserWidget* basewidget = CreateWidget(this, InGameHUD->GetElement(EViewElements::SkillTraitElement));
+
+	USkillTraitHighlightElement* skillTraitElement = (USkillTraitHighlightElement*)basewidget;
+	skillTraitElement->UiInitialize(gameModeBase);
+	basewidget->AddToViewport();
+
+	skillTraitElement->InitializeSkillTrait(currentActivePartyMember->combatEntityHub->skillHandler,aSkillTraitType,aSkillsData);
+
+	skillTraitHighlightElements.Add(skillTraitElement);
+	
+	BW_SkillTraitHorizontalBox->AddChild(basewidget);
 }
 
 void USkillView::SelectSkill()

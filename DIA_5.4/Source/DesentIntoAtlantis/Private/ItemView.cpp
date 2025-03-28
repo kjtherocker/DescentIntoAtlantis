@@ -8,6 +8,7 @@
 #include "CombatSelectionView.h"
 #include "Inventory_Equipment.h"
 #include "Inventory_Items.h"
+#include "PersistentGameinstance.h"
 #include "SkillBarElement.h"
 #include "Components/VerticalBox.h"
 

@@ -29,6 +29,10 @@ class DESENTINTOATLANTIS_API USkillHandler : public UObject
 	GENERATED_BODY()
 
 private:
+
+	void InitializeSkillStrings();
+public:
+
 	UPROPERTY()
 	TMap<ESkillIDS,USkillBase*> currentSkills;
 
@@ -38,11 +42,16 @@ private:
 	UPROPERTY()
 	TMap<ESkillDamageType, FString> skillDamageTypeString;
 
+	UPROPERTY()
+	TMap<EStatTypes, FString> skillScaleStatString;
+
+	UPROPERTY()
+	TMap<ESkillType, FString> skillTypeString;
+	
+	UPROPERTY()
 	TMap<FString,ESkillStringParseType> skillDescriptionParse;
 
-	void InitializeSkillStrings();
-public:
-
+	
 	UPROPERTY()
 	USkillBase* chargingSkill;
 

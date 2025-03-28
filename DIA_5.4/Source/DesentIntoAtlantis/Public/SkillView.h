@@ -6,6 +6,7 @@
 #include "BaseUserWidget.h"
 #include "CombatTokenDescriptionElement.h"
 #include "PlayerCombatEntity.h"
+#include "SkillTraitHighlightElement.h"
 #include "SkillView.generated.h"
 
 class USkillBarElement;
@@ -21,11 +22,14 @@ class DESENTINTOATLANTIS_API USkillView : public UBaseUserWidget
 	GENERATED_BODY()
 	virtual void UiInitialize(AAtlantisGameModeBase* aGameModeBase) override;
 	void CreateSkillbar(FSkillsData aSkill);
-	void SkillSelection(FSkillsData aSkill);
+	void SkillSelection(USkillBase* aSkill);
 
 	void SetCombatToken(FSkillsData aSkillsData);
+	void SetSkillTrait(USkillBase*  aSkill);
 
 	void CreateCombatToken(FCombatTokenStackData aCombatTokenData);
+
+	void CreateSkillTrait(FSkillsData aSkillsData, ESkillTraitType aSkillTraitType);
 	
 	void SelectSkill();
 	virtual void MoveUp() override;
@@ -38,6 +42,9 @@ protected:
 
 	UPROPERTY()
 	TArray<UCombatTokenDescriptionElement*> CombatTokenDescriptionElements;
+
+	UPROPERTY()
+	TArray<USkillTraitHighlightElement*> skillTraitHighlightElements;
 	
 public:
 	
@@ -73,6 +80,9 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	class UVerticalBox* BW_CombatTokenVerticalBox;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	class UHorizontalBox* BW_SkillTraitHorizontalBox;
 };
 
 

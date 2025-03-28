@@ -22,6 +22,21 @@ void USkillHandler::InitializeSkillStrings()
 
 	skillDamageTypeString.Add(ESkillDamageType::Physical, "Physical");
 	skillDamageTypeString.Add(ESkillDamageType::Magic, "Magic");
+
+	skillScaleStatString.Add(EStatTypes::Strength,"Strength");
+	skillScaleStatString.Add(EStatTypes::Magic,"Magic");
+	skillScaleStatString.Add(EStatTypes::Defence,"Defence");
+	skillScaleStatString.Add(EStatTypes::Resistance,"Resistance");
+	skillScaleStatString.Add(EStatTypes::Hit,"Hit");
+	skillScaleStatString.Add(EStatTypes::Evasion,"Evasion");
+
+	skillTypeString.Add(ESkillType::Attack,"Attack");
+	skillTypeString.Add(ESkillType::Heal,"Heal");
+	skillTypeString.Add(ESkillType::AttackNegativeCombatToken,"Attack Debuff");
+	skillTypeString.Add(ESkillType::NegativeCombatToken,"Debuff");
+	skillTypeString.Add(ESkillType::PositiveCombatToken,"Buff");
+	skillTypeString.Add(ESkillType::HealPositiveCombatToken,"Heal Buff");
+	skillTypeString.Add(ESkillType::Start,"Start");
 	
 	skillDescriptionParse.Add("<Damage>", ESkillStringParseType::Damage);
 	skillDescriptionParse.Add("<Element>", ESkillStringParseType::Element);

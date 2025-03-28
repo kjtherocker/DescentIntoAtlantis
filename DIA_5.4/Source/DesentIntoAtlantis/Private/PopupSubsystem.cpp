@@ -99,6 +99,7 @@ void UPopupSubsystem::CreateItemPopup(FItemData aItemData)
 	UItemPopupView* ItemPopupView =
 		(UItemPopupView*)InGameHUD->PushAndGetView(EViews::ItemPopupView,  EUiType::ActiveUi);
 
+	ItemPopupView->ViewClosed.RemoveDynamic(this, &UPopupSubsystem::OnPopupEnd);
 	ItemPopupView->ViewClosed.AddDynamic(this, &UPopupSubsystem::OnPopupEnd);
 	ItemPopupView->SetItemPopup(aItemData);
 }

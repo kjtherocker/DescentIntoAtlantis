@@ -7,7 +7,7 @@
 
 void USkillBarElement::SetSkill(FSkillsData aSkill)
 {
-	if(aSkill.skillIcon == nullptr)
+	if(aSkill.skillIcon == nullptr && aSkill.elementalType != EElementalType::None)
 	{
 		SkillIcon->SetBrushFromTexture(persistentGameinstance->elementalIcons[aSkill.elementalType]);
 	}

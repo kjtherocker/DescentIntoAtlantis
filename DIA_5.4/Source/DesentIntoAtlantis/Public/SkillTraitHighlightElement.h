@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "BaseHighlightElement.h"
+#include "SkillData.h"
+#include "SkillHandler.h"
 #include "SkillTraitHighlightElement.generated.h"
 
 /**
@@ -17,6 +19,8 @@ enum class ESkillTraitType : uint8
 	Element    = 2,
 	DamageType = 3,
 	ScaleStat  = 4,
+	SkillHit   = 5,
+	skillType  = 6,
 };
 
 
@@ -25,5 +29,14 @@ UCLASS()
 class DESENTINTOATLANTIS_API USkillTraitHighlightElement : public UBaseHighlightElement
 {
 	GENERATED_BODY()
+public:
+	
+	void InitializeSkillTrait(USkillHandler* aSkillHandler, ESkillTraitType aSkillTraitType, FSkillsData aSkillData);
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	UImage* BW_Background;
+
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	URichTextBlock* BW_TraitTitle;
 	
 };
