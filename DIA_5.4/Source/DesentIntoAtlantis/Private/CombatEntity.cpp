@@ -22,7 +22,7 @@ void UCombatEntity::SetAWrapperToDefault(ECombatEntityWrapperType aShellType)
 void UCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassiveFactorySubsystem* aPassiveSkillFactory, UPersistentGameinstance* aPersistentGameinstance)
 {
 
-    for (int32 i = static_cast<int32>(EStatTypes::None) + 1; i < static_cast<int32>(EStatTypes::Max); ++i)
+    for (int32 i = static_cast<int32>(EStatTypes::None); i < static_cast<int32>(EStatTypes::Max); ++i)
     {
         EStatTypes Value = static_cast<EStatTypes>(i);
         InitializeStats(Value);

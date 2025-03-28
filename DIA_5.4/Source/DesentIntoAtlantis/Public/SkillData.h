@@ -98,7 +98,7 @@ struct DESENTINTOATLANTIS_API FSkillsData : public FTableRowBase
 	EResource SkillResourceUsed;
 
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")    
-	EResource ResourceUsedOn = EResource::Health;
+	EResource ResourceUsedOn = EResource::Damage;
 
 	UPROPERTY( EditAnywhere , Category = "DefaultInfo")
 	int costToUse;

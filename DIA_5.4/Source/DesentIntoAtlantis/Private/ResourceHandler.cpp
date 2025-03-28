@@ -185,7 +185,7 @@ void UResourceHandler::StartDecrementResource(EResource aResource, int aDecremen
 {
 	//Health is considered main damage while the other resources can be
 	//targeted health has defensive layers that could happen instead of health first
-	if(aResource == EResource::Health)
+	if(aResource == EResource::Damage)
 	{
 		DealDamage(aDecrementBy);
 	}

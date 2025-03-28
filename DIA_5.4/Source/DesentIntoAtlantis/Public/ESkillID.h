@@ -48,7 +48,20 @@ enum class ESkillIDS : uint8
 	AvariceFocus          UMETA(DisplayName = "AvariceFocus"),
 	
 	//Item
-	HealPotion             UMETA(DisplayName = "HealPotion"),
+	HealPotion                  UMETA(DisplayName = "HealPotion"),
+	ItemNotFound                UMETA(DisplayName = "ItemNotFound"),
+	PercentageHealPotion        UMETA(DisplayName = "percentageHeal"),
+	FlatManaPotion              UMETA(DisplayName = "FlatHealPotion"),
+	PercentageManaPotion        UMETA(DisplayName = "PercentageManaPotion"),
+	CancelNegativeCombatTokens  UMETA(DisplayName = "CancelNegativeCombatTokens"),
+	InvertCombatTokens          UMETA(DisplayName = "InvertCombatTokens"),
+	Bomb                        UMETA(DisplayName = "GenericBomb"),
+	FireBomb                    UMETA(DisplayName = "FireBomb"),
+	IceBomb                     UMETA(DisplayName = "IceBomb"),
+	ShadowBomb                  UMETA(DisplayName = "ShadowBomb"), 
+	WindBomb                    UMETA(DisplayName = "WindBomb"), 
+	LightningBomb               UMETA(DisplayName = "LightningBomb"), 
+	LightBomb                   UMETA(DisplayName = "LightBomb"), 
 	//SharkFiend
 	WaterBlast             UMETA(DisplayName = "WaterBlast"),
 	//CatGuard

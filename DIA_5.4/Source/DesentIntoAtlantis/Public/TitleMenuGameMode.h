@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "AtlantisGameModeBase.h"
 #include "GameFramework/GameModeBase.h"
-#include "MainMenuGameMode.generated.h"
+#include "TitleMenuGameMode.generated.h"
 
 class AInGameHUD;
 /**
@@ -13,11 +13,11 @@ class AInGameHUD;
  */
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FStartGameDelegate);
 UCLASS()
-class DESENTINTOATLANTIS_API AMainMenuGameMode : public AAtlantisGameModeBase
+class DESENTINTOATLANTIS_API ATitleMenuGameMode : public AAtlantisGameModeBase
 {
 	GENERATED_BODY()
 
-	AMainMenuGameMode();
+	ATitleMenuGameMode();
 
 	virtual void InitializeLevel() override;
 	

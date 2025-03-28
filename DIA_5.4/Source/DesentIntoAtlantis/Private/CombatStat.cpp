@@ -7,6 +7,11 @@
 
 int UCombatStat::GetAllStats()
 {
+	if(StatType == EStatTypes::None)
+	{
+		return 0;
+	}
+	
 	int total =  base + buff + debuff + domain + GetAllPassive();
 	return total;
 }
@@ -18,7 +23,7 @@ void UCombatStat::SetStatType(EStatTypes aStatType)
 
 void UCombatStat::TryAddStatPassive(UPassiveSkills* aPassiveSkills)
 {
-	if(aPassiveSkills == nullptr)
+	if(aPassiveSkills == nullptr || StatType == EStatTypes::None)
 	{
 		return;
 	}
@@ -35,7 +40,7 @@ void UCombatStat::TryAddStatPassive(UPassiveSkills* aPassiveSkills)
 
 void UCombatStat::TryRemoveStatPassive(UPassiveSkills* aPassiveSkills)
 {
-	if(aPassiveSkills == nullptr)
+	if(aPassiveSkills == nullptr || StatType == EStatTypes::None)
 	{
 		return;
 	}
@@ -51,7 +56,7 @@ void UCombatStat::TryRemoveStatPassive(UPassiveSkills* aPassiveSkills)
 
 int UCombatStat::GetAllPassive()
 {
-	if(passives.Num() == 0)
+	if(passives.Num() == 0 || StatType == EStatTypes::None)
 	{
 		return 0;
 	}
@@ -98,6 +103,11 @@ void UCombatStat::SetStat(FPlayerIdentityData aPlayerIdentityData, int aCurrentL
 
 int UCombatStat::GetStatByLevel(FPlayerIdentityData aPlayerIdentityData, int aCurrentLevel)
 {
+	if(StatType == EStatTypes::None)
+	{
+		return 0;
+	}
+	
 	int baseGrowth = aPlayerIdentityData.playerStatGrowths.baseStats[StatType] ;
 	int baseStat   = aPlayerIdentityData.playerStatBases.baseStats[StatType];
 		
@@ -106,11 +116,21 @@ int UCombatStat::GetStatByLevel(FPlayerIdentityData aPlayerIdentityData, int aCu
 
 void UCombatStat::AddClassStatBase(FCompleteClassData aCompleteClassData)
 {
+	if(StatType == EStatTypes::None)
+	{
+		return;
+	}
+	
 	classStatBases.Add(aCompleteClassData.classIdentifer,aCompleteClassData.classStatBase.baseStats[StatType]);
 }
 
 int UCombatStat::GetClassBases()
 {
+	if(StatType == EStatTypes::None)
+	{
+		return 0;
+	}
+	
 	int classBase = 0;
 
 	if(classStatBases.Num() == 0)

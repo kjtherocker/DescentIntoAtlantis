@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "BaseUserWidget.h"
 #include "GameManager.h"
-#include "MainMenuGameMode.h"
+#include "TitleMenuGameMode.h"
 #include "TitleView.generated.h"
 
 class UBorder;

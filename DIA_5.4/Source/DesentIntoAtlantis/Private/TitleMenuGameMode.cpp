@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "MainMenuGameMode.h"
+#include "TitleMenuGameMode.h"
 
 #include "FloorPlayerController.h"
 #include "Inventory_Items.h"
@@ -11,7 +11,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "TitleView.h"
 
-AMainMenuGameMode::AMainMenuGameMode()
+ATitleMenuGameMode::ATitleMenuGameMode()
 {
 	bNetLoadOnClient = false;
 	bPauseable = true;
@@ -22,26 +22,27 @@ AMainMenuGameMode::AMainMenuGameMode()
 
 }
 
-void AMainMenuGameMode::InitializeLevel()
+void ATitleMenuGameMode::InitializeLevel()
 {
 	Super::InitializeLevel();
 	persistentGameInstance->popupSubsystem->SetGameMode(this);
 	CreateMainMenu();
 }
 
-void AMainMenuGameMode::CreateMainMenu()
+void ATitleMenuGameMode::CreateMainMenu()
 {
 	UTitleView* titleView  = (UTitleView*)InGameHUD->PushAndGetView(EViews::Title,EUiType::ActiveUi);
-	startGameDelegate.AddDynamic(this,&AMainMenuGameMode::StartGame);
+	startGameDelegate.AddDynamic(this,&ATitleMenuGameMode::StartGame);
 	titleView->SetStartGameDelegate(startGameDelegate);
 
 
 }
 
-void AMainMenuGameMode::StartGame()
+void ATitleMenuGameMode::StartGame()
 {
 	if(UGameSettings::isPrologueDisabled)
 	{
+		partyManager->PartyInventory->GetInventoryItems()->AddItem(EItemID::FireBomb);
 		partyManager->AddPlayerToActiveParty(EPartyMembersID::Kriede);
 		
 		if (persistentGameInstance)

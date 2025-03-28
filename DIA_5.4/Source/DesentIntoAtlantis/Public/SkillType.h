@@ -26,6 +26,7 @@ enum class EResource  : uint8
 	Mana,
 	Health,
 	Sync,
-	ItemCharges
+	ItemCharges,
+	Damage
 };
 
