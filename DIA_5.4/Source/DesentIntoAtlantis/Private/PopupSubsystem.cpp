@@ -45,7 +45,7 @@ bool UPopupSubsystem::isPopupAllowedToShowUp()
 void UPopupSubsystem::AddPopupRequest(FPopupRequestData aPopupRequest)
 {
 	PopupRequestDatas.Add(aPopupRequest);
-}
+}//////
 
 void UPopupSubsystem::TriggerPopup()
 {
