@@ -79,6 +79,8 @@ public:
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UProgressBarDelayedElement* BW_Sync;
 
+	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
+	URichTextBlock* BW_SyncText;
 	
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UTextBlock* BW_ManaText;

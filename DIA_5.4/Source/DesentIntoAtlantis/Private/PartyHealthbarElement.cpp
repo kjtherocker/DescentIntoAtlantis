@@ -90,6 +90,7 @@ void UPartyHealthbarElement::UpdateHealthbarElements()
 	}
 	else
 	{
+	 	SetText(BW_SyncText, FString::FromInt(syncPercentage* 100)+"%" );
 		BW_Sync->SetPercentageMain(syncPercentage);	
 	}	
 }
