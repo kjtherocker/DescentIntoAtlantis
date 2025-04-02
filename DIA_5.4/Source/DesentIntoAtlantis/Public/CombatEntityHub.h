@@ -14,7 +14,7 @@ class USkillHandler;
 class USyncHandler;
 class UItemChargeHandler;
 class UPersistentGameinstance;
-class UInterruptHandler;
+class UEntityInterruptHandler;
 class UEquipmentHandler;
 class UElementalHandler;
 /**
@@ -53,6 +53,8 @@ public:
 	virtual void OnAttackEvaded(FCombatLog_Hit_Data aEvasionData);
 	virtual void OnEvadedAttack(FCombatLog_Hit_Data aEvasionData);
 
+	virtual void OnCombatStart(ACombatGameModeBase* aCombatGameMode);
+	
 	virtual void SendGenericTrigger(EGenericTrigger aGenericTrigger);
 
 	virtual int GetAilmentResistance();
@@ -67,7 +69,7 @@ public:
 	USkillHandler* skillHandler;
 
 	UPROPERTY()
-	UInterruptHandler* InterruptHandler;
+	UEntityInterruptHandler* InterruptHandler;
 	UPROPERTY()
 	UCombatTokenHandler* combatTokenHandler;
 

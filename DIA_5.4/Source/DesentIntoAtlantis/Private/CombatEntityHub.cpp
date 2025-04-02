@@ -3,10 +3,12 @@
 
 #include "CombatEntityHub.h"
 
+#include "CombatGameModeBase.h"
+#include "CombatInterruptManager.h"
 #include "CombatLog_Hit_Data.h"
 #include "ElementalHandler.h"
 #include "EquipmentHandler.h"
-#include "InterruptHandler.h"
+#include "EntityInterruptHandler.h"
 #include "Inventory_Equipment.h"
 #include "Inventory_Items.h"
 #include "PartyManagerSubsystem.h"
@@ -28,7 +30,7 @@ void UCombatEntityHub::InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEnti
 	combatTokenHandler = NewObject<UCombatTokenHandler>();
 	elementalHandler   = NewObject<UElementalHandler>();
 	equipmentHandler   = NewObject<UEquipmentHandler>();
-	InterruptHandler   = NewObject<UInterruptHandler>();
+	InterruptHandler   = NewObject<UEntityInterruptHandler>();
 	skillHandler       = NewObject<USkillHandler>();
 
 
@@ -92,6 +94,11 @@ void UCombatEntityHub::OnEvadedAttack(FCombatLog_Hit_Data aEvasionData)
 {
 	SendGenericTrigger(EGenericTrigger::OnEvadedAttack);
 	EvadedAttack.Broadcast(aEvasionData,OwnedCombatEntity);
+}
+
+void UCombatEntityHub::OnCombatStart(ACombatGameModeBase* aCombatGameMode)
+{
+	skillHandler->InitializeCombat(persistentGameinstance->SkillResolveSubsystem,aCombatGameMode);
 }
 
 void UCombatEntityHub::SendGenericTrigger(EGenericTrigger aGenericTrigger)

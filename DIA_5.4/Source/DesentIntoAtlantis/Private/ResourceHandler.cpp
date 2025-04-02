@@ -101,6 +101,7 @@ int UResourceHandler::DecrementResourceReturnOverFlow(EResource aResource,int aV
 		break;
 	case EResource::Health:
 		overflowValue = healthHandler->DecrementHealth(aValue);
+		IncrementResource(EResource::Sync,5);
 		break;
 	case EResource::Sync:
 		overflowValue = SyncHandler->DecrementValue(aValue);
@@ -130,7 +131,6 @@ void UResourceHandler::IncrementResource(EResource aResource, int aValue)
 		break;
 	case EResource::Health:
 		healthHandler->IncrementValue(aValue);
-		IncrementResource(EResource::Sync,5);
 		break;
 	case EResource::Sync:
 		SyncHandler->IncrementValue(aValue);

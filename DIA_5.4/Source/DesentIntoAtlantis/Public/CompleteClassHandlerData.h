@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "CombatClass.h"
-#include "UObject/NoExportTypes.h"
+
 #include "CompleteClassHandlerData.generated.h"
 
 /**

@@ -36,7 +36,6 @@ void USkillInterrupt::ActivateInterrupt()
 {
 	Super::ActivateInterrupt();
 
-	persistantGameInstance->SkillResolveSubsystem->ActivateSkill(	CombatInterruptData.InterruptionSkill->skillData.skillChargeData.skillOwner,
-		CombatInterruptData.InterruptionSkill->skillData.skillChargeData.EntityToAttackOnChargeEnd,CombatInterruptData.InterruptionSkill);
+	persistantGameInstance->SkillResolveSubsystem->ResolveSkillAction(CombatInterruptData.SkillActionData);
 	
 }

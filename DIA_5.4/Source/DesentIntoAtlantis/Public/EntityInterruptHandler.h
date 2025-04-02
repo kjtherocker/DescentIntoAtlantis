@@ -8,10 +8,10 @@
 #include "PassiveSkillData.h"
 
 #include "UObject/NoExportTypes.h"
-#include "InterruptHandler.generated.h"
+#include "EntityInterruptHandler.generated.h"
 
 
-
+class UCombatInterruptManager;
 enum class EInterruptType         : uint8;
 
 class UCombatInterrupt;
@@ -35,7 +35,7 @@ struct DESENTINTOATLANTIS_API FInterruptData :public  FTableRowBase
 
 
 UCLASS()
-class DESENTINTOATLANTIS_API UInterruptHandler : public UObject
+class DESENTINTOATLANTIS_API UEntityInterruptHandler : public UObject
 {
 	GENERATED_BODY()
 
@@ -48,10 +48,14 @@ protected:
 	UPersistentGameinstance* persistantGameInstance;
 
 	UPROPERTY()
+	UCombatInterruptManager* CombatInterruptHandler;
+
+	UPROPERTY()
 	TArray<UCombatInterrupt*> combatInterruptSkill;
 public:
-	UCombatInterrupt* CreateInterrupt(EInterruptType aInterruptType, FCombatInterruptData aCombatInterruptData);
+	
 	void InitializeInterruptHandler(UCombatEntity* aOwnedCombatEntity,UPersistentGameinstance* aPersistantGameInstance);
+	void InitializeCombatInterruptManager(UCombatInterruptManager* aCombatInterruptHandler);
 	void SetInterruptData(FInterruptData aInterruptData);
 
 	void AddCombatInterrupt(UCombatInterrupt* aCombatInterrupt);

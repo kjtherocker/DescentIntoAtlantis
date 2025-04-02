@@ -5,13 +5,14 @@
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
 #include "EnemyFactorySubSystem.h"
-#include "PartyManagerSubsystem.h"
+
 #include "EDataTableTypes.h"
 #include "FloorFactory.h"
 #include "GameSettings.h"
 
 #include "AtlantisGameModeBase.generated.h"
 
+class AFloorPlayerPawn;
 class USaveManagerSubsystem;
 class ULevelProgressionSubsystem;
 class UGameManager;

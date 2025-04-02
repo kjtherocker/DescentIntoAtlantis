@@ -4,13 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "AtlantisGameModeBase.h"
-#include "CombatInterruptData.h"
-#include "CombatLog_Full_Data.h"
-#include "EnemyCombatEntity.h"
-#include "FloorEnum.h"
-#include "PlayerCombatEntity.h"
-#include "UObject/NoExportTypes.h"
-
 #include "CombatGameModeBase.generated.h"
 class USkillResolveSubsystem;
 class UNumbersUIView;
@@ -174,7 +167,7 @@ public:
 
 
 	UPROPERTY()
-	UCombatInterruptManager* combatInterruptHandler;
+	UCombatInterruptManager* combatInterruptManager;
 	UPROPERTY()
 	UPressTurnManager* pressTurnManager;
 	
@@ -182,6 +175,8 @@ public:
 	void SetCombatState(ECombatState aCombatState);
 	void StartNewRound();
 
+	void PossessCombatCamera();
+	
 	void AddEnemyToCombat(FEnemyEntityCompleteData AEnemyEntityData,EEnemyCombatPositions aPosition,ERowType aRowType);
 	void SetRoundSide(ECharactertype aCharacterType);
 	void TurnEnd();

@@ -9,7 +9,7 @@
 #include "CompleteElementalHandlerData.h"
 #include "EnemyBeastiaryData.h"
 #include "EquipmentHandler.h"
-#include "InterruptHandler.h"
+#include "EntityInterruptHandler.h"
 #include "SkillBase.h"
 #include "UObject/NoExportTypes.h"
 #include "EnemyCombatEntity.generated.h"

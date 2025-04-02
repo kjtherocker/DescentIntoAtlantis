@@ -5,6 +5,7 @@
 
 #include "CombatGameModeBase.h"
 #include "PartyHealthbarElement.h"
+#include "PersistentGameinstance.h"
 #include "SkillRange.h"
 #include "SkillUsage.h"
 #include "Components/TextBlock.h"
@@ -46,7 +47,7 @@ void UCombatSelectionView::ActivateSkill()
 		currentSkill->SpendSkillCost(combatManager->GetCurrentActivePartyMember());
 
 		persistentGameinstance->SkillResolveSubsystem->
-		ActivateSkill(combatManager->GetCurrentActivePartyMember(),currentSkill,cursorPosition);
+		InitiateSkillAction(combatManager->GetCurrentActivePartyMember(),currentSkill,cursorPosition);
 	}
 }
 

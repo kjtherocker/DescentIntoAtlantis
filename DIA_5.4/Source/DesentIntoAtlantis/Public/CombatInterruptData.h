@@ -28,6 +28,23 @@ struct DESENTINTOATLANTIS_API FHealthThresholdData :public  FTableRowBase
 };
 
 USTRUCT()
+struct DESENTINTOATLANTIS_API FSkillActionData : public FTableRowBase
+{
+	GENERATED_BODY()
+
+	UPROPERTY()
+	UCombatEntity* Attacker;
+
+	UPROPERTY()
+	TArray<UCombatEntity*> Victims;
+
+	UPROPERTY()
+	USkillBase* SkillBase;
+	
+	
+};
+
+USTRUCT()
 struct DESENTINTOATLANTIS_API FCombatInterruptData : public FTableRowBase
 {
 	GENERATED_BODY()
@@ -60,6 +77,9 @@ struct DESENTINTOATLANTIS_API FCombatInterruptData : public FTableRowBase
 	UPROPERTY( EditAnywhere, Category = "Skill" )
 	ESkillIDS SkillIds;
 
+	UPROPERTY()
+	FSkillActionData SkillActionData;
+	
 	UPROPERTY( EditAnywhere, Category = "Skill" )
 	USkillBase* InterruptionSkill;
 

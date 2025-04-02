@@ -10,7 +10,7 @@
 #include "LevelupView.h"
 #include "PartyHealthbarsView.h"
 #include "PersistentGameinstance.h"
-#include "CombatGameModeBase.h"
+
 
 #include "CombatCameraPawn.h"
 #include "CommandBoardView.h"
@@ -20,11 +20,11 @@
 #include "CombatInterruptManager.h"
 #include "CombatLogSimplifiedView.h"
 #include "CombatLog_Full_Data.h"
-#include "LevelProgressionSubsystem.h"
+
 #include "NumbersUIView.h"
+#include "PartyManagerSubsystem.h"
 #include "PlayerCombatEntity.h"
-#include "SkillRange.h"
-#include "SkillUsage.h"
+
 #include "SoundManager.h"
 #include "TransitionView.h"
 #include "UObject/NoExportTypes.h"
@@ -33,51 +33,34 @@
 void ACombatGameModeBase::InitializeLevel()
 {
 	Super::InitializeLevel();
-
-	persistentGameInstance->popupSubsystem->SetGameMode(this);
-
-	persistentGameInstance->SkillResolveSubsystem->SetGameModeBase(this);
 	
-	SkillResolveSubsystem = persistentGameInstance->SkillResolveSubsystem;
-	
-	FActorSpawnParameters ActorSpawnParameters;
-	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-	ActorSpawnParameters.Owner = this;
-
-	godManagerSubsystem = persistentGameInstance->challengeManagerSubsystem;
+	godManagerSubsystem          = persistentGameInstance->challengeManagerSubsystem;
 	passiveSkillFactorySubsystem = persistentGameInstance->passiveFactorySubsystem;
+	SkillResolveSubsystem        = persistentGameInstance->SkillResolveSubsystem;
+	FCombatArenaData arenaData   = persistentGameInstance->ConsumeArenaDataFlag();
 	
-	PlayerController = GetWorld()->GetFirstPlayerController();
-	combatCamera = Cast<ACombatCameraPawn>(GetWorld()->SpawnActor<AActor>(cameraReference, CAMERA_POSITION, CAMERA_ROTATION,ActorSpawnParameters));
+	CombatWinCondition           = arenaData.CombatWinCondition;
 	
-	if (PlayerController->GetPawn()) // If the player controller has a pawn
-	{
-		PlayerController->UnPossess(); // Unpossess the current pawn
-	}
-
-	PlayerController->Possess(combatCamera); // Possess the new pawn
-	combatCamera->AutoPossessPlayer = EAutoReceiveInput::Player0;
-	combatCamera->PrimaryActorTick.bCanEverTick = true;
-	combatCamera->PossessedBy(PlayerController);
-	combatCamera->AutoPossessPlayer = EAutoReceiveInput::Player0;
+	pressTurnManager             = NewObject<UPressTurnManager>();
+	combatInterruptManager       = NewObject<UCombatInterruptManager>();
 	
-	pressTurnManager = NewObject<UPressTurnManager>();
 	pressTurnManager->Initialize(this);
 
-	combatInterruptHandler = NewObject<UCombatInterruptManager>();
-	
-	FCombatArenaData arenaData = persistentGameInstance->ConsumeArenaDataFlag();
+	//Needs to Be First
+	combatInterruptManager->SetGameModeBase(persistentGameInstance,this);
+	//Requires Combat Interrupt To Be Set
+	persistentGameInstance->SkillResolveSubsystem->SetGameModeBase(this,combatInterruptManager);
+	persistentGameInstance->popupSubsystem->SetGameMode(this);
 	persistentGameInstance->EventManagerSubSystem->SetCombatGameMode(this);
 	
 	portraitsLocations.Add(EEnemyCombatPositions::Left  ,ENEMY_POSITION1);
 	portraitsLocations.Add(EEnemyCombatPositions::Middle,ENEMY_POSITION2);
 	portraitsLocations.Add(EEnemyCombatPositions::Right ,ENEMY_POSITION3);
-
-	CombatWinCondition = arenaData.CombatWinCondition;
+	
+	PossessCombatCamera();
 	
 	StartCombat(arenaData.enemyGroupName);
-
-
+	
 	UTransitionView* transitionView =
 		(UTransitionView* )InGameHUD->PushAndGetView(EViews::TransitionView,EUiType::PersistentUi);
 
@@ -102,8 +85,8 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 	soundManager->SetAudioPauseState(EAudioSources::OverworldSoundEffect,true);
 	
 	hasCombatStarted = true;
-	combatInterruptHandler     = NewObject<UCombatInterruptManager>();
-	combatInterruptHandler->InitializeCombatInterruptHandler(this);
+	
+
 
 	for (auto PlayerCombatEntity : partyManager->ReturnActiveParty())
 	{
@@ -111,6 +94,7 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 		{
 			continue;
 		}
+		PlayerCombatEntity->combatEntityHub->OnCombatStart(this);
 		partyMembersInCombat.Add(PlayerCombatEntity);
 		PlayerCombatEntity->SetTacticsEvents(this);
 	}
@@ -177,9 +161,9 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 	currentRoundOrder = roundOrder;
 	
 	hasCombatStarted = false;
-	combatInterruptHandler->SetAllInterruptHandlers(GetPlayersInCombat(),GetEnemysInCombat());
-	combatInterruptHandler->CheckGenericTriggerInerrptions(EGenericTrigger::InitialCombatStart);
-	if( combatInterruptHandler->HasInterruptions())
+	combatInterruptManager->SetAllInterruptHandlers(GetPlayersInCombat(),GetEnemysInCombat());
+	combatInterruptManager->CheckGenericTriggerInerrptions(EGenericTrigger::InitialCombatStart);
+	if( combatInterruptManager->HasInterruptions())
 	{
 		SetCombatState(ECombatState::Interruption);
 	}
@@ -198,6 +182,7 @@ void ACombatGameModeBase::AddEnemyToCombat(FEnemyEntityCompleteData AEnemyEntity
 	EnemyCombatEntity->SetTacticsEvents(this);
 	EnemyCombatEntity->SetEnemyEntityData(AEnemyEntityData,skillFactory,aPosition);
 	EnemyCombatEntity->SetCurrentRow(aRowType);
+	EnemyCombatEntity->combatEntityHub->OnCombatStart(this);
 	EnemyCombatEntity->beastiaryData = enemyFactory->GetBestiaryEntry(EnemyCombatEntity->enemyEntityCompleteData.EnemyLabelID);
 	
 	enemysInCombat.Add(EnemyCombatEntity);
@@ -246,7 +231,7 @@ void ACombatGameModeBase::SetCombatState(ECombatState aCombatState)
 		break;
 	case ECombatState::Interruption:
 		InGameHUD->PopAllActiveViews();
-		combatInterruptHandler->StartTriggeringInterruptions();
+		combatInterruptManager->StartTriggeringInterruptions();
 		break;
 	case ECombatState::SuccessfulEnd:
 		ValidateEndingState(ECombatWinCondition::Win);
@@ -272,12 +257,35 @@ void ACombatGameModeBase::StartNewRound()
 	SetRoundSide(startRoundCharacterType);
 }
 
+void ACombatGameModeBase::PossessCombatCamera()
+{
+	FActorSpawnParameters ActorSpawnParameters;
+	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	ActorSpawnParameters.Owner = this;
+
+	
+	PlayerController = GetWorld()->GetFirstPlayerController();
+	combatCamera = Cast<ACombatCameraPawn>(GetWorld()->SpawnActor<AActor>(cameraReference, CAMERA_POSITION, CAMERA_ROTATION,ActorSpawnParameters));
+
+	//Camera
+	if (PlayerController->GetPawn()) // If the player controller has a pawn
+	{
+		PlayerController->UnPossess(); // Unpossess the current pawn
+	}
+
+	PlayerController->Possess(combatCamera); // Possess the new pawn
+	combatCamera->AutoPossessPlayer = EAutoReceiveInput::Player0;
+	combatCamera->PrimaryActorTick.bCanEverTick = true;
+	combatCamera->PossessedBy(PlayerController);
+	combatCamera->AutoPossessPlayer = EAutoReceiveInput::Player0;
+}
+
 void ACombatGameModeBase::TurnEnd()
 {
-	combatInterruptHandler->CheckAllEntitysForInterruptions();
+	combatInterruptManager->CheckAllEntitysForInterruptions();
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("turnEnd")));
 	
-	if( combatInterruptHandler->HasInterruptions())
+	if( combatInterruptManager->HasInterruptions())
 	{
 		SetCombatState(ECombatState::Interruption);
 		return;
@@ -475,7 +483,7 @@ void ACombatGameModeBase::EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEnt
 	enemySkillView->SetSkill(skillData,aEnemyCombatEntity);
 
 	int playerToAttack = aEnemyCombatEntity->enemyBehaviour->GetCombatEntitysUsedInSkill(skillObject,GetEnemysInCombat(),GetPlayersInCombat());
-	SkillResolveSubsystem->ActivateSkill(aEnemyCombatEntity,skillObject,playerToAttack);
+	SkillResolveSubsystem->InitiateSkillAction(aEnemyCombatEntity,skillObject,playerToAttack);
 }
 
 void ACombatGameModeBase::ValidateEndingState(ECombatWinCondition aCombatWinCondition)
@@ -546,7 +554,7 @@ ECharactertype ACombatGameModeBase::RemoveAndGetFirstInRoundOrder()
 
 void ACombatGameModeBase::AddInterruption(UCombatInterrupt* aCombatInterrupt)
 {
-	combatInterruptHandler->AddCombatInterrupt(aCombatInterrupt);
+	combatInterruptManager->AddCombatInterrupt(aCombatInterrupt);
 }
 
 void ACombatGameModeBase::AddCombatLog(TArray<FCombatLog_Full_Data> CombatLog_Base_Datas)

@@ -35,10 +35,12 @@ void UProgressBarDelayedElement::NativeTick(const FGeometry& MyGeometry, float D
 	{
 		previousPercentage -= DeltaTime *0.2;
 	}
-	//else if(previousHealthPercentage != currentHealthPercentage &&
-	//	previousHealthPercentage <  currentHealthPercentage)
+
+	//if(previousPercentage != currentPercentage &&
+	//	previousPercentage <  currentPercentage)
 	//{
-	//	previousHealthPercentage += DeltaTime *0.1;
+	//	previousPercentage -= DeltaTime *0.2;
 	//}
+
 	BW_Slow_ProgressBar->SetPercent(previousPercentage);
 }

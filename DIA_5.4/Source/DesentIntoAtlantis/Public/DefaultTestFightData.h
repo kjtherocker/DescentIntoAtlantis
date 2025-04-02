@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "CompleteClassHandlerData.h"
 #include "EquipmentHandler.h"
-#include "UObject/NoExportTypes.h"
+
 #include "DefaultTestFightData.generated.h"
 
 

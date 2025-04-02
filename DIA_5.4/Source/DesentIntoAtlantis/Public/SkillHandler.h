@@ -3,10 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "PassiveHandler.h"
+#include "CombatGameModeBase.h"
+
 #include "UObject/NoExportTypes.h"
 #include "SkillHandler.generated.h"
 
+class UCombatInterruptManager;
 enum class EClassSlot : uint8;
 /**
  * 
@@ -51,10 +53,14 @@ public:
 	UPROPERTY()
 	TMap<FString,ESkillStringParseType> skillDescriptionParse;
 
+	UPROPERTY()
+	USkillResolveSubsystem* skillResolveSubsystem;
 	
 	UPROPERTY()
 	USkillBase* chargingSkill;
-
+	
+	UPROPERTY()
+	ACombatGameModeBase* CombatGameModeBase;
 UPROPERTY()
 	USkillFactorySubsystem* SkillFactorySubsystem;
 	
@@ -69,6 +75,8 @@ UPROPERTY()
 	
 	void Initialize(UCombatEntity* aAttachedCombatEntity,USkillFactorySubsystem* aSkillFactorySubsystem,UPassiveHandler* aPassiveHandler);
 
+	void InitializeCombat(USkillResolveSubsystem* aSkillResolveSubsystem,ACombatGameModeBase* aCombatGameModeBase);
+	
 	void AddSkill(ESkillIDS aSkillID);
 	void RemoveSkill(ESkillIDS aSkillID);
 

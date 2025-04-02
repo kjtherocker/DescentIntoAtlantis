@@ -1,50 +1,35 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "InterruptHandler.h"
+#include "EntityInterruptHandler.h"
 
 #include "CombatInterruptData.h"
+#include "CombatInterruptManager.h"
 
-UCombatInterrupt* UInterruptHandler::CreateInterrupt(EInterruptType aInterruptType, FCombatInterruptData aCombatInterruptData)
-{
-	UCombatInterrupt* CombatInterrupt = nullptr;
-	switch (aInterruptType)
-	{
-	case EInterruptType::None:
-		break;
-	case EInterruptType::Dialogue:
-		CombatInterrupt = NewObject<UDialogueInterrupt>();
-		break;
-	case EInterruptType::Skill:
-		CombatInterrupt = NewObject<USkillInterrupt>();
-		break;
-	case EInterruptType::Passive:
-		break;
-	}
-	aCombatInterruptData.whoTriggeredInterrupt = ownedCombatEntity->GetEntityName();
-	CombatInterrupt->SetInterrupt(persistantGameInstance);
-	CombatInterrupt->SetCombatInterruptData(aCombatInterruptData);
-	return CombatInterrupt;
-}
 
-void UInterruptHandler::InitializeInterruptHandler(UCombatEntity* aOwnedCombatEntity,
-	UPersistentGameinstance* aPersistantGameInstance)
+void UEntityInterruptHandler::InitializeInterruptHandler(UCombatEntity* aOwnedCombatEntity,
+                                                         UPersistentGameinstance* aPersistantGameInstance)
 {
 	ownedCombatEntity = aOwnedCombatEntity;
 	persistantGameInstance = aPersistantGameInstance;
 }
 
-void UInterruptHandler::SetInterruptData(FInterruptData aInterruptData)
+void UEntityInterruptHandler::InitializeCombatInterruptManager(UCombatInterruptManager* aCombatInterruptHandler)
+{
+	CombatInterruptHandler = aCombatInterruptHandler;
+}
+
+void UEntityInterruptHandler::SetInterruptData(FInterruptData aInterruptData)
 {
 	InterruptData = aInterruptData;
 }
 
-void UInterruptHandler::AddCombatInterrupt(UCombatInterrupt* aCombatInterrupt)
+void UEntityInterruptHandler::AddCombatInterrupt(UCombatInterrupt* aCombatInterrupt)
 {
 	combatInterruptSkill.Add(aCombatInterrupt);
 }
 
-TArray<UCombatInterrupt*> UInterruptHandler::CheckGenericTriggerInterrupts(EGenericTrigger aGenericTrigger)
+TArray<UCombatInterrupt*> UEntityInterruptHandler::CheckGenericTriggerInterrupts(EGenericTrigger aGenericTrigger)
 {
 	TArray<UCombatInterrupt*> CombatInterrupts;
 
@@ -56,7 +41,9 @@ TArray<UCombatInterrupt*> UInterruptHandler::CheckGenericTriggerInterrupts(EGene
 			continue;
 		}
 
-		CombatInterrupts.Add(CreateInterrupt( CombatInterruptDatas.interruptType,CombatInterruptDatas));
+		CombatInterrupts.Add(CombatInterruptHandler->CreateInterrupt(ownedCombatEntity->GetEntityName(),
+			CombatInterruptDatas.interruptType,CombatInterruptDatas));
+		
 		if(CombatInterruptDatas.isConsumedOnUse)
 		{
 			CombatInterruptDatas.isDisabled = true;			
@@ -69,7 +56,7 @@ TArray<UCombatInterrupt*> UInterruptHandler::CheckGenericTriggerInterrupts(EGene
 	return CombatInterrupts;
 }
 
-TArray<UCombatInterrupt*> UInterruptHandler::CheckHealthRelatedInterrupt()
+TArray<UCombatInterrupt*> UEntityInterruptHandler::CheckHealthRelatedInterrupt()
 {
 	TArray<UCombatInterrupt*> CombatInterrupts;
 
@@ -85,7 +72,8 @@ TArray<UCombatInterrupt*> UInterruptHandler::CheckHealthRelatedInterrupt()
 		{
 			if(healthpercentage < CombatInterruptData.HealthThresholdData.TopPercent )
 			{
-				CombatInterrupts.Add(CreateInterrupt( CombatInterruptData.interruptType,CombatInterruptData));
+				CombatInterrupts.Add(CombatInterruptHandler->CreateInterrupt(ownedCombatEntity->GetEntityName(),CombatInterruptData.interruptType,
+					CombatInterruptData));
 				if(CombatInterruptData.isConsumedOnUse)
 				{
 					CombatInterruptData.isDisabled = true;			
@@ -99,7 +87,7 @@ TArray<UCombatInterrupt*> UInterruptHandler::CheckHealthRelatedInterrupt()
 	return CombatInterrupts;
 }
 
-TArray<UCombatInterrupt*> UInterruptHandler::GetCombatInterrupts()
+TArray<UCombatInterrupt*> UEntityInterruptHandler::GetCombatInterrupts()
 {
 	TArray<UCombatInterrupt*> CombatInterrupts;
 	TArray<UCombatInterrupt*> healthInterrupts = CheckHealthRelatedInterrupt();

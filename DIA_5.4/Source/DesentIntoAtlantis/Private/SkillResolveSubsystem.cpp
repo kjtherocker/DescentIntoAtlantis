@@ -6,6 +6,7 @@
 #include "ChallengeSubsystem.h"
 #include "CombatEntity.h"
 #include "CombatGameModeBase.h"
+#include "CombatInterruptManager.h"
 #include "CombatLog_Full_Data.h"
 #include "SkillBase.h"
 #include "SkillData.h"
@@ -13,30 +14,78 @@
 
 enum class EPressTurnReactions : uint8;
 
-void USkillResolveSubsystem::SetGameModeBase(ACombatGameModeBase* aCombatGameModeBase)
+void USkillResolveSubsystem::InitializePersistantGameInstance(UPersistentGameinstance* aPersistentGameinstance)
 {
-	combatGameModeBase = aCombatGameModeBase;
+	PersistentGameinstance = aPersistentGameinstance;
 }
 
-void USkillResolveSubsystem::ActivateSkill(UCombatEntity* aAttacker, USkillBase* aSkill,int aCursor)
+void USkillResolveSubsystem::SetGameModeBase(ACombatGameModeBase* aCombatGameModeBase,UCombatInterruptManager* aCombatInterruptManager)
 {
-	ActivateSkill(aAttacker,aSkill->GetSkillCombatEntity(combatGameModeBase,aCursor,aAttacker), aSkill);
+	mostRecentCombatLogs.Empty();
+	last50CombatLogs.Empty();
+	
+	combatGameModeBase     = aCombatGameModeBase;
+	combatInterruptmanager = aCombatInterruptManager;
 }
 
-void USkillResolveSubsystem::ActivateSkill(UCombatEntity* aAttacker,TArray<UCombatEntity*> aVictim, USkillBase* aSkill)
+void USkillResolveSubsystem::InitiateSkillAction(UCombatEntity* aAttacker, USkillBase* aSkill,
+	TArray<UCombatEntity*> aVictims)
+{
+	FSkillActionData SkillActionData;
+	
+	SkillActionData.Attacker  = aAttacker;
+	SkillActionData.Victims   = aVictims;
+	SkillActionData.SkillBase = aSkill;
+
+	CreateSkillInterrupt(SkillActionData);
+}
+
+void USkillResolveSubsystem::InitiateSkillAction(UCombatEntity* aAttacker, USkillBase* aSkill,int aCursor)
+{
+	FSkillActionData SkillActionData;
+	
+	SkillActionData.Attacker  = aAttacker;
+	SkillActionData.Victims   = aSkill->GetSkillCombatEntity(combatGameModeBase,aCursor,aAttacker);
+	SkillActionData.SkillBase = aSkill;
+	
+	CreateSkillInterrupt(SkillActionData);
+}
+
+void USkillResolveSubsystem::CreateSkillInterrupt(FSkillActionData aSkillActionData)
+{
+	FCombatInterruptData CombatInterruptData;
+	CombatInterruptData.SkillActionData = aSkillActionData;
+	CombatInterruptData.executeInterruptImmediately = true;
+	CombatInterruptData.interruptType = EInterruptType::Skill;
+	
+	for (auto combatEntity : aSkillActionData.Victims)
+	{
+		combatEntity->combatEntityHub->SendGenericTrigger(EGenericTrigger::OnTargetedByAttack);
+	}
+
+	UCombatInterrupt* CombatInterrupt =
+		combatInterruptmanager->CreateInterrupt(aSkillActionData.Attacker->GetEntityName(),EInterruptType::Skill,CombatInterruptData);
+	
+	aSkillActionData.Attacker->combatEntityHub->InterruptHandler->AddCombatInterrupt(CombatInterrupt);
+	combatGameModeBase->TurnEnd();
+}
+
+void USkillResolveSubsystem::ResolveSkillAction(FSkillActionData aSkillResolve)
 {
 	TArray<EPressTurnReactions> turnReactions;
-	FSkillsData skillsData = aSkill->skillData;
+
+	USkillBase* SkillBase         = aSkillResolve.SkillBase;
+	FSkillsData skillsData        = SkillBase->skillData;
+	UCombatEntity* attacker       =  aSkillResolve.Attacker;
+	TArray<UCombatEntity*> Victim =  aSkillResolve.Victims;
 
 	mostRecentCombatLogs.Empty();
 	
-	
-	FCombatLog_Full_Data  CombatLog_Full_Data = aSkill->ExecuteSkill(aAttacker, aVictim, aSkill);
+	FCombatLog_Full_Data  CombatLog_Full_Data = SkillBase->ExecuteSkill(attacker, Victim, SkillBase);
 	mostRecentCombatLogs.Add(CombatLog_Full_Data);
 	
-	
 	turnReactions.Add(EPressTurnReactions::Normal);
-	DamageEvent MyEvent(100,EPressTurnReactions::Normal,aSkill);
+	DamageEvent MyEvent(100,EPressTurnReactions::Normal,SkillBase);
 
 	AddCombatLog(mostRecentCombatLogs);
 	

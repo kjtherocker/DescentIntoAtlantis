@@ -3,10 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "EntityInterruptHandler.h"
+
 
 #include "UObject/NoExportTypes.h"
 #include "SkillResolveSubsystem.generated.h"
 
+class UCombatInterruptManager;
 class ACombatGameModeBase;
 struct FCombatLog_Full_Data;
 class USkillBase;
@@ -14,6 +17,11 @@ class UCombatEntity;
 /**
  * 
  */
+
+
+
+
+
 UCLASS()
 class DESENTINTOATLANTIS_API USkillResolveSubsystem  : public UGameInstanceSubsystem
 {
@@ -32,11 +40,22 @@ private:
 	UPROPERTY()
 	TArray<FCombatLog_Full_Data> last50CombatLogs;
 
-public:
+	UPROPERTY()
+	UPersistentGameinstance* PersistentGameinstance;
+
+	UPROPERTY()
+	UCombatInterruptManager* combatInterruptmanager;
 	
-	void SetGameModeBase(ACombatGameModeBase* aCombatGameModeBase);
-	void ActivateSkill(UCombatEntity* aAttacker, USkillBase* aSkill, int aCursor);
-	void ActivateSkill(UCombatEntity* aAttacker, TArray<UCombatEntity*> aVictim, USkillBase* aSkill);
+public:
+	void InitializePersistantGameInstance(UPersistentGameinstance* aPersistentGameinstance);
+	void SetGameModeBase(ACombatGameModeBase* aCombatGameModeBase,UCombatInterruptManager* aCombatInterruptManager );
+
+	void InitiateSkillAction(UCombatEntity* aAttacker, USkillBase* aSkill, TArray<UCombatEntity*> aVictims);
+	void InitiateSkillAction(UCombatEntity* aAttacker, USkillBase* aSkill, int aCursor);
+
+	void CreateSkillInterrupt(FSkillActionData aSkillActionData);
+	
+	void ResolveSkillAction(FSkillActionData aSkillResolve);
 
 	void AddCombatLog(TArray<FCombatLog_Full_Data> CombatLog_Base_Datas);
 

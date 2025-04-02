@@ -5,38 +5,67 @@
 
 #include "CombatGameModeBase.h"
 
-void UCombatInterruptManager::InitializeCombatInterruptHandler(ACombatGameModeBase* aCombatGameModeBase)
+void UCombatInterruptManager::SetGameModeBase(UPersistentGameinstance* aPersistentGameInstance,ACombatGameModeBase* aCombatGameModeBase)
 {
-	CombatGameModeBase = aCombatGameModeBase;
+	persistentGameInstance = aPersistentGameInstance;
+	CombatGameModeBase     = aCombatGameModeBase;
+	
 }
 
 void UCombatInterruptManager::SetAllInterruptHandlers(TArray<UPlayerCombatEntity*> aPartyMembersInCombat,
-	TArray<UEnemyCombatEntity*> aEnemyCombatEntitys)
+                                                      TArray<UEnemyCombatEntity*> aEnemyCombatEntitys)
 {
 	currentInterruptHandlers.Empty();
 	
-	TArray<UInterruptHandler*> InterruptHandlers;
+	TArray<UEntityInterruptHandler*> InterruptHandlers;
 
-	for (auto InterruptHandler : aPartyMembersInCombat)
+	for (auto combatEntity : aPartyMembersInCombat)
 	{
-		if(InterruptHandler == nullptr)
+		if(combatEntity == nullptr)
 		{
 			continue;
 		}
-		InterruptHandlers.Add(InterruptHandler->combatEntityHub->InterruptHandler);
+		UEntityInterruptHandler* InterruptHandler = combatEntity->combatEntityHub->InterruptHandler;
+		InterruptHandler->InitializeCombatInterruptManager(this);
+		InterruptHandlers.Add(InterruptHandler);
 	}
 	
-	for (auto InterruptHandler : aEnemyCombatEntitys)
+	for (auto combatEntity : aEnemyCombatEntitys)
 	{
-		if(InterruptHandler == nullptr)
+		if(combatEntity == nullptr)
 		{
 			continue;
 		}
-		
-		InterruptHandlers.Add(InterruptHandler->combatEntityHub->InterruptHandler);
+
+		UEntityInterruptHandler* InterruptHandler = combatEntity->combatEntityHub->InterruptHandler;
+		InterruptHandler->InitializeCombatInterruptManager(this);
+		InterruptHandlers.Add(InterruptHandler);
 	}
 
 	currentInterruptHandlers = InterruptHandlers;
+}
+
+UCombatInterrupt* UCombatInterruptManager::CreateInterrupt(FString aCreatorName,EInterruptType aInterruptType,
+	FCombatInterruptData aCombatInterruptData)
+{
+	UCombatInterrupt* CombatInterrupt = nullptr;
+	switch (aInterruptType)
+	{
+	case EInterruptType::None:
+		break;
+	case EInterruptType::Dialogue:
+		CombatInterrupt = NewObject<UDialogueInterrupt>();
+		break;
+	case EInterruptType::Skill:
+		CombatInterrupt = NewObject<USkillInterrupt>();
+		break;
+	case EInterruptType::Passive:
+		break;
+	}
+	aCombatInterruptData.whoTriggeredInterrupt = aCreatorName;
+	CombatInterrupt->SetInterrupt(persistentGameInstance);
+	CombatInterrupt->SetCombatInterruptData(aCombatInterruptData);
+	return CombatInterrupt;
 }
 
 void UCombatInterruptManager::AddCombatInterrupt(UCombatInterrupt* aCombatInterrupt)

@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "CombatInterruptData.h"
-#include "InterruptHandler.h"
+#include "EntityInterruptHandler.h"
 #include "UObject/NoExportTypes.h"
 #include "CombatInterruptManager.generated.h"
 
@@ -20,20 +20,23 @@ class DESENTINTOATLANTIS_API UCombatInterruptManager : public UObject
 private:
 	UPROPERTY()
 	ACombatGameModeBase* CombatGameModeBase;
-	
+	UPROPERTY()
+	UPersistentGameinstance* persistentGameInstance;
 public:
 
 	UPROPERTY()
-	TArray<UInterruptHandler*> currentInterruptHandlers;
+	TArray<UEntityInterruptHandler*> currentInterruptHandlers;
 	
 	UPROPERTY()
 	TArray<UCombatInterrupt*> CombatInterrupts;
 
 	
-	void InitializeCombatInterruptHandler(ACombatGameModeBase* aCombatGameModeBase);
-
-	void SetAllInterruptHandlers(TArray<UPlayerCombatEntity*> aPartyMembersInCombat,TArray<UEnemyCombatEntity*> aEnemyCombatEntitys );
+	void SetGameModeBase(UPersistentGameinstance* aPersistentGameInstance,ACombatGameModeBase* aCombatGameModeBase);
 	
+	
+	void SetAllInterruptHandlers(TArray<UPlayerCombatEntity*> aPartyMembersInCombat,TArray<UEnemyCombatEntity*> aEnemyCombatEntitys );
+
+	UCombatInterrupt* CreateInterrupt(FString aCreatorName,EInterruptType aInterruptType, FCombatInterruptData aCombatInterruptData);
 	UFUNCTION()
 	void AddCombatInterrupt(UCombatInterrupt* aCombatInterrupt);
 
