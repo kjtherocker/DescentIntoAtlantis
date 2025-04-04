@@ -52,6 +52,8 @@ void USkillInterrupt::ActivateInterrupt()
 	UCombatSelectionView* SelectionView = (UCombatSelectionView*)CombatGameModeBase->InGameHUD->PushAndGetView(EViews::CombatSelection,  EUiType::ActiveUi);
 	SelectionView->SetCombatGameMode(CombatGameModeBase);
 	SelectionView->SetSkill(CombatInterruptData.SkillActionData.SkillBase);
+	SelectionView->DisableInput();
+	
 	persistantGameInstance->SkillResolveSubsystem->ResolveSkillAction(CombatInterruptData.SkillActionData);
 	
 }
