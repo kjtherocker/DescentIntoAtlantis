@@ -3,3 +3,23 @@
 
 #include "PassiveInterrupt.h"
 
+#include "CombatGameModeBase.h"
+#include "EnemySkillView.h"
+
+class UEnemySkillView;
+
+void UPassiveInterrupt::ActivateInterrupt()
+{
+	Super::ActivateInterrupt();
+	CombatGameModeBase->InGameHUD->PopMostRecentActiveView();
+	
+	UEnemySkillView* enemySkillView = (UEnemySkillView*)CombatGameModeBase->InGameHUD->PushAndGetView(EViews::EnemySkill,      EUiType::ActiveUi);
+
+	UPassiveSkills* PassiveSkills = CombatInterruptData.PassiveActionData.PassiveSkill;
+
+	UCombatEntity* CombatEntity = CombatInterruptData.PassiveActionData.PassiveOwner;
+	
+	
+	enemySkillView->SetPassiveSkill(PassiveSkills->passiveSkillData,CombatEntity->GetEntityName());
+	
+}

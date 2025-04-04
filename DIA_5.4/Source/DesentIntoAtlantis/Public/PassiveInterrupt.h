@@ -10,8 +10,9 @@
  * 
  */
 UCLASS()
-class DESENTINTOATLANTIS_API UPassiveInterrupt : public UCombatInterrupt
+class DESENTINTOATLANTIS_API UPassiveInterrupt : public UActivatedTimerInterrupt
 {
 	GENERATED_BODY()
-	
+public:
+	virtual void ActivateInterrupt() override;
 };

@@ -40,6 +40,8 @@ public:
 	UFUNCTION()
 	void AddCombatInterrupt(UCombatInterrupt* aCombatInterrupt);
 
+	void ReOrderInterrupt();
+	
 	bool HasInterruptions(){return CombatInterrupts.Num() > 0;}
 
 	void CheckGenericTriggerInerrptions(EGenericTrigger aGenericTrigger);
@@ -50,6 +52,7 @@ public:
 	void SetInterruptionTriggerOrder();
 
 	void StartTriggeringInterruptions();
+	UFUNCTION()
 	void TriggerInterruption();
 	UFUNCTION()
 	void CombatInterruptsEnd();

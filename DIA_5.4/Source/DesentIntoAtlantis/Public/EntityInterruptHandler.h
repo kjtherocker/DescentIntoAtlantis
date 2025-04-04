@@ -64,5 +64,7 @@ public:
 	
 	TArray<UCombatInterrupt*> CheckHealthRelatedInterrupt();
 	TArray<UCombatInterrupt*> GetCombatInterrupts();
+	UCombatInterruptManager*  GetCombatInterruptManager(){return CombatInterruptHandler;}
+	
 	
 };

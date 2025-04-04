@@ -4,6 +4,8 @@
 #include "CombatInterruptManager.h"
 
 #include "CombatGameModeBase.h"
+#include "PassiveInterrupt.h"
+#include "PlayerCombatEntity.h"
 
 void UCombatInterruptManager::SetGameModeBase(UPersistentGameinstance* aPersistentGameInstance,ACombatGameModeBase* aCombatGameModeBase)
 {
@@ -60,10 +62,11 @@ UCombatInterrupt* UCombatInterruptManager::CreateInterrupt(FString aCreatorName,
 		CombatInterrupt = NewObject<USkillInterrupt>();
 		break;
 	case EInterruptType::Passive:
+		CombatInterrupt = NewObject<UPassiveInterrupt>();
 		break;
 	}
 	aCombatInterruptData.whoTriggeredInterrupt = aCreatorName;
-	CombatInterrupt->SetInterrupt(persistentGameInstance);
+	CombatInterrupt->SetInterrupt(persistentGameInstance,CombatGameModeBase);
 	CombatInterrupt->SetCombatInterruptData(aCombatInterruptData);
 	return CombatInterrupt;
 }
@@ -72,30 +75,19 @@ void UCombatInterruptManager::AddCombatInterrupt(UCombatInterrupt* aCombatInterr
 {
 	UCombatInterrupt* newCombatInterrupt = aCombatInterrupt;
 	SetInterruptionValueByType( newCombatInterrupt);
+	CombatInterrupts.Add(newCombatInterrupt);
+}
 
-	//If there is nothing add it
-	if(CombatInterrupts.Num() == 0)
+void UCombatInterruptManager::ReOrderInterrupt()
+{
+	for (int32 i = 0; i < CombatInterrupts.Num() - 1; ++i)
 	{
-		CombatInterrupts.Add(newCombatInterrupt);
-	}
-	else
-	{
-		for(int i = 0 ; i < CombatInterrupts.Num()+1;i++)
+		for (int32 j = 0; j < CombatInterrupts.Num() - i - 1; ++j)
 		{
-			//If you are the greatest be put at the end
-			if(i > CombatInterrupts.Num())
+			if (CombatInterrupts[j]->GetInterruptionValue() > CombatInterrupts[j + 1]->GetInterruptionValue())
 			{
-				CombatInterrupts.Insert(newCombatInterrupt,i);
-				break;
+				CombatInterrupts.Swap(j, j + 1);
 			}
-
-			//If you are equal or less then this value go here
-			if(CombatInterrupts[i]->GetInterruptionValue() >=
-				newCombatInterrupt->GetInterruptionValue())
-			{
-				CombatInterrupts.Insert(newCombatInterrupt,i);
-				break;
-			}	
 		}
 	}
 }
@@ -176,12 +168,13 @@ void UCombatInterruptManager::StartTriggeringInterruptions()
 
 void UCombatInterruptManager::TriggerInterruption()
 {
+	ReOrderInterrupt();
 	if(!HasInterruptions())
 	{
 		CombatInterruptsEnd();
 		return;
 	}
-	CombatInterrupts[0]->OnInterruptEnd.AddDynamic(this,&UCombatInterruptManager::CombatInterruptsEnd);
+	CombatInterrupts[0]->OnInterruptEnd.AddDynamic(this,&UCombatInterruptManager::TriggerInterruption);
 	CombatInterrupts[0]->ActivateInterrupt();
 	CombatInterrupts.RemoveAt(0);
 }

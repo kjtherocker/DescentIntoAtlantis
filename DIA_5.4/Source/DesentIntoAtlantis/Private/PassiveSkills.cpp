@@ -3,6 +3,7 @@
 #include "PassiveSkills.h"
 
 #include "ChallengeSubsystem.h"
+#include "CombatInterruptManager.h"
 #include "CombatStat.h"
 #include "SkillBase.h"
 #include "SkillDamageType.h"
@@ -16,11 +17,6 @@
 
 
 class UPlayerCombatStats;
-
-void UPassiveSkills::InitializePassiveSkilData(FPassiveSkillData aPassiveSkillsData)
-{
-	passiveSkillData = aPassiveSkillsData;
-}
 
 void UPassives::AttachOwnerCombatEntity(UCombatEntity* aCombatEntity)
 {
@@ -48,6 +44,34 @@ void UPassives::RemoveEffect(UCombatEntity* aCombatEntity)
 {
 }
 
+void UPassiveSkills::CreatePassiveInterrupt()
+{
+	UCombatInterruptManager* CombatInterruptManager =
+	attachedCombatEntity->combatEntityHub->InterruptHandler->GetCombatInterruptManager();
+
+	FCombatInterruptData CombatInterruptData;
+	CombatInterruptData.interruptType = EInterruptType::Passive;
+	
+	FPassiveActionData   PassiveActionData;
+
+	PassiveActionData.PassiveOwner = attachedCombatEntity;
+	PassiveActionData.PassiveSkill = this;
+	
+	CombatInterruptData.PassiveActionData = PassiveActionData;
+	
+	UCombatInterrupt* CombatInterrupt =
+		CombatInterruptManager->
+	CreateInterrupt(attachedCombatEntity->GetEntityName(),EInterruptType::Passive,CombatInterruptData);
+	
+	CombatInterruptManager->AddCombatInterrupt(CombatInterrupt);
+}
+
+void UPassiveSkills::InitializePassiveSkilData(FPassiveSkillData aPassiveSkillsData)
+{
+	passiveSkillData = aPassiveSkillsData;
+}
+
+
 
 FCombatLog_PassiveSkilData UGenericTriggerPassive::ActivateGenericPassive_Implementation()
 {
@@ -56,23 +80,21 @@ FCombatLog_PassiveSkilData UGenericTriggerPassive::ActivateGenericPassive_Implem
 
 FSkillsData UGenericModifyPassive::ModifySkill_Implementation(FSkillsData aPassiveSkill)
 {
-	
-
-	
 	return IModifySkillPassive::ModifySkill_Implementation(aPassiveSkill);
-	
 }
 
 
 FCombatLog_PassiveSkilData UGenericTriggerPassiveCombatToken::ActivateGenericPassive_Implementation()
 {
+
 	FCombatLog_PassiveSkilData PassiveSkilData;
 	for (auto Element : PassiveSkilData.PassiveSkillData.combatTokensOnPassive)
 	{
 		Element.TokenCreator = attachedCombatEntity;
 		PassiveSkilData.combatTokenData.combatTokenData.Add(attachedCombatEntity->combatEntityHub->combatTokenHandler->AddCombatToken(Element));
 	}
-
+	
+	CreatePassiveInterrupt();
 	return PassiveSkilData;
 }
 
@@ -94,7 +116,7 @@ FCombatLog_PassiveSkilData UFelineAgility::ActivateGenericPassive_Implementation
 	}
 	
 
-	
+	CreatePassiveInterrupt();
 	return PassiveSkilData;
 }
 

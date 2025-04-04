@@ -127,21 +127,6 @@ void UPressTurnManager::ConsumeTurn(int aAmountOfTurnsConsumed,EPressTurnReactio
 	
 	switch (aPressTurnReaction)
 	{
-	case EPressTurnReactions::Normal:
-		combatManager->TriggerTurnEndTimers();
-		break;
-	case EPressTurnReactions::Weak:
-		combatManager->TriggerTurnEndTimers();
-		break;
-	case EPressTurnReactions::Strong:
-		combatManager->TriggerTurnEndTimers();
-		break;
-	case EPressTurnReactions::Dodge:
-		combatManager->TriggerTurnEndTimers();
-		break;
-	case EPressTurnReactions::Null:
-		combatManager->TriggerTurnEndTimers();
-		break;
 	case EPressTurnReactions::Pass:
 		combatManager->TurnEnd();
 		break;

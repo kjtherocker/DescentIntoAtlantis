@@ -143,6 +143,7 @@ class DESENTINTOATLANTIS_API UPassiveSkills : public UPassives
 	GENERATED_BODY()
 
 public:
+	virtual void CreatePassiveInterrupt();
 	void InitializePassiveSkilData(FPassiveSkillData aPassiveSkillsData);
 	FPassiveSkillData passiveSkillData;
 };
@@ -168,7 +169,7 @@ public:
 };
 
 UCLASS()
-class DESENTINTOATLANTIS_API UGenericTriggerPassiveCombatToken : public UPassiveSkills, public IOnGenericPassive
+class DESENTINTOATLANTIS_API UGenericTriggerPassiveCombatToken : public UGenericTriggerPassive
 {
 	GENERATED_BODY()
 

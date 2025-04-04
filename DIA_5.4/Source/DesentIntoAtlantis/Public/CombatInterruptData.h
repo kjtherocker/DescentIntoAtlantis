@@ -45,6 +45,19 @@ struct DESENTINTOATLANTIS_API FSkillActionData : public FTableRowBase
 };
 
 USTRUCT()
+struct DESENTINTOATLANTIS_API FPassiveActionData : public FTableRowBase
+{
+	GENERATED_BODY()
+
+	UPROPERTY()
+	UCombatEntity* PassiveOwner;
+
+	UPROPERTY()
+	UPassiveSkills* PassiveSkill;
+	
+};
+
+USTRUCT()
 struct DESENTINTOATLANTIS_API FCombatInterruptData : public FTableRowBase
 {
 	GENERATED_BODY()
@@ -79,9 +92,9 @@ struct DESENTINTOATLANTIS_API FCombatInterruptData : public FTableRowBase
 
 	UPROPERTY()
 	FSkillActionData SkillActionData;
-	
-	UPROPERTY( EditAnywhere, Category = "Skill" )
-	USkillBase* InterruptionSkill;
+
+	UPROPERTY()
+	FPassiveActionData PassiveActionData;
 
 	UPROPERTY( EditAnywhere, Category = "PassiveSkill" )
 	EPassiveSkillID PassiveSkillID;
@@ -100,17 +113,20 @@ class UCombatInterrupt: public UObject
 protected:
 
 	UPROPERTY()
-	int interruptionValue;
+	int interruptionValue = 1;
 
 	UPROPERTY()
 	FCombatInterruptData CombatInterruptData;
 
 	UPROPERTY()
 	UPersistentGameinstance* persistantGameInstance;
+
+	UPROPERTY()
+	ACombatGameModeBase* CombatGameModeBase;
 public:
 
 	FOnInterruptEnd OnInterruptEnd;
-	void SetInterrupt(UPersistentGameinstance* aPersistantGameInstance);
+	void SetInterrupt(UPersistentGameinstance* aPersistantGameInstance,ACombatGameModeBase* aCombatGameModeBase);
 
 	int GetInterruptionValue(){return interruptionValue;}
 	void SetInterruptionValue(int aInterruptionValue){interruptionValue = aInterruptionValue;}
@@ -129,17 +145,28 @@ class UDialogueInterrupt: public UCombatInterrupt
 {
 	GENERATED_BODY()
 
-private:
+public:
+	virtual void ActivateInterrupt() override;
+};
+
+
+
+UCLASS()
+class UActivatedTimerInterrupt: public UCombatInterrupt
+{
+	GENERATED_BODY()
+
+public:
 	virtual void ActivateInterrupt() override;
 };
 
 
 UCLASS()
-class USkillInterrupt: public UCombatInterrupt
+class USkillInterrupt: public UActivatedTimerInterrupt
 {
 	GENERATED_BODY()
 
-private:
+public:
 	virtual void ActivateInterrupt() override;
 };
 

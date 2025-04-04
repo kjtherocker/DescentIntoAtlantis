@@ -20,6 +20,8 @@ class DESENTINTOATLANTIS_API UEnemySkillView : public UBaseUserWidget
 public:
 	void SetSkill(FSkillsData aSkill, UEnemyCombatEntity* aEnemyCombatEntity);
 
+	void SetPassiveSkill(FPassiveSkillData aSkill, FString aCharacterName);
+
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))
 	UImage* BW_SkillIcon;
 	UPROPERTY(BlueprintReadOnly, meta=(BindWidget))

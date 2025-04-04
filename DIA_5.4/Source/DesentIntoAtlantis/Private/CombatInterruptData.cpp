@@ -4,11 +4,14 @@
 #include "CombatInterruptData.h"
 #include "SkillBase.h"
 #include "AtlantisGameModeBase.h"
+#include "CombatGameModeBase.h"
+#include "CombatSelectionView.h"
 #include "PersistentGameinstance.h"
 
-void UCombatInterrupt::SetInterrupt(UPersistentGameinstance* aPersistantGameInstance)
+void UCombatInterrupt::SetInterrupt(UPersistentGameinstance* aPersistantGameInstance,ACombatGameModeBase* aCombatGameModeBase)
 {
 	persistantGameInstance = aPersistantGameInstance;
+	CombatGameModeBase     = aCombatGameModeBase;
 }
 
 void UCombatInterrupt::InterruptionEnd()
@@ -32,10 +35,23 @@ void UDialogueInterrupt::ActivateInterrupt()
 	(CombatInterruptData.DialogueTriggers,persistantGameInstance->currentGameMode->InGameHUD);
 }
 
+void UActivatedTimerInterrupt::ActivateInterrupt()
+{
+	Super::ActivateInterrupt();
+	
+	FTimerHandle handle;
+	CombatGameModeBase->world->GetTimerManager().SetTimer(handle,this,&UCombatInterrupt::InterruptionEnd,1.0f,false);
+}
+
 void USkillInterrupt::ActivateInterrupt()
 {
 	Super::ActivateInterrupt();
 
+	CombatGameModeBase->InGameHUD->PopMostRecentActiveView();
+	
+	UCombatSelectionView* SelectionView = (UCombatSelectionView*)CombatGameModeBase->InGameHUD->PushAndGetView(EViews::CombatSelection,  EUiType::ActiveUi);
+	SelectionView->SetCombatGameMode(CombatGameModeBase);
+	SelectionView->SetSkill(CombatInterruptData.SkillActionData.SkillBase);
 	persistantGameInstance->SkillResolveSubsystem->ResolveSkillAction(CombatInterruptData.SkillActionData);
 	
 }
