@@ -60,7 +60,7 @@ void USkillResolveSubsystem::CreateSkillInterrupt(FSkillActionData aSkillActionD
 	
 	for (auto combatEntity : aSkillActionData.Victims)
 	{
-		combatEntity->combatEntityHub->SendGenericTrigger(EGenericTrigger::OnTargetedByAttack);
+		combatEntity->combatEntityHub->SendGenericTrigger(aSkillActionData.Attacker,EGenericTrigger::OnTargetedByAttack);
 	}
 
 	UCombatInterrupt* CombatInterrupt =

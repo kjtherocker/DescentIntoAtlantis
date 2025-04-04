@@ -84,15 +84,15 @@ void UCombatEntityHub::SpawnParticles(UNiagaraSystem* aNiagaraSystem)
 	SpawnSkillParticles.Broadcast(aNiagaraSystem,OwnedCombatEntity);
 }
 
-void UCombatEntityHub::OnAttackEvaded(FCombatLog_Hit_Data aEvasionData)
+void UCombatEntityHub::OnAttackEvaded(UCombatEntity* WhoTriggeredEvent,FCombatLog_Hit_Data aEvasionData)
 {
-	SendGenericTrigger(EGenericTrigger::OnAttackEvaded);
+	SendGenericTrigger(WhoTriggeredEvent,EGenericTrigger::OnAttackEvaded);
 	AttackEvaded.Broadcast(aEvasionData,OwnedCombatEntity);
 }
 
-void UCombatEntityHub::OnEvadedAttack(FCombatLog_Hit_Data aEvasionData)
+void UCombatEntityHub::OnEvadedAttack(UCombatEntity* WhoTriggeredEvent,FCombatLog_Hit_Data aEvasionData)
 {
-	SendGenericTrigger(EGenericTrigger::OnEvadedAttack);
+	SendGenericTrigger(WhoTriggeredEvent,EGenericTrigger::OnEvadedAttack);
 	EvadedAttack.Broadcast(aEvasionData,OwnedCombatEntity);
 }
 
@@ -101,9 +101,9 @@ void UCombatEntityHub::OnCombatStart(ACombatGameModeBase* aCombatGameMode)
 	skillHandler->InitializeCombat(persistentGameinstance->SkillResolveSubsystem,aCombatGameMode);
 }
 
-void UCombatEntityHub::SendGenericTrigger(EGenericTrigger aGenericTrigger)
+void UCombatEntityHub::SendGenericTrigger(UCombatEntity* WhoTriggeredEvent,EGenericTrigger aGenericTrigger)
 {
-	passiveHandler->SendGenericTrigger(aGenericTrigger);
+	passiveHandler->SendGenericTrigger(WhoTriggeredEvent,aGenericTrigger);
 	
 }
 

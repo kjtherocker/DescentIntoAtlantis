@@ -80,7 +80,7 @@ class IOnGenericPassive
 
 public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category="Skill")
-	FCombatLog_PassiveSkilData ActivateGenericPassive();
+	FCombatLog_PassiveSkilData ActivateGenericPassive(UCombatEntity* WhoTriggeredEvent);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category="Skill")
 	bool IsPassiveTriggered(EGenericTrigger aPassiveGenericTrigger);
@@ -144,6 +144,7 @@ class DESENTINTOATLANTIS_API UPassiveSkills : public UPassives
 
 public:
 	virtual void CreatePassiveInterrupt();
+	
 	void InitializePassiveSkilData(FPassiveSkillData aPassiveSkillsData);
 	FPassiveSkillData passiveSkillData;
 };
@@ -154,9 +155,22 @@ class DESENTINTOATLANTIS_API UGenericTriggerPassive : public UPassiveSkills, pub
 	GENERATED_BODY()
 
 public:
-	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation() override;
+	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent) override;
 
 };
+
+
+UCLASS()
+class DESENTINTOATLANTIS_API UCounterPassive : public UPassiveSkills, public IOnGenericPassive
+{
+	GENERATED_BODY()
+
+public:
+	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent) override;
+
+};
+
+
 
 UCLASS()
 class DESENTINTOATLANTIS_API UGenericModifyPassive : public UPassiveSkills, public IModifySkillPassive
@@ -175,7 +189,7 @@ class DESENTINTOATLANTIS_API UGenericTriggerPassiveCombatToken : public UGeneric
 
 public:
 
-	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation() override;
+	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent) override;
 	virtual bool IsPassiveTriggered_Implementation(EGenericTrigger aPassiveGenericTrigger) override;
 
 };
@@ -188,7 +202,7 @@ class DESENTINTOATLANTIS_API UFelineAgility : public UGenericTriggerPassiveComba
 
 public:
 
-	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation() override;
+	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent) override;
 };
 
 

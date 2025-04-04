@@ -80,6 +80,8 @@ UPROPERTY()
 	void AddSkill(ESkillIDS aSkillID);
 	void RemoveSkill(ESkillIDS aSkillID);
 
+	void SendSkillAction(TArray<UCombatEntity*> Victims ,ESkillIDS aSkill);
+
 	USkillBase* GetActiveSkill(ESkillIDS aSkillID);
 
 	TArray<USkillBase*> GetSkillsByID(TArray<ESkillIDS> aSkillIds);

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "CombatEntity.h"
+#include "ESkillID.h"
 
 #include "PassiveSkillData.generated.h"
 
@@ -243,6 +244,9 @@ struct DESENTINTOATLANTIS_API FPassiveSkillData : public FTableRowBase
 
 	UPROPERTY( EditAnywhere , Category = "Identity")
 	EPassiveSkillID passiveSkillID = EPassiveSkillID::None;
+
+	UPROPERTY( EditAnywhere, Category = "Identity" )
+	ESkillIDS SkillIds             =  ESkillIDS::None;
 
 	UPROPERTY( EditAnywhere , Category = "Identity")
 	FString passiveName = "No Set Name";

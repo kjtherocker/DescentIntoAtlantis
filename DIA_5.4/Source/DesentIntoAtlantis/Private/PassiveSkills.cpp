@@ -13,6 +13,7 @@
 #include "ItemChargeHandler.h"
 #include "PlayerCombatStat.h"
 #include "ResourceHandler.h"
+#include "SkillResolveSubsystem.h"
 #include "SkillUsage.h"
 
 
@@ -73,9 +74,26 @@ void UPassiveSkills::InitializePassiveSkilData(FPassiveSkillData aPassiveSkillsD
 
 
 
-FCombatLog_PassiveSkilData UGenericTriggerPassive::ActivateGenericPassive_Implementation()
+FCombatLog_PassiveSkilData UGenericTriggerPassive::ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent)
 {
-	return IOnGenericPassive::ActivateGenericPassive_Implementation();
+	return IOnGenericPassive::ActivateGenericPassive_Implementation(WhoTriggeredEvent);
+}
+
+FCombatLog_PassiveSkilData UCounterPassive::ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent)
+{
+	int SkillIndex = FMath::RandRange(0,99);
+
+	if(SkillIndex < 25)
+	{
+		TArray<UCombatEntity*> triggerer;
+
+		triggerer.Add(WhoTriggeredEvent);
+		
+		attachedCombatEntity->combatEntityHub->skillHandler->SendSkillAction(triggerer, ESkillIDS::DefaultAttack);
+	}
+	
+	
+	return IOnGenericPassive::ActivateGenericPassive_Implementation(WhoTriggeredEvent);
 }
 
 FSkillsData UGenericModifyPassive::ModifySkill_Implementation(FSkillsData aPassiveSkill)
@@ -84,7 +102,7 @@ FSkillsData UGenericModifyPassive::ModifySkill_Implementation(FSkillsData aPassi
 }
 
 
-FCombatLog_PassiveSkilData UGenericTriggerPassiveCombatToken::ActivateGenericPassive_Implementation()
+FCombatLog_PassiveSkilData UGenericTriggerPassiveCombatToken::ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent)
 {
 
 	FCombatLog_PassiveSkilData PassiveSkilData;
@@ -103,7 +121,7 @@ bool UGenericTriggerPassiveCombatToken::IsPassiveTriggered_Implementation(EGener
 	return passiveSkillData.triggerGeneric == aPassiveGenericTrigger;
 }
 
-FCombatLog_PassiveSkilData UFelineAgility::ActivateGenericPassive_Implementation()
+FCombatLog_PassiveSkilData UFelineAgility::ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent)
 {
 	FCombatLog_PassiveSkilData PassiveSkilData;
 

@@ -53,11 +53,11 @@ public:
 	virtual void InitializePassiveHandler(UCombatEntity* aOwnedCombatEntity,UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem);
 	virtual void SetPassiveHandlerState(FPassiveHandlerData aPassiveHandler);
 	UFUNCTION()
-	virtual void CheckGenericTriggerPassives(EGenericTrigger aPassiveTrigger);
+	virtual void CheckGenericTriggerPassives(UCombatEntity* WhoTriggeredEvent,EGenericTrigger aPassiveTrigger);
 	virtual TArray< FCombatLog_PassiveSkilData> CheckAttackDefencePassives(int& CurrentDamage ,UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill);
 	//virtual TArray< FCombatLog_PassiveSkilData> CheckBaseDamagePassives(UCombatEntity* aAttachedEntity,UCombatEntity* aAttacker, FSkillsData aSkill);
 
-	virtual void SendGenericTrigger(EGenericTrigger aGenericTrigger);
+	virtual void SendGenericTrigger(UCombatEntity* WhoTriggeredEvent,EGenericTrigger aGenericTrigger);
 	virtual void AddMainClassPassives(UCombatClass* aCombatClass);
 	virtual bool TryActivatePassive(UPassiveSkills* aPassiveSkills);
 	

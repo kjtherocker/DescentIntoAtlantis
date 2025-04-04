@@ -98,6 +98,13 @@ void USkillHandler::RemoveSkill(ESkillIDS aSkillID)
 	}
 }
 
+void USkillHandler::SendSkillAction(TArray<UCombatEntity*> Victims ,ESkillIDS aSkill)
+{
+	USkillBase* SkillBase = GetActiveSkill(aSkill);
+	
+	skillResolveSubsystem->InitiateSkillAction(attachedCombatEntity,SkillBase,Victims);
+}
+
 USkillBase* USkillHandler::GetActiveSkill(ESkillIDS aSkillID)
 {
 	if(currentSkills.Contains(aSkillID))

@@ -50,12 +50,12 @@ public:
 	virtual bool DoesEntityHaveATurn();
 	virtual void OnTurnStart();
 	virtual void SpawnParticles(UNiagaraSystem* aNiagaraSystem);
-	virtual void OnAttackEvaded(FCombatLog_Hit_Data aEvasionData);
-	virtual void OnEvadedAttack(FCombatLog_Hit_Data aEvasionData);
+	virtual void OnAttackEvaded(UCombatEntity* WhoTriggeredEvent,FCombatLog_Hit_Data aEvasionData);
+	virtual void OnEvadedAttack(UCombatEntity* WhoTriggeredEvent,FCombatLog_Hit_Data aEvasionData);
 
 	virtual void OnCombatStart(ACombatGameModeBase* aCombatGameMode);
 	
-	virtual void SendGenericTrigger(EGenericTrigger aGenericTrigger);
+	virtual void SendGenericTrigger(UCombatEntity* WhoTriggeredEvent,EGenericTrigger aGenericTrigger);
 
 	virtual int GetAilmentResistance();
 	

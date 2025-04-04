@@ -25,7 +25,7 @@ void UPassiveHandler::InitializePassiveHandler(UCombatEntity* aOwnedCombatEntity
 {
 	PassiveSlotHandler = NewObject<UPassiveSlotHandler>();
 	PassiveSlotHandler->InitializePassiveSlotHandler(this,aOwnedCombatEntity,aPassiveSkillFactorySubsystem);
-	sendPassiveTrigger.AddDynamic(this,&UPassiveHandler::CheckGenericTriggerPassives);
+	
 	passiveSkillFactory = aPassiveSkillFactorySubsystem;
 	ownedCombatEntity   = aOwnedCombatEntity;
 }
@@ -46,7 +46,7 @@ void UPassiveHandler::SetPassiveHandlerState(FPassiveHandlerData aPassiveHandler
 	PassiveSlotHandler->SetPassiveSlotState(passiveHandler.PassiveSlotHandlerData);
 }
 
-void UPassiveHandler::CheckGenericTriggerPassives(EGenericTrigger aPassiveTrigger)
+void UPassiveHandler::CheckGenericTriggerPassives(UCombatEntity* WhoTriggeredEvent,EGenericTrigger aPassiveTrigger)
 {
 	passiveSkillsUsed.Empty();
 	 
@@ -56,7 +56,7 @@ void UPassiveHandler::CheckGenericTriggerPassives(EGenericTrigger aPassiveTrigge
 		{
 			if(genericTriggerPassive->IsPassiveTriggered_Implementation(aPassiveTrigger))
 			{
-				passiveSkillsUsed.Add(genericTriggerPassive->ActivateGenericPassive_Implementation());
+				passiveSkillsUsed.Add(genericTriggerPassive->ActivateGenericPassive_Implementation(WhoTriggeredEvent));
 			}
 		}
 	}
@@ -81,7 +81,7 @@ TArray< FCombatLog_PassiveSkilData> UPassiveHandler::CheckAttackDefencePassives(
 	return passiveSkillsUsed;
 }
 
-void UPassiveHandler::SendGenericTrigger(EGenericTrigger aGenericTrigger)
+void UPassiveHandler::SendGenericTrigger(UCombatEntity* WhoTriggeredEvent,EGenericTrigger aGenericTrigger)
 {
 	
 	for (UPassiveSkills* passiveSkillWrapper : allPassiveSkills)
@@ -90,7 +90,7 @@ void UPassiveHandler::SendGenericTrigger(EGenericTrigger aGenericTrigger)
 		{
 			if(GenericTriggerPassive->Execute_IsPassiveTriggered(passiveSkillWrapper,aGenericTrigger))
 			{
-				GenericTriggerPassive->Execute_ActivateGenericPassive(passiveSkillWrapper);
+				GenericTriggerPassive->Execute_ActivateGenericPassive(passiveSkillWrapper,WhoTriggeredEvent);
 			}
 		}
 	}
