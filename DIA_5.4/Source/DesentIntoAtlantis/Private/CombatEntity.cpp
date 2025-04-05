@@ -194,14 +194,12 @@ ECharactertype UCombatEntity::GetCharactertype()
 
 void UCombatEntity::Resurrection()
 {
+    ResourceHandler->Resurrection();
 }
 
 void UCombatEntity::DeathCheck()
 {
-    if(ResourceHandler->GetCurrentHealth() <= 0)
-    {
-        isMarkedForDeath = true;
-    }
+    isMarkedForDeath = ResourceHandler->DeathCheck();
 }
 
 void UCombatEntity::Death()

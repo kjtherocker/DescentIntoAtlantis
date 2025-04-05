@@ -194,6 +194,19 @@ public:
 
 };
 
+UCLASS()
+class DESENTINTOATLANTIS_API UResurrect : public UGenericTriggerPassive
+{
+	GENERATED_BODY()
+
+public:
+
+	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent) override;
+	virtual bool IsPassiveTriggered_Implementation(EGenericTrigger aPassiveGenericTrigger) override;
+
+};
+
+
 
 UCLASS()
 class DESENTINTOATLANTIS_API UFelineAgility : public UGenericTriggerPassiveCombatToken

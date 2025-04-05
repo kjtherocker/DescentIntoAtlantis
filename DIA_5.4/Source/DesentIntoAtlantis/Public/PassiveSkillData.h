@@ -127,7 +127,8 @@ enum class EGenericTrigger : uint8
 	InitialCombatStart   = 1,
 	OnAttackEvaded       = 2,
 	OnEvadedAttack       = 3,
-	OnTargetedByAttack   = 4
+	OnTargetedByAttack   = 4,
+	OnResurrected        = 5,
 };
 
 USTRUCT()

@@ -36,6 +36,9 @@ class USkillFactorySubsystem;
  */
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPartyManagerHasChanged,FCompletePartyManagerSubsystemData,partyManagerData);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FResurrectedPartyMember,UCombatEntity*, CombatEntity);
+
+
 UCLASS()
 class DESENTINTOATLANTIS_API UPartyManagerSubsystem : public UGameInstanceSubsystem
 {
@@ -65,6 +68,8 @@ private:
 	int partyLevel      = 1;
 public:
 
+	FResurrectedPartyMember ResurrectedPartyMember;
+	
 	TArray<FDefaultTestFightData> DefaultTestFightData;
 	FPartyManagerHasChanged PartyManagerHasChanged;
 
@@ -110,6 +115,9 @@ public:
 	void UnlockPartyMemberSync(EPartyMembersID aPartyMemberID);
 
 	void RewardParty(FRewardsData aRewardData);
+
+	UFUNCTION()
+	void PlayerResurrected(UCombatEntity* aCombatEntity);
 
 	UPROPERTY()
 	UStaminaHandler* staminaHandler;

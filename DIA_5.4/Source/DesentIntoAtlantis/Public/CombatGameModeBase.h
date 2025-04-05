@@ -184,6 +184,10 @@ public:
 	void TriggerTurnEndTimers();
 	void TriggerLevelupMenu(TArray<UPlayerCombatEntity*> aPlayerCombatEntity, int aExperience,int aClassPoints);
 	void AllyStartTurn();
+
+	UFUNCTION()
+	void ResurrectEntity(UCombatEntity* aCombatEntity);
+	
 	void EnemyStartTurn();
 	void EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEntity);
 

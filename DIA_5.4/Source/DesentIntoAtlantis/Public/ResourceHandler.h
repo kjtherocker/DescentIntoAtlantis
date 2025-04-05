@@ -32,6 +32,8 @@ private:
 	UPROPERTY()
 	UCombatEntity* OwnedCombatEntity;
 
+	UPROPERTY()
+	bool isMarkedForDeath = false;
 public:
 
 	FResourceHandlerCompleteData ResourceHandlerCompleteData;
@@ -47,10 +49,13 @@ public:
 	void Initialize(UCombatEntity* aOwnedCombatEntity);
 	virtual void SetResourceHandlerCompleteData(FResourceHandlerCompleteData aResourceHandlerCompleteData);
 
+	virtual bool DeathCheck();
+	
 	virtual void SetHealthandMana(FHealthData aHealthData, FManaData aManaData);
 
 	virtual void LoadSavedCurrentResources(FResourceHandlerCompleteData aResourceHandlerCompleteData);
-	
+
+	virtual void Resurrection();
 	virtual void SetToDefaultState();
 	virtual void SetCombatWrapper(UCombatEntity* aCombatEntity);
 	virtual void SetAWrapperToDefault(ECombatEntityWrapperType aShellType);

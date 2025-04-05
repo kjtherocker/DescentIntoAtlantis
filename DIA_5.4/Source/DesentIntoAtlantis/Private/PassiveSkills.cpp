@@ -121,6 +121,23 @@ bool UGenericTriggerPassiveCombatToken::IsPassiveTriggered_Implementation(EGener
 	return passiveSkillData.triggerGeneric == aPassiveGenericTrigger;
 }
 
+FCombatLog_PassiveSkilData UResurrect::ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent)
+{
+
+	attachedCombatEntity->Resurrection();
+
+	
+	return Super::ActivateGenericPassive_Implementation(WhoTriggeredEvent);
+}
+
+bool UResurrect::IsPassiveTriggered_Implementation(EGenericTrigger aPassiveGenericTrigger)
+{
+
+
+	
+	return Super::IsPassiveTriggered_Implementation(aPassiveGenericTrigger);
+}
+
 FCombatLog_PassiveSkilData UFelineAgility::ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent)
 {
 	FCombatLog_PassiveSkilData PassiveSkilData;

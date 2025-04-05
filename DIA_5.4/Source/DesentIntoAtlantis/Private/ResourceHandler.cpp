@@ -3,6 +3,7 @@
 
 #include "ResourceHandler.h"
 
+#include "CombatEntityHub.h"
 #include "Health.h"
 #include "SkillData.h"
 #include "SkillType.h"
@@ -36,6 +37,21 @@ void UResourceHandler::SetResourceHandlerCompleteData(FResourceHandlerCompleteDa
 	
 }
 
+bool UResourceHandler::DeathCheck()
+{
+	if(GetCurrentHealth() <= 0)
+	{
+		isMarkedForDeath = true;
+	}
+	if(GetCurrentHealth() >= 0)
+	{
+		isMarkedForDeath = false;
+	}
+	
+
+	return isMarkedForDeath;
+}
+
 void UResourceHandler::SetHealthandMana(FHealthData aHealthData, FManaData aManaData)
 {
 	healthHandler->SetResourceInfo(aHealthData.ResourceBarInfo);
@@ -47,6 +63,15 @@ void UResourceHandler::LoadSavedCurrentResources(FResourceHandlerCompleteData aR
 	healthHandler->SetCurrentValue(aResourceHandlerCompleteData.HealthData.ResourceBarInfo.Current);
 	manaHandler->SetCurrentValue(aResourceHandlerCompleteData.ManaData.ResourceBarInfo.Current);
 	SyncHandler->SetCurrentValue(aResourceHandlerCompleteData.SyncData.ResourceBarInfo.Current);
+}
+
+void UResourceHandler::Resurrection()
+{
+	healthHandler->MaxOutCurrentValue();
+	isMarkedForDeath = false;
+	OwnedCombatEntity->combatEntityHub->
+	SendGenericTrigger(OwnedCombatEntity,EGenericTrigger::OnResurrected);
+	
 }
 
 void UResourceHandler::SetToDefaultState()

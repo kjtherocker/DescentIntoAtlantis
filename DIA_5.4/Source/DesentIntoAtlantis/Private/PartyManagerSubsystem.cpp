@@ -533,4 +533,9 @@ void UPartyManagerSubsystem::RewardParty(FRewardsData aRewardData)
 	persistentGameInstance->popupSubsystem->TriggerPopup();
 }
 
+void UPartyManagerSubsystem::PlayerResurrected(UCombatEntity* aCombatEntity)
+{
+	ResurrectedPartyMember.Broadcast(aCombatEntity);
+}
+
 

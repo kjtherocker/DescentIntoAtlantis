@@ -86,6 +86,7 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 	
 	hasCombatStarted = true;
 	
+	partyManager->ResurrectedPartyMember.AddDynamic(this,&ResurrectEntity);
 
 
 	for (auto PlayerCombatEntity : partyManager->ReturnActiveParty())
@@ -452,6 +453,20 @@ void ACombatGameModeBase::AllyStartTurn()
 
 }
 
+void ACombatGameModeBase::ResurrectEntity(UCombatEntity* aCombatEntity)
+{
+	if (UPlayerCombatEntity* PlayerCombatEntity = Cast<UPlayerCombatEntity>(aCombatEntity))
+	{
+		partyMembersInCombat.Add(PlayerCombatEntity);
+	}
+	
+	if (UEnemyCombatEntity* EnemyCombatEntity = Cast<UEnemyCombatEntity>(aCombatEntity))
+	{
+		enemysInCombat.Add(EnemyCombatEntity);
+	}
+
+}
+
 void ACombatGameModeBase::EnemyStartTurn()
 {
 	InGameHUD->PopMostRecentActiveView();
@@ -600,9 +615,11 @@ void ACombatGameModeBase::EndCombat(bool aHasWon)
 		enemysInCombat.RemoveAt(i);
 	}
 	
+	partyManager->ResurrectedPartyMember.RemoveDynamic(this,&ResurrectEntity);
 	partyManager->RemoveAllCombatTokensFromParty();
-	
 	enemyFactory->BestiaryDataHasChangedBroadcast();
+
+
 	
 	if(aHasWon)
 	{
