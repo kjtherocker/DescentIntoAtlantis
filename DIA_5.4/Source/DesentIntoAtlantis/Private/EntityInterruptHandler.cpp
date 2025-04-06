@@ -41,7 +41,12 @@ TArray<UCombatInterrupt*> UEntityInterruptHandler::CheckGenericTriggerInterrupts
 			continue;
 		}
 
-		CombatInterrupts.Add(CombatInterruptHandler->CreateInterrupt(ownedCombatEntity->GetEntityName(),
+		FTriggeredInterruptData triggered;
+
+		triggered.Entity = ownedCombatEntity;
+		triggered.Name   = ownedCombatEntity->GetEntityName();
+		
+		CombatInterrupts.Add(CombatInterruptHandler->CreateInterrupt(triggered,
 			CombatInterruptDatas.interruptType,CombatInterruptDatas));
 		
 		if(CombatInterruptDatas.isConsumedOnUse)
@@ -72,7 +77,12 @@ TArray<UCombatInterrupt*> UEntityInterruptHandler::CheckHealthRelatedInterrupt()
 		{
 			if(healthpercentage < CombatInterruptData.HealthThresholdData.TopPercent )
 			{
-				CombatInterrupts.Add(CombatInterruptHandler->CreateInterrupt(ownedCombatEntity->GetEntityName(),CombatInterruptData.interruptType,
+				FTriggeredInterruptData triggered;
+
+				triggered.Entity = ownedCombatEntity;
+				triggered.Name   = ownedCombatEntity->GetEntityName();
+				
+				CombatInterrupts.Add(CombatInterruptHandler->CreateInterrupt(triggered,CombatInterruptData.interruptType,
 					CombatInterruptData));
 				if(CombatInterruptData.isConsumedOnUse)
 				{

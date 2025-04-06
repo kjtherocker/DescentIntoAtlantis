@@ -36,7 +36,7 @@ public:
 	
 	void SetAllInterruptHandlers(TArray<UPlayerCombatEntity*> aPartyMembersInCombat,TArray<UEnemyCombatEntity*> aEnemyCombatEntitys );
 
-	UCombatInterrupt* CreateInterrupt(FString aCreatorName,EInterruptType aInterruptType, FCombatInterruptData aCombatInterruptData);
+	UCombatInterrupt* CreateInterrupt(FTriggeredInterruptData aCreatorName,EInterruptType aInterruptType, FCombatInterruptData aCombatInterruptData);
 	UFUNCTION()
 	void AddCombatInterrupt(UCombatInterrupt* aCombatInterrupt);
 

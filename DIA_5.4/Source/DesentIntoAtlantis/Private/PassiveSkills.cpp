@@ -59,10 +59,15 @@ void UPassiveSkills::CreatePassiveInterrupt()
 	PassiveActionData.PassiveSkill = this;
 	
 	CombatInterruptData.PassiveActionData = PassiveActionData;
+
+	FTriggeredInterruptData triggered;
+
+	triggered.Entity = attachedCombatEntity;
+	triggered.Name   = attachedCombatEntity->GetEntityName();
 	
 	UCombatInterrupt* CombatInterrupt =
 		CombatInterruptManager->
-	CreateInterrupt(attachedCombatEntity->GetEntityName(),EInterruptType::Passive,CombatInterruptData);
+	CreateInterrupt(triggered,EInterruptType::Passive,CombatInterruptData);
 	
 	CombatInterruptManager->AddCombatInterrupt(CombatInterrupt);
 }

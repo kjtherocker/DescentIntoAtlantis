@@ -47,7 +47,7 @@ void UCombatInterruptManager::SetAllInterruptHandlers(TArray<UPlayerCombatEntity
 	currentInterruptHandlers = InterruptHandlers;
 }
 
-UCombatInterrupt* UCombatInterruptManager::CreateInterrupt(FString aCreatorName,EInterruptType aInterruptType,
+UCombatInterrupt* UCombatInterruptManager::CreateInterrupt(FTriggeredInterruptData aCreatorName,EInterruptType aInterruptType,
 	FCombatInterruptData aCombatInterruptData)
 {
 	UCombatInterrupt* CombatInterrupt = nullptr;

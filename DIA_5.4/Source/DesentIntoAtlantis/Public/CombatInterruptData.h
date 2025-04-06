@@ -58,6 +58,19 @@ struct DESENTINTOATLANTIS_API FPassiveActionData : public FTableRowBase
 };
 
 USTRUCT()
+struct DESENTINTOATLANTIS_API FTriggeredInterruptData : public FTableRowBase
+{
+	GENERATED_BODY()
+
+	UPROPERTY()
+	FString Name = "UnSet";
+
+	UPROPERTY()
+	UCombatEntity* Entity;
+};
+
+
+USTRUCT()
 struct DESENTINTOATLANTIS_API FCombatInterruptData : public FTableRowBase
 {
 	GENERATED_BODY()
@@ -76,7 +89,7 @@ struct DESENTINTOATLANTIS_API FCombatInterruptData : public FTableRowBase
 	FHealthThresholdData HealthThresholdData;
 
 	UPROPERTY()
-	FString whoTriggeredInterrupt = "UnSet";
+	FTriggeredInterruptData whoTriggeredInterrupt;
 
 	UPROPERTY( EditAnywhere, Category = "Generic" )
 	EGenericTrigger GenericTrigger;

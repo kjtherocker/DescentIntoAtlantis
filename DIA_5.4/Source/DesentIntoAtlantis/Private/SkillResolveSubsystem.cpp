@@ -63,8 +63,13 @@ void USkillResolveSubsystem::CreateSkillInterrupt(FSkillActionData aSkillActionD
 		combatEntity->combatEntityHub->SendGenericTrigger(aSkillActionData.Attacker,EGenericTrigger::OnTargetedByAttack);
 	}
 
+	FTriggeredInterruptData triggered;
+
+	triggered.Entity = aSkillActionData.Attacker;
+	triggered.Name   = aSkillActionData.Attacker->GetEntityName();
+	
 	UCombatInterrupt* CombatInterrupt =
-		combatInterruptmanager->CreateInterrupt(aSkillActionData.Attacker->GetEntityName(),EInterruptType::Skill,CombatInterruptData);
+		combatInterruptmanager->CreateInterrupt(triggered,EInterruptType::Skill,CombatInterruptData);
 	
 	aSkillActionData.Attacker->combatEntityHub->InterruptHandler->AddCombatInterrupt(CombatInterrupt);
 	combatGameModeBase->TurnEnd();

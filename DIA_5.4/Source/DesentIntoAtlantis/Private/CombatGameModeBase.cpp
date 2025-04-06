@@ -86,7 +86,7 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 	
 	hasCombatStarted = true;
 	
-	partyManager->ResurrectedPartyMember.AddDynamic(this,&ResurrectEntity);
+	partyManager->ResurrectedPartyMember.AddDynamic(this,&ACombatGameModeBase::ResurrectEntity);
 
 
 	for (auto PlayerCombatEntity : partyManager->ReturnActiveParty())
@@ -615,7 +615,7 @@ void ACombatGameModeBase::EndCombat(bool aHasWon)
 		enemysInCombat.RemoveAt(i);
 	}
 	
-	partyManager->ResurrectedPartyMember.RemoveDynamic(this,&ResurrectEntity);
+	partyManager->ResurrectedPartyMember.RemoveDynamic(this,&ACombatGameModeBase::ResurrectEntity);
 	partyManager->RemoveAllCombatTokensFromParty();
 	enemyFactory->BestiaryDataHasChangedBroadcast();
 
