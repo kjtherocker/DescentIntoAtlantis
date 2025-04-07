@@ -37,7 +37,7 @@ private:
 	UPROPERTY()
 	UPersistentGameinstance* persistentGameinstance;
 	UPROPERTY()
-	UCombatEntity* OwnedCombatEntity;
+	UCombatEntity* AttachedCombatEntity;
 	
 public:
 	virtual void InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEntity,UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem,UPersistentGameinstance* aPersistentGameinstance);
@@ -53,6 +53,8 @@ public:
 	virtual void OnAttackEvaded(UCombatEntity* WhoTriggeredEvent,FCombatLog_Hit_Data aEvasionData);
 	virtual void OnEvadedAttack(UCombatEntity* WhoTriggeredEvent,FCombatLog_Hit_Data aEvasionData);
 
+	virtual void OnDeath(UCombatEntity* WhoTriggeredEvent);
+	
 	virtual void OnCombatStart(ACombatGameModeBase* aCombatGameMode);
 	
 	virtual void SendGenericTrigger(UCombatEntity* WhoTriggeredEvent,EGenericTrigger aGenericTrigger);

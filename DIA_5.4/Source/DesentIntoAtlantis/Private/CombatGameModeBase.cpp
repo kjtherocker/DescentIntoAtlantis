@@ -297,20 +297,25 @@ void ACombatGameModeBase::TurnEnd()
 		SetCombatState(ECombatState::Start);
 		return;
 	}
-	
-	for(int i =  enemysInCombat.Num() -1 ; i >= 0;i--)
+
+	for (auto Element : GetPlayersInCombat())
 	{
-		if(enemysInCombat[i]->GetIsMarkedForDeath())
-		{
-			combatExp += enemysInCombat[i]->GetExperience();
-			gainedCP  +=  enemysInCombat[i]->GetClassPoints();
-			enemysInCombat[i]->Death();
-			enemysInCombat.RemoveAt(i);
-		}
+		Element->ResourceHandler->ValidateLifeStatus();
 	}
 
-	RemoveDeadPartyMembersFromCombat();
-		
+	for (auto Element : GetEnemysInCombat())
+	{
+		Element->ResourceHandler->ValidateLifeStatus();
+	}
+
+	combatInterruptManager->CheckAllEntitysForInterruptions();
+	
+	if( combatInterruptManager->HasInterruptions())
+	{
+		SetCombatState(ECombatState::Interruption);
+		return;
+	}
+	
 	if(enemysInCombat.Num() == 0)
 	{
 		SetCombatState(ECombatState::SuccessfulEnd);
@@ -328,9 +333,6 @@ void ACombatGameModeBase::TurnEnd()
 
 void ACombatGameModeBase::ValidateNextTurn()
 {
-	
-	
-	
 	if(pressTurnManager->GetNumberOfActivePressTurns() == 0)
 	{
 		currentCombatEntity->EndTurn();	
@@ -453,10 +455,44 @@ void ACombatGameModeBase::AllyStartTurn()
 
 }
 
+void ACombatGameModeBase::EntityDied(UCombatEntity* aCombatEntity)
+{
+	if (UPlayerCombatEntity* PlayerCombatEntity = Cast<UPlayerCombatEntity>(aCombatEntity))
+	{
+		for(int i =  partyMembersInCombat.Num() -1 ; i >= 0;i--)
+		{
+			if(partyMembersInCombat[i] != aCombatEntity)
+			{
+				continue;
+			}
+			
+			partyMembersInCombat.RemoveAt(i);
+		}
+	}
+	
+	if (UEnemyCombatEntity* EnemyCombatEntity = Cast<UEnemyCombatEntity>(aCombatEntity))
+	{
+		for(int i =  enemysInCombat.Num() -1 ; i >= 0;i--)
+		{
+			if(enemysInCombat[i]->GetIsMarkedForDeath())
+			{
+				combatExp += enemysInCombat[i]->GetExperience();
+				gainedCP  +=  enemysInCombat[i]->GetClassPoints();
+				enemysInCombat.RemoveAt(i);
+			}
+		}
+	}
+
+}
+
 void ACombatGameModeBase::ResurrectEntity(UCombatEntity* aCombatEntity)
 {
 	if (UPlayerCombatEntity* PlayerCombatEntity = Cast<UPlayerCombatEntity>(aCombatEntity))
 	{
+		if(partyMembersInCombat.Contains(PlayerCombatEntity))
+		{
+			return;
+		}
 		partyMembersInCombat.Add(PlayerCombatEntity);
 	}
 	

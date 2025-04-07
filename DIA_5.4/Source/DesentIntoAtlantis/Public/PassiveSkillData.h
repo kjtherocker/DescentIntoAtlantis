@@ -70,6 +70,7 @@ enum class EPassiveSkillID   : uint8
 	//ModificationPassives
 	BonkDefenceResistDown,
 	FelineAgility,
+	Resurrection,
 };
 
 UENUM()
@@ -129,6 +130,7 @@ enum class EGenericTrigger : uint8
 	OnEvadedAttack       = 3,
 	OnTargetedByAttack   = 4,
 	OnResurrected        = 5,
+	OnDeath              = 6,
 };
 
 USTRUCT()

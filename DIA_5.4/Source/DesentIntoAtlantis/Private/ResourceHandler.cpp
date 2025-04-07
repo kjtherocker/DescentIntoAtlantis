@@ -8,33 +8,41 @@
 #include "SkillData.h"
 #include "SkillType.h"
 
-void UResourceHandler::Initialize(UCombatEntity* aOwnedCombatEntity)
+void UResourceHandler::Initialize(UCombatEntity* aOwnedCombatEntity,UPersistentGameinstance* aPersistantGameInstance)
 {
-	OwnedCombatEntity = aOwnedCombatEntity;
+	AttachedCombatEntity      = aOwnedCombatEntity;
+	persistantGameInstance = aPersistantGameInstance;
 
 	healthHandler                  = NewObject<UHealth>();
 	manaHandler                    = NewObject<UMana>();
 	SyncHandler                    = NewObject<USyncHandler>();
 	ItemChargeHandler              = NewObject<UItemChargeHandler>();
+
+	ValidateLifeStatusEvent.AddDynamic(this,&UResourceHandler::ValidateLifeStatus);
 	
-	healthHandler->InitializeHealth(ResourceHandlerCompleteData.HealthData,OwnedCombatEntity);
-	manaHandler->InitializeMana(ResourceHandlerCompleteData.ManaData,OwnedCombatEntity);
-	SyncHandler->InitializeSyncHandler(ResourceHandlerCompleteData.SyncData,OwnedCombatEntity);
+	healthHandler->InitializeHealth(ResourceHandlerCompleteData.HealthData,AttachedCombatEntity);
+	manaHandler->InitializeMana(ResourceHandlerCompleteData.ManaData,AttachedCombatEntity);
+	SyncHandler->InitializeSyncHandler(ResourceHandlerCompleteData.SyncData,AttachedCombatEntity);
 	ItemChargeHandler->InitializeItemChargeHandler();
 
 	DefenceLayers.Add(EResource::Health);
 
-	SetCombatWrapper(OwnedCombatEntity);
+	SetCombatWrapper(AttachedCombatEntity);
 }
 
 void UResourceHandler::SetResourceHandlerCompleteData(FResourceHandlerCompleteData aResourceHandlerCompleteData)
 {
 	ResourceHandlerCompleteData = aResourceHandlerCompleteData;
 
-	healthHandler->InitializeHealth(ResourceHandlerCompleteData.HealthData,OwnedCombatEntity);
-	manaHandler->InitializeMana(ResourceHandlerCompleteData.ManaData,OwnedCombatEntity);
-	SyncHandler->InitializeSyncHandler(ResourceHandlerCompleteData.SyncData,OwnedCombatEntity);
+	healthHandler->InitializeHealth(ResourceHandlerCompleteData.HealthData,AttachedCombatEntity);
+	manaHandler->InitializeMana(ResourceHandlerCompleteData.ManaData,AttachedCombatEntity);
+	SyncHandler->InitializeSyncHandler(ResourceHandlerCompleteData.SyncData,AttachedCombatEntity);
 	
+}
+
+void UResourceHandler::ValidateLifeStatus()
+{
+	AttachedCombatEntity->DeathCheck();
 }
 
 bool UResourceHandler::DeathCheck()
@@ -43,13 +51,36 @@ bool UResourceHandler::DeathCheck()
 	{
 		isMarkedForDeath = true;
 	}
-	if(GetCurrentHealth() >= 0)
+	if(GetCurrentHealth() > 0)
 	{
 		isMarkedForDeath = false;
 	}
 	
 
 	return isMarkedForDeath;
+}
+
+void UResourceHandler::OnDeath()
+{
+	SyncHandler->SetCurrentValue(0);
+
+	if(mostRecentAttacks.Num() > 0)
+	{
+		mostRecentAttacks[mostRecentAttacks.Num() -1].hasKilledEntity = true;	
+	}
+	
+}
+
+void UResourceHandler::Resurrection()
+{
+	healthHandler->SetCurrentValue(1);
+	isMarkedForDeath = false;
+	
+	AttachedCombatEntity->combatEntityHub->
+	SendGenericTrigger(AttachedCombatEntity,EGenericTrigger::OnResurrected);
+	
+	persistantGameInstance->SkillResolveSubsystem->CreateResurrectInterrupt(AttachedCombatEntity);
+	
 }
 
 void UResourceHandler::SetHealthandMana(FHealthData aHealthData, FManaData aManaData)
@@ -65,14 +96,7 @@ void UResourceHandler::LoadSavedCurrentResources(FResourceHandlerCompleteData aR
 	SyncHandler->SetCurrentValue(aResourceHandlerCompleteData.SyncData.ResourceBarInfo.Current);
 }
 
-void UResourceHandler::Resurrection()
-{
-	healthHandler->MaxOutCurrentValue();
-	isMarkedForDeath = false;
-	OwnedCombatEntity->combatEntityHub->
-	SendGenericTrigger(OwnedCombatEntity,EGenericTrigger::OnResurrected);
-	
-}
+
 
 void UResourceHandler::SetToDefaultState()
 {
@@ -83,14 +107,14 @@ void UResourceHandler::SetToDefaultState()
 
 void UResourceHandler::SetCombatWrapper(UCombatEntity* aCombatEntity)
 {
-	OwnedCombatEntity = aCombatEntity;
+	AttachedCombatEntity = aCombatEntity;
 	
 	inUseCombatWrapper      = NewObject<UCombatEntityWrapper>();
 	allDefaultCombatWrapper = NewObject<UCombatEntityWrapper>();
-	allDefaultCombatWrapper->SetAttachedCombatEntity(this,OwnedCombatEntity);
+	allDefaultCombatWrapper->SetAttachedCombatEntity(this,AttachedCombatEntity);
 	allDefaultCombatWrapper->SetCalculateDamageWrapper(NewObject<UCalculateDamage_Base>());
     
-	inUseCombatWrapper->SetAttachedCombatEntity(this,OwnedCombatEntity);
+	inUseCombatWrapper->SetAttachedCombatEntity(this,AttachedCombatEntity);
 	inUseCombatWrapper->SetCalculateDamageWrapper(allDefaultCombatWrapper->GetCalculateDamageWrapper());
 }
 
@@ -191,8 +215,10 @@ FCombatLog_AttackDefense_Data UResourceHandler::AttackResource(EResource aResour
 {
 	FCombatLog_AttackDefense_Data combatLog;
 	combatLog.wasInitializedOnSkill = false;
+	
 	StartDecrementResource( aResource,  aDecrementBy);
-
+	AddRecentAttackCombatLog(combatLog);
+	
 	return combatLog;
 }
 
@@ -200,10 +226,9 @@ FCombatLog_AttackDefense_Data UResourceHandler::AttackResourceWithSkill(EResourc
 {
 	FCombatLog_AttackDefense_Data combatLog = CalculateDamage( aAttacker,  aSkill);
 	
-	
 	StartDecrementResource( aResource, combatLog.FinalDamageResult);
-
-
+	AddRecentAttackCombatLog(combatLog);
+	
 	return combatLog;
 }
 
@@ -221,6 +246,16 @@ void UResourceHandler::StartDecrementResource(EResource aResource, int aDecremen
 	}
 }
 
+void UResourceHandler::AddRecentAttackCombatLog(FCombatLog_AttackDefense_Data aCombatLog)
+{
+	mostRecentAttacks.Add(aCombatLog);
+
+	if(mostRecentAttacks.Num() > 10)
+	{
+		mostRecentAttacks.RemoveAt(0);
+	}
+}
+
 void UResourceHandler::DealDamage(int aResourceAmount)
 {
 	int resourceAmount = aResourceAmount;
@@ -234,7 +269,7 @@ void UResourceHandler::DealDamage(int aResourceAmount)
 		resourceAmount = DecrementResourceReturnOverFlow(DefenceLayers[i],resourceAmount);
 	}
 	
-	OwnedCombatEntity->PostDamage();
+	AttachedCombatEntity->PostDamage();
 }
 
 int UResourceHandler::GetCurrentHealth()

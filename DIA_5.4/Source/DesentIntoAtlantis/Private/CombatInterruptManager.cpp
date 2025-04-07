@@ -6,6 +6,7 @@
 #include "CombatGameModeBase.h"
 #include "PassiveInterrupt.h"
 #include "PlayerCombatEntity.h"
+#include "ResurrectionInterrupt.h"
 
 void UCombatInterruptManager::SetGameModeBase(UPersistentGameinstance* aPersistentGameInstance,ACombatGameModeBase* aCombatGameModeBase)
 {
@@ -64,8 +65,14 @@ UCombatInterrupt* UCombatInterruptManager::CreateInterrupt(FTriggeredInterruptDa
 	case EInterruptType::Passive:
 		CombatInterrupt = NewObject<UPassiveInterrupt>();
 		break;
+	case EInterruptType::Resurrection:
+		CombatInterrupt = NewObject<UResurrectionInterrupt>();
+		break;
+	case EInterruptType::Death:
+		CombatInterrupt = NewObject<UEntityDiedInterrupt>();
+		break;
 	}
-	aCombatInterruptData.whoTriggeredInterrupt = aCreatorName;
+	aCombatInterruptData.WhoTriggerInterruptData = aCreatorName;
 	CombatInterrupt->SetInterrupt(persistentGameInstance,CombatGameModeBase);
 	CombatInterrupt->SetCombatInterruptData(aCombatInterruptData);
 	return CombatInterrupt;
@@ -145,6 +152,13 @@ void UCombatInterruptManager::SetInterruptionValueByType(UCombatInterrupt* aComb
 	case EInterruptType::Passive:
 		aCombatInterrupt->SetInterruptionValue(25);
 		break;
+	case EInterruptType::Resurrection:
+		aCombatInterrupt->SetInterruptionValue(22);
+		break;
+	case EInterruptType::Death:
+		aCombatInterrupt->SetInterruptionValue(21);
+		break;
+	
 	}
 }
 

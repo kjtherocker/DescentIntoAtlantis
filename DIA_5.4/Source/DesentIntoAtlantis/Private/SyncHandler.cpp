@@ -19,14 +19,14 @@ void UResourceBar_Base::SetResourceInfo(FResourceBarInfo aResourceInfo)
 	hasValuesUpdated.Broadcast();
 }
 
-void UResourceBar_Base::SetCurrentValue(int aCurrentMana)
+void UResourceBar_Base::SetCurrentValue(int aCurrentValue)
 {
 	if(ResourceBarInfo.isResourceCompletelyLocked)
 	{
 		return;
 	}
 	
-	ResourceBarInfo.Current = aCurrentMana;
+	ResourceBarInfo.Current = aCurrentValue;
 	HasValuesChanged.Broadcast(ResourceBarInfo);
 	hasValuesUpdated.Broadcast();
 }

@@ -149,15 +149,6 @@ public:
 	FPassiveSkillData passiveSkillData;
 };
 
-UCLASS()
-class DESENTINTOATLANTIS_API UGenericTriggerPassive : public UPassiveSkills, public IOnGenericPassive
-{
-	GENERATED_BODY()
-
-public:
-	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent) override;
-
-};
 
 
 UCLASS()
@@ -179,6 +170,16 @@ class DESENTINTOATLANTIS_API UGenericModifyPassive : public UPassiveSkills, publ
 
 public:
 	virtual FSkillsData ModifySkill_Implementation(FSkillsData aPassiveSkill) override;
+
+};
+
+UCLASS()
+class DESENTINTOATLANTIS_API UGenericTriggerPassive : public UPassiveSkills, public IOnGenericPassive
+{
+	GENERATED_BODY()
+
+public:
+	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent) override;
 
 };
 

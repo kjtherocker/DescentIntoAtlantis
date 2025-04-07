@@ -23,7 +23,7 @@ void UCombatEntityHub::InitializeCombatEntityHub(UCombatEntity* aOwnedCombatEnti
                                                  UPassiveFactorySubsystem* aPassiveSkillFactorySubsystem,
                                                  UPersistentGameinstance* aPersistentGameinstance)
 {
-	OwnedCombatEntity = aOwnedCombatEntity;
+	AttachedCombatEntity = aOwnedCombatEntity;
 	passiveSkillFactorySubsystem = aPassiveSkillFactorySubsystem;
 	
 	passiveHandler     = NewObject<UPassiveHandler>();
@@ -81,19 +81,27 @@ bool UCombatEntityHub::DoesEntityHaveATurn()
 
 void UCombatEntityHub::SpawnParticles(UNiagaraSystem* aNiagaraSystem)
 {
-	SpawnSkillParticles.Broadcast(aNiagaraSystem,OwnedCombatEntity);
+	SpawnSkillParticles.Broadcast(aNiagaraSystem,AttachedCombatEntity);
 }
 
 void UCombatEntityHub::OnAttackEvaded(UCombatEntity* WhoTriggeredEvent,FCombatLog_Hit_Data aEvasionData)
 {
 	SendGenericTrigger(WhoTriggeredEvent,EGenericTrigger::OnAttackEvaded);
-	AttackEvaded.Broadcast(aEvasionData,OwnedCombatEntity);
+	AttackEvaded.Broadcast(aEvasionData,AttachedCombatEntity);
 }
 
 void UCombatEntityHub::OnEvadedAttack(UCombatEntity* WhoTriggeredEvent,FCombatLog_Hit_Data aEvasionData)
 {
 	SendGenericTrigger(WhoTriggeredEvent,EGenericTrigger::OnEvadedAttack);
-	EvadedAttack.Broadcast(aEvasionData,OwnedCombatEntity);
+	EvadedAttack.Broadcast(aEvasionData,AttachedCombatEntity);
+}
+
+void UCombatEntityHub::OnDeath(UCombatEntity* WhoTriggeredEvent)
+{
+	combatTokenHandler->RemoveAllCombatTokens();
+	AttachedCombatEntity->ResourceHandler->OnDeath();
+	SendGenericTrigger(WhoTriggeredEvent,EGenericTrigger::OnDeath);
+	persistentGameinstance->SkillResolveSubsystem->CreateEntityDiedInterrupt(AttachedCombatEntity);
 }
 
 void UCombatEntityHub::OnCombatStart(ACombatGameModeBase* aCombatGameMode)
@@ -109,7 +117,7 @@ void UCombatEntityHub::SendGenericTrigger(UCombatEntity* WhoTriggeredEvent,EGene
 
 int UCombatEntityHub::GetAilmentResistance()
 {
-	int returnedAilmentResistance = OwnedCombatEntity->GetBaseAilmentResistance();
+	int returnedAilmentResistance = AttachedCombatEntity->GetBaseAilmentResistance();
 	
 	return returnedAilmentResistance;
 }

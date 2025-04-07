@@ -38,7 +38,7 @@ public:
 	virtual void InitializeResources(FResourceBarInfo aResourceInfo, UCombatEntity* aCombatEntity);
 
 	virtual void SetResourceInfo(FResourceBarInfo aResourceInfo);
-	virtual void SetCurrentValue(int aCurrentMana);
+	virtual void SetCurrentValue(int aCurrentValue);
 	
 	virtual void IncrementValue(int aIncrementBy);
 	

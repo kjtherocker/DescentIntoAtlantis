@@ -4,8 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "CombatEntityWrapper.h"
+#include "CombatLog_AttackDefense_Data.h"
 #include "CombatToken_Ailment.h"
 #include "ItemChargeHandler.h"
+#include "PersistentGameinstance.h"
 #include "SkillType.h"
 #include "ResourceHandlerCompleteData.h"
 #include "SyncHandler.h"
@@ -23,6 +25,8 @@ class UHealth;
 /**
  * 
  */
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FValidateLifeStatus);
+
 UCLASS()
 class DESENTINTOATLANTIS_API UResourceHandler : public UObject
 {
@@ -30,15 +34,25 @@ class DESENTINTOATLANTIS_API UResourceHandler : public UObject
 
 private:
 	UPROPERTY()
-	UCombatEntity* OwnedCombatEntity;
+	UCombatEntity* AttachedCombatEntity;
 
 	UPROPERTY()
 	bool isMarkedForDeath = false;
+
+	UPROPERTY()
+	UPersistentGameinstance* persistantGameInstance;
+	
+	UPROPERTY()
+	TArray<FCombatLog_AttackDefense_Data> mostRecentAttacks;
 public:
 
+	UPROPERTY()
+	FValidateLifeStatus ValidateLifeStatusEvent;
+	
 	FResourceHandlerCompleteData ResourceHandlerCompleteData;
 	FResetOneWrapperToDefault          resetOneWrapperToDefault;
 
+	UPROPERTY()
 	FHasValuesUpdated hasValuesUpdated;
 	
 	UPROPERTY()
@@ -46,16 +60,20 @@ public:
 	UPROPERTY()
 	UCombatEntityWrapper* allDefaultCombatWrapper;
 
-	void Initialize(UCombatEntity* aOwnedCombatEntity);
+	void Initialize(UCombatEntity* aOwnedCombatEntity,UPersistentGameinstance* aPersistantGameInstance);
 	virtual void SetResourceHandlerCompleteData(FResourceHandlerCompleteData aResourceHandlerCompleteData);
 
+	UFUNCTION()
+	virtual void ValidateLifeStatus();
 	virtual bool DeathCheck();
+	virtual void OnDeath();
+	virtual void Resurrection();
 	
 	virtual void SetHealthandMana(FHealthData aHealthData, FManaData aManaData);
 
 	virtual void LoadSavedCurrentResources(FResourceHandlerCompleteData aResourceHandlerCompleteData);
 
-	virtual void Resurrection();
+
 	virtual void SetToDefaultState();
 	virtual void SetCombatWrapper(UCombatEntity* aCombatEntity);
 	virtual void SetAWrapperToDefault(ECombatEntityWrapperType aShellType);
@@ -73,6 +91,8 @@ public:
 	virtual FCombatLog_AttackDefense_Data AttackResourceWithSkill(EResource aResource,UCombatEntity* aAttacker, FSkillsData aSkill);
 	virtual void StartDecrementResource(EResource aResource, int aDecrementBy);
 
+	virtual void AddRecentAttackCombatLog(FCombatLog_AttackDefense_Data aCombatLog);
+	
 	virtual void DealDamage(int aResourceAmount);
 	
 	virtual int GetCurrentHealth();

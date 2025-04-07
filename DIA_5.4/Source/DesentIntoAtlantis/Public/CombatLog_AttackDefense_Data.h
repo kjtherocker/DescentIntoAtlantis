@@ -21,6 +21,9 @@ struct DESENTINTOATLANTIS_API FCombatLog_AttackDefense_Data : public FTableRowBa
 	bool wasInitializedOnSkill = false;
 
 	UPROPERTY()
+	bool hasKilledEntity = true;
+	
+	UPROPERTY()
 	FString ForcedDescription;
 	
 	UPROPERTY()

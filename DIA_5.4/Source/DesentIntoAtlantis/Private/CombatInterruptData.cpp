@@ -40,7 +40,7 @@ void UActivatedTimerInterrupt::ActivateInterrupt()
 	Super::ActivateInterrupt();
 	
 	FTimerHandle handle;
-	CombatGameModeBase->world->GetTimerManager().SetTimer(handle,this,&UCombatInterrupt::InterruptionEnd,1.0f,false);
+	CombatGameModeBase->world->GetTimerManager().SetTimer(handle,this,&UCombatInterrupt::InterruptionEnd,1.4f,false);
 }
 
 void USkillInterrupt::ActivateInterrupt()

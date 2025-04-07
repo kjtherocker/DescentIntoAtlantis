@@ -130,17 +130,13 @@ FCombatLog_PassiveSkilData UResurrect::ActivateGenericPassive_Implementation(UCo
 {
 
 	attachedCombatEntity->Resurrection();
-
 	
 	return Super::ActivateGenericPassive_Implementation(WhoTriggeredEvent);
 }
 
 bool UResurrect::IsPassiveTriggered_Implementation(EGenericTrigger aPassiveGenericTrigger)
 {
-
-
-	
-	return Super::IsPassiveTriggered_Implementation(aPassiveGenericTrigger);
+	return passiveSkillData.triggerGeneric == aPassiveGenericTrigger;
 }
 
 FCombatLog_PassiveSkilData UFelineAgility::ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent)

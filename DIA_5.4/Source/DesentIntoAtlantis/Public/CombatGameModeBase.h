@@ -186,6 +186,8 @@ public:
 	void AllyStartTurn();
 
 	UFUNCTION()
+	void EntityDied(UCombatEntity* aCombatEntity);
+	UFUNCTION()
 	void ResurrectEntity(UCombatEntity* aCombatEntity);
 	
 	void EnemyStartTurn();

@@ -54,6 +54,8 @@ public:
 	void InitiateSkillAction(UCombatEntity* aAttacker, USkillBase* aSkill, int aCursor);
 
 	void CreateSkillInterrupt(FSkillActionData aSkillActionData);
+	void CreateEntityDiedInterrupt(UCombatEntity* aPersonToResurrect);
+	void CreateResurrectInterrupt(UCombatEntity* aPersonToResurrect);
 	
 	void ResolveSkillAction(FSkillActionData aSkillResolve);
 

@@ -8,6 +8,14 @@
 void UResurrectionInterrupt::ActivateInterrupt()
 {
 	Super::ActivateInterrupt();
+	GEngine->AddOnScreenDebugMessage(-1, 22.f, FColor::Yellow, FString::Printf(TEXT("Resurrected")));
+	CombatGameModeBase->ResurrectEntity(CombatInterruptData.WhoTriggerInterruptData.Entity);
+}
 
-	CombatGameModeBase->ResurrectEntity(CombatInterruptData.whoTriggeredInterrupt.Entity);
+void UEntityDiedInterrupt::ActivateInterrupt()
+{
+	Super::ActivateInterrupt();
+	GEngine->AddOnScreenDebugMessage(-1, 22.f, FColor::Yellow, FString::Printf(TEXT("Died")));
+	
+	CombatGameModeBase->EntityDied(CombatInterruptData.WhoTriggerInterruptData.Entity);
 }

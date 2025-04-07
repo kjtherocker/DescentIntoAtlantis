@@ -17,3 +17,13 @@ class DESENTINTOATLANTIS_API UResurrectionInterrupt : public UActivatedTimerInte
 	
 	virtual void ActivateInterrupt() override;
 };
+
+
+UCLASS()
+class DESENTINTOATLANTIS_API UEntityDiedInterrupt : public UActivatedTimerInterrupt
+{
+	GENERATED_BODY()
+
+	
+	virtual void ActivateInterrupt() override;
+};

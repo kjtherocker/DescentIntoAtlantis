@@ -34,7 +34,7 @@ void UCombatEntity::SetCombatEntity(USkillFactorySubsystem* aSkillFactory,UPassi
     combatEntityHub->InitializeCombatEntityHub(this,aPassiveSkillFactory,aPersistentGameinstance);
 
     ResourceHandler = NewObject<UResourceHandler>();
-    ResourceHandler->Initialize(this);
+    ResourceHandler->Initialize(this,aPersistentGameinstance);
 }
 
 
@@ -200,16 +200,21 @@ void UCombatEntity::Resurrection()
 void UCombatEntity::DeathCheck()
 {
     isMarkedForDeath = ResourceHandler->DeathCheck();
+
+    if(isMarkedForDeath)
+    {
+        Death();
+    }
 }
 
 void UCombatEntity::Death()
 {
+    combatEntityHub->OnDeath(this);
     wasKilled.Broadcast();
 }
 
 void UCombatEntity::PostDamage()
 {
-    DeathCheck();
     if(!isMarkedForDeath)
     {
         ActivateDamageHitEffect();
@@ -273,7 +278,7 @@ float UCombatEntity::GetSyncPercentage()
 
 bool UCombatEntity::GetIsMarkedForDeath()
 {
-    return isMarkedForDeath;
+    return ResourceHandler->DeathCheck();
 }
 
 //Related But not combatentity

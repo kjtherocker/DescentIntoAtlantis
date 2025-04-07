@@ -15,6 +15,8 @@ enum class  EInterruptType  : uint8
 	Dialogue              = 1,
 	Skill                 = 2,
 	Passive               = 3,
+	Resurrection          = 4,
+	Death                 = 5,
 };
 
 USTRUCT()
@@ -89,7 +91,7 @@ struct DESENTINTOATLANTIS_API FCombatInterruptData : public FTableRowBase
 	FHealthThresholdData HealthThresholdData;
 
 	UPROPERTY()
-	FTriggeredInterruptData whoTriggeredInterrupt;
+	FTriggeredInterruptData WhoTriggerInterruptData;
 
 	UPROPERTY( EditAnywhere, Category = "Generic" )
 	EGenericTrigger GenericTrigger;

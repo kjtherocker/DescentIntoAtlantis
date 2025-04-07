@@ -85,6 +85,9 @@ UPassiveSkills* UPassiveFactorySubsystem::CreatePassiveSkill(EPassiveSkillID aPa
 	case EPassiveSkillID::FelineAgility:
 		return  NewObject<UFelineAgility>();
 		break;
+	case EPassiveSkillID::Resurrection:
+		return  NewObject<UResurrect>();
+		break;
 	}
 
 	return NewObject<UGenericOnAttackPassive>();

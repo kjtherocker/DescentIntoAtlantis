@@ -75,6 +75,42 @@ void USkillResolveSubsystem::CreateSkillInterrupt(FSkillActionData aSkillActionD
 	combatGameModeBase->TurnEnd();
 }
 
+void USkillResolveSubsystem::CreateEntityDiedInterrupt(UCombatEntity* aPersonToResurrect)
+{
+	FCombatInterruptData CombatInterruptData;
+	CombatInterruptData.executeInterruptImmediately = true;
+	CombatInterruptData.interruptType = EInterruptType::Death;
+	
+	FTriggeredInterruptData TriggerInterruptData;
+	TriggerInterruptData.Entity = aPersonToResurrect;
+	TriggerInterruptData.Name   = aPersonToResurrect->GetEntityName();
+
+	CombatInterruptData.WhoTriggerInterruptData = TriggerInterruptData;
+	
+	UCombatInterrupt* CombatInterrupt = combatInterruptmanager->
+	CreateInterrupt(TriggerInterruptData,EInterruptType::Death,CombatInterruptData);
+	
+	aPersonToResurrect->combatEntityHub->InterruptHandler->AddCombatInterrupt(CombatInterrupt);
+}
+
+void USkillResolveSubsystem::CreateResurrectInterrupt(UCombatEntity* aPersonToResurrect)
+{
+	FCombatInterruptData CombatInterruptData;
+	CombatInterruptData.executeInterruptImmediately = true;
+	CombatInterruptData.interruptType = EInterruptType::Resurrection;
+	
+	FTriggeredInterruptData TriggerInterruptData;
+	TriggerInterruptData.Entity = aPersonToResurrect;
+	TriggerInterruptData.Name   = aPersonToResurrect->GetEntityName();
+
+	CombatInterruptData.WhoTriggerInterruptData = TriggerInterruptData;
+	
+	UCombatInterrupt* CombatInterrupt = combatInterruptmanager->
+	CreateInterrupt(TriggerInterruptData,EInterruptType::Resurrection,CombatInterruptData);
+	
+	aPersonToResurrect->combatEntityHub->InterruptHandler->AddCombatInterrupt(CombatInterrupt);
+}
+
 void USkillResolveSubsystem::ResolveSkillAction(FSkillActionData aSkillResolve)
 {
 	TArray<EPressTurnReactions> turnReactions;

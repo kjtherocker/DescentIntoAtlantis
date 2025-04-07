@@ -53,13 +53,6 @@ void UEnemyCombatEntity::SetEnemyEntityData(FEnemyEntityCompleteData AEnemyEntit
 	SetAbilityScores();
 }
 
-void UEnemyCombatEntity::Death()
-{
-	UCombatEntity::Death();
-
-	wasKilled.Broadcast();
-}
-
 FCombatLog_AttackDefense_Data UEnemyCombatEntity::AttackResource(EResource aResource, UCombatEntity* aAttacker, FSkillsData aSkill)
 {
 	beastiaryData->RevealElementalInfo(aSkill.elementalType);
