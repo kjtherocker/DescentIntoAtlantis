@@ -141,7 +141,7 @@ protected:
 public:
 
 	FOnInterruptEnd OnInterruptEnd;
-	void SetInterrupt(UPersistentGameinstance* aPersistantGameInstance,ACombatGameModeBase* aCombatGameModeBase);
+	virtual void SetInterrupt(UPersistentGameinstance* aPersistantGameInstance,ACombatGameModeBase* aCombatGameModeBase);
 
 	int GetInterruptionValue(){return interruptionValue;}
 	void SetInterruptionValue(int aInterruptionValue){interruptionValue = aInterruptionValue;}
@@ -171,6 +171,9 @@ class UActivatedTimerInterrupt: public UCombatInterrupt
 {
 	GENERATED_BODY()
 
+protected:
+	float interruptTimer;
+	
 public:
 	virtual void ActivateInterrupt() override;
 };
@@ -182,6 +185,9 @@ class USkillInterrupt: public UActivatedTimerInterrupt
 	GENERATED_BODY()
 
 public:
+
+	virtual void SetInterrupt(UPersistentGameinstance* aPersistantGameInstance,ACombatGameModeBase* aCombatGameModeBase) override;
+	
 	virtual void ActivateInterrupt() override;
 };
 

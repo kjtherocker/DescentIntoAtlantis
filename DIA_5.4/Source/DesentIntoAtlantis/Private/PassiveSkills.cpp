@@ -19,17 +19,17 @@
 
 class UPlayerCombatStats;
 
-void UPassives::AttachOwnerCombatEntity(UCombatEntity* aCombatEntity)
+void UBase_Passives::AttachOwnerCombatEntity(UCombatEntity* aCombatEntity)
 {
 	attachedCombatEntity = aCombatEntity;
 }
 
-void UPassives::RemovePassive()
+void UBase_Passives::RemovePassive()
 {
 	attachedCombatEntity = nullptr;
 }
 
-void UPassives::ActivatePassive()
+void UBase_Passives::ActivatePassive()
 {
 	if(isDisabled)
 	{
@@ -37,11 +37,11 @@ void UPassives::ActivatePassive()
 	}
 }
 
-void UPassives::ApplyEffect(UCombatEntity* aCombatEntity)
+void UBase_Passives::ApplyEffect(UCombatEntity* aCombatEntity)
 {
 }
 
-void UPassives::RemoveEffect(UCombatEntity* aCombatEntity)
+void UBase_Passives::RemoveEffect(UCombatEntity* aCombatEntity)
 {
 }
 
@@ -84,63 +84,21 @@ FCombatLog_PassiveSkilData UGenericTriggerPassive::ActivateGenericPassive_Implem
 	return IOnGenericPassive::ActivateGenericPassive_Implementation(WhoTriggeredEvent);
 }
 
-FCombatLog_PassiveSkilData UCounterPassive::ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent)
-{
-	int SkillIndex = FMath::RandRange(0,99);
 
-	if(SkillIndex < 25)
-	{
-		TArray<UCombatEntity*> triggerer;
-
-		triggerer.Add(WhoTriggeredEvent);
-		
-		attachedCombatEntity->combatEntityHub->skillHandler->SendSkillAction(triggerer, ESkillIDS::DefaultAttack);
-	}
-	
-	
-	return IOnGenericPassive::ActivateGenericPassive_Implementation(WhoTriggeredEvent);
-}
 
 FSkillsData UGenericModifyPassive::ModifySkill_Implementation(FSkillsData aPassiveSkill)
 {
 	return IModifySkillPassive::ModifySkill_Implementation(aPassiveSkill);
 }
 
+bool UGenericTriggerPassive::IsPassiveTriggered_Implementation(EGenericTrigger aPassiveGenericTrigger)
+{
+	return passiveSkillData.triggerGeneric == aPassiveGenericTrigger;
+}
 
 FCombatLog_PassiveSkilData UGenericTriggerPassiveCombatToken::ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent)
 {
 
-	FCombatLog_PassiveSkilData PassiveSkilData;
-	for (auto Element : PassiveSkilData.PassiveSkillData.combatTokensOnPassive)
-	{
-		Element.TokenCreator = attachedCombatEntity;
-		PassiveSkilData.combatTokenData.combatTokenData.Add(attachedCombatEntity->combatEntityHub->combatTokenHandler->AddCombatToken(Element));
-	}
-	
-	CreatePassiveInterrupt();
-	return PassiveSkilData;
-}
-
-bool UGenericTriggerPassiveCombatToken::IsPassiveTriggered_Implementation(EGenericTrigger aPassiveGenericTrigger)
-{
-	return passiveSkillData.triggerGeneric == aPassiveGenericTrigger;
-}
-
-FCombatLog_PassiveSkilData UResurrect::ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent)
-{
-
-	attachedCombatEntity->Resurrection();
-	
-	return Super::ActivateGenericPassive_Implementation(WhoTriggeredEvent);
-}
-
-bool UResurrect::IsPassiveTriggered_Implementation(EGenericTrigger aPassiveGenericTrigger)
-{
-	return passiveSkillData.triggerGeneric == aPassiveGenericTrigger;
-}
-
-FCombatLog_PassiveSkilData UFelineAgility::ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent)
-{
 	FCombatLog_PassiveSkilData PassiveSkilData;
 
 	PassiveSkilData.PassiveSkillData = passiveSkillData;
@@ -155,6 +113,7 @@ FCombatLog_PassiveSkilData UFelineAgility::ActivateGenericPassive_Implementation
 	CreatePassiveInterrupt();
 	return PassiveSkilData;
 }
+
 
 int UGenericStatPassive::GetStatIncrease_Implementation(EStatTypes aStatType)
 {
@@ -255,43 +214,6 @@ FCombatLog_PassiveSkilData UGenericOnAttackPassive::ActivateAttackDefencePassive
 	CombatLog_PassiveSkilData.passiveResult = DamageIncrease;
 	// Add the calculated increase to CurrentDamage
 	CurrentDamage += DamageIncrease;
-	
-	return CombatLog_PassiveSkilData;
-}
-
-bool UMerchantsZeal::IsPassiveTriggered_Implementation(int& CurrentDamage, UCombatEntity* aAttachedEntity,
-	UCombatEntity* aAttacker, FSkillsData aSkill)
-{
-
-	if(aAttacker->ResourceHandler->ItemChargeHandler->HowManyChargesAreFull() == 0)
-	{
-		return false;
-	}
-	
-	if(aSkill.skillType != ESkillType::Attack)
-	{
-		return false;
-	}
-	
-	return true;
-}
-
-FCombatLog_PassiveSkilData UMerchantsZeal::ActivateAttackDefencePassive_Implementation(int& CurrentDamage,
-	UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker, FSkillsData aSkill)
-{
-	FCombatLog_PassiveSkilData CombatLog_PassiveSkilData;
-
-	CombatLog_PassiveSkilData.PassiveSkillData = passiveSkillData;
-	// Calculate the damage increase as a percentage of CurrentDamage
-	int DamageIncrease = passiveSkillData.damageIncrease;
-
-	int itemCharges = aAttacker->ResourceHandler->ItemChargeHandler->HowManyChargesAreFull();
-
-	int FinalNumber = itemCharges * DamageIncrease;
-	
-	CombatLog_PassiveSkilData.passiveResult = FinalNumber;
-	// Add the calculated increase to CurrentDamage
-	CurrentDamage += FinalNumber;
 	
 	return CombatLog_PassiveSkilData;
 }

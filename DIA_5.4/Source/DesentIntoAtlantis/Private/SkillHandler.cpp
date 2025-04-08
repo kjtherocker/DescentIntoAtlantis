@@ -62,6 +62,8 @@ void USkillHandler::Initialize(UCombatEntity* aAttachedCombatEntity,USkillFactor
 		}
 	}
 
+	DefaultAttack = SkillFactorySubsystem->GetSkill(ESkillIDS::DefaultAttack);
+	
 	attachedPassiveHandler->PassiveAdded.AddDynamic(this,&USkillHandler::PassiveAdded);
 	attachedPassiveHandler->PassiveRemoved.AddDynamic(this,&USkillHandler::PassiveAdded);
 //	attachedCombatEntity->OnTurnStart.AddDynamic(this,&USkillHandler::OnTurnStart);
@@ -100,7 +102,16 @@ void USkillHandler::RemoveSkill(ESkillIDS aSkillID)
 
 void USkillHandler::SendSkillAction(TArray<UCombatEntity*> Victims ,ESkillIDS aSkill)
 {
-	USkillBase* SkillBase = GetActiveSkill(aSkill);
+	USkillBase* SkillBase;
+	
+	if(DefaultAttack->skillData.skillID == aSkill)
+	{
+		SkillBase = DefaultAttack;
+	}
+	else
+	{
+		SkillBase = GetActiveSkill(aSkill);
+	}
 	
 	skillResolveSubsystem->InitiateSkillAction(attachedCombatEntity,SkillBase,Victims);
 }
@@ -324,6 +335,12 @@ void USkillHandler::OnTurnStart()
 	}
 	
 
+}
+
+void USkillHandler::OnDeath()
+{
+	chargingSkill = nullptr;
+	
 }
 
 FSkillsData USkillHandler::ModifySkill(FSkillsData aSkillData,TArray<FSkillModification> aSkillModification)

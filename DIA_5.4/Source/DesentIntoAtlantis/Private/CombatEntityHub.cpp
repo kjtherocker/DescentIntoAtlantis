@@ -100,6 +100,7 @@ void UCombatEntityHub::OnDeath(UCombatEntity* WhoTriggeredEvent)
 {
 	combatTokenHandler->RemoveAllCombatTokens();
 	AttachedCombatEntity->ResourceHandler->OnDeath();
+	skillHandler->OnDeath();
 	SendGenericTrigger(WhoTriggeredEvent,EGenericTrigger::OnDeath);
 	persistentGameinstance->SkillResolveSubsystem->CreateEntityDiedInterrupt(AttachedCombatEntity);
 }

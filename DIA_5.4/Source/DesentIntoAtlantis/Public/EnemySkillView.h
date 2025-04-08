@@ -18,7 +18,7 @@ class DESENTINTOATLANTIS_API UEnemySkillView : public UBaseUserWidget
 	GENERATED_BODY()
 
 public:
-	void SetSkill(FSkillsData aSkill, UEnemyCombatEntity* aEnemyCombatEntity);
+	void SetSkill(FSkillsData aSkill, UCombatEntity* ACombatEntity);
 
 	void SetPassiveSkill(FPassiveSkillData aSkill, FString aCharacterName);
 

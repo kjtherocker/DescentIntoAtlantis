@@ -153,10 +153,10 @@ void UCombatInterruptManager::SetInterruptionValueByType(UCombatInterrupt* aComb
 		aCombatInterrupt->SetInterruptionValue(25);
 		break;
 	case EInterruptType::Resurrection:
-		aCombatInterrupt->SetInterruptionValue(22);
+		aCombatInterrupt->SetInterruptionValue(3);
 		break;
 	case EInterruptType::Death:
-		aCombatInterrupt->SetInterruptionValue(21);
+		aCombatInterrupt->SetInterruptionValue(2);
 		break;
 	
 	}

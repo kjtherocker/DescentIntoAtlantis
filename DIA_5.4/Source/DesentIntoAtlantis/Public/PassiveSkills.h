@@ -106,7 +106,7 @@ public:
 
 
 UCLASS()
-class DESENTINTOATLANTIS_API UPassives : public UObject
+class DESENTINTOATLANTIS_API UBase_Passives : public UObject
 {
 	GENERATED_BODY()
 
@@ -138,7 +138,7 @@ protected:
 
 
 UCLASS()
-class DESENTINTOATLANTIS_API UPassiveSkills : public UPassives
+class DESENTINTOATLANTIS_API UPassiveSkills : public UBase_Passives
 {
 	GENERATED_BODY()
 
@@ -148,19 +148,6 @@ public:
 	void InitializePassiveSkilData(FPassiveSkillData aPassiveSkillsData);
 	FPassiveSkillData passiveSkillData;
 };
-
-
-
-UCLASS()
-class DESENTINTOATLANTIS_API UCounterPassive : public UPassiveSkills, public IOnGenericPassive
-{
-	GENERATED_BODY()
-
-public:
-	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent) override;
-
-};
-
 
 
 UCLASS()
@@ -179,6 +166,7 @@ class DESENTINTOATLANTIS_API UGenericTriggerPassive : public UPassiveSkills, pub
 	GENERATED_BODY()
 
 public:
+	virtual bool IsPassiveTriggered_Implementation(EGenericTrigger aPassiveGenericTrigger) override;
 	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent) override;
 
 };
@@ -191,34 +179,7 @@ class DESENTINTOATLANTIS_API UGenericTriggerPassiveCombatToken : public UGeneric
 public:
 
 	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent) override;
-	virtual bool IsPassiveTriggered_Implementation(EGenericTrigger aPassiveGenericTrigger) override;
-
 };
-
-UCLASS()
-class DESENTINTOATLANTIS_API UResurrect : public UGenericTriggerPassive
-{
-	GENERATED_BODY()
-
-public:
-
-	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent) override;
-	virtual bool IsPassiveTriggered_Implementation(EGenericTrigger aPassiveGenericTrigger) override;
-
-};
-
-
-
-UCLASS()
-class DESENTINTOATLANTIS_API UFelineAgility : public UGenericTriggerPassiveCombatToken
-{
-	GENERATED_BODY()
-
-public:
-
-	virtual FCombatLog_PassiveSkilData ActivateGenericPassive_Implementation(UCombatEntity* WhoTriggeredEvent) override;
-};
-
 
 UCLASS()
 class DESENTINTOATLANTIS_API UGenericStatPassive : public UPassiveSkills, public IStatPassive
@@ -243,20 +204,8 @@ public:
 	void EventListener_Implementation(FEventBase* aEvent);
 };
 
-
 UCLASS()
 class DESENTINTOATLANTIS_API UGenericOnAttackPassive: public UPassiveSkills, public IOnAttackDefencePassive
-{
-	GENERATED_BODY()
-
-public:
-	virtual bool IsPassiveTriggered_Implementation(int& CurrentDamage, UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker, FSkillsData aSkill) override;
-	virtual FCombatLog_PassiveSkilData ActivateAttackDefencePassive_Implementation(int& CurrentDamage, UCombatEntity* aAttachedEntity, UCombatEntity* aAttacker, FSkillsData aSkill) override;
-};
-
-
-UCLASS()
-class DESENTINTOATLANTIS_API UMerchantsZeal: public UGenericOnAttackPassive
 {
 	GENERATED_BODY()
 

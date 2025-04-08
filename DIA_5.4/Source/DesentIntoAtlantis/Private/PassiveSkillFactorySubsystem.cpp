@@ -5,6 +5,11 @@
 
 #include "EquipmentPassive.h"
 #include "PassiveSkills.h"
+#include "GenTriggerPassive_Counter.h"
+#include "GenTriggerPassive_FelineAgility.h"
+#include "GenTriggerPassive_InDeathVictory.h"
+#include "AttackPassive_MerchantsZeal.h"
+#include "GenTriggerPassive_Resurrection.h"
 
 void UPassiveFactorySubsystem::InitializeDatabase(UDataTable* aPassiveDataTable,UDataTable*  aCombatTokenDataTable,UDataTable*  aEquipmentDataTable)
 {
@@ -77,16 +82,22 @@ UPassiveSkills* UPassiveFactorySubsystem::CreatePassiveSkill(EPassiveSkillID aPa
 		return NewObject<UGenericOnAttackPassive>();
 		break;
 	case EPassiveSkillID::MerchantZeal:
-		return NewObject<UMerchantsZeal>();
+		return NewObject<UAttackPassive_MerchantsZeal>();
 		break;
 	case EPassiveSkillID::BonkDefenceResistDown:
 		return NewObject<UGenericModifyPassive>();
 		break;
 	case EPassiveSkillID::FelineAgility:
-		return  NewObject<UFelineAgility>();
+		return  NewObject<UGenTriggerPassive_FelineAgility>();
 		break;
 	case EPassiveSkillID::Resurrection:
-		return  NewObject<UResurrect>();
+		return  NewObject<UGenTriggerPassive_Resurrection>();
+		break;
+	case EPassiveSkillID::InDeathVictory:
+		return NewObject<UGenTriggerPassive_InDeathVictory>(); 
+		break;
+	case EPassiveSkillID::Counter:
+		return NewObject<UGenTriggerPassive_Counter>(); 
 		break;
 	}
 

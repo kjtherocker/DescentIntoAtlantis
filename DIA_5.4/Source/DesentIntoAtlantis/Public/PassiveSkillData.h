@@ -62,6 +62,7 @@ UENUM()
 enum class EPassiveSkillID   : uint8
 {
 	None        ,
+	//OnAttack
 	StatusAdept ,
 	DarkIncrease,
 	DarkResist  ,
@@ -69,8 +70,11 @@ enum class EPassiveSkillID   : uint8
 	MerchantZeal,
 	//ModificationPassives
 	BonkDefenceResistDown,
+	//GenericTrigger
 	FelineAgility,
 	Resurrection,
+	InDeathVictory,
+	Counter,
 };
 
 UENUM()
@@ -131,6 +135,7 @@ enum class EGenericTrigger : uint8
 	OnTargetedByAttack   = 4,
 	OnResurrected        = 5,
 	OnDeath              = 6,
+	OnAttacked           = 7,
 };
 
 USTRUCT()

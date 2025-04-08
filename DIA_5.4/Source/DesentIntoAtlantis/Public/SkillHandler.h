@@ -63,6 +63,8 @@ public:
 	ACombatGameModeBase* CombatGameModeBase;
 UPROPERTY()
 	USkillFactorySubsystem* SkillFactorySubsystem;
+
+	USkillBase* DefaultAttack;
 	
 	UPROPERTY()
 	TMap<EPassiveSkillID,FSkillModification> skillModification;
@@ -105,6 +107,8 @@ UPROPERTY()
 	
 	UFUNCTION()
 	void OnTurnStart();
+
+	void OnDeath();
 	
 	
 

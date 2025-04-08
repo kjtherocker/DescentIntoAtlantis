@@ -15,4 +15,5 @@ class DESENTINTOATLANTIS_API UPassiveInterrupt : public UActivatedTimerInterrupt
 	GENERATED_BODY()
 public:
 	virtual void ActivateInterrupt() override;
+	virtual void SetInterrupt(UPersistentGameinstance* aPersistantGameInstance,ACombatGameModeBase* aCombatGameModeBase) override;
 };

@@ -7,11 +7,11 @@
 #include "Components/Image.h"
 #include "Components/TextBlock.h"
 
-void UEnemySkillView::SetSkill(FSkillsData aSkill, UEnemyCombatEntity* aEnemyCombatEntity)
+void UEnemySkillView::SetSkill(FSkillsData aSkill, UCombatEntity* ACombatEntity)
 {
 	BW_SkillIcon->SetBrushFromTexture(aSkill.skillIcon);
 	BW_SkillName->SetText(FText(FText::FromString(aSkill.skillName)));
-	BW_EnemyName->SetText(FText(FText::FromString(aEnemyCombatEntity->enemyEntityCompleteData.characterName)));
+	BW_EnemyName->SetText(FText(FText::FromString(ACombatEntity->GetEntityName())));
 
 }
 

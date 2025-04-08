@@ -23,3 +23,10 @@ void UPassiveInterrupt::ActivateInterrupt()
 	enemySkillView->SetPassiveSkill(PassiveSkills->passiveSkillData,CombatEntity->GetEntityName());
 	
 }
+
+void UPassiveInterrupt::SetInterrupt(UPersistentGameinstance* aPersistantGameInstance,
+	ACombatGameModeBase* aCombatGameModeBase)
+{
+	Super::SetInterrupt(aPersistantGameInstance, aCombatGameModeBase);
+	interruptTimer = UGameSettings::PASSIVE_INTERRUPT_TIMER;
+}

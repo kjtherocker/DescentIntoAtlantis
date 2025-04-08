@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "EntityInterruptHandler.h"
 
-
+#include "CombatLog_Full_Data.h"
 #include "UObject/NoExportTypes.h"
 #include "SkillResolveSubsystem.generated.h"
 

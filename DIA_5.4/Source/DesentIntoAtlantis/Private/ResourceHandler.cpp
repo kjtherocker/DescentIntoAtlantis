@@ -228,6 +228,8 @@ FCombatLog_AttackDefense_Data UResourceHandler::AttackResourceWithSkill(EResourc
 	
 	StartDecrementResource( aResource, combatLog.FinalDamageResult);
 	AddRecentAttackCombatLog(combatLog);
+
+	AttachedCombatEntity->combatEntityHub->SendGenericTrigger(aAttacker,EGenericTrigger::OnAttacked);
 	
 	return combatLog;
 }

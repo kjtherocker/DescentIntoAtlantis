@@ -20,6 +20,13 @@ public:
 	inline bool static DISABLE_CUTSCENES   = false;
 	inline bool static DISABLE_TUTORIAL    = true;
 	inline bool static isPrologueDisabled  = true;
+
+
+	inline float static SKILL_INTERRUPT_TIMER        = 1.5;
+	inline float static PASSIVE_INTERRUPT_TIMER      = 0.6f;
+	inline float static ENTITY_RESURRECTION_TIMER    = 0.2f;
+	inline float static ENTITY_DIED_INTERRUPT_TIMER  = 0.2f;
+	
 };
 
 

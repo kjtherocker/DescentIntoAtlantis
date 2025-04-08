@@ -16,6 +16,7 @@ class DESENTINTOATLANTIS_API UResurrectionInterrupt : public UActivatedTimerInte
 
 	
 	virtual void ActivateInterrupt() override;
+	virtual void SetInterrupt(UPersistentGameinstance* aPersistantGameInstance,ACombatGameModeBase* aCombatGameModeBase) override;
 };
 
 
@@ -26,4 +27,5 @@ class DESENTINTOATLANTIS_API UEntityDiedInterrupt : public UActivatedTimerInterr
 
 	
 	virtual void ActivateInterrupt() override;
+	virtual void SetInterrupt(UPersistentGameinstance* aPersistantGameInstance,ACombatGameModeBase* aCombatGameModeBase) override;
 };

@@ -112,6 +112,7 @@ void ACombatGameModeBase::StartCombat(FString aEnemyGroupName)
 			{
 				continue;
 			}
+			PlayerCombatEntity->combatEntityHub->OnCombatStart(this);
 			partyMembersInCombat.Add(PlayerCombatEntity);
 			PlayerCombatEntity->SetTacticsEvents(this);
 		}
@@ -505,6 +506,7 @@ void ACombatGameModeBase::ResurrectEntity(UCombatEntity* aCombatEntity)
 
 void ACombatGameModeBase::EnemyStartTurn()
 {
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("EnemyStartTurn")));
 	InGameHUD->PopMostRecentActiveView();
 	
 	ResetEnemyPortraits();
@@ -526,12 +528,8 @@ void ACombatGameModeBase::EnemyStartTurn()
 
 void ACombatGameModeBase::EnemyActivateSkill(UEnemyCombatEntity* aEnemyCombatEntity)
 {
-	UEnemySkillView* enemySkillView = (UEnemySkillView*)InGameHUD->PushAndGetView(EViews::EnemySkill,      EUiType::ActiveUi);
-
 	USkillBase* skillObject = aEnemyCombatEntity->enemyBehaviour->GetSkill();
 	FSkillsData skillData = skillObject->skillData;
-	
-	enemySkillView->SetSkill(skillData,aEnemyCombatEntity);
 
 	int playerToAttack = aEnemyCombatEntity->enemyBehaviour->GetCombatEntitysUsedInSkill(skillObject,GetEnemysInCombat(),GetPlayersInCombat());
 	SkillResolveSubsystem->InitiateSkillAction(aEnemyCombatEntity,skillObject,playerToAttack);
