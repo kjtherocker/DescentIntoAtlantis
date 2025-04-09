@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "CombatInterruptData.h"
 #include "EntityInterruptHandler.h"
+#include "PassiveInterrupt.h"
 #include "UObject/NoExportTypes.h"
 #include "CombatInterruptManager.generated.h"
 
@@ -30,6 +31,9 @@ public:
 	UPROPERTY()
 	TArray<UCombatInterrupt*> CombatInterrupts;
 
+	UPROPERTY()
+	UCombatInterrupt* currentInterrupt;
+	
 	
 	void SetGameModeBase(UPersistentGameinstance* aPersistentGameInstance,ACombatGameModeBase* aCombatGameModeBase);
 	
@@ -56,4 +60,6 @@ public:
 	void TriggerInterruption();
 	UFUNCTION()
 	void CombatInterruptsEnd();
+
+	bool isCombatInterruptRunning();
 };

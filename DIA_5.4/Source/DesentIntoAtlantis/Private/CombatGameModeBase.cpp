@@ -284,6 +284,12 @@ void ACombatGameModeBase::PossessCombatCamera()
 
 void ACombatGameModeBase::TurnEnd()
 {
+	if(combatInterruptManager->isCombatInterruptRunning())
+	{
+		return;
+	}
+
+	
 	combatInterruptManager->CheckAllEntitysForInterruptions();
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, FString::Printf(TEXT("turnEnd")));
 	

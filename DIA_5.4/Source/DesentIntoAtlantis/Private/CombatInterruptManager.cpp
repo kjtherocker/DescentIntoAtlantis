@@ -189,11 +189,18 @@ void UCombatInterruptManager::TriggerInterruption()
 		return;
 	}
 	CombatInterrupts[0]->OnInterruptEnd.AddDynamic(this,&UCombatInterruptManager::TriggerInterruption);
+	currentInterrupt = CombatInterrupts[0];
 	CombatInterrupts[0]->ActivateInterrupt();
 	CombatInterrupts.RemoveAt(0);
 }
 
 void UCombatInterruptManager::CombatInterruptsEnd()
 {
+	currentInterrupt = nullptr;
 	CombatGameModeBase->TurnEnd();
+}
+
+bool UCombatInterruptManager::isCombatInterruptRunning()
+{
+	return currentInterrupt != nullptr;
 }
