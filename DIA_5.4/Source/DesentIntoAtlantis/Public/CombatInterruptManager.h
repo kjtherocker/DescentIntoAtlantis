@@ -37,7 +37,8 @@ public:
 	
 	void SetGameModeBase(UPersistentGameinstance* aPersistentGameInstance,ACombatGameModeBase* aCombatGameModeBase);
 	
-	
+	virtual void Tick(float DeltaTime);
+
 	void SetAllInterruptHandlers(TArray<UPlayerCombatEntity*> aPartyMembersInCombat,TArray<UEnemyCombatEntity*> aEnemyCombatEntitys );
 
 	UCombatInterrupt* CreateInterrupt(FTriggeredInterruptData aCreatorName,EInterruptType aInterruptType, FCombatInterruptData aCombatInterruptData);

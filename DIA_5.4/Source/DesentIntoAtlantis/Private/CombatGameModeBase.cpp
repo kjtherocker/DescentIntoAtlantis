@@ -30,6 +30,12 @@
 #include "UObject/NoExportTypes.h"
 
 
+ACombatGameModeBase::ACombatGameModeBase()
+{
+	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bStartWithTickEnabled = true;
+}
+
 void ACombatGameModeBase::InitializeLevel()
 {
 	Super::InitializeLevel();
@@ -257,6 +263,14 @@ void ACombatGameModeBase::StartNewRound()
 	ECharactertype startRoundCharacterType = RemoveAndGetFirstInRoundOrder();
 	
 	SetRoundSide(startRoundCharacterType);
+}
+
+void ACombatGameModeBase::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	combatInterruptManager->Tick(DeltaTime);
+	
 }
 
 void ACombatGameModeBase::PossessCombatCamera()

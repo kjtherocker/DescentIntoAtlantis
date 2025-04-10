@@ -16,7 +16,7 @@ void UResurrectionInterrupt::SetInterrupt(UPersistentGameinstance* aPersistantGa
 	ACombatGameModeBase* aCombatGameModeBase)
 {
 	Super::SetInterrupt(aPersistantGameInstance, aCombatGameModeBase);
-	interruptTimer = UGameSettings::ENTITY_RESURRECTION_TIMER;
+	interruptTimerMax = UGameSettings::ENTITY_RESURRECTION_TIMER;
 }
 
 void UEntityDiedInterrupt::ActivateInterrupt()
@@ -31,5 +31,5 @@ void UEntityDiedInterrupt::SetInterrupt(UPersistentGameinstance* aPersistantGame
 	ACombatGameModeBase* aCombatGameModeBase)
 {
 	Super::SetInterrupt(aPersistantGameInstance, aCombatGameModeBase);
-	interruptTimer = UGameSettings::ENTITY_DIED_INTERRUPT_TIMER;
+	interruptTimerMax = UGameSettings::ENTITY_DIED_INTERRUPT_TIMER;
 }

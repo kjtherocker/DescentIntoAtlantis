@@ -28,5 +28,5 @@ void UPassiveInterrupt::SetInterrupt(UPersistentGameinstance* aPersistantGameIns
 	ACombatGameModeBase* aCombatGameModeBase)
 {
 	Super::SetInterrupt(aPersistantGameInstance, aCombatGameModeBase);
-	interruptTimer = UGameSettings::PASSIVE_INTERRUPT_TIMER;
+	interruptTimerMax = UGameSettings::PASSIVE_INTERRUPT_TIMER;
 }

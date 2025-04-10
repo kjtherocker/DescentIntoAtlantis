@@ -15,6 +15,10 @@ void UCombatInterrupt::SetInterrupt(UPersistentGameinstance* aPersistantGameInst
 	CombatGameModeBase     = aCombatGameModeBase;
 }
 
+void UCombatInterrupt::Tick(float DeltaTime)
+{
+}
+
 void UCombatInterrupt::InterruptionEnd()
 {
 	OnInterruptEnd.Broadcast();
@@ -39,16 +43,32 @@ void UDialogueInterrupt::ActivateInterrupt()
 void UActivatedTimerInterrupt::ActivateInterrupt()
 {
 	Super::ActivateInterrupt();
+}
+
+void UActivatedTimerInterrupt::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	if(timerFinished)
+	{
+		return;
+	}
+
+	interruptTimerCurrent += DeltaTime * interruptTimerMultiplier;
+
+	if(interruptTimerCurrent >= interruptTimerMax)
+	{
+		timerFinished = true;
+		InterruptionEnd();
+	}
 	
-	FTimerHandle handle;
-	CombatGameModeBase->world->GetTimerManager().SetTimer(handle,this,&UCombatInterrupt::InterruptionEnd,interruptTimer,false);
 }
 
 void USkillInterrupt::SetInterrupt(UPersistentGameinstance* aPersistantGameInstance,
-	ACombatGameModeBase* aCombatGameModeBase)
+                                   ACombatGameModeBase* aCombatGameModeBase)
 {
 	Super::SetInterrupt(aPersistantGameInstance, aCombatGameModeBase);
-	interruptTimer = UGameSettings::SKILL_INTERRUPT_TIMER;
+	interruptTimerMax = UGameSettings::SKILL_INTERRUPT_TIMER;
 }
 
 void USkillInterrupt::ActivateInterrupt()

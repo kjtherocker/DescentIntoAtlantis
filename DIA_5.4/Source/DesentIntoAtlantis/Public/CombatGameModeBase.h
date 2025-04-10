@@ -74,6 +74,8 @@ class DESENTINTOATLANTIS_API ACombatGameModeBase : public AAtlantisGameModeBase
 	GENERATED_BODY()
 
 
+	ACombatGameModeBase();
+	
 	UFUNCTION()
 	virtual void InitializeLevel() override;
 
@@ -175,6 +177,8 @@ public:
 	void SetCombatState(ECombatState aCombatState);
 	void StartNewRound();
 
+	virtual void Tick(float DeltaTime) override;
+	
 	void PossessCombatCamera();
 	
 	void AddEnemyToCombat(FEnemyEntityCompleteData AEnemyEntityData,EEnemyCombatPositions aPosition,ERowType aRowType);

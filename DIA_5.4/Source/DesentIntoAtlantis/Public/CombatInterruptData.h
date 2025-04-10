@@ -145,6 +145,8 @@ public:
 
 	int GetInterruptionValue(){return interruptionValue;}
 	void SetInterruptionValue(int aInterruptionValue){interruptionValue = aInterruptionValue;}
+
+	virtual void Tick(float DeltaTime);
 	
 	void SetCombatInterruptData(FCombatInterruptData aCombatInterruptData){ CombatInterruptData = aCombatInterruptData;}
 	EInterruptType GetInterruptionType(){return GetInterruptionData().interruptType;}
@@ -172,10 +174,18 @@ class UActivatedTimerInterrupt: public UCombatInterrupt
 	GENERATED_BODY()
 
 protected:
-	float interruptTimer;
+
+	float interruptTimerMultiplier = 1;
+	float interruptTimerMax        = 1;
+
+	float interruptTimerCurrent    = 0;
+
+	bool timerFinished = false;
 	
 public:
 	virtual void ActivateInterrupt() override;
+
+	virtual void Tick(float DeltaTime) override;
 };
 
 

@@ -15,6 +15,15 @@ void UCombatInterruptManager::SetGameModeBase(UPersistentGameinstance* aPersiste
 	
 }
 
+void UCombatInterruptManager::Tick(float DeltaTime)
+{
+	if(currentInterrupt != nullptr)
+	{
+		currentInterrupt->Tick(DeltaTime);
+	}
+	
+}
+
 void UCombatInterruptManager::SetAllInterruptHandlers(TArray<UPlayerCombatEntity*> aPartyMembersInCombat,
                                                       TArray<UEnemyCombatEntity*> aEnemyCombatEntitys)
 {
